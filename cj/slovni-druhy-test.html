@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Procvičování slovních druhů</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+        --surface: #ffffff;
+        --surface-soft: #eef2ff;
+        --surface-strong: #e0e7ff;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #4f46e5;
+        --accent-dark: #4338ca;
+        --positive: #16a34a;
+        --positive-bg: #dcfce7;
+        --negative: #dc2626;
+        --negative-bg: #fee2e2;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: #f6f7fb;
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header.intro {
+        text-align: center;
+        padding: 2.5rem 0 1.5rem;
+      }
+
+      header.intro h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(2.1rem, 4vw, 2.8rem);
+      }
+
+      header.intro p {
+        margin: 0 auto;
+        max-width: 60ch;
+        color: var(--ink-soft);
+        font-size: 1rem;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+        gap: 2.5rem;
+        align-items: start;
+      }
+
+      aside.legend {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 1.5rem 1.75rem;
+        box-shadow: 0 18px 40px rgba(79, 70, 229, 0.12);
+        border: 1px solid rgba(79, 70, 229, 0.16);
+        position: sticky;
+        top: 1.5rem;
+      }
+
+      aside.legend h2 {
+        margin: 0 0 1.25rem;
+        font-size: 1.2rem;
+      }
+
+      aside.legend ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        font-size: 0.97rem;
+      }
+
+      aside.legend li {
+        background: var(--surface-soft);
+        border-radius: 12px;
+        padding: 0.65rem 0.75rem;
+        border: 1px solid var(--surface-strong);
+      }
+
+      aside.legend strong {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+
+      section.practice {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      form.controls {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 1.25rem 1.5rem 1.5rem;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.14);
+        display: grid;
+        gap: 0.85rem 1rem;
+      }
+
+      form.controls label {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .controls__row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      #sentenceCount {
+        width: 5.25rem;
+        font: inherit;
+        padding: 0.35rem 0.5rem;
+        border-radius: 0.6rem;
+        border: 1px solid #cbd5f5;
+      }
+
+      .controls button {
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 0.6rem 1.6rem;
+        border: 1px solid var(--accent);
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .controls button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(79, 70, 229, 0.25);
+      }
+
+      .controls button:disabled {
+        background: #cbd5f5;
+        border-color: #cbd5f5;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .controls button.secondary {
+        border: 1px solid #cbd5f5;
+        background: #e5e7ff;
+        color: var(--ink);
+      }
+
+      .controls__hint {
+        margin: 0;
+        font-size: 0.93rem;
+        color: var(--ink-soft);
+      }
+
+      .messages {
+        min-height: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .messages--error {
+        color: var(--negative);
+      }
+
+      #sentences {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .sentence {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 1.2rem 1.5rem 1.35rem;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+        border: 1px solid rgba(79, 70, 229, 0.14);
+      }
+
+      .sentence h2 {
+        margin: 0 0 0.65rem;
+        font-size: 1.05rem;
+        color: #27303f;
+      }
+
+      .sentence__words {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 0.45rem 0.75rem;
+        font-size: 1.05rem;
+        white-space: pre-wrap;
+      }
+
+      .sentence__words .word {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+        min-width: 5.5rem;
+      }
+
+      .word .word-text {
+        padding: 0.1rem 0.35rem;
+        border-radius: 6px;
+        background: var(--surface-soft);
+        border: 1px solid transparent;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      }
+
+      .word select {
+        font: inherit;
+        padding: 0.25rem 0.4rem;
+        border-radius: 6px;
+        border: 1px solid #cbd5f5;
+        background-color: #fff;
+        min-width: 100%;
+      }
+
+      .word select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.28);
+      }
+
+      .word--correct .word-text {
+        background: var(--positive-bg);
+        border-color: var(--positive);
+        color: var(--positive);
+      }
+
+      .word--incorrect .word-text {
+        background: var(--negative-bg);
+        border-color: var(--negative);
+        color: var(--negative);
+      }
+
+      @media (max-width: 980px) {
+        body {
+          padding: 0 1.1rem 2.5rem;
+        }
+
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        aside.legend {
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        header.intro {
+          padding: 2rem 0 1.25rem;
+        }
+
+        .sentence__words {
+          font-size: 1rem;
+          gap: 0.4rem 0.6rem;
+        }
+
+        .sentence__words .word {
+          min-width: 4.6rem;
+        }
+
+        .controls__row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .controls button {
+          width: 100%;
+          text-align: center;
+        }
+
+        #sentenceCount {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <h1>Procvičování slovních druhů</h1>
+        <p>
+          Vyber počet vět pro aktuální test, označ u každého slova správný slovní
+          druh a hned uvidíš, jestli je odpověď správná (zeleně), nebo špatná
+          (červeně).
+        </p>
+      </header>
+
+      <div class="layout">
+        <aside class="legend" aria-label="Přehled slovních druhů">
+          <h2>Přehled slovních druhů</h2>
+          <ul>
+            <li>
+              <strong>1. Podstatné jméno</strong>
+              Názvy osob, zvířat, věcí, vlastností nebo dějů (Lenka, pes, stůl).
+            </li>
+            <li>
+              <strong>2. Přídavné jméno</strong>
+              Označuje vlastnost nebo vztah k podstatnému jménu (velký, otcův).
+            </li>
+            <li>
+              <strong>3. Zájmeno</strong>
+              Zastupuje nebo blíže určuje podstatná a přídavná jména (ona, jeho).
+            </li>
+            <li>
+              <strong>4. Číslovka</strong>
+              Udává počet, pořadí či násobnost (třetí, dvakrát, sedm).
+            </li>
+            <li>
+              <strong>5. Sloveso</strong>
+              Vyjadřuje činnost, stav nebo děj (pracuje, byl, mrzne).
+            </li>
+            <li>
+              <strong>6. Příslovce</strong>
+              Určuje okolnosti děje nebo míru vlastnosti (tady, rychle).
+            </li>
+            <li>
+              <strong>7. Předložka</strong>
+              Vyjadřuje vztahy mezi slovy, většinou místní či časové (na, k, s).
+            </li>
+            <li>
+              <strong>8. Spojka</strong>
+              Spojuje slova nebo věty (a, protože, nebo).
+            </li>
+            <li>
+              <strong>9. Částice</strong>
+              Vyjadřuje postoj mluvčího nebo zdůrazňuje (ať, jen, snad, ne).
+            </li>
+            <li>
+              <strong>10. Citoslovce</strong>
+              Napodobuje zvuky, citové projevy a pobídky (au, ach, brr).
+            </li>
+          </ul>
+        </aside>
+
+        <section class="practice">
+          <form id="controls" class="controls">
+            <label for="sentenceCount">Počet vět v testu</label>
+            <div class="controls__row">
+              <input
+                id="sentenceCount"
+                name="sentenceCount"
+                type="number"
+                min="10"
+                max="50"
+                value="10"
+                step="1"
+              />
+              <button type="submit">Vygenerovat nový test</button>
+              <button type="button" id="resetAnswers" class="secondary">
+                Vymazat označení
+              </button>
+            </div>
+            <p class="controls__hint">
+              Vyber číslo mezi 10 a 50 (maximálně tolik vět, kolik je v souboru) a
+              klikni na „Vygenerovat nový test“. Každé spuštění vybírá věty náhodně.
+            </p>
+          </form>
+
+          <div id="messages" class="messages" role="status"></div>
+          <div id="sentences" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const datasetUrl = "slovni_druhy_test.json";
+      const wordClasses = [
+        { value: "", label: "Vyber slovní druh" },
+        { value: "1", label: "1. Podstatné jméno" },
+        { value: "2", label: "2. Přídavné jméno" },
+        { value: "3", label: "3. Zájmeno" },
+        { value: "4", label: "4. Číslovka" },
+        { value: "5", label: "5. Sloveso" },
+        { value: "6", label: "6. Příslovce" },
+        { value: "7", label: "7. Předložka" },
+        { value: "8", label: "8. Spojka" },
+        { value: "9", label: "9. Částice" },
+        { value: "10", label: "10. Citoslovce" }
+      ];
+
+      const sentencesContainer = document.getElementById("sentences");
+      const messages = document.getElementById("messages");
+      const controlsForm = document.getElementById("controls");
+      const sentenceCountInput = document.getElementById("sentenceCount");
+      const resetButton = document.getElementById("resetAnswers");
+
+      let allSentences = [];
+
+      const setMessage = (text, type = "info") => {
+        if (!messages) return;
+        messages.textContent = text;
+        messages.className = `messages${type === "error" ? " messages--error" : ""}`;
+      };
+
+      const clearMessage = () => {
+        setMessage("");
+      };
+
+      const shuffleAndPick = (items, count) => {
+        const copy = items.slice();
+        for (let i = copy.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy.slice(0, count);
+      };
+
+      const createWordElement = (token) => {
+        const wrapper = document.createElement("span");
+        wrapper.className = "word";
+
+        const wordText = document.createElement("span");
+        wordText.className = "word-text";
+        wordText.textContent = token.word;
+
+        const select = document.createElement("select");
+        wordClasses.forEach((optionDef) => {
+          const option = document.createElement("option");
+          option.value = optionDef.value;
+          option.textContent = optionDef.label;
+          select.appendChild(option);
+        });
+
+        const updateState = () => {
+          wrapper.classList.remove("word--correct", "word--incorrect");
+          if (!select.value) {
+            return;
+          }
+          if (select.value === String(token.pos)) {
+            wrapper.classList.add("word--correct");
+          } else {
+            wrapper.classList.add("word--incorrect");
+          }
+        };
+
+        select.addEventListener("change", updateState);
+
+        wrapper.append(wordText, select);
+        return { wrapper, select, updateState };
+      };
+
+      const renderSentences = (picked) => {
+        sentencesContainer.innerHTML = "";
+
+        picked.forEach((item, index) => {
+          const block = document.createElement("section");
+          block.className = "sentence";
+
+          const heading = document.createElement("h2");
+          heading.textContent = `Věta ${index + 1}`;
+          block.appendChild(heading);
+
+          const wordsLine = document.createElement("p");
+          wordsLine.className = "sentence__words";
+          block.appendChild(wordsLine);
+
+          const text = item.sentence;
+          const tokens = Array.isArray(item.tokens) ? item.tokens : [];
+          let cursor = 0;
+
+          tokens.forEach((token) => {
+            const tokenText = token.word;
+            const expectedIndex = text.indexOf(tokenText, cursor);
+
+            if (expectedIndex > -1 && expectedIndex > cursor) {
+              wordsLine.append(text.slice(cursor, expectedIndex));
+            }
+
+            if (expectedIndex === -1) {
+              console.warn(`Nenašlo se slovo "${tokenText}" ve větě:`, text);
+            }
+
+            const { wrapper } = createWordElement(token);
+            wordsLine.appendChild(wrapper);
+
+            if (expectedIndex > -1) {
+              cursor = expectedIndex + tokenText.length;
+            }
+          });
+
+          if (cursor < text.length) {
+            wordsLine.append(text.slice(cursor));
+          }
+
+          sentencesContainer.appendChild(block);
+        });
+      };
+
+      const resetSelections = () => {
+        const selects = sentencesContainer.querySelectorAll("select");
+        selects.forEach((select) => {
+          select.value = "";
+          select.dispatchEvent(new Event("change"));
+        });
+      };
+
+      const generateTest = () => {
+        if (!allSentences.length) {
+          return;
+        }
+
+        const parsedValue = parseInt(sentenceCountInput.value, 10);
+        const maxAllowed = Math.min(50, allSentences.length);
+        const validValue = Number.isFinite(parsedValue)
+          ? Math.min(Math.max(parsedValue, 10), maxAllowed)
+          : Math.min(10, maxAllowed);
+
+        sentenceCountInput.value = validValue;
+        const picked = shuffleAndPick(allSentences, validValue);
+        renderSentences(picked);
+        clearMessage();
+      };
+
+      const disableControls = () => {
+        sentenceCountInput.disabled = true;
+        controlsForm
+          .querySelectorAll("button")
+          .forEach((button) => {
+            button.disabled = true;
+          });
+      };
+
+      const loadData = async () => {
+        try {
+          setMessage("Načítám věty...");
+          const response = await fetch(datasetUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const payload = await response.json();
+          const data = Array.isArray(payload)
+            ? payload
+            : Array.isArray(payload.sentences)
+            ? payload.sentences
+            : [];
+
+          if (!data.length) {
+            throw new Error("Soubor neobsahuje žádné věty.");
+          }
+
+          allSentences = data;
+          clearMessage();
+          generateTest();
+        } catch (error) {
+          console.error(error);
+          setMessage(
+            "Nepodařilo se načíst soubor se cvičením. Otevři prosím stránku přes jednoduchý server (např. `python3 -m http.server`).",
+            "error"
+          );
+          disableControls();
+        }
+      };
+
+      controlsForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        generateTest();
+      });
+
+      resetButton.addEventListener("click", () => {
+        resetSelections();
+      });
+
+      loadData();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,634 @@
+{
+  "sentences": [
+    {
+      "sentence": "Na louce si děti hrály s barevným drakem.",
+      "tokens": [
+        { "word": "Na", "pos": "7" },
+        { "word": "louce", "pos": "1" },
+        { "word": "si", "pos": "3" },
+        { "word": "děti", "pos": "1" },
+        { "word": "hrály", "pos": "5" },
+        { "word": "s", "pos": "7" },
+        { "word": "barevným", "pos": "2" },
+        { "word": "drakem", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Včera jsme u babičky ochutnali výborný švestkový koláč.",
+      "tokens": [
+        { "word": "Včera", "pos": "6" },
+        { "word": "jsme", "pos": "5" },
+        { "word": "u", "pos": "7" },
+        { "word": "babičky", "pos": "1" },
+        { "word": "ochutnali", "pos": "5" },
+        { "word": "výborný", "pos": "2" },
+        { "word": "švestkový", "pos": "2" },
+        { "word": "koláč", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Tento starý most se pod tíhou sněhu nebezpečně prohýbal.",
+      "tokens": [
+        { "word": "Tento", "pos": "3" },
+        { "word": "starý", "pos": "2" },
+        { "word": "most", "pos": "1" },
+        { "word": "se", "pos": "3" },
+        { "word": "pod", "pos": "7" },
+        { "word": "tíhou", "pos": "1" },
+        { "word": "sněhu", "pos": "1" },
+        { "word": "nebezpečně", "pos": "6" },
+        { "word": "prohýbal", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Oni prý dorazí až zítra odpoledne do města.",
+      "tokens": [
+        { "word": "Oni", "pos": "3" },
+        { "word": "prý", "pos": "9" },
+        { "word": "dorazí", "pos": "5" },
+        { "word": "až", "pos": "9" },
+        { "word": "zítra", "pos": "6" },
+        { "word": "odpoledne", "pos": "6" },
+        { "word": "do", "pos": "7" },
+        { "word": "města", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Kočka potichu našlapovala a pozorovala nehybnou myš.",
+      "tokens": [
+        { "word": "Kočka", "pos": "1" },
+        { "word": "potichu", "pos": "6" },
+        { "word": "našlapovala", "pos": "5" },
+        { "word": "a", "pos": "8" },
+        { "word": "pozorovala", "pos": "5" },
+        { "word": "nehybnou", "pos": "2" },
+        { "word": "myš", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Kolik knih už jste letos přečetli?",
+      "tokens": [
+        { "word": "Kolik", "pos": "4" },
+        { "word": "knih", "pos": "1" },
+        { "word": "už", "pos": "6" },
+        { "word": "jste", "pos": "5" },
+        { "word": "letos", "pos": "6" },
+        { "word": "přečetli", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Ranní mlha se pomalu zvedala z hladiny rybníka.",
+      "tokens": [
+        { "word": "Ranní", "pos": "2" },
+        { "word": "mlha", "pos": "1" },
+        { "word": "se", "pos": "3" },
+        { "word": "pomalu", "pos": "6" },
+        { "word": "zvedala", "pos": "5" },
+        { "word": "z", "pos": "7" },
+        { "word": "hladiny", "pos": "1" },
+        { "word": "rybníka", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Kdybys mi to řekl dříve, pomohla bych ti s úkolem.",
+      "tokens": [
+        { "word": "Kdybys", "pos": "8" },
+        { "word": "mi", "pos": "3" },
+        { "word": "to", "pos": "3" },
+        { "word": "řekl", "pos": "5" },
+        { "word": "dříve", "pos": "6" },
+        { "word": "pomohla", "pos": "5" },
+        { "word": "bych", "pos": "9" },
+        { "word": "ti", "pos": "3" },
+        { "word": "s", "pos": "7" },
+        { "word": "úkolem", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Za domem rostou tři obrovské kaštany.",
+      "tokens": [
+        { "word": "Za", "pos": "7" },
+        { "word": "domem", "pos": "1" },
+        { "word": "rostou", "pos": "5" },
+        { "word": "tři", "pos": "4" },
+        { "word": "obrovské", "pos": "2" },
+        { "word": "kaštany", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Tatínek nás vedl po úzké stezce ke skalní vyhlídce.",
+      "tokens": [
+        { "word": "Tatínek", "pos": "1" },
+        { "word": "nás", "pos": "3" },
+        { "word": "vedl", "pos": "5" },
+        { "word": "po", "pos": "7" },
+        { "word": "úzké", "pos": "2" },
+        { "word": "stezce", "pos": "1" },
+        { "word": "ke", "pos": "7" },
+        { "word": "skalní", "pos": "2" },
+        { "word": "vyhlídce", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Před školou právě zastavily dva nové autobusy.",
+      "tokens": [
+        { "word": "Před", "pos": "7" },
+        { "word": "školou", "pos": "1" },
+        { "word": "právě", "pos": "6" },
+        { "word": "zastavily", "pos": "5" },
+        { "word": "dva", "pos": "4" },
+        { "word": "nové", "pos": "2" },
+        { "word": "autobusy", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Ach, tohle počasí mě vůbec nebaví.",
+      "tokens": [
+        { "word": "Ach", "pos": "10" },
+        { "word": "tohle", "pos": "3" },
+        { "word": "počasí", "pos": "1" },
+        { "word": "mě", "pos": "3" },
+        { "word": "vůbec", "pos": "6" },
+        { "word": "nebaví", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Naši přátelé odjeli na hory, protože potřebovali odpočinek.",
+      "tokens": [
+        { "word": "Naši", "pos": "3" },
+        { "word": "přátelé", "pos": "1" },
+        { "word": "odjeli", "pos": "5" },
+        { "word": "na", "pos": "7" },
+        { "word": "hory", "pos": "1" },
+        { "word": "protože", "pos": "8" },
+        { "word": "potřebovali", "pos": "5" },
+        { "word": "odpočinek", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Přines prosím ty modré sešity z horní police.",
+      "tokens": [
+        { "word": "Přines", "pos": "5" },
+        { "word": "prosím", "pos": "9" },
+        { "word": "ty", "pos": "3" },
+        { "word": "modré", "pos": "2" },
+        { "word": "sešity", "pos": "1" },
+        { "word": "z", "pos": "7" },
+        { "word": "horní", "pos": "2" },
+        { "word": "police", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "V učebně se tiše ozývalo jen šustění papírů.",
+      "tokens": [
+        { "word": "V", "pos": "7" },
+        { "word": "učebně", "pos": "1" },
+        { "word": "se", "pos": "3" },
+        { "word": "tiše", "pos": "6" },
+        { "word": "ozývalo", "pos": "5" },
+        { "word": "jen", "pos": "9" },
+        { "word": "šustění", "pos": "1" },
+        { "word": "papírů", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Jakmile zazvonil budík, vyskočil jsem z postele.",
+      "tokens": [
+        { "word": "Jakmile", "pos": "8" },
+        { "word": "zazvonil", "pos": "5" },
+        { "word": "budík", "pos": "1" },
+        { "word": "vyskočil", "pos": "5" },
+        { "word": "jsem", "pos": "5" },
+        { "word": "z", "pos": "7" },
+        { "word": "postele", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Nikdo z nás nečekal tak rychlou odpověď.",
+      "tokens": [
+        { "word": "Nikdo", "pos": "3" },
+        { "word": "z", "pos": "7" },
+        { "word": "nás", "pos": "3" },
+        { "word": "nečekal", "pos": "5" },
+        { "word": "tak", "pos": "6" },
+        { "word": "rychlou", "pos": "2" },
+        { "word": "odpověď", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Hráči si mezi sebou šeptali tajný signál.",
+      "tokens": [
+        { "word": "Hráči", "pos": "1" },
+        { "word": "si", "pos": "3" },
+        { "word": "mezi", "pos": "7" },
+        { "word": "sebou", "pos": "3" },
+        { "word": "šeptali", "pos": "5" },
+        { "word": "tajný", "pos": "2" },
+        { "word": "signál", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Čtyřikrát jsme se pokusili rozsvítit starou lampu.",
+      "tokens": [
+        { "word": "Čtyřikrát", "pos": "4" },
+        { "word": "jsme", "pos": "5" },
+        { "word": "se", "pos": "3" },
+        { "word": "pokusili", "pos": "5" },
+        { "word": "rozsvítit", "pos": "5" },
+        { "word": "starou", "pos": "2" },
+        { "word": "lampu", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Všichni by měli přijít nejpozději do pěti minut.",
+      "tokens": [
+        { "word": "Všichni", "pos": "3" },
+        { "word": "by", "pos": "9" },
+        { "word": "měli", "pos": "5" },
+        { "word": "přijít", "pos": "5" },
+        { "word": "nejpozději", "pos": "6" },
+        { "word": "do", "pos": "7" },
+        { "word": "pěti", "pos": "4" },
+        { "word": "minut", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Tomuto řešení věřím mnohem víc než tamtomu.",
+      "tokens": [
+        { "word": "Tomuto", "pos": "3" },
+        { "word": "řešení", "pos": "1" },
+        { "word": "věřím", "pos": "5" },
+        { "word": "mnohem", "pos": "6" },
+        { "word": "víc", "pos": "6" },
+        { "word": "než", "pos": "8" },
+        { "word": "tamtomu", "pos": "3" }
+      ]
+    },
+    {
+      "sentence": "Kolem chalupy bzučely včely a voněly luční květy.",
+      "tokens": [
+        { "word": "Kolem", "pos": "7" },
+        { "word": "chalupy", "pos": "1" },
+        { "word": "bzučely", "pos": "5" },
+        { "word": "včely", "pos": "1" },
+        { "word": "a", "pos": "8" },
+        { "word": "voněly", "pos": "5" },
+        { "word": "luční", "pos": "2" },
+        { "word": "květy", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Hele, pojď se podívat na ten zvláštní kámen.",
+      "tokens": [
+        { "word": "Hele", "pos": "10" },
+        { "word": "pojď", "pos": "5" },
+        { "word": "se", "pos": "3" },
+        { "word": "podívat", "pos": "5" },
+        { "word": "na", "pos": "7" },
+        { "word": "ten", "pos": "3" },
+        { "word": "zvláštní", "pos": "2" },
+        { "word": "kámen", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Dneska máme připravit krátkou prezentaci o historii obce.",
+      "tokens": [
+        { "word": "Dneska", "pos": "6" },
+        { "word": "máme", "pos": "5" },
+        { "word": "připravit", "pos": "5" },
+        { "word": "krátkou", "pos": "2" },
+        { "word": "prezentaci", "pos": "1" },
+        { "word": "o", "pos": "7" },
+        { "word": "historii", "pos": "1" },
+        { "word": "obce", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Pod okny zněla jemná hudba a děti tančily bosé.",
+      "tokens": [
+        { "word": "Pod", "pos": "7" },
+        { "word": "okny", "pos": "1" },
+        { "word": "zněla", "pos": "5" },
+        { "word": "jemná", "pos": "2" },
+        { "word": "hudba", "pos": "1" },
+        { "word": "a", "pos": "8" },
+        { "word": "děti", "pos": "1" },
+        { "word": "tančily", "pos": "5" },
+        { "word": "bosé", "pos": "2" }
+      ]
+    },
+    {
+      "sentence": "Náš nový učitel fyziky vysvětloval látku velmi trpělivě.",
+      "tokens": [
+        { "word": "Náš", "pos": "3" },
+        { "word": "nový", "pos": "2" },
+        { "word": "učitel", "pos": "1" },
+        { "word": "fyziky", "pos": "1" },
+        { "word": "vysvětloval", "pos": "5" },
+        { "word": "látku", "pos": "1" },
+        { "word": "velmi", "pos": "6" },
+        { "word": "trpělivě", "pos": "6" }
+      ]
+    },
+    {
+      "sentence": "Půjdete zítra se mnou do knihovny?",
+      "tokens": [
+        { "word": "Půjdete", "pos": "5" },
+        { "word": "zítra", "pos": "6" },
+        { "word": "se", "pos": "3" },
+        { "word": "mnou", "pos": "3" },
+        { "word": "do", "pos": "7" },
+        { "word": "knihovny", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Slunce se schovalo za husté mraky, takže se setmělo.",
+      "tokens": [
+        { "word": "Slunce", "pos": "1" },
+        { "word": "se", "pos": "3" },
+        { "word": "schovalo", "pos": "5" },
+        { "word": "za", "pos": "7" },
+        { "word": "husté", "pos": "2" },
+        { "word": "mraky", "pos": "1" },
+        { "word": "takže", "pos": "8" },
+        { "word": "se", "pos": "3" },
+        { "word": "setmělo", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Naštěstí jsme brzy našli správnou cestu k chatě.",
+      "tokens": [
+        { "word": "Naštěstí", "pos": "6" },
+        { "word": "jsme", "pos": "5" },
+        { "word": "brzy", "pos": "6" },
+        { "word": "našli", "pos": "5" },
+        { "word": "správnou", "pos": "2" },
+        { "word": "cestu", "pos": "1" },
+        { "word": "k", "pos": "7" },
+        { "word": "chatě", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Moje sestra by si přála jen malý dárek k svátku.",
+      "tokens": [
+        { "word": "Moje", "pos": "3" },
+        { "word": "sestra", "pos": "1" },
+        { "word": "by", "pos": "9" },
+        { "word": "si", "pos": "3" },
+        { "word": "přála", "pos": "5" },
+        { "word": "jen", "pos": "9" },
+        { "word": "malý", "pos": "2" },
+        { "word": "dárek", "pos": "1" },
+        { "word": "k", "pos": "7" },
+        { "word": "svátku", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Prosím, odložte kabáty na věšák vedle dveří.",
+      "tokens": [
+        { "word": "Prosím", "pos": "9" },
+        { "word": "odložte", "pos": "5" },
+        { "word": "kabáty", "pos": "1" },
+        { "word": "na", "pos": "7" },
+        { "word": "věšák", "pos": "1" },
+        { "word": "vedle", "pos": "7" },
+        { "word": "dveří", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Babička nám vyprávěla, jak se kdysi slavily dožínky.",
+      "tokens": [
+        { "word": "Babička", "pos": "1" },
+        { "word": "nám", "pos": "3" },
+        { "word": "vyprávěla", "pos": "5" },
+        { "word": "jak", "pos": "8" },
+        { "word": "se", "pos": "3" },
+        { "word": "kdysi", "pos": "6" },
+        { "word": "slavily", "pos": "5" },
+        { "word": "dožínky", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Tenhle obrázek je mnohem hezčí než támhleten.",
+      "tokens": [
+        { "word": "Tenhle", "pos": "3" },
+        { "word": "obrázek", "pos": "1" },
+        { "word": "je", "pos": "5" },
+        { "word": "mnohem", "pos": "6" },
+        { "word": "hezčí", "pos": "2" },
+        { "word": "než", "pos": "8" },
+        { "word": "támhleten", "pos": "3" }
+      ]
+    },
+    {
+      "sentence": "Zvenčí se ozvalo hlasité zaklepání, až všichni ztichli.",
+      "tokens": [
+        { "word": "Zvenčí", "pos": "6" },
+        { "word": "se", "pos": "3" },
+        { "word": "ozvalo", "pos": "5" },
+        { "word": "hlasité", "pos": "2" },
+        { "word": "zaklepání", "pos": "1" },
+        { "word": "až", "pos": "8" },
+        { "word": "všichni", "pos": "3" },
+        { "word": "ztichli", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Kolikrát ti mám opakovat, že máš zamykat kolo?",
+      "tokens": [
+        { "word": "Kolikrát", "pos": "4" },
+        { "word": "ti", "pos": "3" },
+        { "word": "mám", "pos": "5" },
+        { "word": "opakovat", "pos": "5" },
+        { "word": "že", "pos": "8" },
+        { "word": "máš", "pos": "5" },
+        { "word": "zamykat", "pos": "5" },
+        { "word": "kolo", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Psi běželi přes zahradu a hlasitě štěkali.",
+      "tokens": [
+        { "word": "Psi", "pos": "1" },
+        { "word": "běželi", "pos": "5" },
+        { "word": "přes", "pos": "7" },
+        { "word": "zahradu", "pos": "1" },
+        { "word": "a", "pos": "8" },
+        { "word": "hlasitě", "pos": "6" },
+        { "word": "štěkali", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Hned za vesnicí odbočte doleva k lesnímu potoku.",
+      "tokens": [
+        { "word": "Hned", "pos": "6" },
+        { "word": "za", "pos": "7" },
+        { "word": "vesnicí", "pos": "1" },
+        { "word": "odbočte", "pos": "5" },
+        { "word": "doleva", "pos": "6" },
+        { "word": "k", "pos": "7" },
+        { "word": "lesnímu", "pos": "2" },
+        { "word": "potoku", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Snad se počasí do večera zlepší.",
+      "tokens": [
+        { "word": "Snad", "pos": "9" },
+        { "word": "se", "pos": "3" },
+        { "word": "počasí", "pos": "1" },
+        { "word": "do", "pos": "7" },
+        { "word": "večera", "pos": "1" },
+        { "word": "zlepší", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Už dlouho jsme se neviděli, viď?",
+      "tokens": [
+        { "word": "Už", "pos": "6" },
+        { "word": "dlouho", "pos": "6" },
+        { "word": "jsme", "pos": "5" },
+        { "word": "se", "pos": "3" },
+        { "word": "neviděli", "pos": "5" },
+        { "word": "viď", "pos": "9" }
+      ]
+    },
+    {
+      "sentence": "Dědeček trpělivě opravil rozbité hodiny na stěně.",
+      "tokens": [
+        { "word": "Dědeček", "pos": "1" },
+        { "word": "trpělivě", "pos": "6" },
+        { "word": "opravil", "pos": "5" },
+        { "word": "rozbité", "pos": "2" },
+        { "word": "hodiny", "pos": "1" },
+        { "word": "na", "pos": "7" },
+        { "word": "stěně", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Počkejte, až dočtu tento napínavý příběh.",
+      "tokens": [
+        { "word": "Počkejte", "pos": "5" },
+        { "word": "až", "pos": "8" },
+        { "word": "dočtu", "pos": "5" },
+        { "word": "tento", "pos": "3" },
+        { "word": "napínavý", "pos": "2" },
+        { "word": "příběh", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Při řešení úlohy jsme postupovali krok za krokem.",
+      "tokens": [
+        { "word": "Při", "pos": "7" },
+        { "word": "řešení", "pos": "1" },
+        { "word": "úlohy", "pos": "1" },
+        { "word": "jsme", "pos": "5" },
+        { "word": "postupovali", "pos": "5" },
+        { "word": "krok", "pos": "1" },
+        { "word": "za", "pos": "7" },
+        { "word": "krokem", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Málem jsem zapomněl napsat odpověď na tu poslední otázku.",
+      "tokens": [
+        { "word": "Málem", "pos": "6" },
+        { "word": "jsem", "pos": "5" },
+        { "word": "zapomněl", "pos": "5" },
+        { "word": "napsat", "pos": "5" },
+        { "word": "odpověď", "pos": "1" },
+        { "word": "na", "pos": "7" },
+        { "word": "tu", "pos": "3" },
+        { "word": "poslední", "pos": "2" },
+        { "word": "otázku", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Dvakrát se zvedl vítr a rozhoupal prázdné houpačky.",
+      "tokens": [
+        { "word": "Dvakrát", "pos": "4" },
+        { "word": "se", "pos": "3" },
+        { "word": "zvedl", "pos": "5" },
+        { "word": "vítr", "pos": "1" },
+        { "word": "a", "pos": "8" },
+        { "word": "rozhoupal", "pos": "5" },
+        { "word": "prázdné", "pos": "2" },
+        { "word": "houpačky", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Bojíš se ještě tmy, nebo už ti nevadí?",
+      "tokens": [
+        { "word": "Bojíš", "pos": "5" },
+        { "word": "se", "pos": "3" },
+        { "word": "ještě", "pos": "6" },
+        { "word": "tmy", "pos": "1" },
+        { "word": "nebo", "pos": "8" },
+        { "word": "už", "pos": "6" },
+        { "word": "ti", "pos": "3" },
+        { "word": "nevadí", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Prosila jsem, ať na nás auto počká.",
+      "tokens": [
+        { "word": "Prosila", "pos": "5" },
+        { "word": "jsem", "pos": "5" },
+        { "word": "ať", "pos": "8" },
+        { "word": "na", "pos": "7" },
+        { "word": "nás", "pos": "3" },
+        { "word": "auto", "pos": "1" },
+        { "word": "počká", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Tuhle písničku poslouchám pořád dokola.",
+      "tokens": [
+        { "word": "Tuhle", "pos": "3" },
+        { "word": "písničku", "pos": "1" },
+        { "word": "poslouchám", "pos": "5" },
+        { "word": "pořád", "pos": "6" },
+        { "word": "dokola", "pos": "6" }
+      ]
+    },
+    {
+      "sentence": "Před námi se náhle objevila vysoká postava v plášti.",
+      "tokens": [
+        { "word": "Před", "pos": "7" },
+        { "word": "námi", "pos": "3" },
+        { "word": "se", "pos": "3" },
+        { "word": "náhle", "pos": "6" },
+        { "word": "objevila", "pos": "5" },
+        { "word": "vysoká", "pos": "2" },
+        { "word": "postava", "pos": "1" },
+        { "word": "v", "pos": "7" },
+        { "word": "plášti", "pos": "1" }
+      ]
+    },
+    {
+      "sentence": "Do sklenice nalij pouze tolik vody, kolik potřebuješ.",
+      "tokens": [
+        { "word": "Do", "pos": "7" },
+        { "word": "sklenice", "pos": "1" },
+        { "word": "nalij", "pos": "5" },
+        { "word": "pouze", "pos": "6" },
+        { "word": "tolik", "pos": "4" },
+        { "word": "vody", "pos": "1" },
+        { "word": "kolik", "pos": "4" },
+        { "word": "potřebuješ", "pos": "5" }
+      ]
+    },
+    {
+      "sentence": "Uf, to byla ale náročná cesta vzhůru.",
+      "tokens": [
+        { "word": "Uf", "pos": "10" },
+        { "word": "to", "pos": "3" },
+        { "word": "byla", "pos": "5" },
+        { "word": "ale", "pos": "8" },
+        { "word": "náročná", "pos": "2" },
+        { "word": "cesta", "pos": "1" },
+        { "word": "vzhůru", "pos": "6" }
+      ]
+    }
+  ]
+}
