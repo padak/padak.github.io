@@ -1,0 +1,917 @@
+{
+  "instrukce": "Choose the correct form of the verb",
+  "tenses": {
+    "present_simple": {
+      "name": "Present Simple",
+      "usage": "Regular habits, facts, schedules",
+      "keywords": "always, usually, often, sometimes, never, every day/week"
+    },
+    "present_continuous": {
+      "name": "Present Continuous",
+      "usage": "Actions happening now, temporary situations",
+      "keywords": "now, right now, at the moment, Look!, Listen!"
+    }
+  },
+  "sentences": [
+    {
+      "id": 1,
+      "sentence": "My friends _______ basketball every Saturday.",
+      "blank_position": 11,
+      "options": ["play", "plays", "are playing", "is playing"],
+      "correct": "play",
+      "tense": "present_simple",
+      "hint": "every Saturday = regular habit"
+    },
+    {
+      "id": 2,
+      "sentence": "Look! The cat _______ on the roof.",
+      "blank_position": 13,
+      "options": ["sits", "sit", "is sitting", "are sitting"],
+      "correct": "is sitting",
+      "tense": "present_continuous",
+      "hint": "Look! = happening now"
+    },
+    {
+      "id": 3,
+      "sentence": "She always _______ to work by train.",
+      "blank_position": 11,
+      "options": ["go", "goes", "is going", "are going"],
+      "correct": "goes",
+      "tense": "present_simple",
+      "hint": "always = regular routine"
+    },
+    {
+      "id": 4,
+      "sentence": "I can't talk now. I _______ my homework.",
+      "blank_position": 18,
+      "options": ["do", "does", "am doing", "is doing"],
+      "correct": "am doing",
+      "tense": "present_continuous",
+      "hint": "can't talk now = busy at this moment"
+    },
+    {
+      "id": 5,
+      "sentence": "The museum _______ on Mondays.",
+      "blank_position": 11,
+      "options": ["don't open", "doesn't open", "isn't opening", "aren't opening"],
+      "correct": "doesn't open",
+      "tense": "present_simple",
+      "hint": "regular schedule"
+    },
+    {
+      "id": 6,
+      "sentence": "Listen! Someone _______ at the door.",
+      "blank_position": 15,
+      "options": ["knocks", "knock", "is knocking", "are knocking"],
+      "correct": "is knocking",
+      "tense": "present_continuous",
+      "hint": "Listen! = happening now"
+    },
+    {
+      "id": 7,
+      "sentence": "Water _______ at 100 degrees Celsius.",
+      "blank_position": 6,
+      "options": ["boil", "boils", "is boiling", "are boiling"],
+      "correct": "boils",
+      "tense": "present_simple",
+      "hint": "scientific fact"
+    },
+    {
+      "id": 8,
+      "sentence": "They _______ lunch in the cafeteria right now.",
+      "blank_position": 5,
+      "options": ["have", "has", "are having", "is having"],
+      "correct": "are having",
+      "tense": "present_continuous",
+      "hint": "right now = at this moment"
+    },
+    {
+      "id": 9,
+      "sentence": "My brother never _______ his room.",
+      "blank_position": 17,
+      "options": ["clean", "cleans", "is cleaning", "are cleaning"],
+      "correct": "cleans",
+      "tense": "present_simple",
+      "hint": "never = habit (negative frequency)"
+    },
+    {
+      "id": 10,
+      "sentence": "Why _______ you laughing?",
+      "blank_position": 4,
+      "options": ["do", "does", "are", "is"],
+      "correct": "are",
+      "tense": "present_continuous",
+      "hint": "asking about current action"
+    },
+    {
+      "id": 11,
+      "sentence": "The sun _______ in the east.",
+      "blank_position": 8,
+      "options": ["rise", "rises", "is rising", "are rising"],
+      "correct": "rises",
+      "tense": "present_simple",
+      "hint": "general fact"
+    },
+    {
+      "id": 12,
+      "sentence": "Be quiet! The baby _______.",
+      "blank_position": 19,
+      "options": ["sleeps", "sleep", "is sleeping", "are sleeping"],
+      "correct": "is sleeping",
+      "tense": "present_continuous",
+      "hint": "Be quiet! = happening now"
+    },
+    {
+      "id": 13,
+      "sentence": "We usually _______ dinner at 7 PM.",
+      "blank_position": 11,
+      "options": ["have", "has", "are having", "is having"],
+      "correct": "have",
+      "tense": "present_simple",
+      "hint": "usually = regular routine"
+    },
+    {
+      "id": 14,
+      "sentence": "I _______ this movie is boring.",
+      "blank_position": 2,
+      "options": ["think", "thinks", "am thinking", "is thinking"],
+      "correct": "think",
+      "tense": "present_simple",
+      "hint": "opinion (state verb)"
+    },
+    {
+      "id": 15,
+      "sentence": "The children _______ in the garden at the moment.",
+      "blank_position": 13,
+      "options": ["play", "plays", "are playing", "is playing"],
+      "correct": "are playing",
+      "tense": "present_continuous",
+      "hint": "at the moment = now"
+    },
+    {
+      "id": 16,
+      "sentence": "My dad _______ the newspaper every morning.",
+      "blank_position": 7,
+      "options": ["read", "reads", "is reading", "are reading"],
+      "correct": "reads",
+      "tense": "present_simple",
+      "hint": "every morning = daily routine"
+    },
+    {
+      "id": 17,
+      "sentence": "Hurry up! The bus _______!",
+      "blank_position": 18,
+      "options": ["comes", "come", "is coming", "are coming"],
+      "correct": "is coming",
+      "tense": "present_continuous",
+      "hint": "Hurry up! = urgent, happening now"
+    },
+    {
+      "id": 18,
+      "sentence": "Cats _______ milk.",
+      "blank_position": 5,
+      "options": ["like", "likes", "is liking", "are liking"],
+      "correct": "like",
+      "tense": "present_simple",
+      "hint": "general fact about cats"
+    },
+    {
+      "id": 19,
+      "sentence": "What _______ you doing here?",
+      "blank_position": 5,
+      "options": ["do", "does", "are", "is"],
+      "correct": "are",
+      "tense": "present_continuous",
+      "hint": "asking about current activity"
+    },
+    {
+      "id": 20,
+      "sentence": "It rarely _______ in the desert.",
+      "blank_position": 9,
+      "options": ["rain", "rains", "is raining", "are raining"],
+      "correct": "rains",
+      "tense": "present_simple",
+      "hint": "rarely = frequency adverb"
+    },
+    {
+      "id": 21,
+      "sentence": "They _______ to move next month.",
+      "blank_position": 5,
+      "options": ["plan", "plans", "are planning", "is planning"],
+      "correct": "are planning",
+      "tense": "present_continuous",
+      "hint": "future arrangement"
+    },
+    {
+      "id": 22,
+      "sentence": "My teacher _______ three languages.",
+      "blank_position": 11,
+      "options": ["speak", "speaks", "is speaking", "are speaking"],
+      "correct": "speaks",
+      "tense": "present_simple",
+      "hint": "ability/skill"
+    },
+    {
+      "id": 23,
+      "sentence": "The phone _______! Can you answer it?",
+      "blank_position": 10,
+      "options": ["rings", "ring", "is ringing", "are ringing"],
+      "correct": "is ringing",
+      "tense": "present_continuous",
+      "hint": "happening right now"
+    },
+    {
+      "id": 24,
+      "sentence": "Birds _______ south in winter.",
+      "blank_position": 6,
+      "options": ["fly", "flies", "is flying", "are flying"],
+      "correct": "fly",
+      "tense": "present_simple",
+      "hint": "seasonal pattern"
+    },
+    {
+      "id": 25,
+      "sentence": "I _______ my keys. Have you seen them?",
+      "blank_position": 2,
+      "options": ["look for", "looks for", "am looking for", "is looking for"],
+      "correct": "am looking for",
+      "tense": "present_continuous",
+      "hint": "temporary search"
+    },
+    {
+      "id": 26,
+      "sentence": "The Earth _______ around the sun.",
+      "blank_position": 10,
+      "options": ["revolve", "revolves", "is revolving", "are revolving"],
+      "correct": "revolves",
+      "tense": "present_simple",
+      "hint": "scientific fact"
+    },
+    {
+      "id": 27,
+      "sentence": "Shh! I _______ to concentrate.",
+      "blank_position": 7,
+      "options": ["try", "tries", "am trying", "is trying"],
+      "correct": "am trying",
+      "tense": "present_continuous",
+      "hint": "Shh! = at this moment"
+    },
+    {
+      "id": 28,
+      "sentence": "My sister _______ chocolate.",
+      "blank_position": 10,
+      "options": ["love", "loves", "is loving", "are loving"],
+      "correct": "loves",
+      "tense": "present_simple",
+      "hint": "preference (state verb)"
+    },
+    {
+      "id": 29,
+      "sentence": "The students _______ for the exam this week.",
+      "blank_position": 13,
+      "options": ["study", "studies", "are studying", "is studying"],
+      "correct": "are studying",
+      "tense": "present_continuous",
+      "hint": "this week = temporary period"
+    },
+    {
+      "id": 30,
+      "sentence": "Tom often _______ late for school.",
+      "blank_position": 10,
+      "options": ["arrive", "arrives", "is arriving", "are arriving"],
+      "correct": "arrives",
+      "tense": "present_simple",
+      "hint": "often = frequency adverb"
+    },
+    {
+      "id": 31,
+      "sentence": "Look out! A car _______!",
+      "blank_position": 16,
+      "options": ["comes", "come", "is coming", "are coming"],
+      "correct": "is coming",
+      "tense": "present_continuous",
+      "hint": "Look out! = danger now"
+    },
+    {
+      "id": 32,
+      "sentence": "We _______ pizza every Friday.",
+      "blank_position": 3,
+      "options": ["eat", "eats", "are eating", "is eating"],
+      "correct": "eat",
+      "tense": "present_simple",
+      "hint": "every Friday = weekly routine"
+    },
+    {
+      "id": 33,
+      "sentence": "My neighbors _______ a party tonight.",
+      "blank_position": 13,
+      "options": ["have", "has", "are having", "is having"],
+      "correct": "are having",
+      "tense": "present_continuous",
+      "hint": "tonight = specific time"
+    },
+    {
+      "id": 34,
+      "sentence": "Dogs _______ bones.",
+      "blank_position": 5,
+      "options": ["like", "likes", "is liking", "are liking"],
+      "correct": "like",
+      "tense": "present_simple",
+      "hint": "general fact"
+    },
+    {
+      "id": 35,
+      "sentence": "I _______ you're right.",
+      "blank_position": 2,
+      "options": ["suppose", "supposes", "am supposing", "is supposing"],
+      "correct": "suppose",
+      "tense": "present_simple",
+      "hint": "mental state verb"
+    },
+    {
+      "id": 36,
+      "sentence": "The weather _______ colder these days.",
+      "blank_position": 12,
+      "options": ["get", "gets", "is getting", "are getting"],
+      "correct": "is getting",
+      "tense": "present_continuous",
+      "hint": "these days = changing situation"
+    },
+    {
+      "id": 37,
+      "sentence": "My grandmother _______ delicious cookies.",
+      "blank_position": 14,
+      "options": ["make", "makes", "is making", "are making"],
+      "correct": "makes",
+      "tense": "present_simple",
+      "hint": "general ability"
+    },
+    {
+      "id": 38,
+      "sentence": "Quick! The children _______ in the pool!",
+      "blank_position": 20,
+      "options": ["swim", "swims", "are swimming", "is swimming"],
+      "correct": "are swimming",
+      "tense": "present_continuous",
+      "hint": "Quick! = urgent situation now"
+    },
+    {
+      "id": 39,
+      "sentence": "The shop _______ at 9 AM.",
+      "blank_position": 9,
+      "options": ["open", "opens", "is opening", "are opening"],
+      "correct": "opens",
+      "tense": "present_simple",
+      "hint": "regular schedule"
+    },
+    {
+      "id": 40,
+      "sentence": "Who _______ that beautiful song?",
+      "blank_position": 4,
+      "options": ["sing", "sings", "is singing", "are singing"],
+      "correct": "is singing",
+      "tense": "present_continuous",
+      "hint": "hearing it now"
+    },
+    {
+      "id": 41,
+      "sentence": "I sometimes _______ to music while studying.",
+      "blank_position": 12,
+      "options": ["listen", "listens", "am listening", "is listening"],
+      "correct": "listen",
+      "tense": "present_simple",
+      "hint": "sometimes = frequency"
+    },
+    {
+      "id": 42,
+      "sentence": "The baby _______ a lot today.",
+      "blank_position": 9,
+      "options": ["cry", "cries", "is crying", "are crying"],
+      "correct": "is crying",
+      "tense": "present_continuous",
+      "hint": "today = temporary situation"
+    },
+    {
+      "id": 43,
+      "sentence": "My parents _______ in London.",
+      "blank_position": 11,
+      "options": ["live", "lives", "are living", "is living"],
+      "correct": "live",
+      "tense": "present_simple",
+      "hint": "permanent situation"
+    },
+    {
+      "id": 44,
+      "sentence": "Watch! The magician _______ an amazing trick.",
+      "blank_position": 18,
+      "options": ["perform", "performs", "is performing", "are performing"],
+      "correct": "is performing",
+      "tense": "present_continuous",
+      "hint": "Watch! = happening now"
+    },
+    {
+      "id": 45,
+      "sentence": "The train always _______ on time.",
+      "blank_position": 17,
+      "options": ["arrive", "arrives", "is arriving", "are arriving"],
+      "correct": "arrives",
+      "tense": "present_simple",
+      "hint": "always = regular occurrence"
+    },
+    {
+      "id": 46,
+      "sentence": "I _______ what you mean.",
+      "blank_position": 2,
+      "options": ["understand", "understands", "am understanding", "is understanding"],
+      "correct": "understand",
+      "tense": "present_simple",
+      "hint": "mental state verb"
+    },
+    {
+      "id": 47,
+      "sentence": "They _______ their new house this week.",
+      "blank_position": 5,
+      "options": ["paint", "paints", "are painting", "is painting"],
+      "correct": "are painting",
+      "tense": "present_continuous",
+      "hint": "this week = temporary activity"
+    },
+    {
+      "id": 48,
+      "sentence": "He rarely _______ TV.",
+      "blank_position": 9,
+      "options": ["watch", "watches", "is watching", "are watching"],
+      "correct": "watches",
+      "tense": "present_simple",
+      "hint": "rarely = frequency"
+    },
+    {
+      "id": 49,
+      "sentence": "Listen carefully! The principal _______ an announcement.",
+      "blank_position": 30,
+      "options": ["make", "makes", "is making", "are making"],
+      "correct": "is making",
+      "tense": "present_continuous",
+      "hint": "Listen carefully! = now"
+    },
+    {
+      "id": 50,
+      "sentence": "Plants _______ water to survive.",
+      "blank_position": 7,
+      "options": ["need", "needs", "are needing", "is needing"],
+      "correct": "need",
+      "tense": "present_simple",
+      "hint": "general fact"
+    },
+    {
+      "id": 51,
+      "sentence": "Why _______ the dog barking so loudly?",
+      "blank_position": 4,
+      "options": ["do", "does", "is", "are"],
+      "correct": "is",
+      "tense": "present_continuous",
+      "hint": "asking about ongoing action"
+    },
+    {
+      "id": 52,
+      "sentence": "My uncle _______ as a doctor.",
+      "blank_position": 9,
+      "options": ["work", "works", "is working", "are working"],
+      "correct": "works",
+      "tense": "present_simple",
+      "hint": "permanent job"
+    },
+    {
+      "id": 53,
+      "sentence": "The kids _______ too much noise right now!",
+      "blank_position": 9,
+      "options": ["make", "makes", "are making", "is making"],
+      "correct": "are making",
+      "tense": "present_continuous",
+      "hint": "right now = at this moment"
+    },
+    {
+      "id": 54,
+      "sentence": "She never _______ breakfast.",
+      "blank_position": 10,
+      "options": ["skip", "skips", "is skipping", "are skipping"],
+      "correct": "skips",
+      "tense": "present_simple",
+      "hint": "never = habit"
+    },
+    {
+      "id": 55,
+      "sentence": "I _______ to understand but it's difficult.",
+      "blank_position": 2,
+      "options": ["try", "tries", "am trying", "is trying"],
+      "correct": "am trying",
+      "tense": "present_continuous",
+      "hint": "effort in progress"
+    },
+    {
+      "id": 56,
+      "sentence": "The moon _______ around the Earth.",
+      "blank_position": 9,
+      "options": ["orbit", "orbits", "is orbiting", "are orbiting"],
+      "correct": "orbits",
+      "tense": "present_simple",
+      "hint": "scientific fact"
+    },
+    {
+      "id": 57,
+      "sentence": "Look! It _______ to rain.",
+      "blank_position": 8,
+      "options": ["start", "starts", "is starting", "are starting"],
+      "correct": "is starting",
+      "tense": "present_continuous",
+      "hint": "Look! = beginning now"
+    },
+    {
+      "id": 58,
+      "sentence": "My mother _______ Italian fluently.",
+      "blank_position": 11,
+      "options": ["speak", "speaks", "is speaking", "are speaking"],
+      "correct": "speaks",
+      "tense": "present_simple",
+      "hint": "permanent ability"
+    },
+    {
+      "id": 59,
+      "sentence": "The workers _______ a new bridge this month.",
+      "blank_position": 13,
+      "options": ["build", "builds", "are building", "is building"],
+      "correct": "are building",
+      "tense": "present_continuous",
+      "hint": "this month = temporary project"
+    },
+    {
+      "id": 60,
+      "sentence": "Ice _______ at 0 degrees Celsius.",
+      "blank_position": 4,
+      "options": ["melt", "melts", "is melting", "are melting"],
+      "correct": "melts",
+      "tense": "present_simple",
+      "hint": "scientific fact"
+    },
+    {
+      "id": 61,
+      "sentence": "Be careful! You _______ too fast!",
+      "blank_position": 16,
+      "options": ["drive", "drives", "are driving", "is driving"],
+      "correct": "are driving",
+      "tense": "present_continuous",
+      "hint": "Be careful! = warning about now"
+    },
+    {
+      "id": 62,
+      "sentence": "My friends _______ tennis twice a week.",
+      "blank_position": 11,
+      "options": ["play", "plays", "are playing", "is playing"],
+      "correct": "play",
+      "tense": "present_simple",
+      "hint": "twice a week = regular schedule"
+    },
+    {
+      "id": 63,
+      "sentence": "The company _______ new employees this year.",
+      "blank_position": 12,
+      "options": ["hire", "hires", "is hiring", "are hiring"],
+      "correct": "is hiring",
+      "tense": "present_continuous",
+      "hint": "this year = temporary period"
+    },
+    {
+      "id": 64,
+      "sentence": "Elephants _______ grass and leaves.",
+      "blank_position": 10,
+      "options": ["eat", "eats", "are eating", "is eating"],
+      "correct": "eat",
+      "tense": "present_simple",
+      "hint": "general fact about elephants"
+    },
+    {
+      "id": 65,
+      "sentence": "I _______ this book belongs to you.",
+      "blank_position": 2,
+      "options": ["believe", "believes", "am believing", "is believing"],
+      "correct": "believe",
+      "tense": "present_simple",
+      "hint": "mental state verb"
+    },
+    {
+      "id": 66,
+      "sentence": "Your English _______ better every day!",
+      "blank_position": 13,
+      "options": ["get", "gets", "is getting", "are getting"],
+      "correct": "is getting",
+      "tense": "present_continuous",
+      "hint": "gradual change"
+    },
+    {
+      "id": 67,
+      "sentence": "The bakery _______ fresh bread every morning.",
+      "blank_position": 11,
+      "options": ["sell", "sells", "is selling", "are selling"],
+      "correct": "sells",
+      "tense": "present_simple",
+      "hint": "every morning = daily routine"
+    },
+    {
+      "id": 68,
+      "sentence": "Wait! I _______ with you!",
+      "blank_position": 7,
+      "options": ["come", "comes", "am coming", "is coming"],
+      "correct": "am coming",
+      "tense": "present_continuous",
+      "hint": "Wait! = immediate future"
+    },
+    {
+      "id": 69,
+      "sentence": "The library _______ at 6 PM.",
+      "blank_position": 12,
+      "options": ["close", "closes", "is closing", "are closing"],
+      "correct": "closes",
+      "tense": "present_simple",
+      "hint": "regular schedule"
+    },
+    {
+      "id": 70,
+      "sentence": "What _______ in the kitchen? It smells delicious!",
+      "blank_position": 5,
+      "options": ["you cook", "you cooks", "are you cooking", "is you cooking"],
+      "correct": "are you cooking",
+      "tense": "present_continuous",
+      "hint": "smells now = happening now"
+    },
+    {
+      "id": 71,
+      "sentence": "He usually _______ coffee in the morning.",
+      "blank_position": 11,
+      "options": ["drink", "drinks", "is drinking", "are drinking"],
+      "correct": "drinks",
+      "tense": "present_simple",
+      "hint": "usually = routine"
+    },
+    {
+      "id": 72,
+      "sentence": "The prices _______ up these days.",
+      "blank_position": 11,
+      "options": ["go", "goes", "are going", "is going"],
+      "correct": "are going",
+      "tense": "present_continuous",
+      "hint": "these days = current trend"
+    },
+    {
+      "id": 73,
+      "sentence": "My sister _______ the piano beautifully.",
+      "blank_position": 10,
+      "options": ["play", "plays", "is playing", "are playing"],
+      "correct": "plays",
+      "tense": "present_simple",
+      "hint": "general ability"
+    },
+    {
+      "id": 74,
+      "sentence": "Careful! The paint _______!",
+      "blank_position": 17,
+      "options": ["drip", "drips", "is dripping", "are dripping"],
+      "correct": "is dripping",
+      "tense": "present_continuous",
+      "hint": "Careful! = warning about now"
+    },
+    {
+      "id": 75,
+      "sentence": "The restaurant _______ on Sundays.",
+      "blank_position": 15,
+      "options": ["don't open", "doesn't open", "isn't opening", "aren't opening"],
+      "correct": "doesn't open",
+      "tense": "present_simple",
+      "hint": "regular schedule"
+    },
+    {
+      "id": 76,
+      "sentence": "I _______ you need help.",
+      "blank_position": 2,
+      "options": ["see", "sees", "am seeing", "is seeing"],
+      "correct": "see",
+      "tense": "present_simple",
+      "hint": "perception/understanding"
+    },
+    {
+      "id": 77,
+      "sentence": "They _______ for the bus at the moment.",
+      "blank_position": 5,
+      "options": ["wait", "waits", "are waiting", "is waiting"],
+      "correct": "are waiting",
+      "tense": "present_continuous",
+      "hint": "at the moment = now"
+    },
+    {
+      "id": 78,
+      "sentence": "My father _______ the car every Sunday.",
+      "blank_position": 11,
+      "options": ["wash", "washes", "is washing", "are washing"],
+      "correct": "washes",
+      "tense": "present_simple",
+      "hint": "every Sunday = weekly routine"
+    },
+    {
+      "id": 79,
+      "sentence": "Stop! You _______ a mistake!",
+      "blank_position": 9,
+      "options": ["make", "makes", "are making", "is making"],
+      "correct": "are making",
+      "tense": "present_continuous",
+      "hint": "Stop! = happening now"
+    },
+    {
+      "id": 80,
+      "sentence": "Penguins _______ in Antarctica.",
+      "blank_position": 9,
+      "options": ["live", "lives", "are living", "is living"],
+      "correct": "live",
+      "tense": "present_simple",
+      "hint": "permanent habitat"
+    },
+    {
+      "id": 81,
+      "sentence": "I _______ this exercise is easy.",
+      "blank_position": 2,
+      "options": ["think", "thinks", "am thinking", "is thinking"],
+      "correct": "think",
+      "tense": "present_simple",
+      "hint": "opinion (state verb)"
+    },
+    {
+      "id": 82,
+      "sentence": "The children _______ a sandcastle on the beach.",
+      "blank_position": 13,
+      "options": ["build", "builds", "are building", "is building"],
+      "correct": "are building",
+      "tense": "present_continuous",
+      "hint": "activity in progress"
+    },
+    {
+      "id": 83,
+      "sentence": "My cat always _______ on my bed.",
+      "blank_position": 13,
+      "options": ["sleep", "sleeps", "is sleeping", "are sleeping"],
+      "correct": "sleeps",
+      "tense": "present_simple",
+      "hint": "always = habit"
+    },
+    {
+      "id": 84,
+      "sentence": "Help! The boat _______!",
+      "blank_position": 15,
+      "options": ["sink", "sinks", "is sinking", "are sinking"],
+      "correct": "is sinking",
+      "tense": "present_continuous",
+      "hint": "Help! = emergency now"
+    },
+    {
+      "id": 85,
+      "sentence": "The bank _______ at 3 PM on Fridays.",
+      "blank_position": 9,
+      "options": ["close", "closes", "is closing", "are closing"],
+      "correct": "closes",
+      "tense": "present_simple",
+      "hint": "regular schedule"
+    },
+    {
+      "id": 86,
+      "sentence": "I _______ what you're saying.",
+      "blank_position": 2,
+      "options": ["hear", "hears", "am hearing", "is hearing"],
+      "correct": "hear",
+      "tense": "present_simple",
+      "hint": "perception verb"
+    },
+    {
+      "id": 87,
+      "sentence": "We _______ our grandparents this weekend.",
+      "blank_position": 3,
+      "options": ["visit", "visits", "are visiting", "is visiting"],
+      "correct": "are visiting",
+      "tense": "present_continuous",
+      "hint": "this weekend = planned future"
+    },
+    {
+      "id": 88,
+      "sentence": "The teacher often _______ us homework.",
+      "blank_position": 16,
+      "options": ["give", "gives", "is giving", "are giving"],
+      "correct": "gives",
+      "tense": "present_simple",
+      "hint": "often = frequency"
+    },
+    {
+      "id": 89,
+      "sentence": "Look! The ice cream _______!",
+      "blank_position": 19,
+      "options": ["melt", "melts", "is melting", "are melting"],
+      "correct": "is melting",
+      "tense": "present_continuous",
+      "hint": "Look! = happening now"
+    },
+    {
+      "id": 90,
+      "sentence": "Bees _______ honey.",
+      "blank_position": 5,
+      "options": ["make", "makes", "are making", "is making"],
+      "correct": "make",
+      "tense": "present_simple",
+      "hint": "general fact about bees"
+    },
+    {
+      "id": 91,
+      "sentence": "I _______ this song!",
+      "blank_position": 2,
+      "options": ["love", "loves", "am loving", "is loving"],
+      "correct": "love",
+      "tense": "present_simple",
+      "hint": "emotion (state verb)"
+    },
+    {
+      "id": 92,
+      "sentence": "The economy _______ slowly this year.",
+      "blank_position": 12,
+      "options": ["grow", "grows", "is growing", "are growing"],
+      "correct": "is growing",
+      "tense": "present_continuous",
+      "hint": "this year = current period"
+    },
+    {
+      "id": 93,
+      "sentence": "My brother never _______ his homework on time.",
+      "blank_position": 17,
+      "options": ["do", "does", "is doing", "are doing"],
+      "correct": "does",
+      "tense": "present_simple",
+      "hint": "never = negative habit"
+    },
+    {
+      "id": 94,
+      "sentence": "Listen! The birds _______!",
+      "blank_position": 17,
+      "options": ["sing", "sings", "are singing", "is singing"],
+      "correct": "are singing",
+      "tense": "present_continuous",
+      "hint": "Listen! = happening now"
+    },
+    {
+      "id": 95,
+      "sentence": "The store _______ discounts every weekend.",
+      "blank_position": 10,
+      "options": ["offer", "offers", "is offering", "are offering"],
+      "correct": "offers",
+      "tense": "present_simple",
+      "hint": "every weekend = regular"
+    },
+    {
+      "id": 96,
+      "sentence": "I _______ this belongs to someone else.",
+      "blank_position": 2,
+      "options": ["suspect", "suspects", "am suspecting", "is suspecting"],
+      "correct": "suspect",
+      "tense": "present_simple",
+      "hint": "mental state verb"
+    },
+    {
+      "id": 97,
+      "sentence": "They _______ married next month.",
+      "blank_position": 5,
+      "options": ["get", "gets", "are getting", "is getting"],
+      "correct": "are getting",
+      "tense": "present_continuous",
+      "hint": "next month = planned future"
+    },
+    {
+      "id": 98,
+      "sentence": "My cousin _______ in a band.",
+      "blank_position": 10,
+      "options": ["play", "plays", "is playing", "are playing"],
+      "correct": "plays",
+      "tense": "present_simple",
+      "hint": "permanent membership"
+    },
+    {
+      "id": 99,
+      "sentence": "Quiet! The teacher _______!",
+      "blank_position": 17,
+      "options": ["speak", "speaks", "is speaking", "are speaking"],
+      "correct": "is speaking",
+      "tense": "present_continuous",
+      "hint": "Quiet! = happening now"
+    },
+    {
+      "id": 100,
+      "sentence": "The bus usually _______ here at 8 AM.",
+      "blank_position": 16,
+      "options": ["stop", "stops", "is stopping", "are stopping"],
+      "correct": "stops",
+      "tense": "present_simple",
+      "hint": "usually = routine"
+    }
+  ]
+}
