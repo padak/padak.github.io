@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Practice - Present Simple & Present Continuous (30 Questions)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .score-board {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .question {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .question-number {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .sentence {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .blank {
+            display: inline-block;
+            min-width: 150px;
+            padding: 2px 10px;
+            border-bottom: 2px solid #764ba2;
+            color: #764ba2;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .option {
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .option:hover:not(.disabled) {
+            border-color: #667eea;
+            background: #f0f4ff;
+            transform: translateY(-2px);
+        }
+
+        .option.selected {
+            border-color: #764ba2;
+            background: #f0f4ff;
+            font-weight: bold;
+        }
+
+        .option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .hint {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e8f4ff;
+            border-left: 3px solid #007bff;
+            border-radius: 3px;
+            color: #004085;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .results h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+        }
+
+        .results-score {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .results-message {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 English Practice</h1>
+        <p class="subtitle">Present Simple & Present Continuous - 30 Questions</p>
+
+        <div class="score-board">
+            Score: <span id="current-score">0</span> / <span id="total-questions">30</span>
+        </div>
+
+        <form id="quiz-form">
+            <div class="question" data-question="1">
+                <div class="question-number">Question 1</div>
+                <div class="sentence">
+                    My friends <span class="blank" id="blank-1">_______</span> basketball every Saturday.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="plays">plays</div>
+                    <div class="option" data-value="play" data-correct="true">play</div>
+                    <div class="option" data-value="is playing">is playing</div>
+                    <div class="option" data-value="are playing">are playing</div>
+                    <div class="option" data-value="playing">playing</div>
+                    <div class="option" data-value="do plays">do plays</div>
+                </div>
+                <div class="hint">Hint: Present Simple - every Saturday</div>
+                <div class="feedback" id="feedback-1"></div>
+            </div>
+
+            <div class="question" data-question="2">
+                <div class="question-number">Question 2</div>
+                <div class="sentence">
+                    Hurry up! The bus <span class="blank" id="blank-2">_______</span>!
+                </div>
+                <div class="options">
+                    <div class="option" data-value="comes">comes</div>
+                    <div class="option" data-value="come">come</div>
+                    <div class="option" data-value="is coming" data-correct="true">is coming</div>
+                    <div class="option" data-value="are coming">are coming</div>
+                    <div class="option" data-value="coming">coming</div>
+                    <div class="option" data-value="does come">does come</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - Hurry up!</div>
+                <div class="feedback" id="feedback-2"></div>
+            </div>
+
+            <div class="question" data-question="3">
+                <div class="question-number">Question 3</div>
+                <div class="sentence">
+                    The museum <span class="blank" id="blank-3">_______</span> on Mondays.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="don't open">don't open</div>
+                    <div class="option" data-value="doesn't open" data-correct="true">doesn't open</div>
+                    <div class="option" data-value="isn't opening">isn't opening</div>
+                    <div class="option" data-value="aren't opening">aren't opening</div>
+                    <div class="option" data-value="not open">not open</div>
+                    <div class="option" data-value="no opens">no opens</div>
+                </div>
+                <div class="hint">Hint: Present Simple negative - regular schedule</div>
+                <div class="feedback" id="feedback-3"></div>
+            </div>
+
+            <div class="question" data-question="4">
+                <div class="question-number">Question 4</div>
+                <div class="sentence">
+                    I can't talk now. I <span class="blank" id="blank-4">_______</span> my homework.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="do">do</div>
+                    <div class="option" data-value="does">does</div>
+                    <div class="option" data-value="am doing" data-correct="true">am doing</div>
+                    <div class="option" data-value="is doing">is doing</div>
+                    <div class="option" data-value="doing">doing</div>
+                    <div class="option" data-value="are doing">are doing</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - can't talk now</div>
+                <div class="feedback" id="feedback-4"></div>
+            </div>
+
+            <div class="question" data-question="5">
+                <div class="question-number">Question 5</div>
+                <div class="sentence">
+                    <span class="blank" id="blank-5">_______</span> your brother know how to swim?
+                </div>
+                <div class="options">
+                    <div class="option" data-value="Do">Do</div>
+                    <div class="option" data-value="Does" data-correct="true">Does</div>
+                    <div class="option" data-value="Is">Is</div>
+                    <div class="option" data-value="Are">Are</div>
+                    <div class="option" data-value="Has">Has</div>
+                    <div class="option" data-value="Can">Can</div>
+                </div>
+                <div class="hint">Hint: Present Simple question - 3rd person</div>
+                <div class="feedback" id="feedback-5"></div>
+            </div>
+
+            <div class="question" data-question="6">
+                <div class="question-number">Question 6</div>
+                <div class="sentence">
+                    The children <span class="blank" id="blank-6">_______</span> a movie at the cinema now.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="watch">watch</div>
+                    <div class="option" data-value="watches">watches</div>
+                    <div class="option" data-value="is watching">is watching</div>
+                    <div class="option" data-value="are watching" data-correct="true">are watching</div>
+                    <div class="option" data-value="watching">watching</div>
+                    <div class="option" data-value="do watch">do watch</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - now</div>
+                <div class="feedback" id="feedback-6"></div>
+            </div>
+
+            <div class="question" data-question="7">
+                <div class="question-number">Question 7</div>
+                <div class="sentence">
+                    My grandmother <span class="blank" id="blank-7">_______</span> delicious cookies.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="make">make</div>
+                    <div class="option" data-value="makes" data-correct="true">makes</div>
+                    <div class="option" data-value="is making">is making</div>
+                    <div class="option" data-value="are making">are making</div>
+                    <div class="option" data-value="making">making</div>
+                    <div class="option" data-value="do makes">do makes</div>
+                </div>
+                <div class="hint">Hint: Present Simple - general ability</div>
+                <div class="feedback" id="feedback-7"></div>
+            </div>
+
+            <div class="question" data-question="8">
+                <div class="question-number">Question 8</div>
+                <div class="sentence">
+                    What <span class="blank" id="blank-8">_______</span> that terrible noise?
+                </div>
+                <div class="options">
+                    <div class="option" data-value="is making" data-correct="true">is making</div>
+                    <div class="option" data-value="are making">are making</div>
+                    <div class="option" data-value="makes">makes</div>
+                    <div class="option" data-value="make">make</div>
+                    <div class="option" data-value="making">making</div>
+                    <div class="option" data-value="does make">does make</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - happening now</div>
+                <div class="feedback" id="feedback-8"></div>
+            </div>
+
+            <div class="question" data-question="9">
+                <div class="question-number">Question 9</div>
+                <div class="sentence">
+                    Ice <span class="blank" id="blank-9">_______</span> at 0 degrees Celsius.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="melt">melt</div>
+                    <div class="option" data-value="melts" data-correct="true">melts</div>
+                    <div class="option" data-value="is melting">is melting</div>
+                    <div class="option" data-value="are melting">are melting</div>
+                    <div class="option" data-value="melting">melting</div>
+                    <div class="option" data-value="do melt">do melt</div>
+                </div>
+                <div class="hint">Hint: Present Simple - scientific fact</div>
+                <div class="feedback" id="feedback-9"></div>
+            </div>
+
+            <div class="question" data-question="10">
+                <div class="question-number">Question 10</div>
+                <div class="sentence">
+                    Why <span class="blank" id="blank-10">_______</span> you laughing?
+                </div>
+                <div class="options">
+                    <div class="option" data-value="is">is</div>
+                    <div class="option" data-value="are" data-correct="true">are</div>
+                    <div class="option" data-value="do">do</div>
+                    <div class="option" data-value="does">does</div>
+                    <div class="option" data-value="am">am</div>
+                    <div class="option" data-value="be">be</div>
+                </div>
+                <div class="hint">Hint: Present Continuous question</div>
+                <div class="feedback" id="feedback-10"></div>
+            </div>
+
+            <div class="question" data-question="11">
+                <div class="question-number">Question 11</div>
+                <div class="sentence">
+                    She often <span class="blank" id="blank-11">_______</span> to work by train.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="go">go</div>
+                    <div class="option" data-value="goes" data-correct="true">goes</div>
+                    <div class="option" data-value="is going">is going</div>
+                    <div class="option" data-value="are going">are going</div>
+                    <div class="option" data-value="going">going</div>
+                    <div class="option" data-value="does go">does go</div>
+                </div>
+                <div class="hint">Hint: Present Simple - often</div>
+                <div class="feedback" id="feedback-11"></div>
+            </div>
+
+            <div class="question" data-question="12">
+                <div class="question-number">Question 12</div>
+                <div class="sentence">
+                    Watch out! That dog <span class="blank" id="blank-12">_______</span> towards us!
+                </div>
+                <div class="options">
+                    <div class="option" data-value="runs">runs</div>
+                    <div class="option" data-value="run">run</div>
+                    <div class="option" data-value="is running" data-correct="true">is running</div>
+                    <div class="option" data-value="are running">are running</div>
+                    <div class="option" data-value="running">running</div>
+                    <div class="option" data-value="does run">does run</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - Watch out!</div>
+                <div class="feedback" id="feedback-12"></div>
+            </div>
+
+            <div class="question" data-question="13">
+                <div class="question-number">Question 13</div>
+                <div class="sentence">
+                    We <span class="blank" id="blank-13">_______</span> milk. We prefer juice.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="doesn't like">doesn't like</div>
+                    <div class="option" data-value="don't like" data-correct="true">don't like</div>
+                    <div class="option" data-value="isn't liking">isn't liking</div>
+                    <div class="option" data-value="aren't liking">aren't liking</div>
+                    <div class="option" data-value="not like">not like</div>
+                    <div class="option" data-value="no like">no like</div>
+                </div>
+                <div class="hint">Hint: Present Simple negative - preference</div>
+                <div class="feedback" id="feedback-13"></div>
+            </div>
+
+            <div class="question" data-question="14">
+                <div class="question-number">Question 14</div>
+                <div class="sentence">
+                    The workers <span class="blank" id="blank-14">_______</span> a new bridge this month.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="build">build</div>
+                    <div class="option" data-value="builds">builds</div>
+                    <div class="option" data-value="is building">is building</div>
+                    <div class="option" data-value="are building" data-correct="true">are building</div>
+                    <div class="option" data-value="building">building</div>
+                    <div class="option" data-value="do build">do build</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - this month (temporary)</div>
+                <div class="feedback" id="feedback-14"></div>
+            </div>
+
+            <div class="question" data-question="15">
+                <div class="question-number">Question 15</div>
+                <div class="sentence">
+                    <span class="blank" id="blank-15">_______</span> it often rain in your country?
+                </div>
+                <div class="options">
+                    <div class="option" data-value="Do">Do</div>
+                    <div class="option" data-value="Does" data-correct="true">Does</div>
+                    <div class="option" data-value="Is">Is</div>
+                    <div class="option" data-value="Are">Are</div>
+                    <div class="option" data-value="Has">Has</div>
+                    <div class="option" data-value="Will">Will</div>
+                </div>
+                <div class="hint">Hint: Present Simple question - weather pattern</div>
+                <div class="feedback" id="feedback-15"></div>
+            </div>
+
+            <div class="question" data-question="16">
+                <div class="question-number">Question 16</div>
+                <div class="sentence">
+                    My sister <span class="blank" id="blank-16">_______</span> her room right now.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="cleans">cleans</div>
+                    <div class="option" data-value="clean">clean</div>
+                    <div class="option" data-value="is cleaning" data-correct="true">is cleaning</div>
+                    <div class="option" data-value="are cleaning">are cleaning</div>
+                    <div class="option" data-value="cleaning">cleaning</div>
+                    <div class="option" data-value="does clean">does clean</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - right now</div>
+                <div class="feedback" id="feedback-16"></div>
+            </div>
+
+            <div class="question" data-question="17">
+                <div class="question-number">Question 17</div>
+                <div class="sentence">
+                    Plants <span class="blank" id="blank-17">_______</span> water and sunlight to grow.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="needs">needs</div>
+                    <div class="option" data-value="need" data-correct="true">need</div>
+                    <div class="option" data-value="is needing">is needing</div>
+                    <div class="option" data-value="are needing">are needing</div>
+                    <div class="option" data-value="needing">needing</div>
+                    <div class="option" data-value="does need">does need</div>
+                </div>
+                <div class="hint">Hint: Present Simple - general fact</div>
+                <div class="feedback" id="feedback-17"></div>
+            </div>
+
+            <div class="question" data-question="18">
+                <div class="question-number">Question 18</div>
+                <div class="sentence">
+                    Who <span class="blank" id="blank-18">_______</span> that beautiful song?
+                </div>
+                <div class="options">
+                    <div class="option" data-value="sing">sing</div>
+                    <div class="option" data-value="sings">sings</div>
+                    <div class="option" data-value="is singing" data-correct="true">is singing</div>
+                    <div class="option" data-value="are singing">are singing</div>
+                    <div class="option" data-value="singing">singing</div>
+                    <div class="option" data-value="does sing">does sing</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - hearing it now</div>
+                <div class="feedback" id="feedback-18"></div>
+            </div>
+
+            <div class="question" data-question="19">
+                <div class="question-number">Question 19</div>
+                <div class="sentence">
+                    I sometimes <span class="blank" id="blank-19">_______</span> late on weekends.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="wakes up">wakes up</div>
+                    <div class="option" data-value="wake up" data-correct="true">wake up</div>
+                    <div class="option" data-value="am waking up">am waking up</div>
+                    <div class="option" data-value="is waking up">is waking up</div>
+                    <div class="option" data-value="waking up">waking up</div>
+                    <div class="option" data-value="do wake up">do wake up</div>
+                </div>
+                <div class="hint">Hint: Present Simple - sometimes</div>
+                <div class="feedback" id="feedback-19"></div>
+            </div>
+
+            <div class="question" data-question="20">
+                <div class="question-number">Question 20</div>
+                <div class="sentence">
+                    They <span class="blank" id="blank-20">_______</span> to move to a new house next month.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="plan">plan</div>
+                    <div class="option" data-value="plans">plans</div>
+                    <div class="option" data-value="is planning">is planning</div>
+                    <div class="option" data-value="are planning" data-correct="true">are planning</div>
+                    <div class="option" data-value="planning">planning</div>
+                    <div class="option" data-value="do plan">do plan</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - future arrangement</div>
+                <div class="feedback" id="feedback-20"></div>
+            </div>
+
+            <div class="question" data-question="21">
+                <div class="question-number">Question 21</div>
+                <div class="sentence">
+                    The train always <span class="blank" id="blank-21">_______</span> on time.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="arrive">arrive</div>
+                    <div class="option" data-value="arrives" data-correct="true">arrives</div>
+                    <div class="option" data-value="is arriving">is arriving</div>
+                    <div class="option" data-value="are arriving">are arriving</div>
+                    <div class="option" data-value="arriving">arriving</div>
+                    <div class="option" data-value="do arrives">do arrives</div>
+                </div>
+                <div class="hint">Hint: Present Simple - always</div>
+                <div class="feedback" id="feedback-21"></div>
+            </div>
+
+            <div class="question" data-question="22">
+                <div class="question-number">Question 22</div>
+                <div class="sentence">
+                    Listen carefully! The principal <span class="blank" id="blank-22">_______</span> an important announcement.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="makes">makes</div>
+                    <div class="option" data-value="make">make</div>
+                    <div class="option" data-value="is making" data-correct="true">is making</div>
+                    <div class="option" data-value="are making">are making</div>
+                    <div class="option" data-value="making">making</div>
+                    <div class="option" data-value="does make">does make</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - Listen carefully!</div>
+                <div class="feedback" id="feedback-22"></div>
+            </div>
+
+            <div class="question" data-question="23">
+                <div class="question-number">Question 23</div>
+                <div class="sentence">
+                    My teacher <span class="blank" id="blank-23">_______</span> three languages fluently.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="speak">speak</div>
+                    <div class="option" data-value="speaks" data-correct="true">speaks</div>
+                    <div class="option" data-value="is speaking">is speaking</div>
+                    <div class="option" data-value="are speaking">are speaking</div>
+                    <div class="option" data-value="speaking">speaking</div>
+                    <div class="option" data-value="do speaks">do speaks</div>
+                </div>
+                <div class="hint">Hint: Present Simple - ability/skill</div>
+                <div class="feedback" id="feedback-23"></div>
+            </div>
+
+            <div class="question" data-question="24">
+                <div class="question-number">Question 24</div>
+                <div class="sentence">
+                    I <span class="blank" id="blank-24">_______</span> this exercise is too difficult.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="thinks">thinks</div>
+                    <div class="option" data-value="think" data-correct="true">think</div>
+                    <div class="option" data-value="am thinking">am thinking</div>
+                    <div class="option" data-value="is thinking">is thinking</div>
+                    <div class="option" data-value="thinking">thinking</div>
+                    <div class="option" data-value="do think">do think</div>
+                </div>
+                <div class="hint">Hint: Present Simple - opinion/state verb</div>
+                <div class="feedback" id="feedback-24"></div>
+            </div>
+
+            <div class="question" data-question="25">
+                <div class="question-number">Question 25</div>
+                <div class="sentence">
+                    <span class="blank" id="blank-25">_______</span> the students studying for the exam?
+                </div>
+                <div class="options">
+                    <div class="option" data-value="Is">Is</div>
+                    <div class="option" data-value="Are" data-correct="true">Are</div>
+                    <div class="option" data-value="Do">Do</div>
+                    <div class="option" data-value="Does">Does</div>
+                    <div class="option" data-value="Am">Am</div>
+                    <div class="option" data-value="Have">Have</div>
+                </div>
+                <div class="hint">Hint: Present Continuous question - plural</div>
+                <div class="feedback" id="feedback-25"></div>
+            </div>
+
+            <div class="question" data-question="26">
+                <div class="question-number">Question 26</div>
+                <div class="sentence">
+                    The moon <span class="blank" id="blank-26">_______</span> around the Earth.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="orbit">orbit</div>
+                    <div class="option" data-value="orbits" data-correct="true">orbits</div>
+                    <div class="option" data-value="is orbiting">is orbiting</div>
+                    <div class="option" data-value="are orbiting">are orbiting</div>
+                    <div class="option" data-value="orbiting">orbiting</div>
+                    <div class="option" data-value="does orbit">does orbit</div>
+                </div>
+                <div class="hint">Hint: Present Simple - scientific fact</div>
+                <div class="feedback" id="feedback-26"></div>
+            </div>
+
+            <div class="question" data-question="27">
+                <div class="question-number">Question 27</div>
+                <div class="sentence">
+                    My neighbors <span class="blank" id="blank-27">_______</span> a party tonight. It's so loud!
+                </div>
+                <div class="options">
+                    <div class="option" data-value="have">have</div>
+                    <div class="option" data-value="has">has</div>
+                    <div class="option" data-value="having">having</div>
+                    <div class="option" data-value="are having" data-correct="true">are having</div>
+                    <div class="option" data-value="is having">is having</div>
+                    <div class="option" data-value="do have">do have</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - happening now (It's so loud!)</div>
+                <div class="feedback" id="feedback-27"></div>
+            </div>
+
+            <div class="question" data-question="28">
+                <div class="question-number">Question 28</div>
+                <div class="sentence">
+                    <span class="blank" id="blank-28">_______</span> you want some coffee?
+                </div>
+                <div class="options">
+                    <div class="option" data-value="Do" data-correct="true">Do</div>
+                    <div class="option" data-value="Does">Does</div>
+                    <div class="option" data-value="Is">Is</div>
+                    <div class="option" data-value="Are">Are</div>
+                    <div class="option" data-value="Have">Have</div>
+                    <div class="option" data-value="Will">Will</div>
+                </div>
+                <div class="hint">Hint: Present Simple question - want (state verb)</div>
+                <div class="feedback" id="feedback-28"></div>
+            </div>
+
+            <div class="question" data-question="29">
+                <div class="question-number">Question 29</div>
+                <div class="sentence">
+                    He rarely <span class="blank" id="blank-29">_______</span> TV in the morning.
+                </div>
+                <div class="options">
+                    <div class="option" data-value="watch">watch</div>
+                    <div class="option" data-value="watches" data-correct="true">watches</div>
+                    <div class="option" data-value="is watching">is watching</div>
+                    <div class="option" data-value="are watching">are watching</div>
+                    <div class="option" data-value="watching">watching</div>
+                    <div class="option" data-value="does watch">does watch</div>
+                </div>
+                <div class="hint">Hint: Present Simple - rarely</div>
+                <div class="feedback" id="feedback-29"></div>
+            </div>
+
+            <div class="question" data-question="30">
+                <div class="question-number">Question 30</div>
+                <div class="sentence">
+                    Quick! The children <span class="blank" id="blank-30">_______</span> in the pool without supervision!
+                </div>
+                <div class="options">
+                    <div class="option" data-value="swim">swim</div>
+                    <div class="option" data-value="swims">swims</div>
+                    <div class="option" data-value="is swimming">is swimming</div>
+                    <div class="option" data-value="are swimming" data-correct="true">are swimming</div>
+                    <div class="option" data-value="swimming">swimming</div>
+                    <div class="option" data-value="do swim">do swim</div>
+                </div>
+                <div class="hint">Hint: Present Continuous - Quick! (urgent situation)</div>
+                <div class="feedback" id="feedback-30"></div>
+            </div>
+        </form>
+
+        <div class="buttons">
+            <button type="button" id="check-btn" onclick="checkAnswers()">Show All Answers</button>
+            <button type="button" id="reset-btn" onclick="resetQuiz()">Try Again</button>
+        </div>
+
+        <div class="results" id="results">
+            <h2>🎉 Quiz Complete!</h2>
+            <div class="results-score" id="final-score"></div>
+            <div class="results-message" id="results-message"></div>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let totalAnswered = 0;
+        let answeredQuestions = {};
+
+        // Explanations for each question
+        const explanations = {
+            1: "We use 'play' (Present Simple) because 'every Saturday' indicates a regular routine. 'Friends' is plural, so no -s is added.",
+            2: "We use 'is coming' (Present Continuous) because 'Hurry up!' indicates urgency about something happening right now.",
+            3: "We use 'doesn't open' (Present Simple negative) for regular schedules. 'Museum' is singular (it), so we use doesn't.",
+            4: "We use 'am doing' (Present Continuous) because 'can't talk now' shows an action in progress at this moment.",
+            5: "We use 'Does' for Present Simple questions with third person singular (your brother). 'Know' is a state verb.",
+            6: "We use 'are watching' (Present Continuous) because 'now' indicates the action is happening at this moment. 'Children' is plural.",
+            7: "We use 'makes' (Present Simple) to describe a general ability or skill. 'Grandmother' (she) takes -s.",
+            8: "We use 'is making' (Present Continuous) to ask about something happening right now that we can hear.",
+            9: "We use 'melts' (Present Simple) for scientific facts. 'Ice' is uncountable/singular, so we add -s.",
+            10: "We use 'are' for Present Continuous questions with 'you'. The -ing form (laughing) shows it's happening now.",
+            11: "We use 'goes' (Present Simple) with 'often' for regular habits. 'She' is third person singular, so add -s.",
+            12: "We use 'is running' (Present Continuous) because 'Watch out!' warns about immediate danger happening now.",
+            13: "We use 'don't like' (Present Simple negative) for preferences. 'We' takes 'don't' not 'doesn't'.",
+            14: "We use 'are building' (Present Continuous) for temporary projects. 'This month' shows it's ongoing but temporary.",
+            15: "We use 'Does' for Present Simple questions about weather patterns. 'It' is third person singular.",
+            16: "We use 'is cleaning' (Present Continuous) because 'right now' clearly indicates present moment action.",
+            17: "We use 'need' (Present Simple) for general facts about nature. 'Plants' is plural, so no -s.",
+            18: "We use 'is singing' (Present Continuous) when asking about something we hear happening now.",
+            19: "We use 'wake up' (Present Simple) with 'sometimes' for occasional habits. 'I' takes the base form.",
+            20: "We use 'are planning' (Present Continuous) for definite future arrangements. 'Next month' with planning = arranged future.",
+            21: "We use 'arrives' (Present Simple) with 'always' for regular schedules. 'Train' (it) takes -s.",
+            22: "We use 'is making' (Present Continuous) because 'Listen carefully!' indicates something happening right now.",
+            23: "We use 'speaks' (Present Simple) for permanent abilities. 'Teacher' (he/she) takes -s.",
+            24: "We use 'think' (Present Simple) for opinions and mental states. 'Think' as opinion doesn't use continuous.",
+            25: "We use 'Are' for Present Continuous questions with plural subject (students).",
+            26: "We use 'orbits' (Present Simple) for scientific facts about space. 'Moon' (it) takes -s.",
+            27: "We use 'are having' (Present Continuous) for events happening now. 'It's so loud!' confirms it's in progress.",
+            28: "We use 'Do' for Present Simple questions with 'you'. 'Want' is a state verb typically in Simple tense.",
+            29: "We use 'watches' (Present Simple) with 'rarely' for infrequent habits. 'He' takes -es after 'watch'.",
+            30: "We use 'are swimming' (Present Continuous) because 'Quick!' indicates urgent action happening right now."
+        };
+
+        // Initialize option click handlers
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.option');
+
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    const question = this.closest('.question');
+                    const questionNum = question.dataset.question;
+
+                    // Check if this question was already answered
+                    if (answeredQuestions[questionNum]) return;
+
+                    const blank = document.getElementById(`blank-${questionNum}`);
+                    const feedback = document.getElementById(`feedback-${questionNum}`);
+                    const isCorrect = this.dataset.correct === 'true';
+
+                    // Mark this question as answered
+                    answeredQuestions[questionNum] = true;
+                    totalAnswered++;
+
+                    // Disable all options for this question
+                    question.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.add('disabled');
+                    });
+
+                    // Mark the selected option
+                    this.classList.add('selected');
+
+                    // Update the blank with selected answer
+                    blank.textContent = this.dataset.value;
+
+                    if (isCorrect) {
+                        // Correct answer
+                        this.classList.add('correct');
+                        blank.style.color = '#28a745';
+                        feedback.innerHTML = '✓ Correct! Well done!';
+                        feedback.className = 'feedback correct';
+                        feedback.style.display = 'block';
+                        score++;
+                    } else {
+                        // Incorrect answer
+                        this.classList.add('incorrect');
+
+                        // Find and highlight the correct answer
+                        const correctOption = question.querySelector('.option[data-correct="true"]');
+                        correctOption.classList.add('correct');
+
+                        // Show correct answer in blank
+                        blank.textContent = correctOption.dataset.value;
+                        blank.style.color = '#dc3545';
+
+                        // Show feedback with explanation
+                        let feedbackHTML = `✗ Incorrect. The correct answer is: "<strong>${correctOption.dataset.value}</strong>"`;
+                        feedbackHTML += `<div class="explanation">📚 <strong>Explanation:</strong> ${explanations[questionNum]}</div>`;
+
+                        feedback.innerHTML = feedbackHTML;
+                        feedback.className = 'feedback incorrect';
+                        feedback.style.display = 'block';
+                    }
+
+                    // Update score display
+                    document.getElementById('current-score').textContent = score;
+
+                    // Check if all questions are answered
+                    if (totalAnswered === 30) {
+                        document.getElementById('check-btn').style.display = 'none';
+                        showResults();
+                    }
+                });
+            });
+        });
+
+        function checkAnswers() {
+            // This function shows all unanswered questions
+            if (totalAnswered === 0) {
+                alert('Please answer at least one question before checking results.');
+                return;
+            }
+
+            // Mark all unanswered questions as incorrect
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(question => {
+                const questionNum = question.dataset.question;
+
+                if (!answeredQuestions[questionNum]) {
+                    answeredQuestions[questionNum] = true;
+
+                    const options = question.querySelectorAll('.option');
+                    const feedback = document.getElementById(`feedback-${questionNum}`);
+                    const blank = document.getElementById(`blank-${questionNum}`);
+
+                    // Disable all options
+                    options.forEach(option => {
+                        option.classList.add('disabled');
+                        if (option.dataset.correct === 'true') {
+                            option.classList.add('correct');
+                        }
+                    });
+
+                    // Find correct answer
+                    const correctOption = question.querySelector('.option[data-correct="true"]');
+
+                    // Update blank with correct answer
+                    blank.textContent = correctOption.dataset.value;
+                    blank.style.color = '#dc3545';
+
+                    // Show feedback
+                    let feedbackHTML = `✗ Not answered. The correct answer is: "<strong>${correctOption.dataset.value}</strong>"`;
+                    feedbackHTML += `<div class="explanation">📚 <strong>Explanation:</strong> ${explanations[questionNum]}</div>`;
+
+                    feedback.innerHTML = feedbackHTML;
+                    feedback.className = 'feedback incorrect';
+                    feedback.style.display = 'block';
+                }
+            });
+
+            document.getElementById('check-btn').style.display = 'none';
+            showResults();
+        }
+
+        function showResults() {
+            const results = document.getElementById('results');
+            const finalScore = document.getElementById('final-score');
+            const message = document.getElementById('results-message');
+
+            finalScore.textContent = `${score}/30`;
+
+            let messageText = '';
+            const percentage = (score / 30) * 100;
+
+            if (percentage === 100) {
+                messageText = '🌟 Perfect! You are amazing at English!';
+            } else if (percentage >= 80) {
+                messageText = '🎊 Excellent work! You really understand these tenses!';
+            } else if (percentage >= 60) {
+                messageText = '👍 Good job! Keep practicing to improve even more!';
+            } else if (percentage >= 40) {
+                messageText = '💪 Nice try! Review the rules and try again!';
+            } else {
+                messageText = '📚 Keep studying! You can do better next time!';
+            }
+
+            message.textContent = messageText;
+            results.style.display = 'block';
+        }
+
+        function resetQuiz() {
+            score = 0;
+            totalAnswered = 0;
+            answeredQuestions = {};
+
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect', 'disabled');
+            });
+
+            const blanks = document.querySelectorAll('.blank');
+            blanks.forEach(blank => {
+                blank.textContent = '_______';
+                blank.style.color = '#764ba2';
+            });
+
+            const feedbacks = document.querySelectorAll('.feedback');
+            feedbacks.forEach(feedback => {
+                feedback.style.display = 'none';
+            });
+
+            document.getElementById('current-score').textContent = '0';
+            document.getElementById('check-btn').style.display = 'inline-block';
+            document.getElementById('results').style.display = 'none';
+
+            window.scrollTo(0, 0);
+        }
+
+        document.getElementById('quiz-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            checkAnswers();
+        });
+    </script>
+</body>
+</html>
