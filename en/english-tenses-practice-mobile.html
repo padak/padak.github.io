@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>English Tenses – Mobile Practice</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        --bg: #f3f4f6;
+        --surface: #ffffff;
+        --surface-soft: #eef2ff;
+        --surface-strong: #e0e7ff;
+        --ink: #111827;
+        --ink-soft: #4b5563;
+        --accent: #6366f1;
+        --accent-dark: #4f46e5;
+        --positive: #16a34a;
+        --positive-bg: #dcfce7;
+        --negative: #dc2626;
+        --negative-bg: #fee2e2;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 1.5rem 1rem 3rem;
+      }
+
+      header {
+        text-align: center;
+        padding-bottom: 1.5rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.9rem, 5vw, 2.5rem);
+      }
+
+      header p {
+        margin: 0 auto;
+        max-width: 48ch;
+        color: var(--ink-soft);
+        font-size: 1rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border-radius: 18px;
+        padding: 1.25rem 1.5rem;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.15);
+      }
+
+      form.controls {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .controls__row {
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      label {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      #sentenceCount {
+        width: 100%;
+        font: inherit;
+        border-radius: 0.7rem;
+        border: 1px solid #cbd5f5;
+        padding: 0.55rem 0.75rem;
+        background: #fff;
+      }
+
+      .controls button {
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 0.65rem 1.75rem;
+        border: 1px solid transparent;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .controls button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(79, 70, 229, 0.25);
+      }
+
+      .controls button.secondary {
+        background: #e0e7ff;
+        color: var(--ink);
+        border-color: #cbd5f5;
+      }
+
+      .controls__hint {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      .messages {
+        min-height: 1.35rem;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+      }
+
+      .messages--error {
+        color: var(--negative);
+      }
+
+      details.legend {
+        margin-bottom: 1.5rem;
+      }
+
+      details.legend summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      details.legend summary::before {
+        content: "+";
+        display: inline-flex;
+        width: 1.5rem;
+        height: 1.5rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+      }
+
+      details.legend[open] summary::before {
+        content: "−";
+      }
+
+      .tense-guide {
+        margin-top: 1rem;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .tense-section {
+        background: var(--surface-soft);
+        border-radius: 14px;
+        padding: 0.85rem 1rem;
+        border: 1px solid var(--surface-strong);
+      }
+
+      .tense-section h3 {
+        margin: 0 0 0.5rem;
+        color: var(--accent);
+        font-size: 1.05rem;
+      }
+
+      .tense-section .usage {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .tense-section .keywords {
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      .tense-section .examples {
+        margin-top: 0.6rem;
+        padding-top: 0.6rem;
+        border-top: 1px solid var(--surface-strong);
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+
+      #sentences {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .sentence {
+        border-radius: 18px;
+        padding: 1.2rem 1.25rem 1.4rem;
+        background: var(--surface);
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+        border: 1px solid rgba(99, 102, 241, 0.12);
+      }
+
+      .sentence h2 {
+        margin: 0 0 0.85rem;
+        font-size: 1.05rem;
+      }
+
+      .sentence__text {
+        margin: 0 0 1rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .sentence__blank {
+        display: inline-block;
+        min-width: 100px;
+        padding: 0.1rem 0.4rem;
+        margin: 0 0.15rem;
+        border-bottom: 2px solid var(--accent);
+        color: var(--accent);
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .sentence__options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .option-button {
+        padding: 0.55rem 0.85rem;
+        background: white;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font: inherit;
+        font-size: 0.95rem;
+        text-align: center;
+      }
+
+      .option-button:active {
+        transform: scale(0.98);
+      }
+
+      .option-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      .option-button.correct {
+        border-color: var(--positive);
+        background: var(--positive-bg);
+        color: var(--positive);
+        font-weight: bold;
+      }
+
+      .option-button.incorrect {
+        border-color: var(--negative);
+        background: var(--negative-bg);
+        color: var(--negative);
+      }
+
+      .sentence__hint {
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 0.85rem;
+      }
+
+      .sentence__feedback {
+        padding: 0.75rem;
+        border-radius: 12px;
+        display: none;
+        font-size: 0.93rem;
+      }
+
+      .sentence__feedback.correct {
+        background-color: var(--positive-bg);
+        color: var(--positive);
+        border: 1px solid var(--positive);
+      }
+
+      .sentence__feedback.incorrect {
+        background-color: var(--negative-bg);
+        color: var(--negative);
+        border: 1px solid var(--negative);
+      }
+
+      .score-display {
+        text-align: center;
+        padding: 1.25rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: white;
+        border-radius: 18px;
+        margin-top: 1.5rem;
+        font-size: 1.15rem;
+        font-weight: bold;
+      }
+
+      @media (min-width: 540px) {
+        .controls__row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .controls__row button {
+          width: 100%;
+        }
+
+        .sentence__options {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+      }
+
+      @media (min-width: 680px) {
+        form.controls {
+          grid-template-columns: 1fr;
+        }
+
+        .controls__row {
+          grid-template-columns: 170px 1fr 1fr;
+          align-items: center;
+        }
+
+        #sentenceCount {
+          width: 100%;
+        }
+
+        .controls__row button {
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>English Tenses – Mobile Version</h1>
+        <p>
+          Choose the number of sentences, fill in the correct verb form, and get
+          instant feedback. Tense guide available below.
+        </p>
+      </header>
+
+      <form id="controls" class="controls card">
+        <label for="sentenceCount">Number of sentences</label>
+        <div class="controls__row">
+          <input
+            id="sentenceCount"
+            name="sentenceCount"
+            type="number"
+            min="5"
+            max="100"
+            value="10"
+            step="1"
+          />
+          <button type="submit">New Test</button>
+          <button type="button" id="resetAnswers" class="secondary">
+            Clear Answers
+          </button>
+        </div>
+        <p class="controls__hint">
+          Enter a number from 5 to 100 to create a random mix of sentences for
+          practice.
+        </p>
+      </form>
+
+      <details class="legend card" open>
+        <summary>Tense Guide</summary>
+        <div class="tense-guide">
+          <div class="tense-section">
+            <h3>Present Simple</h3>
+            <div class="usage">
+              <strong>Used for:</strong> habits, facts, schedules
+            </div>
+            <div class="keywords">
+              <strong>Keywords:</strong> always, usually, often, sometimes, never,
+              every day/week
+            </div>
+            <div class="examples">
+              <div>✓ I play tennis.</div>
+              <div>✓ She works here.</div>
+              <div>✓ They don't like coffee.</div>
+            </div>
+          </div>
+
+          <div class="tense-section">
+            <h3>Present Continuous</h3>
+            <div class="usage">
+              <strong>Used for:</strong> actions now, temporary situations
+            </div>
+            <div class="keywords">
+              <strong>Keywords:</strong> now, right now, at the moment, Look!,
+              Listen!, this week
+            </div>
+            <div class="examples">
+              <div>✓ I am reading.</div>
+              <div>✓ She is working today.</div>
+              <div>✓ They aren't sleeping.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <section id="sentences" aria-live="polite"></section>
+      <div id="messages" class="messages" role="status"></div>
+      <div id="scoreDisplay" class="score-display" style="display: none;"></div>
+    </main>
+
+    <script>
+      const datasetUrl = "english_tenses_test.json";
+      let allSentences = [];
+      let currentScore = 0;
+      let totalQuestions = 0;
+      let answeredQuestions = new Set();
+
+      const sentencesContainer = document.getElementById("sentences");
+      const messages = document.getElementById("messages");
+      const controlsForm = document.getElementById("controls");
+      const sentenceCountInput = document.getElementById("sentenceCount");
+      const resetButton = document.getElementById("resetAnswers");
+      const scoreDisplay = document.getElementById("scoreDisplay");
+
+      const setMessage = (text, type = "info") => {
+        if (!messages) {
+          return;
+        }
+        messages.textContent = text;
+        messages.className = `messages${type === "error" ? " messages--error" : ""}`;
+      };
+
+      const clearMessage = () => setMessage("");
+
+      const shuffleAndPick = (items, count) => {
+        const copy = [...items];
+        for (let i = copy.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy.slice(0, count);
+      };
+
+      const updateScore = () => {
+        if (answeredQuestions.size === totalQuestions && totalQuestions > 0) {
+          const percentage = Math.round(currentScore / totalQuestions * 100);
+          let message = `Score: ${currentScore} / ${totalQuestions} (${percentage}%)`;
+
+          if (percentage === 100) {
+            message += " 🌟 Perfect!";
+          } else if (percentage >= 80) {
+            message += " 🎊 Excellent!";
+          } else if (percentage >= 60) {
+            message += " 👍 Good job!";
+          } else if (percentage >= 40) {
+            message += " 💪 Keep practicing!";
+          } else {
+            message += " 📚 Review the rules!";
+          }
+
+          scoreDisplay.textContent = message;
+          scoreDisplay.style.display = "block";
+        }
+      };
+
+      const createSentenceElement = (sentenceData, index) => {
+        const block = document.createElement("article");
+        block.className = "sentence";
+        block.dataset.id = sentenceData.id;
+
+        // Sentence number
+        const heading = document.createElement("h2");
+        heading.textContent = `Sentence ${index + 1}`;
+        block.appendChild(heading);
+
+        // Sentence text with blank
+        const sentenceText = document.createElement("p");
+        sentenceText.className = "sentence__text";
+
+        const parts = sentenceData.sentence.split("_______");
+        sentenceText.innerHTML = parts[0] +
+          `<span class="sentence__blank" id="blank-${sentenceData.id}">_______</span>` +
+          parts[1];
+        block.appendChild(sentenceText);
+
+        // Hint
+        const hint = document.createElement("p");
+        hint.className = "sentence__hint";
+        hint.textContent = `💡 Hint: ${sentenceData.hint}`;
+        block.appendChild(hint);
+
+        // Options
+        const optionsDiv = document.createElement("div");
+        optionsDiv.className = "sentence__options";
+
+        // Shuffle options for mobile
+        const shuffledOptions = [...sentenceData.options].sort(() => Math.random() - 0.5);
+
+        shuffledOptions.forEach(option => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "option-button";
+          button.textContent = option;
+          button.dataset.value = option;
+          button.dataset.sentenceId = sentenceData.id;
+
+          button.addEventListener("click", function() {
+            handleAnswer(this, sentenceData);
+          });
+
+          optionsDiv.appendChild(button);
+        });
+
+        block.appendChild(optionsDiv);
+
+        // Feedback area
+        const feedback = document.createElement("div");
+        feedback.className = "sentence__feedback";
+        feedback.id = `feedback-${sentenceData.id}`;
+        block.appendChild(feedback);
+
+        return block;
+      };
+
+      const handleAnswer = (button, sentenceData) => {
+        // Check if already answered
+        if (answeredQuestions.has(sentenceData.id)) return;
+
+        const selectedAnswer = button.dataset.value;
+        const isCorrect = selectedAnswer === sentenceData.correct;
+        const blank = document.getElementById(`blank-${sentenceData.id}`);
+        const feedback = document.getElementById(`feedback-${sentenceData.id}`);
+
+        // Mark as answered
+        answeredQuestions.add(sentenceData.id);
+
+        // Update blank
+        blank.textContent = selectedAnswer;
+        blank.style.color = isCorrect ? "var(--positive)" : "var(--negative)";
+
+        // Disable all buttons for this question
+        const allButtons = button.parentElement.querySelectorAll(".option-button");
+        allButtons.forEach(btn => {
+          btn.disabled = true;
+          if (btn.dataset.value === sentenceData.correct) {
+            btn.classList.add("correct");
+          }
+          if (btn === button && !isCorrect) {
+            btn.classList.add("incorrect");
+          }
+        });
+
+        // Show feedback
+        if (isCorrect) {
+          currentScore++;
+          feedback.innerHTML = "✅ Correct!";
+          feedback.className = "sentence__feedback correct";
+        } else {
+          const tenseName = sentenceData.tense === 'present_simple' ? 'Present Simple' : 'Present Continuous';
+          feedback.innerHTML = `❌ Correct answer: <strong>${sentenceData.correct}</strong><br>
+            This is ${tenseName} (${sentenceData.hint})`;
+          feedback.className = "sentence__feedback incorrect";
+        }
+        feedback.style.display = "block";
+
+        updateScore();
+      };
+
+      const renderSentences = (picked) => {
+        sentencesContainer.innerHTML = "";
+        currentScore = 0;
+        totalQuestions = picked.length;
+        answeredQuestions.clear();
+        scoreDisplay.style.display = "none";
+
+        picked.forEach((sentence, index) => {
+          const element = createSentenceElement(sentence, index);
+          sentencesContainer.appendChild(element);
+        });
+      };
+
+      const resetSelections = () => {
+        currentScore = 0;
+        answeredQuestions.clear();
+        scoreDisplay.style.display = "none";
+
+        // Reset all blanks
+        document.querySelectorAll(".sentence__blank").forEach(blank => {
+          blank.textContent = "_______";
+          blank.style.color = "var(--accent)";
+        });
+
+        // Enable and reset all option buttons
+        document.querySelectorAll(".option-button").forEach(button => {
+          button.disabled = false;
+          button.classList.remove("correct", "incorrect");
+        });
+
+        // Hide all feedback
+        document.querySelectorAll(".sentence__feedback").forEach(feedback => {
+          feedback.style.display = "none";
+        });
+      };
+
+      const generateTest = () => {
+        if (!allSentences.length) {
+          return;
+        }
+
+        const parsedValue = parseInt(sentenceCountInput.value, 10);
+        const maxAllowed = Math.min(100, allSentences.length);
+        const validValue = Number.isFinite(parsedValue)
+          ? Math.min(Math.max(parsedValue, 5), maxAllowed)
+          : Math.min(10, maxAllowed);
+
+        sentenceCountInput.value = validValue;
+        const picked = shuffleAndPick(allSentences, validValue);
+        renderSentences(picked);
+        clearMessage();
+      };
+
+      const disableControls = () => {
+        sentenceCountInput.disabled = true;
+        controlsForm.querySelectorAll("button").forEach((button) => {
+          button.disabled = true;
+        });
+      };
+
+      const loadData = async () => {
+        try {
+          setMessage("Loading sentences...");
+          const response = await fetch(datasetUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          const payload = await response.json();
+          const data = Array.isArray(payload.sentences) ? payload.sentences : [];
+
+          if (!data.length) {
+            throw new Error("No sentences found in the file.");
+          }
+
+          allSentences = data;
+          clearMessage();
+          generateTest();
+        } catch (error) {
+          console.error(error);
+          setMessage(
+            "Failed to load the exercise file. Please open the page through a simple server (e.g., `python3 -m http.server`).",
+            "error"
+          );
+          disableControls();
+        }
+      };
+
+      controlsForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        generateTest();
+      });
+
+      resetButton.addEventListener("click", () => {
+        resetSelections();
+      });
+
+      loadData();
+    </script>
+  </body>
+</html>
