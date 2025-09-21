@@ -81,30 +81,6 @@
         {"correct": "odbývat", "incorrect": "odbívat", "hint": "Zbavovat se"}
       ]
     },
-    "F": {
-      "base": ["vyžle", "žvýkat"],
-      "examples": [
-        {"correct": "vyžle", "incorrect": "vižle", "hint": "Vyjmenované slovo - psí plemeno"},
-        {"correct": "vyžlata", "incorrect": "vižlata", "hint": "Mláďata vyžlete"},
-        {"correct": "vyžlí", "incorrect": "vižlí", "hint": "Týkající se vyžlete"},
-        {"correct": "vyžlík", "incorrect": "vižlík", "hint": "Samec vyžlete"},
-        {"correct": "žvýkat", "incorrect": "žvíkat", "hint": "Vyjmenované slovo - kousat a mlít v ústech"},
-        {"correct": "žvýká", "incorrect": "žvíká", "hint": "On žvýká"},
-        {"correct": "žvýkají", "incorrect": "žvíkají", "hint": "Oni žvýkají"},
-        {"correct": "žvýkal", "incorrect": "žvíkal", "hint": "Minulý čas od žvýkat"},
-        {"correct": "žvýkačka", "incorrect": "žvíkačka", "hint": "Věc na žvýkání"},
-        {"correct": "žvýkací", "incorrect": "žvíkací", "hint": "Určený ke žvýkání"},
-        {"correct": "přežvýkat", "incorrect": "přežvíkat", "hint": "Žvýkat znovu"},
-        {"correct": "přežvykovat", "incorrect": "přežvikovat", "hint": "Opakovaně přežvýkat"},
-        {"correct": "přežvýkávat", "incorrect": "přežvíkávat", "hint": "Opakovaně žvýkat"},
-        {"correct": "přežvýkavec", "incorrect": "přežvíkavec", "hint": "Zvíře které přežvykuje"},
-        {"correct": "přežvýkavci", "incorrect": "přežvíkavci", "hint": "Skupina zvířat"},
-        {"correct": "rozžvýkat", "incorrect": "rozžvíkat", "hint": "Žvýkáním rozdělit"},
-        {"correct": "rozžvýkal", "incorrect": "rozžvíkal", "hint": "Žvýkáním rozdělil"},
-        {"correct": "sežvýkat", "incorrect": "sežvíkat", "hint": "Žvýkáním spotřebovat"},
-        {"correct": "vyžvýkat", "incorrect": "vyžvíkat", "hint": "Žvýkáním vyprázdnit"}
-      ]
-    },
     "L": {
       "base": ["slyšet", "mlýn", "blýskat", "polykat", "plynout", "plýtvat", "lysý", "lýtko", "lýko", "lyže", "pelyněk", "plyš"],
       "examples": [
@@ -508,7 +484,7 @@
         "instructions": "Podle významu věty vyberte správnou variantu."
       }
     ],
-    "letterGroups": ["B", "F", "L", "M", "P", "S", "V", "Z", "Všechna"],
+    "letterGroups": ["B", "L", "M", "P", "S", "V", "Z", "Všechna"],
     "questionCounts": [10, 20, 30, 50, 100]
   }
 }
