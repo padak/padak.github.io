@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Procvičování vyjmenovaných slov</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+        --surface: #ffffff;
+        --surface-soft: #eef2ff;
+        --surface-strong: #e0e7ff;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #4f46e5;
+        --accent-dark: #4338ca;
+        --positive: #16a34a;
+        --positive-bg: #dcfce7;
+        --negative: #dc2626;
+        --negative-bg: #fee2e2;
+        --warning: #f59e0b;
+        --warning-bg: #fef3c7;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f6f7fb;
+        color: var(--ink);
+        touch-action: manipulation;
+      }
+
+      main {
+        padding: 1rem;
+        max-width: 100%;
+      }
+
+      header.intro {
+        text-align: center;
+        padding: 1.5rem 0 1rem;
+      }
+
+      header.intro h1 {
+        margin: 0 0 0.5rem;
+        font-size: 1.75rem;
+      }
+
+      header.intro p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      details.settings {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 0;
+        margin: 1rem 0;
+        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
+        border: 1px solid rgba(79, 70, 229, 0.12);
+      }
+
+      details.settings summary {
+        padding: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      details.settings summary::after {
+        content: '▼';
+        font-size: 0.8rem;
+        transition: transform 0.2s;
+      }
+
+      details.settings[open] summary::after {
+        transform: rotate(180deg);
+      }
+
+      details.settings summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .settings-content {
+        padding: 0 1rem 1rem;
+      }
+
+      .settings-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .settings-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .settings-section h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1rem;
+        color: var(--ink-soft);
+      }
+
+      .letter-groups {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+      }
+
+      .letter-btn {
+        background: var(--surface-soft);
+        border: 2px solid var(--surface-strong);
+        border-radius: 8px;
+        padding: 0.75rem 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-height: 48px;
+      }
+
+      .letter-btn:active {
+        transform: scale(0.95);
+      }
+
+      .letter-btn.active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent-dark);
+      }
+
+      .count-selector {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+      }
+
+      .count-btn {
+        background: var(--surface-soft);
+        border: 2px solid var(--surface-strong);
+        border-radius: 8px;
+        padding: 0.75rem 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-height: 48px;
+      }
+
+      .count-btn:active {
+        transform: scale(0.95);
+      }
+
+      .count-btn.active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent-dark);
+      }
+
+      .start-btn {
+        width: 100%;
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 1rem 0;
+        min-height: 56px;
+        transition: background 0.2s;
+      }
+
+      .start-btn:active {
+        background: var(--accent-dark);
+      }
+
+      .start-btn:disabled {
+        background: var(--ink-soft);
+        cursor: not-allowed;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        margin: 1rem 0;
+      }
+
+      .stat {
+        background: var(--surface);
+        border-radius: 8px;
+        padding: 0.75rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .practice-card {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 1.5rem 1rem;
+        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
+        border: 1px solid rgba(79, 70, 229, 0.12);
+        margin: 1rem 0;
+      }
+
+      .question-header {
+        margin-bottom: 1.5rem;
+      }
+
+      .question-number {
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+        font-weight: 600;
+        text-align: center;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+
+      .progress {
+        height: 10px;
+        background: var(--surface-soft);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .question-content {
+        margin: 1.5rem 0;
+        text-align: center;
+      }
+
+      .question-text {
+        font-size: 1.2rem;
+        color: var(--ink-soft);
+        margin-bottom: 1.5rem;
+      }
+
+      .word-options {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .word-btn {
+        background: var(--surface);
+        border: 3px solid var(--surface-strong);
+        border-radius: 12px;
+        padding: 1.25rem 1rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-height: 64px;
+      }
+
+      .word-btn:active:not(:disabled) {
+        transform: scale(0.98);
+      }
+
+      .word-btn:disabled {
+        cursor: not-allowed;
+      }
+
+      .word-btn.correct {
+        background: var(--positive-bg);
+        border-color: var(--positive);
+        color: var(--positive);
+      }
+
+      .word-btn.correct::after {
+        content: ' ✓';
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: block;
+        margin-top: 0.25rem;
+      }
+
+      .word-btn.incorrect {
+        background: var(--negative-bg);
+        border-color: var(--negative);
+        color: var(--negative);
+      }
+
+      .word-btn.incorrect::after {
+        content: ' ✗';
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: block;
+        margin-top: 0.25rem;
+      }
+
+      .word-btn.show-correct {
+        background: var(--positive-bg);
+        border-color: var(--positive);
+        color: var(--positive);
+      }
+
+      .word-btn.show-correct::after {
+        content: ' ✓';
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: block;
+        margin-top: 0.25rem;
+      }
+
+      .feedback-message {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        animation: slideIn 0.3s ease;
+      }
+
+      .feedback-correct {
+        background: var(--positive-bg);
+        color: var(--positive);
+        border: 2px solid var(--positive);
+      }
+
+      .feedback-incorrect {
+        background: var(--negative-bg);
+        color: var(--negative);
+        border: 2px solid var(--negative);
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hint {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background: var(--warning-bg);
+        border-radius: 8px;
+        color: var(--warning);
+        font-size: 0.95rem;
+        display: none;
+      }
+
+      .hint.show {
+        display: block;
+      }
+
+      .next-btn {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 1.5rem auto 0;
+        display: none;
+        transition: background 0.2s;
+        width: 100%;
+        min-height: 52px;
+      }
+
+      .next-btn.show {
+        display: block;
+      }
+
+      .next-btn:active {
+        background: var(--accent-dark);
+      }
+
+      .results {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
+        border: 1px solid rgba(79, 70, 229, 0.12);
+        text-align: center;
+        margin: 1rem 0;
+      }
+
+      .results h2 {
+        font-size: 1.75rem;
+        margin: 0 0 1rem;
+        color: var(--accent);
+      }
+
+      .score-display {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin: 1.5rem 0;
+      }
+
+      .score-excellent {
+        color: var(--positive);
+      }
+
+      .score-good {
+        color: var(--warning);
+      }
+
+      .score-poor {
+        color: var(--negative);
+      }
+
+      .results-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .result-stat {
+        background: var(--surface-soft);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+
+      .reset-btn {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 1.5rem;
+        width: 100%;
+        min-height: 52px;
+        transition: background 0.2s;
+      }
+
+      .reset-btn:active {
+        background: var(--accent-dark);
+      }
+
+      .setup-screen {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
+        border: 1px solid rgba(79, 70, 229, 0.12);
+        text-align: center;
+        margin: 1rem 0;
+      }
+
+      .setup-screen h2 {
+        font-size: 1.5rem;
+        margin: 0 0 0.5rem;
+        color: var(--accent);
+      }
+
+      .setup-screen p {
+        color: var(--ink-soft);
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--ink-soft);
+      }
+
+      .error {
+        background: var(--negative-bg);
+        color: var(--negative);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+        margin: 1rem 0;
+      }
+
+      .mode-selector {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+
+      .mode-btn {
+        background: var(--surface-soft);
+        border: 2px solid var(--surface-strong);
+        border-radius: 8px;
+        padding: 0.75rem 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-height: 48px;
+      }
+
+      .mode-btn:active {
+        transform: scale(0.95);
+      }
+
+      .mode-btn.active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent-dark);
+      }
+
+      .context-sentence {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: var(--surface-soft);
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .context-blank {
+        display: inline-block;
+        min-width: 80px;
+        padding: 0 0.3rem;
+        border-bottom: 3px solid var(--accent);
+        font-weight: 700;
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <h1>Vyjmenovaná slova</h1>
+        <p>Procvičuj správné psaní Y/Ý a I/Í</p>
+      </header>
+
+      <details class="settings" open>
+        <summary>⚙️ Nastavení testu</summary>
+        <div class="settings-content">
+          <div class="settings-section">
+            <h3>Vyberte písmena</h3>
+            <div class="letter-groups" id="letterGroups">
+              <button class="letter-btn" data-letter="B">B</button>
+              <button class="letter-btn" data-letter="F">F</button>
+              <button class="letter-btn" data-letter="L">L</button>
+              <button class="letter-btn" data-letter="M">M</button>
+              <button class="letter-btn" data-letter="P">P</button>
+              <button class="letter-btn" data-letter="S">S</button>
+              <button class="letter-btn" data-letter="V">V</button>
+              <button class="letter-btn" data-letter="Z">Z</button>
+              <button class="letter-btn active" data-letter="ALL">Vše</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3>Typ testu</h3>
+            <div class="mode-selector" id="modeSelector">
+              <button class="mode-btn active" data-mode="recognition">Rozpoznání</button>
+              <button class="mode-btn" data-mode="context">Ve větě</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3>Počet otázek</h3>
+            <div class="count-selector" id="countSelector">
+              <button class="count-btn active" data-count="10">10</button>
+              <button class="count-btn" data-count="20">20</button>
+              <button class="count-btn" data-count="30">30</button>
+              <button class="count-btn" data-count="50">50</button>
+              <button class="count-btn" data-count="100">100</button>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <button class="start-btn" id="startBtn">🚀 Začít test</button>
+
+      <div class="stats" id="stats" style="display: none;">
+        <div class="stat">
+          <div class="stat-label">Správně</div>
+          <div class="stat-value" id="correctCount">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Špatně</div>
+          <div class="stat-value" id="incorrectCount">0</div>
+        </div>
+      </div>
+
+      <section id="practiceSection">
+        <div class="setup-screen" id="setupScreen">
+          <h2>📚 Připrav se!</h2>
+          <p>Vyber písmena a počet otázek, pak klikni na "Začít test"</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let testData = null;
+      let currentQuestions = [];
+      let currentQuestionIndex = 0;
+      let correctAnswers = 0;
+      let incorrectAnswers = 0;
+      let selectedLetters = ['ALL'];
+      let questionCount = 10;
+      let testMode = 'recognition';
+
+      async function loadTestData() {
+        try {
+          const response = await fetch('vyjmenovana_slova_test.json');
+          if (!response.ok) {
+            throw new Error('Nepodařilo se načíst data testu');
+          }
+          testData = await response.json();
+          console.log('Data načtena úspěšně');
+        } catch (error) {
+          console.error('Chyba při načítání dat:', error);
+          document.getElementById('practiceSection').innerHTML = `
+            <div class="error">
+              <h2>⚠️ Chyba při načítání</h2>
+              <p>Nepodařilo se načíst testová data.</p>
+              <p>Pro lokální testování spusť:</p>
+              <code>python3 -m http.server</code>
+            </div>
+          `;
+        }
+      }
+
+      function setupEventListeners() {
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            testMode = e.target.dataset.mode;
+          });
+        });
+
+        document.querySelectorAll('.letter-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const letter = e.target.dataset.letter;
+
+            if (letter === 'ALL') {
+              document.querySelectorAll('.letter-btn').forEach(b => b.classList.remove('active'));
+              e.target.classList.add('active');
+              selectedLetters = ['ALL'];
+            } else {
+              document.querySelector('[data-letter="ALL"]').classList.remove('active');
+
+              if (e.target.classList.contains('active')) {
+                e.target.classList.remove('active');
+                selectedLetters = selectedLetters.filter(l => l !== letter);
+              } else {
+                e.target.classList.add('active');
+                selectedLetters.push(letter);
+              }
+
+              if (selectedLetters.length === 0) {
+                document.querySelector('[data-letter="ALL"]').classList.add('active');
+                selectedLetters = ['ALL'];
+              }
+            }
+          });
+        });
+
+        document.querySelectorAll('.count-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            questionCount = parseInt(e.target.dataset.count);
+          });
+        });
+
+        document.getElementById('startBtn').addEventListener('click', startTest);
+      }
+
+      function generateQuestions() {
+        const questions = [];
+        let availableExamples = [];
+
+        if (selectedLetters.includes('ALL')) {
+          Object.values(testData.categories).forEach(category => {
+            availableExamples = availableExamples.concat(category.examples);
+          });
+        } else {
+          selectedLetters.forEach(letter => {
+            if (testData.categories[letter]) {
+              availableExamples = availableExamples.concat(testData.categories[letter].examples);
+            }
+          });
+        }
+
+        // Filter for context mode if needed
+        if (testMode === 'context') {
+          availableExamples = availableExamples.filter(ex => ex.context);
+        }
+
+        availableExamples = shuffleArray(availableExamples);
+
+        for (let i = 0; i < Math.min(questionCount, availableExamples.length); i++) {
+          const example = availableExamples[i];
+          const correctFirst = Math.random() > 0.5;
+
+          questions.push({
+            options: correctFirst ?
+              [example.correct, example.incorrect] :
+              [example.incorrect, example.correct],
+            correct: example.correct,
+            hint: example.hint,
+            context: example.context
+          });
+        }
+
+        return questions;
+      }
+
+      function shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+      }
+
+      function startTest() {
+        if (!testData) {
+          alert('Data testu se stále načítají, zkuste to za chvíli.');
+          return;
+        }
+
+        currentQuestions = generateQuestions();
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        incorrectAnswers = 0;
+
+        document.querySelector('.settings').removeAttribute('open');
+        document.getElementById('stats').style.display = 'grid';
+        document.getElementById('correctCount').textContent = '0';
+        document.getElementById('incorrectCount').textContent = '0';
+        document.getElementById('startBtn').style.display = 'none';
+
+        showQuestion();
+      }
+
+      function showQuestion() {
+        const question = currentQuestions[currentQuestionIndex];
+        const practiceSection = document.getElementById('practiceSection');
+
+        let questionContent = '';
+        if (testMode === 'context' && question.context) {
+          const contextWithBlank = question.context.replace('___', '<span class="context-blank">___</span>');
+          questionContent = `
+            <div class="question-text">Doplň správné slovo do věty:</div>
+            <div class="context-sentence">${contextWithBlank}</div>
+          `;
+        } else {
+          questionContent = `
+            <div class="question-text">Vyber správně napsané slovo:</div>
+          `;
+        }
+
+        practiceSection.innerHTML = `
+          <div class="practice-card">
+            <div class="question-header">
+              <span class="question-number">Otázka ${currentQuestionIndex + 1} z ${currentQuestions.length}</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: ${((currentQuestionIndex + 1) / currentQuestions.length) * 100}%"></div>
+              </div>
+            </div>
+
+            <div class="question-content">
+              ${questionContent}
+
+              <div class="word-options">
+                <button class="word-btn" data-word="${question.options[0]}">${question.options[0]}</button>
+                <button class="word-btn" data-word="${question.options[1]}">${question.options[1]}</button>
+              </div>
+
+              <div class="hint" id="hint">
+                💡 ${question.hint}
+              </div>
+            </div>
+
+            <button class="next-btn" id="nextBtn">Další otázka →</button>
+          </div>
+        `;
+
+        document.querySelectorAll('.word-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => checkAnswer(e.target, question));
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+      }
+
+      function checkAnswer(button, question) {
+        const selectedWord = button.dataset.word;
+        const isCorrect = selectedWord === question.correct;
+
+        document.querySelectorAll('.word-btn').forEach(btn => {
+          btn.disabled = true;
+        });
+
+        if (isCorrect) {
+          // Kliknutí na správnou odpověď - pouze ta se obarví zeleně
+          button.classList.add('correct');
+        } else {
+          // Kliknutí na špatnou odpověď - červeně se obarví kliknutá, zeleně správná
+          button.classList.add('incorrect');
+          document.querySelectorAll('.word-btn').forEach(btn => {
+            if (btn.dataset.word === question.correct) {
+              btn.classList.add('show-correct');
+            }
+          });
+        }
+
+        // Add feedback message
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.className = isCorrect ? 'feedback-message feedback-correct' : 'feedback-message feedback-incorrect';
+
+        if (isCorrect) {
+          feedbackDiv.innerHTML = '<strong>✓ Super!</strong>';
+        } else {
+          feedbackDiv.innerHTML = `<strong>✗ Špatně</strong><br><em style="margin-top: 0.5rem; display: block; font-size: 0.9rem;">💡 ${question.hint}</em>`;
+        }
+
+        const wordOptions = document.querySelector('.word-options');
+        if (wordOptions && !document.querySelector('.feedback-message')) {
+          wordOptions.insertAdjacentElement('afterend', feedbackDiv);
+        }
+
+        if (isCorrect) {
+          correctAnswers++;
+          document.getElementById('correctCount').textContent = correctAnswers;
+        } else {
+          incorrectAnswers++;
+          document.getElementById('incorrectCount').textContent = incorrectAnswers;
+        }
+
+        document.getElementById('nextBtn').classList.add('show');
+      }
+
+      function nextQuestion() {
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < currentQuestions.length) {
+          showQuestion();
+        } else {
+          showResults();
+        }
+      }
+
+      function showResults() {
+        const percentage = Math.round((correctAnswers / currentQuestions.length) * 100);
+        let scoreClass = 'score-poor';
+        let message = 'Nevadí, příště to bude lepší! 💪';
+        let emoji = '😔';
+
+        if (percentage >= 90) {
+          scoreClass = 'score-excellent';
+          message = 'Výborně! Skvělý výsledek! 🎉';
+          emoji = '🏆';
+        } else if (percentage >= 70) {
+          scoreClass = 'score-good';
+          message = 'Dobře! Jen tak dál! 👍';
+          emoji = '😊';
+        }
+
+        const practiceSection = document.getElementById('practiceSection');
+        practiceSection.innerHTML = `
+          <div class="results">
+            <h2>${emoji} Test dokončen!</h2>
+            <div class="score-display ${scoreClass}">${percentage}%</div>
+            <p>${message}</p>
+
+            <div class="results-stats">
+              <div class="result-stat">
+                <div class="stat-label">✅ Správně</div>
+                <div class="stat-value" style="color: var(--positive);">${correctAnswers}</div>
+              </div>
+              <div class="result-stat">
+                <div class="stat-label">❌ Špatně</div>
+                <div class="stat-value" style="color: var(--negative);">${incorrectAnswers}</div>
+              </div>
+            </div>
+
+            <button class="reset-btn" onclick="location.reload()">🔄 Nový test</button>
+          </div>
+        `;
+
+        document.getElementById('stats').style.display = 'none';
+        document.getElementById('startBtn').style.display = 'block';
+      }
+
+      loadTestData();
+      setupEventListeners();
+    </script>
+  </body>
+</html>
