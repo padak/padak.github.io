@@ -9,10 +9,82 @@
     "Kulturní přínosy: karolinská renesance, byzantská mozaika a právo, arabská věda a obchod"
   ],
   "terminologie": {
-    "Franska_rise": ["Merovejci", "Karolínci", "Karel Martel", "Pipin Krátký", "Karel Veliký", "Cáchy (Aachen)", "marky a markrabí", "hrabství a hrabata", "karolinská renesance", "Verdunská smlouva 843", "Západofranská říše", "Východofranská říše", "Svatá říše římská (od 10. stol.)"],
-    "Vikingove": ["Skandinávie", "dlouhé lodě (drakkary)", "Normané", "Varjagové", "Thing (shromáždění)", "Island, Grónsko, Vinland", "řemesla ze dřeva", "nájezdy 8.–11. stol."],
-    "Byzantska_rise": ["Východořímská říše", "Konstantinopol", "Hagia Sofia", "Justinián I.", "Theodora", "Justiniánův zákoník", "patriarcha", "mozaiky", "řecký jazyk", "pád 1453 (Turci)"],
-    "Arabska_rise": ["Arabský poloostrov", "Beduíni", "prorok Muhammad", "Alláh", "islám", "pět pilířů", "chalífa", "Korán", "mešita a minaret", "expanze do severní Afriky a na Pyrenejský poloostrov", "obchod – koření, hedvábí, koberce", "věda – matematika, astronomie, lékařství"]
+    "Obecne": [
+      {"pojem": "Raný středověk", "vysvetleni": "Období od pádu Západořímské říše (476) do cca 11. století"},
+      {"pojem": "Velké stěhování národů", "vysvetleni": "4.–5. století – migrace germánských kmenů do Evropy"},
+      {"pojem": "Germáni", "vysvetleni": "Kmeny ze severu Evropy, zakládaly první středověké státy"},
+      {"pojem": "Zánik Západořímské říše", "vysvetleni": "Rok 476 – začátek raného středověku"},
+      {"pojem": "První středověké státy", "vysvetleni": "Říše vzniklé po pádu Říma (Franská, Byzantská, Arabská)"},
+      {"pojem": "Barbarské státy", "vysvetleni": "Nové germánské říše na území bývalého Říma"},
+      {"pojem": "Křesťanství v Evropě", "vysvetleni": "Šíření křesťanství mezi germánské kmeny od 4. století"}
+    ],
+    "Franska_rise": [
+      {"pojem": "Merovejci", "vysvetleni": "První franská dynastie, založená Chlodvíkem"},
+      {"pojem": "Chlodvík (Clovis)", "vysvetleni": "Zakladatel Franské říše, přijal křest (496)"},
+      {"pojem": "Karolínci", "vysvetleni": "Druhá franská dynastie, začíná Pipinem Krátkým (751)"},
+      {"pojem": "Karel Martel", "vysvetleni": "Zastavil Araby u Poitiers (732)"},
+      {"pojem": "Pipin Krátký", "vysvetleni": "Založil dynastii Karolínců (751)"},
+      {"pojem": "Karel Veliký", "vysvetleni": "Korunován císařem v Římě (800), vrchol Franské říše"},
+      {"pojem": "Cáchy (Aachen)", "vysvetleni": "Sídelní město a dvůr Karla Velikého"},
+      {"pojem": "Marky a markrabí", "vysvetleni": "Pohraniční území a jejich správci"},
+      {"pojem": "Hrabství a hrabata", "vysvetleni": "Správní oblasti Franské říše a jejich správci"},
+      {"pojem": "Karolinská renesance", "vysvetleni": "Kulturní obnova – školy, knihy, karolinská minuskule"},
+      {"pojem": "Verdunská smlouva", "vysvetleni": "843 – rozdělení Franské říše na tři části"},
+      {"pojem": "Západofranská říše", "vysvetleni": "Základ budoucí Francie"},
+      {"pojem": "Východofranská říše", "vysvetleni": "Základ budoucí Svaté říše římské a Německa"},
+      {"pojem": "Svatá říše římská", "vysvetleni": "Vznikla od 10. století ve Východofranské říši"}
+    ],
+    "Vikingove": [
+      {"pojem": "Skandinávie", "vysvetleni": "Původ Vikingů – dnešní Dánsko, Norsko, Švédsko"},
+      {"pojem": "Dlouhé lodě (drakkary)", "vysvetleni": "Vikingské lodě s mělkým ponorem, dračí přídí"},
+      {"pojem": "Normané", "vysvetleni": "Vikingové v severní Francii"},
+      {"pojem": "Varjagové", "vysvetleni": "Vikingové na východě (Rus)"},
+      {"pojem": "Thing", "vysvetleni": "Shromáždění svobodných mužů – první středověká demokracie"},
+      {"pojem": "Island, Grónsko, Vinland", "vysvetleni": "Vikingské osady – Amerika před Kolumbem!"},
+      {"pojem": "Řemesla ze dřeva", "vysvetleni": "Vikingové vynikali v práci se dřevem"},
+      {"pojem": "Nájezdy 8.–11. stol.", "vysvetleni": "Loupežné a obchodní výpravy po Evropě"}
+    ],
+    "Byzantska_rise": [
+      {"pojem": "Východořímská říše", "vysvetleni": "Pokračování Říma na východě – Byzanc"},
+      {"pojem": "Konstantinopol", "vysvetleni": "Hlavní město Byzance, založeno 330"},
+      {"pojem": "Hagia Sofia", "vysvetleni": "Slavná byzantská katedrála"},
+      {"pojem": "Justinián I.", "vysvetleni": "Císař (527–565) – zákoník, výstavba"},
+      {"pojem": "Theodora", "vysvetleni": "Manželka Justiniána, schopná rádkyně"},
+      {"pojem": "Justiniánův zákoník", "vysvetleni": "Corpus Iuris Civilis – rekodifikace římského práva"},
+      {"pojem": "Patriarcha", "vysvetleni": "Nejvyšší církevní hodnostář v pravoslaví"},
+      {"pojem": "Mozaiky", "vysvetleni": "Byzantské umění – náboženské výjevy"},
+      {"pojem": "Řecký jazyk", "vysvetleni": "Úředním jazykem Byzance byla řečtina"},
+      {"pojem": "Pád 1453", "vysvetleni": "Turci dobyli Konstantinopol – konec Byzance"},
+      {"pojem": "Velké schizma 1054", "vysvetleni": "Rozdělení církve na katolickou a pravoslavnou"}
+    ],
+    "Arabska_rise": [
+      {"pojem": "Arabský poloostrov", "vysvetleni": "Původní území Arabů"},
+      {"pojem": "Beduíni", "vysvetleni": "Kočovní pastevci na poušti"},
+      {"pojem": "Prorok Muhammad", "vysvetleni": "Zakladatel islámu (610)"},
+      {"pojem": "Alláh", "vysvetleni": "Jediný Bůh v islámu"},
+      {"pojem": "Islám", "vysvetleni": "Náboženství založené Muhammadem"},
+      {"pojem": "Pět pilířů", "vysvetleni": "Víra, modlitba 5×, almužna, půst, pouť do Mekky"},
+      {"pojem": "Chalífa", "vysvetleni": "Vládce arabské říše"},
+      {"pojem": "Korán", "vysvetleni": "Svatá kniha islámu"},
+      {"pojem": "Mešita a minaret", "vysvetleni": "Chrám a věž pro svolávání k modlitbě"},
+      {"pojem": "Expanze", "vysvetleni": "Severní Afrika a Pyrenejský poloostrov (711)"},
+      {"pojem": "Obchod", "vysvetleni": "Karavany – koření, hedvábí, koberce"},
+      {"pojem": "Věda", "vysvetleni": "Matematika (algebra), astronomie, lékařství"},
+      {"pojem": "Geometrické ornamenty", "vysvetleni": "Typický arabský umělecký styl"}
+    ],
+    "Krestanska_cirkev": [
+      {"pojem": "Hierarchie", "vysvetleni": "Papež → kardinálové → arcibiskupové → biskupové → faráři"},
+      {"pojem": "Kláštery", "vysvetleni": "Centra vzdělanosti a opisování knih"},
+      {"pojem": "Mniši", "vysvetleni": "Opisovali knihy, zachovávali antické texty"},
+      {"pojem": "Rozdělení 1054", "vysvetleni": "Katolická církev (západ) a pravoslavná církev (východ)"}
+    ],
+    "Kultura": [
+      {"pojem": "Karolinská renesance", "vysvetleni": "Školy při klášterech, opisování knih"},
+      {"pojem": "Karolinská minuskule", "vysvetleni": "Nový typ písma zavedený Karlem Velikým"},
+      {"pojem": "Byzantské mozaiky", "vysvetleni": "Náboženské výjevy ze skleněných kostek"},
+      {"pojem": "Arabské umění", "vysvetleni": "Geometrické ornamenty, kaligrafie"},
+      {"pojem": "Vikinské řemeslo", "vysvetleni": "Mistrovská práce se dřevem (lodě, stavby)"}
+    ]
   },
   "casova_osa": [
     {"rok": 476, "udalost": "Zánik Západořímské říše – začátek raného středověku."},
@@ -538,6 +610,96 @@
         "Kámen": "Kámen používali jen výjimečně; dřevo bylo dostupnější a snazší na zpracování.",
         "Hlínu a slámu": "V některých oblastech ano, ale typické je dřevo.",
         "Bronz a železo": "Kovy používali na zbraně a šperky, ne na stavby."
+      }
+    },
+    {
+      "id": "O1",
+      "tema": "Obecné - Raný středověk",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který rok je označován jako začátek středověku?",
+      "spravna_odpoved": "476 – zánik Západořímské říše",
+      "spatne_odpovedi": ["800 – korunovace Karla Velikého", "1054 – velké schizma", "962 – vznik Svaté říše římské"],
+      "oduvodneni": "Rok 476, kdy byl svržen poslední západořímský císař, se považuje za konec starověku a začátek středověku.",
+      "proc_spatne": {
+        "800 – korunovace Karla Velikého": "Korunovace Karla Velikého je důležitá událost středověku, ale ne jeho začátek.",
+        "1054 – velké schizma": "Velké schizma bylo rozdělení církve, ale středověk začal dříve.",
+        "962 – vznik Svaté říše římské": "Vznik Svaté říše římské byl až v raném středověku."
+      }
+    },
+    {
+      "id": "O2",
+      "tema": "Obecné - Raný středověk",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaká událost ve 4.–5. století změnila tvář Evropy a vedla ke vzniku středověkých států?",
+      "spravna_odpoved": "Velké stěhování národů",
+      "spatne_odpovedi": ["Křížové výpravy", "Reformace", "Renesance"],
+      "oduvodneni": "Velké stěhování národů (4.–5. stol.) přineslo pohyb germánských kmenů, kteří osídlili Evropu a založili první středověké státy.",
+      "proc_spatne": {
+        "Křížové výpravy": "Křížové výpravy probíhaly až v 11.–13. století.",
+        "Reformace": "Reformace je náboženské hnutí 16. století.",
+        "Renesance": "Renesance je kulturní období 14.–16. století."
+      }
+    },
+    {
+      "id": "F10",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který merovejský král přijal křest kolem roku 496 a začlenil tak Franky do křesťanství?",
+      "spravna_odpoved": "Chlodvík (Clovis)",
+      "spatne_odpovedi": ["Karel Martel", "Pipin Krátký", "Karel Veliký"],
+      "oduvodneni": "Chlodvík byl první významný franský král, který přijal křesťanství kolem roku 496, čímž spojil Franky s církví.",
+      "proc_spatne": {
+        "Karel Martel": "Karel Martel žil o 200 let později a byl vnukem Chlodvíka.",
+        "Pipin Krátký": "Pipin byl král od 751, žil 250 let po Chlodvíkovi.",
+        "Karel Veliký": "Karel Veliký byl až v 8.–9. století, po Chlodvíkovi."
+      }
+    },
+    {
+      "id": "B11",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývá slavný zákoník, který nechal sestavit císař Justinián I. a stal se základem evropského práva?",
+      "spravna_odpoved": "Justiniánův zákoník (Corpus Iuris Civilis)",
+      "spatne_odpovedi": ["Napoleonský zákoník", "Magna Carta", "Hammurabiho zákoník"],
+      "oduvodneni": "Justiniánův zákoník byl rekodifikace římského práva v 6. století, která ovlivnila evropské právo po staletí.",
+      "proc_spatne": {
+        "Napoleonský zákoník": "Napoleonský zákoník vznikl až v roce 1804.",
+        "Magna Carta": "Magna Carta je anglický dokument z roku 1215.",
+        "Hammurabiho zákoník": "Hammurabiho zákoník je starověký babylónský zákoník (18. stol. př. n. l.)."
+      }
+    },
+    {
+      "id": "B12",
+      "tema": "Byzantská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která slavná byzantská stavba v Konstantinopoli byla postavena za vlády Justiniána I.?",
+      "spravna_odpoved": "Hagia Sofia",
+      "spatne_odpovedi": ["Koloseum", "Pantheon", "Parthenón"],
+      "oduvodneni": "Hagia Sofia (chrám Boží moudrosti) byla postavena v 6. století za Justiniána a je symbolem byzantské architektury.",
+      "proc_spatne": {
+        "Koloseum": "Koloseum je starověká římská stavba, ne byzantská.",
+        "Pantheon": "Pantheon je římský chrám ze starověku.",
+        "Parthenón": "Parthenón je starověký řecký chrám v Aténách."
+      }
+    },
+    {
+      "id": "A9",
+      "tema": "Arabská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo je zakladatel islámu, kterému se v 7. století zjevil Bůh Alláh?",
+      "spravna_odpoved": "Prorok Muhammad",
+      "spatne_odpovedi": ["Ježíš Kristus", "Mojžíš", "Buddha"],
+      "oduvodneni": "Muhammad je prorok a zakladatel islámu, kterému se zjevil Alláh prostřednictvím archanděla Gabriela.",
+      "proc_spatne": {
+        "Ježíš Kristus": "Ježíš je zakladatel křesťanství, ne islámu.",
+        "Mojžíš": "Mojžíš je prorok judaismu.",
+        "Buddha": "Buddha je zakladatel buddhismu v Asii."
       }
     }
   ]

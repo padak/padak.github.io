@@ -384,85 +384,11 @@
         </div>
       </section>
 
-      <!-- Slovníček pojmů -->
-      <section>
-        <h2>📚 Slovníček pojmů</h2>
-        <div class="vocab-grid" id="vocabulary">
-          <!-- Bude načteno z JSON -->
-        </div>
-      </section>
-
       <!-- Cheat Sheet -->
       <section>
         <h2>⚡ Cheat Sheet - Rychlé opakování</h2>
-        <div class="cheat-grid">
-          <div class="cheat-card">
-            <h4>📚 Franská říše</h4>
-            <ul>
-              <li><strong>Merovejci</strong> → první dynastie (Chlodvík)</li>
-              <li><strong>732:</strong> Karel Martel vs. Arabové (Poitiers)</li>
-              <li><strong>751:</strong> Pipin Krátký → Karolínci</li>
-              <li><strong>800:</strong> Karel Veliký = císař</li>
-              <li><strong>Správa:</strong> hrabata + markrabata</li>
-              <li><strong>843:</strong> Verdun → rozdělení na 3 části</li>
-            </ul>
-          </div>
-
-          <div class="cheat-card">
-            <h4>⚔️ Vikingové</h4>
-            <ul>
-              <li><strong>Odkud:</strong> Skandinávie</li>
-              <li><strong>Lodě:</strong> drakkary (dlouhé lodě)</li>
-              <li><strong>Normani:</strong> v severní Francii</li>
-              <li><strong>Varjagové:</strong> na východě (Rus)</li>
-              <li><strong>Osídlili:</strong> Island, Grónsko, Vinland</li>
-              <li><strong>Thing:</strong> shromáždění svobodných mužů</li>
-            </ul>
-          </div>
-
-          <div class="cheat-card">
-            <h4>🏛️ Byzantská říše</h4>
-            <ul>
-              <li><strong>Hlavní město:</strong> Konstantinopol</li>
-              <li><strong>Konstantin Veliký:</strong> založil město (330)</li>
-              <li><strong>Justinián I.:</strong> zákoník + Hagia Sofia</li>
-              <li><strong>Theodora:</strong> manželka Justiniána</li>
-              <li><strong>1054:</strong> Velké schizma (papež ↔ patriarcha)</li>
-              <li><strong>1453:</strong> pád → Turci</li>
-            </ul>
-          </div>
-
-          <div class="cheat-card">
-            <h4>🕌 Arabská říše</h4>
-            <ul>
-              <li><strong>Beduíni:</strong> kočovní pastevci</li>
-              <li><strong>610:</strong> Muhammad → islám</li>
-              <li><strong>5 pilířů:</strong> víra, modlitba, almužna, půst, pouť</li>
-              <li><strong>Vládci:</strong> chalífové</li>
-              <li><strong>711:</strong> expanze do Španělska</li>
-              <li><strong>Věda:</strong> matematika, astronomie, lékařství</li>
-            </ul>
-          </div>
-
-          <div class="cheat-card">
-            <h4>✝️ Křesťanská církev</h4>
-            <ul>
-              <li><strong>Hierarchie:</strong> papež → kardinálové → arcibiskupové → biskupové → faráři</li>
-              <li><strong>Kláštery:</strong> centra vzdělanosti</li>
-              <li><strong>Mniši:</strong> opisovali knihy</li>
-              <li><strong>1054:</strong> rozdělení na katolickou a pravoslavnou</li>
-            </ul>
-          </div>
-
-          <div class="cheat-card">
-            <h4>🎨 Kultura</h4>
-            <ul>
-              <li><strong>Karolinská renesance:</strong> školy, knihy</li>
-              <li><strong>Byzantské mozaiky:</strong> náboženské výjevy</li>
-              <li><strong>Arabské umění:</strong> geometrické ornamenty</li>
-              <li><strong>Vikinské řemeslo:</strong> práce se dřevem</li>
-            </ul>
-          </div>
+        <div class="cheat-grid" id="cheat-sheet">
+          <!-- Bude načteno z JSON -->
         </div>
       </section>
 
@@ -489,7 +415,7 @@
           const data = await response.json();
 
           renderTimeline(data.casova_osa);
-          renderVocabulary(data.terminologie);
+          renderCheatSheet(data.terminologie);
         } catch (error) {
           console.error('Chyba při načítání dat:', error);
         }
@@ -512,21 +438,26 @@
         `).join('');
       }
 
-      function renderVocabulary(terms) {
-        const vocabulary = document.getElementById('vocabulary');
+      function renderCheatSheet(terms) {
+        const cheatSheet = document.getElementById('cheat-sheet');
 
         const categories = [
-          { key: 'Franska_rise', title: '📚 Franská říše', class: 'franks' },
-          { key: 'Vikingove', title: '⚔️ Vikingové', class: 'vikings' },
-          { key: 'Byzantska_rise', title: '🏛️ Byzantská říše', class: 'byzantium' },
-          { key: 'Arabska_rise', title: '🕌 Arabská říše', class: 'arabs' }
+          { key: 'Obecne', title: '🌍 Základy raného středověku' },
+          { key: 'Franska_rise', title: '📚 Franská říše' },
+          { key: 'Vikingove', title: '⚔️ Vikingové' },
+          { key: 'Byzantska_rise', title: '🏛️ Byzantská říše' },
+          { key: 'Arabska_rise', title: '🕌 Arabská říše' },
+          { key: 'Krestanska_cirkev', title: '✝️ Křesťanská církev' },
+          { key: 'Kultura', title: '🎨 Kultura' }
         ];
 
-        vocabulary.innerHTML = categories.map(cat => `
-          <div class="vocab-category ${cat.class}">
+        cheatSheet.innerHTML = categories.map(cat => `
+          <div class="cheat-card">
             <h4>${cat.title}</h4>
-            <ul class="vocab-list">
-              ${terms[cat.key].map(term => `<li>${term}</li>`).join('')}
+            <ul>
+              ${terms[cat.key].map(item => `
+                <li><strong>${item.pojem}:</strong> ${item.vysvetleni}</li>
+              `).join('')}
             </ul>
           </div>
         `).join('');

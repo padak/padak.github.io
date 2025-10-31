@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Učebnice - Raný středověk</title>
+    <style>
+      :root {
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #1f2937;
+        min-height: 100vh;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 2rem 0 1.5rem;
+        color: #fff;
+      }
+
+      header h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      header p {
+        margin: 0;
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .content {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        margin-top: 2rem;
+      }
+
+      .page-section {
+        margin: 2.5rem 0;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .page-section:last-child {
+        border-bottom: none;
+      }
+
+      .page-section h2 {
+        color: #4f46e5;
+        margin: 0 0 1rem;
+        font-size: 1.6rem;
+      }
+
+      .page-section h3 {
+        color: #6366f1;
+        margin: 1.5rem 0 0.75rem;
+        font-size: 1.3rem;
+      }
+
+      .page-section ul {
+        margin: 0.5rem 0;
+        padding-left: 2rem;
+      }
+
+      .page-section li {
+        margin: 0.5rem 0;
+      }
+
+      .page-section strong {
+        color: #4f46e5;
+      }
+
+      .page-images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .page-images img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .page-images img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .summary-box {
+        background: #f3f4f6;
+        border-left: 4px solid #4f46e5;
+        padding: 1.25rem;
+        margin: 1rem 0;
+        border-radius: 8px;
+      }
+
+      .summary-box p {
+        margin: 0.5rem 0;
+      }
+
+      .back-link {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .back-link a {
+        color: #fff;
+        text-decoration: underline;
+        font-size: 1rem;
+      }
+
+      /* Lightbox pro obrázky */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox img {
+        max-width: 95%;
+        max-height: 95%;
+        border-radius: 8px;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        .content {
+          padding: 1.5rem;
+        }
+
+        .page-section h2 {
+          font-size: 1.4rem;
+        }
+
+        .page-images {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>📚 Učebnice</h1>
+        <p>Strukturovaný přepis stránek z učebnice – Raný středověk</p>
+      </header>
+
+      <div class="content">
+        <!-- Strana 11 -->
+        <div class="page-section">
+          <h2>Raný středověk: První středověké státy</h2>
+
+          <div class="summary-box">
+            <p><strong>Hlavní idea:</strong> Po zániku Západořímské říše vznikají první středověké státy.</p>
+          </div>
+
+          <h3>Velké stěhování národů</h3>
+          <ul>
+            <li><strong>4.–5. století</strong> – Germáni osidlují Evropu</li>
+            <li>Z kmenů vznikají první středověké státy</li>
+          </ul>
+
+          <h3>Tři velké říše</h3>
+          <ul>
+            <li><strong>Franská říše</strong> – křesťanství</li>
+            <li><strong>Byzantská říše</strong> – křesťanství</li>
+            <li><strong>Arabská říše</strong> – islám</li>
+          </ul>
+
+          <h3>Franská říše (úvod)</h3>
+          <ul>
+            <li>Vznik z germánského kmene Franků v povodí Rýna</li>
+            <li>Z kmenů se stává "velká a mocná říše"</li>
+          </ul>
+        </div>
+
+        <!-- Strana 12 -->
+        <div class="page-section">
+          <h2>Franská říše za vlády Karla Velikého</h2>
+
+          <h3>Karel Veliký (vládl 768–814)</h3>
+          <ul>
+            <li><strong>První středověký císař na Západě</strong></li>
+            <li>Korunován v Římě roku 800</li>
+            <li>Považoval se za dědice moci římských císařů</li>
+            <li>Vybudoval nejmocnější panovnický dvůr západní Evropy</li>
+          </ul>
+
+          <h3>Územní rozmach</h3>
+          <ul>
+            <li>Alpy, sever Itálie, část Španělska</li>
+            <li>Porážka Avarů</li>
+            <li>Správa říše pomocí hrabat a markrabat</li>
+          </ul>
+
+          <h3>Kultura u dvora v Cáchách</h3>
+          <ul>
+            <li><strong>Karolinská renesance</strong></li>
+            <li>Nejlepší učenci a řemeslníci z Evropy</li>
+            <li>Školy při klášterech</li>
+            <li>Opisování knih</li>
+            <li>Písmo: karolinská minuskule</li>
+          </ul>
+        </div>
+
+        <!-- Strana 13 -->
+        <div class="page-section">
+          <h2>Rozdělení Franské říše</h2>
+
+          <h3>Po Karlovi</h3>
+          <ul>
+            <li>Syn a vnuci nedokázali říši udržet</li>
+            <li><strong>Verdunská smlouva (843):</strong> rozdělení na:
+              <ul>
+                <li>Západofranskou říši</li>
+                <li>Východofranskou říši</li>
+                <li>Střední říši (Lotharingie/Itálie)</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>10. století</h3>
+          <ul>
+            <li>Ve Východofranské říši se formuje <strong>Svatá říše římská</strong></li>
+          </ul>
+
+          <div class="summary-box">
+            <p>Během stěhování Germáni zakládají říše. Výjimkou, která přetrvala, je franská. V 9. století se dělí na Západ a Východ. V 10. století vzniká Svatá říše římská.</p>
+          </div>
+        </div>
+
+        <!-- Strana 14 -->
+        <div class="page-section">
+          <h2>Vikingové</h2>
+
+          <h3>Severní Evropa (Skandinávie) v 9.–11. století</h3>
+          <ul>
+            <li><strong>Život:</strong> drsné podmínky, chov dobytka, lov, rybolov</li>
+            <li>Dřevo jako hlavní materiál</li>
+          </ul>
+
+          <h3>Mořeplavci – Vikingové / Normané / Varjagové</h3>
+          <ul>
+            <li><strong>Dlouhé lodě</strong> s dračí přídí</li>
+            <li>Plavby po moři i řekách</li>
+            <li>Výpravy: obchod i loupeže</li>
+            <li><strong>Dosah výprav:</strong>
+              <ul>
+                <li>Anglie</li>
+                <li>Po Seině do Paříže</li>
+                <li>Až do Itálie a na Pyrenejský poloostrov</li>
+                <li>Osídlení Islandu a Grónska</li>
+                <li>Krátce Amerika (před Kolumbem!)</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Společnost</h3>
+          <ul>
+            <li><strong>Thing (Althing)</strong> – shromáždění</li>
+            <li>"První středověká demokracie v Evropě"</li>
+          </ul>
+
+          <div class="summary-box">
+            <p>Vikingové podnikali loupežné výpravy, ale věnovali se i obchodu a řemeslu. Dosáhli břehů Ameriky.</p>
+          </div>
+        </div>
+
+        <!-- Strana 15 -->
+        <div class="page-section">
+          <h2>Byzantská říše (Východořímská)</h2>
+
+          <h3>Kontinuita Říma na Východě</h3>
+          <ul>
+            <li>Říše se nerozpadla</li>
+            <li>Držela tři světadíly: Evropa, Asie, Afrika</li>
+            <li><strong>Hlavní město:</strong> Konstantinopol (cařihradské hradby, paláce)</li>
+          </ul>
+
+          <h3>Císař Justinián (527–565)</h3>
+          <ul>
+            <li>Obnovy říše, zvýšení daní</li>
+            <li>Někdy povstání</li>
+            <li>Podpora vzdělanosti</li>
+            <li><strong>Theodora</strong> – manželka, schopná rádkyně</li>
+          </ul>
+
+          <h3>Rozsah říše</h3>
+          <ul>
+            <li>Do 11. století větší než západní Evropa</li>
+            <li>Později územní ústup</li>
+            <li><strong>Pád: 1453</strong> – Turci dobývají Konstantinopol</li>
+          </ul>
+        </div>
+
+        <!-- Strana 16 -->
+        <div class="page-section">
+          <h2>Byzantská kultura a vzdělanost</h2>
+
+          <h3>Stavby a umění</h3>
+          <ul>
+            <li><strong>Hagia Sofia</strong></li>
+            <li>Mozaiky</li>
+            <li>Řecké i římské stavební umění</li>
+          </ul>
+
+          <h3>Vzdělanost</h3>
+          <ul>
+            <li>Opisování knih (Bible i antičtí autoři)</li>
+            <li>Klášterní knihovny</li>
+          </ul>
+
+          <h3>Šíření křesťanství v Evropě</h3>
+          <ul>
+            <li>Od 4. století státní náboženství Říma</li>
+            <li>Ve 4.–5. století proniká k Germánům</li>
+            <li>V raném středověku součást života lidí (svátky, obřady)</li>
+          </ul>
+        </div>
+
+        <!-- Strana 17 -->
+        <div class="page-section">
+          <h2>Organizace křesťanské církve</h2>
+
+          <h3>Hierarchie (pyramida)</h3>
+          <ul>
+            <li><strong>Papež</strong> (nejvyšší)</li>
+            <li>↓ Kardinálové</li>
+            <li>↓ Arcibiskupové</li>
+            <li>↓ Biskupové, opati</li>
+            <li>↓ Faráři, mniši</li>
+          </ul>
+
+          <h3>Mnišství</h3>
+          <ul>
+            <li>Kláštery s přísnými pravidly</li>
+            <li>Vzdělanostní centra</li>
+          </ul>
+
+          <h3>Rozdělení církve (1054)</h3>
+          <ol>
+            <li><strong>Západní – katolická</strong>
+              <ul>
+                <li>Papež v Římě</li>
+                <li>Bohoslužba latinsky</li>
+              </ul>
+            </li>
+            <li><strong>Východní – pravoslavná</strong>
+              <ul>
+                <li>Patriarchové</li>
+                <li>Bohoslužba v národních jazycích/řečtině</li>
+              </ul>
+            </li>
+          </ol>
+
+          <div class="summary-box">
+            <p>Byzantská říše přetrvala stěhování národů. Justinián téměř obnovil římskou říši. Později území zmenšováno Slovany a Turky. Křesťanství se šíří do Evropy. Organizace a rozdělení církve.</p>
+          </div>
+        </div>
+
+        <!-- Strana 18 -->
+        <div class="page-section">
+          <h2>Arabská říše (islám)</h2>
+
+          <h3>Arabský poloostrov</h3>
+          <ul>
+            <li>Beduíni (kočovní pastevci)</li>
+          </ul>
+
+          <h3>Vznik islámu v 7. století</h3>
+          <ul>
+            <li><strong>Prorok Muhammad</strong></li>
+            <li>Víra v jediného <strong>Alláha</strong></li>
+          </ul>
+
+          <h3>Pět pilířů islámu</h3>
+          <ol>
+            <li>Vyznání víry</li>
+            <li>Modlitba 5× denně</li>
+            <li>Almužna</li>
+            <li>Půst v Ramadánu</li>
+            <li>Pouť do Mekky</li>
+          </ol>
+
+          <h3>Pojmy</h3>
+          <ul>
+            <li><strong>Muslimové</strong> – vyznávači islámu</li>
+            <li><strong>Chalífát</strong> – arabská říše</li>
+            <li><strong>Korán</strong> – svatá kniha</li>
+            <li><strong>Mešita</strong> – chrám s minaretem</li>
+          </ul>
+
+          <h3>Rozšíření</h3>
+          <ul>
+            <li>Sjednocení Arabů</li>
+            <li>Postup přes Blízký východ</li>
+            <li>Severní Afrika</li>
+            <li>Pyrenejský poloostrov</li>
+          </ul>
+        </div>
+
+        <!-- Strana 19 -->
+        <div class="page-section">
+          <h2>Co přinesli Arabové Evropě</h2>
+
+          <h3>Obchod</h3>
+          <ul>
+            <li>Karavany</li>
+            <li>Koření, látky, koberce</li>
+          </ul>
+
+          <h3>Věda</h3>
+          <ul>
+            <li><strong>Matematika:</strong> algebra, arabské číslice</li>
+            <li>Astronomie</li>
+            <li>Fyzika</li>
+            <li>Zeměpis</li>
+            <li>Lékařství</li>
+          </ul>
+
+          <h3>Umění a architektura</h3>
+          <ul>
+            <li>Geometrické ornamenty</li>
+            <li>Mešity s minarety</li>
+            <li>Příklad: Skalní dóm v Jeruzalémě</li>
+          </ul>
+
+          <div class="summary-box">
+            <p>Islám přinesl Evropanům kontakt s arabskou kulturou, řemesly a vědou.</p>
+          </div>
+        </div>
+
+        <!-- Strana 20: Opakování -->
+        <div class="page-section">
+          <h2>Klíčové pojmy k opakování</h2>
+
+          <h3>Franská říše</h3>
+          <p>Karel Veliký, karolinská renesance, Verdunská smlouva, Cáchy</p>
+
+          <h3>Byzantská říše</h3>
+          <p>Justinián, Konstantinopol, Hagia Sofia, císař, byzantský císař, Theodora, mosty s antikou</p>
+
+          <h3>Arabská říše</h3>
+          <p>Islám, Muhammad, Korán, muslimové, mešita, minaret, pět pilířů, chalífát</p>
+
+          <h3>Vikingové</h3>
+          <p>Normané, Varjagové, dlouhé lodě, Thing, Skandinávie, Island, Grónsko, Amerika</p>
+
+          <h3>Křesťanství</h3>
+          <p>Papež, kardinál, biskup, farář, mnich, klášter, rozdělení církve 1054, katolická církev, pravoslavná církev</p>
+        </div>
+
+        <!-- Obrázky z učebnice -->
+        <div class="page-section">
+          <h2>📖 Stránky z učebnice</h2>
+          <p>Klikni na obrázek pro zvětšení:</p>
+          <div class="page-images">
+            <img src="img/IMG_7636.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7637.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7638.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7639.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7640.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7641.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7642.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7643.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7644.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+            <img src="img/IMG_7645.jpeg" alt="Stránka z učebnice" onclick="openLightbox(this.src)">
+          </div>
+
+          <h3 style="margin-top: 2rem;">📝 Pracovní sešit</h3>
+          <div class="page-images">
+            <img src="img/ws-IMG_7633.jpeg" alt="Pracovní sešit" onclick="openLightbox(this.src)">
+            <img src="img/ws-IMG_7634.jpeg" alt="Pracovní sešit" onclick="openLightbox(this.src)">
+            <img src="img/ws-IMG_7635.jpeg" alt="Pracovní sešit" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+      </div>
+
+      <div class="back-link">
+        <a href="index.html">← Zpět na rozcestník</a>
+      </div>
+    </main>
+
+    <!-- Lightbox pro zvětšení obrázků -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <img id="lightbox-img" src="" alt="Zvětšený obrázek">
+    </div>
+
+    <script>
+      function openLightbox(src) {
+        document.getElementById('lightbox').classList.add('active');
+        document.getElementById('lightbox-img').src = src;
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+      }
+
+      // ESC klávesa pro zavření
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>
