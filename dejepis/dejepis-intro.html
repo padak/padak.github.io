@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Příprava na test - Raný středověk</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        --surface: #ffffff;
+        --surface-soft: #eef2ff;
+        --surface-strong: #e0e7ff;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #4f46e5;
+        --accent-dark: #4338ca;
+        --franks: #10b981;
+        --vikings: #3b82f6;
+        --byzantium: #8b5cf6;
+        --arabs: #f59e0b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #f6f7fb 0%, #e5e7ff 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 2.5rem 0 2rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      header p {
+        margin: 0 auto 2rem;
+        max-width: 60ch;
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+
+      .quick-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .quick-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 2px solid var(--accent);
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+      }
+
+      .quick-links a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+        background: var(--surface-soft);
+      }
+
+      section {
+        background: var(--surface);
+        border-radius: 20px;
+        padding: 2rem 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+        border: 1px solid rgba(79, 70, 229, 0.12);
+      }
+
+      section h2 {
+        margin: 0 0 1.5rem;
+        font-size: 1.75rem;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      section h3 {
+        margin: 1.5rem 0 1rem;
+        font-size: 1.3rem;
+        color: var(--ink);
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        padding: 1rem 0;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--franks), var(--vikings), var(--byzantium), var(--arabs));
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .timeline-item:nth-child(odd) {
+        flex-direction: row;
+      }
+
+      .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .timeline-date {
+        flex: 0 0 45%;
+        text-align: right;
+        padding-right: 2rem;
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: var(--accent);
+      }
+
+      .timeline-item:nth-child(even) .timeline-date {
+        text-align: left;
+        padding-right: 0;
+        padding-left: 2rem;
+      }
+
+      .timeline-dot {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 4px solid var(--surface);
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 0 3px var(--accent);
+      }
+
+      .timeline-content {
+        flex: 0 0 45%;
+        padding-left: 2rem;
+        background: var(--surface-soft);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        border-left: 4px solid var(--accent);
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        border-left: none;
+        border-right: 4px solid var(--accent);
+      }
+
+      .timeline-content p {
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+
+      /* Vocabulary */
+      .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .vocab-category {
+        background: var(--surface-soft);
+        border-radius: 14px;
+        padding: 1.5rem;
+        border-top: 4px solid var(--accent);
+      }
+
+      .vocab-category.franks { border-top-color: var(--franks); }
+      .vocab-category.vikings { border-top-color: var(--vikings); }
+      .vocab-category.byzantium { border-top-color: var(--byzantium); }
+      .vocab-category.arabs { border-top-color: var(--arabs); }
+
+      .vocab-category h4 {
+        margin: 0 0 1rem;
+        font-size: 1.2rem;
+        color: var(--ink);
+      }
+
+      .vocab-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .vocab-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        font-size: 0.95rem;
+      }
+
+      .vocab-list li:last-child {
+        border-bottom: none;
+      }
+
+      /* Cheat sheet */
+      .cheat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .cheat-card {
+        background: linear-gradient(135deg, var(--surface-soft), #fff);
+        border-radius: 14px;
+        padding: 1.5rem;
+        border: 2px solid var(--surface-strong);
+        transition: all 0.2s ease;
+      }
+
+      .cheat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(79, 70, 229, 0.15);
+      }
+
+      .cheat-card h4 {
+        margin: 0 0 1rem;
+        font-size: 1.15rem;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .cheat-card ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .cheat-card li {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* Story section */
+      .story-box {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border-radius: 14px;
+        padding: 2rem;
+        border: 2px solid #fbbf24;
+        margin-top: 1.5rem;
+      }
+
+      .story-box h3 {
+        margin: 0 0 1rem;
+        font-size: 1.3rem;
+        color: #92400e;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .story-box p {
+        margin: 0 0 1rem;
+        color: #78350f;
+        line-height: 1.6;
+      }
+
+      .story-box a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        transition: all 0.2s ease;
+      }
+
+      .story-box a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        section {
+          padding: 1.5rem 1.25rem;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-item {
+          flex-direction: column !important;
+          padding-left: 50px;
+        }
+
+        .timeline-date {
+          flex: none;
+          text-align: left !important;
+          padding: 0 0 0.5rem 0 !important;
+          font-size: 1.2rem;
+        }
+
+        .timeline-dot {
+          position: absolute;
+          left: 11px;
+          top: 5px;
+        }
+
+        .timeline-content {
+          flex: none;
+          width: 100%;
+          padding: 1rem !important;
+          border-left: 4px solid var(--accent) !important;
+          border-right: none !important;
+        }
+
+        .vocab-grid,
+        .cheat-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>📖 Příprava na test</h1>
+        <p>
+          Raný středověk: Časová osa, slovníček pojmů, cheat sheet a příběh
+        </p>
+        <div class="quick-links">
+          <a href="dejepis-test.html">🎯 Spustit test</a>
+          <a href="dejepis-flashcards.html">🃏 Flash cards</a>
+          <a href="story.html">📚 Číst příběh</a>
+        </div>
+      </header>
+
+      <!-- Časová osa -->
+      <section>
+        <h2>⏰ Časová osa</h2>
+        <p>Klíčové události raného středověku (476–1453)</p>
+
+        <div class="timeline" id="timeline">
+          <!-- Bude načteno z JSON -->
+        </div>
+      </section>
+
+      <!-- Slovníček pojmů -->
+      <section>
+        <h2>📚 Slovníček pojmů</h2>
+        <div class="vocab-grid" id="vocabulary">
+          <!-- Bude načteno z JSON -->
+        </div>
+      </section>
+
+      <!-- Cheat Sheet -->
+      <section>
+        <h2>⚡ Cheat Sheet - Rychlé opakování</h2>
+        <div class="cheat-grid">
+          <div class="cheat-card">
+            <h4>📚 Franská říše</h4>
+            <ul>
+              <li><strong>Merovejci</strong> → první dynastie (Chlodvík)</li>
+              <li><strong>732:</strong> Karel Martel vs. Arabové (Poitiers)</li>
+              <li><strong>751:</strong> Pipin Krátký → Karolínci</li>
+              <li><strong>800:</strong> Karel Veliký = císař</li>
+              <li><strong>Správa:</strong> hrabata + markrabata</li>
+              <li><strong>843:</strong> Verdun → rozdělení na 3 části</li>
+            </ul>
+          </div>
+
+          <div class="cheat-card">
+            <h4>⚔️ Vikingové</h4>
+            <ul>
+              <li><strong>Odkud:</strong> Skandinávie</li>
+              <li><strong>Lodě:</strong> drakkary (dlouhé lodě)</li>
+              <li><strong>Normani:</strong> v severní Francii</li>
+              <li><strong>Varjagové:</strong> na východě (Rus)</li>
+              <li><strong>Osídlili:</strong> Island, Grónsko, Vinland</li>
+              <li><strong>Thing:</strong> shromáždění svobodných mužů</li>
+            </ul>
+          </div>
+
+          <div class="cheat-card">
+            <h4>🏛️ Byzantská říše</h4>
+            <ul>
+              <li><strong>Hlavní město:</strong> Konstantinopol</li>
+              <li><strong>Konstantin Veliký:</strong> založil město (330)</li>
+              <li><strong>Justinián I.:</strong> zákoník + Hagia Sofia</li>
+              <li><strong>Theodora:</strong> manželka Justiniána</li>
+              <li><strong>1054:</strong> Velké schizma (papež ↔ patriarcha)</li>
+              <li><strong>1453:</strong> pád → Turci</li>
+            </ul>
+          </div>
+
+          <div class="cheat-card">
+            <h4>🕌 Arabská říše</h4>
+            <ul>
+              <li><strong>Beduíni:</strong> kočovní pastevci</li>
+              <li><strong>610:</strong> Muhammad → islám</li>
+              <li><strong>5 pilířů:</strong> víra, modlitba, almužna, půst, pouť</li>
+              <li><strong>Vládci:</strong> chalífové</li>
+              <li><strong>711:</strong> expanze do Španělska</li>
+              <li><strong>Věda:</strong> matematika, astronomie, lékařství</li>
+            </ul>
+          </div>
+
+          <div class="cheat-card">
+            <h4>✝️ Křesťanská církev</h4>
+            <ul>
+              <li><strong>Hierarchie:</strong> papež → kardinálové → arcibiskupové → biskupové → faráři</li>
+              <li><strong>Kláštery:</strong> centra vzdělanosti</li>
+              <li><strong>Mniši:</strong> opisovali knihy</li>
+              <li><strong>1054:</strong> rozdělení na katolickou a pravoslavnou</li>
+            </ul>
+          </div>
+
+          <div class="cheat-card">
+            <h4>🎨 Kultura</h4>
+            <ul>
+              <li><strong>Karolinská renesance:</strong> školy, knihy</li>
+              <li><strong>Byzantské mozaiky:</strong> náboženské výjevy</li>
+              <li><strong>Arabské umění:</strong> geometrické ornamenty</li>
+              <li><strong>Vikinské řemeslo:</strong> práce se dřevem</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Příběh -->
+      <section>
+        <h2>📜 Příběh tří říší</h2>
+        <div class="story-box">
+          <h3>🌟 Čti poutavý příběh!</h3>
+          <p>
+            Než začneš test, přečti si poutavý příběh o tom, jak se po pádu Říma
+            v Evropě rozvinuly tři mocné říše a jak Vikingové dobývali moře.
+            Příběh ti pomůže si události lépe zapamatovat a pochopit souvislosti.
+          </p>
+          <a href="story.html">Číst příběh →</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      async function loadData() {
+        try {
+          const response = await fetch('questions.json');
+          if (!response.ok) throw new Error('Nepodařilo se načíst data');
+          const data = await response.json();
+
+          renderTimeline(data.casova_osa);
+          renderVocabulary(data.terminologie);
+        } catch (error) {
+          console.error('Chyba při načítání dat:', error);
+        }
+      }
+
+      function renderTimeline(events) {
+        const timeline = document.getElementById('timeline');
+
+        // Seřadit podle roku
+        const sorted = [...events].sort((a, b) => a.rok - b.rok);
+
+        timeline.innerHTML = sorted.map(event => `
+          <div class="timeline-item">
+            <div class="timeline-date">${event.rok}</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <p>${event.udalost}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function renderVocabulary(terms) {
+        const vocabulary = document.getElementById('vocabulary');
+
+        const categories = [
+          { key: 'Franska_rise', title: '📚 Franská říše', class: 'franks' },
+          { key: 'Vikingove', title: '⚔️ Vikingové', class: 'vikings' },
+          { key: 'Byzantska_rise', title: '🏛️ Byzantská říše', class: 'byzantium' },
+          { key: 'Arabska_rise', title: '🕌 Arabská říše', class: 'arabs' }
+        ];
+
+        vocabulary.innerHTML = categories.map(cat => `
+          <div class="vocab-category ${cat.class}">
+            <h4>${cat.title}</h4>
+            <ul class="vocab-list">
+              ${terms[cat.key].map(term => `<li>${term}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('');
+      }
+
+      loadData();
+    </script>
+  </body>
+</html>

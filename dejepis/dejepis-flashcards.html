@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flash Cards - Raný středověk</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+        --surface: #ffffff;
+        --surface-soft: #eef2ff;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #4f46e5;
+        --accent-dark: #4338ca;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #f6f7fb 0%, #e5e7ff 100%);
+        color: var(--ink);
+        min-height: 100vh;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 2.5rem 0 2rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(2rem, 5vw, 2.5rem);
+      }
+
+      header p {
+        margin: 0 auto 1.5rem;
+        max-width: 60ch;
+        color: var(--ink-soft);
+      }
+
+      .controls {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 1.5rem 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+        border: 1px solid rgba(79, 70, 229, 0.14);
+      }
+
+      .controls h3 {
+        margin: 0 0 1rem;
+        font-size: 1.15rem;
+      }
+
+      .filter-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .filter-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: normal;
+        cursor: pointer;
+        background: var(--surface-soft);
+        padding: 0.5rem 0.85rem;
+        border-radius: 999px;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .checkbox-group label:has(input:checked) {
+        border-color: var(--accent);
+        background: #e0e7ff;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        width: auto;
+        cursor: pointer;
+      }
+
+      button {
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 0.75rem 2rem;
+        border: 1px solid var(--accent);
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(79, 70, 229, 0.25);
+      }
+
+      button:disabled {
+        background: #cbd5f5;
+        border-color: #cbd5f5;
+        cursor: not-allowed;
+      }
+
+      button.secondary {
+        background: #e5e7ff;
+        color: var(--ink);
+        border-color: #cbd5f5;
+      }
+
+      .card-container {
+        perspective: 1000px;
+        margin-bottom: 2rem;
+      }
+
+      .card {
+        width: 100%;
+        min-height: 450px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+        cursor: pointer;
+      }
+
+      .card.flipped {
+        transform: rotateY(180deg);
+      }
+
+      .card-face {
+        position: absolute;
+        width: 100%;
+        min-height: 450px;
+        backface-visibility: hidden;
+        border-radius: 20px;
+        padding: 3rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.2);
+      }
+
+      .card-front {
+        background: linear-gradient(135deg, #4f46e5, #6366f1);
+        color: #fff;
+      }
+
+      .card-back {
+        background: var(--surface);
+        color: var(--ink);
+        transform: rotateY(180deg);
+        border: 2px solid var(--accent);
+      }
+
+      .card-meta {
+        font-size: 0.9rem;
+        opacity: 0.85;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .card-question {
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .card-answer {
+        font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+        font-weight: 600;
+        margin: 0 0 1.5rem;
+        color: var(--accent);
+        line-height: 1.3;
+      }
+
+      .card-explanation {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--ink-soft);
+        max-width: 65ch;
+      }
+
+      .card-hint {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        margin-top: 2rem;
+      }
+
+      .progress {
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--ink-soft);
+        margin-bottom: 1.5rem;
+      }
+
+      .progress span {
+        color: var(--accent);
+      }
+
+      .navigation {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .navigation button {
+        width: 100%;
+      }
+
+      .results {
+        background: var(--surface);
+        border-radius: 20px;
+        padding: 3rem 2.5rem;
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
+        text-align: center;
+      }
+
+      .results h2 {
+        margin: 0 0 1.5rem;
+        font-size: 2rem;
+      }
+
+      .results p {
+        font-size: 1.1rem;
+        color: var(--ink-soft);
+        margin-bottom: 2rem;
+      }
+
+      .error {
+        background: #fee2e2;
+        border: 1px solid #dc2626;
+        color: #dc2626;
+        padding: 1.25rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        header {
+          padding: 1.5rem 0 1.25rem;
+        }
+
+        .controls {
+          padding: 1.25rem 1.5rem;
+        }
+
+        .card-face {
+          min-height: 380px;
+          padding: 2rem 1.5rem;
+        }
+
+        .checkbox-group {
+          flex-direction: column;
+        }
+
+        .checkbox-group label {
+          justify-content: flex-start;
+        }
+
+        .navigation {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>🃏 Flash Cards</h1>
+        <p>
+          Procvičuj si látku pomocí interaktivních kartiček. Klikni na kartičku pro otočení a zobrazení odpovědi.
+        </p>
+      </header>
+
+      <div id="error" class="error hidden"></div>
+
+      <div id="setup" class="controls">
+        <h3>Vyber témata</h3>
+
+        <div class="filter-group">
+          <label>Témata pro procvičení:</label>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" value="Franská říše" checked />
+              📚 Franská říše
+            </label>
+            <label>
+              <input type="checkbox" value="Vikingové" checked />
+              ⚔️ Vikingové
+            </label>
+            <label>
+              <input type="checkbox" value="Byzantská říše" checked />
+              🏛️ Byzantská říše
+            </label>
+            <label>
+              <input type="checkbox" value="Arabská říše" checked />
+              🕌 Arabská říše
+            </label>
+          </div>
+        </div>
+
+        <button id="startBtn">Začít procvičovat</button>
+        <a href="dejepis-intro.html" style="display: block; text-align: center; margin-top: 1rem; color: var(--accent); text-decoration: none;">← Zpět na přípravu</a>
+      </div>
+
+      <div id="flashcards" class="hidden">
+        <div class="progress" id="progress"></div>
+
+        <div class="card-container">
+          <div class="card" id="card">
+            <div class="card-face card-front" id="cardFront">
+              <!-- Question -->
+            </div>
+            <div class="card-face card-back" id="cardBack">
+              <!-- Answer -->
+            </div>
+          </div>
+        </div>
+
+        <div class="navigation">
+          <button id="prevBtn" class="secondary">← Předchozí</button>
+          <button id="nextBtn">Další →</button>
+        </div>
+
+        <div style="text-align: center;">
+          <button id="finishBtn" class="secondary">Ukončit procvičování</button>
+        </div>
+      </div>
+
+      <div id="results" class="results hidden">
+        <h2>Procvičování dokončeno! 🎉</h2>
+        <p>Prošel jsi všechny kartičky. Teď už můžeš jít na test!</p>
+        <button id="restartBtn">Procvičovat znovu</button>
+        <a href="dejepis-test.html" style="display: inline-block; margin-top: 1rem; text-decoration: none; color: var(--accent); font-weight: 600;">
+          Jít na test →
+        </a>
+      </div>
+    </main>
+
+    <script>
+      let questions = [];
+      let currentCards = [];
+      let currentIndex = 0;
+      let isFlipped = false;
+
+      async function loadQuestions() {
+        try {
+          const response = await fetch('questions.json');
+          if (!response.ok) throw new Error('Nepodařilo se načíst otázky');
+          const data = await response.json();
+          questions = data.otazky;
+        } catch (error) {
+          showError(
+            'Nepodařilo se načíst otázky. Ujisti se, že používáš lokální server (python3 -m http.server).'
+          );
+          console.error(error);
+        }
+      }
+
+      function showError(message) {
+        const errorEl = document.getElementById('error');
+        errorEl.textContent = message;
+        errorEl.classList.remove('hidden');
+      }
+
+      function hideError() {
+        document.getElementById('error').classList.add('hidden');
+      }
+
+      function shuffle(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      }
+
+      document.getElementById('startBtn').addEventListener('click', () => {
+        hideError();
+
+        if (questions.length === 0) {
+          showError('Nejprve je potřeba načíst otázky.');
+          return;
+        }
+
+        const topicCheckboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked');
+        const selectedTopics = Array.from(topicCheckboxes).map(cb => cb.value);
+
+        if (selectedTopics.length === 0) {
+          showError('Vyber alespoň jedno téma.');
+          return;
+        }
+
+        const filtered = questions.filter(q => selectedTopics.includes(q.tema));
+
+        if (filtered.length === 0) {
+          showError('Pro vybraná témata nebyly nalezeny žádné otázky.');
+          return;
+        }
+
+        currentCards = shuffle(filtered);
+        currentIndex = 0;
+
+        document.getElementById('setup').classList.add('hidden');
+        document.getElementById('flashcards').classList.remove('hidden');
+        showCard();
+      });
+
+      function showCard() {
+        if (currentIndex >= currentCards.length) {
+          showResults();
+          return;
+        }
+
+        const question = currentCards[currentIndex];
+        const card = document.getElementById('card');
+        const cardFront = document.getElementById('cardFront');
+        const cardBack = document.getElementById('cardBack');
+
+        // Reset flip
+        card.classList.remove('flipped');
+        isFlipped = false;
+
+        // Update progress
+        document.getElementById('progress').innerHTML = `
+          Kartička <span>${currentIndex + 1}</span> z <span>${currentCards.length}</span>
+        `;
+
+        // Front side (question)
+        cardFront.innerHTML = `
+          <div class="card-meta">${question.tema} • ${question.obtiznost}</div>
+          <h2 class="card-question">${question.otazka}</h2>
+          <div class="card-hint">💡 Klikni pro zobrazení odpovědi</div>
+        `;
+
+        // Back side (answer)
+        cardBack.innerHTML = `
+          <div class="card-meta">${question.tema}</div>
+          <div class="card-answer">${question.spravna_odpoved}</div>
+          <div class="card-explanation">${question.oduvodneni}</div>
+        `;
+
+        // Update button states
+        document.getElementById('prevBtn').disabled = currentIndex === 0;
+        document.getElementById('nextBtn').textContent =
+          currentIndex === currentCards.length - 1 ? 'Dokončit' : 'Další →';
+      }
+
+      // Card flip on click
+      document.getElementById('card').addEventListener('click', () => {
+        const card = document.getElementById('card');
+        card.classList.toggle('flipped');
+        isFlipped = !isFlipped;
+      });
+
+      // Navigation
+      document.getElementById('prevBtn').addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          showCard();
+        }
+      });
+
+      document.getElementById('nextBtn').addEventListener('click', () => {
+        if (currentIndex < currentCards.length - 1) {
+          currentIndex++;
+          showCard();
+        } else {
+          showResults();
+        }
+      });
+
+      document.getElementById('finishBtn').addEventListener('click', () => {
+        showResults();
+      });
+
+      function showResults() {
+        document.getElementById('flashcards').classList.add('hidden');
+        document.getElementById('results').classList.remove('hidden');
+      }
+
+      document.getElementById('restartBtn').addEventListener('click', () => {
+        document.getElementById('results').classList.add('hidden');
+        document.getElementById('setup').classList.remove('hidden');
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (document.getElementById('flashcards').classList.contains('hidden')) {
+          return;
+        }
+
+        if (e.key === 'ArrowLeft' && currentIndex > 0) {
+          currentIndex--;
+          showCard();
+        } else if (e.key === 'ArrowRight' && currentIndex < currentCards.length - 1) {
+          currentIndex++;
+          showCard();
+        } else if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          document.getElementById('card').click();
+        }
+      });
+
+      loadQuestions();
+    </script>
+  </body>
+</html>

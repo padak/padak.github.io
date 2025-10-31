@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test z dějepisu - Raný středověk</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+        --surface: #ffffff;
+        --surface-soft: #eef2ff;
+        --surface-strong: #e0e7ff;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #4f46e5;
+        --accent-dark: #4338ca;
+        --positive: #16a34a;
+        --positive-bg: #dcfce7;
+        --negative: #dc2626;
+        --negative-bg: #fee2e2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: #f6f7fb;
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header.intro {
+        text-align: center;
+        padding: 2.5rem 0 1.5rem;
+      }
+
+      header.intro h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(2.1rem, 4vw, 2.8rem);
+      }
+
+      header.intro p {
+        margin: 0 auto;
+        max-width: 60ch;
+        color: var(--ink-soft);
+        font-size: 1rem;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+        gap: 2.5rem;
+        align-items: start;
+      }
+
+      aside.sidebar {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 1.5rem 1.75rem;
+        box-shadow: 0 18px 40px rgba(79, 70, 229, 0.12);
+        border: 1px solid rgba(79, 70, 229, 0.16);
+        position: sticky;
+        top: 1.5rem;
+      }
+
+      aside.sidebar h2 {
+        margin: 0 0 1.25rem;
+        font-size: 1.2rem;
+      }
+
+      aside.sidebar .topics {
+        list-style: none;
+        margin: 0 0 1.5rem 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      aside.sidebar .topics li {
+        background: var(--surface-soft);
+        border-radius: 8px;
+        padding: 0.5rem 0.65rem;
+        border: 1px solid var(--surface-strong);
+      }
+
+      .stats {
+        background: var(--surface-soft);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--surface-strong);
+      }
+
+      .stats h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .stats p {
+        margin: 0.25rem 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-link {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        background: var(--surface-soft);
+        border: 1px solid var(--accent);
+        text-align: center;
+        transition: background 0.2s ease;
+      }
+
+      .btn-link:hover {
+        background: var(--surface-strong);
+      }
+
+      section.content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .controls {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 1.5rem 1.75rem;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.14);
+      }
+
+      .controls h3 {
+        margin: 0 0 1rem;
+        font-size: 1.1rem;
+      }
+
+      .filter-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .filter-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .filter-group input,
+      .filter-group select {
+        width: 100%;
+        font: inherit;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #cbd5f5;
+        background-color: #fff;
+      }
+
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: normal;
+        cursor: pointer;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        width: auto;
+        cursor: pointer;
+      }
+
+      button {
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 0.7rem 2rem;
+        border: 1px solid var(--accent);
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(79, 70, 229, 0.25);
+      }
+
+      button:disabled {
+        background: #cbd5f5;
+        border-color: #cbd5f5;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+      }
+
+      button.secondary {
+        border: 1px solid #cbd5f5;
+        background: #e5e7ff;
+        color: var(--ink);
+      }
+
+      .question-card {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 2rem 2.25rem;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+        border: 1px solid rgba(79, 70, 229, 0.14);
+      }
+
+      .question-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .question-meta {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+
+      .question-text {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0 0 1.5rem;
+        color: var(--ink);
+      }
+
+      .answers {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .answer-btn {
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 1.25rem 1.5rem;
+        border-radius: 12px;
+        border: 2px solid #cbd5f5;
+        background: #fff;
+        color: var(--ink);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: left;
+        min-height: 4rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .answer-btn:hover:not(:disabled) {
+        border-color: var(--accent);
+        background: var(--surface-soft);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+      }
+
+      .answer-btn:disabled {
+        cursor: not-allowed;
+      }
+
+      .answer-btn.correct {
+        border-color: var(--positive);
+        background: var(--positive-bg);
+        color: var(--positive);
+        font-weight: 600;
+      }
+
+      .answer-btn.incorrect {
+        border-color: var(--negative);
+        background: var(--negative-bg);
+        color: var(--negative);
+      }
+
+      .feedback {
+        background: var(--surface-soft);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--accent);
+      }
+
+      .feedback h4 {
+        margin: 0 0 0.75rem;
+        font-size: 1.05rem;
+        color: var(--positive);
+      }
+
+      .feedback p {
+        margin: 0 0 0.75rem;
+        line-height: 1.6;
+      }
+
+      .feedback ul {
+        margin: 0.5rem 0 0 1.25rem;
+        padding: 0;
+      }
+
+      .feedback li {
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+
+      .results {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 3rem 2.5rem;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+        border: 1px solid rgba(79, 70, 229, 0.14);
+        text-align: center;
+      }
+
+      .results h2 {
+        margin: 0 0 1rem;
+        font-size: 2rem;
+      }
+
+      .results .score {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 1rem 0;
+      }
+
+      .results .percentage {
+        font-size: 1.5rem;
+        color: var(--ink-soft);
+        margin-bottom: 2rem;
+      }
+
+      .error {
+        background: var(--negative-bg);
+        border: 1px solid var(--negative);
+        color: var(--negative);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      @media (max-width: 980px) {
+        body {
+          padding: 0 1.1rem 2.5rem;
+        }
+
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        aside.sidebar {
+          position: static;
+        }
+
+        .answers {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        header.intro {
+          padding: 2rem 0 1.25rem;
+        }
+
+        .question-card {
+          padding: 1.5rem 1.25rem;
+        }
+
+        .question-text {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <h1>Test z dějepisu 📜</h1>
+        <p>
+          Raný středověk: Franská říše, Vikingové, Byzantská říše a Arabská říše
+        </p>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar">
+          <h2>Témata</h2>
+          <ul class="topics">
+            <li>📚 Franská říše</li>
+            <li>⚔️ Vikingové</li>
+            <li>🏛️ Byzantská říše</li>
+            <li>🕌 Arabská říše</li>
+          </ul>
+
+          <div class="stats hidden" id="stats">
+            <h3>Statistiky</h3>
+            <p><strong>Správně:</strong> <span id="correct">0</span></p>
+            <p><strong>Celkem:</strong> <span id="total">0</span></p>
+            <p><strong>Úspěšnost:</strong> <span id="percentage">0%</span></p>
+          </div>
+
+          <a href="dejepis-intro.html" class="btn-link">📖 Příprava na test</a>
+        </aside>
+
+        <section class="content">
+          <div id="error" class="error hidden"></div>
+
+          <div id="setup" class="controls">
+            <h3>Nastavení testu</h3>
+
+            <div class="filter-group">
+              <label for="questionCount">Počet otázek:</label>
+              <input type="number" id="questionCount" min="5" max="34" value="10" />
+            </div>
+
+            <div class="filter-group">
+              <label>Témata:</label>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" value="Franská říše" checked />
+                  Franská říše
+                </label>
+                <label>
+                  <input type="checkbox" value="Vikingové" checked />
+                  Vikingové
+                </label>
+                <label>
+                  <input type="checkbox" value="Byzantská říše" checked />
+                  Byzantská říše
+                </label>
+                <label>
+                  <input type="checkbox" value="Arabská říše" checked />
+                  Arabská říše
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label for="difficulty">Obtížnost:</label>
+              <select id="difficulty">
+                <option value="all">Všechny</option>
+                <option value="lehka">Lehká</option>
+                <option value="stredni">Střední</option>
+              </select>
+            </div>
+
+            <button id="startBtn">Začít test</button>
+          </div>
+
+          <div id="questionContainer" class="hidden"></div>
+
+          <div id="results" class="results hidden">
+            <h2>Výsledky</h2>
+            <div class="score" id="finalScore"></div>
+            <div class="percentage" id="finalPercentage"></div>
+            <p id="resultMessage"></p>
+            <button id="restartBtn">Zkusit znovu</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      let questions = [];
+      let currentQuestions = [];
+      let currentIndex = 0;
+      let correctAnswers = 0;
+      let totalAnswered = 0;
+
+      // Load questions from JSON
+      async function loadQuestions() {
+        try {
+          const response = await fetch('questions.json');
+          if (!response.ok) {
+            throw new Error('Nepodařilo se načíst otázky');
+          }
+          const data = await response.json();
+          questions = data.otazky;
+          console.log(`Načteno ${questions.length} otázek`);
+        } catch (error) {
+          showError(
+            'Nepodařilo se načíst otázky. Ujisti se, že používáš lokální server (např. python3 -m http.server) a soubor questions.json existuje.'
+          );
+          console.error(error);
+        }
+      }
+
+      function showError(message) {
+        const errorEl = document.getElementById('error');
+        errorEl.textContent = message;
+        errorEl.classList.remove('hidden');
+      }
+
+      function hideError() {
+        document.getElementById('error').classList.add('hidden');
+      }
+
+      // Shuffle array
+      function shuffle(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      }
+
+      // Start test
+      document.getElementById('startBtn').addEventListener('click', () => {
+        hideError();
+
+        if (questions.length === 0) {
+          showError('Nejprve je potřeba načíst otázky.');
+          return;
+        }
+
+        // Get selected topics
+        const topicCheckboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked');
+        const selectedTopics = Array.from(topicCheckboxes).map(cb => cb.value);
+
+        if (selectedTopics.length === 0) {
+          showError('Vyber alespoň jedno téma.');
+          return;
+        }
+
+        // Get difficulty
+        const difficulty = document.getElementById('difficulty').value;
+
+        // Filter questions
+        let filtered = questions.filter(q => selectedTopics.includes(q.tema));
+        if (difficulty !== 'all') {
+          filtered = filtered.filter(q => q.obtiznost === difficulty);
+        }
+
+        if (filtered.length === 0) {
+          showError('Pro vybraná kritéria nebyly nalezeny žádné otázky.');
+          return;
+        }
+
+        // Get question count
+        const count = Math.min(
+          parseInt(document.getElementById('questionCount').value),
+          filtered.length
+        );
+
+        // Shuffle and select questions
+        currentQuestions = shuffle(filtered).slice(0, count);
+        currentIndex = 0;
+        correctAnswers = 0;
+        totalAnswered = 0;
+
+        // Hide setup, show question
+        document.getElementById('setup').classList.add('hidden');
+        document.getElementById('stats').classList.remove('hidden');
+        showQuestion();
+      });
+
+      function showQuestion() {
+        if (currentIndex >= currentQuestions.length) {
+          showResults();
+          return;
+        }
+
+        const question = currentQuestions[currentIndex];
+        const container = document.getElementById('questionContainer');
+        container.classList.remove('hidden');
+
+        // Shuffle answers
+        const allAnswers = [
+          { text: question.spravna_odpoved, correct: true },
+          ...question.spatne_odpovedi.map(a => ({ text: a, correct: false }))
+        ];
+        const shuffledAnswers = shuffle(allAnswers);
+
+        container.innerHTML = `
+          <div class="question-card">
+            <div class="question-header">
+              <div class="question-meta">
+                <strong>${question.tema}</strong> • ${question.obtiznost} • Otázka ${currentIndex + 1}/${currentQuestions.length}
+              </div>
+            </div>
+            <h3 class="question-text">${question.otazka}</h3>
+            <div class="answers" id="answers">
+              ${shuffledAnswers.map((answer, idx) => `
+                <button class="answer-btn" data-correct="${answer.correct}" data-answer="${answer.text}">
+                  ${answer.text}
+                </button>
+              `).join('')}
+            </div>
+            <div id="feedback" class="feedback hidden"></div>
+            <button id="nextBtn" class="hidden">Další otázka</button>
+          </div>
+        `;
+
+        // Add event listeners to answer buttons
+        document.querySelectorAll('.answer-btn').forEach(btn => {
+          btn.addEventListener('click', () => handleAnswer(btn, question));
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+          currentIndex++;
+          showQuestion();
+        });
+      }
+
+      function handleAnswer(selectedBtn, question) {
+        const isCorrect = selectedBtn.dataset.correct === 'true';
+        const selectedAnswer = selectedBtn.dataset.answer;
+        totalAnswered++;
+
+        // Disable all buttons
+        document.querySelectorAll('.answer-btn').forEach(btn => {
+          btn.disabled = true;
+          if (btn.dataset.correct === 'true') {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (isCorrect) {
+          correctAnswers++;
+          selectedBtn.classList.add('correct');
+        } else {
+          selectedBtn.classList.add('incorrect');
+        }
+
+        // Show feedback
+        const feedbackEl = document.getElementById('feedback');
+        let feedbackHTML = `<h4>${isCorrect ? '✅ Správně!' : '❌ Nesprávně'}</h4>`;
+        feedbackHTML += `<p><strong>Správná odpověď:</strong> ${question.spravna_odpoved}</p>`;
+        feedbackHTML += `<p>${question.oduvodneni}</p>`;
+
+        if (!isCorrect && question.proc_spatne && question.proc_spatne[selectedAnswer]) {
+          feedbackHTML += `<p><strong>Proč je tvoje odpověď špatně:</strong> ${question.proc_spatne[selectedAnswer]}</p>`;
+        }
+
+        if (question.proc_spatne) {
+          feedbackHTML += '<p><strong>Proč ostatní odpovědi jsou špatně:</strong></p><ul>';
+          for (const [ans, explanation] of Object.entries(question.proc_spatne)) {
+            if (ans !== selectedAnswer) {
+              feedbackHTML += `<li><em>${ans}:</em> ${explanation}</li>`;
+            }
+          }
+          feedbackHTML += '</ul>';
+        }
+
+        feedbackEl.innerHTML = feedbackHTML;
+        feedbackEl.classList.remove('hidden');
+
+        // Show next button
+        document.getElementById('nextBtn').classList.remove('hidden');
+
+        // Update stats
+        updateStats();
+      }
+
+      function updateStats() {
+        document.getElementById('correct').textContent = correctAnswers;
+        document.getElementById('total').textContent = totalAnswered;
+        const percentage = totalAnswered > 0 ? Math.round((correctAnswers / totalAnswered) * 100) : 0;
+        document.getElementById('percentage').textContent = percentage + '%';
+      }
+
+      function showResults() {
+        document.getElementById('questionContainer').classList.add('hidden');
+        const resultsEl = document.getElementById('results');
+        resultsEl.classList.remove('hidden');
+
+        const percentage = Math.round((correctAnswers / totalAnswered) * 100);
+
+        document.getElementById('finalScore').textContent = `${correctAnswers} / ${totalAnswered}`;
+        document.getElementById('finalPercentage').textContent = `${percentage}%`;
+
+        let message = '';
+        if (percentage >= 90) {
+          message = 'Výborně! Látku ovládáš perfektně! 🎉';
+        } else if (percentage >= 75) {
+          message = 'Velmi dobře! Jen pár drobností k doleštění. 👍';
+        } else if (percentage >= 60) {
+          message = 'Dobře, ale je prostor pro zlepšení. 📚';
+        } else {
+          message = 'Ještě to chce potrénovat. Neboj, příště to bude lepší! 💪';
+        }
+        document.getElementById('resultMessage').textContent = message;
+      }
+
+      document.getElementById('restartBtn').addEventListener('click', () => {
+        document.getElementById('results').classList.add('hidden');
+        document.getElementById('setup').classList.remove('hidden');
+        document.getElementById('stats').classList.add('hidden');
+        currentIndex = 0;
+        correctAnswers = 0;
+        totalAnswered = 0;
+      });
+
+      // Initialize
+      loadQuestions();
+    </script>
+  </body>
+</html>

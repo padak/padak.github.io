@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dějepis - Raný středověk</title>
+    <style>
+      :root {
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #1f2937;
+        min-height: 100vh;
+      }
+
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 3rem 0 2rem;
+        color: #fff;
+      }
+
+      header h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      header p {
+        margin: 0;
+        font-size: 1.2rem;
+        opacity: 0.95;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .card-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+
+      .card h2 {
+        margin: 0 0 0.75rem;
+        font-size: 1.5rem;
+        color: #4f46e5;
+      }
+
+      .card p {
+        margin: 0 0 1rem;
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+
+      .card-badge {
+        display: inline-block;
+        background: #e0e7ff;
+        color: #4338ca;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      .info-box h3 {
+        margin: 0 0 1rem;
+        font-size: 1.5rem;
+        color: #4f46e5;
+      }
+
+      .info-box ol {
+        margin: 0;
+        padding-left: 1.5rem;
+      }
+
+      .info-box li {
+        margin: 0.75rem 0;
+        font-size: 1.05rem;
+      }
+
+      .info-box strong {
+        color: #4f46e5;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        header {
+          padding: 2rem 0 1.5rem;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .card {
+          padding: 2rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>📜 Dějepis</h1>
+        <p>Raný středověk - Interaktivní učební materiály</p>
+      </header>
+
+      <div class="cards">
+        <a href="dejepis-intro.html" class="card">
+          <div class="card-icon">📖</div>
+          <h2>Příprava na test</h2>
+          <p>Časová osa, slovníček pojmů a cheat sheet pro rychlé opakování</p>
+          <span class="card-badge">Začni tady</span>
+        </a>
+
+        <a href="story.html" class="card">
+          <div class="card-icon">📚</div>
+          <h2>Příběh</h2>
+          <p>Poutavé vyprávění o třech říších a vikingských mořeplavcích</p>
+          <span class="card-badge">Čtení</span>
+        </a>
+
+        <a href="dejepis-flashcards.html" class="card">
+          <div class="card-icon">🃏</div>
+          <h2>Flash Cards</h2>
+          <p>Interaktivní kartičky pro procvičování otázek a odpovědí</p>
+          <span class="card-badge">34 kartiček</span>
+        </a>
+
+        <a href="dejepis-test.html" class="card">
+          <div class="card-icon">🎯</div>
+          <h2>Test (Desktop)</h2>
+          <p>Otestuj si znalosti s okamžitou zpětnou vazbou</p>
+          <span class="card-badge">34 otázek</span>
+        </a>
+
+        <a href="dejepis-test-mobil.html" class="card">
+          <div class="card-icon">📱</div>
+          <h2>Test (Mobil)</h2>
+          <p>Mobilní verze testu optimalizovaná pro dotykové obrazovky</p>
+          <span class="card-badge">34 otázek</span>
+        </a>
+
+        <a href="ucebnice.md" class="card">
+          <div class="card-icon">📝</div>
+          <h2>Učebnice</h2>
+          <p>Strukturovaný přepis stránek z učebnice</p>
+          <span class="card-badge">Referenční materiál</span>
+        </a>
+      </div>
+
+      <div class="info-box">
+        <h3>🎓 Jak se učit krok za krokem</h3>
+        <ol>
+          <li><strong>Přečti příběh</strong> - získej celkový přehled o tématu</li>
+          <li><strong>Prostuduj přípravu</strong> - časová osa, slovníček, cheat sheet</li>
+          <li><strong>Procvičuj flash cards</strong> - projdi všechny kartičky 2-3×</li>
+          <li><strong>Zkus malý test</strong> - začni s 10 otázkami</li>
+          <li><strong>Finální test</strong> - když zvládáš 80%+, zkus všech 34 otázek</li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem; color: #fff; opacity: 0.9;">
+        <p style="font-size: 0.95rem;">
+          💡 Pro zobrazení stránek je potřeba spustit lokální server:<br>
+          <code style="background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 6px; font-family: monospace;">
+            python3 -m http.server
+          </code>
+        </p>
+        <p style="margin-top: 1rem;">
+          <a href="../" style="color: #fff; text-decoration: underline;">← Zpět na hlavní stránku</a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,544 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": ["Franská říše", "Vikingové", "Byzantská říše", "Arabská říše"],
+  "hlavni_osy": [
+    "Velké stěhování národů (4.–5. století) -> zánik Západořímské říše -> první středověké státy",
+    "Tři velcí hráči Západu a Středomoří: Franská říše (křesťanství), Byzantská říše (křesťanství), Arabská říše (islám)",
+    "Křesťanská církev – organizace a rozdělení (1054)",
+    "Kulturní přínosy: karolinská renesance, byzantská mozaika a právo, arabská věda a obchod"
+  ],
+  "terminologie": {
+    "Franska_rise": ["Merovejci", "Karolínci", "Karel Martel", "Pipin Krátký", "Karel Veliký", "Cáchy (Aachen)", "marky a markrabí", "hrabství a hrabata", "karolinská renesance", "Verdunská smlouva 843", "Západofranská říše", "Východofranská říše", "Svatá říše římská (od 10. stol.)"],
+    "Vikingove": ["Skandinávie", "dlouhé lodě (drakkary)", "Normané", "Varjagové", "Thing (shromáždění)", "Island, Grónsko, Vinland", "řemesla ze dřeva", "nájezdy 8.–11. stol."],
+    "Byzantska_rise": ["Východořímská říše", "Konstantinopol", "Hagia Sofia", "Justinián I.", "Theodora", "Justiniánův zákoník", "patriarcha", "mozaiky", "řecký jazyk", "pád 1453 (Turci)"],
+    "Arabska_rise": ["Arabský poloostrov", "Beduíni", "prorok Muhammad", "Alláh", "islám", "pět pilířů", "chalífa", "Korán", "mešita a minaret", "expanze do severní Afriky a na Pyrenejský poloostrov", "obchod – koření, hedvábí, koberce", "věda – matematika, astronomie, lékařství"]
+  },
+  "casova_osa": [
+    {"rok": 476, "udalost": "Zánik Západořímské říše – začátek raného středověku."},
+    {"rok": 496, "udalost": "Křest franského krále Chlodvíka (začlenění Franků do křesťanství)."},
+    {"rok": 732, "udalost": "Karel Martel zastavil Araby u Poitiers."},
+    {"rok": 751, "udalost": "Pipin Krátký – začátek dynastie Karolínců."},
+    {"rok": 800, "udalost": "Karel Veliký korunován císařem v Římě; vrchol Franské říše."},
+    {"rok": 843, "udalost": "Verdunská smlouva – rozdělení Franské říše na tři části."},
+    {"rok": 862, "udalost": "Vznik prvních vikinských osad na Islandu (přelom 9. stol.)."},
+    {"rok": 962, "udalost": "Vznik Svaté říše římské ve Východofranské říši."},
+    {"rok": 527, "udalost": "Nástup císaře Justiniána (Byzanc) – rekodifikace práva, výstavba Hagia Sofie."},
+    {"rok": 1054, "udalost": "Velké schizma – rozdělení křesťanské církve na římskokatolickou a pravoslavnou."},
+    {"rok": 610, "udalost": "Počátky islámu – zjevení proroku Muhammadovi."},
+    {"rok": 711, "udalost": "Arabové vstupují na Pyrenejský poloostrov."},
+    {"rok": 1453, "udalost": "Pád Konstantinopole – konec Byzantské říše."}
+  ],
+  "otazky": [
+    {
+      "id": "F1",
+      "tema": "Franská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl korunován roku 800 císařem v Římě?",
+      "spravna_odpoved": "Karel Veliký",
+      "spatne_odpovedi": ["Karel Martel", "Chlodvík (Clovis)", "Pipin Krátký"],
+      "oduvodneni": "Papež Lev III. korunoval Karla Velikého císařem na Boží hod vánoční roku 800, čímž vznikl první středověký císař na Západě.",
+      "proc_spatne": {
+        "Karel Martel": "Byl Karlův děd a vítěz od Poitiers (732), nikdy nebyl císař.",
+        "Chlodvík (Clovis)": "Merovejský král z 5.–6. stol., přijal křest; doba i titul nesedí.",
+        "Pipin Krátký": "Karlův otec, král od 751; císařskou korunu nezískal."
+      }
+    },
+    {
+      "id": "F2",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kterou část Franské říše označujeme po roce 843 jako základ budoucí Francie?",
+      "spravna_odpoved": "Západofranskou říši",
+      "spatne_odpovedi": ["Východofranskou říši", "Lotharingii (střední říši)", "Svatou říši římskou"],
+      "oduvodneni": "Verdunská smlouva (843) rozdělila říši Karlových vnuků, západní díl se vyvinul ve Francii.",
+      "proc_spatne": {
+        "Východofranskou říši": "Ta je základem budoucí Svaté říše římské a Německa.",
+        "Lotharingii (střední říši)": "Krátce existující pás, později rozdělen; není to Francie.",
+        "Svatou říši římskou": "Vznikla až 962 ve Východofranské říši."
+      }
+    },
+    {
+      "id": "F3",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývala kulturní obnova vzdělanosti na dvoře Karla Velikého?",
+      "spravna_odpoved": "Karolinská renesance",
+      "spatne_odpovedi": ["Gotická obnova", "Humanismus", "Reformace"],
+      "oduvodneni": "Karolinská renesance znamenala podporu škol, opisů knih a zavedení karolinské minuskuly.",
+      "proc_spatne": {
+        "Gotická obnova": "Gotika je styl od 12. století.",
+        "Humanismus": "Směr renesance 15.–16. století.",
+        "Reformace": "Náboženské hnutí 16. století."
+      }
+    },
+    {
+      "id": "F4",
+      "tema": "Franská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kde měl Karel Veliký dvůr a centrum správy?",
+      "spravna_odpoved": "V Cáchách (Aachen)",
+      "spatne_odpovedi": ["V Konstantinopoli", "V Římě", "V Paříži"],
+      "oduvodneni": "Cáchy byly Karlovým sídelním městem a kulturním centrem říše.",
+      "proc_spatne": {
+        "Konstantinopol": "Hlavní město Byzance, ne Franků.",
+        "Řím": "Sídlo papeže; Karel byl korunován v Římě, ale tam nesídlil.",
+        "Paříž": "Stala se hlavním městem Francie později."
+      }
+    },
+    {
+      "id": "F5",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovala pohraniční území Franské říše spravovaná markrabaty?",
+      "spravna_odpoved": "Marky",
+      "spatne_odpovedi": ["Prefektury", "Patriarcháty", "Komuny"],
+      "oduvodneni": "Marky byly pohraniční oblasti (např. Východní marka), kterým veleli markrabata.",
+      "proc_spatne": {
+        "Prefektury": "Pojem z římské správy.",
+        "Patriarcháty": "Církevní obvody v pravoslaví.",
+        "Komuny": "Městská samospráva středověku, ne pohraničí."
+      }
+    },
+    {
+      "id": "F6",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které kočovné kmeny Karel Veliký porazil ve střední Evropě?",
+      "spravna_odpoved": "Avary",
+      "spatne_odpovedi": ["Vandaly", "Sasy", "Normany"],
+      "oduvodneni": "Karel nechal rozbít avarský kaganát a získal kořist i vliv v Panonii.",
+      "proc_spatne": {
+        "Vandaly": "Byli dřívější germánský kmen v Africe (5.–6. stol.).",
+        "Sasy": "Frankové je podrobovali na severu, ale otázka míří na kočovníky.",
+        "Normany": "Označení pro Vikingy; s nimi bojovali hlavně později Frankové v severní Francii."
+      }
+    },
+    {
+      "id": "V1",
+      "tema": "Vikingové",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Odkud Vikingové pocházeli?",
+      "spravna_odpoved": "Ze Skandinávie (dnešní Dánsko, Norsko, Švédsko)",
+      "spatne_odpovedi": ["Z Pyrenejského poloostrova", "Z Malé Asie", "Ze severní Afriky"],
+      "oduvodneni": "Vikingové jsou severské národy Skandinávie, slavní mořeplavci.",
+      "proc_spatne": {
+        "Pyrenejský poloostrov": "Tam působili Arabové po roce 711.",
+        "Malá Asie": "Území Byzance.",
+        "Severní Afrika": "Patřila z velké části Arabům a Berberům."
+      }
+    },
+    {
+      "id": "V2",
+      "tema": "Vikingové",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se říkalo vikinským dlouhým lodím?",
+      "spravna_odpoved": "Drakkary (dlouhé lodě)",
+      "spatne_odpovedi": ["Trirémy", "Karavely", "Galeony"],
+      "oduvodneni": "Drakkar je typ úzké plachetnice/veslice s mělkým ponorem, vhodné pro moře i řeky.",
+      "proc_spatne": {
+        "Trirémy": "Starověké řecké/římské válečné lodě.",
+        "Karavely": "Lodě portugalské a španělské éry objevů (15.–16. stol.).",
+        "Galeony": "Velké plachetnice raného novověku."
+      }
+    },
+    {
+      "id": "V3",
+      "tema": "Vikingové",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které oblasti Vikingové osídlili v Atlantiku?",
+      "spravna_odpoved": "Island a Grónsko (a krátce Severní Ameriku – Vinland)",
+      "spatne_odpovedi": ["Kanárské ostrovy a Madeira", "Kréta a Rhodos", "Sicílie a Sardinie"],
+      "oduvodneni": "Island a Grónsko byly dlouhodobé osady; kolem roku 1000 dorazili k americkým břehům.",
+      "proc_spatne": {
+        "Kanárské ostrovy a Madeira": "Ty patří do portugalského zámoří v novověku.",
+        "Kréta a Rhodos": "Středomořské ostrovy pod Byzancí a dalšími státy.",
+        "Sicílie a Sardinie": "Sicílii ovládli později Normané, ale to už je jiný kontext."
+      }
+    },
+    {
+      "id": "V4",
+      "tema": "Vikingové",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak Frankové říkali Vikingům usazeným v severní Francii?",
+      "spravna_odpoved": "Normani",
+      "spatne_odpovedi": ["Varjagové", "Sasové", "Bavoři"],
+      "oduvodneni": "Normani = „seveřané“, z nich vzniklo Vévodství normanské.",
+      "proc_spatne": {
+        "Varjagové": "Vikingové působící na východních cestách (Rus).",
+        "Sasové": "Jiný germánský kmen.",
+        "Bavoři": "Obyvatelé Bavorska ve Franské říši."
+      }
+    },
+    {
+      "id": "V5",
+      "tema": "Vikingové",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaká dovednost Vikingů byla proslulá a děsila pobřežní oblasti Evropy?",
+      "spravna_odpoved": "Mořeplavba a nájezdy na dlouhých lodích",
+      "spatne_odpovedi": ["Pouštní karavanový obchod", "Jízdní lučištnictví na koních", "Výroba porcelánu"],
+      "oduvodneni": "Vikingové podnikali rychlé výpady po řekách i pobřeží a současně obchodovali.",
+      "proc_spatne": {
+        "Pouštní karavanový obchod": "Typický pro Araby a Berbery.",
+        "Jízdní lučištnictví": "Typické pro kočovníky stepí (Avary, Maďaři).",
+        "Výroba porcelánu": "Patří k Číně."
+      }
+    },
+    {
+      "id": "V6",
+      "tema": "Vikingové",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovalo vikinské shromáždění svobodných mužů – počátky demokracie na Islandu?",
+      "spravna_odpoved": "Thing (Althing)",
+      "spatne_odpovedi": ["Senát", "Dúma", "Sejm"],
+      "oduvodneni": "Althing na Islandu (od 10. stol.) je nejstarší fungující parlamentní instituce.",
+      "proc_spatne": {
+        "Senát": "Římská/novověká instituce.",
+        "Dúma": "Ruský parlament.",
+        "Sejm": "Polský parlament."
+      }
+    },
+    {
+      "id": "B1",
+      "tema": "Byzantská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovalo hlavní město Byzantské říše?",
+      "spravna_odpoved": "Konstantinopol",
+      "spatne_odpovedi": ["Řím", "Paříž", "Madrid"],
+      "oduvodneni": "Konstantinopol (dnes Istanbul) byla centrem Východořímské říše.",
+      "proc_spatne": {
+        "Řím": "Byl centrem Západu a papeže.",
+        "Paříž": "Město Západofranské říše/Francie.",
+        "Madrid": "Mladší novověké hlavní město Španělska."
+      }
+    },
+    {
+      "id": "B2",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který císař proslul rekodifikací římského práva a stavbou chrámu Hagia Sofia?",
+      "spravna_odpoved": "Justinián I.",
+      "spatne_odpovedi": ["Konstantin Veliký", "Herakleios", "Basileios II."],
+      "oduvodneni": "Justinián vládl 527–565; jeho zákoník a Hagia Sofia jsou symboly byzantské kultury.",
+      "proc_spatne": {
+        "Konstantin Veliký": "Starší, založil Konstantinopol (4. stol.).",
+        "Herakleios": "Vládl v 7. stol., boj s Peršany a Araby.",
+        "Basileios II.": "„Bulharobijce“ – pozdější císař (10.–11. stol.)."
+      }
+    },
+    {
+      "id": "B3",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývá náboženský vůdce byzantské církve?",
+      "spravna_odpoved": "Patriarcha",
+      "spatne_odpovedi": ["Papež", "Dalajláma", "Imám"],
+      "oduvodneni": "Východní (pravoslavná) církev má v čele patriarchy, v Byzanci sídlil v Konstantinopoli.",
+      "proc_spatne": {
+        "Papež": "Hlava římskokatolické církve na Západě.",
+        "Dalajláma": "Tibetský buddhismus.",
+        "Imám": "Náboženský představený v islámu."
+      }
+    },
+    {
+      "id": "B4",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V kterém roce došlo k velkému rozdělení křesťanské církve na katolickou a pravoslavnou?",
+      "spravna_odpoved": "1054",
+      "spatne_odpovedi": ["800", "962", "1453"],
+      "oduvodneni": "Velké schizma roku 1054 rozdělilo Západ (papež) a Východ (patriarcha).",
+      "proc_spatne": {
+        "800": "Korunovace Karla Velikého.",
+        "962": "Vznik Svaté říše římské.",
+        "1453": "Pád Konstantinopole."
+      }
+    },
+    {
+      "id": "B5",
+      "tema": "Byzantská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaký umělecký prvek je pro Byzanc typický?",
+      "spravna_odpoved": "Mozaiky s náboženskými výjevy",
+      "spatne_odpovedi": ["Jeskynní malby", "Gotické vitráže", "Barokní fresky"],
+      "oduvodneni": "Byzantské kostely zdobily bohaté mozaiky ze sklíček a kamínků.",
+      "proc_spatne": {
+        "Jeskynní malby": "Prehistorie.",
+        "Gotické vitráže": "Až od 12.–13. stol. na Západě.",
+        "Barokní fresky": "17.–18. století."
+      }
+    },
+    {
+      "id": "B6",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdy a kým byla Byzantská říše definitivně dobyta?",
+      "spravna_odpoved": "Roku 1453 osmanskými Turky",
+      "spatne_odpovedi": ["Roku 1204 křižáky", "Roku 732 Araby", "Roku 843 Franky"],
+      "oduvodneni": "Osmanský sultán Mehmed II. dobyl Konstantinopol 1453.",
+      "proc_spatne": {
+        "1204 křižáky": "Dočasné obsazení Konstantinopole (Latinské císařství), nikoli konec říše.",
+        "732 Araby": "Bitva u Poitiers se týkala Západu, ne pádu Byzance.",
+        "843 Franky": "To je verdunské rozdělení Franků."
+      }
+    },
+    {
+      "id": "A1",
+      "tema": "Arabská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenuje posvátná kniha muslimů?",
+      "spravna_odpoved": "Korán",
+      "spatne_odpovedi": ["Bible", "Tóra", "Tripitaka"],
+      "oduvodneni": "Korán obsahuje zjevené Boží slovo proroku Muhammadovi.",
+      "proc_spatne": {
+        "Bible": "Křesťanství.",
+        "Tóra": "Judaismus.",
+        "Tripitaka": "Buddhismus."
+      }
+    },
+    {
+      "id": "A2",
+      "tema": "Arabská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které tvrzení vystihuje pět pilířů islámu?",
+      "spravna_odpoved": "Víra v jediného Boha, modlitba, almužna, půst v Ramadánu, pouť do Mekky",
+      "spatne_odpovedi": ["Křest, biřmování, přijímání, svatba, pohřeb", "Meditace, jóga, nirvána, karma, reinkarnace", "Desatero přikázání Mojžíše"],
+      "oduvodneni": "Pět pilířů tvoří základ praktického života muslimů.",
+      "proc_spatne": {
+        "Křest…": "Křesťanské svátosti.",
+        "Meditace…": "Prvky hinduismu/buddhismu.",
+        "Desatero…": "Součást judaismu/křesťanství."
+      }
+    },
+    {
+      "id": "A3",
+      "tema": "Arabská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo vládl arabské říši po Muhammadově smrti?",
+      "spravna_odpoved": "Chalífové",
+      "spatne_odpovedi": ["Patriarchové", "Knížata", "Markrabata"],
+      "oduvodneni": "Chalífa je nástupce Prorokův v čele politické i náboženské komunity.",
+      "proc_spatne": {
+        "Patriarchové": "Pravoslavná církev.",
+        "Knížata": "Obecný světský titul, ne specificky arabský.",
+        "Markrabata": "Pohraniční správci ve Franské říši."
+      }
+    },
+    {
+      "id": "A4",
+      "tema": "Arabská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kam až se Arabové v Evropě rozšířili v 8. století?",
+      "spravna_odpoved": "Na Pyrenejský poloostrov a do jižní Francie",
+      "spatne_odpovedi": ["Do Skandinávie", "Do Británie a Irska", "Do Polska"],
+      "oduvodneni": "Arabové ovládli Al-Andalus a pronikli přes Pyreneje; byli zastaveni u Poitiers (732).",
+      "proc_spatne": {
+        "Skandinávie": "Domov Vikingů.",
+        "Británie a Irsko": "Zde působili Vikingové a Anglosasové.",
+        "Polsko": "Do střední Evropy se takto nešířili."
+      }
+    },
+    {
+      "id": "A5",
+      "tema": "Arabská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které vědní a kulturní oblasti Arabové významně rozvinuli a ovlivnili Evropu?",
+      "spravna_odpoved": "Matematiku (algebra, číslice), lékařství, astronomii a architekturu",
+      "spatne_odpovedi": ["Porcelán a střelný prach", "Skládání symfonií", "Tiskařský lis"],
+      "oduvodneni": "Arabové zprostředkovali znalosti a rozvíjeli vědu – např. číslice 0–9, optiku, lékařské spisy.",
+      "proc_spatne": {
+        "Porcelán a střelný prach": "Převážně čínské vynálezy.",
+        "Skládání symfonií": "Hudební forma novověku.",
+        "Tiskařský lis": "Gutenberg – polovina 15. století v Evropě."
+      }
+    },
+    {
+      "id": "A6",
+      "tema": "Arabská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývá modlitební věž u mešity?",
+      "spravna_odpoved": "Minaret",
+      "spatne_odpovedi": ["Campanila", "Pylon", "Stúpa"],
+      "oduvodneni": "Minaret je věž, odkud muezzin svolává k modlitbě.",
+      "proc_spatne": {
+        "Campanila": "Zvonice křesťanských kostelů v Itálii.",
+        "Pylon": "Vstupní brána egyptských chrámů.",
+        "Stúpa": "Buddhistická svatyně."
+      }
+    },
+    {
+      "id": "F7",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo zastavil arabskou expanzi do Evropy bitvou u Poitiers roku 732?",
+      "spravna_odpoved": "Karel Martel",
+      "spatne_odpovedi": ["Karel Veliký", "Pipin Krátký", "Justinián I."],
+      "oduvodneni": "Karel Martel (děd Karla Velikého) porazil Araby u Poitiers a zabránil jejich dalšímu postupu do Franské říše.",
+      "proc_spatne": {
+        "Karel Veliký": "Karel Veliký byl vnukem Karla Martela; válčil později s Avary a Sasy, nikoli s Araby.",
+        "Pipin Krátký": "Pipin byl synem Karla Martela a otcem Karla Velikého, vládl od 751.",
+        "Justinián I.": "Justinián byl byzantský císař (6. stol.), ne franský vojevůdce."
+      }
+    },
+    {
+      "id": "F8",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovala první franská královská dynastie před Karlem Velikým?",
+      "spravna_odpoved": "Merovejci",
+      "spatne_odpovedi": ["Karolínci", "Kapetovci", "Valois"],
+      "oduvodneni": "Merovejci vládli Frankům od 5. století; jejich král Chlodvík přijal křest kolem roku 500. Později je vystřídali Karolínci.",
+      "proc_spatne": {
+        "Karolínci": "Karolínci jsou druhá dynastie (od Pipina Krátkého 751), k níž patřil Karel Veliký.",
+        "Kapetovci": "Francouzská dynastie od 10. století.",
+        "Valois": "Větev Kapetovců, vládla Francii ve 14.–16. století."
+      }
+    },
+    {
+      "id": "F9",
+      "tema": "Franská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaký byl rozdíl mezi hrabaty a markrabaty ve Franské říši?",
+      "spravna_odpoved": "Hrabata spravovala vnitřní oblasti (hrabství), markrabata pohraniční oblasti (marky)",
+      "spatne_odpovedi": ["Hrabata velela armádě, markrabata sbírala daně", "Hrabata byla církevní, markrabata světská", "Markrabata byla vyšší než hrabata, ale měla menší území"],
+      "oduvodneni": "Správa říše byla rozdělena: hrabata spravovala hrabství uvnitř říše, zatímco markrabata velela pohraničním markám, které chránily říši před útoky.",
+      "proc_spatne": {
+        "Hrabata velela armádě, markrabata sbírala daně": "Oba měli vojenské i správní úkoly, rozdíl byl v umístění území.",
+        "Hrabata byla církevní, markrabata světská": "Oba byli světští hodnostáři jmenovaní císařem.",
+        "Markrabata byla vyšší než hrabata, ale měla menší území": "Markrabata měla sice prestižnější postavení (ochrana hranic), ale rozdíl byl v typu území, ne ve velikosti."
+      }
+    },
+    {
+      "id": "B7",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byla Theodora a jakou roli hrála v Byzantské říši?",
+      "spravna_odpoved": "Manželka císaře Justiniána a jeho schopná politická rádkyně",
+      "spatne_odpovedi": ["Dcera Justiniána, která zdědila trůn", "Řecká filosofka a učitelka", "První patriarchova v Konstantinopoli"],
+      "oduvodneni": "Theodora byla manželkou císaře Justiniána I. a významně ho podporovala v politických rozhodnutích. Byla inteligentní a schopná vladařka.",
+      "proc_spatne": {
+        "Dcera Justiniána, která zdědila trůn": "Justinián neměl dceru, která by vládla; po něm vládl Justinus II.",
+        "Řecká filosofka a učitelka": "Theodora nebyla filosofka, ale císařovna a politička.",
+        "První patriarchova v Konstantinopoli": "Patriarcha byl muž; ženy v té době nemohly zastávat církevní hodnosti."
+      }
+    },
+    {
+      "id": "B8",
+      "tema": "Byzantská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo stojí na vrcholu hierarchie katolické církve?",
+      "spravna_odpoved": "Papež",
+      "spatne_odpovedi": ["Patriarcha", "Arcibiskup", "Kardinál"],
+      "oduvodneni": "V katolické církvi je papež nejvyšší autoritou. Církev má pyramidovou strukturu: papež → kardinálové → arcibiskupové → biskupové → faráři.",
+      "proc_spatne": {
+        "Patriarcha": "Patriarcha je nejvyšší v pravoslavné církvi, ne v katolické.",
+        "Arcibiskup": "Arcibiskup je níže než papež a kardinálové.",
+        "Kardinál": "Kardinálové jsou hned pod papežem, ale papež je nad nimi."
+      }
+    },
+    {
+      "id": "B9",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jakou roli hrály kláštery v raném středověku?",
+      "spravna_odpoved": "Byly centry vzdělanosti, kde se opisovaly knihy a vyučovalo",
+      "spatne_odpovedi": ["Hlavně vojenské pevnosti na obranu před Araby", "Obchodní střediska s výrobou zbraní", "Pouze místa pro modlitby bez jiné funkce"],
+      "oduvodneni": "Kláštery byly v raném středověku důležitými centry vzdělanosti. Mniši opisovali staré knihy (Bible i antické texty), vyučovali a uchovávali znalosti.",
+      "proc_spatne": {
+        "Hlavně vojenské pevnosti na obranu před Araby": "Kláštery nebyly primárně vojenské, i když některé měly hradby.",
+        "Obchodní střediska s výrobou zbraní": "Kláštery produkovaly jídlo a knihy, ne zbraně; nebyly obchodními centry.",
+        "Pouze místa pro modlitby bez jiné funkce": "Modlitba byla důležitá, ale kláštery měly i vzdělávací a hospodářskou funkci."
+      }
+    },
+    {
+      "id": "B10",
+      "tema": "Byzantská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který císař založil město Konstantinopol ve 4. století?",
+      "spravna_odpoved": "Konstantin Veliký",
+      "spatne_odpovedi": ["Justinián I.", "Karel Veliký", "Alexandr Veliký"],
+      "oduvodneni": "Konstantin Veliký přeměnil starověké město Byzantion na nové hlavní město římské říše - Konstantinopol (330 n. l.), které se stalo centrem Východořímské říše.",
+      "proc_spatne": {
+        "Justinián I.": "Justinián vládl Byzanci o 200 let později (6. stol.) a město už existovalo.",
+        "Karel Veliký": "Karel Veliký byl franský císař (8.–9. stol.), jeho město bylo Cáchy.",
+        "Alexandr Veliký": "Alexandr Veliký žil ve starověku (4. stol. př. n. l.), založil Alexandrii."
+      }
+    },
+    {
+      "id": "A7",
+      "tema": "Arabská říše",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovali kočovní pastevci žijící na Arabském poloostrově před vznikem islámu?",
+      "spravna_odpoved": "Beduíni",
+      "spatne_odpovedi": ["Vikingové", "Nomádi", "Varjagové"],
+      "oduvodneni": "Beduíni byli (a jsou) kočovní arabští pastevci, kteří se pohybovali po poušti s dobytkem. Muhammad je sjednotil prostřednictvím islámu.",
+      "proc_spatne": {
+        "Vikingové": "Vikingové pocházeli ze Skandinávie, ne z Arábie.",
+        "Nomádi": "Nomádi je obecný termín pro kočovníky, ale specifický název pro arabské kočovníky je beduíni.",
+        "Varjagové": "Varjagové byli Vikingové působící na východě (Rus), ne v Arábii."
+      }
+    },
+    {
+      "id": "A8",
+      "tema": "Arabská říše",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím se vyznačuje arabské umění a architektura?",
+      "spravna_odpoved": "Geometrickými ornamenty a zákazy zobrazování lidí a zvířat",
+      "spatne_odpovedi": ["Realistickými sochami a portréty vládců", "Gotickými vitrážemi a kamennými katedrálami", "Dřevěnými vyřezávanými drakaři"],
+      "oduvodneni": "Islám zakazuje zobrazování živých bytostí, proto arabské umění používá geometrické vzory, arabesky a kaligrafii. Typické jsou mozaiky a ornamenty v mešitách.",
+      "proc_spatne": {
+        "Realistickými sochami a portréty vládců": "Islám zakazuje zobrazování lidí kvůli riziku modlářství.",
+        "Gotickými vitrážemi a kamennými katedrálami": "Gotika je evropský křesťanský styl od 12. století.",
+        "Dřevěnými vyřezávanými drakaři": "Drakkary jsou vikinské lodě, ne arabské umění."
+      }
+    },
+    {
+      "id": "V7",
+      "tema": "Vikingové",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který materiál Vikingové nejvíce využívali pro stavby lodí i domů?",
+      "spravna_odpoved": "Dřevo",
+      "spatne_odpovedi": ["Kámen", "Hlínu a slámu", "Bronz a železo"],
+      "oduvodneni": "Skandinávie měla hojnost lesů, proto Vikingové vynikali v práci se dřevem. Stavěli z něj lodě (drakkary), domy i řemeslné výrobky.",
+      "proc_spatne": {
+        "Kámen": "Kámen používali jen výjimečně; dřevo bylo dostupnější a snazší na zpracování.",
+        "Hlínu a slámu": "V některých oblastech ano, ale typické je dřevo.",
+        "Bronz a železo": "Kovy používali na zbraně a šperky, ne na stavby."
+      }
+    }
+  ]
+}

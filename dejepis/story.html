@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Příběh tří říší a mořeplavců</title>
+    <style>
+      :root {
+        font-family: "Georgia", "Palatino", "Times New Roman", serif;
+        line-height: 1.8;
+        --surface: #ffffff;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #4f46e5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+        color: var(--ink);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 750px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      header h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      header p {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+
+      article {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 3rem 3.5rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        margin-bottom: 2rem;
+      }
+
+      article p {
+        margin: 0 0 1.5rem;
+        font-size: 1.15rem;
+        text-align: justify;
+        text-indent: 2em;
+      }
+
+      article p:first-child {
+        font-size: 1.25rem;
+      }
+
+      article p:first-child::first-letter {
+        font-size: 3.5em;
+        font-weight: 700;
+        float: left;
+        line-height: 0.8;
+        margin: 0.1em 0.1em 0 0;
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        padding: 0.85rem 2rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 2px solid var(--accent);
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
+        transition: all 0.2s ease;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .nav-links a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(79, 70, 229, 0.3);
+        background: #fff;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 1.5rem 1rem;
+        }
+
+        header {
+          padding: 1.5rem 1.25rem;
+        }
+
+        article {
+          padding: 2rem 1.75rem;
+        }
+
+        article p {
+          font-size: 1.05rem;
+          text-align: left;
+        }
+
+        .nav-links {
+          flex-direction: column;
+        }
+
+        .nav-links a {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📜 Příběh tří říší a mořeplavců</h1>
+        <p>Vyprávění o raném středověku</p>
+      </header>
+
+      <article>
+        <p>
+          Když se na konci starověku rozpadla Západořímská říše, Evropa se jako řeka rozlila do nových koryt. Germánské kmeny hledaly nový domov a na západě se v povodí Rýna usadili Frankové. Z malých kmenů se pod vedením schopných vládců stala velká říše.
+        </p>
+
+        <p>
+          První, kdo Franky sjednotil, byli Merovejci. Jejich král Chlodvík přijal křest a otevřel tak bránu křesťanství. Jenže i ty největší rody časem zeslábnou – a tak se k moci prodral nový rod.
+        </p>
+
+        <p>
+          Děd a otec pozdějšího krále Karla – Karel Martel a Pipin Krátký – připravili půdu. Karel Martel se proslavil bitvou u Poitiers roku 732, kde zastavil arabskou vlnu směřující do srdce Evropy. Jeho syn Pipin Krátký pak roku 751 založil novou dynastii – Karolínce. A právě jejich potomek Karel Veliký vybudoval pevný dům. Sídlo měl v Cáchách, spravoval zemi pomocí hrabat (kteří veleli hrabstvím uvnitř říše) a markrabat (strážců pohraničních marek). Porazil Avary na východě, podrobil Sasy na severu, bránil říši a pečoval o školy i psaní – říkáme tomu karolinská renesance. O Vánocích roku 800 ho v Římě papež korunoval císařem.
+        </p>
+
+        <p>
+          Velké říše se však těžko drží pohromadě. Když Karlovi vnuci roku 843 podepsali Verdunskou smlouvu, rozdělili území na tři části: západní (budoucí Francii), východní (základ Svaté říše římské) a střední pás, který se brzy rozpadl.
+        </p>
+
+        <p>
+          Na východě však nikdy nezhaslo světlo Byzantské říše. Ještě před pádem Říma císař Konstantin Veliký přenesl hlavní město do Konstantinopole a učinil křesťanství státním náboženstvím. Odtud víra postupně pronikla k divokému germánskému světu – v 4. a 5. století křest přijímaly kmen za kmenem.
+        </p>
+
+        <p>
+          V jejím srdci – v Konstantinopoli – vládl později císař Justinián. Po jeho boku stála jeho manželka Theodora, inteligentní a odvážná žena, která mu byla politickou rádkyní a oporou. Společně nechali sepsat zákoník, který shrnul staré římské právo, a postavili nádherný chrám Hagia Sofia.
+        </p>
+
+        <p>
+          Křesťanská církev mezitím rostla v sílu a vytvořila si pyramidovou strukturu: na vrcholu stál papež v Římě, pod ním kardinálové, arcibiskupové, biskupové, opati a na nejnižším stupni faráři a mniši. V klášterech se mniši modlili, ale také opisovali staré knihy – biblické i antické – a tak uchovávali vzdělanost pro budoucí generace.
+        </p>
+
+        <p>
+          Byzantské kostely zdobily mozaiky, církev vedl patriarcha a říše byla kulturně i hospodářsky silná. Přesto se křesťanský svět nakonec rozdělil: roku 1054 došlo k velkému schizmatu mezi římským papežem a východními patriarchami. A po dlouhém boji Byzanc roku 1453 padla do rukou Turků.
+        </p>
+
+        <p>
+          Na severu mezitím vyrazili na moře Vikingové. V drsných podmínkách Skandinávie žili z chovu dobytka, lovu a rybolovu, a dřevo bylo jejich věrným společníkem – z něj stavěli domy, lodě i nástroje. Na úzkých drakkarech s dračí přídí vplouvali po řekách hluboko do země – po Seině až do Paříže, přes moře až do Itálie – obchodovali i plenili. Frankové jim říkali Normani, na východě byli známi jako Varjagové. Někteří se usadili na Islandu a v Grónsku, a dokonce doletěli pohledem až k Americe – do Vinlandu. Zanechali po sobě dřevěné stavby, šperky i tradici shromáždění svobodných mužů – Thing, na Islandu dodnes zvaný Althing.
+        </p>
+
+        <p>
+          A pak je tu třetí mocnost – Arabská říše. Na Arabském poloostrově žili beduíni, kočovní pastevci putující pouští se stády. K jednomu z nich – proroku Muhammadovi – promluvil anděl a zrodil se islám. Základ tvoří pět pilířů: víra v jediného Boha Alláha, modlitba, almužna, půst v měsíci Ramadánu a pouť do Mekky. Vládci – chalífové – sjednotili kmeny a během několika desetiletí se arabské výpravy rozlily od Persie přes severní Afriku až na Pyrenejský poloostrov. Přinesli Evropě obchod s kořením a látkami, číslice a algebru, lékařské knihy, poznatky z astronomie, zeměpisu a fyziky, i nové architektonické formy: mešity s minarety zdobené geometrickými ornamenty, protože islám zakazoval zobrazování živých bytostí.
+        </p>
+
+        <p>
+          Tak se v raném středověku roztočil kolotoč dějin: Frankové vytvářeli politický rámec Západu, Byzanc nesla dál pochodeň antické vzdělanosti a Arabové otevřeli Evropě dveře k vědě a dalekým cestám. A mezi nimi se na moři mihotaly štíty Vikingů – jako vlnky, které občas zvedly bouři.
+        </p>
+      </article>
+
+      <div class="nav-links">
+        <a href="dejepis-intro.html">📖 Příprava na test</a>
+        <a href="dejepis-flashcards.html">🃏 Flash cards</a>
+        <a href="dejepis-test.html">🎯 Spustit test</a>
+      </div>
+
+      <footer>
+        <p>💝 Vytvořeno s láskou pro Terku</p>
+      </footer>
+    </div>
+  </body>
+</html>
