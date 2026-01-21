@@ -1,0 +1,535 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": ["Počátky českého státu"],
+  "zdroj": "L.4, Počátky českého státu, s. 29",
+  "hlavni_osy": [
+    "Příchod Slovanů a vznik kmene Čechů na dolním toku Vltavy",
+    "Přemyslovci - bájní předci Přemysl Oráč a Libuše, první historický kníže Bořivoj I.",
+    "Vztah k Velké Moravě a později k Svaté říši římské",
+    "Upevňování moci Přemyslovců - od Václava přes Boleslava I. a II. až k Břetislavovi I.",
+    "Christianizace Čech, vznik pražského biskupství, vyvraždění Slavníkovců"
+  ],
+  "terminologie": {
+    "Bájné_počátky": [
+      {"pojem": "Přemysl Oráč", "vysvetleni": "Bájný zakladatel rodu Přemyslovců, pocházel ze Stadic"},
+      {"pojem": "Libuše", "vysvetleni": "Krokova dcera, vyvolila si Přemysla za manžela"},
+      {"pojem": "Stadice", "vysvetleni": "Bájné rodiště Přemysla Oráče"},
+      {"pojem": "Kristiánova legenda", "vysvetleni": "Zdroj informací o původu Přemyslovců z konce 10. století"},
+      {"pojem": "Kosmova kronika", "vysvetleni": "Nejstarší česká kronika z 11. století"}
+    ],
+    "První_Přemyslovci": [
+      {"pojem": "Bořivoj I.", "vysvetleni": "První historicky doložený český kníže (konec 9. st.), pokřtěn na Moravě"},
+      {"pojem": "Svatopluk Velkomoravský", "vysvetleni": "Velkomoravský kníže, ustanovil Bořivoje (867) knížetem Čechů"},
+      {"pojem": "Ludmila (svatá)", "vysvetleni": "Manželka Bořivoje, 1. česká světice, zavražděna 15.9.921 na Tetíně"},
+      {"pojem": "Spytihněv", "vysvetleni": "Syn Bořivoje a Ludmily"},
+      {"pojem": "Vratislav", "vysvetleni": "Syn Bořivoje a Ludmily, otec Václava a Boleslava I."},
+      {"pojem": "Drahomíra", "vysvetleni": "Manželka Vratislava, matka Václava, v konfliktu s Ludmilou"}
+    ],
+    "Kníže_Václav": [
+      {"pojem": "Václav (svatý)", "vysvetleni": "Kníže 924-935, vnuk Bořivoje, patron českých zemí"},
+      {"pojem": "Tribut", "vysvetleni": "Poplatek za mír (dobytek, stříbro) - Václav platil Jindřichu I. Ptáčníkovi"},
+      {"pojem": "Jindřich I. Ptáčník", "vysvetleni": "Východofranský (římskoněmecký) král, kterému Václav platil tribut"},
+      {"pojem": "Kastelán", "vysvetleni": "Správce hradu za knížete"},
+      {"pojem": "Denáry", "vysvetleni": "Stříbrné mince, které razil Boleslav I."}
+    ],
+    "Boleslav_I": [
+      {"pojem": "Boleslav I. Ukrutný", "vysvetleni": "Mladší bratr Václava, vládl 935-967/72, zavraždil Václava"},
+      {"pojem": "Stará Boleslav", "vysvetleni": "Místo vraždy knížete Václava 28.9.935"},
+      {"pojem": "Ota I.", "vysvetleni": "Syn Jindřicha I. Ptáčníka, sjednotil Německo, korunován císařem 962"},
+      {"pojem": "Bitva na Lechu (955)", "vysvetleni": "Ota I. a Boleslav I. jako spojenci porazili Maďary"},
+      {"pojem": "Svatá říše římská (SŘŘ)", "vysvetleni": "Říše založená korunovací Oty I. (962), zanikla až poč. 19. st."}
+    ],
+    "Boleslav_II": [
+      {"pojem": "Boleslav II.", "vysvetleni": "Kníže 972-999, prosadil pražské biskupství"},
+      {"pojem": "Pražské biskupství", "vysvetleni": "Zřízeno 973, znamenalo náboženskou nezávislost Čech na Řezně"},
+      {"pojem": "Dětmar", "vysvetleni": "1. pražský biskup, Sas"},
+      {"pojem": "Vojtěch (svatý)", "vysvetleni": "2. pražský biskup, Slavníkovec, mučednická smrt 997 u Baltského moře"},
+      {"pojem": "Slavníkovci", "vysvetleni": "Konkurenční rod Přemyslovců, sídlili v Libici nad Cidlinou"},
+      {"pojem": "Libice nad Cidlinou", "vysvetleni": "Sídlo Slavníkovců, 995 přepadena a Slavníkovci povražděni"}
+    ],
+    "Krize_a_obnovení": [
+      {"pojem": "Boleslav III. Ryšavý", "vysvetleni": "Syn Boleslava II., vládl 999-1003, prchlivý a bezohledný"},
+      {"pojem": "Jaromír", "vysvetleni": "Bratr Boleslava III., nechal ho vykastrovat, sám byl oslepen Oldřichem"},
+      {"pojem": "Oldřich", "vysvetleni": "Bratr Boleslava III. a Jaromíra, otec Břetislava I."},
+      {"pojem": "Břetislav I.", "vysvetleni": "Syn Oldřicha, od 1034 uklidnil situaci v zemi"},
+      {"pojem": "Boleslav I. Chrabrý", "vysvetleni": "Polský kníže, využil rozbroje a zmocnil se Moravy"}
+    ],
+    "Místa": [
+      {"pojem": "Levý Hradec", "vysvetleni": "První sídlo Přemyslovců, ostroh nad Vltavou, kamenný knížecí stolec"},
+      {"pojem": "Pražský hrad", "vysvetleni": "Centrum českého státu, založen Bořivojem"},
+      {"pojem": "Tetín", "vysvetleni": "Hrad, kde byla 15.9.921 zavražděna Ludmila"},
+      {"pojem": "Znojemská rotunda", "vysvetleni": "Rotunda sv. Kateřiny s vyobrazením Přemyslovců"}
+    ]
+  },
+  "casova_osa": [
+    {"rok": 867, "udalost": "Svatopluk Velkomoravský ustanovuje Bořivoje knížetem Čechů."},
+    {"rok": 889, "udalost": "Smrt Bořivoje (přibližně), Čechy dočasně pod přímou vládou Svatopluka."},
+    {"rok": 921, "udalost": "15. září - zavraždění Ludmily na hradě Tetín, stává se 1. českou světicí."},
+    {"rok": 924, "udalost": "Začátek vlády knížete Václava."},
+    {"rok": 935, "udalost": "28. září - vražda Václava ve Staré Boleslavi jeho bratrem Boleslavem I."},
+    {"rok": 936, "udalost": "Ota I. zvolen králem východofranské říše."},
+    {"rok": 950, "udalost": "Boleslav I. opět platí tribut - tentokrát Otovi I."},
+    {"rok": 955, "udalost": "Bitva na řece Lechu - Ota I. a Boleslav I. jako spojenci porážejí Maďary."},
+    {"rok": 962, "udalost": "Ota I. korunován císařem - vznik Svaté říše římské."},
+    {"rok": 972, "udalost": "Začátek vlády Boleslava II."},
+    {"rok": 973, "udalost": "Zřízení biskupství v Praze - náboženská nezávislost Čech."},
+    {"rok": 995, "udalost": "Přepadení Libice a vyvraždění Slavníkovců - Přemyslovci jediní páni v Čechách."},
+    {"rok": 997, "udalost": "Mučednická smrt biskupa Vojtěcha u Baltského moře."},
+    {"rok": 999, "udalost": "Začátek vlády Boleslava III. Ryšavého - období rozporů."},
+    {"rok": 1034, "udalost": "Nástup Břetislava I. - uklidnění situace v zemi."},
+    {"rok": 1306, "udalost": "Konec vlády Přemyslovců po 430 letech."}
+  ],
+  "otazky": [
+    {
+      "id": "CS1",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl první historicky doložený český kníže?",
+      "spravna_odpoved": "Bořivoj I.",
+      "spatne_odpovedi": ["Přemysl Oráč", "Václav", "Boleslav I."],
+      "oduvodneni": "Bořivoj I. je první historicky doložený český kníže z konce 9. století. Přemysl Oráč je pouze bájná postava.",
+      "proc_spatne": {
+        "Přemysl Oráč": "Přemysl Oráč je bájný zakladatel rodu, není historicky doložen.",
+        "Václav": "Václav byl vnukem Bořivoje a vládl až v letech 924-935.",
+        "Boleslav I.": "Boleslav I. byl bratrem Václava a vládl od roku 935."
+      }
+    },
+    {
+      "id": "CS2",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovala bájná kněžna, která si vyvolila Přemysla Oráče za manžela?",
+      "spravna_odpoved": "Libuše",
+      "spatne_odpovedi": ["Ludmila", "Drahomíra", "Božena"],
+      "oduvodneni": "Podle pověsti si Krokova dcera Libuše vyvolila za manžela oráče Přemysla ze Stadic.",
+      "proc_spatne": {
+        "Ludmila": "Ludmila byla manželkou Bořivoje I., ne Přemysla.",
+        "Drahomíra": "Drahomíra byla manželkou Vratislava a matkou Václava.",
+        "Božena": "Božena byla pradlena, kterou si vzal kníže Oldřich."
+      }
+    },
+    {
+      "id": "CS3",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který kníže je patronem českých zemí?",
+      "spravna_odpoved": "Svatý Václav",
+      "spatne_odpovedi": ["Svatý Vojtěch", "Bořivoj I.", "Boleslav II."],
+      "oduvodneni": "Svatý Václav je patronem českých zemí. Vládl v letech 924-935 a byl zavražděn svým bratrem.",
+      "proc_spatne": {
+        "Svatý Vojtěch": "Vojtěch byl 2. pražský biskup a světec, ale není patronem českých zemí.",
+        "Bořivoj I.": "Bořivoj nebyl prohlášen za svatého.",
+        "Boleslav II.": "Boleslav II. nebyl svatý, i když prosadil pražské biskupství."
+      }
+    },
+    {
+      "id": "CS4",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kde bylo první sídlo Přemyslovců?",
+      "spravna_odpoved": "Levý Hradec",
+      "spatne_odpovedi": ["Pražský hrad", "Vyšehrad", "Tetín"],
+      "oduvodneni": "Levý Hradec byl první sídlo Přemyslovců - ostroh nad Vltavou s kamenným knížecím stolcem. Později bylo sídlo přeneseno do Prahy.",
+      "proc_spatne": {
+        "Pražský hrad": "Pražský hrad byl založen Bořivojem, ale až po Levém Hradci.",
+        "Vyšehrad": "Vyšehrad je spojován s pověstmi, ale nebyl prvním sídlem.",
+        "Tetín": "Tetín je hrad, kde byla zavražděna Ludmila."
+      }
+    },
+    {
+      "id": "CS5",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byla první česká světice?",
+      "spravna_odpoved": "Svatá Ludmila",
+      "spatne_odpovedi": ["Svatá Anežka", "Drahomíra", "Libuše"],
+      "oduvodneni": "Ludmila, manželka Bořivoje, byla zavražděna 15.9.921 na Tetíně a stala se první českou světicí (mučednicí).",
+      "proc_spatne": {
+        "Svatá Anežka": "Anežka Česká žila až ve 13. století.",
+        "Drahomíra": "Drahomíra nebyla svatá - naopak, nechala Ludmilu zavraždit.",
+        "Libuše": "Libuše je bájná postava, nebyla prohlášena za svatou."
+      }
+    },
+    {
+      "id": "CS6",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenoval rod, který vládl Čechám přibližně 430 let?",
+      "spravna_odpoved": "Přemyslovci",
+      "spatne_odpovedi": ["Slavníkovci", "Lucemburkové", "Habsburkové"],
+      "oduvodneni": "Přemyslovci vládli českým zemím přibližně 430 let - do roku 1306, kdy rod vymřel po meči.",
+      "proc_spatne": {
+        "Slavníkovci": "Slavníkovci byli konkurenční rod, vyvražděni 995.",
+        "Lucemburkové": "Lucemburkové nastoupili až po Přemyslovcích (od Jana Lucemburského).",
+        "Habsburkové": "Habsburkové vládli Čechám až od 16. století."
+      }
+    },
+    {
+      "id": "CS7",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co jsou denáry?",
+      "spravna_odpoved": "Stříbrné mince",
+      "spatne_odpovedi": ["Železné zbraně", "Kamenné sochy", "Daňové listiny"],
+      "oduvodneni": "Denáry byly stříbrné mince, které razil Boleslav I. Byly to první české mince.",
+      "proc_spatne": {
+        "Železné zbraně": "Denáry nejsou zbraně, ale platidlo.",
+        "Kamenné sochy": "Denáry jsou mince, ne sochy.",
+        "Daňové listiny": "Denáry jsou fyzické mince, ne dokumenty."
+      }
+    },
+    {
+      "id": "CS8",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl 2. pražským biskupem a stal se světcem?",
+      "spravna_odpoved": "Vojtěch",
+      "spatne_odpovedi": ["Dětmar", "Metoděj", "Cyril"],
+      "oduvodneni": "Vojtěch (Adalbert) byl 2. pražský biskup ze Slavníkovců. Zemřel mučednickou smrtí roku 997 u Baltského moře.",
+      "proc_spatne": {
+        "Dětmar": "Dětmar byl 1. pražský biskup, Sas.",
+        "Metoděj": "Metoděj působil na Velké Moravě, ne v Čechách jako biskup.",
+        "Cyril": "Cyril (Konstantin) působil na Velké Moravě."
+      }
+    },
+    {
+      "id": "CS9",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce skončila vláda Přemyslovců?",
+      "spravna_odpoved": "1306",
+      "spatne_odpovedi": ["1212", "1378", "1415"],
+      "oduvodneni": "Přemyslovci vládli do roku 1306, kdy rod vymřel po meči (zavražděním Václava III.).",
+      "proc_spatne": {
+        "1212": "V roce 1212 byla vydána Zlatá bula sicilská, ale Přemyslovci vládli dál.",
+        "1378": "V roce 1378 zemřel Karel IV., ale to byli už Lucemburkové.",
+        "1415": "V roce 1415 byl upálen Jan Hus."
+      }
+    },
+    {
+      "id": "CS10",
+      "tema": "Počátky českého státu",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo zavraždil knížete Václava?",
+      "spravna_odpoved": "Jeho bratr Boleslav",
+      "spatne_odpovedi": ["Drahomíra", "Němečtí rytíři", "Maďaři"],
+      "oduvodneni": "Václav byl zavražděn 28.9.935 ve Staré Boleslavi svým mladším bratrem Boleslavem I. (Ukrutným).",
+      "proc_spatne": {
+        "Drahomíra": "Drahomíra byla matkou Václava i Boleslava, ne vrahem Václava.",
+        "Němečtí rytíři": "Václava zavraždil jeho vlastní bratr, ne cizinci.",
+        "Maďaři": "Maďaři byli poraženi u Lechu 955, Václava nezavraždili."
+      }
+    },
+    {
+      "id": "CS11",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdy a kde byla zavražděna Ludmila?",
+      "spravna_odpoved": "15.9.921 na Tetíně",
+      "spatne_odpovedi": ["28.9.935 ve Staré Boleslavi", "995 v Libici", "997 u Baltského moře"],
+      "oduvodneni": "Ludmila byla zavražděna 15. září 921 na hradě Tetín, kam ji vyhnala Drahomíra.",
+      "proc_spatne": {
+        "28.9.935 ve Staré Boleslavi": "To je datum a místo vraždy Václava, ne Ludmily.",
+        "995 v Libici": "V Libici byli 995 vyvražděni Slavníkovci.",
+        "997 u Baltského moře": "Roku 997 zemřel biskup Vojtěch."
+      }
+    },
+    {
+      "id": "CS12",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je tribut?",
+      "spravna_odpoved": "Poplatek za zachování míru",
+      "spatne_odpovedi": ["Druh zbraně", "Církevní daň", "Vojenská jednotka"],
+      "oduvodneni": "Tribut byl poplatek (dobytek, stříbro), který Václav platil Jindřichu I. Ptáčníkovi za zachování míru po porážce Čechů.",
+      "proc_spatne": {
+        "Druh zbraně": "Tribut není zbraň, ale platba.",
+        "Církevní daň": "Tribut nebyl církevní daň, ale poplatek cizímu panovníkovi.",
+        "Vojenská jednotka": "Tribut není vojenský termín pro jednotku."
+      }
+    },
+    {
+      "id": "CS13",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Komu platil kníže Václav tribut?",
+      "spravna_odpoved": "Jindřichu I. Ptáčníkovi",
+      "spatne_odpovedi": ["Otovi I.", "Svatoplukovi", "Boleslavovi I. Chrabrému"],
+      "oduvodneni": "Po porážce Čech Germány platil Václav tribut (dobytek, stříbro) Jindřichu I. Ptáčníkovi za zachování míru.",
+      "proc_spatne": {
+        "Otovi I.": "Otovi I. platil tribut až Boleslav I. (od roku 950).",
+        "Svatoplukovi": "Svatopluk zemřel dříve, než Václav začal vládnout.",
+        "Boleslavovi I. Chrabrému": "To byl polský kníže, ne příjemce tributu od Václava."
+      }
+    },
+    {
+      "id": "CS14",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce byla na Lechu poražena vojska Maďarů?",
+      "spravna_odpoved": "955",
+      "spatne_odpovedi": ["935", "973", "995"],
+      "oduvodneni": "V bitvě na řece Lechu roku 955 porazili Ota I. a Boleslav I. jako spojenci Maďary.",
+      "proc_spatne": {
+        "935": "Roku 935 byl zavražděn Václav.",
+        "973": "Roku 973 bylo zřízeno pražské biskupství.",
+        "995": "Roku 995 byli vyvražděni Slavníkovci."
+      }
+    },
+    {
+      "id": "CS15",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co znamenalo zřízení biskupství v Praze roku 973?",
+      "spravna_odpoved": "Náboženskou nezávislost Čech na biskupství v Řezně",
+      "spatne_odpovedi": ["Podřízení Čech Svaté říši římské", "Konec vlády Přemyslovců", "Vznik prvního českého kláštera"],
+      "oduvodneni": "Zřízením pražského biskupství roku 973 se Čechy staly nábožensky nezávislé na biskupství v Řezně.",
+      "proc_spatne": {
+        "Podřízení Čech Svaté říši římské": "Biskupství znamenalo církevní nezávislost, ne politické podřízení.",
+        "Konec vlády Přemyslovců": "Přemyslovci vládli až do roku 1306.",
+        "Vznik prvního českého kláštera": "Biskupství není totéž co klášter."
+      }
+    },
+    {
+      "id": "CS16",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byli Slavníkovci?",
+      "spravna_odpoved": "Konkurenční rod Přemyslovců sídlící v Libici",
+      "spatne_odpovedi": ["Bavorští kolonisté", "Moravští knížata", "Polští šlechtici"],
+      "oduvodneni": "Slavníkovci byli mocný rod sídlící v Libici nad Cidlinou. Byli konkurencí Přemyslovcům a roku 995 byli vyvražděni.",
+      "proc_spatne": {
+        "Bavorští kolonisté": "Slavníkovci byli český rod, ne Bavoři.",
+        "Moravští knížata": "Slavníkovci sídlili ve východních Čechách, ne na Moravě.",
+        "Polští šlechtici": "Slavníkovci byli Češi, ne Poláci."
+      }
+    },
+    {
+      "id": "CS17",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč Boleslav I. zavraždil Václava?",
+      "spravna_odpoved": "Nechtěl se podřizovat a odmítal platit tribut",
+      "spatne_odpovedi": ["Václav ho chtěl uvěznit", "Kvůli sporu o Ludmilino dědictví", "Na příkaz císaře Oty"],
+      "oduvodneni": "Boleslav I. byl neochotný se podřizovat (zejména politicky), odmítal platit tribut Ptáčníkovi a spolu s velmoži se stavěl proti křesťanství.",
+      "proc_spatne": {
+        "Václav ho chtěl uvěznit": "O tom prameny nemluví.",
+        "Kvůli sporu o Ludmilino dědictví": "Ludmila byla jejich babička a byla již mrtvá.",
+        "Na příkaz císaře Oty": "Ota I. se stal císařem až 962, Václav zemřel 935."
+      }
+    },
+    {
+      "id": "CS18",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co vzniklo roku 962 korunovací Oty I.?",
+      "spravna_odpoved": "Svatá říše římská",
+      "spatne_odpovedi": ["České království", "Pražské biskupství", "Polský stát"],
+      "oduvodneni": "Korunovací Oty I. na císaře roku 962 vznikla Svatá říše římská, která zanikla až počátkem 19. století.",
+      "proc_spatne": {
+        "České království": "České království vzniklo až později (1198/1212).",
+        "Pražské biskupství": "Pražské biskupství bylo zřízeno roku 973.",
+        "Polský stát": "Polský stát vznikl nezávisle na korunovaci Oty I."
+      }
+    },
+    {
+      "id": "CS19",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývá nejstarší česká kronika z 11. století?",
+      "spravna_odpoved": "Kosmova kronika",
+      "spatne_odpovedi": ["Kristiánova legenda", "Dalimilova kronika", "Zbraslavská kronika"],
+      "oduvodneni": "Kosmova kronika česká z 11. století je nejstarší česká kronika a důležitý zdroj informací o počátcích českého státu.",
+      "proc_spatne": {
+        "Kristiánova legenda": "Kristiánova legenda je z konce 10. století, ale není to kronika.",
+        "Dalimilova kronika": "Dalimilova kronika je až ze 14. století.",
+        "Zbraslavská kronika": "Zbraslavská kronika je rovněž pozdější."
+      }
+    },
+    {
+      "id": "CS20",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím proslul Boleslav I. (Ukrutný)?",
+      "spravna_odpoved": "Razil první české mince (denáry) a s Otou I. porazil Maďary",
+      "spatne_odpovedi": ["Založil pražské biskupství", "Nechal pokřtít Čechy", "Vyhnal Slavníkovce"],
+      "oduvodneni": "Boleslav I. razil stříbrné denáry a společně s Otou I. jako spojenci porazili Maďary v bitvě na Lechu roku 955.",
+      "proc_spatne": {
+        "Založil pražské biskupství": "Pražské biskupství založil až Boleslav II. (973).",
+        "Nechal pokřtít Čechy": "Bořivoj a Ludmila byli pokřtěni na Moravě, ne za Boleslava I.",
+        "Vyhnal Slavníkovce": "Slavníkovce vyvraždil Boleslav II. (995)."
+      }
+    },
+    {
+      "id": "CS21",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kde zemřel biskup Vojtěch?",
+      "spravna_odpoved": "U Baltského moře při šíření křesťanství",
+      "spatne_odpovedi": ["V Praze", "V Libici", "V Řezně"],
+      "oduvodneni": "Vojtěch odešel z Čech kvůli sporům s Boleslavem II. a roku 997 zemřel mučednickou smrtí u Baltského moře.",
+      "proc_spatne": {
+        "V Praze": "Vojtěch z Prahy odešel kvůli sporům s knížetem.",
+        "V Libici": "V Libici byli vyvražděni jeho příbuzní Slavníkovci, ne on sám.",
+        "V Řezně": "Vojtěch v Řezně nepůsobil a nezemřel tam."
+      }
+    },
+    {
+      "id": "CS22",
+      "tema": "Počátky českého státu",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdy došlo k vyvraždění Slavníkovců?",
+      "spravna_odpoved": "995",
+      "spatne_odpovedi": ["935", "973", "1003"],
+      "oduvodneni": "Roku 995 přepadla knížecí družina Boleslava II. dvorec v Libici a povraždila všechny přítomné Slavníkovce. Přemyslovci se stali jedinými pány v Čechách.",
+      "proc_spatne": {
+        "935": "Roku 935 byl zavražděn Václav.",
+        "973": "Roku 973 bylo zřízeno pražské biskupství.",
+        "1003": "Roku 1003 skončila vláda Boleslava III."
+      }
+    },
+    {
+      "id": "CS23",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaký byl vztah Bořivoje k Velkomoravské říši?",
+      "spravna_odpoved": "Byl Svatoplukovým zástupcem, Čechy byly podřízeny Velké Moravě",
+      "spatne_odpovedi": ["Bojoval proti Velké Moravě", "Velká Morava neexistovala za jeho vlády", "Byl nezávislý na Velké Moravě"],
+      "oduvodneni": "Bořivoj byl ustanoven knížetem Svatoplukem (867) a byl jeho zástupcem v Čechách. Čechy byly podřízeny Velkomoravské říši.",
+      "proc_spatne": {
+        "Bojoval proti Velké Moravě": "Bořivoj byl naopak spojencem a zástupcem Svatopluka.",
+        "Velká Morava neexistovala za jeho vlády": "Velká Morava existovala a byla mocná za Svatopluka.",
+        "Byl nezávislý na Velké Moravě": "Bořivoj byl Svatoplukovým zástupcem, tedy závislý."
+      }
+    },
+    {
+      "id": "CS24",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co symbolizoval kamenný knížecí stolec na Levém Hradci?",
+      "spravna_odpoved": "Místo kmenových shromáždění Čechů a symbol knížecí moci",
+      "spatne_odpovedi": ["Pohřebiště knížat", "Křestní mísu", "Oltář pro oběti"],
+      "oduvodneni": "Na Levém Hradci se konala kmenová shromáždění Čechů a kamenný knížecí stolec byl symbolem moci.",
+      "proc_spatne": {
+        "Pohřebiště knížat": "Stolec nebyl pohřebiště, ale místo pro shromáždění.",
+        "Křestní mísu": "Stolec nesouvisí s křtem.",
+        "Oltář pro oběti": "Šlo o symbol světské, ne náboženské moci."
+      }
+    },
+    {
+      "id": "CS25",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč Boleslav II. nechal přepadnout Slavníkovce v Libici?",
+      "spravna_odpoved": "Byli konkurencí Přemyslovcům a Vojtěch kritizoval knížete",
+      "spatne_odpovedi": ["Slavníkovci plánovali povstání", "Ukrývali uprchlé otroky", "Odmítli platit daně"],
+      "oduvodneni": "Slavníkovci byli pro Přemyslovce konkurence. Vojtěch (Slavníkovec) měl spory s Boleslavem II. a jeho kritika poškozovala přemyslovskou čest.",
+      "proc_spatne": {
+        "Slavníkovci plánovali povstání": "O plánovaném povstání prameny nemluví.",
+        "Ukrývali uprchlé otroky": "To nebyl hlavní důvod - šlo o politickou konkurenci.",
+        "Odmítli platit daně": "Hlavním důvodem byla konkurence a vliv Vojtěcha."
+      }
+    },
+    {
+      "id": "CS26",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaký byl rozdíl mezi vládou Václava a Boleslava I. vůči říši?",
+      "spravna_odpoved": "Václav platil tribut, Boleslav I. zpočátku odmítal a hájil nezávislost",
+      "spatne_odpovedi": ["Václav bojoval, Boleslav platil", "Oba platili stejně", "Ani jeden neplatil"],
+      "oduvodneni": "Václav platil tribut Jindřichu I. Ptáčníkovi. Boleslav I. byl neochotný se podřizovat a odmítal platit, až od roku 950 platil Otovi I.",
+      "proc_spatne": {
+        "Václav bojoval, Boleslav platil": "Bylo to naopak - Václav platil, Boleslav zpočátku odmítal.",
+        "Oba platili stejně": "Boleslav I. zpočátku odmítal platit tribut.",
+        "Ani jeden neplatil": "Václav tribut platil."
+      }
+    },
+    {
+      "id": "CS27",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co zajistilo Přemyslovcům silné postavení podle pramenů?",
+      "spravna_odpoved": "Pravidelné daně, vyzbrojená armáda, hrady a obchod (včetně otroků)",
+      "spatne_odpovedi": ["Spojenectví s Vikingy", "Dědictví po Velkomoravské říši", "Podpora papeže"],
+      "oduvodneni": "Václav vybíral pravidelné daně, měl početnou armádu, stavěl hrady se správci (kastelány) a Praha byla překladištěm obchodu s otroky.",
+      "proc_spatne": {
+        "Spojenectví s Vikingy": "O spojenectví s Vikingy prameny nemluví.",
+        "Dědictví po Velkomoravské říši": "Po pádu Velké Moravy se Přemyslovci osamostatnili, ale nedědili její moc.",
+        "Podpora papeže": "Pražské biskupství vzniklo až za Boleslava II."
+      }
+    },
+    {
+      "id": "CS28",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč odešel Vojtěch z Čech?",
+      "spravna_odpoved": "Spory s Boleslavem II. o ctnostný život křesťanů a prodej otroků",
+      "spatne_odpovedi": ["Byl vyhnán Slavníkovci", "Chtěl se stát papežem", "Kvůli morové epidemii"],
+      "oduvodneni": "Vojtěch měl spory s knížetem Boleslavem II. o ctnostném životě křesťanů a nesouhlasil s prodejem křesťanských otroků.",
+      "proc_spatne": {
+        "Byl vyhnán Slavníkovci": "Vojtěch sám byl Slavníkovec.",
+        "Chtěl se stát papežem": "O takové ambici prameny nemluví.",
+        "Kvůli morové epidemii": "Důvodem byly spory s knížetem, ne epidemie."
+      }
+    },
+    {
+      "id": "CS29",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co bylo příčinou oslabení českého státu po smrti Boleslava II.?",
+      "spravna_odpoved": "Neshody mezi jeho syny (Boleslav III., Jaromír, Oldřich)",
+      "spatne_odpovedi": ["Vpád Maďarů", "Morová epidemie", "Vzpoura poddaných"],
+      "oduvodneni": "Po smrti Boleslava II. vznikly neshody mezi jeho syny - Boleslavem III., Jaromírem a Oldřichem, včetně mučení a vražd.",
+      "proc_spatne": {
+        "Vpád Maďarů": "Maďaři byli poraženi už roku 955.",
+        "Morová epidemie": "O morové epidemii prameny nemluví.",
+        "Vzpoura poddaných": "Problémem byly spory v rodině, ne vzpoura poddaných."
+      }
+    },
+    {
+      "id": "CS30",
+      "tema": "Počátky českého státu",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč je období počátku 11. století označováno jako 'složité a drsné'?",
+      "spravna_odpoved": "Bratrovražedné spory, kastrace a oslepování mezi Přemyslovci",
+      "spatne_odpovedi": ["Velké hladomory", "Vpády Vikingů", "Náboženské války"],
+      "oduvodneni": "Synové Boleslava II. se navzájem mučili - Boleslav III. byl vykastrován, Jaromír oslepen. Jaromír byl nakonec zavražděn kopím na záchodě.",
+      "proc_spatne": {
+        "Velké hladomory": "O hladomorech v tomto období prameny nemluví.",
+        "Vpády Vikingů": "Vikingové do Čech nevpadali.",
+        "Náboženské války": "Nešlo o náboženské války, ale o spory v rodině."
+      }
+    }
+  ]
+}

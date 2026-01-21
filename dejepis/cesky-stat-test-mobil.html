@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test - Počátky českého státu</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+        --surface: #ffffff;
+        --surface-soft: #fef3e2;
+        --surface-strong: #fed7aa;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #c2410c;
+        --accent-dark: #9a3412;
+        --positive: #16a34a;
+        --positive-bg: #dcfce7;
+        --negative: #dc2626;
+        --negative-bg: #fee2e2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1rem 2rem;
+        background: linear-gradient(135deg, #fefce8 0%, #fed7aa 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      header.intro {
+        text-align: center;
+        padding: 1.5rem 0 1rem;
+      }
+
+      header.intro h1 {
+        margin: 0 0 0.5rem;
+        font-size: 1.75rem;
+      }
+
+      header.intro p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      details.info {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.25rem;
+        box-shadow: 0 4px 12px rgba(154, 52, 18, 0.1);
+        border: 1px solid rgba(194, 65, 12, 0.12);
+      }
+
+      details summary {
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1rem;
+        list-style: none;
+        user-select: none;
+      }
+
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details[open] summary {
+        margin-bottom: 1rem;
+      }
+
+      .topics {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .topics li {
+        background: var(--surface-soft);
+        border-radius: 8px;
+        padding: 0.5rem 0.65rem;
+        border: 1px solid var(--surface-strong);
+      }
+
+      .stats {
+        background: var(--surface-soft);
+        border-radius: 10px;
+        padding: 0.85rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--surface-strong);
+      }
+
+      .stats h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .stat-item {
+        background: #fff;
+        padding: 0.5rem;
+        border-radius: 8px;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-value {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .btn-link {
+        display: block;
+        text-decoration: none;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 0.75rem 1.25rem;
+        border-radius: 12px;
+        background: var(--surface);
+        border: 1px solid var(--accent);
+        text-align: center;
+        margin-bottom: 1.25rem;
+        box-shadow: 0 4px 12px rgba(154, 52, 18, 0.1);
+      }
+
+      .controls {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        box-shadow: 0 6px 20px rgba(154, 52, 18, 0.1);
+        border: 1px solid rgba(194, 65, 12, 0.12);
+        margin-bottom: 1.25rem;
+      }
+
+      .controls h3 {
+        margin: 0 0 1rem;
+        font-size: 1.1rem;
+      }
+
+      .filter-group {
+        margin-bottom: 1rem;
+      }
+
+      .filter-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .filter-group input,
+      .filter-group select {
+        width: 100%;
+        font: inherit;
+        padding: 0.65rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid var(--surface-strong);
+        background-color: #fff;
+        font-size: 1rem;
+      }
+
+      button {
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 0.85rem 2rem;
+        border: 1px solid var(--accent);
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+        font-size: 1.05rem;
+      }
+
+      button:active:not(:disabled) {
+        transform: scale(0.98);
+      }
+
+      button:disabled {
+        background: var(--surface-strong);
+        border-color: var(--surface-strong);
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .question-card {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 1.5rem 1.25rem;
+        box-shadow: 0 6px 20px rgba(154, 52, 18, 0.1);
+        border: 1px solid rgba(194, 65, 12, 0.12);
+        margin-bottom: 1.25rem;
+      }
+
+      .question-header {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin: 0 0 1.25rem;
+        color: var(--ink);
+        line-height: 1.4;
+      }
+
+      .answers {
+        display: grid;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .answer-btn {
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 1rem 1.25rem;
+        border-radius: 10px;
+        border: 2px solid var(--surface-strong);
+        background: #fff;
+        color: var(--ink);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: left;
+        min-height: 3.5rem;
+        display: flex;
+        align-items: center;
+        line-height: 1.3;
+      }
+
+      .answer-btn:active:not(:disabled) {
+        transform: scale(0.98);
+      }
+
+      .answer-btn:disabled {
+        cursor: not-allowed;
+      }
+
+      .answer-btn.correct {
+        border-color: var(--positive);
+        background: var(--positive-bg);
+        color: var(--positive);
+        font-weight: 600;
+      }
+
+      .answer-btn.incorrect {
+        border-color: var(--negative);
+        background: var(--negative-bg);
+        color: var(--negative);
+      }
+
+      .feedback {
+        background: var(--surface-soft);
+        border-radius: 10px;
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-left: 4px solid var(--accent);
+      }
+
+      .feedback h4 {
+        margin: 0 0 0.75rem;
+        font-size: 1.05rem;
+        color: var(--positive);
+      }
+
+      .feedback h4.incorrect {
+        color: var(--negative);
+      }
+
+      .feedback p {
+        margin: 0 0 0.75rem;
+        line-height: 1.5;
+        font-size: 0.95rem;
+      }
+
+      .feedback ul {
+        margin: 0.5rem 0 0 1.25rem;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+
+      .feedback li {
+        margin: 0.5rem 0;
+        line-height: 1.5;
+      }
+
+      .results {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 2.5rem 1.5rem;
+        box-shadow: 0 6px 20px rgba(154, 52, 18, 0.1);
+        border: 1px solid rgba(194, 65, 12, 0.12);
+        text-align: center;
+      }
+
+      .results h2 {
+        margin: 0 0 1rem;
+        font-size: 1.75rem;
+      }
+
+      .results .score {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 1rem 0;
+      }
+
+      .results .percentage {
+        font-size: 1.3rem;
+        color: var(--ink-soft);
+        margin-bottom: 1.5rem;
+      }
+
+      .error {
+        background: var(--negative-bg);
+        border: 1px solid var(--negative);
+        color: var(--negative);
+        padding: 1.25rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <h1>Počátky českého státu</h1>
+        <p>Přemyslovci a vznik českého státu</p>
+      </header>
+
+      <details class="info">
+        <summary>Témata testu</summary>
+        <ul class="topics">
+          <li>Bájné počátky - Přemysl a Libuše</li>
+          <li>Bořivoj I. a Velká Morava</li>
+          <li>Kníže Václav a tribut</li>
+          <li>Boleslav I. a vznik SŘŘ</li>
+          <li>Boleslav II. a biskupství</li>
+          <li>Slavníkovci a Vojtěch</li>
+          <li>Krize a Břetislav I.</li>
+        </ul>
+      </details>
+
+      <div class="stats hidden" id="stats">
+        <h3>Statistiky</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-label">Správně</div>
+            <div class="stat-value" id="correct">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Celkem</div>
+            <div class="stat-value" id="total">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Úspěšnost</div>
+            <div class="stat-value" id="percentage">0%</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="cesky-stat-flashcards.html" class="btn-link">Flash Cards - procvičování</a>
+
+      <div id="error" class="error hidden"></div>
+
+      <div id="setup" class="controls">
+        <h3>Nastavení testu</h3>
+
+        <div class="filter-group">
+          <label for="questionCount">Počet otázek:</label>
+          <input type="number" id="questionCount" min="5" max="30" value="10" />
+        </div>
+
+        <div class="filter-group">
+          <label for="difficulty">Obtížnost:</label>
+          <select id="difficulty">
+            <option value="all">Všechny</option>
+            <option value="lehka">Lehká</option>
+            <option value="stredni">Střední</option>
+            <option value="tezka">Těžká</option>
+          </select>
+        </div>
+
+        <button id="startBtn">Začít test</button>
+      </div>
+
+      <div id="questionContainer" class="hidden"></div>
+
+      <div id="results" class="results hidden">
+        <h2>Výsledky</h2>
+        <div class="score" id="finalScore"></div>
+        <div class="percentage" id="finalPercentage"></div>
+        <p id="resultMessage"></p>
+        <button id="restartBtn">Zkusit znovu</button>
+      </div>
+    </main>
+
+    <script>
+      let questions = [];
+      let currentQuestions = [];
+      let currentIndex = 0;
+      let correctAnswers = 0;
+      let totalAnswered = 0;
+
+      async function loadQuestions() {
+        try {
+          const response = await fetch('cesky-stat-questions.json');
+          if (!response.ok) {
+            throw new Error('Nepodařilo se načíst otázky');
+          }
+          const data = await response.json();
+          questions = data.otazky;
+          console.log(`Načteno ${questions.length} otázek`);
+        } catch (error) {
+          showError(
+            'Nepodařilo se načíst otázky. Ujisti se, že používáš lokální server (např. python3 -m http.server).'
+          );
+          console.error(error);
+        }
+      }
+
+      function showError(message) {
+        const errorEl = document.getElementById('error');
+        errorEl.textContent = message;
+        errorEl.classList.remove('hidden');
+      }
+
+      function hideError() {
+        document.getElementById('error').classList.add('hidden');
+      }
+
+      function shuffle(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      }
+
+      document.getElementById('startBtn').addEventListener('click', () => {
+        hideError();
+
+        if (questions.length === 0) {
+          showError('Nejprve je potřeba načíst otázky.');
+          return;
+        }
+
+        const difficulty = document.getElementById('difficulty').value;
+
+        let filtered = [...questions];
+        if (difficulty !== 'all') {
+          filtered = filtered.filter(q => q.obtiznost === difficulty);
+        }
+
+        if (filtered.length === 0) {
+          showError('Pro vybraná kritéria nebyly nalezeny žádné otázky.');
+          return;
+        }
+
+        const count = Math.min(
+          parseInt(document.getElementById('questionCount').value),
+          filtered.length
+        );
+
+        currentQuestions = shuffle(filtered).slice(0, count);
+        currentIndex = 0;
+        correctAnswers = 0;
+        totalAnswered = 0;
+
+        document.getElementById('setup').classList.add('hidden');
+        document.getElementById('stats').classList.remove('hidden');
+        showQuestion();
+      });
+
+      function showQuestion() {
+        if (currentIndex >= currentQuestions.length) {
+          showResults();
+          return;
+        }
+
+        const question = currentQuestions[currentIndex];
+        const container = document.getElementById('questionContainer');
+        container.classList.remove('hidden');
+
+        const allAnswers = [
+          { text: question.spravna_odpoved, correct: true },
+          ...question.spatne_odpovedi.map(a => ({ text: a, correct: false }))
+        ];
+        const shuffledAnswers = shuffle(allAnswers);
+
+        container.innerHTML = `
+          <div class="question-card">
+            <div class="question-header">
+              <strong>${question.obtiznost}</strong><br>
+              Otázka ${currentIndex + 1}/${currentQuestions.length}
+            </div>
+            <h3 class="question-text">${question.otazka}</h3>
+            <div class="answers" id="answers">
+              ${shuffledAnswers.map((answer, idx) => `
+                <button class="answer-btn" data-correct="${answer.correct}" data-answer="${answer.text}">
+                  ${answer.text}
+                </button>
+              `).join('')}
+            </div>
+            <div id="feedback" class="feedback hidden"></div>
+            <button id="nextBtn" class="hidden">Další otázka</button>
+          </div>
+        `;
+
+        document.querySelectorAll('.answer-btn').forEach(btn => {
+          btn.addEventListener('click', () => handleAnswer(btn, question));
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+          currentIndex++;
+          showQuestion();
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function handleAnswer(selectedBtn, question) {
+        const isCorrect = selectedBtn.dataset.correct === 'true';
+        const selectedAnswer = selectedBtn.dataset.answer;
+        totalAnswered++;
+
+        document.querySelectorAll('.answer-btn').forEach(btn => {
+          btn.disabled = true;
+          if (btn.dataset.correct === 'true') {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (isCorrect) {
+          correctAnswers++;
+          selectedBtn.classList.add('correct');
+        } else {
+          selectedBtn.classList.add('incorrect');
+        }
+
+        const feedbackEl = document.getElementById('feedback');
+        let feedbackHTML = `<h4 class="${isCorrect ? '' : 'incorrect'}">${isCorrect ? 'Správně!' : 'Nesprávně'}</h4>`;
+        feedbackHTML += `<p><strong>Správná odpověď:</strong> ${question.spravna_odpoved}</p>`;
+        feedbackHTML += `<p>${question.oduvodneni}</p>`;
+
+        if (!isCorrect && question.proc_spatne && question.proc_spatne[selectedAnswer]) {
+          feedbackHTML += `<p><strong>Proč špatně:</strong> ${question.proc_spatne[selectedAnswer]}</p>`;
+        }
+
+        feedbackEl.innerHTML = feedbackHTML;
+        feedbackEl.classList.remove('hidden');
+
+        document.getElementById('nextBtn').classList.remove('hidden');
+
+        updateStats();
+      }
+
+      function updateStats() {
+        document.getElementById('correct').textContent = correctAnswers;
+        document.getElementById('total').textContent = totalAnswered;
+        const percentage = totalAnswered > 0 ? Math.round((correctAnswers / totalAnswered) * 100) : 0;
+        document.getElementById('percentage').textContent = percentage + '%';
+      }
+
+      function showResults() {
+        document.getElementById('questionContainer').classList.add('hidden');
+        const resultsEl = document.getElementById('results');
+        resultsEl.classList.remove('hidden');
+
+        const percentage = Math.round((correctAnswers / totalAnswered) * 100);
+
+        document.getElementById('finalScore').textContent = `${correctAnswers} / ${totalAnswered}`;
+        document.getElementById('finalPercentage').textContent = `${percentage}%`;
+
+        let message = '';
+        if (percentage >= 90) {
+          message = 'Výborně! Látku ovládáš perfektně!';
+        } else if (percentage >= 75) {
+          message = 'Velmi dobře! Jen pár drobností k doleštění.';
+        } else if (percentage >= 60) {
+          message = 'Dobře, ale je prostor pro zlepšení.';
+        } else {
+          message = 'Ještě to chce potrénovat. Neboj, příště to bude lepší!';
+        }
+        document.getElementById('resultMessage').textContent = message;
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      document.getElementById('restartBtn').addEventListener('click', () => {
+        document.getElementById('results').classList.add('hidden');
+        document.getElementById('setup').classList.remove('hidden');
+        document.getElementById('stats').classList.add('hidden');
+        currentIndex = 0;
+        correctAnswers = 0;
+        totalAnswered = 0;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      loadQuestions();
+    </script>
+  </body>
+</html>
