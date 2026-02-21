@@ -461,12 +461,12 @@
       "tema": "Poslední Přemyslovci",
       "obtiznost": "stredni",
       "typ": "single_choice",
-      "otazka": "V jakém období vládl Václav II.?",
+      "otazka": "V jakém období osobně vládl Václav II.?",
       "spravna_odpoved": "1283-1305",
       "spatne_odpovedi": ["1278-1300", "1253-1278", "1305-1306"],
-      "oduvodneni": "Václav II. vládl v letech 1283-1305. Ujal se vlády po skončení zlých let a zemřel roku 1305.",
+      "oduvodneni": "Václav II. osobně vládl v letech 1283-1305. Králem byl sice od smrti otce (1278), ale do roku 1283 za něj vládl poručník Ota Braniborský.",
       "proc_spatne": {
-        "1278-1300": "Václav II. se ujal vlády až 1283, před tím vládl jako poručník Ota Braniborský.",
+        "1278-1300": "Roku 1278 Václav II. zdědil trůn, ale osobně vládl až od 1283 po skončení zlých let.",
         "1253-1278": "V letech 1253-1278 vládl Přemysl Otakar II.",
         "1305-1306": "V letech 1305-1306 vládl Václav III., ne Václav II."
       }
@@ -596,12 +596,12 @@
       "tema": "Poslední Přemyslovci",
       "obtiznost": "stredni",
       "typ": "single_choice",
-      "otazka": "Která dynastie nastoupila na český trůn po vymření Přemyslovců?",
+      "otazka": "Která dynastie se trvale ujala českého trůnu po vymření Přemyslovců?",
       "spravna_odpoved": "Lucemburkové",
       "spatne_odpovedi": ["Habsburkové", "Jagellonci", "Slavníkovci"],
-      "oduvodneni": "Po vymření Přemyslovců (1306) nastoupili na český trůn Lucemburkové, prvním byl Jan Lucemburský (od 1310).",
+      "oduvodneni": "Po vymření Přemyslovců (1306) se po krátké dynastické krizi trvale ujali vlády Lucemburkové - Jan Lucemburský nastoupil roku 1310.",
       "proc_spatne": {
-        "Habsburkové": "Habsburkové vládli Čechám až od 16. století (s krátkou výjimkou Rudolfa I.).",
+        "Habsburkové": "Rudolf Habsburský sice krátce vládl (1306-1307), ale trvalou dynastii v Čechách založili Lucemburkové.",
         "Jagellonci": "Jagellonci vládli Čechám až v 15.-16. století po Lucemburcích.",
         "Slavníkovci": "Slavníkovci byli vyvražděni roku 995, nemohli nastoupit na trůn."
       }
@@ -738,7 +738,7 @@
       "proc_spatne": {
         "Tři části české korunovační insignie": "Trojí koruna označuje tři královské tituly, ne korunovační insignie.",
         "Tři korunní země (Čechy, Morava, Slezsko)": "Trojí koruna odkazuje na tři království, ne na korunní země.",
-        "Symbol na pražském groši": "Na pražském groši byl dvouocasý lev, ne trojí koruna."
+        "Symbol na pražském groši": "Na pražském groši byla koruna a dvouocasý lev, ale trojí koruna označuje tři království, ne symbol na minci."
       }
     },
     {
