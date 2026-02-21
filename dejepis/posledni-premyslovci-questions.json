@@ -1,0 +1,835 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": ["Poslední Přemyslovci"],
+  "zdroj": "Podklady od učitelky - Poslední Přemyslovci",
+  "hlavni_osy": [
+    "Přemysl Otakar I. - první dědičný český král, Zlatá bula sicilská (1212)",
+    "Václav I. Jednooký - příchod gotiky, německá kolonizace, Anežka Česká",
+    "Přemysl Otakar II. - král železný a zlatý, území až k Jaderskému moři",
+    "Zlá léta - období nepokojů a bezvládí po smrti Přemysla Otakara II.",
+    "Václav II. - pražský groš, Kutná Hora, polská a uherská koruna",
+    "Václav III. - poslední Přemyslovec, zavražděn 1306 v Olomouci"
+  ],
+  "terminologie": {
+    "Premysl_Otakar_I": [
+      {"pojem": "Přemysl Otakar I.", "vysvetleni": "První dědičný český král, vládl 1197-1230, získal dědičný královský titul"},
+      {"pojem": "Zlatá bula sicilská", "vysvetleni": "Listina z roku 1212, která potvrdila dědičný královský titul českých králů"},
+      {"pojem": "Dědičný královský titul", "vysvetleni": "Královský titul přecházel z otce na syna bez nutnosti souhlasu císaře"},
+      {"pojem": "Říšský sněm", "vysvetleni": "Shromáždění říšských knížat, kde měl český král hlas jako kurfiřt"},
+      {"pojem": "Filip Švábský", "vysvetleni": "Římský král, který udělil Přemyslu Otakarovi I. královský titul výměnou za podporu"}
+    ],
+    "Vaclav_I": [
+      {"pojem": "Václav I. Jednooký", "vysvetleni": "Český král 1230-1253, přišel o oko při lovu, za jeho vlády přišla gotika"},
+      {"pojem": "Gotika", "vysvetleni": "Umělecký sloh s lomenými oblouky, který se rozšířil v Čechách za Václava I."},
+      {"pojem": "Německá kolonizace", "vysvetleni": "Osídlování pohraničních oblastí německými kolonisty, zakládání měst"},
+      {"pojem": "Anežka Česká", "vysvetleni": "Sestra Václava I., založila špitál v Praze, prohlášena za svatou"},
+      {"pojem": "Hospital (špitál)", "vysvetleni": "Středověké zařízení pro péči o chudé a nemocné, Anežka ho založila v Praze"}
+    ],
+    "Premysl_Otakar_II": [
+      {"pojem": "Přemysl Otakar II.", "vysvetleni": "Český král 1253-1278, nazýván král železný a zlatý"},
+      {"pojem": "Král železný a zlatý", "vysvetleni": "Přídomek Přemysla Otakara II. - železný pro vojenskou sílu, zlatý pro bohatství"},
+      {"pojem": "Bitva na Moravském poli", "vysvetleni": "Roku 1278 zde Přemysl Otakar II. padl v boji proti Rudolfu Habsburskému"},
+      {"pojem": "Rudolf Habsburský", "vysvetleni": "Římský král, který porazil Přemysla Otakara II. v bitvě na Moravském poli 1278"},
+      {"pojem": "České Budějovice", "vysvetleni": "Královské město založené Přemyslem Otakarem II."},
+      {"pojem": "Jaderské moře", "vysvetleni": "Přemysl Otakar II. rozšířil české území až k pobřeží Jaderského moře"}
+    ],
+    "Zla_leta": [
+      {"pojem": "Zlá léta", "vysvetleni": "Období nepokojů a bezvládí po smrti Přemysla Otakara II. (1278-1283)"},
+      {"pojem": "Ota Braniborský", "vysvetleni": "Braniborský markrabě, poručník nezletilého Václava II., drancoval Čechy"},
+      {"pojem": "Poručnictví", "vysvetleni": "Správa země za nezletilého panovníka - Ota Braniborský za Václava II."},
+      {"pojem": "Bezvládí", "vysvetleni": "Období bez fungující vlády, hladomor a drancování země za zlých let"}
+    ],
+    "Vaclav_II": [
+      {"pojem": "Václav II.", "vysvetleni": "Český král 1283-1305, za jeho vlády rozkvět díky stříbru z Kutné Hory"},
+      {"pojem": "Pražský groš", "vysvetleni": "Slavná stříbrná mince ražená od roku 1300 v Kutné Hoře za Václava II."},
+      {"pojem": "Kutná Hora", "vysvetleni": "Město proslulé těžbou stříbra, druhé nejvýznamnější město po Praze"},
+      {"pojem": "Ius regale montanorum", "vysvetleni": "Horní zákoník vydaný Václavem II. roku 1300, upravoval těžbu nerostů"},
+      {"pojem": "Kunhuta Uherská", "vysvetleni": "Manželka Přemysla Otakara II. a matka Václava II."},
+      {"pojem": "Záviš z Falknštejna", "vysvetleni": "Mocný šlechtic, milenec královny Kunhuty, soupeř Václava II., popraven 1290"}
+    ],
+    "Vaclav_III": [
+      {"pojem": "Václav III.", "vysvetleni": "Poslední přemyslovský král (1305-1306), zavražděn v Olomouci"},
+      {"pojem": "Olomouc", "vysvetleni": "Město, kde byl roku 1306 zavražděn Václav III."},
+      {"pojem": "Vymření po meči", "vysvetleni": "Vymření mužské linie rodu - smrtí Václava III. skončila přemyslovská dynastie"},
+      {"pojem": "Trojí koruna", "vysvetleni": "Česká, polská a uherská koruna, které drželi poslední Přemyslovci"}
+    ],
+    "Kultura_a_symboly": [
+      {"pojem": "Stříbrný dvouocasý lev", "vysvetleni": "Symbol českého království, stal se znakem za posledních Přemyslovců"},
+      {"pojem": "Gotický sloh", "vysvetleni": "Stavební a umělecký styl s lomenými oblouky, rozšířil se ve 13. století"},
+      {"pojem": "Pražský groš (mince)", "vysvetleni": "Jedna z nejuznávanějších měn středověké Evropy, ražena z kutnohorského stříbra"},
+      {"pojem": "Minnesang", "vysvetleni": "Dvorská lyrika a básnictví, které se rozšířilo za posledních Přemyslovců"},
+      {"pojem": "Český stát v Říši", "vysvetleni": "České království bylo součástí Svaté říše římské, český král byl kurfiřtem"}
+    ]
+  },
+  "casova_osa": [
+    {"rok": 1197, "udalost": "Přemysl Otakar I. se stává českým knížetem."},
+    {"rok": 1198, "udalost": "Přemysl Otakar I. získává královský titul od Filipa Švábského."},
+    {"rok": 1212, "udalost": "Vydání Zlaté buly sicilské - potvrzení dědičného královského titulu."},
+    {"rok": 1230, "udalost": "Nástup Václava I. na český trůn."},
+    {"rok": 1233, "udalost": "Anežka Česká zakládá špitál a klášter v Praze."},
+    {"rok": 1253, "udalost": "Nástup Přemysla Otakara II. na trůn."},
+    {"rok": 1257, "udalost": "Přemysl Otakar II. zakládá České Budějovice."},
+    {"rok": 1269, "udalost": "České království sahá až k Jaderskému moři."},
+    {"rok": 1278, "udalost": "Bitva na Moravském poli - smrt Přemysla Otakara II."},
+    {"rok": 1283, "udalost": "Konec zlých let - Václav II. se ujímá vlády."},
+    {"rok": 1290, "udalost": "Poprava Záviše z Falknštejna na příkaz Václava II."},
+    {"rok": 1300, "udalost": "Vydání Ius regale montanorum, začátek ražení pražských grošů."},
+    {"rok": 1300, "udalost": "Václav II. získává polskou korunu."},
+    {"rok": 1301, "udalost": "Václav II. získává uherskou korunu pro svého syna Václava III."},
+    {"rok": 1305, "udalost": "Smrt Václava II., nástup Václava III."},
+    {"rok": 1306, "udalost": "Zavraždění Václava III. v Olomouci - vymření Přemyslovců po meči."}
+  ],
+  "otazky": [
+    {
+      "id": "PP1",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl prvním českým králem s dědičným královským titulem?",
+      "spravna_odpoved": "Přemysl Otakar I.",
+      "spatne_odpovedi": ["Václav I.", "Přemysl Otakar II.", "Vratislav II."],
+      "oduvodneni": "Přemysl Otakar I. získal jako první dědičný královský titul, potvrzený Zlatou bulou sicilskou roku 1212.",
+      "proc_spatne": {
+        "Václav I.": "Václav I. byl synem Přemysla Otakara I. a královský titul zdědil po něm.",
+        "Přemysl Otakar II.": "Přemysl Otakar II. byl vnukem Přemysla Otakara I., vládl až 1253-1278.",
+        "Vratislav II.": "Vratislav II. získal královský titul roku 1085, ale nebyl dědičný - platil jen pro jeho osobu."
+      }
+    },
+    {
+      "id": "PP2",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce byla vydána Zlatá bula sicilská?",
+      "spravna_odpoved": "1212",
+      "spatne_odpovedi": ["1198", "1278", "1306"],
+      "oduvodneni": "Zlatá bula sicilská byla vydána roku 1212 a potvrdila dědičný královský titul českých králů.",
+      "proc_spatne": {
+        "1198": "Roku 1198 získal Přemysl Otakar I. královský titul od Filipa Švábského, ale Zlatá bula byla až 1212.",
+        "1278": "Roku 1278 se odehrála bitva na Moravském poli.",
+        "1306": "Roku 1306 byl zavražděn Václav III. a vymřeli Přemyslovci."
+      }
+    },
+    {
+      "id": "PP3",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaká přezdívka se používala pro krále Václava I.?",
+      "spravna_odpoved": "Jednooký",
+      "spatne_odpovedi": ["Železný a zlatý", "Ukrutný", "Spravedlivý"],
+      "oduvodneni": "Václav I. měl přezdívku Jednooký, protože přišel o oko při lovu.",
+      "proc_spatne": {
+        "Železný a zlatý": "Král železný a zlatý byl přídomek Přemysla Otakara II.",
+        "Ukrutný": "Přídomek Ukrutný měl Boleslav I., ne Václav I.",
+        "Spravedlivý": "Tato přezdívka nepatřila žádnému Přemyslovci z tohoto období."
+      }
+    },
+    {
+      "id": "PP4",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakým přídomkem byl nazýván Přemysl Otakar II.?",
+      "spravna_odpoved": "Král železný a zlatý",
+      "spatne_odpovedi": ["Král moudrý", "Král spravedlivý", "Král jednooký"],
+      "oduvodneni": "Přemysl Otakar II. byl nazýván král železný a zlatý - železný pro svou vojenskou sílu a zlatý pro své bohatství.",
+      "proc_spatne": {
+        "Král moudrý": "Toto není historicky správný přídomek Přemysla Otakara II.",
+        "Král spravedlivý": "Toto není historicky správný přídomek Přemysla Otakara II.",
+        "Král jednooký": "Jednooký byl přídomek Václava I., ne Přemysla Otakara II."
+      }
+    },
+    {
+      "id": "PP5",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V jaké bitvě padl Přemysl Otakar II.?",
+      "spravna_odpoved": "V bitvě na Moravském poli",
+      "spatne_odpovedi": ["V bitvě u Lechu", "V bitvě u Lipan", "V bitvě u Kreščaku"],
+      "oduvodneni": "Přemysl Otakar II. padl roku 1278 v bitvě na Moravském poli proti Rudolfu Habsburskému.",
+      "proc_spatne": {
+        "V bitvě u Lechu": "Bitva na Lechu se odehrála roku 955 proti Maďarům.",
+        "V bitvě u Lipan": "Bitva u Lipan se odehrála až roku 1434 za husitských válek.",
+        "V bitvě u Kreščaku": "Bitva u Kreščaku (1346) se odehrála za Jana Lucemburského."
+      }
+    },
+    {
+      "id": "PP6",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývaly slavné stříbrné mince ražené za vlády Václava II.?",
+      "spravna_odpoved": "Pražské groše",
+      "spatne_odpovedi": ["Denáry", "Tolary", "Dukáty"],
+      "oduvodneni": "Za vlády Václava II. se od roku 1300 v Kutné Hoře začaly razit pražské groše - jedny z nejuznávanějších mincí středověké Evropy.",
+      "proc_spatne": {
+        "Denáry": "Denáry razil již Boleslav I. v 10. století, za Václava II. se razily groše.",
+        "Tolary": "Tolary se začaly razit až v 16. století v Jáchymově.",
+        "Dukáty": "Dukáty byly zlaté mince z Itálie, ne české stříbrné mince."
+      }
+    },
+    {
+      "id": "PP7",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém městě se za Václava II. těžilo stříbro a razily mince?",
+      "spravna_odpoved": "Kutná Hora",
+      "spatne_odpovedi": ["Jáchymov", "Jihlava", "Praha"],
+      "oduvodneni": "Kutná Hora byla centrem těžby stříbra a za Václava II. se zde začaly razit slavné pražské groše.",
+      "proc_spatne": {
+        "Jáchymov": "V Jáchymově se začalo těžit stříbro až v 16. století.",
+        "Jihlava": "Jihlava měla těžbu stříbra, ale hlavním centrem za Václava II. byla Kutná Hora.",
+        "Praha": "V Praze se stříbro netěžilo, i když se mince nazývaly pražské groše."
+      }
+    },
+    {
+      "id": "PP8",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl posledním přemyslovským králem?",
+      "spravna_odpoved": "Václav III.",
+      "spatne_odpovedi": ["Václav II.", "Přemysl Otakar II.", "Jan Lucemburský"],
+      "oduvodneni": "Václav III. byl posledním přemyslovským králem. Byl zavražděn roku 1306 v Olomouci a rod Přemyslovců jím vymřel po meči.",
+      "proc_spatne": {
+        "Václav II.": "Václav II. zemřel roku 1305, ale jeho syn Václav III. vládl ještě rok po něm.",
+        "Přemysl Otakar II.": "Přemysl Otakar II. padl roku 1278, po něm vládli ještě tři Přemyslovci.",
+        "Jan Lucemburský": "Jan Lucemburský nebyl Přemyslovec, byl to první český král z rodu Lucemburků."
+      }
+    },
+    {
+      "id": "PP9",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém městě byl Václav III. zavražděn?",
+      "spravna_odpoved": "V Olomouci",
+      "spatne_odpovedi": ["V Praze", "V Brně", "V Kutné Hoře"],
+      "oduvodneni": "Václav III. byl zavražděn roku 1306 v Olomouci, kde se chystal na vojenské tažení do Polska.",
+      "proc_spatne": {
+        "V Praze": "Václav III. nebyl zavražděn v Praze, ale v Olomouci.",
+        "V Brně": "Brno nebylo místem zavraždění Václava III.",
+        "V Kutné Hoře": "Kutná Hora byla centrem těžby stříbra, ne místem vraždy."
+      }
+    },
+    {
+      "id": "PP10",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co se stalo novým symbolem českého království za posledních Přemyslovců?",
+      "spravna_odpoved": "Stříbrný dvouocasý lev",
+      "spatne_odpovedi": ["Zlatá koruna", "Červená orlice", "Bílý jednorožec"],
+      "oduvodneni": "Stříbrný dvouocasý lev se stal symbolem českého království za posledních Přemyslovců a dodnes je ve státním znaku.",
+      "proc_spatne": {
+        "Zlatá koruna": "Zlatá koruna není hlavním symbolem na českém znaku.",
+        "Červená orlice": "Červená orlice je symbolem Moravy, ne Čech.",
+        "Bílý jednorožec": "Jednorožec není českým státním symbolem."
+      }
+    },
+    {
+      "id": "PP11",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byla Anežka Česká?",
+      "spravna_odpoved": "Sestra Václava I., která založila špitál a byla prohlášena za svatou",
+      "spatne_odpovedi": ["Manželka Přemysla Otakara II.", "Dcera Václava II.", "Matka Přemysla Otakara I."],
+      "oduvodneni": "Anežka Česká byla sestra krále Václava I. Založila v Praze špitál pro chudé a nemocné a byla prohlášena za svatou.",
+      "proc_spatne": {
+        "Manželka Přemysla Otakara II.": "Manželkou Přemysla Otakara II. byla Kunhuta Uherská, ne Anežka.",
+        "Dcera Václava II.": "Anežka žila o generaci dříve než Václav II.",
+        "Matka Přemysla Otakara I.": "Anežka byla dcerou Přemysla Otakara I., ne jeho matkou."
+      }
+    },
+    {
+      "id": "PP12",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaký dokument potvrdil dědičný královský titul českých králů?",
+      "spravna_odpoved": "Zlatá bula sicilská",
+      "spatne_odpovedi": ["Magna Carta", "Ius regale montanorum", "Kosmova kronika"],
+      "oduvodneni": "Zlatá bula sicilská z roku 1212 potvrdila dědičnost českého královského titulu.",
+      "proc_spatne": {
+        "Magna Carta": "Magna Carta je anglický dokument z roku 1215, nemá nic společného s českým královstvím.",
+        "Ius regale montanorum": "Ius regale montanorum je horní zákoník Václava II. z roku 1300.",
+        "Kosmova kronika": "Kosmova kronika je historické dílo, ne právní dokument."
+      }
+    },
+    {
+      "id": "PP13",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce se odehrála bitva na Moravském poli?",
+      "spravna_odpoved": "1278",
+      "spatne_odpovedi": ["1212", "1300", "1306"],
+      "oduvodneni": "Bitva na Moravském poli se odehrála roku 1278. V ní padl Přemysl Otakar II. v boji proti Rudolfu Habsburskému.",
+      "proc_spatne": {
+        "1212": "Roku 1212 byla vydána Zlatá bula sicilská.",
+        "1300": "Roku 1300 byly vydány horní zákoník a začaly se razit pražské groše.",
+        "1306": "Roku 1306 byl zavražděn Václav III. v Olomouci."
+      }
+    },
+    {
+      "id": "PP14",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co znamená, že rod Přemyslovců vymřel 'po meči'?",
+      "spravna_odpoved": "Vymřela mužská linie rodu",
+      "spatne_odpovedi": ["Rod byl vyhlazen v bitvě", "Všichni členové rodu zemřeli", "Rod ztratil moc v souboji"],
+      "oduvodneni": "Vymření po meči znamená vymření mužské linie rodu. Po zavraždění Václava III. roku 1306 nezůstal žádný mužský potomek Přemyslovců.",
+      "proc_spatne": {
+        "Rod byl vyhlazen v bitvě": "Přemyslovci nevymřeli v bitvě, ale zavražděním posledního mužského potomka.",
+        "Všichni členové rodu zemřeli": "Přemyslovské ženy žily dál, vymřela jen mužská linie.",
+        "Rod ztratil moc v souboji": "Vymření po meči nesouvisí se souboji, ale s absencí mužských potomků."
+      }
+    },
+    {
+      "id": "PP15",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce vymřel rod Přemyslovců po meči?",
+      "spravna_odpoved": "1306",
+      "spatne_odpovedi": ["1278", "1300", "1212"],
+      "oduvodneni": "Rod Přemyslovců vymřel po meči roku 1306, kdy byl v Olomouci zavražděn poslední přemyslovský král Václav III.",
+      "proc_spatne": {
+        "1278": "Roku 1278 padl Přemysl Otakar II. v bitvě na Moravském poli, ale rod pokračoval.",
+        "1300": "Roku 1300 byly vydány pražské groše, rod Přemyslovců stále vládl.",
+        "1212": "Roku 1212 byla vydána Zlatá bula sicilská, to bylo téměř 100 let před vymřením."
+      }
+    },
+    {
+      "id": "PP16",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V jakém období vládl Přemysl Otakar I.?",
+      "spravna_odpoved": "1197-1230",
+      "spatne_odpovedi": ["1212-1253", "1253-1278", "1158-1197"],
+      "oduvodneni": "Přemysl Otakar I. vládl v letech 1197-1230. Nejprve jako kníže, od roku 1198 jako král.",
+      "proc_spatne": {
+        "1212-1253": "Rok 1212 je vydání Zlaté buly sicilské, ale Přemysl Otakar I. vládl již od 1197.",
+        "1253-1278": "V letech 1253-1278 vládl Přemysl Otakar II., ne Přemysl Otakar I.",
+        "1158-1197": "V tomto období vládli jiní čeští panovníci, ne Přemysl Otakar I."
+      }
+    },
+    {
+      "id": "PP17",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo porazil Přemysla Otakara II. v bitvě na Moravském poli?",
+      "spravna_odpoved": "Rudolf Habsburský",
+      "spatne_odpovedi": ["Ota Braniborský", "Filip Švábský", "Jindřich I. Ptáčník"],
+      "oduvodneni": "Rudolf Habsburský, římský král, porazil Přemysla Otakara II. v bitvě na Moravském poli roku 1278.",
+      "proc_spatne": {
+        "Ota Braniborský": "Ota Braniborský byl poručníkem Václava II. po bitvě, ne protivníkem Přemysla Otakara II.",
+        "Filip Švábský": "Filip Švábský žil o generaci dříve a udělil královský titul Přemyslu Otakaru I.",
+        "Jindřich I. Ptáčník": "Jindřich I. Ptáčník žil v 10. století, o 300 let dříve."
+      }
+    },
+    {
+      "id": "PP18",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byla 'zlá léta'?",
+      "spravna_odpoved": "Období nepokojů a bezvládí po smrti Přemysla Otakara II.",
+      "spatne_odpovedi": ["Doba moru v Čechách", "Válka s Polskem", "Období sucha a hladomoru za Václava I."],
+      "oduvodneni": "Zlá léta (1278-1283) bylo období chaosu, bezvládí a drancování po smrti Přemysla Otakara II., kdy Čechy spravoval Ota Braniborský.",
+      "proc_spatne": {
+        "Doba moru v Čechách": "Zlá léta nesouvisela s morem, ale s politickým chaosem po smrti krále.",
+        "Válka s Polskem": "Zlá léta nebyla válkou s Polskem, ale obdobím vnitřního chaosu.",
+        "Období sucha a hladomoru za Václava I.": "Zlá léta nastala za nezletilého Václava II., ne za Václava I."
+      }
+    },
+    {
+      "id": "PP19",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byl Ota Braniborský?",
+      "spravna_odpoved": "Poručník nezletilého Václava II., braniborský markrabě",
+      "spatne_odpovedi": ["Spojenec Přemysla Otakara II.", "Vojevůdce Václava I.", "Zakladatel Kutné Hory"],
+      "oduvodneni": "Ota Braniborský byl braniborský markrabě, který se stal poručníkem nezletilého Václava II. po smrti Přemysla Otakara II. Místo péče o zemi ji drancoval.",
+      "proc_spatne": {
+        "Spojenec Přemysla Otakara II.": "Ota Braniborský nebyl spojencem Přemysla Otakara II.",
+        "Vojevůdce Václava I.": "Ota Braniborský nepůsobil za vlády Václava I.",
+        "Zakladatel Kutné Hory": "Kutná Hora nebyla založena Otou Braniborským."
+      }
+    },
+    {
+      "id": "PP20",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaký umělecký sloh se rozšířil v Čechách za vlády Václava I.?",
+      "spravna_odpoved": "Gotika",
+      "spatne_odpovedi": ["Románský sloh", "Renesance", "Baroko"],
+      "oduvodneni": "Za vlády Václava I. (1230-1253) se v Čechách začala šířit gotika - umělecký sloh s lomenými oblouky.",
+      "proc_spatne": {
+        "Románský sloh": "Románský sloh byl starší a v Čechách převládal před gotikou.",
+        "Renesance": "Renesance přišla do Čech až v 15.-16. století.",
+        "Baroko": "Baroko se rozšířilo až v 17.-18. století."
+      }
+    },
+    {
+      "id": "PP21",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "K jakému moři rozšířil Přemysl Otakar II. české území?",
+      "spravna_odpoved": "K Jaderskému moři",
+      "spatne_odpovedi": ["K Baltskému moři", "K Severnímu moři", "K Černému moři"],
+      "oduvodneni": "Přemysl Otakar II. ovládl území od Čech až k pobřeží Jaderského moře (dnešní Slovinsko a Chorvatsko).",
+      "proc_spatne": {
+        "K Baltskému moři": "K Baltskému moři české území za Přemysla Otakara II. nesahovalo.",
+        "K Severnímu moři": "Severní moře je příliš daleko na severozápadě Evropy.",
+        "K Černému moři": "Černé moře je na jihovýchodě Evropy, daleko od přemyslovských území."
+      }
+    },
+    {
+      "id": "PP22",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které město založil Přemysl Otakar II.?",
+      "spravna_odpoved": "České Budějovice",
+      "spatne_odpovedi": ["Kutná Hora", "Plzeň", "Brno"],
+      "oduvodneni": "Přemysl Otakar II. založil České Budějovice jako královské město.",
+      "proc_spatne": {
+        "Kutná Hora": "Kutná Hora se proslavila těžbou stříbra za Václava II., ale nebyla založena Přemyslem Otakarem II.",
+        "Plzeň": "Plzeň byla založena Václavem II., ne Přemyslem Otakarem II.",
+        "Brno": "Brno existovalo již dříve a nebylo založeno Přemyslem Otakarem II."
+      }
+    },
+    {
+      "id": "PP23",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byl Ius regale montanorum?",
+      "spravna_odpoved": "Horní zákoník vydaný Václavem II.",
+      "spatne_odpovedi": ["Královská listina o dědičném titulu", "Mírová smlouva s Habsburky", "Zákoník o ražení mincí"],
+      "oduvodneni": "Ius regale montanorum (Královské horní právo) byl zákoník vydaný Václavem II. roku 1300, který upravoval těžbu nerostů, zejména stříbra v Kutné Hoře.",
+      "proc_spatne": {
+        "Královská listina o dědičném titulu": "Dědičný titul potvrzovala Zlatá bula sicilská, ne Ius regale montanorum.",
+        "Mírová smlouva s Habsburky": "Ius regale montanorum není mírová smlouva, ale horní zákoník.",
+        "Zákoník o ražení mincí": "Ius regale montanorum upravoval těžbu nerostů, ne přímo ražení mincí."
+      }
+    },
+    {
+      "id": "PP24",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byl Záviš z Falknštejna?",
+      "spravna_odpoved": "Mocný šlechtic, milenec královny Kunhuty a soupeř Václava II.",
+      "spatne_odpovedi": ["Rádce Přemysla Otakara II.", "Braniborský poručník Václava II.", "Zakladatel Kutné Hory"],
+      "oduvodneni": "Záviš z Falknštejna byl mocný český šlechtic, který se stal milencem královny Kunhuty (vdovy po Přemyslu Otakaru II.) a soupeřem mladého Václava II.",
+      "proc_spatne": {
+        "Rádce Přemysla Otakara II.": "Záviš nebyl rádcem Přemysla Otakara II., jeho vliv vzrostl až po jeho smrti.",
+        "Braniborský poručník Václava II.": "Braniborským poručníkem byl Ota Braniborský, ne Záviš.",
+        "Zakladatel Kutné Hory": "Záviš z Falknštejna nezaložil Kutnou Horu."
+      }
+    },
+    {
+      "id": "PP25",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jakou korunu získal Václav II. kromě české?",
+      "spravna_odpoved": "Polskou korunu",
+      "spatne_odpovedi": ["Uherskou korunu", "Rakouskou korunu", "Říšskou korunu"],
+      "oduvodneni": "Václav II. získal roku 1300 polskou korunu a stal se tak českým i polským králem. Uherskou korunu získal pro svého syna Václava III.",
+      "proc_spatne": {
+        "Uherskou korunu": "Uherskou korunu získal Václav II. pro svého syna Václava III., ne přímo pro sebe.",
+        "Rakouskou korunu": "Rakousko ovládal Přemysl Otakar II., ne Václav II.",
+        "Říšskou korunu": "Václav II. nebyl římským císařem ani králem."
+      }
+    },
+    {
+      "id": "PP26",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V jakém období vládl Václav II.?",
+      "spravna_odpoved": "1283-1305",
+      "spatne_odpovedi": ["1278-1300", "1253-1278", "1305-1306"],
+      "oduvodneni": "Václav II. vládl v letech 1283-1305. Ujal se vlády po skončení zlých let a zemřel roku 1305.",
+      "proc_spatne": {
+        "1278-1300": "Václav II. se ujal vlády až 1283, před tím vládl jako poručník Ota Braniborský.",
+        "1253-1278": "V letech 1253-1278 vládl Přemysl Otakar II.",
+        "1305-1306": "V letech 1305-1306 vládl Václav III., ne Václav II."
+      }
+    },
+    {
+      "id": "PP27",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co přinesla německá kolonizace za vlády Václava I.?",
+      "spravna_odpoved": "Osídlení pohraničí, zakládání měst a rozvoj řemesel",
+      "spatne_odpovedi": ["Válečné konflikty s Německem", "Ztrátu území", "Zrušení královského titulu"],
+      "oduvodneni": "Německá kolonizace za Václava I. přinesla osídlení pohraničních oblastí, zakládání nových měst a rozvoj řemesel a obchodu.",
+      "proc_spatne": {
+        "Válečné konflikty s Německem": "Kolonizace nebyla vojenská, ale mírové osídlování pozvaných kolonistů.",
+        "Ztrátu území": "Kolonizace naopak přinášela rozvoj, ne ztrátu území.",
+        "Zrušení královského titulu": "Kolonizace neměla vliv na královský titul."
+      }
+    },
+    {
+      "id": "PP28",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč se králi Václavu I. přezdívalo Jednooký?",
+      "spravna_odpoved": "Přišel o oko při lovu",
+      "spatne_odpovedi": ["Oslepl na jedno oko v bitvě", "Narodil se s jedním okem", "Přišel o oko při turnaji"],
+      "oduvodneni": "Václav I. se kvůli zranění při lovu přezdívalo Jednooký - přišel o oko při lovecké nehodě.",
+      "proc_spatne": {
+        "Oslepl na jedno oko v bitvě": "Václav I. nepřišel o oko v bitvě, ale při lovu.",
+        "Narodil se s jedním okem": "Václav I. se nenarodil s vadou, zranění utrpěl při lovu.",
+        "Přišel o oko při turnaji": "Ke zranění došlo při lovu, ne při turnaji."
+      }
+    },
+    {
+      "id": "PP29",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak dlouho vládl Václav III.?",
+      "spravna_odpoved": "Přibližně 1 rok (1305-1306)",
+      "spatne_odpovedi": ["Přibližně 10 let", "Přibližně 5 let", "Přibližně 20 let"],
+      "oduvodneni": "Václav III. vládl pouze asi rok - od smrti svého otce Václava II. roku 1305 do svého zavraždění roku 1306.",
+      "proc_spatne": {
+        "Přibližně 10 let": "Václav III. vládl jen rok, byl zavražděn krátce po nástupu na trůn.",
+        "Přibližně 5 let": "Václav III. vládl pouze od 1305 do 1306, tedy asi 1 rok.",
+        "Přibližně 20 let": "Václav III. vládl jen asi 1 rok, ne 20 let."
+      }
+    },
+    {
+      "id": "PP30",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V kterém roce byl vydán zákoník Ius regale montanorum?",
+      "spravna_odpoved": "1300",
+      "spatne_odpovedi": ["1212", "1278", "1306"],
+      "oduvodneni": "Ius regale montanorum byl vydán roku 1300 Václavem II. Ve stejném roce se začaly razit pražské groše.",
+      "proc_spatne": {
+        "1212": "Roku 1212 byla vydána Zlatá bula sicilská, ne horní zákoník.",
+        "1278": "Roku 1278 se odehrála bitva na Moravském poli.",
+        "1306": "Roku 1306 byl zavražděn Václav III."
+      }
+    },
+    {
+      "id": "PP31",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byla Kunhuta Uherská?",
+      "spravna_odpoved": "Manželka Přemysla Otakara II. a matka Václava II.",
+      "spatne_odpovedi": ["Manželka Václava II.", "Sestra Václava I.", "Dcera Rudolfa Habsburského"],
+      "oduvodneni": "Kunhuta Uherská byla manželkou Přemysla Otakara II. a matkou Václava II. Po smrti manžela se stala milenkou Záviše z Falknštejna.",
+      "proc_spatne": {
+        "Manželka Václava II.": "Kunhuta Uherská byla matkou Václava II., ne jeho manželkou.",
+        "Sestra Václava I.": "Sestrou Václava I. byla Anežka Česká, ne Kunhuta.",
+        "Dcera Rudolfa Habsburského": "Kunhuta pocházela z uherského královského rodu, ne z Habsburků."
+      }
+    },
+    {
+      "id": "PP32",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč se Přemyslu Otakaru II. říkalo 'král železný a zlatý'?",
+      "spravna_odpoved": "Železný pro vojenskou sílu, zlatý pro bohatství",
+      "spatne_odpovedi": ["Nosil železnou korunu a zlatý plášť", "Těžil železo a zlato", "Měl železnou vůli a zlaté srdce"],
+      "oduvodneni": "Přídomek 'železný' odkazoval na jeho vojenskou sílu a 'zlatý' na jeho obrovské bohatství a rozlehlé území.",
+      "proc_spatne": {
+        "Nosil železnou korunu a zlatý plášť": "Přídomek nesouvisí s jeho oblečením, ale s jeho vlastnostmi.",
+        "Těžil železo a zlato": "Přídomek odkazuje na vojenskou sílu a bohatství, ne na těžbu kovů.",
+        "Měl železnou vůli a zlaté srdce": "Přídomek odkazuje na vojenskou sílu a materiální bohatství."
+      }
+    },
+    {
+      "id": "PP33",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je 'poručnictví'?",
+      "spravna_odpoved": "Správa země za nezletilého panovníka",
+      "spatne_odpovedi": ["Správa královského majetku", "Velení vojsku v bitvě", "Dědičné právo na trůn"],
+      "oduvodneni": "Poručnictví znamenalo správu země místo nezletilého panovníka. Po smrti Přemysla Otakara II. se poručníkem nezletilého Václava II. stal Ota Braniborský.",
+      "proc_spatne": {
+        "Správa královského majetku": "Poručnictví zahrnuje správu celé země, ne jen majetku.",
+        "Velení vojsku v bitvě": "Poručnictví není vojenský termín, ale správní.",
+        "Dědičné právo na trůn": "Poručnictví je dočasná správa, ne dědičné právo."
+      }
+    },
+    {
+      "id": "PP34",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byl středověký špitál (hospital)?",
+      "spravna_odpoved": "Zařízení pro péči o chudé a nemocné",
+      "spatne_odpovedi": ["Vojenská nemocnice", "Královský palác", "Klášterní škola"],
+      "oduvodneni": "Středověký špitál byl charitativní zařízení pro péči o chudé a nemocné. Anežka Česká založila špitál v Praze.",
+      "proc_spatne": {
+        "Vojenská nemocnice": "Špitál nebyl vojenská nemocnice, ale charitativní zařízení pro chudé.",
+        "Královský palác": "Špitál nebyl palác, ale místo pro pomoc potřebným.",
+        "Klášterní škola": "Špitál nebyl škola, ale zařízení pro péči o nemocné a chudé."
+      }
+    },
+    {
+      "id": "PP35",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která dynastie nastoupila na český trůn po vymření Přemyslovců?",
+      "spravna_odpoved": "Lucemburkové",
+      "spatne_odpovedi": ["Habsburkové", "Jagellonci", "Slavníkovci"],
+      "oduvodneni": "Po vymření Přemyslovců (1306) nastoupili na český trůn Lucemburkové, prvním byl Jan Lucemburský (od 1310).",
+      "proc_spatne": {
+        "Habsburkové": "Habsburkové vládli Čechám až od 16. století (s krátkou výjimkou Rudolfa I.).",
+        "Jagellonci": "Jagellonci vládli Čechám až v 15.-16. století po Lucemburcích.",
+        "Slavníkovci": "Slavníkovci byli vyvražděni roku 995, nemohli nastoupit na trůn."
+      }
+    },
+    {
+      "id": "PP36",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaký byl hlavní význam Zlaté buly sicilské pro české království?",
+      "spravna_odpoved": "Potvrdila dědičnost královského titulu bez nutnosti souhlasu císaře",
+      "spatne_odpovedi": ["Přiřkla Čechám nová území", "Zaručila náboženskou svobodu", "Zrušila povinnost platit tribut"],
+      "oduvodneni": "Zlatá bula sicilská (1212) potvrdila, že český královský titul je dědičný a český král ho nepotřebuje znovu získávat od každého nového císaře.",
+      "proc_spatne": {
+        "Přiřkla Čechám nová území": "Zlatá bula sicilská se týkala královského titulu, ne rozšíření území.",
+        "Zaručila náboženskou svobodu": "Zlatá bula sicilská neřešila náboženské otázky.",
+        "Zrušila povinnost platit tribut": "Zlatá bula sicilská se týkala dědičnosti titulu, ne tributu."
+      }
+    },
+    {
+      "id": "PP37",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jakou roli sehrál Filip Švábský v získání královského titulu Přemyslem Otakarem I.?",
+      "spravna_odpoved": "Udělil mu královský titul výměnou za politickou podporu ve sporu o říšský trůn",
+      "spatne_odpovedi": ["Porazil ho v bitvě a donutil ho přijmout titul", "Byl jeho příbuzný a titul mu daroval", "Žádnou - titul udělil papež"],
+      "oduvodneni": "Filip Švábský udělil roku 1198 Přemyslu Otakaru I. královský titul výměnou za jeho podporu ve sporu o říšský trůn s Otou IV. Brunšvickým.",
+      "proc_spatne": {
+        "Porazil ho v bitvě a donutil ho přijmout titul": "Filip a Přemysl byli spojenci, ne nepřátelé.",
+        "Byl jeho příbuzný a titul mu daroval": "Filip Švábský nebyl příbuzným Přemysla, šlo o politickou dohodu.",
+        "Žádnou - titul udělil papež": "Královský titul udělil Filip Švábský, ne papež."
+      }
+    },
+    {
+      "id": "PP38",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaké bylo postavení českého krále v rámci Svaté říše římské?",
+      "spravna_odpoved": "Český král měl hlas na říšském sněmu a patřil mezi kurfiřty",
+      "spatne_odpovedi": ["Český král musel platit říši tribut", "Český král neměl žádné povinnosti k říši", "Český král byl podřízený bavorskému vévodovi"],
+      "oduvodneni": "Český král měl privilegované postavení v říši - měl hlas na říšském sněmu a patřil mezi kurfiřty (volitelé císaře).",
+      "proc_spatne": {
+        "Český král musel platit říši tribut": "Tribut platili čeští knížata dříve, za Přemysla Otakara I. už šlo o rovnoprávné postavení v říši.",
+        "Český král neměl žádné povinnosti k říši": "Český král měl povinnosti, ale také práva - hlasovací právo na říšském sněmu.",
+        "Český král byl podřízený bavorskému vévodovi": "Český král nebyl podřízený žádnému vévodovi, byl jedním z nejmocnějších říšských knížat."
+      }
+    },
+    {
+      "id": "PP39",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaká území ovládal Přemysl Otakar II. na vrcholu své moci?",
+      "spravna_odpoved": "Čechy, Moravu, Rakousy, Štýrsko, Korutany a Kraňsko až k Jadranu",
+      "spatne_odpovedi": ["Pouze Čechy a Moravu", "Čechy, Polsko a Uhry", "Čechy, Sasko a Bavorsko"],
+      "oduvodneni": "Na vrcholu moci Přemysl Otakar II. ovládal rozsáhlé území od Čech přes Moravu, Rakousy, Štýrsko, Korutany až ke Kraňsku u Jaderského moře.",
+      "proc_spatne": {
+        "Pouze Čechy a Moravu": "Přemysl Otakar II. ovládal mnohem větší území než jen Čechy a Moravu.",
+        "Čechy, Polsko a Uhry": "Polsko a Uhry ovládal až Václav II., ne Přemysl Otakar II.",
+        "Čechy, Sasko a Bavorsko": "Přemysl Otakar II. expandoval na jih k Jadranu, ne na sever do Saska."
+      }
+    },
+    {
+      "id": "PP40",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaký byl hlavní důsledek bitvy na Moravském poli?",
+      "spravna_odpoved": "Konec přemyslovské velmocenské politiky a vzestup Habsburků",
+      "spatne_odpovedi": ["Zisk nových území pro Čechy", "Vznik Svaté říše římské", "Vymření Přemyslovců"],
+      "oduvodneni": "Po bitvě na Moravském poli (1278) ztratily Čechy veškerá území mimo Čechy a Moravu. Habsburkové získali Rakousy a začali svůj vzestup k moci.",
+      "proc_spatne": {
+        "Zisk nových území pro Čechy": "Naopak - Čechy ztratily všechna území mimo Čechy a Moravu.",
+        "Vznik Svaté říše římské": "Svatá říše římská vznikla roku 962 korunovací Oty I., tedy mnohem dříve.",
+        "Vymření Přemyslovců": "Přemyslovci vymřeli až roku 1306, ne po bitvě na Moravském poli."
+      }
+    },
+    {
+      "id": "PP41",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co se dělo v Čechách během 'zlých let' (1278-1283)?",
+      "spravna_odpoved": "Bezvládí, hladomor, drancování země Otou Braniborským",
+      "spatne_odpovedi": ["Rozkvět obchodu a kultury", "Válka s Polskem o Slezsko", "Stavba gotických katedrál"],
+      "oduvodneni": "Během zlých let (1278-1283) země trpěla bezvládím, hladomorem a drancováním. Poručník Ota Braniborský se o zemi nestaral a jen ji plenil.",
+      "proc_spatne": {
+        "Rozkvět obchodu a kultury": "Naopak - zlá léta byla dobou úpadku a drancování.",
+        "Válka s Polskem o Slezsko": "Během zlých let neprobíhala válka s Polskem.",
+        "Stavba gotických katedrál": "Zlá léta byla dobou úpadku, ne stavitelského rozkvětu."
+      }
+    },
+    {
+      "id": "PP42",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak Václav II. vyřešil spor se Závišem z Falknštejna?",
+      "spravna_odpoved": "Nechal ho roku 1290 popravit",
+      "spatne_odpovedi": ["Vyhnal ho ze země", "Jmenoval ho svým rádcem", "Uzavřel s ním spojenectví"],
+      "oduvodneni": "Václav II. se zbavil mocného soupeře Záviše z Falknštejna tím, že ho nechal roku 1290 popravit.",
+      "proc_spatne": {
+        "Vyhnal ho ze země": "Záviš nebyl vyhnán, ale popraven na příkaz Václava II.",
+        "Jmenoval ho svým rádcem": "Záviš byl soupeřem Václava II., ne jeho rádcem.",
+        "Uzavřel s ním spojenectví": "Václav II. se Záviše zbavil popravou, ne spojenectvím."
+      }
+    },
+    {
+      "id": "PP43",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč byl pražský groš tak významnou mincí?",
+      "spravna_odpoved": "Stal se jednou z nejuznávanějších měn středověké Evropy",
+      "spatne_odpovedi": ["Byl vyroben ze zlata", "Platil pouze v Čechách", "Byl největší mincí své doby"],
+      "oduvodneni": "Pražský groš byl díky kvalitnímu kutnohorskému stříbru jednou z nejuznávanějších a nejrozšířenějších měn ve středověké Evropě.",
+      "proc_spatne": {
+        "Byl vyroben ze zlata": "Pražský groš byl stříbrná mince, ne zlatá.",
+        "Platil pouze v Čechách": "Naopak - pražský groš byl uznáván po celé střední Evropě.",
+        "Byl největší mincí své doby": "Význam pražského groše nespočíval ve velikosti, ale v kvalitě stříbra."
+      }
+    },
+    {
+      "id": "PP44",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co byla 'trojí koruna' posledních Přemyslovců?",
+      "spravna_odpoved": "Česká, polská a uherská koruna v rukou Přemyslovců",
+      "spatne_odpovedi": ["Tři části české korunovační insignie", "Tři korunní země (Čechy, Morava, Slezsko)", "Symbol na pražském groši"],
+      "oduvodneni": "Za Václava II. a Václava III. drželi Přemyslovci tři koruny - českou, polskou a uherskou, čímž vytvořili mocnou říši ve střední Evropě.",
+      "proc_spatne": {
+        "Tři části české korunovační insignie": "Trojí koruna označuje tři královské tituly, ne korunovační insignie.",
+        "Tři korunní země (Čechy, Morava, Slezsko)": "Trojí koruna odkazuje na tři království, ne na korunní země.",
+        "Symbol na pražském groši": "Na pražském groši byl dvouocasý lev, ne trojí koruna."
+      }
+    },
+    {
+      "id": "PP45",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaký byl vztah mezi Přemyslem Otakarem II. a Rudolfem Habsburským?",
+      "spravna_odpoved": "Politické soupeření o moc v říši, Rudolf odmítl uznat Otakarovy nároky na území",
+      "spatne_odpovedi": ["Byli spojenci proti Maďarům", "Rudolf byl Otakarovým vazalem", "Byli příbuzní a spolupracovali"],
+      "oduvodneni": "Přemysl Otakar II. a Rudolf Habsburský byli političtí rivalové. Rudolf po zvolení římským králem požadoval vrácení území, která Otakar zabral, což vedlo k bitvě na Moravském poli.",
+      "proc_spatne": {
+        "Byli spojenci proti Maďarům": "Přemysl Otakar II. a Rudolf nebyli spojenci, ale soupeři.",
+        "Rudolf byl Otakarovým vazalem": "Rudolf Habsburský nebyl Otakarovým vazalem, naopak byl zvolen římským králem.",
+        "Byli příbuzní a spolupracovali": "Přestože existovaly dynastické vazby, hlavním rysem jejich vztahu bylo soupeření."
+      }
+    },
+    {
+      "id": "PP46",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Čím byla Kutná Hora výjimečná za vlády Václava II.?",
+      "spravna_odpoved": "Díky těžbě stříbra se stala druhým nejvýznamnějším městem po Praze",
+      "spatne_odpovedi": ["Byla hlavním městem království", "Bylo zde sídlo pražského biskupa", "Byla největší pevností v Čechách"],
+      "oduvodneni": "Kutná Hora se díky bohatým nalezištím stříbra stala za Václava II. druhým nejvýznamnějším městem v Čechách po Praze.",
+      "proc_spatne": {
+        "Byla hlavním městem království": "Hlavním městem zůstávala Praha, Kutná Hora byla druhá nejvýznamnější.",
+        "Bylo zde sídlo pražského biskupa": "Pražský biskup sídlil v Praze, ne v Kutné Hoře.",
+        "Byla největší pevností v Čechách": "Kutná Hora se proslavila těžbou stříbra, ne jako pevnost."
+      }
+    },
+    {
+      "id": "PP47",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co bylo podstatou německé kolonizace za posledních Přemyslovců?",
+      "spravna_odpoved": "Systematické osídlování pohraničí a zakládání měst německými kolonisty",
+      "spatne_odpovedi": ["Vojenské obsazení českého území Němci", "Nucený odchod Čechů z pohraničí", "Diplomatická aliance s německými státy"],
+      "oduvodneni": "Německá kolonizace znamenala organizované přesídlování německých kolonistů do pohraničních oblastí. Čeští králové ji podporovali pro rozvoj měst, řemesel a obchodu.",
+      "proc_spatne": {
+        "Vojenské obsazení českého území Němci": "Kolonizace nebyla vojenská, ale mírové osídlování podporované českými králi.",
+        "Nucený odchod Čechů z pohraničí": "Čeští obyvatelé nebyli vyháněni, kolonisté osídlovali neobydlené oblasti.",
+        "Diplomatická aliance s německými státy": "Kolonizace nebyla diplomatická smlouva, ale proces osídlování."
+      }
+    },
+    {
+      "id": "PP48",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak Přemysl Otakar I. získal královský titul?",
+      "spravna_odpoved": "Využil sporu o říšský trůn mezi Filipem Švábským a Otou IV. Brunšvickým",
+      "spatne_odpovedi": ["Zdědil ho po svém otci", "Dobyl ho vojenskou silou", "Získal ho od papeže"],
+      "oduvodneni": "Přemysl Otakar I. šikovně využil sporu o říšský trůn. Podpořil Filipa Švábského, který mu za to roku 1198 udělil královský titul.",
+      "proc_spatne": {
+        "Zdědil ho po svém otci": "Přemysl Otakar I. nezdědil královský titul, musel ho získat politickou diplomatcií.",
+        "Dobyl ho vojenskou silou": "Titul nebyl získán vojensky, ale diplomaticky - výměnou za politickou podporu.",
+        "Získal ho od papeže": "Královský titul udělil Filip Švábský, ne papež."
+      }
+    },
+    {
+      "id": "PP49",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaký kulturní význam měla vláda Přemysla Otakara II.?",
+      "spravna_odpoved": "Rozvoj gotické architektury, zakládání královských měst a šíření dvorské kultury",
+      "spatne_odpovedi": ["Zavedení knihtisku v Čechách", "Založení Karlovy univerzity", "Stavba Karlštejna"],
+      "oduvodneni": "Za Přemysla Otakara II. se v Čechách rozvíjela gotická architektura, zakládala se královská města a šířila se dvorská kultura včetně minnesangu.",
+      "proc_spatne": {
+        "Zavedení knihtisku v Čechách": "Knihtisk byl vynalezen až kolem roku 1440, tedy o téměř 200 let později.",
+        "Založení Karlovy univerzity": "Karlovu univerzitu založil Karel IV. roku 1348.",
+        "Stavba Karlštejna": "Karlštejn postavil Karel IV. ve 14. století."
+      }
+    },
+    {
+      "id": "PP50",
+      "tema": "Poslední Přemyslovci",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč bylo zavraždění Václava III. tak historicky významné?",
+      "spravna_odpoved": "Ukončilo přibližně 430 let vlády Přemyslovců a způsobilo dynastickou krizi",
+      "spatne_odpovedi": ["Vyvolalo válku s Polskem", "Vedlo k rozpadu Svaté říše římské", "Způsobilo morovou epidemii"],
+      "oduvodneni": "Zavraždění Václava III. roku 1306 ukončilo přibližně 430 let vlády rodu Přemyslovců v Čechách a vyvolalo dynastickou krizi - kdo bude dalším králem.",
+      "proc_spatne": {
+        "Vyvolalo válku s Polskem": "Hlavním důsledkem byla dynastická krize v Čechách, ne válka s Polskem.",
+        "Vedlo k rozpadu Svaté říše římské": "Svatá říše římská existovala dál a zanikla až počátkem 19. století.",
+        "Způsobilo morovou epidemii": "Vražda Václava III. nesouvisela s žádnou epidemií."
+      }
+    }
+  ]
+}
