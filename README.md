@@ -3,6 +3,7 @@
 Rychlý rozcestník k našim domácím školním testům.
 
 ## 📜 Dějepis
+- [Lucemburkové – mobil](https://padak.github.io/dejepis/lucemburkove-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/lucemburkove-flashcards.html)
 - [Poslední Přemyslovci – mobil](https://padak.github.io/dejepis/posledni-premyslovci-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/posledni-premyslovci-flashcards.html)
 - [Počátky českého státu – počítač](https://padak.github.io/dejepis/cesky-stat-test.html) · [mobil](https://padak.github.io/dejepis/cesky-stat-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/cesky-stat-flashcards.html)
 - [Raný středověk – počítač](https://padak.github.io/dejepis/) · [mobil](https://padak.github.io/dejepis/dejepis-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/dejepis-flashcards.html)
