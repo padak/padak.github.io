@@ -1,0 +1,840 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": ["České království za Lucemburků"],
+  "zdroj": "Podklady od učitelky - Lucemburkové, učebnice str. 57-63",
+  "hlavni_osy": [
+    "Jan Lucemburský (1310-1346) - král cizinec a diplomat, padl u Kresčaku",
+    "Karel IV. (1346-1378) - Otec vlasti, Karlova univerzita, císař Svaté říše římské",
+    "Václav IV. (1378-1419) - spory se šlechtou, Jan Nepomucký",
+    "Zikmund Lucemburský (1419-1437) - poslední Lucemburk, husitské války",
+    "Stoletá válka (1337-1453) - Francie vs Anglie, Jana z Arku",
+    "Morová nákaza - černá smrt 14. století, úbytek obyvatelstva"
+  ],
+  "terminologie": {
+    "Jan_Lucembursky": [
+      {"pojem": "Jan Lucemburský", "vysvetleni": "Český král 1310-1346, syn Jindřicha VII. Lucemburského, manžel Elišky Přemyslovny"},
+      {"pojem": "Eliška Přemyslovna", "vysvetleni": "Dcera Václava II., provdala se za Jana Lucemburského, matka Karla IV."},
+      {"pojem": "Jindřich VII. Lucemburský", "vysvetleni": "Otec Jana Lucemburského, římskoněmecký císař z rodu Lucemburků"},
+      {"pojem": "Bitva u Kresčaku", "vysvetleni": "Bitva roku 1346 za stoleté války, kde padl slepý král Jan Lucemburský"},
+      {"pojem": "Chebsko", "vysvetleni": "Území připojené Janem Lucemburským k české koruně"},
+      {"pojem": "Horní Lužice", "vysvetleni": "Území v dnešním Německu připojené Janem Lucemburským k Čechám"},
+      {"pojem": "Inaugurační diplomy", "vysvetleni": "Listiny, kterými Jan Lucemburský potvrdil výsady české šlechty výměnou za přijetí na trůn"}
+    ],
+    "Karel_IV": [
+      {"pojem": "Karel IV.", "vysvetleni": "Český král a římský císař (1346-1378), nazýván Otec vlasti"},
+      {"pojem": "Otec vlasti", "vysvetleni": "Čestný titul Karla IV. za jeho zásluhy o rozvoj českého království"},
+      {"pojem": "Karlova univerzita", "vysvetleni": "Nejstarší univerzita ve střední Evropě, založena Karlem IV. roku 1348"},
+      {"pojem": "Nové Město pražské", "vysvetleni": "Čtvrť Prahy založená Karlem IV. roku 1348 pro rozšíření hlavního města"},
+      {"pojem": "Karlův most", "vysvetleni": "Kamenný most přes Vltavu v Praze, stavba zahájena 1357 za Karla IV."},
+      {"pojem": "Katedrála sv. Víta", "vysvetleni": "Gotická katedrála na Pražském hradě, stavbu zahájil Jan Lucemburský roku 1344, Karel IV. v ní pokračoval"},
+      {"pojem": "Karlštejn", "vysvetleni": "Hrad založený Karlem IV. pro uložení korunovačních klenotů a říšských relikvií"},
+      {"pojem": "Vita Caroli", "vysvetleni": "Vlastní životopis Karla IV., vzácná středověká autobiografie panovníka"},
+      {"pojem": "Korunovační klenoty", "vysvetleni": "Svatováclavská koruna, žezlo a jablko - symboly české královské moci"},
+      {"pojem": "Země Koruny české", "vysvetleni": "Soubor zemí spojených s českým královstvím - Čechy, Morava, Slezsko, Lužice"},
+      {"pojem": "Svatá říše římská", "vysvetleni": "Nadnárodní útvar ve střední Evropě, Karel IV. se stal jejím císařem roku 1355"},
+      {"pojem": "Hrad Kašperk", "vysvetleni": "Královský hrad na Šumavě založený Karlem IV. k ochraně zlatonosné oblasti"}
+    ],
+    "Manzelky_Karla_IV": [
+      {"pojem": "Blanka z Valois", "vysvetleni": "První manželka Karla IV., francouzská princezna, seznámili se na pařížském dvoře"},
+      {"pojem": "Anna Falcká", "vysvetleni": "Druhá manželka Karla IV., sňatek z politických důvodů"},
+      {"pojem": "Anna Svídnická", "vysvetleni": "Třetí manželka Karla IV., matka Václava IV."},
+      {"pojem": "Alžběta Pomořanská", "vysvetleni": "Čtvrtá manželka Karla IV., proslulá svou fyzickou silou"}
+    ],
+    "Vaclav_IV": [
+      {"pojem": "Václav IV.", "vysvetleni": "Syn Karla IV., český král 1378-1419, neměl otcovy schopnosti"},
+      {"pojem": "Jan z Jenštejna", "vysvetleni": "Pražský arcibiskup, s nímž měl Václav IV. ostré spory"},
+      {"pojem": "Jan Nepomucký", "vysvetleni": "Generální vikář arcibiskupa, umučen a utopen ve Vltavě na příkaz Václava IV."},
+      {"pojem": "Líný král", "vysvetleni": "Přezdívka Václava IV. - kronikáři ho popisovali jako zahálčivého panovníka"}
+    ],
+    "Zikmund_Lucembursky": [
+      {"pojem": "Zikmund Lucemburský", "vysvetleni": "Mladší syn Karla IV., uherský král, poslední Lucemburk na českém trůně (1419-1437)"},
+      {"pojem": "Liška ryšavá", "vysvetleni": "Přezdívka Zikmunda Lucemburského, kterou mu dali čeští odpůrci"},
+      {"pojem": "Husitské války", "vysvetleni": "Vojenské konflikty v Čechách (1419-1434) spojené s hnutím stoupenců Jana Husa"}
+    ],
+    "Stoleta_valka": [
+      {"pojem": "Stoletá válka", "vysvetleni": "Válečný konflikt mezi Francií a Anglií trvající 1337-1453"},
+      {"pojem": "Jana z Arku", "vysvetleni": "Francouzská hrdinka, která přinesla obrat ve stoleté válce ve prospěch Francie"},
+      {"pojem": "Bitva u Kresčaku (1346)", "vysvetleni": "Významná bitva stoleté války, anglické vítězství, padl zde Jan Lucemburský"}
+    ],
+    "Morova_nakaza": [
+      {"pojem": "Morová nákaza (černá smrt)", "vysvetleni": "Pandemie moru ve 14. století, přišla z Asie po obchodních cestách"},
+      {"pojem": "První vlna moru (1347-1352)", "vysvetleni": "Nejničivější vlna moru v Evropě, zasáhla i české země za vlády Karla IV."},
+      {"pojem": "Šíření moru", "vysvetleni": "Mor se šířil blechami na krysách podél obchodních cest z Asie do Evropy"},
+      {"pojem": "Důsledky moru", "vysvetleni": "Úbytek obyvatelstva, úpadek řemesel a obchodu, oslabení vlivu církve (mnoho kněží zemřelo)"}
+    ]
+  },
+  "casova_osa": [
+    {"rok": 1306, "udalost": "Zavraždění Václava III. - vymření Přemyslovců po meči."},
+    {"rok": 1310, "udalost": "Jan Lucemburský se stává českým králem (korunován 1311)."},
+    {"rok": 1311, "udalost": "Korunovace Jana Lucemburského v Praze."},
+    {"rok": 1316, "udalost": "Narození Václava (budoucího Karla IV.) v Praze."},
+    {"rok": 1337, "udalost": "Začátek stoleté války mezi Francií a Anglií."},
+    {"rok": 1346, "udalost": "Jan Lucemburský padl v bitvě u Kresčaku (26. srpna)."},
+    {"rok": 1346, "udalost": "Karel IV. zvolen římským králem."},
+    {"rok": 1347, "udalost": "Korunovace Karla IV. českým králem."},
+    {"rok": 1347, "udalost": "Začátek první vlny morové nákazy v Evropě."},
+    {"rok": 1348, "udalost": "Založení Karlovy univerzity (7. dubna)."},
+    {"rok": 1348, "udalost": "Založení Nového Města pražského."},
+    {"rok": 1352, "udalost": "Konec první vlny moru v Evropě."},
+    {"rok": 1355, "udalost": "Karel IV. korunován císařem Svaté říše římské."},
+    {"rok": 1357, "udalost": "Zahájení stavby Karlova mostu (9. července)."},
+    {"rok": 1378, "udalost": "Smrt Karla IV. (29. listopadu), nástup Václava IV."},
+    {"rok": 1393, "udalost": "Umučení a utopení Jana Nepomuckého ve Vltavě."},
+    {"rok": 1419, "udalost": "Smrt Václava IV., nástup Zikmunda Lucemburského."},
+    {"rok": 1437, "udalost": "Smrt Zikmunda - konec Lucemburků na českém trůně."},
+    {"rok": 1453, "udalost": "Konec stoleté války - vítězství Francie."}
+  ],
+  "otazky": [
+    {
+      "id": "LU1",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl otec Jana Lucemburského?",
+      "spravna_odpoved": "Jindřich VII. Lucemburský",
+      "spatne_odpovedi": ["Karel IV.", "Václav II.", "Rudolf Habsburský"],
+      "oduvodneni": "Jan Lucemburský byl synem římskoněmeckého císaře Jindřicha VII. z rodu Lucemburků.",
+      "proc_spatne": {
+        "Karel IV.": "Karel IV. byl naopak synem Jana Lucemburského, ne jeho otcem.",
+        "Václav II.": "Václav II. byl posledním mocným Přemyslovcem, tchán Jana Lucemburského (otec Elišky Přemyslovny).",
+        "Rudolf Habsburský": "Rudolf Habsburský byl rivalem Přemysla Otakara II., ne otcem Jana Lucemburského."
+      }
+    },
+    {
+      "id": "LU2",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "S kým se oženil Jan Lucemburský, aby získal nárok na český trůn?",
+      "spravna_odpoved": "S Eliškou Přemyslovnou",
+      "spatne_odpovedi": ["S Blankou z Valois", "S Annou Svídnickou", "S Kunhutou Uherskou"],
+      "oduvodneni": "Jan Lucemburský se oženil s Eliškou Přemyslovnou, dcerou Václava II., čímž získal nárok na český trůn.",
+      "proc_spatne": {
+        "S Blankou z Valois": "Blanka z Valois byla první manželkou Karla IV., ne Jana Lucemburského.",
+        "S Annou Svídnickou": "Anna Svídnická byla třetí manželkou Karla IV., matkou Václava IV.",
+        "S Kunhutou Uherskou": "Kunhuta Uherská byla manželkou Přemysla Otakara II. a matkou Václava II."
+      }
+    },
+    {
+      "id": "LU3",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V jaké bitvě padl Jan Lucemburský roku 1346?",
+      "spravna_odpoved": "V bitvě u Kresčaku",
+      "spatne_odpovedi": ["V bitvě na Moravském poli", "V bitvě u Lipan", "V bitvě u Domažlic"],
+      "oduvodneni": "Jan Lucemburský padl jako slepý král v bitvě u Kresčaku roku 1346 během stoleté války.",
+      "proc_spatne": {
+        "V bitvě na Moravském poli": "V bitvě na Moravském poli padl roku 1278 Přemysl Otakar II., ne Jan Lucemburský.",
+        "V bitvě u Lipan": "Bitva u Lipan se odehrála roku 1434 během husitských válek.",
+        "V bitvě u Domažlic": "Bitva u Domažlic se odehrála roku 1431, rovněž během husitských válek."
+      }
+    },
+    {
+      "id": "LU4",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která území připojil Jan Lucemburský k české koruně?",
+      "spravna_odpoved": "Chebsko, Horní Lužici a vévodství ve Slezsku",
+      "spatne_odpovedi": ["Moravu a Slezsko", "Braniborsko a Sasko", "Dolní Lužici a Pomořansko"],
+      "oduvodneni": "Jan Lucemburský rozšířil české území o Chebsko, Horní Lužici a některá vévodství ve Slezsku.",
+      "proc_spatne": {
+        "Moravu a Slezsko": "Morava byla součástí českého státu již za Přemyslovců, Jan ji nepřipojoval.",
+        "Braniborsko a Sasko": "Braniborsko připojil až Karel IV. roku 1373, ne Jan Lucemburský. Sasko nebylo součástí Koruny české.",
+        "Dolní Lužici a Pomořansko": "Dolní Lužici připojil až Karel IV., Pomořansko nebylo součástí Koruny české."
+      }
+    },
+    {
+      "id": "LU5",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč se Jan Lucemburský dostal do sporů s českou šlechtou?",
+      "spravna_odpoved": "Protože trávil většinu času v zahraničí a zemi zanedbával",
+      "spatne_odpovedi": ["Protože zavedl příliš vysoké daně", "Protože zakázal gotický sloh", "Protože zrušil dědičný královský titul"],
+      "oduvodneni": "Jan Lucemburský byl válečník a diplomat, který trávil většinu času v zahraničí a české záležitosti zanedbával.",
+      "proc_spatne": {
+        "Protože zavedl příliš vysoké daně": "Hlavním problémem nebyly daně, ale králova nepřítomnost v zemi.",
+        "Protože zakázal gotický sloh": "Gotika se za Lucemburků naopak rozvíjela, nikdo ji nezakazoval.",
+        "Protože zrušil dědičný královský titul": "Dědičný královský titul zůstal zachován, Jan ho nezrušil."
+      }
+    },
+    {
+      "id": "LU6",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kam poslal Jan Lucemburský svého syna Václava (budoucího Karla IV.) na vychování?",
+      "spravna_odpoved": "Do Paříže",
+      "spatne_odpovedi": ["Do Říma", "Do Vídně", "Do Londýna"],
+      "oduvodneni": "Jan Lucemburský poslal svého syna Václava na vychování k francouzskému dvoru do Paříže, kde přijal při biřmování jméno Karel.",
+      "proc_spatne": {
+        "Do Říma": "Václav nebyl vychováván v Římě, ale v Paříži na francouzském dvoře.",
+        "Do Vídně": "Vídeň patřila Habsburkům, rivalům Lucemburků, nebylo by logické tam syna posílat.",
+        "Do Londýna": "Anglie byla ve válce s Francií (stoletá válka), Jan Lucemburský stál na straně Francie."
+      }
+    },
+    {
+      "id": "LU7",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce byl Jan Lucemburský korunován českým králem?",
+      "spravna_odpoved": "1311",
+      "spatne_odpovedi": ["1310", "1306", "1346"],
+      "oduvodneni": "Jan Lucemburský se stal českým králem roku 1310, ale samotná korunovace v Praze proběhla až roku 1311.",
+      "proc_spatne": {
+        "1310": "Roku 1310 Jan přijel do Čech a byl přijat jako král, ale korunovace proběhla až roku 1311.",
+        "1306": "Roku 1306 byl zavražděn Václav III. - tehdy Jan Lucemburský ještě nebyl na scéně.",
+        "1346": "Roku 1346 Jan Lucemburský padl u Kresčaku, to byl konec, ne začátek jeho vlády."
+      }
+    },
+    {
+      "id": "LU8",
+      "tema": "Karel IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakým čestným titulem je Karel IV. nazýván?",
+      "spravna_odpoved": "Otec vlasti",
+      "spatne_odpovedi": ["Král železný a zlatý", "Král diplomat", "Otec Evropy"],
+      "oduvodneni": "Karel IV. je nazýván Otec vlasti (Pater Patriae) za své zásluhy o rozvoj českého království.",
+      "proc_spatne": {
+        "Král železný a zlatý": "Toto je přídomek Přemysla Otakara II., ne Karla IV.",
+        "Král diplomat": "Toto není historický titul - diplomatem byl spíše Jan Lucemburský.",
+        "Otec Evropy": "Titul Otec Evropy neexistuje, správný je Otec vlasti."
+      }
+    },
+    {
+      "id": "LU9",
+      "tema": "Karel IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce založil Karel IV. univerzitu v Praze?",
+      "spravna_odpoved": "1348",
+      "spatne_odpovedi": ["1346", "1355", "1378"],
+      "oduvodneni": "Karlova univerzita byla založena 7. dubna 1348 a je nejstarší univerzitou ve střední Evropě.",
+      "proc_spatne": {
+        "1346": "Roku 1346 byl Karel IV. zvolen římským králem a padl jeho otec u Kresčaku.",
+        "1355": "Roku 1355 byl Karel IV. korunován císařem Svaté říše římské.",
+        "1378": "Roku 1378 Karel IV. zemřel."
+      }
+    },
+    {
+      "id": "LU10",
+      "tema": "Karel IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Čím se stal Karel IV. roku 1355?",
+      "spravna_odpoved": "Císařem Svaté říše římské",
+      "spatne_odpovedi": ["Českým králem", "Uherským králem", "Polským králem"],
+      "oduvodneni": "Karel IV. byl roku 1355 korunován císařem Svaté říše římské v Římě.",
+      "proc_spatne": {
+        "Českým králem": "Českým králem byl Karel IV. korunován již roku 1347.",
+        "Uherským králem": "Uherským králem se stal až jeho syn Zikmund, ne Karel IV.",
+        "Polským králem": "Polskou korunu drželi Přemyslovci (Václav II.), ne Karel IV."
+      }
+    },
+    {
+      "id": "LU11",
+      "tema": "Karel IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který hrad založil Karel IV. pro uložení korunovačních klenotů?",
+      "spravna_odpoved": "Karlštejn",
+      "spatne_odpovedi": ["Křivoklát", "Pražský hrad", "Kašperk"],
+      "oduvodneni": "Hrad Karlštejn byl postaven Karlem IV. speciálně pro uložení korunovačních klenotů a říšských relikvií.",
+      "proc_spatne": {
+        "Křivoklát": "Křivoklát je starší hrad, Karel IV. ho nezakládal pro korunovační klenoty.",
+        "Pražský hrad": "Pražský hrad je sídlo panovníků, ale korunovační klenoty měly být na bezpečnějším místě.",
+        "Kašperk": "Hrad Kašperk založil Karel IV. na Šumavě k ochraně zlatonosné oblasti, ne pro klenoty."
+      }
+    },
+    {
+      "id": "LU12",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenoval vlastní životopis, který napsal Karel IV.?",
+      "spravna_odpoved": "Vita Caroli",
+      "spatne_odpovedi": ["Kronika česká", "Majestas Carolina", "De rebus gestis"],
+      "oduvodneni": "Vita Caroli (Život Karlův) je autobiografie Karla IV., vzácný středověký dokument napsaný samotným panovníkem.",
+      "proc_spatne": {
+        "Kronika česká": "Kroniku českou napsal Kosmas, ne Karel IV.",
+        "Majestas Carolina": "Majestas Carolina byl zákoník Karla IV., ne jeho životopis.",
+        "De rebus gestis": "Toto není název Karlova životopisu, ale obecný latinský výraz."
+      }
+    },
+    {
+      "id": "LU13",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byla první manželka Karla IV.?",
+      "spravna_odpoved": "Blanka z Valois",
+      "spatne_odpovedi": ["Anna Svídnická", "Alžběta Pomořanská", "Eliška Přemyslovna"],
+      "oduvodneni": "Blanka z Valois byla první manželkou Karla IV. Seznámili se během jeho pobytu na pařížském dvoře.",
+      "proc_spatne": {
+        "Anna Svídnická": "Anna Svídnická byla třetí manželkou Karla IV., matkou Václava IV.",
+        "Alžběta Pomořanská": "Alžběta Pomořanská byla čtvrtou (poslední) manželkou Karla IV.",
+        "Eliška Přemyslovna": "Eliška Přemyslovna byla matkou Karla IV., ne jeho manželkou."
+      }
+    },
+    {
+      "id": "LU14",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která manželka Karla IV. byla matkou Václava IV.?",
+      "spravna_odpoved": "Anna Svídnická",
+      "spatne_odpovedi": ["Blanka z Valois", "Anna Falcká", "Alžběta Pomořanská"],
+      "oduvodneni": "Anna Svídnická, třetí manželka Karla IV., byla matkou budoucího krále Václava IV.",
+      "proc_spatne": {
+        "Blanka z Valois": "Blanka z Valois byla první manželkou Karla IV., zemřela dříve než se narodil Václav IV.",
+        "Anna Falcká": "Anna Falcká byla druhou manželkou Karla IV.",
+        "Alžběta Pomořanská": "Alžběta Pomořanská byla čtvrtou manželkou Karla IV., matkou Zikmunda."
+      }
+    },
+    {
+      "id": "LU15",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co Karel IV. založil ve stejném roce jako univerzitu (1348) pro rozšíření hlavního města?",
+      "spravna_odpoved": "Nové Město pražské",
+      "spatne_odpovedi": ["Karlův most", "Katedrálu sv. Víta", "Město Karlovy Vary"],
+      "oduvodneni": "V roce 1348 Karel IV. založil nejen Karlovu univerzitu, ale i Nové Město pražské pro rozšíření Prahy.",
+      "proc_spatne": {
+        "Karlův most": "Stavba Karlova mostu byla zahájena až roku 1357.",
+        "Katedrálu sv. Víta": "Stavba katedrály sv. Víta začala už roku 1344, tedy dříve, a zahájil ji Jan Lucemburský.",
+        "Město Karlovy Vary": "Karlovy Vary sice nesou Karlovo jméno, ale jejich založení Karlem IV. je spíše legendou."
+      }
+    },
+    {
+      "id": "LU16",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kolik manželek měl Karel IV.?",
+      "spravna_odpoved": "Čtyři",
+      "spatne_odpovedi": ["Dvě", "Tři", "Pět"],
+      "oduvodneni": "Karel IV. měl čtyři manželky: Blanku z Valois, Annu Falckou, Annu Svídnickou a Alžbětu Pomořanskou.",
+      "proc_spatne": {
+        "Dvě": "Karel IV. měl čtyři manželky, ne dvě.",
+        "Tři": "Karel IV. měl čtyři manželky, ne tři - čtvrtou byla Alžběta Pomořanská.",
+        "Pět": "Karel IV. měl pouze čtyři manželky."
+      }
+    },
+    {
+      "id": "LU17",
+      "tema": "Karel IV.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V jakém věku zemřel Karel IV.?",
+      "spravna_odpoved": "Ve věku 62 let",
+      "spatne_odpovedi": ["Ve věku 54 let", "Ve věku 70 let", "Ve věku 48 let"],
+      "oduvodneni": "Karel IV. se narodil roku 1316 a zemřel roku 1378, tedy ve věku 62 let.",
+      "proc_spatne": {
+        "Ve věku 54 let": "Karel IV. žil déle - od roku 1316 do 1378, tedy 62 let.",
+        "Ve věku 70 let": "Karel IV. se nedožil 70 let, zemřel v 62 letech.",
+        "Ve věku 48 let": "48 let by odpovídalo roku 1364, ale Karel IV. zemřel až 1378."
+      }
+    },
+    {
+      "id": "LU18",
+      "tema": "Karel IV.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kde je Karel IV. pohřben?",
+      "spravna_odpoved": "V katedrále sv. Víta na Pražském hradě",
+      "spatne_odpovedi": ["Na hradě Karlštejn", "V katedrále v Cáchách", "Ve Svatovítské rotundě"],
+      "oduvodneni": "Karel IV. je pohřben v královské hrobce v katedrále sv. Víta na Pražském hradě.",
+      "proc_spatne": {
+        "Na hradě Karlštejn": "Karlštejn sloužil k uložení korunovačních klenotů, ne jako pohřebiště.",
+        "V katedrále v Cáchách": "Cáchy (Aachen) byly korunovačním místem římskoněmeckých králů, ale Karel IV. je pohřben v Praze.",
+        "Ve Svatovítské rotundě": "Rotunda sv. Víta byla starší stavba nahrazená gotickou katedrálou, kde je Karel IV. skutečně pohřben."
+      }
+    },
+    {
+      "id": "LU19",
+      "tema": "Karel IV.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaké bylo křestní jméno Karla IV. při narození?",
+      "spravna_odpoved": "Václav",
+      "spatne_odpovedi": ["Karel", "Jan", "Jindřich"],
+      "oduvodneni": "Karel IV. se narodil jako Václav a jméno Karel přijal až při biřmování na francouzském dvoře.",
+      "proc_spatne": {
+        "Karel": "Jméno Karel přijal až při biřmování v Paříži, při narození dostal jméno Václav.",
+        "Jan": "Jan bylo jméno jeho otce (Jan Lucemburský), ne Karlovo křestní jméno.",
+        "Jindřich": "Jindřich bylo jméno jeho děda (Jindřich VII.), ne Karlovo křestní jméno."
+      }
+    },
+    {
+      "id": "LU20",
+      "tema": "Karel IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Čím je Karlova univerzita výjimečná ve střední Evropě?",
+      "spravna_odpoved": "Je nejstarší univerzitou ve střední Evropě",
+      "spatne_odpovedi": ["Je největší univerzitou ve střední Evropě", "Je nejbohatší univerzitou ve střední Evropě", "Je jedinou středověkou univerzitou ve střední Evropě"],
+      "oduvodneni": "Karlova univerzita, založená roku 1348, je nejstarší univerzitou ve střední Evropě.",
+      "proc_spatne": {
+        "Je největší univerzitou ve střední Evropě": "Otázka se týká historického významu, ne velikosti.",
+        "Je nejbohatší univerzitou ve střední Evropě": "Bohatství není hlavním historickým významem Karlovy univerzity.",
+        "Je jedinou středověkou univerzitou ve střední Evropě": "Ve střední Evropě vznikly i další středověké univerzity, např. v Krakově (1364)."
+      }
+    },
+    {
+      "id": "LU21",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byly Země Koruny české za Karla IV.?",
+      "spravna_odpoved": "Soubor zemí spojených s českým královstvím - Čechy, Morava, Slezsko, Lužice",
+      "spatne_odpovedi": ["Pouze Čechy a Morava", "Všechny země Svaté říše římské", "České a uherské království dohromady"],
+      "oduvodneni": "Země Koruny české tvořily Čechy, Morava, Slezsko a Lužice - soubor zemí pod českou korunou.",
+      "proc_spatne": {
+        "Pouze Čechy a Morava": "Země Koruny české zahrnovaly i Slezsko a Lužici, ne pouze Čechy a Moravu.",
+        "Všechny země Svaté říše římské": "Svatá říše římská byla mnohem větší, Koruny české byly jen její součástí.",
+        "České a uherské království dohromady": "Uhry nebyly součástí Zemí Koruny české - uherským králem se stal až Zikmund."
+      }
+    },
+    {
+      "id": "LU22",
+      "tema": "Václav IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl Václav IV. ve vztahu ke Karlu IV.?",
+      "spravna_odpoved": "Jeho syn",
+      "spatne_odpovedi": ["Jeho bratr", "Jeho vnuk", "Jeho synovec"],
+      "oduvodneni": "Václav IV. byl synem Karla IV. a jeho třetí manželky Anny Svídnické.",
+      "proc_spatne": {
+        "Jeho bratr": "Václav IV. nebyl bratr Karla IV., ale jeho syn.",
+        "Jeho vnuk": "Václav IV. byl přímý syn Karla IV., ne vnuk.",
+        "Jeho synovec": "Václav IV. nebyl synovec, ale syn Karla IV."
+      }
+    },
+    {
+      "id": "LU23",
+      "tema": "Václav IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakou přezdívku měl Václav IV.?",
+      "spravna_odpoved": "Líný král",
+      "spatne_odpovedi": ["Otec vlasti", "Liška ryšavá", "Král diplomat"],
+      "oduvodneni": "Václav IV. byl kronikáři nazýván líný král, protože byl popisován jako zahálčivý panovník.",
+      "proc_spatne": {
+        "Otec vlasti": "Otec vlasti je titul Karla IV., ne Václava IV.",
+        "Liška ryšavá": "Liška ryšavá byla přezdívka Zikmunda Lucemburského.",
+        "Král diplomat": "Jan Lucemburský byl známý jako diplomat, ne Václav IV."
+      }
+    },
+    {
+      "id": "LU24",
+      "tema": "Václav IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "S kým měl Václav IV. vážné spory?",
+      "spravna_odpoved": "S pražským arcibiskupem Janem z Jenštejna",
+      "spatne_odpovedi": ["S Karlem IV.", "S Janou z Arku", "S papežem Urbanem II."],
+      "oduvodneni": "Václav IV. měl ostré spory s pražským arcibiskupem Janem z Jenštejna o moc a vliv v církvi.",
+      "proc_spatne": {
+        "S Karlem IV.": "Karel IV. byl otec Václava IV. a zemřel roku 1378, když Václav nastoupil na trůn.",
+        "S Janou z Arku": "Jana z Arku působila ve Francii za stoleté války, neměla žádnou souvislost s Václavem IV.",
+        "S papežem Urbanem II.": "Papež Urban II. žil ve 12. století (vyhlásil křížové výpravy), ne za Václava IV."
+      }
+    },
+    {
+      "id": "LU25",
+      "tema": "Václav IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co se stalo s Janem Nepomuckým na příkaz Václava IV.?",
+      "spravna_odpoved": "Byl umučen a utopen ve Vltavě",
+      "spatne_odpovedi": ["Byl popraven na Staroměstském náměstí", "Byl uvězněn na Karlštejně", "Byl vyhnán z Čech"],
+      "oduvodneni": "Jan Nepomucký, generální vikář arcibiskupa, byl na příkaz Václava IV. umučen a jeho tělo bylo svrženo z mostu do Vltavy.",
+      "proc_spatne": {
+        "Byl popraven na Staroměstském náměstí": "Jan Nepomucký nebyl popraven veřejně, ale tajně umučen a utopen ve Vltavě.",
+        "Byl uvězněn na Karlštejně": "Jan Nepomucký nebyl uvězněn na Karlštejně, ale přímo zabit.",
+        "Byl vyhnán z Čech": "Jan Nepomucký nebyl vyhnán, ale zabit utopením ve Vltavě."
+      }
+    },
+    {
+      "id": "LU26",
+      "tema": "Václav IV.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce byl Jan Nepomucký umučen?",
+      "spravna_odpoved": "1393",
+      "spatne_odpovedi": ["1378", "1419", "1348"],
+      "oduvodneni": "Jan Nepomucký byl umučen a utopen ve Vltavě roku 1393 na příkaz Václava IV.",
+      "proc_spatne": {
+        "1378": "Roku 1378 zemřel Karel IV. a Václav IV. nastoupil na trůn.",
+        "1419": "Roku 1419 zemřel Václav IV.",
+        "1348": "Roku 1348 založil Karel IV. univerzitu - to bylo ještě za vlády Karla IV."
+      }
+    },
+    {
+      "id": "LU27",
+      "tema": "Zikmund Lucemburský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakou přezdívku měl Zikmund Lucemburský?",
+      "spravna_odpoved": "Liška ryšavá",
+      "spatne_odpovedi": ["Otec vlasti", "Líný král", "Král cizinec"],
+      "oduvodneni": "Zikmund Lucemburský dostal od českých odpůrců přezdívku liška ryšavá pro svou lstivost.",
+      "proc_spatne": {
+        "Otec vlasti": "Otec vlasti je titul Karla IV., ne Zikmunda.",
+        "Líný král": "Líný král je přezdívka Václava IV., ne Zikmunda.",
+        "Král cizinec": "Král cizinec se spíše vztahuje k Janu Lucemburskému, který přišel z Lucemburska."
+      }
+    },
+    {
+      "id": "LU28",
+      "tema": "Zikmund Lucemburský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kým byl Zikmund Lucemburský ve vztahu ke Karlu IV.?",
+      "spravna_odpoved": "Jeho mladší syn",
+      "spatne_odpovedi": ["Jeho bratr", "Jeho vnuk", "Jeho starší syn"],
+      "oduvodneni": "Zikmund Lucemburský byl mladší syn Karla IV. (z manželství s Alžbětou Pomořanskou). Starší syn byl Václav IV.",
+      "proc_spatne": {
+        "Jeho bratr": "Zikmund nebyl bratr Karla IV., ale jeho syn.",
+        "Jeho vnuk": "Zikmund nebyl vnuk, ale přímý syn Karla IV.",
+        "Jeho starší syn": "Starším synem Karla IV. byl Václav IV., Zikmund byl mladší."
+      }
+    },
+    {
+      "id": "LU29",
+      "tema": "Zikmund Lucemburský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaké války se odehrávaly za vlády Zikmunda v Čechách?",
+      "spravna_odpoved": "Husitské války",
+      "spatne_odpovedi": ["Stoletá válka", "Třicetiletá válka", "Křížové výpravy"],
+      "oduvodneni": "Za vlády Zikmunda Lucemburského probíhaly v Čechách husitské války (1419-1434).",
+      "proc_spatne": {
+        "Stoletá válka": "Stoletá válka probíhala mezi Francií a Anglií, ne v Čechách.",
+        "Třicetiletá válka": "Třicetiletá válka začala až roku 1618, více než 180 let po Zikmundovi.",
+        "Křížové výpravy": "Křížové výpravy do Svaté země probíhaly ve 12.-13. století, ne za Zikmunda."
+      }
+    },
+    {
+      "id": "LU30",
+      "tema": "Zikmund Lucemburský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím byl Zikmund Lucemburský výjimečný v dějinách Lucemburků na českém trůně?",
+      "spravna_odpoved": "Byl posledním Lucemburkem na českém trůně",
+      "spatne_odpovedi": ["Byl prvním Lucemburkem na českém trůně", "Byl nejmocnějším Lucemburkem", "Byl jediným Lucemburkem, který nebyl korunován"],
+      "oduvodneni": "Zikmund Lucemburský (zemřel 1437) byl posledním panovníkem z lucemburské dynastie na českém trůně.",
+      "proc_spatne": {
+        "Byl prvním Lucemburkem na českém trůně": "Prvním Lucemburkem na českém trůně byl Jan Lucemburský (1310).",
+        "Byl nejmocnějším Lucemburkem": "Za nejmocnějšího Lucemburka je považován Karel IV., císař a Otec vlasti.",
+        "Byl jediným Lucemburkem, který nebyl korunován": "Zikmund byl korunován, jen velmi pozdě a po dlouhých bojích."
+      }
+    },
+    {
+      "id": "LU31",
+      "tema": "Stoletá válka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Mezi kterými zeměmi probíhala stoletá válka?",
+      "spravna_odpoved": "Mezi Francií a Anglií",
+      "spatne_odpovedi": ["Mezi Francií a Německem", "Mezi Anglií a Španělskem", "Mezi Čechami a Německem"],
+      "oduvodneni": "Stoletá válka (1337-1453) byla vojenský konflikt mezi Francií a Anglií.",
+      "proc_spatne": {
+        "Mezi Francií a Německem": "Francie a Německo nebyly protivníky v této válce - ta byla mezi Francií a Anglií.",
+        "Mezi Anglií a Španělskem": "Španělsko nebylo účastníkem stoleté války.",
+        "Mezi Čechami a Německem": "České země nebyly hlavním účastníkem stoleté války, ale Jan Lucemburský bojoval na straně Francie."
+      }
+    },
+    {
+      "id": "LU32",
+      "tema": "Stoletá válka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo přinesl obrat ve stoleté válce ve prospěch Francie?",
+      "spravna_odpoved": "Jana z Arku",
+      "spatne_odpovedi": ["Karel IV.", "Jan Lucemburský", "Blanka z Valois"],
+      "oduvodneni": "Jana z Arku, francouzská hrdinka, přinesla rozhodující obrat ve stoleté válce ve prospěch Francie.",
+      "proc_spatne": {
+        "Karel IV.": "Karel IV. byl český král a císař, nezapojoval se přímo do stoleté války.",
+        "Jan Lucemburský": "Jan Lucemburský bojoval na straně Francie, ale padl u Kresčaku 1346 - to byl naopak úspěch Anglie.",
+        "Blanka z Valois": "Blanka z Valois byla manželka Karla IV., ne bojovnice v stoleté válce."
+      }
+    },
+    {
+      "id": "LU33",
+      "tema": "Stoletá válka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V jakém období probíhala stoletá válka?",
+      "spravna_odpoved": "1337-1453",
+      "spatne_odpovedi": ["1346-1453", "1310-1419", "1378-1453"],
+      "oduvodneni": "Stoletá válka trvala od roku 1337 do roku 1453, tedy celkem 116 let.",
+      "proc_spatne": {
+        "1346-1453": "Rok 1346 je rokem bitvy u Kresčaku, ale válka začala již roku 1337.",
+        "1310-1419": "Rok 1310 je rokem nástupu Jana Lucemburského, tato období nesouvisí se stoletou válkou.",
+        "1378-1453": "Rok 1378 je rokem smrti Karla IV., ale válka začala už 1337."
+      }
+    },
+    {
+      "id": "LU34",
+      "tema": "Stoletá válka",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Na čí straně bojoval Jan Lucemburský v bitvě u Kresčaku?",
+      "spravna_odpoved": "Na straně Francie",
+      "spatne_odpovedi": ["Na straně Anglie", "Na straně Svaté říše římské", "Byl neutrální pozorovatel"],
+      "oduvodneni": "Jan Lucemburský bojoval na straně Francie proti Anglii v bitvě u Kresčaku, kde roku 1346 padl.",
+      "proc_spatne": {
+        "Na straně Anglie": "Jan Lucemburský byl spojencem Francie, ne Anglie.",
+        "Na straně Svaté říše římské": "V bitvě u Kresčaku nestála Říše jako celek, Jan bojoval za Francii.",
+        "Byl neutrální pozorovatel": "Jan Lucemburský nebyl pozorovatel - aktivně bojoval a v bitvě padl."
+      }
+    },
+    {
+      "id": "LU35",
+      "tema": "Morová nákaza",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Odkud přišla morová nákaza do Evropy?",
+      "spravna_odpoved": "Z Asie po obchodních cestách",
+      "spatne_odpovedi": ["Z Afriky po moři", "Z Ameriky s mořeplavci", "Vznikla přímo v Evropě"],
+      "oduvodneni": "Mor se do Evropy dostal z Asie po obchodních cestách (zejména Hedvábnou stezkou).",
+      "proc_spatne": {
+        "Z Afriky po moři": "Mor nepřišel z Afriky, ale z Asie po obchodních cestách.",
+        "Z Ameriky s mořeplavci": "Amerika byla Evropany objevena až roku 1492, mor přišel ve 14. století z Asie.",
+        "Vznikla přímo v Evropě": "Mor nevznikl v Evropě, přišel z Asie."
+      }
+    },
+    {
+      "id": "LU36",
+      "tema": "Morová nákaza",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se mor šířil mezi lidmi?",
+      "spravna_odpoved": "Blechami na krysách",
+      "spatne_odpovedi": ["Pitnou vodou", "Vzduchem jako chřipka", "Kontaminovaným jídlem"],
+      "oduvodneni": "Mor se šířil blechami, které žily na krysách. Blechy přenášely bakterii z krys na lidi.",
+      "proc_spatne": {
+        "Pitnou vodou": "Mor se nepřenášel pitnou vodou, ale blechami na krysách.",
+        "Vzduchem jako chřipka": "Mor se primárně šířil blechami, ne vzduchem (plicní forma byla vzácnější).",
+        "Kontaminovaným jídlem": "Mor se nepřenášel jídlem, ale blechami na krysách."
+      }
+    },
+    {
+      "id": "LU37",
+      "tema": "Morová nákaza",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V jakém období zasáhla první vlna moru Evropu?",
+      "spravna_odpoved": "1347-1352",
+      "spatne_odpovedi": ["1337-1346", "1355-1378", "1310-1320"],
+      "oduvodneni": "První a nejničivější vlna morové nákazy zasáhla Evropu v letech 1347-1352.",
+      "proc_spatne": {
+        "1337-1346": "V letech 1337-1346 probíhala počáteční fáze stoleté války, mor přišel až 1347.",
+        "1355-1378": "V tomto období vládl Karel IV. jako císař, ale první vlna moru už byla za ním.",
+        "1310-1320": "Ve 14. století mor přišel až ve 40. letech, ne na začátku století."
+      }
+    },
+    {
+      "id": "LU38",
+      "tema": "Morová nákaza",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Za vlády kterého českého krále přišla první vlna moru do českých zemí?",
+      "spravna_odpoved": "Za vlády Karla IV.",
+      "spatne_odpovedi": ["Za vlády Jana Lucemburského", "Za vlády Václava IV.", "Za vlády Zikmunda Lucemburského"],
+      "oduvodneni": "První vlna moru (1347-1352) zasáhla české země za vlády Karla IV., který vládl 1346-1378.",
+      "proc_spatne": {
+        "Za vlády Jana Lucemburského": "Jan Lucemburský padl roku 1346, tedy těsně předtím, než mor přišel.",
+        "Za vlády Václava IV.": "Václav IV. nastoupil na trůn až roku 1378, první vlna moru byla v letech 1347-1352.",
+        "Za vlády Zikmunda Lucemburského": "Zikmund nastoupil až roku 1419, to bylo dlouho po první vlně moru."
+      }
+    },
+    {
+      "id": "LU39",
+      "tema": "Morová nákaza",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaké byly hlavní důsledky morové nákazy?",
+      "spravna_odpoved": "Úbytek obyvatelstva, úpadek řemesel a obchodu, oslabení církve",
+      "spatne_odpovedi": ["Rozvoj obchodu a řemesel", "Posílení moci církve a rozkvět měst", "Rozšíření území českého království"],
+      "oduvodneni": "Mor způsobil masivní úbytek obyvatelstva, což vedlo k úpadku řemesel a obchodu. Církev byla oslabena, protože mnoho kněží zemřelo a lidé ztráceli důvěru v její vedení.",
+      "proc_spatne": {
+        "Rozvoj obchodu a řemesel": "Mor naopak způsobil úpadek obchodu a řemesel kvůli úbytku obyvatelstva.",
+        "Posílení moci církve a rozkvět měst": "Mor církev oslabil - mnoho kněží zemřelo a nedůvěra v církevní vedení rostla.",
+        "Rozšíření území českého království": "Mor neměl vliv na území, naopak oslabil ekonomiku a populaci."
+      }
+    },
+    {
+      "id": "LU40",
+      "tema": "Karel IV.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V jakém pořadí měl Karel IV. své manželky?",
+      "spravna_odpoved": "Blanka z Valois, Anna Falcká, Anna Svídnická, Alžběta Pomořanská",
+      "spatne_odpovedi": ["Anna Falcká, Blanka z Valois, Alžběta Pomořanská, Anna Svídnická", "Blanka z Valois, Anna Svídnická, Anna Falcká, Alžběta Pomořanská", "Alžběta Pomořanská, Blanka z Valois, Anna Falcká, Anna Svídnická"],
+      "oduvodneni": "Karel IV. se postupně oženil s: 1. Blankou z Valois, 2. Annou Falckou, 3. Annou Svídnickou, 4. Alžbětou Pomořanskou.",
+      "proc_spatne": {
+        "Anna Falcká, Blanka z Valois, Alžběta Pomořanská, Anna Svídnická": "Anna Falcká nebyla první manželkou - první byla Blanka z Valois z Paříže.",
+        "Blanka z Valois, Anna Svídnická, Anna Falcká, Alžběta Pomořanská": "Anna Svídnická byla třetí, ne druhá - druhá byla Anna Falcká.",
+        "Alžběta Pomořanská, Blanka z Valois, Anna Falcká, Anna Svídnická": "Alžběta Pomořanská byla poslední (čtvrtá) manželka, ne první."
+      }
+    },
+    {
+      "id": "LU41",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč je Jan Lucemburský nazýván 'slepý král'?",
+      "spravna_odpoved": "Ke konci života oslepl a přesto bojoval u Kresčaku",
+      "spatne_odpovedi": ["Přišel o zrak při lovu jako Václav I.", "Oslepl při obléhání hradu v Itálii", "Byl slepý od narození"],
+      "oduvodneni": "Jan Lucemburský ke konci života ztratil zrak, ale přesto se jako slepý účastnil bitvy u Kresčaku roku 1346, kde padl.",
+      "proc_spatne": {
+        "Přišel o zrak při lovu jako Václav I.": "Při lovu přišel o oko Václav I. Jednooký, ne Jan Lucemburský. Jan oslepl postupně nemocí.",
+        "Oslepl při obléhání hradu v Itálii": "Jan Lucemburský neoslepl při obléhání, jeho slepota měla jiné příčiny.",
+        "Byl slepý od narození": "Jan Lucemburský nebyl slepý od narození, oslepl až ke konci života."
+      }
+    },
+    {
+      "id": "LU42",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který most nechal Karel IV. postavit v Praze?",
+      "spravna_odpoved": "Karlův most (dříve Kamenný most)",
+      "spatne_odpovedi": ["Juditin most", "Čechův most", "Most Legií"],
+      "oduvodneni": "Karel IV. nechal roku 1357 zahájit stavbu kamenného mostu přes Vltavu, který je dnes znám jako Karlův most.",
+      "proc_spatne": {
+        "Juditin most": "Juditin most byl starší románský most z 12. století, který byl zničen povodní. Karel IV. ho nahradil novým.",
+        "Čechův most": "Čechův most je novodobá stavba z 20. století.",
+        "Most Legií": "Most Legií je novodobá stavba, nesouvisí s Karlem IV."
+      }
+    },
+    {
+      "id": "LU43",
+      "tema": "Karel IV.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce zemřel Karel IV.?",
+      "spravna_odpoved": "1378",
+      "spatne_odpovedi": ["1346", "1355", "1419"],
+      "oduvodneni": "Karel IV. zemřel 29. listopadu 1378 ve věku 62 let.",
+      "proc_spatne": {
+        "1346": "Roku 1346 byl Karel IV. zvolen římským králem - to je začátek, ne konec jeho vlády.",
+        "1355": "Roku 1355 byl Karel IV. korunován císařem, ale vládl ještě dalších 23 let.",
+        "1419": "Roku 1419 zemřel Václav IV. (syn Karla IV.), ne Karel IV."
+      }
+    },
+    {
+      "id": "LU44",
+      "tema": "Václav IV.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V jakém období vládl Václav IV. jako český král?",
+      "spravna_odpoved": "1378-1419",
+      "spatne_odpovedi": ["1346-1378", "1419-1437", "1355-1393"],
+      "oduvodneni": "Václav IV. vládl od smrti svého otce Karla IV. roku 1378 až do své smrti roku 1419.",
+      "proc_spatne": {
+        "1346-1378": "V období 1346-1378 vládl Karel IV., ne Václav IV.",
+        "1419-1437": "V období 1419-1437 vládl Zikmund Lucemburský, ne Václav IV.",
+        "1355-1393": "Toto období nekoresponduje s vládou žádného Lucemburka - 1355 je korunovace Karla IV. císařem."
+      }
+    },
+    {
+      "id": "LU45",
+      "tema": "Zikmund Lucemburský",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kterým králem byl Zikmund Lucemburský kromě českého?",
+      "spravna_odpoved": "Uherským králem",
+      "spatne_odpovedi": ["Polským králem", "Francouzským králem", "Anglickým králem"],
+      "oduvodneni": "Zikmund Lucemburský byl uherským králem (od 1387) a později i českým králem (od 1419).",
+      "proc_spatne": {
+        "Polským králem": "Polskou korunu drželi Přemyslovci (Václav II. a III.), ne Lucemburkové.",
+        "Francouzským králem": "Francie měla vlastní královskou dynastii, Zikmund tam nevládl.",
+        "Anglickým králem": "Anglie měla vlastní panovníky, Zikmund nebyl anglickým králem."
+      }
+    },
+    {
+      "id": "LU46",
+      "tema": "Karel IV.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která katedrála se stavěla na Pražském hradě za Lucemburků?",
+      "spravna_odpoved": "Katedrála sv. Víta",
+      "spatne_odpovedi": ["Katedrála sv. Petra", "Katedrála Panny Marie", "Katedrála sv. Pavla"],
+      "oduvodneni": "Stavbu gotické katedrály sv. Víta na Pražském hradě zahájil Jan Lucemburský roku 1344, Karel IV. v ní pokračoval.",
+      "proc_spatne": {
+        "Katedrála sv. Petra": "Bazilika sv. Petra je v Římě (Vatikán), ne na Pražském hradě.",
+        "Katedrála Panny Marie": "Na Pražském hradě se nestaví katedrála Panny Marie, ta je např. v Paříži (Notre-Dame).",
+        "Katedrála sv. Pavla": "Katedrála sv. Pavla je v Londýně, ne v Praze."
+      }
+    },
+    {
+      "id": "LU47",
+      "tema": "Morová nákaza",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaký byl hlavní důvod šíření moru po obchodních cestách?",
+      "spravna_odpoved": "Krysy s blechami cestovaly na obchodních lodích a v karavanách",
+      "spatne_odpovedi": ["Obchodníci vědomě šířili nemoc", "Kontaminované zboží (koření a hedvábí)", "Otrávená pitná voda na obchodních stezkách"],
+      "oduvodneni": "Mor se šířil tak, že krysy s nakaženými blechami cestovaly na lodích a ve vozech podél obchodních cest.",
+      "proc_spatne": {
+        "Obchodníci vědomě šířili nemoc": "Obchodníci nešířili nemoc vědomě - nevěděli o mechanismu přenosu.",
+        "Kontaminované zboží (koření a hedvábí)": "Mor se nešířil zbožím, ale blechami na krysách.",
+        "Otrávená pitná voda na obchodních stezkách": "Mor se nepřenášel vodou, ale blechami na krysách."
+      }
+    },
+    {
+      "id": "LU48",
+      "tema": "Jan Lucemburský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Po vymření které dynastie se Jan Lucemburský stal českým králem?",
+      "spravna_odpoved": "Po vymření Přemyslovců",
+      "spatne_odpovedi": ["Po vymření Habsburků", "Po vymření Jagellonců", "Po vymření Slavníkovců"],
+      "oduvodneni": "Jan Lucemburský nastoupil na český trůn po vymření přemyslovské dynastie (smrt Václava III. roku 1306).",
+      "proc_spatne": {
+        "Po vymření Habsburků": "Habsburkové nevymřeli - naopak vládli českým zemím až do roku 1918.",
+        "Po vymření Jagellonců": "Jagellonci nastoupili až po Lucemburcích, ne před nimi.",
+        "Po vymření Slavníkovců": "Slavníkovci byli vyvražděni již roku 995, stovky let před Lucemburky."
+      }
+    },
+    {
+      "id": "LU49",
+      "tema": "Karel IV.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který hrad na Šumavě založil Karel IV. k ochraně zlatonosné oblasti?",
+      "spravna_odpoved": "Hrad Kašperk",
+      "spatne_odpovedi": ["Hrad Karlštejn", "Hrad Křivoklát", "Hrad Zvíkov"],
+      "oduvodneni": "Hrad Kašperk (Karlsberg) na Šumavě založil Karel IV. k ochraně zlatonosných nalezišť a obchodní stezky.",
+      "proc_spatne": {
+        "Hrad Karlštejn": "Karlštejn leží u Prahy a sloužil k uložení korunovačních klenotů, ne k ochraně Šumavy.",
+        "Hrad Křivoklát": "Křivoklát je starší hrad, Karel IV. ho nezakládal.",
+        "Hrad Zvíkov": "Zvíkov je starší přemyslovský hrad, Karel IV. ho nezakládal."
+      }
+    },
+    {
+      "id": "LU50",
+      "tema": "Lucemburkové - přehled",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V jakém pořadí vládli Lucemburkové na českém trůně?",
+      "spravna_odpoved": "Jan Lucemburský → Karel IV. → Václav IV. → Zikmund",
+      "spatne_odpovedi": ["Karel IV. → Jan Lucemburský → Václav IV. → Zikmund", "Jan Lucemburský → Karel IV. → Zikmund → Václav IV.", "Jan Lucemburský → Václav IV. → Karel IV. → Zikmund"],
+      "oduvodneni": "Lucemburkové vládli v pořadí: Jan Lucemburský (1310-1346), Karel IV. (1346-1378), Václav IV. (1378-1419), Zikmund (1419-1437).",
+      "proc_spatne": {
+        "Karel IV. → Jan Lucemburský → Václav IV. → Zikmund": "Karel IV. byl synem Jana Lucemburského, nemohl vládnout před ním.",
+        "Jan Lucemburský → Karel IV. → Zikmund → Václav IV.": "Václav IV. vládl před Zikmundem, ne po něm - byl starší syn Karla IV.",
+        "Jan Lucemburský → Václav IV. → Karel IV. → Zikmund": "Karel IV. vládl před Václavem IV., byl jeho otec."
+      }
+    }
+  ]
+}
