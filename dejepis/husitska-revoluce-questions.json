@@ -1,0 +1,840 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": ["Husitská revoluce"],
+  "zdroj": "Podklady od učitelky - zápisky k husitské revoluci",
+  "hlavni_osy": [
+    "Jan Hus a příčiny husitství - kritika bohatství církve, kázání v Betlémské kapli, upálení 1415",
+    "Začátek revoluce - první pražská defenestrace 1419, kališníci, čtyři pražské artikuly, Tábor",
+    "Rozdělení husitů - umírnění (kališníci) vs radikální (táborité), Jan Žižka, Prokop Holý",
+    "Husitské vojenství - vozová hradba, palné zbraně, bitva na Vítkově 1420, u Domažlic 1431",
+    "Konec revoluce - jednání v Basileji, Panská jednota, bitva u Lipan 1434, kompaktáta 1436",
+    "Důsledky - tři stavy (panský, rytířský, městský), úpadek církve, šíření češtiny, národní identita"
+  ],
+  "terminologie": {
+    "Jan_Hus_a_priciny": [
+      {"pojem": "Jan Hus", "vysvetleni": "Český kazatel, učitel a reformátor (asi 1370-1415), kázal v Betlémské kapli a kritizoval církev"},
+      {"pojem": "Betlémská kaple", "vysvetleni": "Kaple na Starém Městě pražském, kde Jan Hus kázal česky"},
+      {"pojem": "Kacíř", "vysvetleni": "Člověk označený církví za hlasatele 'nesprávného' učení odchylujícího se od oficiální nauky"},
+      {"pojem": "Klatba", "vysvetleni": "Církevní trest - vyloučení z církve, uvalena na Jana Husa"},
+      {"pojem": "Interdikt", "vysvetleni": "Zákaz bohoslužeb a svátostí v dané oblasti (vyhlášen na Prahu kvůli Husovi)"},
+      {"pojem": "Odpustky", "vysvetleni": "Odpuštění hříchů za peníze, které prodávala katolická církev"},
+      {"pojem": "Desátek", "vysvetleni": "Povinný poplatek ve výši jedné desetiny úrody odváděný církvi"},
+      {"pojem": "Kostnice (Konstanz)", "vysvetleni": "Město v dnešním jižním Německu, kde se konal koncil a byl upálen Jan Hus"},
+      {"pojem": "Koncil v Kostnici", "vysvetleni": "Církevní sněm (1414-1418), na kterém byl Jan Hus odsouzen a upálen"},
+      {"pojem": "Václav IV.", "vysvetleni": "Český král (1378-1419), za jeho vlády rostlo napětí a začala husitská revoluce"}
+    ],
+    "Zacatek_revoluce": [
+      {"pojem": "Husité", "vysvetleni": "Stoupenci myšlenek a odkazu Jana Husa"},
+      {"pojem": "Kališníci", "vysvetleni": "Umírnění husité, přijímali podobojí (chléb i víno), jejich symbolem byl kalich"},
+      {"pojem": "Přijímání podobojí", "vysvetleni": "Přijímání chleba i vína při bohoslužbě (u katolíků tehdy jen chléb) - symbol rovnosti před Bohem"},
+      {"pojem": "Kalich", "vysvetleni": "Symbol husitů - odkaz na přijímání podobojí, vína pro všechny věřící"},
+      {"pojem": "První pražská defenestrace", "vysvetleni": "Vyhození konšelů z oken Novoměstské radnice v Praze roku 1419 - začátek husitské revoluce"},
+      {"pojem": "Jan Želivský", "vysvetleni": "Radikální kazatel, který vedl dav při první pražské defenestraci roku 1419"},
+      {"pojem": "Novoměstská radnice", "vysvetleni": "Radnice Nového Města pražského, místo první pražské defenestrace"},
+      {"pojem": "Zikmund Lucemburský", "vysvetleni": "Nový český král (1419) po smrti Václava IV., husity neuznávaný, 'Liška ryšavá'"},
+      {"pojem": "Čtyři pražské artikuly", "vysvetleni": "Program husitů z roku 1420: svoboda kázání, přijímání podobojí, omezení majetku církve, trestání hříchů bez ohledu na postavení"},
+      {"pojem": "Tábor", "vysvetleni": "Husitské město založené roku 1420 v jižních Čechách, pokus o spravedlivou společnost se společným majetkem"}
+    ],
+    "Rozdeleni_husitu": [
+      {"pojem": "Umírnění husité", "vysvetleni": "Kališníci, chtěli hlavně reformu církve (ne rovnost lidí)"},
+      {"pojem": "Radikální husité", "vysvetleni": "Táborité, chtěli zásadní společenské změny a rovnost všech lidí"},
+      {"pojem": "Táborité", "vysvetleni": "Radikální husité sídlící v Táboře, usilovali o spravedlivou společnost"},
+      {"pojem": "Jan Žižka", "vysvetleni": "Hlavní vojenský vůdce husitů, nikdy neporažen, velel i jako slepý, zemřel 1424"},
+      {"pojem": "Prokop Holý (Veliký)", "vysvetleni": "Husitský vůdce po smrti Jana Žižky, padl v bitvě u Lipan 1434"}
+    ],
+    "Vojenstvi_a_bitvy": [
+      {"pojem": "Vozová hradba", "vysvetleni": "Hlavní husitská taktika - pohyblivá pevnost z vozů spoutaných řetězy, sloužila k obraně proti jízdě"},
+      {"pojem": "Houfnice", "vysvetleni": "Těžší palná zbraň (dělo) používaná husity, palba přes vozovou hradbu"},
+      {"pojem": "Hákovnice", "vysvetleni": "Ruční palná zbraň husitů s háčkem pro uchycení na vůz nebo hradbu"},
+      {"pojem": "Píšťala", "vysvetleni": "Ruční palná zbraň husitů, předchůdce pušky (odtud slovo 'pistole')"},
+      {"pojem": "Bitva na Vítkově", "vysvetleni": "1420 - husité pod vedením Jana Žižky ubránili Prahu proti křížové výpravě"},
+      {"pojem": "Bitva u Domažlic", "vysvetleni": "1431 - křižáci utekli ještě před bitvou, když uslyšeli husitský chorál 'Kdož jsú boží bojovníci'"},
+      {"pojem": "Kdož jsú boží bojovníci", "vysvetleni": "Husitský bojový chorál, kterým husité zastrašovali protivníka"},
+      {"pojem": "Křížové výpravy proti husitům", "vysvetleni": "Vojenské výpravy papeže a císaře Zikmunda do Čech (1420-1433) - husité všechny porazili"}
+    ],
+    "Konec_revoluce": [
+      {"pojem": "Basilejský koncil", "vysvetleni": "Církevní sněm v Basileji (od 1431), kde probíhala jednání husitů s církví"},
+      {"pojem": "Panská jednota", "vysvetleni": "Spojení umírněných husitů (kališníků) a katolíků proti radikálním husitům (táboritům)"},
+      {"pojem": "Bitva u Lipan", "vysvetleni": "1434 - porážka radikálních husitů (táboritů) Panskou jednotou, padl Prokop Holý, konec radikálního hnutí"},
+      {"pojem": "Jihlavská kompaktáta", "vysvetleni": "Dohoda mezi husity a církví roku 1436 - povoleno přijímání podobojí, husité uznali Zikmunda králem"}
+    ],
+    "Dusledky_husitstvi": [
+      {"pojem": "Tři stavy", "vysvetleni": "Rozdělení společnosti po husitské revoluci: panský (vyšší šlechta), rytířský (nižší šlechta), městský (královská města)"},
+      {"pojem": "Panský stav", "vysvetleni": "Vyšší šlechta - nejbohatší a nejvlivnější vrstva po husitství"},
+      {"pojem": "Rytířský stav", "vysvetleni": "Nižší šlechta - menší páni a rytíři"},
+      {"pojem": "Městský stav", "vysvetleni": "Zástupci královských měst, získali politický vliv díky podpoře husitů"},
+      {"pojem": "Diakritika", "vysvetleni": "Háčky a čárky (tečky) nad písmeny, zavedené díky husitské reformě českého pravopisu"},
+      {"pojem": "Národní identita", "vysvetleni": "Vědomí národní příslušnosti, které se rozvíjelo díky husitství a šíření češtiny"}
+    ]
+  },
+  "casova_osa": [
+    {"rok": 1378, "udalost": "Smrt Karla IV., na trůn nastupuje Václav IV."},
+    {"rok": 1402, "udalost": "Jan Hus začíná kázat v Betlémské kapli v Praze."},
+    {"rok": 1411, "udalost": "Na Jana Husa je uvalena klatba (vyloučení z církve)."},
+    {"rok": 1414, "udalost": "Jan Hus odchází na koncil do Kostnice, aby obhájil své učení."},
+    {"rok": 1415, "udalost": "6. července - Jan Hus upálen v Kostnici poté, co odmítl odvolat své učení."},
+    {"rok": 1419, "udalost": "30. července - první pražská defenestrace pod vedením Jana Želivského, začátek husitské revoluce."},
+    {"rok": 1419, "udalost": "Smrt Václava IV., nástup Zikmunda Lucemburského (husity neuznáván)."},
+    {"rok": 1420, "udalost": "Husité formulují čtyři pražské artikuly - svůj program."},
+    {"rok": 1420, "udalost": "Založení města Tábor jako pokus o spravedlivou společnost."},
+    {"rok": 1420, "udalost": "14. července - bitva na Vítkově, husité pod vedením Jana Žižky ubránili Prahu."},
+    {"rok": 1424, "udalost": "Smrt Jana Žižky, velení přebírá Prokop Holý (Veliký)."},
+    {"rok": 1431, "udalost": "Bitva u Domažlic - křižáci utekli před husity kvůli zpěvu 'Kdož jsú boží bojovníci'."},
+    {"rok": 1431, "udalost": "Začátek basilejského koncilu - pokus o jednání církve s husity."},
+    {"rok": 1434, "udalost": "30. května - bitva u Lipan, porážka radikálních husitů, padl Prokop Holý."},
+    {"rok": 1436, "udalost": "Jihlavská kompaktáta - dohoda s církví, uznání Zikmunda českým králem, konec husitské revoluce."}
+  ],
+  "otazky": [
+    {
+      "id": "HR1",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl Jan Hus?",
+      "spravna_odpoved": "Český kazatel, učitel a reformátor církve",
+      "spatne_odpovedi": ["Český král", "Papež v Římě", "Vojenský velitel husitů"],
+      "oduvodneni": "Jan Hus byl český kazatel a univerzitní učitel, který vystupoval proti nepořádkům v církvi a požadoval její reformu.",
+      "proc_spatne": {
+        "Český král": "Českým králem v té době byl Václav IV., Jan Hus byl duchovní a učenec, ne panovník.",
+        "Papež v Římě": "Papež byl naopak Husovým protivníkem - církev Husa označila za kacíře a upálila.",
+        "Vojenský velitel husitů": "Vojenským vůdcem husitů byl Jan Žižka, Jan Hus byl kazatel a byl upálen dřív, než husitské války začaly."
+      }
+    },
+    {
+      "id": "HR2",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kde Jan Hus kázal česky?",
+      "spravna_odpoved": "V Betlémské kapli v Praze",
+      "spatne_odpovedi": ["V katedrále sv. Víta", "V Týnském chrámu", "V kostele sv. Mikuláše"],
+      "oduvodneni": "Jan Hus kázal česky (ne latinsky) v Betlémské kapli na Starém Městě pražském, aby mu rozuměli i prostí lidé.",
+      "proc_spatne": {
+        "V katedrále sv. Víta": "Katedrála sv. Víta na Pražském hradě byla sídlem arcibiskupa a sloužila hlavně korunovacím a církevním obřadům.",
+        "V Týnském chrámu": "V Týnském chrámu kázal později jiný husitský kazatel Jan Rokycana, za Husa tam ještě kázali katoličtí kněží.",
+        "V kostele sv. Mikuláše": "Kostely sv. Mikuláše byly farními kostely, Hus kázal především v Betlémské kapli postavené přímo pro kázání v češtině."
+      }
+    },
+    {
+      "id": "HR3",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce byl Jan Hus upálen?",
+      "spravna_odpoved": "1415",
+      "spatne_odpovedi": ["1419", "1424", "1434"],
+      "oduvodneni": "Jan Hus byl upálen 6. července 1415 v Kostnici poté, co odmítl odvolat své učení.",
+      "proc_spatne": {
+        "1419": "Roku 1419 proběhla první pražská defenestrace a zemřel Václav IV. - začátek husitské revoluce, ne Husova smrt.",
+        "1424": "Roku 1424 zemřel vojevůdce Jan Žižka, ne Jan Hus.",
+        "1434": "Roku 1434 proběhla bitva u Lipan - konec radikálního husitství, Hus byl upálen už téměř 20 let předtím."
+      }
+    },
+    {
+      "id": "HR4",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kde byl Jan Hus upálen?",
+      "spravna_odpoved": "V Kostnici (dnešní jižní Německo)",
+      "spatne_odpovedi": ["V Praze", "V Římě", "V Basileji"],
+      "oduvodneni": "Jan Hus byl upálen v Kostnici (Konstanz) v jižním Německu, kde se konal církevní koncil v letech 1414-1418.",
+      "proc_spatne": {
+        "V Praze": "V Praze měl Hus podporu, byl by odtamtud zachráněn - proto ho odsoudili až v Kostnici.",
+        "V Římě": "Řím byl sídlem papeže, ale koncil, který Husa odsoudil, se konal v Kostnici.",
+        "V Basileji": "Basilej byla místem pozdějšího koncilu (od 1431) s husity, ne místem Husova upálení."
+      }
+    },
+    {
+      "id": "HR5",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co Jan Hus požadoval po církvi?",
+      "spravna_odpoved": "Návrat k Bibli, chudou církev a spravedlnost",
+      "spatne_odpovedi": ["Zrušení křesťanství", "Válku proti Osmanské říši", "Sjednocení s pravoslavnou církví"],
+      "oduvodneni": "Hus požadoval, aby se církev vrátila k původním zásadám Bible, žila skromně a odstranila své nešvary.",
+      "proc_spatne": {
+        "Zrušení křesťanství": "Hus byl sám knězem, křesťanství naopak chtěl očistit a reformovat, ne zrušit.",
+        "Válku proti Osmanské říši": "Turci byli problémem spíše pro Zikmunda Lucemburského v Uhrách, ne cílem Husova učení.",
+        "Sjednocení s pravoslavnou církví": "Toto nebylo Husovým tématem, šlo mu o nápravu západní katolické církve."
+      }
+    },
+    {
+      "id": "HR6",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co byly odpustky, které kritizoval Jan Hus?",
+      "spravna_odpoved": "Odpuštění hříchů za peníze prodávané církví",
+      "spatne_odpovedi": ["Povinné modlitby před svátkem", "Poplatek za křtiny", "Povinná pouť za odpuštění hříchů"],
+      "oduvodneni": "Odpustky byly listiny, kterými církev za peníze 'prodávala' odpuštění hříchů - Hus to označil za nemravné.",
+      "proc_spatne": {
+        "Povinné modlitby před svátkem": "Modlitby byly samozřejmou součástí víry, to ale nebyly odpustky.",
+        "Poplatek za křtiny": "Poplatek za svátosti (křtiny, svatby) Hus také kritizoval, ale odpustky byly konkrétně o odpuštění hříchů.",
+        "Povinná pouť za odpuštění hříchů": "Poutě byly reálnou středověkou formou pokání, ale odpustky byly něco jiného - přímý nákup odpuštění za peníze."
+      }
+    },
+    {
+      "id": "HR7",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co znamenala klatba uvalená na Jana Husa?",
+      "spravna_odpoved": "Vyloučení z církve",
+      "spatne_odpovedi": ["Veřejné napomenutí od biskupa", "Povinnost zaplatit pokutu", "Zákaz kázat v češtině"],
+      "oduvodneni": "Klatba byla církevní trest, který znamenal vyloučení z církve - Hus už nesměl sloužit mše ani přijímat svátosti.",
+      "proc_spatne": {
+        "Veřejné napomenutí od biskupa": "Napomenutí je lehčí forma kritiky - klatba je mnohem přísnější, znamená vyloučení z církve.",
+        "Povinnost zaplatit pokutu": "Klatba byla duchovní trest, ne finanční - znamenala vyloučení ze společenství církve.",
+        "Zákaz kázat v češtině": "Kázání v češtině nebylo samo o sobě zakázáno, církev Husa potrestala za jeho učení, ne za jazyk."
+      }
+    },
+    {
+      "id": "HR8",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je interdikt, který byl vyhlášen na Prahu kvůli Husovi?",
+      "spravna_odpoved": "Zákaz bohoslužeb a svátostí v dané oblasti",
+      "spatne_odpovedi": ["Vojenská okupace města", "Klatba uvalená na jednu osobu", "Zákaz vstupu cizincům"],
+      "oduvodneni": "Interdikt byl církevní trest - v oblasti, kde platil, se nesměly konat bohoslužby ani udělovat svátosti (svatby, křtiny, pohřby).",
+      "proc_spatne": {
+        "Vojenská okupace města": "Interdikt byl duchovní, ne vojenský trest - nezahrnoval vojenskou přítomnost.",
+        "Klatba uvalená na jednu osobu": "Klatba se uvaluje na jednotlivce (jako byl Hus) - interdikt naopak postihuje celou oblast či město.",
+        "Zákaz vstupu cizincům": "Interdikt neomezoval pohyb lidí, ale konání bohoslužeb."
+      }
+    },
+    {
+      "id": "HR9",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Přibližně jak velký podíl půdy v Čechách vlastnila církev před husitstvím?",
+      "spravna_odpoved": "Asi jednu třetinu",
+      "spatne_odpovedi": ["Jednu desetinu", "Polovinu", "Téměř všechnu"],
+      "oduvodneni": "Církev vlastnila asi třetinu veškeré půdy v Čechách, což vzbuzovalo kritiku ohledně jejího bohatství.",
+      "proc_spatne": {
+        "Jednu desetinu": "Desetina byla výše desátku (daně církvi), ne podíl půdy - církev vlastnila mnohem víc.",
+        "Polovinu": "Polovina je přehnaná, ale fakticky šlo o zhruba třetinu - i tak dost na kritiku.",
+        "Téměř všechnu": "Zemi ovládala především šlechta a panovník, církev měla asi třetinu - velkou, ale ne většinu."
+      }
+    },
+    {
+      "id": "HR10",
+      "tema": "Jan Hus a příčiny",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak Hus v Kostnici zdůvodňoval, že neodvolá své učení?",
+      "spravna_odpoved": "Tvrdil, že jeho učení odpovídá Bibli a odvoláním by lhal",
+      "spatne_odpovedi": ["Tvrdil, že nerozumí otázkám soudců v latině", "Dovolával se ochrany od Václava IV.", "Požadoval, aby se stal kardinálem"],
+      "oduvodneni": "Hus na koncilu vysvětloval, že jeho učení vychází z Bible, a odvolat ho znamenalo by zapřít pravdu - raději šel na smrt.",
+      "proc_spatne": {
+        "Tvrdil, že nerozumí otázkám soudců v latině": "Hus byl univerzitní učitel a latinu ovládal dokonale - na jazyk se nevymlouval.",
+        "Dovolával se ochrany od Václava IV.": "Ochranný glejt vystavil Zikmund Lucemburský, ne Václav IV. - ani ten ale Husa neochránil.",
+        "Požadoval, aby se stal kardinálem": "Hus nikdy netoužil po církevních hodnostech, naopak kritizoval zkaženost papežské kurie."
+      }
+    },
+    {
+      "id": "HR11",
+      "tema": "Začátek revoluce",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se začali říkat stoupenci Jana Husa?",
+      "spravna_odpoved": "Husité",
+      "spatne_odpovedi": ["Luteráni", "Kalvinisté", "Protestanti"],
+      "oduvodneni": "Po smrti Jana Husa si jeho stoupenci začali říkat husité - podle jména svého duchovního vůdce.",
+      "proc_spatne": {
+        "Luteráni": "Luteráni byli stoupenci Martina Luthera, který žil až o století později (16. století).",
+        "Kalvinisté": "Kalvinisté byli stoupenci Jana Kalvína, dalšího reformátora 16. století ve Švýcarsku.",
+        "Protestanti": "Pojem protestanti vznikl až v 16. století v době reformace, husité byli jejich předchůdci."
+      }
+    },
+    {
+      "id": "HR12",
+      "tema": "Začátek revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co znamená 'přijímání podobojí' u kališníků?",
+      "spravna_odpoved": "Přijímání chleba i vína při svatém přijímání",
+      "spatne_odpovedi": ["Přijímání pouze chleba (bez vína)", "Dvojí křest dítěte", "Přijímání dvakrát za den"],
+      "oduvodneni": "Kališníci přijímali při bohoslužbě chléb (tělo Kristovo) i víno (krev Kristovu) - katolíci tehdy dávali laikům jen chléb.",
+      "proc_spatne": {
+        "Přijímání pouze chleba (bez vína)": "To bylo naopak katolické přijímání - podobojí u husitů znamenalo, že se laikům podávalo oboje, chléb i víno.",
+        "Dvojí křest dítěte": "Dvojí křest není husitská nauka - katolíci i husité křtili jen jednou.",
+        "Přijímání dvakrát za den": "Počet přijímání za den s tím nesouvisí - šlo o to, JAK se přijímá (chléb i víno), ne KOLIKRÁT."
+      }
+    },
+    {
+      "id": "HR13",
+      "tema": "Začátek revoluce",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co je hlavním symbolem kališníků?",
+      "spravna_odpoved": "Kalich",
+      "spatne_odpovedi": ["Meč", "Křížek", "Koruna"],
+      "oduvodneni": "Kalich je symbolem kališníků, protože z něj při přijímání podobojí pili všichni věřící víno - znak rovnosti před Bohem.",
+      "proc_spatne": {
+        "Meč": "Meč je spíše symbolem rytířů nebo katolických křižáků, ne kališníků.",
+        "Křížek": "Kříž je obecným symbolem křesťanství, nikoli specifickým symbolem kališníků.",
+        "Koruna": "Koruna je symbolem královské moci, ne husitů."
+      }
+    },
+    {
+      "id": "HR14",
+      "tema": "Začátek revoluce",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která událost roku 1419 odstartovala husitskou revoluci?",
+      "spravna_odpoved": "První pražská defenestrace",
+      "spatne_odpovedi": ["Bitva u Lipan", "Upálení Jana Husa", "Vznik Tábora"],
+      "oduvodneni": "V červenci 1419 dav husitů vedený Janem Želivským vyhodil katolické konšely z oken Novoměstské radnice - začátek revoluce.",
+      "proc_spatne": {
+        "Bitva u Lipan": "Bitva u Lipan (1434) byla naopak koncem radikálního husitství, ne začátkem revoluce.",
+        "Upálení Jana Husa": "Upálení Husa (1415) bylo příčinou nespokojenosti, ale revoluce začala až v roce 1419 defenestrací.",
+        "Vznik Tábora": "Tábor byl založen až roku 1420, tedy po začátku revoluce."
+      }
+    },
+    {
+      "id": "HR15",
+      "tema": "Začátek revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo vedl dav při první pražské defenestraci?",
+      "spravna_odpoved": "Jan Želivský",
+      "spatne_odpovedi": ["Jan Žižka", "Jan Hus", "Prokop Holý"],
+      "oduvodneni": "Radikální kazatel Jan Želivský vedl dav z Novoměstské radnice, když konšelé zatkli některé husity.",
+      "proc_spatne": {
+        "Jan Žižka": "Jan Žižka se stal vojenským vůdcem husitů až po defenestraci, v té chvíli ještě revoluci nevelel.",
+        "Jan Hus": "Jan Hus byl upálen už v roce 1415 - čtyři roky před defenestrací, nemohl ji vést.",
+        "Prokop Holý": "Prokop Holý převzal velení husitů až po smrti Jana Žižky (1424), tedy o mnoho let později."
+      }
+    },
+    {
+      "id": "HR16",
+      "tema": "Začátek revoluce",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo si po smrti Václava IV. (1419) činil nárok na český trůn?",
+      "spravna_odpoved": "Zikmund Lucemburský",
+      "spatne_odpovedi": ["Karel IV.", "Jiří z Poděbrad", "Vladislav Jagellonský"],
+      "oduvodneni": "Zikmund Lucemburský, bratr Václava IV., se měl stát králem, ale husité ho neuznávali kvůli jeho roli při upálení Husa.",
+      "proc_spatne": {
+        "Karel IV.": "Karel IV. zemřel už v roce 1378 - byl to otec Václava IV., ne jeho nástupce.",
+        "Jiří z Poděbrad": "Jiří z Poděbrad se stal králem až o mnoho let později (1458), po husitských válkách.",
+        "Vladislav Jagellonský": "Vladislav Jagellonský usedl na trůn až v roce 1471, tedy dlouho po husitství."
+      }
+    },
+    {
+      "id": "HR17",
+      "tema": "Začátek revoluce",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kolik měli husité pražských artikulů (bodů programu)?",
+      "spravna_odpoved": "Čtyři",
+      "spatne_odpovedi": ["Dva", "Pět", "Deset"],
+      "oduvodneni": "Čtyři pražské artikuly z roku 1420: svoboda kázání, přijímání podobojí, omezení majetku církve, trestání hříchů bez ohledu na postavení.",
+      "proc_spatne": {
+        "Dva": "Husitský program byl rozsáhlejší - měl čtyři základní body (artikuly).",
+        "Pět": "Pět artikulů nebylo - čtyři pražské artikuly jsou známý historický pojem.",
+        "Deset": "Deset přikázání má Bible, ne husitský program - ten měl čtyři body."
+      }
+    },
+    {
+      "id": "HR18",
+      "tema": "Začátek revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V kterém roce bylo založeno husitské město Tábor?",
+      "spravna_odpoved": "1420",
+      "spatne_odpovedi": ["1415", "1419", "1424"],
+      "oduvodneni": "Tábor byl založen v roce 1420 jako útočiště radikálních husitů a pokus o spravedlivou společnost.",
+      "proc_spatne": {
+        "1415": "Roku 1415 byl upálen Jan Hus - revoluce ještě ani nezačala, Tábor byl založen o 5 let později.",
+        "1419": "Roku 1419 začala revoluce defenestrací, Tábor byl založen až rok poté.",
+        "1424": "Roku 1424 zemřel Jan Žižka - Tábor tehdy už 4 roky existoval."
+      }
+    },
+    {
+      "id": "HR19",
+      "tema": "Rozdělení husitů",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co chtěli obyvatelé Tábora vytvořit?",
+      "spravna_odpoved": "Spravedlivou společnost se společným majetkem a rovností lidí",
+      "spatne_odpovedi": ["Novou církev pod Zikmundem", "Obchodní přístav na Vltavě", "Křižáckou pevnost proti Turkům"],
+      "oduvodneni": "Táborité usilovali o společnost, kde by si byli všichni rovni a majetek by byl společný - brzy se ale ukázalo, že to není udržitelné.",
+      "proc_spatne": {
+        "Novou církev pod Zikmundem": "Táborité stáli naopak proti Zikmundovi, kterého neuznávali za krále.",
+        "Obchodní přístav na Vltavě": "Tábor leží v jižních Čechách u Lužnice, ne u Vltavy, a nebyl plánován jako obchodní centrum.",
+        "Křižáckou pevnost proti Turkům": "Křižácké pevnosti stavěli katolíci proti husitům, ne naopak - táborité bojovali proti křižákům."
+      }
+    },
+    {
+      "id": "HR20",
+      "tema": "Rozdělení husitů",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Na jaké dvě hlavní skupiny se husité rozdělili?",
+      "spravna_odpoved": "Umírnění (kališníci) a radikální (táborité)",
+      "spatne_odpovedi": ["Katolíci a pravoslavní", "Rytíři a měšťané", "Jezuité a františkáni"],
+      "oduvodneni": "Husité se rozdělili na umírněné kališníky (chtěli reformu církve) a radikální táborité (chtěli rovnost všech lidí).",
+      "proc_spatne": {
+        "Katolíci a pravoslavní": "To jsou dvě odlišné křesťanské větve, ne rozdělení husitů - husité byli proti katolíkům jako celku.",
+        "Rytíři a měšťané": "Rytíři a měšťané jsou společenské stavy, ne rozdělení podle náboženského směru.",
+        "Jezuité a františkáni": "Jezuité a františkáni jsou katolické řády - s husitským hnutím nesouvisejí."
+      }
+    },
+    {
+      "id": "HR21",
+      "tema": "Rozdělení husitů",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývali radikální husité z Tábora?",
+      "spravna_odpoved": "Táborité",
+      "spatne_odpovedi": ["Kališníci", "Valdenští", "Novokřtěnci"],
+      "oduvodneni": "Radikální husité sídlící v Táboře se podle města nazývali táborité - chtěli zásadní změny ve společnosti.",
+      "proc_spatne": {
+        "Kališníci": "Kališníci byli naopak umírnění husité - chtěli jen reformu církve, ne radikální změnu společnosti.",
+        "Valdenští": "Valdenští byli středověká heretická sekta (od 12. století) - podobní předchůdci husitů, ale ne husité z Tábora.",
+        "Novokřtěnci": "Novokřtěnci (anabaptisté) byli pozdější reformační hnutí v 16. století, ne husité."
+      }
+    },
+    {
+      "id": "HR22",
+      "tema": "Rozdělení husitů",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl hlavní vojenský vůdce husitů?",
+      "spravna_odpoved": "Jan Žižka",
+      "spatne_odpovedi": ["Jan Hus", "Jan Želivský", "Prokop Holý"],
+      "oduvodneni": "Jan Žižka byl geniální vojevůdce husitů - nikdy nebyl poražen a velel dokonce i poté, co oslepl.",
+      "proc_spatne": {
+        "Jan Hus": "Jan Hus byl duchovní vůdce (kazatel), ne vojenský - a byl upálen ještě před začátkem válek.",
+        "Jan Želivský": "Jan Želivský vedl první pražskou defenestraci, ale byl to radikální kazatel, ne vojenský velitel.",
+        "Prokop Holý": "Prokop Holý převzal velení až po smrti Jana Žižky (1424) - byl Žižkův nástupce, ne hlavní vůdce."
+      }
+    },
+    {
+      "id": "HR23",
+      "tema": "Rozdělení husitů",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím byl Jan Žižka výjimečný jako vojevůdce?",
+      "spravna_odpoved": "Byl slepý a přesto úspěšně velel vojsku",
+      "spatne_odpovedi": ["Pocházel z francouzské šlechty", "Byl zároveň knězem a biskupem", "Byl to syn Karla IV."],
+      "oduvodneni": "Jan Žižka přišel o jedno oko ještě v mládí a o druhé během válek - přesto i jako úplně slepý vedl vojsko k vítězstvím.",
+      "proc_spatne": {
+        "Pocházel z francouzské šlechty": "Jan Žižka pocházel z drobné české šlechty z jižních Čech (Trocnov), ne z Francie.",
+        "Byl zároveň knězem a biskupem": "Žižka byl válečník, ne kněz - duchovní vůdci husitů byli jiní (Hus, Želivský).",
+        "Byl to syn Karla IV.": "Syny Karla IV. byli Václav IV. a Zikmund Lucemburský - Žižka s nimi rodově vůbec nesouvisel."
+      }
+    },
+    {
+      "id": "HR24",
+      "tema": "Rozdělení husitů",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo převzal velení husitů po smrti Jana Žižky?",
+      "spravna_odpoved": "Prokop Holý (Veliký)",
+      "spatne_odpovedi": ["Jan Želivský", "Jiří z Poděbrad", "Zikmund Lucemburský"],
+      "oduvodneni": "Po Žižkově smrti v roce 1424 převzal velení husitských vojsk kněz a vojevůdce Prokop Holý (někdy zvaný Veliký).",
+      "proc_spatne": {
+        "Jan Želivský": "Jan Želivský byl v té době již mrtvý - byl popraven v Praze roku 1422, dva roky před Žižkou.",
+        "Jiří z Poděbrad": "Jiří z Poděbrad byl mladší osobnost - stal se českým králem až v roce 1458, po husitských válkách.",
+        "Zikmund Lucemburský": "Zikmund byl naopak hlavní nepřítel husitů, nikdy by nevedl jejich vojsko."
+      }
+    },
+    {
+      "id": "HR25",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaká byla hlavní husitská bojová taktika?",
+      "spravna_odpoved": "Vozová hradba",
+      "spatne_odpovedi": ["Těžká rytířská jízda v klínu", "Obléhání hradů katapulty", "Partyzánský boj v lesích"],
+      "oduvodneni": "Vozová hradba byla geniální husitská taktika - vozy spoutané řetězy vytvořily pohyblivou pevnost, ze které pěchota ostřelovala útočníky.",
+      "proc_spatne": {
+        "Těžká rytířská jízda v klínu": "Těžká jízda v klínu byla taktika křižáků a středověkých rytířů - právě ji husité svou vozovou hradbou poráželi.",
+        "Obléhání hradů katapulty": "Husité občas obléhali hrady, ale hlavní bitevní taktika v polích byla vozová hradba.",
+        "Partyzánský boj v lesích": "Husité bojovali v otevřených bitvách pomocí vozové hradby, ne přepadovým bojem v lesích."
+      }
+    },
+    {
+      "id": "HR26",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaké palné zbraně používali husité?",
+      "spravna_odpoved": "Houfnice, hákovnice a píšťaly",
+      "spatne_odpovedi": ["Kuše a sudlice", "Meče a palcáty", "Dlouhé luky a oštěpy"],
+      "oduvodneni": "Husité používali tři typy palných zbraní: těžkou houfnici (dělo), ruční hákovnici (s háčkem) a píšťalu (předchůdce pušky).",
+      "proc_spatne": {
+        "Kuše a sudlice": "Kuše je mechanická (ne palná) zbraň a sudlice je bodná tyčová zbraň - husité používali moderní palné zbraně se střelným prachem.",
+        "Meče a palcáty": "Meče a palcáty jsou chladné (nepalné) zbraně - husité je používali, ale pro boj zblízka, ne jako palné.",
+        "Dlouhé luky a oštěpy": "Dlouhé luky proslavili Angličané ve stoleté válce, husité sázeli na palné zbraně (hákovnice, píšťaly)."
+      }
+    },
+    {
+      "id": "HR27",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Ve které bitvě husité roku 1420 ubránili Prahu?",
+      "spravna_odpoved": "V bitvě na Vítkově",
+      "spatne_odpovedi": ["V bitvě u Lipan", "V bitvě u Domažlic", "V bitvě u Malešova"],
+      "oduvodneni": "Bitva na Vítkově (14. července 1420) - Jan Žižka s malou skupinou husitů na pražském vrchu Vítkov odrazil první křížovou výpravu.",
+      "proc_spatne": {
+        "V bitvě u Lipan": "Bitva u Lipan (1434) byla naopak porážkou husitů - táborité tam padli v boji proti Panské jednotě.",
+        "V bitvě u Domažlic": "Bitva u Domažlic (1431) se odehrála v západních Čechách, ne u Prahy, a byla proti 5. křížové výpravě.",
+        "V bitvě u Malešova": "Bitva u Malešova (1424) byla vítězstvím Žižky nad pražany, ne obranou Prahy proti křižákům."
+      }
+    },
+    {
+      "id": "HR28",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce proběhla bitva na Vítkově?",
+      "spravna_odpoved": "1420",
+      "spatne_odpovedi": ["1415", "1424", "1434"],
+      "oduvodneni": "Bitva na Vítkově proběhla 14. července 1420 - Žižkovo vítězství nad první křížovou výpravou.",
+      "proc_spatne": {
+        "1415": "Roku 1415 byl upálen Jan Hus - bitvy husitské revoluce začaly až později.",
+        "1424": "Roku 1424 zemřel Jan Žižka - bitva na Vítkově se odehrála o 4 roky dřív, ještě s mladým Žižkou.",
+        "1434": "Roku 1434 proběhla bitva u Lipan - to byl konec radikálního husitství, ne obrana Prahy."
+      }
+    },
+    {
+      "id": "HR29",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo velel husitům v bitvě na Vítkově?",
+      "spravna_odpoved": "Jan Žižka",
+      "spatne_odpovedi": ["Prokop Holý", "Jan Želivský", "Jan Rokycana"],
+      "oduvodneni": "Jan Žižka velel malé skupině husitů, která na vrchu Vítkov odrazila útok rytířů Zikmunda Lucemburského a ubránila Prahu.",
+      "proc_spatne": {
+        "Prokop Holý": "Prokop Holý se stal vůdcem až po smrti Žižky roku 1424 - v roce 1420 ještě velel Žižka.",
+        "Jan Želivský": "Jan Želivský byl kazatel, ne vojenský velitel - v Praze vedl lid, ale bitvy v poli vedl Žižka.",
+        "Jan Rokycana": "Jan Rokycana byl pozdější husitský biskup, ne vojevůdce - a na Vítkov ještě nebyl aktivní."
+      }
+    },
+    {
+      "id": "HR30",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V kterém roce proběhla bitva u Domažlic?",
+      "spravna_odpoved": "1431",
+      "spatne_odpovedi": ["1420", "1424", "1434"],
+      "oduvodneni": "Bitva u Domažlic se odehrála 14. srpna 1431 - křižáci uprchli ještě před bitvou, když slyšeli husitský chorál.",
+      "proc_spatne": {
+        "1420": "Roku 1420 byla bitva na Vítkově - Domažlice byly až o 11 let později.",
+        "1424": "Roku 1424 zemřel Jan Žižka - to bylo mezi Vítkovem a Domažlicemi.",
+        "1434": "Roku 1434 byla bitva u Lipan, Domažlice se odehrály o tři roky dříve."
+      }
+    },
+    {
+      "id": "HR31",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Čím proslula bitva u Domažlic?",
+      "spravna_odpoved": "Křižáci utekli před bitvou, když uslyšeli husitský chorál 'Kdož jsú boží bojovníci'",
+      "spatne_odpovedi": ["Padl v ní Jan Žižka", "Husité byli poraženi", "Skončily jí husitské války"],
+      "oduvodneni": "Pověst o husitech a jejich chorálu byla tak děsivá, že křižáci v Domažlicích utekli ještě dřív, než k bitvě vůbec došlo.",
+      "proc_spatne": {
+        "Padl v ní Jan Žižka": "Jan Žižka zemřel už roku 1424, tedy 7 let před bitvou u Domažlic - zemřel na mor, ne v bitvě.",
+        "Husité byli poraženi": "Husité naopak zvítězili - křižáci utekli, ještě než se začalo bojovat.",
+        "Skončily jí husitské války": "Husitské války skončily až roku 1436 jihlavskými kompaktáty - po Domažlicích zbývalo pět let."
+      }
+    },
+    {
+      "id": "HR32",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenoval slavný husitský bojový chorál?",
+      "spravna_odpoved": "Kdož jsú boží bojovníci",
+      "spatne_odpovedi": ["Svatý Václave", "Hospodine, pomiluj ny", "Buoh všemohúcí"],
+      "oduvodneni": "Chorál 'Kdož jsú boží bojovníci' (Kdo jste Boží bojovníci) se stal symbolem husitů - jeho zpěv prý stačil k zastrašení křižáků u Domažlic.",
+      "proc_spatne": {
+        "Svatý Václave": "Svatováclavský chorál je starší česká duchovní píseň (z 12. století), není husitská.",
+        "Hospodine, pomiluj ny": "Toto je nejstarší česká duchovní píseň (10.-11. století), starší než husité.",
+        "Buoh všemohúcí": "Buoh všemohúcí je středověká česká velikonoční píseň, ale není to husitský bojový chorál."
+      }
+    },
+    {
+      "id": "HR33",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo vedl křížové výpravy proti husitům?",
+      "spravna_odpoved": "Papež a císař Zikmund Lucemburský",
+      "spatne_odpovedi": ["Francouzský král", "Rytíři řádu johanitů", "Osmanský sultán"],
+      "oduvodneni": "Křížové výpravy proti husitům vyhlásil papež a organizoval je císař Zikmund Lucemburský, který chtěl získat český trůn.",
+      "proc_spatne": {
+        "Francouzský král": "Francouzský král (Karel VII.) měl plno práce se stoletou válkou proti Anglii, husitství se tolik netýkal.",
+        "Rytíři řádu johanitů": "Johanité byli menší rytířský řád, ne hlavní síla křižáckých výprav - vedl je papež a císař.",
+        "Osmanský sultán": "Osmanští Turci byli nepřáteli křesťanů (katolíků i husitů), ne vůdci výpravy proti husitům."
+      }
+    },
+    {
+      "id": "HR34",
+      "tema": "Vojenství a bitvy",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč husité porazili všechny křížové výpravy?",
+      "spravna_odpoved": "Měli vysokou motivaci (boj za víru) a lepší vojenskou taktiku",
+      "spatne_odpovedi": ["Disponovali početní převahou", "Spojili se s Turky", "Měli silnější kavalerii než křižáci"],
+      "oduvodneni": "Husité byli silně motivovaní vírou, navíc vynalezli novou taktiku (vozová hradba, palné zbraně) a využívali terén.",
+      "proc_spatne": {
+        "Disponovali početní převahou": "Husité byli obvykle v menšině - ve vítězstvích jim pomáhala taktika, ne počet mužů.",
+        "Spojili se s Turky": "Husité byli křesťané, spojenectví s Turky nepřipadalo v úvahu - byli sami obviňováni z kacířství.",
+        "Měli silnější kavalerii než křižáci": "Husité měli spíš pěchotu - jejich síla byla v pěchotě za vozovou hradbou, ne v jízdě."
+      }
+    },
+    {
+      "id": "HR35",
+      "tema": "Konec revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kde probíhala jednání husitů s katolickou církví?",
+      "spravna_odpoved": "V Basileji",
+      "spatne_odpovedi": ["V Kostnici", "V Římě", "Ve Vídni"],
+      "oduvodneni": "Jednání mezi husity a církví probíhala od roku 1431 na basilejském koncilu ve švýcarské Basileji.",
+      "proc_spatne": {
+        "V Kostnici": "V Kostnici (1414-1418) byl upálen Jan Hus - tam by husité jednat nepřišli. Nový koncil byl v Basileji.",
+        "V Římě": "Řím byl sídlem papeže, ale koncil s husity proběhl v neutrální Basileji.",
+        "Ve Vídni": "Vídeň byla sídlem Habsburků, ne místem církevních koncilů v této době."
+      }
+    },
+    {
+      "id": "HR36",
+      "tema": "Konec revoluce",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Který vnitřní problém husitského hnutí se v Basileji nejvíce projevil?",
+      "spravna_odpoved": "Nejednotnost husitů - umírnění chtěli kompromis, radikální byli proti",
+      "spatne_odpovedi": ["Husité byli finančně vyčerpáni", "Husité neuměli latinsky", "Husité ztratili podporu lidu"],
+      "oduvodneni": "V Basileji se projevil vnitřní rozkol - umírnění kališníci byli ochotni se s církví domluvit, ale radikální táborité odmítali ustoupit.",
+      "proc_spatne": {
+        "Husité byli finančně vyčerpáni": "Finance sice ubývaly, ale hlavním problémem byla vnitřní rozdělenost - to ukázala Basilej.",
+        "Husité neuměli latinsky": "Husitští vůdci (zejména kněží) latinu ovládali, jazyk problém nebyl.",
+        "Husité ztratili podporu lidu": "Lid husitství stále podporoval, problém byl uvnitř husitského hnutí mezi skupinami."
+      }
+    },
+    {
+      "id": "HR37",
+      "tema": "Konec revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovalo spojení umírněných husitů a katolíků?",
+      "spravna_odpoved": "Panská jednota",
+      "spatne_odpovedi": ["Katolická liga", "Svatá aliance", "Česká konfederace"],
+      "oduvodneni": "Umírnění husité (kališníci) a katoličtí páni vytvořili Panskou jednotu, která porazila radikální táborité u Lipan.",
+      "proc_spatne": {
+        "Katolická liga": "Katolická liga vznikla až o mnohem později (během třicetileté války v 17. století).",
+        "Svatá aliance": "Svatá aliance je označení pro spojenectví z 19. století (Rakousko, Rusko, Prusko).",
+        "Česká konfederace": "Česká konfederace vznikla až v roce 1619 (v době stavovského povstání), ne v husitské době."
+      }
+    },
+    {
+      "id": "HR38",
+      "tema": "Konec revoluce",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve které bitvě byli poraženi radikální husité (táborité)?",
+      "spravna_odpoved": "V bitvě u Lipan",
+      "spatne_odpovedi": ["V bitvě na Vítkově", "V bitvě u Domažlic", "V bitvě u Kresčaku"],
+      "oduvodneni": "Bitva u Lipan (1434) - Panská jednota zde porazila táborité, což znamenalo konec radikálního husitství.",
+      "proc_spatne": {
+        "V bitvě na Vítkově": "Bitva na Vítkově (1420) byla naopak vítězstvím husitů nad křižáky v obraně Prahy.",
+        "V bitvě u Domažlic": "U Domažlic (1431) husité zvítězili - křižáci tam uprchli bez boje.",
+        "V bitvě u Kresčaku": "Bitva u Kresčaku (1346) byla během stoleté války - tam padl Jan Lucemburský, nejde o husitskou bitvu."
+      }
+    },
+    {
+      "id": "HR39",
+      "tema": "Konec revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V kterém roce proběhla bitva u Lipan?",
+      "spravna_odpoved": "1434",
+      "spatne_odpovedi": ["1420", "1424", "1436"],
+      "oduvodneni": "Bitva u Lipan se odehrála 30. května 1434 a znamenala definitivní porážku radikálních husitů.",
+      "proc_spatne": {
+        "1420": "Roku 1420 byly čtyři pražské artikuly, bitva na Vítkově a vznik Tábora - Lipany byly o 14 let později.",
+        "1424": "Roku 1424 zemřel Jan Žižka - Lipany byly až 10 let po jeho smrti.",
+        "1436": "Roku 1436 byla jihlavská kompaktáta - to bylo DVA roky po Lipanech, jako dořešení konfliktu."
+      }
+    },
+    {
+      "id": "HR40",
+      "tema": "Konec revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo padl v bitvě u Lipan?",
+      "spravna_odpoved": "Prokop Holý (Veliký)",
+      "spatne_odpovedi": ["Jan Žižka", "Jan Želivský", "Zikmund Lucemburský"],
+      "oduvodneni": "V bitvě u Lipan padl Prokop Holý, vůdce radikálních husitů (táboritů), a jeho smrt znamenala konec radikálního hnutí.",
+      "proc_spatne": {
+        "Jan Žižka": "Jan Žižka zemřel už roku 1424 (o 10 let dříve), navíc na mor, ne v bitvě.",
+        "Jan Želivský": "Jan Želivský byl popraven v Praze už roku 1422, 12 let před bitvou u Lipan.",
+        "Zikmund Lucemburský": "Zikmund v Lipanech nebojoval - naopak, Lipany mu otevřely cestu k uznání českým králem."
+      }
+    },
+    {
+      "id": "HR41",
+      "tema": "Konec revoluce",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co jsou jihlavská kompaktáta (1436)?",
+      "spravna_odpoved": "Dohoda mezi husity a církví povolující přijímání podobojí",
+      "spatne_odpovedi": ["Daňová reforma Zikmunda", "Zákoník Karla IV.", "Smlouva s Osmanskou říší"],
+      "oduvodneni": "Jihlavská kompaktáta uzavřela husitskou revoluci - církev povolila husitům přijímání podobojí, husité uznali Zikmunda králem.",
+      "proc_spatne": {
+        "Daňová reforma Zikmunda": "Daně s tím nesouvisely - šlo o dohodu v náboženských otázkách mezi husity a církví.",
+        "Zákoník Karla IV.": "Maiestas Carolina byl návrh zemského zákoníku Karla IV. (z poloviny 14. století), který nebyl přijat - s kompaktáty nemá nic společného.",
+        "Smlouva s Osmanskou říší": "S Turky ani jiným islámským státem to nic nespojovalo - šlo o vnitřní věc českých zemí a církve."
+      }
+    },
+    {
+      "id": "HR42",
+      "tema": "Konec revoluce",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co museli husité podle jihlavských kompaktát přijmout?",
+      "spravna_odpoved": "Uznat Zikmunda Lucemburského českým králem",
+      "spatne_odpovedi": ["Podřídit se nadvládě papeže", "Zrušit všechna husitská města", "Vrátit všechny zabavené statky"],
+      "oduvodneni": "Husité museli uznat Zikmunda Lucemburského jako českého krále - předtím ho neuznávali kvůli jeho roli při Husově smrti.",
+      "proc_spatne": {
+        "Podřídit se nadvládě papeže": "Husité si zachovali náboženskou samostatnost - kompaktáta uznávala přijímání podobojí, nebyla úplná podřízenost.",
+        "Zrušit všechna husitská města": "Husitská města (včetně Tábora) nadále existovala, i když ztratila část radikální podoby.",
+        "Vrátit všechny zabavené statky": "Mnoho církevního majetku zůstalo v rukou šlechty - to byl jeden z důsledků husitství."
+      }
+    },
+    {
+      "id": "HR43",
+      "tema": "Důsledky",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaká změna nastala ve společnosti po husitské revoluci?",
+      "spravna_odpoved": "Upevnilo se rozdělení na tři stavy (panský, rytířský, městský) a oslabila moc církve",
+      "spatne_odpovedi": ["Vznikla absolutistická monarchie", "Obnovila se moc církve", "Zavedla se demokracie"],
+      "oduvodneni": "Stavy existovaly už dříve, ale po husitství se jejich politické postavení upevnilo a posílilo se - zejména měst a šlechty, zatímco církev ztratila majetek a moc.",
+      "proc_spatne": {
+        "Vznikla absolutistická monarchie": "Absolutismus přišel až mnohem později (17.-18. století), po husitství naopak moc krále oslabila.",
+        "Obnovila se moc církve": "Opak - církev ztratila značný majetek a moc, což byl jeden z hlavních důsledků husitství.",
+        "Zavedla se demokracie": "Demokracie je moderní forma vlády - ve středověku neexistovala, všichni lidé rozhodně rovnoprávní nebyli."
+      }
+    },
+    {
+      "id": "HR44",
+      "tema": "Důsledky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo patřil do panského stavu?",
+      "spravna_odpoved": "Vyšší šlechta",
+      "spatne_odpovedi": ["Nižší šlechta a rytíři", "Zástupci měst", "Sedláci a poddaní"],
+      "oduvodneni": "Panský stav tvořila vyšší šlechta - nejbohatší a nejvlivnější vrstva, která měla velké majetky.",
+      "proc_spatne": {
+        "Nižší šlechta a rytíři": "Nižší šlechta patřila do rytířského stavu, ne panského - byli menší vlastníci půdy.",
+        "Zástupci měst": "Zástupci měst tvořili samostatný městský stav.",
+        "Sedláci a poddaní": "Sedláci nebyli součástí stavů - ve středověku neměli politickou moc, stavy měly jen privilegované vrstvy."
+      }
+    },
+    {
+      "id": "HR45",
+      "tema": "Důsledky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo patřil do rytířského stavu?",
+      "spravna_odpoved": "Nižší šlechta",
+      "spatne_odpovedi": ["Vyšší šlechta", "Zástupci královských měst", "Kněží a duchovní"],
+      "oduvodneni": "Rytířský stav tvořila nižší šlechta - méně bohatí páni a rytíři s menšími statky.",
+      "proc_spatne": {
+        "Vyšší šlechta": "Vyšší šlechta patřila do panského stavu, ne rytířského - stála výše.",
+        "Zástupci královských měst": "Zástupci královských měst tvořili třetí, městský stav.",
+        "Kněží a duchovní": "Duchovní tvořili ve středověku samostatnou skupinu, nebyli ale součástí tří českých pohusitských stavů."
+      }
+    },
+    {
+      "id": "HR46",
+      "tema": "Důsledky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo patřil do městského stavu?",
+      "spravna_odpoved": "Zástupci královských měst",
+      "spatne_odpovedi": ["Vyšší šlechta", "Kněží a duchovní", "Sedláci z vesnic"],
+      "oduvodneni": "Městský stav tvořili zástupci královských měst (měst patřících králi), která získala politický vliv díky podpoře husitů.",
+      "proc_spatne": {
+        "Vyšší šlechta": "Vyšší šlechta patřila do panského stavu, ne městského - byla to nejvyšší vrstva společnosti.",
+        "Kněží a duchovní": "Duchovní tvořili samostatnou vrstvu a nebyli součástí tří pohusitských stavů (církev po husitství výrazně oslabila).",
+        "Sedláci z vesnic": "Sedláci neměli politickou moc a nebyli součástí stavovského uspořádání - stavy tvořily jen privilegované vrstvy."
+      }
+    },
+    {
+      "id": "HR47",
+      "tema": "Důsledky",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co ztratila církev po husitské revoluci?",
+      "spravna_odpoved": "Značný majetek a moc",
+      "spatne_odpovedi": ["Latinu jako svůj jazyk", "Kontakt s Vatikánem", "Existenci v českých zemích"],
+      "oduvodneni": "Husité církvi zabavili velkou část majetku (kláštery, pozemky), čímž se oslabila i její politická moc.",
+      "proc_spatne": {
+        "Latinu jako svůj jazyk": "Katolická církev latinu používala dál - byl to její úřední jazyk až do 20. století.",
+        "Kontakt s Vatikánem": "Kompaktáta dohodla soužití s církví - kontakt zůstal, i když zvláštní (české kališnické pojetí).",
+        "Existenci v českých zemích": "Katolická církev v Čechách nadále existovala, jen oslabená a vedle ní existovala i husitská (utrakvistická)."
+      }
+    },
+    {
+      "id": "HR48",
+      "tema": "Důsledky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaký pozitivní vliv mělo husitství na český jazyk?",
+      "spravna_odpoved": "Rozšířilo používání češtiny a zjednodušilo pravopis (diakritika)",
+      "spatne_odpovedi": ["Zavedlo latinu jako úřední jazyk", "Zakázalo používat česká jména", "Nahradilo češtinu němčinou"],
+      "oduvodneni": "Husité kázali a psali česky, rozšířili češtinu i do úředního styku a díky Husovi se zjednodušil český pravopis pomocí háčků a čárek.",
+      "proc_spatne": {
+        "Zavedlo latinu jako úřední jazyk": "Přesný opak - husité prosadili češtinu místo latiny, aby lidé rozuměli.",
+        "Zakázalo používat česká jména": "Česká jména se díky husitství naopak více používala - husité byli hrdí na svou češtinu.",
+        "Nahradilo češtinu němčinou": "Husitství bylo silně protiněmecké (proti Zikmundovi a německým pánům), nesnížilo roli češtiny."
+      }
+    },
+    {
+      "id": "HR49",
+      "tema": "Důsledky",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co přinesli husité (a Jan Hus) do pravopisu češtiny?",
+      "spravna_odpoved": "Zavedení teček a čárek nad písmeny (počátek diakritického pravopisu)",
+      "spatne_odpovedi": ["Latinku místo hlaholice", "Velká písmena na začátku věty", "Používání arabských číslic"],
+      "oduvodneni": "Jan Hus navrhl, aby se místo spřežek (cz, rz) psala tečka nad písmenem - z této myšlenky se později vyvinul dnešní český pravopis s háčky a čárkami.",
+      "proc_spatne": {
+        "Latinku místo hlaholice": "Hlaholici nahradila latinka už mnohem dřív (za Přemyslovců), s husity to nesouvisí.",
+        "Velká písmena na začátku věty": "Velká písmena na začátku věty nejsou husitský vynález - to je mnohem staršího původu.",
+        "Používání arabských číslic": "Arabské číslice se šířily v Evropě od vrcholného středověku nezávisle na husitství."
+      }
+    },
+    {
+      "id": "HR50",
+      "tema": "Důsledky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co se rozvinulo v důsledku husitské revoluce mezi Čechy?",
+      "spravna_odpoved": "Vědomí národní identity",
+      "spatne_odpovedi": ["Sjednocení všech Čechů v katolické víře", "Rozvoj latinské vzdělanosti", "Katolická zbožnost"],
+      "oduvodneni": "Díky husitství (kázání česky, boje proti cizincům-křižákům) se rozvinulo silné vědomí národní příslušnosti a českého jazyka.",
+      "proc_spatne": {
+        "Sjednocení všech Čechů v katolické víře": "Přesný opak - husitství Čechy nábožensky rozdělilo na kališníky a katolíky, jednoty nebylo dosaženo.",
+        "Rozvoj latinské vzdělanosti": "Naopak - husitství latinu potlačilo ve prospěch češtiny, vzdělanost v latině po husitských válkách upadla.",
+        "Katolická zbožnost": "Katolická církev byla husitstvím oslabena, ne posílena - mnoho Čechů přešlo na kališnickou víru."
+      }
+    }
+  ]
+}

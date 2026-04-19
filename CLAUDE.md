@@ -43,6 +43,10 @@ This is an educational web application repository ("Terka – rodinná cvičení
     ├── lucemburkove-questions.json     # 50 questions — Luxembourg dynasty
     ├── lucemburkove-test-mobil.html    # Mobile test (Lucemburkové)
     ├── lucemburkove-flashcards.html    # Flashcards (blue/teal theme)
+    ├── husitska-revoluce-questions.json # 50 questions — Hussite Revolution
+    ├── husitska-revoluce-test-mobil.html # Mobile test (Husitská revoluce)
+    ├── husitska-revoluce-flashcards.html # Flashcards (red/amber theme)
+    ├── husitska-revoluce-intro.html    # Prep page with cheat sheet (Husitská revoluce)
     └── img/                            # Scanned textbook images (JPEG)
 ```
 
@@ -55,6 +59,7 @@ This is an educational web application repository ("Terka – rodinná cvičení
   - `dejepis/cesky-stat-questions.json`: Same structure as above — 1 theme, 30 questions
   - `dejepis/posledni-premyslovci-questions.json`: Same structure — 1 theme, 50 questions
   - `dejepis/lucemburkove-questions.json`: Same structure — 6 themes, 50 questions
+  - `dejepis/husitska-revoluce-questions.json`: Same structure — 6 themes, 50 questions
 
 ### HTML Applications
 All HTML files are **self-contained** with inline CSS and JavaScript, loading data from JSON files via fetch API.

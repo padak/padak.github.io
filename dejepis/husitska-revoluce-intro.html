@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Příprava na test - Husitská revoluce</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        --surface: #ffffff;
+        --surface-soft: #fef3c7;
+        --surface-strong: #fcd34d;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #b91c1c;
+        --accent-dark: #7f1d1d;
+        --cat-hus: #dc2626;
+        --cat-zacatek: #ea580c;
+        --cat-rozdeleni: #ca8a04;
+        --cat-vojenstvi: #7c2d12;
+        --cat-konec: #9333ea;
+        --cat-dusledky: #0891b2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #fef3c7 0%, #fca5a5 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 2.5rem 0 2rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      header p {
+        margin: 0 auto 2rem;
+        max-width: 60ch;
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+
+      .quick-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .quick-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 2px solid var(--accent);
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(185, 28, 28, 0.15);
+      }
+
+      .quick-links a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(185, 28, 28, 0.25);
+        background: var(--surface-soft);
+      }
+
+      section {
+        background: var(--surface);
+        border-radius: 20px;
+        padding: 2rem 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 20px 50px rgba(185, 28, 28, 0.12);
+        border: 1px solid rgba(185, 28, 28, 0.12);
+      }
+
+      section h2 {
+        margin: 0 0 1.5rem;
+        font-size: 1.75rem;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      section h3 {
+        margin: 1.5rem 0 1rem;
+        font-size: 1.3rem;
+        color: var(--ink);
+      }
+
+      section p.lead {
+        color: var(--ink-soft);
+        margin: 0 0 1.5rem;
+      }
+
+      .timeline {
+        position: relative;
+        padding: 1rem 0;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--cat-hus), var(--cat-zacatek), var(--cat-vojenstvi), var(--cat-konec), var(--cat-dusledky));
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .timeline-item:nth-child(odd) {
+        flex-direction: row;
+      }
+
+      .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .timeline-date {
+        flex: 0 0 45%;
+        text-align: right;
+        padding-right: 2rem;
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: var(--accent);
+      }
+
+      .timeline-item:nth-child(even) .timeline-date {
+        text-align: left;
+        padding-right: 0;
+        padding-left: 2rem;
+      }
+
+      .timeline-dot {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 4px solid var(--surface);
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 0 3px var(--accent);
+      }
+
+      .timeline-content {
+        flex: 0 0 45%;
+        padding-left: 2rem;
+        background: var(--surface-soft);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        border-left: 4px solid var(--accent);
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        border-left: none;
+        border-right: 4px solid var(--accent);
+      }
+
+      .timeline-content p {
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+
+      .cheat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .cheat-card {
+        background: linear-gradient(135deg, var(--surface-soft), #fff);
+        border-radius: 14px;
+        padding: 1.5rem;
+        border: 2px solid var(--surface-strong);
+        border-top: 4px solid var(--accent);
+        transition: all 0.2s ease;
+      }
+
+      .cheat-card.hus { border-top-color: var(--cat-hus); }
+      .cheat-card.zacatek { border-top-color: var(--cat-zacatek); }
+      .cheat-card.rozdeleni { border-top-color: var(--cat-rozdeleni); }
+      .cheat-card.vojenstvi { border-top-color: var(--cat-vojenstvi); }
+      .cheat-card.konec { border-top-color: var(--cat-konec); }
+      .cheat-card.dusledky { border-top-color: var(--cat-dusledky); }
+
+      .cheat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(185, 28, 28, 0.18);
+      }
+
+      .cheat-card h4 {
+        margin: 0 0 1rem;
+        font-size: 1.15rem;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .cheat-card ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .cheat-card li {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .cheat-card strong {
+        color: var(--accent-dark);
+      }
+
+      .people-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .person-card {
+        background: var(--surface-soft);
+        border-radius: 14px;
+        padding: 1.25rem;
+        border-left: 4px solid var(--accent);
+      }
+
+      .person-card h4 {
+        margin: 0 0 0.25rem;
+        font-size: 1.1rem;
+        color: var(--accent-dark);
+      }
+
+      .person-card .years {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      .person-card p {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .battles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+
+      .battle-card {
+        background: linear-gradient(135deg, #fef3c7, #fff);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        border: 2px solid var(--surface-strong);
+        border-left: 5px solid var(--accent);
+      }
+
+      .battle-card .battle-year {
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: var(--accent);
+        margin-bottom: 0.3rem;
+      }
+
+      .battle-card .battle-name {
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        font-size: 1rem;
+      }
+
+      .battle-card p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: var(--ink-soft);
+        line-height: 1.4;
+      }
+
+      .story-box {
+        background: linear-gradient(135deg, #fed7aa, #fcd34d);
+        border-radius: 14px;
+        padding: 1.75rem;
+        border: 2px solid #f59e0b;
+        margin-top: 1.5rem;
+      }
+
+      .story-box h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1.2rem;
+        color: #7c2d12;
+      }
+
+      .story-box p {
+        margin: 0;
+        color: #78350f;
+        line-height: 1.6;
+        font-size: 0.98rem;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        section {
+          padding: 1.5rem 1.25rem;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-item {
+          flex-direction: column !important;
+          padding-left: 50px;
+        }
+
+        .timeline-date {
+          flex: none;
+          text-align: left !important;
+          padding: 0 0 0.5rem 0 !important;
+          font-size: 1.2rem;
+        }
+
+        .timeline-dot {
+          position: absolute;
+          left: 11px;
+          top: 5px;
+        }
+
+        .timeline-content {
+          flex: none;
+          width: 100%;
+          padding: 1rem !important;
+          border-left: 4px solid var(--accent) !important;
+          border-right: none !important;
+        }
+
+        .cheat-grid,
+        .people-grid,
+        .battles-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Příprava na test</h1>
+        <p>
+          Husitská revoluce: časová osa, cheat sheet, klíčové osobnosti a hlavní bitvy
+        </p>
+        <div class="quick-links">
+          <a href="husitska-revoluce-test-mobil.html">Spustit test</a>
+          <a href="husitska-revoluce-flashcards.html">Flash cards</a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Časová osa</h2>
+        <p class="lead">Klíčové události husitské revoluce (1378-1436)</p>
+        <div class="timeline" id="timeline">
+          <!-- Bude načteno z JSON -->
+        </div>
+      </section>
+
+      <section>
+        <h2>Cheat Sheet - rychlé opakování</h2>
+        <p class="lead">Hlavní pojmy a fakta podle 6 tematických skupin</p>
+        <div class="cheat-grid" id="cheat-sheet">
+          <!-- Bude načteno z JSON -->
+        </div>
+      </section>
+
+      <section>
+        <h2>Klíčové osobnosti</h2>
+        <p class="lead">Pět hlavních postav husitské revoluce</p>
+        <div class="people-grid">
+          <div class="person-card">
+            <h4>Jan Hus</h4>
+            <div class="years">(asi 1370 - 1415)</div>
+            <p>Kazatel a učitel, kázal česky v Betlémské kapli. Kritizoval bohatství církve. Upálen 6. 7. 1415 v Kostnici.</p>
+          </div>
+          <div class="person-card">
+            <h4>Jan Želivský</h4>
+            <div class="years">(asi 1380 - 1422)</div>
+            <p>Radikální kazatel, vedl první pražskou defenestraci v roce 1419. Byl popraven roku 1422.</p>
+          </div>
+          <div class="person-card">
+            <h4>Jan Žižka</h4>
+            <div class="years">(asi 1360 - 1424)</div>
+            <p>Geniální vojevůdce husitů z Trocnova. Velel i jako slepý, nikdy nebyl poražen. Zemřel na mor 1424.</p>
+          </div>
+          <div class="person-card">
+            <h4>Prokop Holý (Veliký)</h4>
+            <div class="years">(asi 1380 - 1434)</div>
+            <p>Kněz a vojevůdce, převzal velení po Žižkovi. Vedl husity při bitvě u Domažlic. Padl u Lipan 1434.</p>
+          </div>
+          <div class="person-card">
+            <h4>Zikmund Lucemburský</h4>
+            <div class="years">(1368 - 1437)</div>
+            <p>Mladší syn Karla IV., uherský a římský král. Nárokoval si český trůn po Václavu IV. Husité ho dlouho neuznávali, až po kompaktátech 1436.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Hlavní bitvy</h2>
+        <p class="lead">Tři bitvy, které musíš znát</p>
+        <div class="battles-grid">
+          <div class="battle-card">
+            <div class="battle-year">1420</div>
+            <div class="battle-name">Bitva na Vítkově</div>
+            <p>Jan Žižka ubránil Prahu proti první křížové výpravě. Husité vítězí.</p>
+          </div>
+          <div class="battle-card">
+            <div class="battle-year">1431</div>
+            <div class="battle-name">Bitva u Domažlic</div>
+            <p>Křižáci uprchli ještě před bitvou, když slyšeli chorál "Kdož jsú boží bojovníci". Husité vítězí.</p>
+          </div>
+          <div class="battle-card">
+            <div class="battle-year">1434</div>
+            <div class="battle-name">Bitva u Lipan</div>
+            <p>Panská jednota (umírnění + katolíci) porazila radikální táborité. Padl Prokop Holý. Konec radikálního husitství.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Cheat Sheet - zlatá fakta</h2>
+        <div class="story-box">
+          <h3>Co rozhodně musíš vědět</h3>
+          <p>
+            <strong>1415</strong> - upálení Jana Husa v Kostnici. <strong>1419</strong> - první pražská defenestrace (začátek revoluce).
+            <strong>1420</strong> - čtyři pražské artikuly + bitva na Vítkově + založení Tábora.
+            <strong>1424</strong> - smrt Jana Žižky. <strong>1431</strong> - bitva u Domažlic.
+            <strong>1434</strong> - bitva u Lipan. <strong>1436</strong> - jihlavská kompaktáta (konec revoluce).
+          </p>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" style="color: var(--accent-dark); text-decoration: none; font-weight: 600;">&larr; Zpět na dějepis</a>
+      </div>
+    </main>
+
+    <script>
+      async function loadData() {
+        try {
+          const response = await fetch('husitska-revoluce-questions.json');
+          if (!response.ok) throw new Error('Nepodařilo se načíst data');
+          const data = await response.json();
+
+          renderTimeline(data.casova_osa);
+          renderCheatSheet(data.terminologie);
+        } catch (error) {
+          console.error('Chyba při načítání dat:', error);
+          document.getElementById('timeline').innerHTML = '<p style="color:#dc2626">Nepodařilo se načíst data. Spusť lokální server: python3 -m http.server</p>';
+        }
+      }
+
+      function renderTimeline(events) {
+        const timeline = document.getElementById('timeline');
+        const sorted = [...events].sort((a, b) => a.rok - b.rok);
+
+        timeline.innerHTML = sorted.map(event => `
+          <div class="timeline-item">
+            <div class="timeline-date">${event.rok}</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <p>${event.udalost}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function renderCheatSheet(terms) {
+        const cheatSheet = document.getElementById('cheat-sheet');
+
+        const categories = [
+          { key: 'Jan_Hus_a_priciny', title: 'Jan Hus a příčiny', cls: 'hus' },
+          { key: 'Zacatek_revoluce', title: 'Začátek revoluce', cls: 'zacatek' },
+          { key: 'Rozdeleni_husitu', title: 'Rozdělení husitů', cls: 'rozdeleni' },
+          { key: 'Vojenstvi_a_bitvy', title: 'Vojenství a bitvy', cls: 'vojenstvi' },
+          { key: 'Konec_revoluce', title: 'Konec revoluce', cls: 'konec' },
+          { key: 'Dusledky_husitstvi', title: 'Důsledky husitství', cls: 'dusledky' }
+        ];
+
+        cheatSheet.innerHTML = categories.map(cat => {
+          if (!terms[cat.key]) return '';
+          return `
+            <div class="cheat-card ${cat.cls}">
+              <h4>${cat.title}</h4>
+              <ul>
+                ${terms[cat.key].map(item => `
+                  <li><strong>${item.pojem}:</strong> ${item.vysvetleni}</li>
+                `).join('')}
+              </ul>
+            </div>
+          `;
+        }).join('');
+      }
+
+      loadData();
+    </script>
+  </body>
+</html>
