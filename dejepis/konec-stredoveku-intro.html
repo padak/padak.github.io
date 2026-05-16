@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Příprava na test - Konec středověku a počátky novověku</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        --surface: #ffffff;
+        --surface-soft: #fef3c7;
+        --surface-strong: #fbbf24;
+        --ink: #1f2937;
+        --ink-soft: #4b5563;
+        --accent: #7c3aed;
+        --accent-dark: #5b21b6;
+        --teacher: #b45309;
+        --teacher-bg: #fef3c7;
+        --teacher-strong: #fbbf24;
+        --textbook: #6d28d9;
+        --textbook-bg: #ede9fe;
+        --textbook-strong: #c4b5fd;
+        --cat-mesta: #b45309;
+        --cat-plavby: #0891b2;
+        --cat-jagellonci: #be185d;
+        --cat-renesance: #7c3aed;
+        --cat-gotika: #4338ca;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #fef3c7 0%, #c4b5fd 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 2.5rem 0 2rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+        line-height: 1.2;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      header p {
+        margin: 0 auto 2rem;
+        max-width: 60ch;
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+
+      .quick-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .quick-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 2px solid var(--accent);
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+      }
+
+      .quick-links a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
+        background: var(--surface-soft);
+      }
+
+      section {
+        background: var(--surface);
+        border-radius: 20px;
+        padding: 2rem 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 20px 50px rgba(124, 58, 237, 0.12);
+        border: 1px solid rgba(124, 58, 237, 0.12);
+      }
+
+      section h2 {
+        margin: 0 0 1.5rem;
+        font-size: 1.6rem;
+        color: var(--accent-dark);
+        border-bottom: 3px solid var(--surface-strong);
+        padding-bottom: 0.75rem;
+      }
+
+      section h3 {
+        margin: 1.5rem 0 0.85rem;
+        font-size: 1.25rem;
+        color: var(--ink);
+      }
+
+      .source-banner {
+        display: inline-block;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 0.3rem 0.85rem;
+        border-radius: 999px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .source-banner.teacher {
+        background: var(--teacher);
+        color: #fff;
+      }
+
+      .source-banner.textbook {
+        background: var(--textbook);
+        color: #fff;
+      }
+
+      .legend {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        padding: 1rem 1.25rem;
+        background: var(--surface);
+        border-radius: 12px;
+        border: 1px solid rgba(124, 58, 237, 0.12);
+      }
+
+      .legend strong {
+        margin-right: 0.5rem;
+      }
+
+      .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .legend-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .legend-dot.teacher {
+        background: var(--teacher);
+      }
+
+      .legend-dot.textbook {
+        background: var(--textbook);
+      }
+
+      .timeline {
+        position: relative;
+        padding: 0 0 0 2.5rem;
+        margin: 0;
+        list-style: none;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 1.1rem;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--cat-mesta), var(--cat-plavby), var(--cat-jagellonci), var(--cat-renesance));
+        border-radius: 999px;
+      }
+
+      .timeline li {
+        position: relative;
+        margin-bottom: 1.5rem;
+        padding-left: 0.5rem;
+      }
+
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -1.6rem;
+        top: 0.45rem;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 3px solid #fff;
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+
+      .timeline .year {
+        font-weight: 700;
+        color: var(--accent-dark);
+        font-size: 1.05rem;
+        margin-right: 0.5rem;
+      }
+
+      .topic-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .topic-card {
+        background: var(--surface-soft);
+        border-radius: 14px;
+        padding: 1.5rem 1.75rem;
+        border-left: 5px solid var(--accent);
+      }
+
+      .topic-card.cat-mesta { border-left-color: var(--cat-mesta); }
+      .topic-card.cat-plavby { border-left-color: var(--cat-plavby); }
+      .topic-card.cat-jagellonci { border-left-color: var(--cat-jagellonci); }
+      .topic-card.cat-renesance {
+        border-left-color: var(--cat-renesance);
+        background: var(--textbook-bg);
+      }
+      .topic-card.cat-gotika {
+        border-left-color: var(--cat-gotika);
+        background: var(--textbook-bg);
+      }
+
+      .topic-card h3 {
+        margin: 0 0 0.85rem;
+        font-size: 1.15rem;
+      }
+
+      .topic-card ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .topic-card li {
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+      }
+
+      .topic-card .badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.15rem 0.55rem;
+        border-radius: 999px;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        background: var(--teacher);
+        color: #fff;
+      }
+
+      .topic-card.cat-renesance .badge,
+      .topic-card.cat-gotika .badge {
+        background: var(--textbook);
+      }
+
+      .terminology-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .term {
+        background: var(--surface-soft);
+        border-radius: 10px;
+        padding: 0.85rem 1.25rem;
+        border-left: 4px solid var(--accent);
+      }
+
+      .term.textbook-term {
+        background: var(--textbook-bg);
+        border-left-color: var(--textbook);
+      }
+
+      .term strong {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--accent-dark);
+        font-size: 0.98rem;
+      }
+
+      .term.textbook-term strong {
+        color: var(--textbook);
+      }
+
+      .term p {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--ink-soft);
+      }
+
+      .category-section {
+        margin-bottom: 2rem;
+      }
+
+      .category-section h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .category-section h3::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .category-section.cat-mesta h3::before { background: var(--cat-mesta); }
+      .category-section.cat-plavby h3::before { background: var(--cat-plavby); }
+      .category-section.cat-jagellonci h3::before { background: var(--cat-jagellonci); }
+      .category-section.cat-renesance h3::before { background: var(--cat-renesance); }
+      .category-section.cat-gotika h3::before { background: var(--cat-gotika); }
+
+      .key-points {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        border-radius: 14px;
+        padding: 1.5rem 1.75rem;
+        margin-top: 1rem;
+        border-left: 5px solid var(--surface-strong);
+      }
+
+      .key-points h4 {
+        margin: 0 0 0.85rem;
+        color: var(--teacher);
+        font-size: 1.05rem;
+      }
+
+      .key-points ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .key-points li {
+        margin-bottom: 0.4rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        section {
+          padding: 1.5rem 1.25rem;
+        }
+
+        .quick-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .quick-links a {
+          justify-content: center;
+        }
+
+        .timeline {
+          padding-left: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Příprava na test<br>Konec středověku a počátky novověku</h1>
+        <p>
+          Cheat sheet pro 7. třídu: časová osa, klíčové pojmy a stručné přehledy
+          podle podtémat. <strong>Žluté</strong> = povinné od učitelky,
+          <strong>fialové</strong> = bonus z učebnice.
+        </p>
+        <div class="quick-links">
+          <a href="konec-stredoveku-test-mobil.html">Spustit test</a>
+          <a href="konec-stredoveku-flashcards.html">Flash Cards</a>
+          <a href="index.html">Zpět na dějepis</a>
+        </div>
+      </header>
+
+      <div class="legend">
+        <span class="legend-item"><span class="legend-dot teacher"></span><strong>Učitelka</strong> Městská společnost · Objevné plavby · Jagellonci</span>
+        <span class="legend-item"><span class="legend-dot textbook"></span><strong>Učebnice (bonus)</strong> Humanismus a renesance · Pozdní gotika</span>
+      </div>
+
+      <section>
+        <h2>Časová osa</h2>
+        <p style="margin-top: -0.5rem; color: var(--ink-soft);">17 nejdůležitějších událostí v chronologickém pořadí.</p>
+        <ul class="timeline" id="timeline"></ul>
+      </section>
+
+      <section>
+        <h2>Přehled podle podtémat</h2>
+        <div class="topic-grid">
+          <div class="topic-card cat-mesta">
+            <span class="badge">Učitelka</span>
+            <h3>Městská společnost na konci středověku</h3>
+            <ul>
+              <li>Většina lidí na <strong>vesnicích</strong> (zemědělci) - ve městech menšina</li>
+              <li>3 vrstvy: <strong>patriciát</strong> (nejbohatší) → <strong>střední vrstva</strong> (řemeslníci, obchodníci 50-70%) → <strong>městská chudina</strong></li>
+              <li>V čele města: <strong>rychtář</strong> a <strong>purkmistr s 12 konšely</strong></li>
+              <li>Nejlidnatější česká města: <strong>Praha (~40 000)</strong>, <strong>Brno (~6 500)</strong> - vrchol za Karla IV.</li>
+              <li><strong>Cech</strong> = spolek řemeslníků jednoho oboru</li>
+              <li><strong>Milové právo</strong> = výhradní odbyt v okruhu 1 míle od města</li>
+              <li>Cesta řemeslníka: <strong>učeň</strong> (~3 roky, bez platu) → <strong>tovaryš</strong> (s platem) → <strong>mistr</strong> (po mistrovské zkoušce)</li>
+              <li><strong>Týdenní trh</strong> (každý týden) vs. <strong>výroční trh / jarmark</strong> (1× ročně, kupci z cizích zemí)</li>
+              <li>Menšiny: <strong>Židé</strong> v uzavřených ghettech (lichva, pronásledování), <strong>Romové</strong> (od 15. st., zpracování kovů)</li>
+            </ul>
+          </div>
+
+          <div class="topic-card cat-plavby">
+            <span class="badge">Učitelka</span>
+            <h3>Zámořské objevné plavby (15.-16. st.)</h3>
+            <ul>
+              <li><strong>Příčina</strong>: Osmané ovládli cesty do Asie po souši (vysoké clo, nebezpečí)</li>
+              <li>Poptávka: <strong>koření, hedvábí, drahé kovy</strong></li>
+              <li>Technika: <strong>karavely, kompas, astroláb, portolán</strong></li>
+              <li><strong>Bartolomeo Dias (1487)</strong> - Mys Dobré naděje (Portugalsko)</li>
+              <li><strong>Vasco da Gama (1497-98)</strong> - jako první kolem Afriky do Indie</li>
+              <li><strong>Kryštof Kolumbus (1492)</strong> - přistál na Bahamách, myslel že je v Indii → 'Indiáni'</li>
+              <li><strong>Amerigo Vespucci</strong> - poprvé pochopil 'Nový svět' (Amerika nese jeho jméno)</li>
+              <li><strong>Magalhães (1519-22)</strong> - první plavba kolem světa (Země je kulatá, Tichý oceán)</li>
+              <li><strong>Důsledky</strong>: kolonie, zánik <strong>Aztéků (Cortés, 1521)</strong> a <strong>Inků (Pizarro, 1533)</strong>, nové plodiny (brambory, kukuřice, rajčata, kakao, tabák), obchod s otroky z Afriky</li>
+            </ul>
+          </div>
+
+          <div class="topic-card cat-jagellonci">
+            <span class="badge">Učitelka</span>
+            <h3>Jagellonci na českém trůně (1471-1526)</h3>
+            <ul>
+              <li>Rod: <strong>polsko-litevský</strong></li>
+              <li><strong>Vladislav Jagellonský (1471-1516)</strong> - 'král Bene' (latinsky 'dobře, dobře')</li>
+              <li>Protikrál <strong>Matyáš Korvín</strong> (Morava, Slezsko, Lužice) - po jeho smrti 1490 získává i Uhry</li>
+              <li><strong>2. pražská defenestrace 1483</strong> - obnoven spor katolíci × kališníci</li>
+              <li><strong>Kutnohorský náboženský smír 1485</strong> - kališníci a katolíci rovnoprávní</li>
+              <li><strong>Vladislavské zřízení zemské (~1500)</strong> - šlechta zvýhodněna na úkor měst</li>
+              <li><strong>Svatováclavská smlouva 1517</strong> - kompromis mezi šlechtou a městy</li>
+              <li><strong>Ludvík Jagellonský (1516-26)</strong> - 'král Dítě'</li>
+              <li><strong>Bitva u Moháče 29. 8. 1526</strong> - prohra s Turky, Ludvík utonul v bažinách, na trůn nastupují <strong>Habsburkové</strong> (na 392 let)</li>
+              <li><strong>Jáchymov</strong> - těžba stříbra, ražba mincí (tolar → dolar)</li>
+            </ul>
+          </div>
+
+          <div class="topic-card cat-renesance">
+            <span class="badge">Učebnice (bonus)</span>
+            <h3>Humanismus a renesance</h3>
+            <ul>
+              <li><strong>Humanismus</strong> = myšlenkový směr zaměřený na člověka (latinsky homo = člověk, humanus = lidský)</li>
+              <li><strong>Renesance</strong> = znovuzrození antiky (z latinského renascentia)</li>
+              <li>Vznik v <strong>Itálii v 14. století</strong>, vrchol v 15.-16. st., postupné šíření po Evropě</li>
+              <li>Vzor: <strong>antické Řecko a Řím</strong></li>
+              <li>Stavby: <strong>půlkruhové oblouky, sloupy, arkády, vodorovné členění</strong>, sgrafita</li>
+              <li><strong>Leonardo da Vinci</strong> - Mona Lisa, Poslední večeře, vynálezce</li>
+              <li><strong>Sandro Botticelli</strong> - Zrození Venuše</li>
+              <li><strong>Michelangelo</strong> - David, Sixtinská kaple</li>
+              <li><strong>Erasmus Rotterdamský</strong> - holandský humanista, kritik nešvarů církve</li>
+            </ul>
+          </div>
+
+          <div class="topic-card cat-gotika">
+            <span class="badge">Učebnice (bonus)</span>
+            <h3>Pozdní (jagellonská) gotika</h3>
+            <ul>
+              <li>Závěrečná fáze gotiky 15.-16. st., postupně přechází v renesanci</li>
+              <li>V Čechách také <strong>vladislavská gotika</strong></li>
+              <li><strong>Benedikt Rejt</strong> (z Bavorska) - <strong>Vladislavský sál</strong> na Pražském hradě (~1500, jeden z největších klenutých sálů bez podpěr v Evropě)</li>
+              <li><strong>Matěj (Matyáš) Rejsek</strong> - dokončil <strong>Prašnou bránu</strong> v Praze (od 1478), podílel se na chrámu sv. Barbory</li>
+              <li><strong>Chrám sv. Barbory v Kutné Hoře</strong> - patronka horníků</li>
+              <li><strong>Madona</strong> = Panna Marie s malým Ježíškem</li>
+              <li><strong>Pieta</strong> = Panna Marie s mrtvým Kristem na klíně</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Důležité pojmy a osobnosti</h2>
+        <p style="margin-top: -0.5rem; color: var(--ink-soft);">Klíčový slovníček podle podtémat. Zelený lem = od učitelky, fialový lem = z učebnice.</p>
+        <div id="termsContainer"></div>
+      </section>
+
+      <section>
+        <h2>Co Tereza musí v testu zvládnout (3 hlavní okruhy)</h2>
+        <div class="key-points">
+          <h4>1. Středověké město - tři vrstvy, samospráva, řemesla</h4>
+          <ul>
+            <li>Patriciát × střední vrstva × chudina; rychtář + purkmistr + 12 konšelů</li>
+            <li>Cesta řemeslníka: učeň → tovaryš → mistr</li>
+            <li>Cech, milové právo, týdenní trh, jarmark</li>
+            <li>Židé (ghetto), Romové (od 15. st.)</li>
+          </ul>
+        </div>
+        <div class="key-points">
+          <h4>2. Objevné plavby - kdo, kdy, kam</h4>
+          <ul>
+            <li><strong>Dias 1487</strong> (Mys Dobré naděje) → <strong>Vasco da Gama 1497-98</strong> (Indie) → <strong>Kolumbus 1492</strong> (Amerika) → <strong>Magalhães 1519-22</strong> (kolem světa)</li>
+            <li>Příčina: Osmané ovládli cesty do Asie</li>
+            <li>Cortés × Aztékové, Pizarro × Inkové</li>
+            <li>Z Ameriky: brambory, kukuřice, rajčata, kakao, tabák</li>
+          </ul>
+        </div>
+        <div class="key-points">
+          <h4>3. Jagellonci - data a přezdívky</h4>
+          <ul>
+            <li><strong>Vladislav (1471-1516)</strong> = 'král Bene'</li>
+            <li><strong>Ludvík (1516-1526)</strong> = 'král Dítě'</li>
+            <li><strong>Bitva u Moháče 1526</strong> = konec Jagellonců, nástup <strong>Habsburků</strong></li>
+            <li>Vladislavské zřízení zemské (~1500), Svatováclavská smlouva 1517</li>
+            <li>Jáchymov = stříbro + tolar (později dolar)</li>
+          </ul>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" class="back-link">← Zpět na dějepis</a>
+      </div>
+    </main>
+
+    <script>
+      const CATEGORY_LABELS = {
+        'Mestska_spolecnost': { label: 'Městská společnost', cls: 'cat-mesta', source: 'ucitelka' },
+        'Objevne_plavby': { label: 'Zámořské objevné plavby', cls: 'cat-plavby', source: 'ucitelka' },
+        'Jagellonci': { label: 'Jagellonci na českém trůně', cls: 'cat-jagellonci', source: 'ucitelka' },
+        'Humanismus_a_renesance': { label: 'Humanismus a renesance', cls: 'cat-renesance', source: 'ucebnice' },
+        'Pozdni_gotika': { label: 'Pozdní gotika a jagellonská kultura', cls: 'cat-gotika', source: 'ucebnice' }
+      };
+
+      async function loadData() {
+        try {
+          const response = await fetch('konec-stredoveku-questions.json');
+          if (!response.ok) throw new Error('Failed to load data');
+          const data = await response.json();
+          renderTimeline(data.casova_osa);
+          renderTerminology(data.terminologie);
+        } catch (error) {
+          console.error(error);
+          document.getElementById('timeline').innerHTML =
+            '<li style="color:#dc2626;">Nepodařilo se načíst data. Spusť stránku přes lokální server (python3 -m http.server).</li>';
+        }
+      }
+
+      function renderTimeline(events) {
+        const ul = document.getElementById('timeline');
+        ul.innerHTML = events
+          .map(ev => `<li><span class="year">${ev.rok}</span>${ev.udalost}</li>`)
+          .join('');
+      }
+
+      function renderTerminology(terms) {
+        const container = document.getElementById('termsContainer');
+        container.innerHTML = '';
+
+        Object.keys(CATEGORY_LABELS).forEach(catKey => {
+          if (!terms[catKey]) return;
+          const cat = CATEGORY_LABELS[catKey];
+          const section = document.createElement('div');
+          section.className = 'category-section ' + cat.cls;
+          section.innerHTML = `
+            <h3>${cat.label}</h3>
+            <div class="terminology-grid">
+              ${terms[catKey].map(t => `
+                <div class="term ${cat.source === 'ucebnice' ? 'textbook-term' : ''}">
+                  <strong>${t.pojem}</strong>
+                  <p>${t.vysvetleni}</p>
+                </div>
+              `).join('')}
+            </div>
+          `;
+          container.appendChild(section);
+        });
+      }
+
+      loadData();
+    </script>
+  </body>
+</html>

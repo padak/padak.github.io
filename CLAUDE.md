@@ -47,6 +47,10 @@ This is an educational web application repository ("Terka – rodinná cvičení
     ├── husitska-revoluce-test-mobil.html # Mobile test (Husitská revoluce)
     ├── husitska-revoluce-flashcards.html # Flashcards (red/amber theme)
     ├── husitska-revoluce-intro.html    # Prep page with cheat sheet (Husitská revoluce)
+    ├── konec-stredoveku-questions.json # 50 questions — End of Middle Ages (35 teacher + 15 textbook)
+    ├── konec-stredoveku-test-mobil.html # Mobile test (Konec středověku) - filter by source
+    ├── konec-stredoveku-flashcards.html # Flashcards (gold/violet theme)
+    ├── konec-stredoveku-intro.html     # Prep page with cheat sheet (Konec středověku)
     └── img/                            # Scanned textbook images (JPEG)
 ```
 
@@ -60,6 +64,7 @@ This is an educational web application repository ("Terka – rodinná cvičení
   - `dejepis/posledni-premyslovci-questions.json`: Same structure — 1 theme, 50 questions
   - `dejepis/lucemburkove-questions.json`: Same structure — 6 themes, 50 questions
   - `dejepis/husitska-revoluce-questions.json`: Same structure — 6 themes, 50 questions
+  - `dejepis/konec-stredoveku-questions.json`: Same structure plus `zdroj_kategorie` per question — 5 sub-themes, 50 questions (35 from teacher's handouts + 15 from textbook bonus)
 
 ### HTML Applications
 All HTML files are **self-contained** with inline CSS and JavaScript, loading data from JSON files via fetch API.

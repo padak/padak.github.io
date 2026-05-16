@@ -1,0 +1,951 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": ["Konec středověku a počátky novověku"],
+  "zdroj_ucitelka": "3 stránky podkladů od učitelky - Městská společnost na konci středověku, Zámořské objevné plavby (15.-16. st.), Jagellonci na českém trůně (1471-1526)",
+  "zdroj_ucebnice": "Stránky 72, 85-86, 88-90, 94 z učebnice - rozšířený kontext: Humanismus a renesance, Pozdní (jagellonská) gotika",
+  "kategorie": {
+    "ucitelka": {
+      "popis": "Povinné téma od učitelky - 35 otázek",
+      "podtemata": [
+        "Městská společnost na konci středověku",
+        "Zámořské objevné plavby",
+        "Jagellonci na českém trůně"
+      ]
+    },
+    "ucebnice": {
+      "popis": "Rozšíření z učebnice (volitelné) - 15 otázek",
+      "podtemata": [
+        "Humanismus a renesance",
+        "Pozdní gotika a jagellonská kultura"
+      ]
+    }
+  },
+  "hlavni_osy_ucitelka": [
+    "Pozdně středověké město - tři vrstvy společnosti (patriciát, střední vrstva, chudina), nejlidnatější města Praha a Brno",
+    "Řemesla a obchod - cechy, milové právo, denní a výroční trhy (jarmarky), cesta učeň-tovaryš-mistr",
+    "Menšiny ve městech - Židé v ghettech (lichva, pronásledování), Romové od 15. st., německá menšina",
+    "Zámořské objevné plavby (15.-16. st.) - příčiny (Osmané ovládli cesty), technika (karavely, kompas, astroláb)",
+    "Portugalsko kolem Afriky - Bartolomeo Dias (1487, Mys Dobré naděje), Vasco da Gama (1497-98, Indie)",
+    "Španělsko přes Atlantik - Kryštof Kolumbus (1492, Amerika), Amerigo Vespucci (Nový svět), Fernão de Magalhães (1519-22, kolem světa)",
+    "Důsledky objevů - kolonie, zánik Aztéků (Cortés) a Inků (Pizarro), nové plodiny, obchod s otroky",
+    "Jagellonci 1471-1526 - polsko-litevský rod, Vladislav 'král Bene', Ludvík 'král Dítě', bitva u Moháče 1526",
+    "Vzestup šlechty na úkor krále i měst - 2. pražská defenestrace 1483, Kutnohorský smír 1485, Vladislavské zřízení zemské",
+    "Svatováclavská smlouva 1517 (smír šlechty a měst), těžba stříbra v Jáchymově (tolar → dolar)"
+  ],
+  "hlavni_osy_ucebnice": [
+    "Humanismus - myšlenkový směr (homo = lidský), zájem o člověka, jeho rozum a schopnosti, odklon od bohocentrismu",
+    "Renesance - umělecký sloh (znovuzrození antiky), Itálie 14.-15. st., půlkruhové oblouky, sloupy, arkády, vodorovné členění",
+    "Renesanční umělci - Leonardo da Vinci (Mona Lisa), Sandro Botticelli (Zrození Venuše), Erasmus Rotterdamský (humanista)",
+    "Pozdní (jagellonská) gotika - postupně přecházela v renesanci, dvojitá síťová klenba, krouhové ornamenty",
+    "Stavby pozdní gotiky - Benedikt Rejt (Vladislavský sál na Pražském hradě), Matěj Rejsek (Prašná brána v Praze), chrám sv. Barbory v Kutné Hoře"
+  ],
+  "terminologie": {
+    "Mestska_spolecnost": [
+      {"pojem": "Patriciát", "vysvetleni": "Nejmajetnější vrstva ve městě - bohatí obchodníci a majitelé řemeslnických dílen, drželi městskou samosprávu"},
+      {"pojem": "Rychtář", "vysvetleni": "Královský úředník v čele městské samosprávy, dohlížel na chod města"},
+      {"pojem": "Purkmistr", "vysvetleni": "Hlavní představitel městské rady, předsedal 12 konšelům"},
+      {"pojem": "Konšelé", "vysvetleni": "Členové městské rady (obvykle 12 v Čechách), spravovali město spolu s purkmistrem"},
+      {"pojem": "Střední vrstva", "vysvetleni": "Drobnější řemeslníci a obchodníci ve městě, přibližně 50-70 % obyvatel"},
+      {"pojem": "Městská chudina", "vysvetleni": "Žebráci, námezdní dělníci, tovaryši, učňové, majitelé malých živností - lidé bez vlastního domu nebo dílny"},
+      {"pojem": "Ghetto", "vysvetleni": "Uzavřená čtvrť, kde museli žít Židé - byli vystaveni pronásledování a omezením"},
+      {"pojem": "Cech", "vysvetleni": "Spolek řemeslníků jednoho oboru ve městě (řezníci, truhláři, punčocháři, ...) - reguloval výrobu, ceny i kvalitu"},
+      {"pojem": "Milové právo", "vysvetleni": "Výhradní právo města na odbyt řemeslných výrobků v okruhu jedné míle - chránilo městská řemesla před vesnickou konkurencí"},
+      {"pojem": "Týdenní trh", "vysvetleni": "Pravidelný trh ve městě každý týden - lidé z okolí prodávali výrobky a potraviny ('svíhavý trh' = sváteční odbyt)"},
+      {"pojem": "Výroční trh (jarmark)", "vysvetleni": "Velký trh konaný jednou ročně - sjížděli se na něj kupci z cizích zemí (látky, koření, šperky, voňavky, sůl)"},
+      {"pojem": "Mistr", "vysvetleni": "Majitel řemeslnické dílny, kupoval suroviny a prodával hotové výrobky, vedl tovaryše a učně"},
+      {"pojem": "Tovaryš", "vysvetleni": "Vyučený řemeslník pracující u mistra za plat, jeho cílem byla mistrovská zkouška, často putoval po městech"},
+      {"pojem": "Učeň", "vysvetleni": "Mladý chlapec (po dobu 3 let) v dílně mistra bez platu, učil se řemeslu - mistr mu poskytoval stravu a ubytování"},
+      {"pojem": "Hostinec", "vysvetleni": "Místo k jídlu, pití a ubytování (zejména pro cizí kupce) - centrum zábavy a obchodu"},
+      {"pojem": "Patriciát (město)", "vysvetleni": "Vrstva bohatých měšťanů ovládající město - rychtář, purkmistr a 12 konšelů byli většinou patricii"}
+    ],
+    "Objevne_plavby": [
+      {"pojem": "Osmanská říše", "vysvetleni": "Mocný turecký stát, který v 15. století ovládl cesty mezi Evropou a Asií (Konstantinopol 1453) - donutil Evropany hledat námořní cesty"},
+      {"pojem": "Karavela", "vysvetleni": "Plachetní loď s několika stěžni, schopná dlouhých oceánských plaveb - hlavní portugalský a španělský objevitelský typ lodi"},
+      {"pojem": "Kompas", "vysvetleni": "Přístroj ukazující směr severu - umožnil orientaci na otevřeném moři"},
+      {"pojem": "Astroláb", "vysvetleni": "Přístroj k určení zeměpisné šířky podle postavení slunce a hvězd"},
+      {"pojem": "Portolán", "vysvetleni": "Námořní mapa pobřeží se zakreslenými přístavy, mělčinami a směry plavby"},
+      {"pojem": "Bartolomeo Dias", "vysvetleni": "Portugalský mořeplavec, který roku 1487 jako první obeplul jižní cíp Afriky - Mys Dobré naděje"},
+      {"pojem": "Mys Dobré naděje", "vysvetleni": "Nejjižnější cíp Afriky - kolem něj poprvé proplul B. Dias, otevřel cestu kolem Afriky do Indie"},
+      {"pojem": "Vasco da Gama", "vysvetleni": "Portugalský mořeplavec, jako první obeplul Afriku a doplul do Indie (1497-1498)"},
+      {"pojem": "Kryštof Kolumbus", "vysvetleni": "Italský mořeplavec ve službách Španělska, roku 1492 chtěl doplout do Indie západní cestou, ale narazil na Ameriku (přistál na Bahamách)"},
+      {"pojem": "Indiáni", "vysvetleni": "Označení původních obyvatel Ameriky - Kolumbus si myslel, že přistál v Indii, název zůstal"},
+      {"pojem": "Amerigo Vespucci", "vysvetleni": "Italský mořeplavec, který jako první pochopil, že nově objevené země jsou nový kontinent - sám jej nazval 'Nový svět', Amerika nese jeho jméno"},
+      {"pojem": "Fernão de Magalhães", "vysvetleni": "Portugalský mořeplavec ve službách Španělska, vedl první plavbu kolem světa (1519-1522) - dokázal, že Země je kulatá, pojmenoval Tichý oceán"},
+      {"pojem": "Tichý oceán", "vysvetleni": "Oceán mezi Amerikou a Asií, pojmenovaný Magalhãesem podle klidné plavby"},
+      {"pojem": "Konkvistador", "vysvetleni": "Španělský dobyvatel Nového světa - útočili na vyspělé civilizace Aztéků a Inků a podrobovali si je"},
+      {"pojem": "Aztékové", "vysvetleni": "Vyspělá civilizace v dnešním Mexiku, kterou roku 1521 vyvrátil Hernán Cortés"},
+      {"pojem": "Inkové", "vysvetleni": "Vyspělá civilizace v dnešním Peru, kterou vyvrátil Francisco Pizarro"},
+      {"pojem": "Hernán Cortés", "vysvetleni": "Španělský konkvistador, který dobyl říši Aztéků v Mexiku"},
+      {"pojem": "Francisco Pizarro", "vysvetleni": "Španělský konkvistador, který dobyl říši Inků v Peru"},
+      {"pojem": "Kolonie", "vysvetleni": "Území podrobená evropskými státy v zámoří - využívaná pro nerostné suroviny, plodiny a obchod"},
+      {"pojem": "Leif Eriksson", "vysvetleni": "Viking, který kolem roku 1000 jako první Evropan dosáhl pobřeží Severní Ameriky (asi 500 let před Kolumbem)"}
+    ],
+    "Jagellonci": [
+      {"pojem": "Jagellonci", "vysvetleni": "Polsko-litevský královský rod, na českém trůně 1471-1526 (Vladislav a Ludvík)"},
+      {"pojem": "Vladislav Jagellonský", "vysvetleni": "Český král 1471-1516, polský princ, zvolen po smrti Jiřího z Poděbrad - 'král Bene' (král Dobře)"},
+      {"pojem": "Král Bene", "vysvetleni": "Přezdívka Vladislava Jagellonského - ke všemu říkal 'dobře, dobře' (latinsky bene = dobře), což odkazuje na slabou královskou moc"},
+      {"pojem": "Matyáš Korvín", "vysvetleni": "Uherský král, protikrál proti Vladislavovi - ovládal Moravu, Slezsko a Lužici. Po jeho smrti roku 1490 získal Vladislav i uherskou korunu"},
+      {"pojem": "Druhá pražská defenestrace", "vysvetleni": "Rok 1483 - vyhození novoměstských konšelů z radnice po obnovení sporu mezi katolíky a kališníky"},
+      {"pojem": "Kutnohorský náboženský smír", "vysvetleni": "Smír z roku 1485 mezi katolíky a kališníky - oba směry uznány jako rovnoprávné, mír i pro poddané"},
+      {"pojem": "Vladislavské zřízení zemské", "vysvetleni": "Zákoník (kolem 1500), který zvýhodnil šlechtu na úkor krále i měst - města neměla právo hlasovat na sněmu"},
+      {"pojem": "Svatováclavská smlouva", "vysvetleni": "Dohoda z roku 1517, která urovnala dlouholeté spory mezi šlechtou a královskými městy"},
+      {"pojem": "Ludvík Jagellonský", "vysvetleni": "Syn Vladislava, český a uherský král 1516-1526, korunován ve 3 letech - 'král Dítě'. Padl v bitvě u Moháče"},
+      {"pojem": "Král Dítě", "vysvetleni": "Přezdívka Ludvíka Jagellonského - dostal trůn jako malé dítě, vládl ne celé 3 roky sám"},
+      {"pojem": "Bitva u Moháče", "vysvetleni": "29. srpna 1526 - bitva v Uhrách (dnešním Maďarsku), kde uherské vojsko Ludvíka prohrálo s Turky a Ludvík utonul v bažinách na útěku. Začátek vlády Habsburků v Čechách a Uhrách"},
+      {"pojem": "Habsburkové", "vysvetleni": "Královský rod, který po smrti Ludvíka Jagellonského (1526) nastoupil na český a uherský trůn - na 392 let v Čechách"},
+      {"pojem": "Jáchymov", "vysvetleni": "Město v Krušných horách s bohatými ložisky stříbra - razily se zde 'jáchymovské tolary', odkud pochází slovo 'dolar'"},
+      {"pojem": "Personální unie", "vysvetleni": "Spojení dvou (nebo více) států pod jedním panovníkem - za Jagellonců tvořily Čechy, Uhry a Polsko personální unii"},
+      {"pojem": "Stavy", "vysvetleni": "Vrstvy obyvatel se zvláštními právy - panský, rytířský, městský. Za Jagellonců dominovali pánové a rytíři (šlechta)"}
+    ],
+    "Humanismus_a_renesance": [
+      {"pojem": "Humanismus", "vysvetleni": "Myšlenkový směr od 14. století - zájem o člověka (latinsky homo = člověk, humanus = lidský), o jeho rozum a schopnosti, odklon od bohocentrismu středověku"},
+      {"pojem": "Renesance", "vysvetleni": "Umělecký sloh 14.-16. století, vznikl v Itálii (od latinského renascentia = znovuzrození) - vrátil se k antickým vzorům Řecka a Říma"},
+      {"pojem": "Antika", "vysvetleni": "Období starověkého Řecka a Říma - vzor pro renesanční umělce a myslitele"},
+      {"pojem": "Erasmus Rotterdamský", "vysvetleni": "Holandský humanista (1466-1536), kritik nepořádků v církvi - vyzval k návratu k bibli a poctivému křesťanství"},
+      {"pojem": "Leonardo da Vinci", "vysvetleni": "Italský renesanční malíř, sochař, vynálezce a vědec - autor obrazu Mona Lisa a Poslední večeře"},
+      {"pojem": "Mona Lisa", "vysvetleni": "Slavný obraz Leonarda da Vinci - portrét ženy s tajemným úsměvem, dnes v Louvru v Paříži"},
+      {"pojem": "Sandro Botticelli", "vysvetleni": "Italský renesanční malíř, autor obrazu Zrození Venuše"},
+      {"pojem": "Zrození Venuše", "vysvetleni": "Slavný obraz Sandra Botticelliho - renesanční vyobrazení antické bohyně lásky vystupující z mušle"},
+      {"pojem": "Michelangelo Buonarroti", "vysvetleni": "Italský renesanční sochař a malíř - sochař Davida, autor stropní výmalby Sixtinské kaple"},
+      {"pojem": "Rafael Santi", "vysvetleni": "Italský renesanční malíř - autor freskek ve Vatikánu (Athénská škola)"},
+      {"pojem": "Arkáda", "vysvetleni": "Řada půlkruhových oblouků nesených sloupy - typický prvek renesančních staveb (nádvoří zámků, paláce)"},
+      {"pojem": "Sgrafito", "vysvetleni": "Renesanční výzdoba zdí (škrábaná malba) - vrstvy omítky se odškrabávaly, čímž vznikaly vzory"}
+    ],
+    "Pozdni_gotika": [
+      {"pojem": "Pozdní gotika", "vysvetleni": "Závěrečná fáze gotického slohu v 15.-16. století, v Čechách zvaná také 'jagellonská gotika' - postupně přecházela v renesanci"},
+      {"pojem": "Vladislavská gotika", "vysvetleni": "Jiný název pro pozdní gotiku v Čechách (období vlády Vladislava Jagellonského) - dvojitě prolínané žebrové klenby"},
+      {"pojem": "Benedikt Rejt", "vysvetleni": "Architekt z Bavorska, hlavní stavitel Vladislava Jagellonského - postavil Vladislavský sál na Pražském hradě"},
+      {"pojem": "Vladislavský sál", "vysvetleni": "Reprezentační sál Pražského hradu (postavený kolem roku 1500), největší klenutý sál bez podpěr v tehdejší Evropě - konaly se tam i rytířské turnaje"},
+      {"pojem": "Matěj (Matyáš) Rejsek", "vysvetleni": "Český architekt pozdní gotiky - stavitel Prašné brány v Praze, pokračoval ve stavbě chrámu sv. Barbory v Kutné Hoře"},
+      {"pojem": "Prašná brána", "vysvetleni": "Pozdně gotická brána v Praze postavená Matějem Rejskem - jedna z původních městských bran"},
+      {"pojem": "Chrám sv. Barbory v Kutné Hoře", "vysvetleni": "Nejvýznamnější stavba pozdní gotiky v Čechách - chrám hornického města zasvěcený patronce horníků"},
+      {"pojem": "Madona", "vysvetleni": "Vyobrazení Panny Marie s malým Ježíškem (z italského 'madonna' = paní) - oblíbený gotický motiv"},
+      {"pojem": "Pieta", "vysvetleni": "Vyobrazení Panny Marie s mrtvým Kristem na klíně po sejmutí z kříže (italsky pieta = soucit) - gotický motiv smutku"},
+      {"pojem": "Mistr Theodorik", "vysvetleni": "Český gotický malíř doby Karla IV. (14. st.) - autor deskových obrazů ve Svatováclavské kapli a kapli sv. Kříže na Karlštejně"},
+      {"pojem": "Petr Parléř", "vysvetleni": "Architekt a sochař z Německa, hlavní stavitel Karla IV. - katedrála sv. Víta, Karlův most, busta v triforiu sv. Víta (jeho syn pokračoval v jagellonské době)"},
+      {"pojem": "Mistr litoměřického oltáře", "vysvetleni": "Anonymní český malíř pozdní gotiky (kolem roku 1500), pojmenovaný podle své nejznámější práce - oltáře v Litoměřicích"}
+    ]
+  },
+  "casova_osa": [
+    {"rok": 1453, "udalost": "Osmané dobývají Konstantinopol - cesty do Asie po souši se stávají nebezpečnými, Evropané hledají námořní cesty."},
+    {"rok": 1471, "udalost": "Vladislav Jagellonský nastoupil na český trůn po smrti Jiřího z Poděbrad."},
+    {"rok": 1483, "udalost": "Druhá pražská defenestrace - obnoven spor mezi katolíky a kališníky."},
+    {"rok": 1485, "udalost": "Kutnohorský náboženský smír - kališníci a katolíci uznáni jako rovnoprávní."},
+    {"rok": 1487, "udalost": "Bartolomeo Dias jako první obeplul jižní cíp Afriky - Mys Dobré naděje."},
+    {"rok": 1490, "udalost": "Smrt Matyáše Korvína - Vladislav získává uherskou korunu, vzniká personální unie Čech, Uher a později Polska."},
+    {"rok": 1492, "udalost": "Kryštof Kolumbus přistál na Bahamách - 'objev' Ameriky (do smrti si myslel, že je v Indii)."},
+    {"rok": 1497, "udalost": "Vasco da Gama vyplul z Portugalska - jako první obeplul Afriku a dorazil do Indie (1498)."},
+    {"rok": 1500, "udalost": "Vladislavské zřízení zemské - zákoník zvýhodňuje šlechtu, města ztrácejí vliv."},
+    {"rok": 1500, "udalost": "Dokončen Vladislavský sál na Pražském hradě (Benedikt Rejt)."},
+    {"rok": 1516, "udalost": "Smrt Vladislava Jagellonského - na trůn nastupuje desetiletý syn Ludvík ('král Dítě')."},
+    {"rok": 1517, "udalost": "Svatováclavská smlouva - urovnání sporu mezi šlechtou a královskými městy."},
+    {"rok": 1519, "udalost": "Fernão de Magalhães vyplul ze Španělska - začíná první plavba kolem světa."},
+    {"rok": 1521, "udalost": "Hernán Cortés dobývá říši Aztéků v Mexiku."},
+    {"rok": 1522, "udalost": "Návrat zbylé Magalhãesovy výpravy do Španělska - poprvé v dějinách obeplula svět, prokázáno, že Země je kulatá."},
+    {"rok": 1526, "udalost": "29. srpna - bitva u Moháče: Ludvík Jagellonský poražen Turky a utonul v bažinách. Na český a uherský trůn nastupují Habsburkové."},
+    {"rok": 1533, "udalost": "Francisco Pizarro vyvrací říši Inků v Peru."}
+  ],
+  "otazky": [
+    {
+      "id": "KS1",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kde žila většina obyvatel na konci středověku?",
+      "spravna_odpoved": "Na vesnicích jako zemědělci",
+      "spatne_odpovedi": ["Ve městech jako řemeslníci", "Na hradech jako vojáci", "V klášterech jako mniši"],
+      "oduvodneni": "V průběhu vrcholného a pozdního středověku se život prostých vesničanů téměř neměnil - většina obyvatel byli zemědělci na venkově.",
+      "proc_spatne": {
+        "Ve městech jako řemeslníci": "Řemeslníků bylo v poměru k zemědělcům málo - i v největších městech (Praha, Brno) žila jen menšina lidí.",
+        "Na hradech jako vojáci": "Hrady obývala jen úzká vrstva šlechty s družinou - rozhodně ne většina obyvatel.",
+        "V klášterech jako mniši": "Kláštery byly jen pro mnichy/jeptišky - v žádné době nebyly většinou obyvatel."
+      }
+    },
+    {
+      "id": "KS2",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývala nejmajetnější vrstva ve středověkém městě?",
+      "spravna_odpoved": "Patriciát",
+      "spatne_odpovedi": ["Šlechta", "Mistři", "Žebráci"],
+      "oduvodneni": "Patriciát tvořili nejbohatší obchodníci a majitelé řemeslnických dílen - ovládali městskou samosprávu (rychtář, městská rada, purkmistr s konšely).",
+      "proc_spatne": {
+        "Šlechta": "Šlechta byla samostatný stav, žila především na hradech a panstvích, ne ve městech.",
+        "Mistři": "Řemeslničtí mistři byli často součástí střední vrstvy - patriciát byl ještě bohatší a vlivnější.",
+        "Žebráci": "Žebráci patřili k městské chudině - úplnému opaku patriciátu."
+      }
+    },
+    {
+      "id": "KS3",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo stál v čele středověkého městského úřadu?",
+      "spravna_odpoved": "Rychtář a purkmistr s 12 konšely",
+      "spatne_odpovedi": ["Král se svými vojáky", "Biskup s knězi", "Mistr cechu se 4 tovaryši"],
+      "oduvodneni": "Městská samospráva fungovala v čele s rychtářem (jmenovaným králem) a purkmistrem s 12 konšely (městská rada).",
+      "proc_spatne": {
+        "Král se svými vojáky": "Král byl panovníkem celé země, ne hlavou jednotlivého města - chod města řídila místní samospráva.",
+        "Biskup s knězi": "Biskup spravoval církevní záležitosti, ne světskou správu města (s výjimkou několika biskupských měst).",
+        "Mistr cechu se 4 tovaryši": "Cech řídil jen svůj obor řemesla - ne celé město. A v cechu nebylo jen 4 tovaryše."
+      }
+    },
+    {
+      "id": "KS4",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Které bylo nejlidnatější město v Čechách na konci středověku?",
+      "spravna_odpoved": "Praha (kolem 40 000 obyvatel)",
+      "spatne_odpovedi": ["Brno", "Plzeň", "Kutná Hora"],
+      "oduvodneni": "Praha byla v Čechách jednoznačně největším městem - nejvyšší počet obyvatel měla na konci vlády Karla IV. (zhruba 40 000), pak ji oslabily husitské války.",
+      "proc_spatne": {
+        "Brno": "Brno bylo druhé největší (kolem 6 500 obyvatel), ale výrazně menší než Praha.",
+        "Plzeň": "Plzeň byla významným městem, ale počtem obyvatel zaostávala za Prahou i Brnem.",
+        "Kutná Hora": "Kutná Hora byla bohaté hornické město kvůli stříbru, ale ne tak velká jako Praha."
+      }
+    },
+    {
+      "id": "KS5",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co bylo 'milové právo' středověkého města?",
+      "spravna_odpoved": "Výhradní právo města na odbyt řemeslných výrobků v okruhu jedné míle",
+      "spatne_odpovedi": ["Povinnost zaplatit poplatek za každou míli cesty", "Privilegium měřit pole kolem města", "Právo cestovat zdarma na jednu míli"],
+      "oduvodneni": "Milové právo chránilo městská řemesla - v okruhu jedné míle od města se nesměl provozovat konkurenční řemeslný odbyt mimo město.",
+      "proc_spatne": {
+        "Povinnost zaplatit poplatek za každou míli cesty": "Toto nikdy nebylo - cestovní poplatky se vybíraly za přechody mostů a bran, ne za vzdálenost.",
+        "Privilegium měřit pole kolem města": "Měření polí mělo jiná pravidla - milové právo se týkalo obchodu a řemesel.",
+        "Právo cestovat zdarma na jednu míli": "Cestování nesouviselo s milovým právem - šlo o ekonomickou ochranu městských řemesel."
+      }
+    },
+    {
+      "id": "KS6",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co byl středověký cech?",
+      "spravna_odpoved": "Spolek řemeslníků jednoho oboru ve městě",
+      "spatne_odpovedi": ["Skupina kupců cestujících po světě", "Vojenská družina krále", "Náboženské bratrstvo mnichů"],
+      "oduvodneni": "Cech byl spolek řemeslníků stejného oboru (řezníci, truhláři, punčocháři, ...) - reguloval výrobu, ceny, kvalitu a obhajoval zájmy řemesla.",
+      "proc_spatne": {
+        "Skupina kupců cestujících po světě": "Kupci nebyli organizováni v cechu - cechy sdružovaly řemeslníky, ne obchodníky.",
+        "Vojenská družina krále": "Vojenské družiny patřily šlechtě a králi - s řemeslem to nemělo nic společného.",
+        "Náboženské bratrstvo mnichů": "Cech byl světský spolek - i když mohl mít patrona-svatého, nešlo o klášterní bratrstvo."
+      }
+    },
+    {
+      "id": "KS7",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co bylo 'ghetto' ve středověkém městě?",
+      "spravna_odpoved": "Uzavřená čtvrť, kde museli žít Židé",
+      "spatne_odpovedi": ["Tržiště s hedvábím z Východu", "Část města vyhrazená pro chudinu", "Vězení pro kacíře"],
+      "oduvodneni": "Ghetto byla uzavřená židovská čtvrť - Židé v ní byli povinni žít, byli vystaveni pronásledování a omezením (nesměli vlastnit půdu ani provozovat řemesla).",
+      "proc_spatne": {
+        "Tržiště s hedvábím z Východu": "Trhy se konaly na náměstí - ghetto byla obytná čtvrť, ne tržiště.",
+        "Část města vyhrazená pro chudinu": "Chudina žila roztroušeně po městě - ghetto bylo specificky pro Židy.",
+        "Vězení pro kacíře": "Kacíři byli obvykle vězněni v městských věznicích nebo souzeni církví, ne v ghettu."
+      }
+    },
+    {
+      "id": "KS8",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakou cestou prošel řemeslník, než se stal mistrem?",
+      "spravna_odpoved": "Učeň → tovaryš → mistr (po složení mistrovské zkoušky)",
+      "spatne_odpovedi": ["Tovaryš → učeň → mistr", "Pouze učeň → mistr", "Vstoupil přímo jako mistr po zaplacení"],
+      "oduvodneni": "Nejprve byl chlapec učněm (asi 3 roky bez platu), pak tovaryšem u mistra (s platem, bez tělesných trestů), nakonec mohl složit mistrovskou zkoušku a stát se samostatným mistrem.",
+      "proc_spatne": {
+        "Tovaryš → učeň → mistr": "Pořadí je obrácené - nejprve musel být nejnižším učněm, pak tovaryšem.",
+        "Pouze učeň → mistr": "Mezi učněm a mistrem byla povinná tovaryšská práce a 'putování' za zkušenostmi.",
+        "Vstoupil přímo jako mistr po zaplacení": "Mistrovství se neprodávalo - musela se složit mistrovská zkouška."
+      }
+    },
+    {
+      "id": "KS9",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdy do Čech přišli Romové?",
+      "spravna_odpoved": "Od 15. století (zejména zpracovatelé kovů)",
+      "spatne_odpovedi": ["Už za vlády Karla IV. ve 14. století", "Až v 18. století", "Romové žili v Čechách už od raného středověku"],
+      "oduvodneni": "Romové (Cikáni) přicházeli do Evropy a do Čech v 15. století, zejména jako zpracovatelé kovů - cechy je mezi sebe nepouštěly, museli žít na okraji společnosti.",
+      "proc_spatne": {
+        "Už za vlády Karla IV. ve 14. století": "Ve 14. století ještě Romové do Čech nepronikli - přišli až v 15. století.",
+        "Až v 18. století": "Bylo to mnohem dříve - od 15. století byli Romové v českých zemích doloženi.",
+        "Romové žili v Čechách už od raného středověku": "Romové do Evropy přišli z Indie postupně - do Čech dorazili až v pozdním středověku (15. st.)."
+      }
+    },
+    {
+      "id": "KS10",
+      "tema": "Městská společnost na konci středověku",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co se konalo na výročním trhu (jarmarku) ve středověkém městě?",
+      "spravna_odpoved": "Velký trh konaný jednou ročně - sjížděli se kupci z cizích zemí s látkami, kořením, šperky a solí",
+      "spatne_odpovedi": ["Vyhlášení nového rychtáře", "Slavnost svatého patrona města", "Vojenská přehlídka před králem"],
+      "oduvodneni": "Výroční trh (jarmark) byl velký každoroční obchodní svátek - město na něj získávalo zboží od kupců z dalekých zemí (látky, koření, šperky, voňavky, sůl).",
+      "proc_spatne": {
+        "Vyhlášení nového rychtáře": "Rychtář byl jmenován panovníkem, ne vyhlašován na jarmarku.",
+        "Slavnost svatého patrona města": "Patronské slavnosti byly církevní svátky - jarmark byl primárně obchodní událost.",
+        "Vojenská přehlídka před králem": "Přehlídky nebyly typickou součástí pozdně středověkého městského života - jarmark byl obchodem."
+      }
+    },
+    {
+      "id": "KS11",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Proč Evropané začali hledat námořní cesty do Asie?",
+      "spravna_odpoved": "Suchozemské cesty ovládli Osmané (vysoké clo, nebezpečí)",
+      "spatne_odpovedi": ["Suchozemské cesty zmrzly kvůli ochlazení", "Karavany byly příliš pomalé pro převoz koření", "Vikingové už cesty zničili při svých výpravách"],
+      "oduvodneni": "Tradiční obchodní cesty mezi Evropou a Asií ovládla Osmanská říše (Turci) - vybírala vysoké clo a cesty byly nebezpečné. Evropané hledali alternativní cesty po moři.",
+      "proc_spatne": {
+        "Suchozemské cesty zmrzly kvůli ochlazení": "Klima cesty neuzavřelo - problém byl politický (osmanský vliv), ne klimatický.",
+        "Karavany byly příliš pomalé pro převoz koření": "Rychlost nebyla hlavní problém - rozhodující byly vysoké poplatky Osmanů a nebezpečí přepadení.",
+        "Vikingové už cesty zničili při svých výpravách": "Vikingové cestovali přes severní Evropu (k Americe kolem r. 1000) - s cestami do Asie a Osmany nesouviseli."
+      }
+    },
+    {
+      "id": "KS12",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Které dva státy vedly v 15.-16. století objevné plavby?",
+      "spravna_odpoved": "Portugalsko a Španělsko",
+      "spatne_odpovedi": ["Francie a Anglie", "Itálie a Holandsko", "Německo a Belgie"],
+      "oduvodneni": "Portugalsko směřovalo na východ kolem Afriky, Španělsko na západ přes Atlantik - oba státy se staly průkopníky zámořských objevů.",
+      "proc_spatne": {
+        "Francie a Anglie": "Francie a Anglie se k zámořským plavbám připojily až později (v 16.-17. století).",
+        "Itálie a Holandsko": "Itálie sice dodávala mořeplavce (Kolumbus, Vespucci), ale plavby financovali Španělé. Holandsko se zapojilo později.",
+        "Německo a Belgie": "Tyto země zámořské plavby neorganizovaly v této době."
+      }
+    },
+    {
+      "id": "KS13",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývá nejjižnější cíp Afriky, kolem kterého poprvé proplul Bartolomeo Dias?",
+      "spravna_odpoved": "Mys Dobré naděje",
+      "spatne_odpovedi": ["Mys Horn", "Mys Verde", "Mys Trafalgar"],
+      "oduvodneni": "Bartolomeo Dias roku 1487 obeplul jižní cíp Afriky - kvůli silným bouřím ho nejprve nazval 'mys Bouří', portugalský král mu pak změnil jméno na povzbudivější Mys Dobré naděje.",
+      "proc_spatne": {
+        "Mys Horn": "Mys Horn je nejjižnější cíp Jižní Ameriky, ne Afriky.",
+        "Mys Verde": "Mys Verde (Zelený mys) je nejzápadnější výběžek Afriky, ne nejjižnější.",
+        "Mys Trafalgar": "Mys Trafalgar leží na jihu Španělska - známý je bitvou Nelson vs. Napoleon 1805, ne objevnými plavbami."
+      }
+    },
+    {
+      "id": "KS14",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo jako první obeplul Afriku a doplul do Indie?",
+      "spravna_odpoved": "Vasco da Gama (1497-1498)",
+      "spatne_odpovedi": ["Bartolomeo Dias", "Kryštof Kolumbus", "Fernão de Magalhães"],
+      "oduvodneni": "Portugalec Vasco da Gama vyplul 1497, obeplul Mys Dobré naděje a 1498 přistál v Indii - poprvé tak Evropan doplul do Indie po moři.",
+      "proc_spatne": {
+        "Bartolomeo Dias": "Dias jen obeplul Mys Dobré naděje (1487), do Indie ale nedoplul.",
+        "Kryštof Kolumbus": "Kolumbus plul západní cestou a omylem objevil Ameriku - do skutečné Indie nikdy nedoplul.",
+        "Fernão de Magalhães": "Magalhães plul kolem světa (1519-22), do Indie doplul přes Tichý oceán, ne jako první kolem Afriky."
+      }
+    },
+    {
+      "id": "KS15",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo přistál v Americe roku 1492?",
+      "spravna_odpoved": "Kryštof Kolumbus",
+      "spatne_odpovedi": ["Vasco da Gama", "Amerigo Vespucci", "Fernão de Magalhães"],
+      "oduvodneni": "Italský mořeplavec Kryštof Kolumbus ve službách Španělska v říjnu 1492 přistál na Bahamách - mylně si do smrti myslel, že je v Indii.",
+      "proc_spatne": {
+        "Vasco da Gama": "Vasco da Gama doplul roku 1498 do Indie, ne do Ameriky.",
+        "Amerigo Vespucci": "Vespucci připlul do Ameriky až po Kolumbovi - byl ale první, kdo pochopil, že je to nový kontinent.",
+        "Fernão de Magalhães": "Magalhães se vydal na cestu kolem světa až o 27 let později (1519)."
+      }
+    },
+    {
+      "id": "KS16",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč Kolumbus nazval původní obyvatele Ameriky 'Indiány'?",
+      "spravna_odpoved": "Až do smrti si myslel, že přistál v Indii (Asii)",
+      "spatne_odpovedi": ["Pocházeli z města India v Americe", "Měli stejnou kůži jako lidé z Indie", "Bůh nebo modla 'India' byla jejich uctívanou postavou"],
+      "oduvodneni": "Kolumbus hledal západní cestu do Indie a celý život věřil, že tam doplul - proto pojmenoval místní obyvatele Indiány. Jméno už zůstalo, i když se ukázalo, že šlo o jiný kontinent.",
+      "proc_spatne": {
+        "Pocházeli z města India v Americe": "Takové město neexistovalo - šlo o jméno odvozené od Indie v Asii.",
+        "Měli stejnou kůži jako lidé z Indie": "Nejde o barvu kůže, ale o Kolumbův omyl o tom, kde přistál.",
+        "Bůh nebo modla 'India' byla jejich uctívanou postavou": "Nic takového u domorodých Američanů neexistovalo - jde o evropský omyl."
+      }
+    },
+    {
+      "id": "KS17",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo jako první pochopil, že Kolumbus objevil nový kontinent?",
+      "spravna_odpoved": "Amerigo Vespucci - Amerika nese jeho jméno",
+      "spatne_odpovedi": ["Kryštof Kolumbus", "Vasco da Gama", "Fernão de Magalhães"],
+      "oduvodneni": "Italský mořeplavec Amerigo Vespucci uskutečnil v letech 1499-1502 plavby k Jižní Americe a jako první rozpoznal, že nejde o Indii, ale o 'Nový svět'. Na jeho počest se kontinent jmenuje Amerika.",
+      "proc_spatne": {
+        "Kryštof Kolumbus": "Kolumbus si až do smrti myslel, že přistál v Indii.",
+        "Vasco da Gama": "Vasco da Gama plul kolem Afriky do skutečné Indie - s americkým kontinentem neměl co dělat.",
+        "Fernão de Magalhães": "Magalhães plul kolem světa až po Vespuccim - to už se vědělo, že Amerika je samostatný kontinent."
+      }
+    },
+    {
+      "id": "KS18",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Pod čím vedením vyplula roku 1519 první výprava, která obeplula svět?",
+      "spravna_odpoved": "Fernão de Magalhães",
+      "spatne_odpovedi": ["Bartolomeo Dias", "Kryštof Kolumbus", "Vasco da Gama"],
+      "oduvodneni": "Portugalec Magalhães ve službách Španělska vedl výpravu, která 1519 vyplula z Pyrenejského poloostrova. Sám Magalhães padl 1521 na Filipínách - plavbu pak dokončil jeho kapitán Juan Sebastián Elcano (návrat 1522).",
+      "proc_spatne": {
+        "Bartolomeo Dias": "Dias jen obeplul Mys Dobré naděje (1487-88) - kolem světa neplul.",
+        "Kryštof Kolumbus": "Kolumbus jen přeplul Atlantik k Americe a zpět - nikdy nepokračoval dál na západ.",
+        "Vasco da Gama": "Vasco da Gama doplul do Indie kolem Afriky a vrátil se stejnou cestou - svět neobjel."
+      }
+    },
+    {
+      "id": "KS19",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co Magalhãesova plavba prakticky prokázala?",
+      "spravna_odpoved": "Že je možné obeplout Zemi - potvrdila její kulatost a skutečné rozměry oceánů",
+      "spatne_odpovedi": ["Že Země je plochá", "Že existuje severozápadní průplav", "Že Země má jen dva kontinenty"],
+      "oduvodneni": "První plavba kolem světa (1519-1522) prakticky potvrdila, že Země je kulatá (vzdělaní Evropané to tušili už dříve) - bylo možné plout stále jedním směrem a vrátit se na výchozí místo. Magalhães také pojmenoval Tichý oceán.",
+      "proc_spatne": {
+        "Že Země je plochá": "Naopak - plavba vyvrátila představy, že by Země mohla být plochá.",
+        "Že existuje severozápadní průplav": "Severozápadní průplav (kolem Severní Ameriky) byl objevován mnohem později a Magalhães plul jižně.",
+        "Že Země má jen dva kontinenty": "Kontinentů je samozřejmě více - Magalhães prokázal hlavně kulatost a velikost Země."
+      }
+    },
+    {
+      "id": "KS20",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo zničil říši Aztéků v dnešním Mexiku?",
+      "spravna_odpoved": "Hernán Cortés",
+      "spatne_odpovedi": ["Francisco Pizarro", "Kryštof Kolumbus", "Vasco da Gama"],
+      "oduvodneni": "Španělský konkvistador Hernán Cortés dobyl roku 1521 hlavní město Aztéků Tenochtitlán - tím se rozpadla aztécká říše a Mexiko se stalo španělskou kolonií.",
+      "proc_spatne": {
+        "Francisco Pizarro": "Pizarro zničil říši Inků (v dnešním Peru), ne Aztéky.",
+        "Kryštof Kolumbus": "Kolumbus do Mexika nedoplul - prozkoumal jen ostrovy Karibiku.",
+        "Vasco da Gama": "Vasco da Gama plul kolem Afriky do Indie - s Amerikou neměl nic společného."
+      }
+    },
+    {
+      "id": "KS21",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo zničil říši Inků v dnešním Peru?",
+      "spravna_odpoved": "Francisco Pizarro",
+      "spatne_odpovedi": ["Hernán Cortés", "Fernão de Magalhães", "Amerigo Vespucci"],
+      "oduvodneni": "Španělský konkvistador Francisco Pizarro ve 30. letech 16. století dobyl říši Inků v Peru - hlavní město Cuzco padlo roku 1533.",
+      "proc_spatne": {
+        "Hernán Cortés": "Cortés zničil Aztéky v Mexiku, ne Inky v Peru.",
+        "Fernão de Magalhães": "Magalhães se vydal na cestu kolem světa - s dobýváním Ameriky neměl co dělat.",
+        "Amerigo Vespucci": "Vespucci jen zkoumal pobřeží Jižní Ameriky - sám žádné indiánské říše nevyvrátil."
+      }
+    },
+    {
+      "id": "KS22",
+      "tema": "Zámořské objevné plavby",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kterou novou plodinu Evropané přivezli z Ameriky?",
+      "spravna_odpoved": "Brambory (a také kukuřici, rajčata, kakao, tabák)",
+      "spatne_odpovedi": ["Pšenici", "Rýži", "Olivy"],
+      "oduvodneni": "Z Ameriky přišly do Evropy: brambory, kukuřice, rajčata, kakao, tabák, krůty. Naopak z Evropy do Ameriky šly koně, dobytek, obilí - a bohužel i nemoci (neštovice).",
+      "proc_spatne": {
+        "Pšenici": "Pšenice se pěstovala v Evropě a Asii od pravěku - do Ameriky ji naopak přivezli Evropané.",
+        "Rýži": "Rýže pochází z Asie - byla v Evropě známá ještě před objevnými plavbami.",
+        "Olivy": "Olivovník je domácí ve Středomoří - byl v Evropě od starověku, do Ameriky ho přivezli později kolonisté."
+      }
+    },
+    {
+      "id": "KS23",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Z jakého rodu pocházeli Jagellonci?",
+      "spravna_odpoved": "Polsko-litevského",
+      "spatne_odpovedi": ["Německého", "Francouzského", "Maďarského"],
+      "oduvodneni": "Jagellonci byli polsko-litevská dynastie - vládla v Polsku, Litvě, Uhrách i v Čechách (1471-1526).",
+      "proc_spatne": {
+        "Německého": "Německé rody na českém trůně byli např. Lucemburkové (původně), ale Jagellonci přišli z Polska.",
+        "Francouzského": "Francouzské rody nikdy nevládly v Čechách.",
+        "Maďarského": "Maďarský rod Anjouovců vládl v Uhrách, ale Jagellonci přišli z Polska a Litvy."
+      }
+    },
+    {
+      "id": "KS24",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl prvním Jagelloncem na českém trůně?",
+      "spravna_odpoved": "Vladislav Jagellonský (vládl 1471-1516)",
+      "spatne_odpovedi": ["Zikmund Lucemburský", "Ludvík Jagellonský", "Jiří z Poděbrad"],
+      "oduvodneni": "Po smrti Jiřího z Poděbrad (1471) zvolili čeští stavové novým králem patnáctiletého polského prince Vladislava Jagellonského.",
+      "proc_spatne": {
+        "Zikmund Lucemburský": "Zikmund byl Lucemburk - vládl v Čechách 1419-1437, dávno před Jagellonci.",
+        "Ludvík Jagellonský": "Ludvík byl Vladislavův syn - druhý Jagellonec na českém trůně (1516-1526), ne první.",
+        "Jiří z Poděbrad": "Jiří z Poděbrad byl 'husitský král' (1458-1471), právě po něm nastoupil Vladislav."
+      }
+    },
+    {
+      "id": "KS25",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakou přezdívku měl Vladislav Jagellonský?",
+      "spravna_odpoved": "'Král Bene' (král Dobře) - ke všemu říkal 'dobře, dobře'",
+      "spatne_odpovedi": ["'Liška ryšavá'", "'Otec vlasti'", "'Železný král'"],
+      "oduvodneni": "Vladislav byl tichý a uhlazený, vyhýbal se sporům a ke všemu říkal latinsky 'bene, bene' (dobře, dobře) - odtud přezdívka 'král Bene'. Odráží jeho slabou královskou moc.",
+      "proc_spatne": {
+        "'Liška ryšavá'": "Tak se říkalo Zikmundovi Lucemburskému - byl to úplně jiný panovník.",
+        "'Otec vlasti'": "'Otec vlasti' byl Karel IV. - 14. století.",
+        "'Železný král'": "Železný král byl Přemysl Otakar II. nebo francouzský Filip IV. - ne Vladislav."
+      }
+    },
+    {
+      "id": "KS26",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byl uherský protikrál proti Vladislavovi Jagellonskému?",
+      "spravna_odpoved": "Matyáš Korvín",
+      "spatne_odpovedi": ["Maxmilián Habsburský", "Albrecht II.", "Ludvík Veliký"],
+      "oduvodneni": "Uherský král Matyáš Korvín se prohlásil českým králem a ovládal Moravu, Slezsko a Lužici. Vladislav držel jen Čechy. Po smrti Matyáše 1490 získal Vladislav i uherskou korunu.",
+      "proc_spatne": {
+        "Maxmilián Habsburský": "Maxmilián I. byl současník, ale Habsburkové nebyli protikrálem v Čechách (Habsburkové přišli na český trůn až po smrti Ludvíka 1526).",
+        "Albrecht II.": "Albrecht II. Habsburský byl český král 1437-1439, dlouho před Vladislavem.",
+        "Ludvík Veliký": "Ludvík Veliký byl uherský král ve 14. století (Anjou) - dávno před Vladislavem."
+      }
+    },
+    {
+      "id": "KS27",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se nazýval náboženský smír z roku 1485 mezi katolíky a kališníky?",
+      "spravna_odpoved": "Kutnohorský náboženský smír",
+      "spatne_odpovedi": ["Basilejská kompaktáta", "Augsburský mír", "Vestfálský mír"],
+      "oduvodneni": "Kutnohorský náboženský smír z roku 1485 uznal kališníky i katolíky za rovnoprávné - mír zaručoval i poddaným svobodu vyznání.",
+      "proc_spatne": {
+        "Basilejská kompaktáta": "Kompaktáta byla mnohem dřív (1436) - po husitských válkách, ne za Jagellonců.",
+        "Augsburský mír": "Augsburský mír (1555) byl mír mezi katolíky a luterány v Německu - jiná země, jiná doba.",
+        "Vestfálský mír": "Vestfálský mír (1648) ukončil třicetiletou válku - dlouho po Jagelloncích."
+      }
+    },
+    {
+      "id": "KS28",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co bylo 'Vladislavské zřízení zemské' (kolem roku 1500)?",
+      "spravna_odpoved": "Zákoník, který zvýhodnil šlechtu a oslabil moc měst",
+      "spatne_odpovedi": ["Daňový zákoník zavádějící novou daň", "Zákon o cechovním pořádku", "Reforma armády"],
+      "oduvodneni": "Vladislavské zřízení zemské byl první sepsaný zákoník v Čechách - sepsala ho šlechta a zvýhodnila se v něm na úkor krále i měst. Královská města ztratila právo hlasovat na zemském sněmu.",
+      "proc_spatne": {
+        "Daňový zákoník zavádějící novou daň": "Šlo o širší zákoník, ne jen daňový - zaměřil se na práva a moc stavů.",
+        "Zákon o cechovním pořádku": "Cechovní pravidla se řešila ve městech zvlášť, ne v zemském zřízení.",
+        "Reforma armády": "Reforma armády nebyla tématem zřízení - šlo o ústavní postavení stavů."
+      }
+    },
+    {
+      "id": "KS29",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byla Svatováclavská smlouva z roku 1517?",
+      "spravna_odpoved": "Dohoda, která urovnala spory mezi šlechtou a královskými městy",
+      "spatne_odpovedi": ["Spojenectví proti Turkům", "Smlouva s papežem o reformě církve", "Sjednocení Koruny české s Polskem"],
+      "oduvodneni": "Svatováclavská smlouva z roku 1517 byla kompromisem - šlechta a královská města se dohodly na vyřešení dlouholetých sporů. Města získala zpět část svých práv (mj. třetí hlas na zemském sněmu), zároveň musela v některých věcech ustoupit.",
+      "proc_spatne": {
+        "Spojenectví proti Turkům": "Boj proti Turkům byl problémem, ale Svatováclavská smlouva řešila vnitřní spory.",
+        "Smlouva s papežem o reformě církve": "Reformace začala v Německu (Luther 1517) - svatováclavská smlouva s ní nesouvisí.",
+        "Sjednocení Koruny české s Polskem": "Polsko a Čechy byly v personální unii pod Jagellonci, ale nesjednocovaly se."
+      }
+    },
+    {
+      "id": "KS30",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo nastoupil na český trůn po Vladislavovi Jagellonském?",
+      "spravna_odpoved": "Jeho syn Ludvík Jagellonský (1516-1526)",
+      "spatne_odpovedi": ["Matyáš Korvín", "Ferdinand Habsburský", "Maxmilián I."],
+      "oduvodneni": "Po smrti Vladislava (1516) nastoupil jeho syn Ludvík - bylo mu teprve 10 let. Pro raný nástup mu říkali 'král Dítě'.",
+      "proc_spatne": {
+        "Matyáš Korvín": "Matyáš Korvín zemřel již 1490 - dávno před Vladislavem.",
+        "Ferdinand Habsburský": "Ferdinand Habsburský přišel na český trůn až po smrti Ludvíka (1526).",
+        "Maxmilián I.": "Maxmilián I. byl římský císař, ne český král - Ludvík byl Vladislavovým nástupcem."
+      }
+    },
+    {
+      "id": "KS31",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakou přezdívku měl Ludvík Jagellonský?",
+      "spravna_odpoved": "'Král Dítě'",
+      "spatne_odpovedi": ["'Král Bene'", "'Otec vlasti'", "'Železný král'"],
+      "oduvodneni": "Ludvík byl korunován ve 3 letech - po smrti otce v 10 letech převzal vládu. Pro jeho mládí dostal přezdívku 'král Dítě'.",
+      "proc_spatne": {
+        "'Král Bene'": "'Král Bene' byl jeho otec Vladislav Jagellonský.",
+        "'Otec vlasti'": "'Otec vlasti' byl Karel IV. - 14. století.",
+        "'Železný král'": "Železným králem byl Přemysl Otakar II. nebo francouzský Filip IV."
+      }
+    },
+    {
+      "id": "KS32",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V kterém roce padl Ludvík Jagellonský v bitvě u Moháče?",
+      "spravna_odpoved": "1526",
+      "spatne_odpovedi": ["1471", "1517", "1620"],
+      "oduvodneni": "29. srpna 1526 prohrálo uherské vojsko Ludvíka Jagellonského bitvu s Turky u Moháče (dnešní Maďarsko). Ludvík při útěku utonul v bažinách - bylo mu 20 let.",
+      "proc_spatne": {
+        "1471": "Roku 1471 zemřel Jiří z Poděbrad a na trůn nastoupil Vladislav Jagellonský - začátek jagellonské vlády, ne konec.",
+        "1517": "Roku 1517 byla uzavřena Svatováclavská smlouva mezi šlechtou a městy - ne bitva u Moháče.",
+        "1620": "Roku 1620 byla bitva na Bílé hoře - prohra českých stavů s Habsburky, dlouho po Jagelloncích."
+      }
+    },
+    {
+      "id": "KS33",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "S kým bojoval Ludvík Jagellonský v bitvě u Moháče?",
+      "spravna_odpoved": "S Osmany (Turky)",
+      "spatne_odpovedi": ["S Francouzi", "S Poláky", "S Habsburky"],
+      "oduvodneni": "Bitva u Moháče (1526) byla rozhodující střetnutí Uher s Osmanskou říší. Ludvík vedl uherské vojsko, ale prohrál a Turci pak na 150 let ovládli většinu Uher.",
+      "proc_spatne": {
+        "S Francouzi": "Francouzi v 16. století bojovali hlavně s Habsburky v Itálii - ne s Ludvíkem v Uhrách.",
+        "S Poláky": "Poláci byli spojenci Jagellonců (vládl tam další Jagellonec) - nebojovalo se s nimi.",
+        "S Habsburky": "Habsburkové byli spojenci proti Turkům - po Ludvíkově smrti převzali jeho trůn."
+      }
+    },
+    {
+      "id": "KS34",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který rod nastoupil na český trůn po smrti Ludvíka Jagellonského roku 1526?",
+      "spravna_odpoved": "Habsburkové",
+      "spatne_odpovedi": ["Lucemburkové", "Přemyslovci", "Wettinové"],
+      "oduvodneni": "Po smrti Ludvíka byl roku 1526 zvolen českým králem Ferdinand I. Habsburský (Ludvíkův švagr) - začala vláda Habsburků v českých zemích, která trvala až do roku 1918 (392 let).",
+      "proc_spatne": {
+        "Lucemburkové": "Lucemburkové vládli v Čechách 1310-1437 (Jan, Karel IV., Václav IV., Zikmund) - dávno před Jagellonci.",
+        "Přemyslovci": "Přemyslovci vymřeli po meči už roku 1306 (Václav III.) - více než 200 let před Jagellonci.",
+        "Wettinové": "Wettinové vládli v Sasku, ne v Čechách - na český trůn nikdy nenastoupili."
+      }
+    },
+    {
+      "id": "KS35",
+      "tema": "Jagellonci na českém trůně",
+      "zdroj_kategorie": "ucitelka",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč byla pro český stát důležitá těžba v Jáchymově?",
+      "spravna_odpoved": "Těžilo se tu stříbro a razily mince - jáchymovské tolary (odtud slovo 'dolar')",
+      "spatne_odpovedi": ["Tam se vyráběly zbraně pro krále", "Tam se těžilo zlato pro královskou pokladnu", "Tam byl královský dvůr"],
+      "oduvodneni": "Jáchymov v Krušných horách měl bohatá ložiska stříbra - razily se zde 'jáchymovské tolary' (Joachimsthaler), které se rozšířily po Evropě. Z názvu 'tolar' vzniklo i slovo 'dolar'.",
+      "proc_spatne": {
+        "Tam se vyráběly zbraně pro krále": "Zbraně se vyráběly v jiných místech (např. dílny mistrů), Jáchymov byl o těžbě stříbra.",
+        "Tam se těžilo zlato pro královskou pokladnu": "Šlo o stříbro, ne o zlato - Jáchymov byl známým stříbrným městem.",
+        "Tam byl královský dvůr": "Královský dvůr byl v Praze (na Pražském hradě) - Jáchymov byl hornické město."
+      }
+    },
+    {
+      "id": "KS36",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co znamená slovo 'humanismus'?",
+      "spravna_odpoved": "Myšlenkový směr zaměřený na člověka a jeho rozum (z latinského homo = člověk)",
+      "spatne_odpovedi": ["Důraz na boha a posmrtný život", "Pohrdání člověkem a tělem", "Snaha o asketický život"],
+      "oduvodneni": "Humanismus se rozšířil od středověkého důrazu na boha a posmrtný život k zájmu o tento svět - zvýraznil rozum, schopnosti a svobodnou vůli člověka (z latinského homo = člověk, humanus/humanitas = lidský/lidskost).",
+      "proc_spatne": {
+        "Důraz na boha a posmrtný život": "To byl naopak postoj středověku - humanismus se přesouvá k zájmu o člověka a tento svět.",
+        "Pohrdání člověkem a tělem": "Humanismus si naopak vážil člověka jako svobodné a rozumné bytosti.",
+        "Snaha o asketický život": "Asketismus (odříkání) byl typický pro středověké mnichy - humanisté oceňovali plný život a vzdělání."
+      }
+    },
+    {
+      "id": "KS37",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co znamená slovo 'renesance'?",
+      "spravna_odpoved": "Znovuzrození (zájem o antiku, Řecko a Řím)",
+      "spatne_odpovedi": ["Tma a zánik vzdělanosti", "Útěk z měst na vesnice", "Odsouzení antiky"],
+      "oduvodneni": "Renesance pochází z latinského 'renascentia' - znovuzrození. Vzorem se stala kultura antického Řecka a Říma, ke které se umělci a myslitelé vraceli po staletích zapomenutí.",
+      "proc_spatne": {
+        "Tma a zánik vzdělanosti": "Naopak - renesance znamenala rozkvět vzdělanosti a umění.",
+        "Útěk z měst na vesnice": "Renesance vznikla a kvetla právě ve městech (zejména v Itálii, např. Florencii).",
+        "Odsouzení antiky": "Renesance se k antice naopak vracela jako k svému ideálu."
+      }
+    },
+    {
+      "id": "KS38",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve které zemi se renesance zrodila?",
+      "spravna_odpoved": "V Itálii (od 14. století)",
+      "spatne_odpovedi": ["Ve Francii", "V Anglii", "V Německu"],
+      "oduvodneni": "Renesance se zrodila v Itálii ve 14. století (Florence, Benátky) - díky bohatství měst a stop antického Říma. Postupně se šířila do celé Evropy.",
+      "proc_spatne": {
+        "Ve Francii": "Francouzská renesance je sice silná, ale začala až později a podléhala vlivu Itálie.",
+        "V Anglii": "Anglická renesance přišla mnohem později (vrchol za Alžběty I. v 16. století).",
+        "V Německu": "Německá renesance taky následovala italský vzor až v 16. století."
+      }
+    },
+    {
+      "id": "KS39",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo namaloval slavnou Monu Lisu?",
+      "spravna_odpoved": "Leonardo da Vinci",
+      "spatne_odpovedi": ["Sandro Botticelli", "Michelangelo Buonarroti", "Raffael Santi"],
+      "oduvodneni": "Leonardo da Vinci, italský renesanční génius (malíř, sochař, vynálezce, vědec), namaloval Monu Lisu kolem let 1503-1506. Obraz je dnes v pařížském Louvru.",
+      "proc_spatne": {
+        "Sandro Botticelli": "Botticelli namaloval Zrození Venuše - jiný slavný obraz, ne Monu Lisu.",
+        "Michelangelo Buonarroti": "Michelangelo byl především sochař a malíř Sixtinské kaple, ne Mony Lisy.",
+        "Raffael Santi": "Raffael maloval madony a fresky ve Vatikánu, ne Monu Lisu."
+      }
+    },
+    {
+      "id": "KS40",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo namaloval slavné 'Zrození Venuše'?",
+      "spravna_odpoved": "Sandro Botticelli",
+      "spatne_odpovedi": ["Leonardo da Vinci", "Michelangelo Buonarroti", "Raffael Santi"],
+      "oduvodneni": "Sandro Botticelli, italský renesanční malíř, namaloval Zrození Venuše kolem roku 1485 - antická bohyně lásky stojí na mušli vystupující z moře.",
+      "proc_spatne": {
+        "Leonardo da Vinci": "Leonardo namaloval Monu Lisu a Poslední večeři - Venuše je dílem Botticelliho.",
+        "Michelangelo Buonarroti": "Michelangelo byl autorem sochy Davida a maleb v Sixtinské kapli - ne Venuše.",
+        "Raffael Santi": "Raffael maloval madony a Athénskou školu - ne Venuši."
+      }
+    },
+    {
+      "id": "KS41",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byl Erasmus Rotterdamský?",
+      "spravna_odpoved": "Holandský humanista, kritik nepořádků v církvi",
+      "spatne_odpovedi": ["Italský sochař a malíř", "Německý reformátor církve", "Anglický mořeplavec"],
+      "oduvodneni": "Erasmus Rotterdamský (1466-1536) byl holandský humanista - kritizoval nešvary církve a vyzval k návratu k bibli, ale na rozdíl od Luthera zůstal věrný katolické církvi.",
+      "proc_spatne": {
+        "Italský sochař a malíř": "Italští umělci byli Leonardo, Michelangelo, Botticelli - Erasmus byl Holanďan a humanista (učenec), ne umělec.",
+        "Německý reformátor církve": "Německým reformátorem byl Martin Luther - Erasmus byl Holanďan a méně radikální.",
+        "Anglický mořeplavec": "Anglickým mořeplavcem byl třeba Francis Drake - Erasmus byl učenec, ne námořník."
+      }
+    },
+    {
+      "id": "KS42",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které byly typické prvky renesančních staveb?",
+      "spravna_odpoved": "Půlkruhové oblouky, sloupy, arkády, vodorovné členění",
+      "spatne_odpovedi": ["Lomené oblouky a vysoké štíhlé věže", "Hladké stěny bez ozdob a malá okna", "Cibulové báně a barevné fasády"],
+      "oduvodneni": "Renesance se vrátila k antickým vzorům - oblouky, sloupy, arkády (řady oblouků na sloupech), vodorovné členění (na rozdíl od gotické svislosti).",
+      "proc_spatne": {
+        "Lomené oblouky a vysoké štíhlé věže": "To je naopak gotika - renesance ji nahradila plynulejším a klidnějším slohem.",
+        "Hladké stěny bez ozdob a malá okna": "To je románský sloh (10.-12. st.) - renesance byla bohatá na zdobení a sgrafita.",
+        "Cibulové báně a barevné fasády": "Cibulové báně jsou typické pro pozdější baroko (17.-18. st.)."
+      }
+    },
+    {
+      "id": "KS43",
+      "tema": "Humanismus a renesance",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je to 'arkáda' v renesanční architektuře?",
+      "spravna_odpoved": "Řada půlkruhových oblouků nesených sloupy",
+      "spatne_odpovedi": ["Zdobená věž na rohu zámku", "Hluboký vodní příkop kolem stavby", "Tajná chodba pod hradem"],
+      "oduvodneni": "Arkáda je řada oblouků nesených sloupy - typický prvek renesančních nádvoří, zámků a paláců (např. arkády na pražském Belvedéru nebo Bučovicích).",
+      "proc_spatne": {
+        "Zdobená věž na rohu zámku": "To je bašta nebo věžička - arkáda je naopak otevřená řada oblouků.",
+        "Hluboký vodní příkop kolem stavby": "Vodní příkop je pevnostní prvek (gotika, raný novověk) - s arkádou nesouvisí.",
+        "Tajná chodba pod hradem": "Tajné chodby s arkádou nesouvisejí - arkády byly veřejné, viditelné prvky."
+      }
+    },
+    {
+      "id": "KS44",
+      "tema": "Pozdní gotika a jagellonská kultura",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaký umělecký sloh se v Čechách rozvíjel za Jagellonců?",
+      "spravna_odpoved": "Pozdní (jagellonská) gotika, postupně přecházející v renesanci",
+      "spatne_odpovedi": ["Románský sloh", "Baroko", "Klasicismus"],
+      "oduvodneni": "Za Jagellonců (1471-1526) v Čechách vrcholila pozdní gotika (zvaná jagellonská nebo vladislavská) - byla to přechodná fáze mezi gotikou a nastupující renesancí.",
+      "proc_spatne": {
+        "Románský sloh": "Románský sloh byl mnohem dřív (10.-12. st.) - dávno před Jagellonci.",
+        "Baroko": "Baroko přišlo až v 17.-18. století, dlouho po Jagelloncích.",
+        "Klasicismus": "Klasicismus je 18.-19. století - úplně jiné období."
+      }
+    },
+    {
+      "id": "KS45",
+      "tema": "Pozdní gotika a jagellonská kultura",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo postavil Vladislavský sál na Pražském hradě?",
+      "spravna_odpoved": "Benedikt Rejt (architekt z Bavorska)",
+      "spatne_odpovedi": ["Petr Parléř", "Matěj Rejsek", "Mistr Theodorik"],
+      "oduvodneni": "Benedikt Rejt byl architekt z Bavorska ve službách Vladislava Jagellonského - postavil reprezentační Vladislavský sál (kolem roku 1500) na Pražském hradě.",
+      "proc_spatne": {
+        "Petr Parléř": "Petr Parléř byl architekt Karla IV. (14. st.) - postavil katedrálu sv. Víta a Karlův most, ale ne Vladislavský sál.",
+        "Matěj Rejsek": "Matěj Rejsek byl současník Rejta - postavil Prašnou bránu a podílel se na chrámu sv. Barbory, ale Vladislavský sál byl dílem Rejta.",
+        "Mistr Theodorik": "Mistr Theodorik byl malíř (autor obrazů na Karlštejně) - ne architekt sálu."
+      }
+    },
+    {
+      "id": "KS46",
+      "tema": "Pozdní gotika a jagellonská kultura",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co bylo zvláštního na Vladislavském sále?",
+      "spravna_odpoved": "Jeden z největších klenutých sálů bez vnitřních podpěr v tehdejší Evropě - konaly se v něm i rytířské turnaje",
+      "spatne_odpovedi": ["Měl skleněnou kupoli", "Byl celý ze zlata", "Byl postaven pod zemí"],
+      "oduvodneni": "Vladislavský sál (16 x 62 m) byl jedním z největších klenutých sálů bez vnitřních podpěr v tehdejší Evropě - koně mohli vejít přímo dovnitř a konaly se v něm rytířské turnaje.",
+      "proc_spatne": {
+        "Měl skleněnou kupoli": "Sklená kupole je vlastnost moderních staveb - sál měl unikátní žebrovou klenbu.",
+        "Byl celý ze zlata": "Sál byl z kamene s freskami a klenbou - zlatý nebyl.",
+        "Byl postaven pod zemí": "Naopak - sál je v patrech Pražského hradu, je vidět z dálky."
+      }
+    },
+    {
+      "id": "KS47",
+      "tema": "Pozdní gotika a jagellonská kultura",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který stavitel pozdní gotiky pokračoval ve stavbě Prašné brány v Praze a výrazně ji dotvořil?",
+      "spravna_odpoved": "Matěj (Matyáš) Rejsek",
+      "spatne_odpovedi": ["Benedikt Rejt", "Petr Parléř", "Mistr Theodorik"],
+      "oduvodneni": "Stavbu Prašné brány zahájil 1475 mistr Václav, ale již roku 1478 ji převzal Matěj Rejsek a bohatě ji dotvořil pozdně gotickou výzdobou. Rejsek pak pokračoval i ve stavbě chrámu sv. Barbory v Kutné Hoře.",
+      "proc_spatne": {
+        "Benedikt Rejt": "Rejt postavil Vladislavský sál - na Prašné bráně se nepodílel (i když pracovali ve stejné době).",
+        "Petr Parléř": "Petr Parléř pracoval pro Karla IV. (14. st.) - postavil katedrálu sv. Víta a Karlův most.",
+        "Mistr Theodorik": "Mistr Theodorik byl malíř, ne architekt."
+      }
+    },
+    {
+      "id": "KS48",
+      "tema": "Pozdní gotika a jagellonská kultura",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která významná stavba pozdní gotiky stojí v Kutné Hoře?",
+      "spravna_odpoved": "Chrám svaté Barbory",
+      "spatne_odpovedi": ["Katedrála sv. Víta", "Týnský chrám", "Strahovský klášter"],
+      "oduvodneni": "Chrám sv. Barbory v Kutné Hoře (zasvěcen patronce horníků) je vrchol pozdní gotiky v Čechách - jeho stavba trvala přes 500 let. Podíleli se na něm Matěj Rejsek a Benedikt Rejt.",
+      "proc_spatne": {
+        "Katedrála sv. Víta": "Katedrála sv. Víta je v Praze (Pražský hrad), ne v Kutné Hoře. Stavěl ji Petr Parléř.",
+        "Týnský chrám": "Týnský chrám je v Praze na Staroměstském náměstí.",
+        "Strahovský klášter": "Strahovský klášter je v Praze - založen ve 12. století, ne v Kutné Hoře."
+      }
+    },
+    {
+      "id": "KS49",
+      "tema": "Pozdní gotika a jagellonská kultura",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co označuje slovo 'Madona' v gotickém umění?",
+      "spravna_odpoved": "Vyobrazení Panny Marie s malým Ježíškem",
+      "spatne_odpovedi": ["Panna Marie s mrtvým Kristem", "Andělská bytost", "Středověká světice"],
+      "oduvodneni": "Madona pochází z italského 'madonna' (paní) - vyobrazení Panny Marie s malým Ježíškem v náručí nebo na klíně. Oblíbený gotický motiv (např. Madona z hradu Veveří).",
+      "proc_spatne": {
+        "Panna Marie s mrtvým Kristem": "Tomu se říká pieta (z italského pietà = soucit) - jiný motiv smutku po ukřižování.",
+        "Andělská bytost": "Madona není anděl - je to konkrétní vyobrazení Panny Marie.",
+        "Středověká světice": "Madona je vždy Panna Marie - obecně 'světice' by byl širší pojem."
+      }
+    },
+    {
+      "id": "KS50",
+      "tema": "Pozdní gotika a jagellonská kultura",
+      "zdroj_kategorie": "ucebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co označuje slovo 'Pieta' v gotickém umění?",
+      "spravna_odpoved": "Vyobrazení Panny Marie s mrtvým Kristem na klíně po sejmutí z kříže",
+      "spatne_odpovedi": ["Panna Marie s malým Ježíškem", "Vyobrazení Krista jako krále", "Symbol víry s kalichem"],
+      "oduvodneni": "Pieta (italsky pietà = soucit) je gotický motiv - Panna Marie drží na klíně mrtvého Krista po sejmutí z kříže. Vyjadřuje smutek a soucit.",
+      "proc_spatne": {
+        "Panna Marie s malým Ježíškem": "Tomu se říká madona - jiný gotický motiv (Mariino mateřství, ne smutek).",
+        "Vyobrazení Krista jako krále": "Kristus jako král (vladař světa) je jiný motiv - 'Maiestas Domini'.",
+        "Symbol víry s kalichem": "Kalich je hlavně symbolem husitů (přijímání podobojí) - pieta je sochařský/malířský motiv."
+      }
+    }
+  ]
+}
