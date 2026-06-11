@@ -1,0 +1,847 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": ["Počátek novověku v českých zemích"],
+  "zdroj": "2 stránky podkladů od učitelky - Počátek novověku (15.-16. století), s. 97-104: mezníky konce středověku a počátku novověku, první Habsburkové na českém trůně (předbělohorská doba), České stavovské povstání, třicetiletá válka a její 4 fáze, Jan Amos Komenský.",
+  "hlavni_osy": [
+    "Novověk střídá středověk - mezníky: 1453 pád Konstantinopole, 1492 objevení Ameriky, 1517 Lutherova reformace. Provázejí ho úpadek feudalismu, růst měst, manufaktury, knihtisk (Gutenberg ~1450), humanismus a renesance (člověk v centru pozornosti).",
+    "1526 - po smrti Ludvíka Jagellonského v bitvě u Moháče volí čeští stavové na trůn rakouský rod Habsburků (slíbili zachovat privilegia). Vzniká mnohonárodnostní habsburská monarchie (české země + Rakousy + část Uher).",
+    "Ferdinand I. (1526-1564) - zakladatel monarchie, centralizace z Vídně, vyšší daně na válku s Turky → stavovská opozice. Rekatolizace: 1556 povolal do Prahy jezuity (kolej Klementinum).",
+    "Maxmilián II. (1564-1576) byl nábožensky tolerantní, ústně slíbil nekatolíkům svobodu vyznání (Česká konfese). Rudolf II. (1576-1611) přesunul sídlo do Prahy a pod tlakem vydal Rudolfův majestát (1609) o náboženské svobodě; byl mecenášem umění (Tycho Brahe, Jan Kepler).",
+    "Matyáš (1611-1619) porušoval Majestát, vrátil sídlo do Vídně a zemi spravovali místodržící; svým nástupcem učinil Ferdinanda II.",
+    "České stavovské povstání (1618-1620) - třetí pražská defenestrace 23. 5. 1618 (vedl Jindřich Matyáš Thurn), stavové zvolili králem Fridricha Falckého ('Zimní král'), prohráli v bitvě na Bílé hoře 8. 11. 1620.",
+    "Důsledky porážky - 21. 6. 1621 poprava 27 českých pánů na Staroměstském náměstí (kat Jan Mydlář), konfiskace majetku, vlna emigrace, Obnovené zřízení zemské 1627 (dědičný trůn Habsburků, jediné povolené náboženství katolické, němčina zrovnoprávněna s češtinou).",
+    "Třicetiletá válka (1618-1648) - boj katolíků (katolická liga) proti protestantům (Protestantská unie) v celé Evropě; 4 fáze: česká, falcká, dánská, švédská (a švédsko-francouzská).",
+    "Albrecht z Valdštejna - nejvyšší velitel císařské armády, vévoda frýdlantský; vybudoval armádu na vlastní náklady, císař se začal bát jeho moci a dal ho 1634 zavraždit v Chebu.",
+    "Výsledky války - Vestfálský mír 1648, upevnění absolutismu Habsburků, nevolnictví, úbytek až třetiny obyvatel Evropy. Jan Amos Komenský ('Učitel národů') odešel do exilu (Orbis pictus, Škola hrou)."
+  ],
+  "terminologie": {
+    "Pocatek_novoveku": [
+      {"pojem": "Novověk", "vysvetleni": "Historické období, které střídá středověk. Přechod nebyl náhlý, ale provázely ho velké změny ve společnosti, vědě a myšlení."},
+      {"pojem": "Pád Konstantinopole (1453)", "vysvetleni": "Osmanští Turci dobyli Konstantinopol, zanikla Byzantská říše - jeden z mezníků konce středověku."},
+      {"pojem": "Reformace", "vysvetleni": "Hnutí za nápravu (reformu) katolické církve v 16. století; jeho počátkem bylo vystoupení Martina Luthera roku 1517."},
+      {"pojem": "Martin Luther", "vysvetleni": "Německý mnich, který roku 1517 vystoupil proti poměrům v katolické církvi - vzniklo luteránství, počátek reformace."},
+      {"pojem": "Úpadek feudalismu", "vysvetleni": "Oslabování moci šlechty. Základem středověké společnosti byl vztah lenní pán - vazal (feudum = léno)."},
+      {"pojem": "Manufaktura", "vysvetleni": "Velká dílna s dělbou práce - dělníci si rozdělili výrobu na úkony, což zrychlilo výrobu."},
+      {"pojem": "Knihtisk", "vysvetleni": "Tisk knih z pohyblivých písmen, zdokonalený Johannesem Gutenbergem kolem roku 1450 - umožnil rychlé šíření knih a myšlenek."},
+      {"pojem": "Humanismus", "vysvetleni": "Myšlenkový směr, který staví do centra pozornosti člověka, jeho rozum a pozemský život (homo = člověk)."},
+      {"pojem": "Renesance", "vysvetleni": "Umělecký sloh navazující na antiku ('znovuzrození'), vznikl v Itálii - součást přechodu do novověku."}
+    ],
+    "Prvni_Habsburkove": [
+      {"pojem": "Bitva u Moháče (1526)", "vysvetleni": "Bitva v Uhrách, kde padl Ludvík Jagellonský v boji s Turky - vymřel rod Jagellonců a na trůn nastoupili Habsburkové."},
+      {"pojem": "Habsburkové", "vysvetleni": "Rakouský královský rod, který čeští stavové zvolili roku 1526 na český trůn (slíbil zachovat jejich privilegia)."},
+      {"pojem": "Mnohonárodnostní habsburská monarchie", "vysvetleni": "Soustátí spojující české země, rakouské země a část Uher pod jedním panovníkem."},
+      {"pojem": "Země Koruny české", "vysvetleni": "Čechy, Morava, Slezsko a Lužice - jádro českého státu v habsburské monarchii."},
+      {"pojem": "Centralizace", "vysvetleni": "Soustředění moci a úřadů do jednoho centra (Vídně) - snaha řídit celou říši z jednoho místa."},
+      {"pojem": "Stavovská opozice", "vysvetleni": "Odpor šlechty a měst proti snaze panovníka omezit jejich moc a vypisovat vyšší daně."},
+      {"pojem": "Rekatolizace", "vysvetleni": "Snaha vrátit protestantskou (nekatolickou) zemi zpět ke katolické víře."},
+      {"pojem": "Jezuité", "vysvetleni": "Nový katolický církevní řád (založil Ignác z Loyoly) - získával věřící a věnoval se vzdělání; Ferdinand I. je povolal 1556 do Prahy."},
+      {"pojem": "Klementinum", "vysvetleni": "Pražská jezuitská kolej (dnešní Národní knihovna) - centrum katolického vzdělávání."},
+      {"pojem": "Česká konfese", "vysvetleni": "Vyznání víry nekatolíků; Maxmilián II. jim ústně slíbil svobodu vyznání."},
+      {"pojem": "Rudolfův majestát (1609)", "vysvetleni": "Listina Rudolfa II. zaručující úplnou náboženskou svobodu všem obyvatelům (nikdo nesměl být k víře nucen)."},
+      {"pojem": "Místodržící", "vysvetleni": "Královští úředníci, kteří spravovali zemi za nepřítomného panovníka (sídlili na Pražském hradě)."},
+      {"pojem": "Tycho Brahe", "vysvetleni": "Dánský astronom působící na dvoře Rudolfa II. v Praze."},
+      {"pojem": "Jan Kepler", "vysvetleni": "Astronom na dvoře Rudolfa II., objevitel zákonů pohybu planet."}
+    ],
+    "Stavovske_povstani_a_dusledky": [
+      {"pojem": "České stavovské povstání", "vysvetleni": "Vzpoura českých nekatolických stavů proti Habsburkům (1618-1620) - první fáze třicetileté války."},
+      {"pojem": "Třetí pražská defenestrace", "vysvetleni": "23. 5. 1618 stavové vedení Thurnem vyhodili z oken Pražského hradu místodržící Martinice, Slavatu a písaře Fabricia - počátek povstání (pád přežili)."},
+      {"pojem": "Jindřich Matyáš Thurn", "vysvetleni": "Vůdce nekatolických stavů, který vedl třetí pražskou defenestraci."},
+      {"pojem": "Fridrich Falcký", "vysvetleni": "Protestantský šlechtic, kterého si stavové zvolili českým králem místo Ferdinanda II.; přezdívka 'Zimní král' (vládl jen jednu zimu)."},
+      {"pojem": "Bitva na Bílé hoře", "vysvetleni": "8. 11. 1620 - rozhodující porážka stavovského vojska císařskou armádou, konec povstání."},
+      {"pojem": "Staroměstská exekuce", "vysvetleni": "21. 6. 1621 poprava 27 vůdců povstání na Staroměstském náměstí (kat Jan Mydlář); 12 hlav bylo vystaveno na Mostecké věži."},
+      {"pojem": "Konfiskace", "vysvetleni": "Úřední zabavení majetku bez náhrady - majetek protestantské šlechty se zabíral a prodával katolíkům."},
+      {"pojem": "Emigrace", "vysvetleni": "Vlna odchodu českých a moravských nekatolíků ze země po porážce povstání (např. Jan Amos Komenský)."},
+      {"pojem": "Obnovené zřízení zemské (1627)", "vysvetleni": "Nová ústava/zákoník pro Čechy (pro Moravu 1628), platná až do 1848 - dědičný trůn Habsburků, jediné povolené náboženství katolické, němčina zrovnoprávněna s češtinou."}
+    ],
+    "Tricetileta_valka": [
+      {"pojem": "Třicetiletá válka", "vysvetleni": "Evropský konflikt 1618-1648 mezi katolíky a protestanty (i politický boj o moc), odstartovaný českým stavovským povstáním."},
+      {"pojem": "Katolická liga", "vysvetleni": "Spojenectví katolíků (Španělsko, Habsburkové, část Německa) v třicetileté válce."},
+      {"pojem": "Protestantská unie", "vysvetleni": "Spojenectví protestantských (nekatolických) států proti císaři a katolíkům."},
+      {"pojem": "Albrecht z Valdštejna", "vysvetleni": "Český šlechtic a nejvyšší velitel císařské armády, vévoda frýdlantský; armádu vybudoval na vlastní náklady, 1634 zavražděn v Chebu."},
+      {"pojem": "Gustav II. Adolf", "vysvetleni": "Švédský král, který vstoupil do války na straně protestantů (švédská fáze)."},
+      {"pojem": "Vestfálský mír (1648)", "vysvetleni": "Mírová smlouva ukončující třicetiletou válku; nástup Francie a Švédska jako mocností."},
+      {"pojem": "Absolutismus", "vysvetleni": "Forma vlády s neomezenou mocí panovníka - po válce upevněn v zemích Koruny české."},
+      {"pojem": "Nevolnictví", "vysvetleni": "Tvrdé poddanství - poddaní ztratili svobodu pohybu, nesměli se bez svolení vrchnosti stěhovat ani ženit."},
+      {"pojem": "Ferdinand III.", "vysvetleni": "Český král a císař (1637-1657), syn Ferdinanda II., za jeho vlády byl uzavřen Vestfálský mír."}
+    ],
+    "Komensky": [
+      {"pojem": "Jan Amos Komenský", "vysvetleni": "Český myslitel, spisovatel, pedagog a poslední biskup Jednoty bratrské (1592-1670)."},
+      {"pojem": "Učitel národů", "vysvetleni": "Celosvětová přezdívka Komenského za jeho převratné názory na výuku."},
+      {"pojem": "Jednota bratrská", "vysvetleni": "Nekatolická česká církev, jejímž posledním biskupem byl Komenský."},
+      {"pojem": "Škola hrou (Schola ludus)", "vysvetleni": "Komenského zásada - učení má být zajímavé a názorné, ne dril a biflování zpaměti."},
+      {"pojem": "Názornost", "vysvetleni": "Komenského zásada - žáci mají věci vidět a osahat si je (obrázky), ne se učit jen nazpaměť."},
+      {"pojem": "Orbis pictus (Svět v obrazech)", "vysvetleni": "První ilustrovaná učebnice na světě - obrázková encyklopedie pro děti."},
+      {"pojem": "Labyrint světa a ráj srdce", "vysvetleni": "Komenského filozofické dílo - svět přirovnává k chaotickému městu, klid člověk nachází jen ve svém nitru a u Boha."}
+    ]
+  },
+  "casova_osa": [
+    {"rok": 1453, "udalost": "Osmanští Turci dobyli Konstantinopol - zanikla Byzantská říše, jeden z mezníků konce středověku."},
+    {"rok": 1492, "udalost": "Kryštof Kolumbus doplul do Ameriky - mezník počátku novověku."},
+    {"rok": 1517, "udalost": "Martin Luther vystoupil proti katolické církvi - počátek reformace (luteránství)."},
+    {"rok": 1526, "udalost": "Bitva u Moháče - padl Ludvík Jagellonský, na český trůn nastupují Habsburkové."},
+    {"rok": 1556, "udalost": "Ferdinand I. povolal do Prahy jezuity (rekatolizace) - kolej Klementinum."},
+    {"rok": 1609, "udalost": "Rudolf II. pod tlakem vydal Rudolfův majestát o náboženské svobodě."},
+    {"rok": 1611, "udalost": "Rudolf II. se musel vzdát české koruny ve prospěch bratra Matyáše (zemřel 1612)."},
+    {"rok": 1618, "udalost": "23. 5. - třetí pražská defenestrace, počátek českého stavovského povstání i třicetileté války."},
+    {"rok": 1620, "udalost": "8. 11. - bitva na Bílé hoře, porážka českých stavů."},
+    {"rok": 1621, "udalost": "21. 6. - poprava 27 českých pánů na Staroměstském náměstí."},
+    {"rok": 1627, "udalost": "Obnovené zřízení zemské - nová ústava pro Čechy (pro Moravu 1628), platná do 1848."},
+    {"rok": 1628, "udalost": "Jan Amos Komenský musel opustit české země (odešel do exilu)."},
+    {"rok": 1634, "udalost": "Albrecht z Valdštejna zavražděn v Chebu na rozkaz císaře."},
+    {"rok": 1637, "udalost": "Ferdinand III. (syn Ferdinanda II.) se stal českým králem a císařem."},
+    {"rok": 1648, "udalost": "Vestfálský mír - konec třicetileté války."}
+  ],
+  "otazky": [
+    {
+      "id": "PN1",
+      "tema": "Počátek novověku a jeho mezníky",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Které historické období střídá středověk?",
+      "spravna_odpoved": "Novověk",
+      "spatne_odpovedi": ["Starověk", "Pravěk", "Vrcholný středověk"],
+      "oduvodneni": "Novověk je historické období, které následuje po středověku. Přechod nebyl náhlý, ale provázely ho velké změny ve společnosti, vědě a myšlení.",
+      "proc_spatne": {
+        "Starověk": "Starověk (první civilizace a antika) středověku předcházel, nenásledoval po něm.",
+        "Pravěk": "Pravěk je nejstarší období dějin (před vznikem písma) - dávno před středověkem.",
+        "Vrcholný středověk": "Vrcholný středověk je stále součástí středověku, ne nové období po něm."
+      }
+    },
+    {
+      "id": "PN2",
+      "tema": "Počátek novověku a jeho mezníky",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která událost roku 1453 patří mezi mezníky konce středověku?",
+      "spravna_odpoved": "Pád Konstantinopole - dobytí Turky",
+      "spatne_odpovedi": ["Objevení Ameriky", "Vystoupení Martina Luthera", "Bitva u Moháče"],
+      "oduvodneni": "Roku 1453 dobyli osmanští Turci Konstantinopol, čímž zanikla Byzantská říše - jeden z mezníků konce středověku.",
+      "proc_spatne": {
+        "Objevení Ameriky": "Kolumbus doplul do Ameriky roku 1492, ne 1453.",
+        "Vystoupení Martina Luthera": "Luther vystoupil roku 1517, to je počátek reformace.",
+        "Bitva u Moháče": "Bitva u Moháče byla až roku 1526 (nástup Habsburků)."
+      }
+    },
+    {
+      "id": "PN3",
+      "tema": "Počátek novověku a jeho mezníky",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co se stalo roku 1492?",
+      "spravna_odpoved": "Kryštof Kolumbus doplul do Ameriky",
+      "spatne_odpovedi": ["Martin Luther vystoupil proti církvi", "Turci dobyli Konstantinopol", "Habsburkové nastoupili na český trůn"],
+      "oduvodneni": "Roku 1492 přeplul Kryštof Kolumbus Atlantik a dosáhl Ameriky - jeden z mezníků počátku novověku.",
+      "proc_spatne": {
+        "Martin Luther vystoupil proti církvi": "To bylo roku 1517 (počátek reformace).",
+        "Turci dobyli Konstantinopol": "Konstantinopol padla roku 1453.",
+        "Habsburkové nastoupili na český trůn": "Habsburkové nastoupili roku 1526 po bitvě u Moháče."
+      }
+    },
+    {
+      "id": "PN4",
+      "tema": "Počátek novověku a jeho mezníky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čí vystoupení roku 1517 znamenalo počátek reformace?",
+      "spravna_odpoved": "Martina Luthera",
+      "spatne_odpovedi": ["Jana Husa", "Ignáce z Loyoly", "Jana Kalvína"],
+      "oduvodneni": "Martin Luther roku 1517 vystoupil v Německu proti poměrům v katolické církvi - vzniklo luteránství a začala reformace (snaha napravit církev).",
+      "proc_spatne": {
+        "Jana Husa": "Jan Hus byl český reformátor, ale o sto let dříve (upálen 1415).",
+        "Ignáce z Loyoly": "Ignác z Loyoly založil jezuity - naopak bojoval proti reformaci na straně katolíků.",
+        "Jana Kalvína": "Jan Kalvín byl reformátor až po Lutherovi (působil ve Švýcarsku)."
+      }
+    },
+    {
+      "id": "PN5",
+      "tema": "Počátek novověku a jeho mezníky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byla manufaktura?",
+      "spravna_odpoved": "Velká dílna s dělbou práce, která zrychlila výrobu",
+      "spatne_odpovedi": ["Spolek řemeslníků jednoho oboru", "Trh konaný jednou za rok", "Hrad přestavěný na pohodlný zámek"],
+      "oduvodneni": "Manufaktura byla velká dílna, kde si dělníci rozdělili práci na jednotlivé úkony - to zrychlilo výrobu (patří k hospodářským změnám počátku novověku).",
+      "proc_spatne": {
+        "Spolek řemeslníků jednoho oboru": "To je cech, ne manufaktura.",
+        "Trh konaný jednou za rok": "To je výroční trh (jarmark).",
+        "Hrad přestavěný na pohodlný zámek": "To je stavební změna sídla šlechty, nemá s manufakturou nic společného."
+      }
+    },
+    {
+      "id": "PN6",
+      "tema": "Nástup Habsburků na český trůn",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč roku 1526 nastoupili na český trůn Habsburkové?",
+      "spravna_odpoved": "V bitvě u Moháče padl Ludvík Jagellonský a vymřel rod Jagellonců",
+      "spatne_odpovedi": ["Habsburkové vojensky dobyli Prahu", "Papež jim český trůn daroval", "Vyhráli válku proti Lucemburkům"],
+      "oduvodneni": "Ludvík Jagellonský padl roku 1526 v bitvě u Moháče proti Turkům bez dědiců - Jagellonci tím vymřeli na českém a uherském trůně. Čeští stavové si pak zvolili rakouský rod Habsburků.",
+      "proc_spatne": {
+        "Habsburkové vojensky dobyli Prahu": "Habsburkové nebyli dobyti vojensky - byli zvoleni českými stavy.",
+        "Papež jim český trůn daroval": "O českém trůnu rozhodovali čeští stavové volbou, ne papež.",
+        "Vyhráli válku proti Lucemburkům": "Lucemburkové vymřeli mnohem dříve (1437), s nástupem Habsburků nesouvisí."
+      }
+    },
+    {
+      "id": "PN7",
+      "tema": "Nástup Habsburků na český trůn",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co museli Habsburkové slíbit českým stavům, aby je zvolili na trůn?",
+      "spravna_odpoved": "Že zachovají jejich privilegia (výsady)",
+      "spatne_odpovedi": ["Že přestoupí na husitskou víru", "Že přesunou sídlo do Prahy", "Že zruší poddanství"],
+      "oduvodneni": "Čeští stavové zvolili Habsburky pod podmínkou, že jim panovník zachová jejich dosavadní privilegia (výsady).",
+      "proc_spatne": {
+        "Že přestoupí na husitskou víru": "Habsburkové byli silní katolíci, na nekatolickou víru nepřestoupili.",
+        "Že přesunou sídlo do Prahy": "To nebyla podmínka volby; do Prahy přesunul sídlo až mnohem později Rudolf II.",
+        "Že zruší poddanství": "Poddanství zrušeno nebylo, naopak se po Bílé hoře ještě zpřísnilo (nevolnictví)."
+      }
+    },
+    {
+      "id": "PN8",
+      "tema": "Nástup Habsburků na český trůn",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co vzniklo spojením českých zemí, Rakous a části Uher pod Habsburky?",
+      "spravna_odpoved": "Mnohonárodnostní habsburská monarchie",
+      "spatne_odpovedi": ["Svatá říše římská", "Velká Morava", "Rakousko-Uhersko"],
+      "oduvodneni": "Spojením českých zemí, rakouských zemí a části Uher pod jedním panovníkem vznikla mnohonárodnostní habsburská monarchie.",
+      "proc_spatne": {
+        "Svatá říše římská": "Svatá říše římská existovala už dávno předtím; Habsburkové v ní byli císaři, ale není totožná s jejich monarchií.",
+        "Velká Morava": "Velká Morava byl raně středověký stát z 9. století - nesouvisí s Habsburky.",
+        "Rakousko-Uhersko": "Rakousko-Uhersko vzniklo až mnohem později (1867)."
+      }
+    },
+    {
+      "id": "PN9",
+      "tema": "Nástup Habsburků na český trůn",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Které země patřily k zemím Koruny české?",
+      "spravna_odpoved": "Čechy, Morava, Slezsko a Lužice",
+      "spatne_odpovedi": ["Čechy, Rakousy a Uhry", "Čechy, Morava a Bavorsko", "Čechy, Slovensko a Polsko"],
+      "oduvodneni": "Země Koruny české tvořily Čechy, Morava, Slezsko a Lužice - to bylo jádro českého státu v habsburské monarchii.",
+      "proc_spatne": {
+        "Čechy, Rakousy a Uhry": "Rakousy a Uhry byly samostatné části habsburské monarchie, ne součást Koruny české.",
+        "Čechy, Morava a Bavorsko": "Bavorsko bylo součástí Svaté říše římské, nikdy nepatřilo ke Koruně české.",
+        "Čechy, Slovensko a Polsko": "Slovensko bylo součástí Uher a Polsko bylo samostatné království."
+      }
+    },
+    {
+      "id": "PN10",
+      "tema": "Ferdinand I.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl prvním habsburským králem na českém trůně a zakladatelem monarchie?",
+      "spravna_odpoved": "Ferdinand I.",
+      "spatne_odpovedi": ["Rudolf II.", "Ferdinand III.", "Maxmilián II."],
+      "oduvodneni": "Ferdinand I. (1526-1564) byl první Habsburk na českém trůně a položil základy mnohonárodnostní habsburské monarchie.",
+      "proc_spatne": {
+        "Rudolf II.": "Rudolf II. vládl až 1576-1611, byl Ferdinandovým vnukem.",
+        "Ferdinand III.": "Ferdinand III. vládl až 1637-1657 (za třicetileté války).",
+        "Maxmilián II.": "Maxmilián II. byl Ferdinandův syn a nastoupil až po něm (1564)."
+      }
+    },
+    {
+      "id": "PN11",
+      "tema": "Ferdinand I.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co znamenala Ferdinandova snaha o centralizaci?",
+      "spravna_odpoved": "Řídit celou říši z jednoho místa (z Vídně) a omezit moc českých stavů",
+      "spatne_odpovedi": ["Rozdělit říši mezi více samostatných knížat", "Přenést hlavní moc na zemský sněm", "Vrátit moc šlechtě a městům"],
+      "oduvodneni": "Centralizace znamenala soustředění moci do jednoho centra (Vídně) - Ferdinand sám jmenoval úředníky a chtěl omezit moc českých stavů.",
+      "proc_spatne": {
+        "Rozdělit říši mezi více samostatných knížat": "To je pravý opak centralizace (rozdělení moci, ne soustředění).",
+        "Přenést hlavní moc na zemský sněm": "Ferdinand naopak chtěl moc stavovských sněmů omezit.",
+        "Vrátit moc šlechtě a městům": "Centralizace usilovala o omezení moci stavů, ne o její posílení."
+      }
+    },
+    {
+      "id": "PN12",
+      "tema": "Ferdinand I.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč Ferdinand I. vypsal vyšší daně a narazil na odpor stavů?",
+      "spravna_odpoved": "Potřeboval peníze na válku s Turky",
+      "spatne_odpovedi": ["Chtěl postavit nový královský palác", "Potřeboval zaplatit objevné plavby", "Chtěl vykoupit zajaté rytíře"],
+      "oduvodneni": "Ferdinand potřeboval bohatá města a peníze na válku proti Turkům, proto vypsal vyšší daně - to vyvolalo odpor šlechty a měst (stavovskou opozici).",
+      "proc_spatne": {
+        "Chtěl postavit nový královský palác": "Důvodem vyšších daní byla obrana proti Turkům, ne stavba paláce.",
+        "Potřeboval zaplatit objevné plavby": "Zámořské plavby financovaly Španělsko a Portugalsko, ne český král.",
+        "Chtěl vykoupit zajaté rytíře": "To nebyl důvod - daně směřovaly na válku s Osmany."
+      }
+    },
+    {
+      "id": "PN13",
+      "tema": "Ferdinand I.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který církevní řád povolal Ferdinand I. roku 1556 do Prahy kvůli rekatolizaci?",
+      "spravna_odpoved": "Jezuity",
+      "spatne_odpovedi": ["Templáře", "Husity", "Benediktiny"],
+      "oduvodneni": "Ferdinand I. povolal roku 1556 do Prahy jezuity - nový katolický řád, který získával věřící a věnoval se vzdělání (kolej Klementinum).",
+      "proc_spatne": {
+        "Templáře": "Templáři byli rytířský řád, který byl zrušen už ve 14. století.",
+        "Husity": "Husité byli čeští nekatolíci - rekatolizace mířila právě proti nim, nemohli ji provádět.",
+        "Benediktiny": "Benediktini byli starý mnišský řád, ne nástroj rekatolizace 16. století."
+      }
+    },
+    {
+      "id": "PN14",
+      "tema": "Ferdinand I.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenovala pražská jezuitská kolej, kterou dnes známe jako Národní knihovnu?",
+      "spravna_odpoved": "Klementinum",
+      "spatne_odpovedi": ["Karolinum", "Vladislavský sál", "Strahovský klášter"],
+      "oduvodneni": "Jezuité v Praze založili kolej Klementinum - dnes je v ní Národní knihovna.",
+      "proc_spatne": {
+        "Karolinum": "Karolinum je sídlo Univerzity Karlovy, ne jezuitská kolej.",
+        "Vladislavský sál": "Vladislavský sál je reprezentační sál Pražského hradu z pozdní gotiky.",
+        "Strahovský klášter": "Strahovský klášter patřil řádu premonstrátů, ne jezuitům."
+      }
+    },
+    {
+      "id": "PN15",
+      "tema": "Maxmilián II. a Rudolf II.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím byl charakteristický Maxmilián II. (1564-1576)?",
+      "spravna_odpoved": "Byl nábožensky tolerantní a ústně slíbil nekatolíkům Českou konfesi",
+      "spatne_odpovedi": ["Tvrdě pronásledoval všechny nekatolíky", "Přesunul sídlo do Prahy", "Prohrál bitvu na Bílé hoře"],
+      "oduvodneni": "Maxmilián II. byl nábožensky tolerantní král - nekatolíkům ústně slíbil svobodu vyznání (tzv. Českou konfesi).",
+      "proc_spatne": {
+        "Tvrdě pronásledoval všechny nekatolíky": "Naopak byl tolerantní; tvrdý postup proti nekatolíkům přišel až po roce 1620.",
+        "Přesunul sídlo do Prahy": "Sídlo do Prahy přesunul jeho syn Rudolf II.",
+        "Prohrál bitvu na Bílé hoře": "Bitva na Bílé hoře byla roku 1620, dávno po Maxmiliánově smrti."
+      }
+    },
+    {
+      "id": "PN16",
+      "tema": "Maxmilián II. a Rudolf II.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kam přesunul Rudolf II. své sídlo?",
+      "spravna_odpoved": "Z Vídně do Prahy",
+      "spatne_odpovedi": ["Z Prahy do Vídně", "Z Vídně do Budína", "Z Prahy do Brna"],
+      "oduvodneni": "Rudolf II. přesunul sídlo z Vídně do Prahy, která se tak stala centrem kultury, vědy, umění a alchymie.",
+      "proc_spatne": {
+        "Z Prahy do Vídně": "Naopak - do Vídně sídlo vrátil až jeho bratr Matyáš.",
+        "Z Vídně do Budína": "Budín byl uherské město pod tureckou hrozbou, Rudolf tam sídlo nepřesunul.",
+        "Z Prahy do Brna": "Rudolf sídlil v Praze, ne v Brně."
+      }
+    },
+    {
+      "id": "PN17",
+      "tema": "Maxmilián II. a Rudolf II.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co zaručoval Rudolfův majestát z roku 1609?",
+      "spravna_odpoved": "Úplnou náboženskou svobodu pro všechny obyvatele",
+      "spatne_odpovedi": ["Dědičné právo Habsburků na trůn", "Zrušení roboty pro poddané", "Povýšení Prahy na hlavní město říše"],
+      "oduvodneni": "Rudolfův majestát (1609) zaručoval úplnou náboženskou svobodu - nikdo nesměl být nucen k nějakému náboženství. Rudolf ho vydal pod tlakem stavů.",
+      "proc_spatne": {
+        "Dědičné právo Habsburků na trůn": "To zavedlo až Obnovené zřízení zemské roku 1627.",
+        "Zrušení roboty pro poddané": "Majestát se týkal náboženské svobody, ne roboty.",
+        "Povýšení Prahy na hlavní město říše": "Majestát řešil náboženství, ne postavení Prahy."
+      }
+    },
+    {
+      "id": "PN18",
+      "tema": "Maxmilián II. a Rudolf II.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč Rudolf II. vydal svůj majestát, ačkoli byl katolík?",
+      "spravna_odpoved": "Vydal ho pod tlakem nekatolických stavů, které využily jeho sporu s bratrem Matyášem",
+      "spatne_odpovedi": ["Sám se stal protestantem", "Přikázal mu to papež", "Chtěl se zalíbit Turkům"],
+      "oduvodneni": "Čeští nekatolíci využili sporu Rudolfa II. s bratrem Matyášem a vymohli na Rudolfovi vydání majestátu - vydal ho tedy pod tlakem, ne z přesvědčení.",
+      "proc_spatne": {
+        "Sám se stal protestantem": "Rudolf zůstal katolíkem (Habsburkové byli silní katolíci).",
+        "Přikázal mu to papež": "Papež by nikdy nepřikázal zaručit svobodu nekatolíkům - to bylo proti zájmům katolické církve.",
+        "Chtěl se zalíbit Turkům": "S Turky majestát nesouvisel, šlo o vnitřní náboženské napětí v zemi."
+      }
+    },
+    {
+      "id": "PN19",
+      "tema": "Maxmilián II. a Rudolf II.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kteří slavní astronomové působili na dvoře Rudolfa II. v Praze?",
+      "spravna_odpoved": "Tycho Brahe a Jan Kepler",
+      "spatne_odpovedi": ["Galileo Galilei a Mikuláš Koperník", "Leonardo da Vinci a Michelangelo", "Tycho Brahe a Albrecht z Valdštejna"],
+      "oduvodneni": "Rudolf II. byl velký mecenáš vědy a umění - na jeho pražském dvoře působili astronomové Tycho Brahe a Jan Kepler.",
+      "proc_spatne": {
+        "Galileo Galilei a Mikuláš Koperník": "Oba byli významní astronomové, ale na rudolfínském dvoře v Praze nepůsobili.",
+        "Leonardo da Vinci a Michelangelo": "To byli italští renesanční umělci, navíc z dřívější doby - ne astronomové u Rudolfa.",
+        "Tycho Brahe a Albrecht z Valdštejna": "Valdštejn byl vojevůdce z doby třicetileté války, ne astronom."
+      }
+    },
+    {
+      "id": "PN20",
+      "tema": "Matyáš a cesta k povstání",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se choval Matyáš (1611-1619) k Rudolfovu majestátu?",
+      "spravna_odpoved": "Porušoval ho a stupňoval tlak na protestanty",
+      "spatne_odpovedi": ["Rozšířil ho o další svobody", "Nechal ho beze změny", "Úplně ho potvrdil navždy"],
+      "oduvodneni": "Matyáš Majestát porušoval, stupňoval tlak na protestanty a přenesl sídlo zpět do Vídně - to vedlo k napětí, které vyústilo v povstání.",
+      "proc_spatne": {
+        "Rozšířil ho o další svobody": "Naopak ho omezoval a porušoval.",
+        "Nechal ho beze změny": "Matyáš ho aktivně porušoval, nenechal ho být.",
+        "Úplně ho potvrdil navždy": "Majestát byl nakonec po roce 1620 dokonce zrušen."
+      }
+    },
+    {
+      "id": "PN21",
+      "tema": "Matyáš a cesta k povstání",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kdo spravoval zemi, když Matyáš přenesl sídlo zpět do Vídně?",
+      "spravna_odpoved": "Královští úředníci - místodržící na Pražském hradě",
+      "spatne_odpovedi": ["Zemský sněm nekatolíků", "Pražský arcibiskup", "Vévoda frýdlantský"],
+      "oduvodneni": "Po přesunu sídla do Vídně dosadil Matyáš na Pražský hrad královské úředníky - místodržící, kteří zemi spravovali jeho jménem.",
+      "proc_spatne": {
+        "Zemský sněm nekatolíků": "Matyáš naopak zakazoval sjezdy nekatolických stavů; žádný sněm nekatolíků zemi nespravoval.",
+        "Pražský arcibiskup": "Arcibiskup byl církevní hodnostář, ne správce země.",
+        "Vévoda frýdlantský": "Tento titul získal Albrecht z Valdštejna až později, za třicetileté války."
+      }
+    },
+    {
+      "id": "PN22",
+      "tema": "Matyáš a cesta k povstání",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Koho navrhl Matyáš za svého nástupce na český trůn?",
+      "spravna_odpoved": "Bratrance Ferdinanda (pozdějšího Ferdinanda II.)",
+      "spatne_odpovedi": ["Svého syna", "Fridricha Falckého", "Albrechta z Valdštejna"],
+      "oduvodneni": "Matyáš neměl legitimní potomky, proto navrhl za nástupce svého bratrance Ferdinanda, kterého zemský sněm přijal jako českého krále Ferdinanda II.",
+      "proc_spatne": {
+        "Svého syna": "Matyáš neměl legitimní potomky (stejně jako jeho bratr Rudolf II.).",
+        "Fridricha Falckého": "Fridricha Falckého si zvolili až vzbouření stavové proti Habsburkům.",
+        "Albrechta z Valdštejna": "Valdštejn byl vojevůdce, nikdy nebyl kandidátem na český trůn."
+      }
+    },
+    {
+      "id": "PN23",
+      "tema": "České stavovské povstání (1618-1620)",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kterou událostí 23. května 1618 začalo české stavovské povstání?",
+      "spravna_odpoved": "Třetí pražskou defenestrací",
+      "spatne_odpovedi": ["Bitvou na Bílé hoře", "Popravou 27 pánů", "Vydáním Rudolfova majestátu"],
+      "oduvodneni": "23. 5. 1618 stavové vyhodili z oken Pražského hradu královské místodržící - třetí pražská defenestrace zahájila stavovské povstání.",
+      "proc_spatne": {
+        "Bitvou na Bílé hoře": "Bitva na Bílé hoře povstání naopak ukončila (1620).",
+        "Popravou 27 pánů": "Poprava byla až po porážce povstání, roku 1621.",
+        "Vydáním Rudolfova majestátu": "Majestát byl vydán už 1609, devět let před povstáním."
+      }
+    },
+    {
+      "id": "PN24",
+      "tema": "České stavovské povstání (1618-1620)",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo vedl nekatolické stavy při třetí pražské defenestraci?",
+      "spravna_odpoved": "Jindřich Matyáš Thurn",
+      "spatne_odpovedi": ["Albrecht z Valdštejna", "Jan Žižka", "Vilém Slavata"],
+      "oduvodneni": "Vzbouřené nekatolické stavy vedl Jindřich Matyáš Thurn - právě on stál v čele defenestrace na Pražském hradě.",
+      "proc_spatne": {
+        "Albrecht z Valdštejna": "Valdštejn bojoval na opačné, císařské (katolické) straně.",
+        "Jan Žižka": "Jan Žižka byl husitský vojevůdce z 15. století - žil o dvě století dříve.",
+        "Vilém Slavata": "Vilém Slavata byl naopak jedním z místodržících, které vyhodili z okna."
+      }
+    },
+    {
+      "id": "PN25",
+      "tema": "České stavovské povstání (1618-1620)",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Koho vyhodili stavové při třetí pražské defenestraci z oken?",
+      "spravna_odpoved": "Královské místodržící (Martinice, Slavatu a písaře Fabricia)",
+      "spatne_odpovedi": ["Samotného krále Matyáše", "Jezuity z Klementina", "Vůdce povstání Thurna"],
+      "oduvodneni": "Stavové vyhodili z oken kanceláře na Pražském hradě místodržící Jaroslava Bořitu z Martinic, Viléma Slavatu a písaře Fabricia. Pád všichni přežili.",
+      "proc_spatne": {
+        "Samotného krále Matyáše": "Král v Praze nebyl - vyhozeni byli jeho úředníci (místodržící).",
+        "Jezuity z Klementina": "Vyhozeni byli místodržící, ne jezuité (ti byli ze země vypovězeni jindy).",
+        "Vůdce povstání Thurna": "Thurn defenestraci vedl - rozhodně nebyl vyhozen."
+      }
+    },
+    {
+      "id": "PN26",
+      "tema": "České stavovské povstání (1618-1620)",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Koho si stavové zvolili českým králem místo Ferdinanda II.?",
+      "spravna_odpoved": "Fridricha Falckého",
+      "spatne_odpovedi": ["Albrechta z Valdštejna", "Gustava Adolfa", "Jindřicha Matyáše Thurna"],
+      "oduvodneni": "Stavové sesadili habsburského krále Ferdinanda II. a zvolili si protestanta Fridricha Falckého.",
+      "proc_spatne": {
+        "Albrechta z Valdštejna": "Valdštejn sloužil císaři na katolické straně, nebyl zvolen stavy.",
+        "Gustava Adolfa": "Gustav II. Adolf byl švédský král, do války vstoupil až později (švédská fáze).",
+        "Jindřicha Matyáše Thurna": "Thurn byl vojenský vůdce povstání, ne kandidát na krále."
+      }
+    },
+    {
+      "id": "PN27",
+      "tema": "České stavovské povstání (1618-1620)",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Proč dostal Fridrich Falcký přezdívku 'Zimní král'?",
+      "spravna_odpoved": "Vládl jen velmi krátce - pouhou jednu zimu",
+      "spatne_odpovedi": ["Pocházel z chladné severní země", "Korunovali ho uprostřed zimy", "Prohrál bitvu ve sněhové vánici"],
+      "oduvodneni": "Fridrich Falcký vládl jako český král jen velmi krátce (zhruba jednu zimu), po porážce na Bílé hoře uprchl ze země - odtud přezdívka 'Zimní král'.",
+      "proc_spatne": {
+        "Pocházel z chladné severní země": "Pocházel z Falce v západním Německu, ne ze severu - přezdívka je o délce vlády.",
+        "Korunovali ho uprostřed zimy": "Přezdívka odkazuje na krátkou vládu (jednu zimu), ne na datum korunovace.",
+        "Prohrál bitvu ve sněhové vánici": "Bitva na Bílé hoře byla 8. listopadu, přezdívka se týká délky vlády."
+      }
+    },
+    {
+      "id": "PN28",
+      "tema": "České stavovské povstání (1618-1620)",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdy a kde byli čeští stavové rozhodně poraženi?",
+      "spravna_odpoved": "8. listopadu 1620 v bitvě na Bílé hoře",
+      "spatne_odpovedi": ["roku 1526 v bitvě u Moháče", "roku 1648 u Prahy", "roku 1634 v Chebu"],
+      "oduvodneni": "Bitva na Bílé hoře 8. 11. 1620 znamenala rozhodující porážku českého stavovského vojska císařskou armádou a konec povstání.",
+      "proc_spatne": {
+        "roku 1526 v bitvě u Moháče": "U Moháče padl Ludvík Jagellonský, šlo o boj s Turky - téměř sto let před Bílou horou.",
+        "roku 1648 u Prahy": "Roku 1648 končila celá třicetiletá válka, ne stavovské povstání.",
+        "roku 1634 v Chebu": "V Chebu byl 1634 zavražděn Valdštejn - žádná bitva stavů se tam neodehrála."
+      }
+    },
+    {
+      "id": "PN29",
+      "tema": "Důsledky porážky povstání",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co se stalo 21. června 1621 na Staroměstském náměstí?",
+      "spravna_odpoved": "Poprava 27 vůdců českého stavovského povstání",
+      "spatne_odpovedi": ["Korunovace Ferdinanda II.", "Třetí pražská defenestrace", "Podpis Vestfálského míru"],
+      "oduvodneni": "21. 6. 1621 bylo na Staroměstském náměstí popraveno 27 vůdců povstání (kat Jan Mydlář) - mezi nimi Jan Jesenius a Kryštof Harant. Pro výstrahu vystavili 12 hlav na Mostecké věži.",
+      "proc_spatne": {
+        "Korunovace Ferdinanda II.": "To nebyla korunovace, ale poprava odpůrců Habsburků.",
+        "Třetí pražská defenestrace": "Defenestrace byla už 1618 na Pražském hradě.",
+        "Podpis Vestfálského míru": "Vestfálský mír byl podepsán až 1648."
+      }
+    },
+    {
+      "id": "PN30",
+      "tema": "Důsledky porážky povstání",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenoval kat, který popravil 27 českých pánů?",
+      "spravna_odpoved": "Jan Mydlář",
+      "spatne_odpovedi": ["Jan Jesenius", "Kryštof Harant", "Jaroslav Bořita z Martinic"],
+      "oduvodneni": "Popravu 27 pánů na Staroměstském náměstí vykonal kat Jan Mydlář.",
+      "proc_spatne": {
+        "Jan Jesenius": "Jan Jesenius byl naopak jedním z popravených (lékař a rektor univerzity).",
+        "Kryštof Harant": "Kryštof Harant byl rovněž jedním z popravených pánů, ne katem.",
+        "Jaroslav Bořita z Martinic": "Martinic byl katolický místodržící vyhozený při defenestraci, který pád přežil."
+      }
+    },
+    {
+      "id": "PN31",
+      "tema": "Důsledky porážky povstání",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co znamenala konfiskace majetku po porážce povstání?",
+      "spravna_odpoved": "Úřední zabavení majetku protestantské šlechty a jeho prodej katolíkům",
+      "spatne_odpovedi": ["Rozdělení půdy mezi poddané", "Vrácení majetku církvi zdarma", "Daň placená cizím státům"],
+      "oduvodneni": "Konfiskace bylo úřední zabavení majetku bez náhrady - zabavený majetek protestantů se prodával katolíkům, jejichž moc tím rostla.",
+      "proc_spatne": {
+        "Rozdělení půdy mezi poddané": "Poddaní nic nezískali - majetek šel ke katolické šlechtě.",
+        "Vrácení majetku církvi zdarma": "Majetek se prodával katolíkům, nešlo jen o vracení církvi.",
+        "Daň placená cizím státům": "Konfiskace bylo zabavení majetku doma, ne daň cizině."
+      }
+    },
+    {
+      "id": "PN32",
+      "tema": "Důsledky porážky povstání",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co zavedlo Obnovené zřízení zemské z roku 1627?",
+      "spravna_odpoved": "Dědičný trůn Habsburků a jediné povolené náboženství - katolické",
+      "spatne_odpovedi": ["Náboženskou svobodu pro všechny", "Volbu krále českými stavy", "Zrušení habsburské vlády"],
+      "oduvodneni": "Obnovené zřízení zemské (1627) byla nová ústava: trůn se stal dědičným pro Habsburky, jediným povoleným náboženstvím bylo katolické a němčina byla zrovnoprávněna s češtinou. Platilo až do roku 1848.",
+      "proc_spatne": {
+        "Náboženskou svobodu pro všechny": "Naopak - povoleno bylo jen katolictví, svoboda byla zrušena.",
+        "Volbu krále českými stavy": "Právě naopak: trůn se stal dědičným, stavové už krále nevolili.",
+        "Zrušení habsburské vlády": "Obnovené zřízení habsburskou moc upevnilo, ne zrušilo."
+      }
+    },
+    {
+      "id": "PN33",
+      "tema": "Důsledky porážky povstání",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak Obnovené zřízení zemské změnilo postavení němčiny?",
+      "spravna_odpoved": "Zrovnoprávnilo němčinu s češtinou",
+      "spatne_odpovedi": ["Zakázalo němčinu úplně", "Prohlásilo češtinu za jediný jazyk", "Zavedlo latinu jako úřední jazyk"],
+      "oduvodneni": "Obnovené zřízení zemské zrovnoprávnilo němčinu (NJ) s češtinou (ČJ) - němčina tak získala stejné postavení jako čeština.",
+      "proc_spatne": {
+        "Zakázalo němčinu úplně": "Naopak ji zrovnoprávnilo, nezakázalo.",
+        "Prohlásilo češtinu za jediný jazyk": "Čeština ztratila výsadní postavení, němčina jí byla postavena naroveň.",
+        "Zavedlo latinu jako úřední jazyk": "Šlo o vztah češtiny a němčiny, latina v tom nefigurovala."
+      }
+    },
+    {
+      "id": "PN34",
+      "tema": "Třicetiletá válka a její fáze",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "V kterých letech probíhala třicetiletá válka?",
+      "spravna_odpoved": "1618-1648",
+      "spatne_odpovedi": ["1526-1556", "1419-1434", "1576-1611"],
+      "oduvodneni": "Třicetiletá válka trvala v letech 1618-1648 - od pražské defenestrace po Vestfálský mír.",
+      "proc_spatne": {
+        "1526-1556": "Rok 1526 je nástup Ferdinanda I. na český trůn - s třicetiletou válkou nesouvisí.",
+        "1419-1434": "To jsou husitské války z 15. století.",
+        "1576-1611": "To je doba vlády Rudolfa II., před vypuknutím války."
+      }
+    },
+    {
+      "id": "PN35",
+      "tema": "Třicetiletá válka a její fáze",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Mezi kým se vedla třicetiletá válka především?",
+      "spravna_odpoved": "Mezi katolíky (katolická liga) a protestanty (Protestantská unie)",
+      "spatne_odpovedi": ["Mezi Čechy a Turky", "Mezi katolíky a pravoslavnými", "Mezi šlechtou a poddanými"],
+      "oduvodneni": "Válka byla bojem katolíků (katolická liga) proti protestantům (Protestantská unie) v celé Evropě - nešlo ale jen o náboženství, ale i o politickou moc.",
+      "proc_spatne": {
+        "Mezi Čechy a Turky": "Boje s Turky byly samostatné; třicetiletá válka byla o náboženství a moc v Evropě.",
+        "Mezi katolíky a pravoslavnými": "Soupeři byli katolíci a protestanti, ne pravoslavní.",
+        "Mezi šlechtou a poddanými": "Nešlo o sociální vzpouru poddaných, ale o nábožensko-politický konflikt států."
+      }
+    },
+    {
+      "id": "PN36",
+      "tema": "Třicetiletá válka a její fáze",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Které čtyři fáze se v třicetileté válce rozlišují (podle toho, kdo bojoval proti císaři)?",
+      "spravna_odpoved": "Válka česká, falcká, dánská a švédská",
+      "spatne_odpovedi": ["Válka uherská, polská, ruská a turecká", "Válka husitská, selská, panská a městská", "Válka první, druhá, třetí a světová"],
+      "oduvodneni": "Třicetiletá válka se dělí na 4 fáze podle hlavního protivníka císaře: česká (1618-1620), falcká (1621-1623), dánská (1625-1629) a švédská (a švédsko-francouzská, 1630-1648).",
+      "proc_spatne": {
+        "Válka uherská, polská, ruská a turecká": "Tyto země nebyly hlavními fázemi třicetileté války.",
+        "Válka husitská, selská, panská a městská": "To jsou jiné konflikty, ne fáze třicetileté války.",
+        "Válka první, druhá, třetí a světová": "Fáze se pojmenovávají podle protivníka císaře, ne pořadovými čísly."
+      }
+    },
+    {
+      "id": "PN37",
+      "tema": "Třicetiletá válka a její fáze",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kterou fází třicetileté války bylo samotné české stavovské povstání?",
+      "spravna_odpoved": "První fází - válkou českou (1618-1620)",
+      "spatne_odpovedi": ["Poslední, švédskou fází", "Dánskou fází", "Vůbec nebylo součástí války"],
+      "oduvodneni": "České stavovské povstání tvořilo první fázi třicetileté války - válku českou (1618-1620), zakončenou bitvou na Bílé hoře.",
+      "proc_spatne": {
+        "Poslední, švédskou fází": "Švédská fáze byla až 1630-1648, na konci války.",
+        "Dánskou fází": "Dánská fáze (1625-1629) přišla později a vedl ji dánský král.",
+        "Vůbec nebylo součástí války": "Naopak právě povstání celou válku odstartovalo."
+      }
+    },
+    {
+      "id": "PN38",
+      "tema": "Třicetiletá válka a její fáze",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Který švédský král vstoupil do války ve švédské fázi na straně protestantů?",
+      "spravna_odpoved": "Gustav II. Adolf",
+      "spatne_odpovedi": ["Kristián IV.", "Fridrich Falcký", "Ferdinand II."],
+      "oduvodneni": "Ve švédské fázi (od 1630) vstoupil do války švédský král Gustav II. Adolf. Švédská vojska později vyplenila i české země (sám Gustav Adolf padl roku 1632 v bitvě u Lützenu).",
+      "proc_spatne": {
+        "Kristián IV.": "Kristián IV. byl dánský král z předchozí, dánské fáze.",
+        "Fridrich Falcký": "Fridrich Falcký byl český 'Zimní král' z české fáze, ne švédský panovník.",
+        "Ferdinand II.": "Ferdinand II. byl naopak císař - hlavní protivník protestantů."
+      }
+    },
+    {
+      "id": "PN39",
+      "tema": "Třicetiletá válka a její fáze",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč se katolická Francie přidala v závěru války na stranu protestantů?",
+      "spravna_odpoved": "Chtěla oslabit moc Habsburků v Evropě",
+      "spatne_odpovedi": ["Sama se stala protestantskou zemí", "Chtěla pomstít smrt Gustava Adolfa", "Bránila se tureckému útoku"],
+      "oduvodneni": "Francie byla katolická, ale přidala se ke Švédům (protestantům) z politických důvodů - chtěla oslabit moc Habsburků. Válka tedy nebyla jen náboženská, ale i mocenská.",
+      "proc_spatne": {
+        "Sama se stala protestantskou zemí": "Francie zůstala katolická - šlo jí o politickou moc, ne o víru.",
+        "Chtěla pomstít smrt Gustava Adolfa": "Důvodem bylo oslabení Habsburků, ne pomsta.",
+        "Bránila se tureckému útoku": "Turci s tímto rozhodnutím Francie nesouvisí."
+      }
+    },
+    {
+      "id": "PN40",
+      "tema": "Albrecht z Valdštejna",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kým byl Albrecht z Valdštejna?",
+      "spravna_odpoved": "Nejvyšší velitel císařské armády (ve službách Ferdinanda II.)",
+      "spatne_odpovedi": ["Vůdce stavovského povstání", "Švédský král", "Pražský arcibiskup"],
+      "oduvodneni": "Albrecht z Valdštejna byl český šlechtic a mimořádně úspěšný vojevůdce - nejvyšší velitel císařské armády ve službách Ferdinanda II.",
+      "proc_spatne": {
+        "Vůdce stavovského povstání": "Valdštejn bojoval na opačné, císařské straně - povstání vedl Thurn.",
+        "Švédský král": "Švédským králem byl Gustav II. Adolf, ne Valdštejn.",
+        "Pražský arcibiskup": "Valdštejn byl vojevůdce, ne církevní hodnostář."
+      }
+    },
+    {
+      "id": "PN41",
+      "tema": "Albrecht z Valdštejna",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak Valdštejn postavil svou obrovskou armádu?",
+      "spravna_odpoved": "Na vlastní náklady (z válečné kořisti a daní z dobytých území)",
+      "spatne_odpovedi": ["Zaplatil ji papež", "Najal ji švédský král", "Financovaly ji české stavy"],
+      "oduvodneni": "Valdštejn vybudoval obrovskou armádu na vlastní náklady - z válečné kořisti a daní vybíraných na dobytých územích. Získal i obrovský majetek (vévoda frýdlantský).",
+      "proc_spatne": {
+        "Zaplatil ji papež": "Armádu financoval Valdštejn sám, ne papež.",
+        "Najal ji švédský král": "Švédové byli nepřátelé - Valdštejn bojoval proti nim.",
+        "Financovaly ji české stavy": "České stavy byly poraženy už 1620 - Valdštejn sloužil císaři."
+      }
+    },
+    {
+      "id": "PN42",
+      "tema": "Albrecht z Valdštejna",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak skončil Albrecht z Valdštejna?",
+      "spravna_odpoved": "Roku 1634 ho dal císař zavraždit v Chebu",
+      "spatne_odpovedi": ["Padl v bitvě na Bílé hoře", "Stal se českým králem", "Odešel do exilu do Nizozemska"],
+      "oduvodneni": "Císař se začal bát Valdštejnovy moci a podezříval ho ze zrady - nechal ho roku 1634 v Chebu zavraždit a jeho majetek zabavit.",
+      "proc_spatne": {
+        "Padl v bitvě na Bílé hoře": "Bílá hora byla 1620; Valdštejn zemřel až 1634 v Chebu.",
+        "Stal se českým králem": "Valdštejn českým králem nikdy nebyl.",
+        "Odešel do exilu do Nizozemska": "Do Nizozemska odešel Komenský; Valdštejn byl zavražděn v Chebu."
+      }
+    },
+    {
+      "id": "PN43",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakou smlouvou skončila roku 1648 třicetiletá válka?",
+      "spravna_odpoved": "Vestfálským mírem",
+      "spatne_odpovedi": ["Svatováclavskou smlouvou", "Rudolfovým majestátem", "Kutnohorským smírem"],
+      "oduvodneni": "Třicetiletá válka byla ukončena roku 1648 podepsáním Vestfálského míru - posílilo se postavení Francie a Švédska jako evropských mocností.",
+      "proc_spatne": {
+        "Svatováclavskou smlouvou": "Svatováclavská smlouva (1517) urovnala spor šlechty a měst za Jagellonců.",
+        "Rudolfovým majestátem": "Majestát (1609) se týkal náboženské svobody, ne konce války.",
+        "Kutnohorským smírem": "Kutnohorský smír (1485) řešil spory katolíků a kališníků ve středověku."
+      }
+    },
+    {
+      "id": "PN44",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který tvrdý důsledek války postihl poddané v českých zemích?",
+      "spravna_odpoved": "Nevolnictví - ztratili svobodu pohybu, nesměli se bez svolení vrchnosti stěhovat ani ženit",
+      "spatne_odpovedi": ["Získali osobní svobodu a vlastní půdu", "Byli osvobozeni od všech daní", "Mohli si svobodně volit náboženství"],
+      "oduvodneni": "Po válce se upevnilo nevolnictví - poddaní ztratili svobodu pohybu a bez povolení vrchnosti se nesměli stěhovat ani ženit.",
+      "proc_spatne": {
+        "Získali osobní svobodu a vlastní půdu": "Pravý opak - nevolnictví jejich svobodu omezilo.",
+        "Byli osvobozeni od všech daní": "Daně ani robota zrušeny nebyly, podmínky poddaných se zhoršily.",
+        "Mohli si svobodně volit náboženství": "Povoleno bylo jen katolictví; náboženská svoboda byla zrušena."
+      }
+    },
+    {
+      "id": "PN45",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak velká část obyvatel Evropy podle podkladů v důsledku války zemřela?",
+      "spravna_odpoved": "Až třetina obyvatel",
+      "spatne_odpovedi": ["Asi setina obyvatel", "Téměř polovina obyvatel", "Necelé procento obyvatel"],
+      "oduvodneni": "Podle podkladů zemřela v důsledku bojů, hladomoru a epidemií až třetina obyvatel - nejhůře byly postiženy střední Evropa a německé a české země. Válka znamenala obrovský úbytek obyvatelstva a hospodářský úpadek.",
+      "proc_spatne": {
+        "Asi setina obyvatel": "Ztráty byly mnohem vyšší - uvádí se až třetina.",
+        "Téměř polovina obyvatel": "Podklady uvádějí až třetinu, ne polovinu.",
+        "Necelé procento obyvatel": "To je výrazné podcenění - obětí byla až třetina obyvatel."
+      }
+    },
+    {
+      "id": "PN46",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jakou celosvětovou přezdívku získal Jan Amos Komenský?",
+      "spravna_odpoved": "Učitel národů",
+      "spatne_odpovedi": ["Otec vlasti", "Zimní král", "Král železný a zlatý"],
+      "oduvodneni": "Jan Amos Komenský získal pro své převratné názory na výuku celosvětovou přezdívku 'Učitel národů'.",
+      "proc_spatne": {
+        "Otec vlasti": "'Otec vlasti' je přezdívka Karla IV. ze 14. století.",
+        "Zimní král": "'Zimní král' byl Fridrich Falcký.",
+        "Král železný a zlatý": "Tak byl označován Přemysl Otakar II."
+      }
+    },
+    {
+      "id": "PN47",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč musel Komenský roku 1628 opustit české země?",
+      "spravna_odpoved": "Jako nekatolík odmítl po Bílé hoře přestoupit na katolickou víru",
+      "spatne_odpovedi": ["Byl odsouzen za účast v defenestraci", "Hledal lepší placené místo v cizině", "Vyhnali ho Turci z Uher"],
+      "oduvodneni": "Komenský byl posledním biskupem nekatolické Jednoty bratrské. Po Bílé hoře a Obnoveném zřízení zemském odmítl přestoupit na katolickou víru, a proto musel roku 1628 odejít do exilu.",
+      "proc_spatne": {
+        "Byl odsouzen za účast v defenestraci": "Komenský nebyl mezi defenestranty ani popravenými - odešel kvůli víře.",
+        "Hledal lepší placené místo v cizině": "Důvodem byl náboženský útlak (rekatolizace), ne hledání lepšího platu.",
+        "Vyhnali ho Turci z Uher": "Komenský odešel z českých zemí kvůli Habsburkům a rekatolizaci, ne kvůli Turkům."
+      }
+    },
+    {
+      "id": "PN48",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které Komenského dílo bylo první ilustrovanou (obrázkovou) učebnicí na světě?",
+      "spravna_odpoved": "Orbis pictus (Svět v obrazech)",
+      "spatne_odpovedi": ["Labyrint světa a ráj srdce", "Kosmas - Kronika česká", "Dalimilova kronika"],
+      "oduvodneni": "Orbis pictus (Svět v obrazech) byla první ilustrovaná učebnice na světě - obrázková encyklopedie pro děti.",
+      "proc_spatne": {
+        "Labyrint světa a ráj srdce": "To je Komenského filozofické dílo, ne obrázková učebnice.",
+        "Kosmas - Kronika česká": "Kosmova kronika je středověký latinský spis z 12. století.",
+        "Dalimilova kronika": "Dalimilova kronika je veršovaná česká kronika ze 14. století."
+      }
+    },
+    {
+      "id": "PN49",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kterou zásadu výuky prosazoval Komenský místo drilu a biflování zpaměti?",
+      "spravna_odpoved": "Školu hrou a názornost (žáci mají věci vidět a osahat si)",
+      "spatne_odpovedi": ["Přísný dril a tělesné tresty", "Výuku výhradně v latině zpaměti", "Vzdělání jen pro bohaté chlapce"],
+      "oduvodneni": "Komenský prosazoval Školu hrou (Schola ludus) a názornost - žáci mají věci vidět, osahat si je a chápat, ne se učit jen nazpaměť. Prosazoval i vzdělání pro všechny včetně dívek.",
+      "proc_spatne": {
+        "Přísný dril a tělesné tresty": "To byl právě zastaralý způsob výuky, který Komenský odmítal.",
+        "Výuku výhradně v latině zpaměti": "Komenský prosazoval i mateřský jazyk a porozumění, ne biflování latiny.",
+        "Vzdělání jen pro bohaté chlapce": "Komenský chtěl vzdělání pro všechny bez ohledu na majetek, původ či pohlaví (i pro dívky)."
+      }
+    },
+    {
+      "id": "PN50",
+      "tema": "Výsledky třicetileté války a Komenský",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kde Jan Amos Komenský zemřel a je pochován?",
+      "spravna_odpoved": "V Nizozemsku, pochován v městečku Naarden",
+      "spatne_odpovedi": ["V Praze, pochován na Vyšehradě", "V Uhrách, pochován v Bratislavě", "V Anglii, pochován v Londýně"],
+      "oduvodneni": "Komenský prožil život v exilu (Polsko, Anglie, Švédsko, Uhersko) a zemřel v Nizozemsku - pochován je v městečku Naarden.",
+      "proc_spatne": {
+        "V Praze, pochován na Vyšehradě": "Komenský se kvůli rekatolizaci do Čech vrátit nemohl, zemřel v exilu.",
+        "V Uhrách, pochován v Bratislavě": "V Uhrách Komenský působil, ale zemřel až v Nizozemsku.",
+        "V Anglii, pochován v Londýně": "Anglie byla jen jednou ze zemí jeho působení; zemřel v Nizozemsku (Naarden)."
+      }
+    }
+  ]
+}
