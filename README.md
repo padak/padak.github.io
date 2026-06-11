@@ -3,6 +3,7 @@
 Rychlý rozcestník k našim domácím školním testům.
 
 ## 📜 Dějepis
+- [Počátek novověku v českých zemích – mobil](https://padak.github.io/dejepis/pocatek-novoveku-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/pocatek-novoveku-flashcards.html) · [příprava](https://padak.github.io/dejepis/pocatek-novoveku-intro.html)
 - [Konec středověku a počátky novověku – mobil](https://padak.github.io/dejepis/konec-stredoveku-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/konec-stredoveku-flashcards.html) · [příprava](https://padak.github.io/dejepis/konec-stredoveku-intro.html)
 - [Husitská revoluce – mobil](https://padak.github.io/dejepis/husitska-revoluce-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/husitska-revoluce-flashcards.html) · [příprava](https://padak.github.io/dejepis/husitska-revoluce-intro.html)
 - [Lucemburkové – mobil](https://padak.github.io/dejepis/lucemburkove-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/lucemburkove-flashcards.html)
