@@ -6,6 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an educational web application repository ("Terka – rodinná cvičení") for school exercises targeting a 7th-grade Czech student. Covers Czech language, English language, and History. Hosted on GitHub Pages at https://padak.github.io/
 
+The goal is that the student **learns** the material by practising it — so a test must *teach*, not just grade. Every question carries an explanation of why the correct answer is right (`oduvodneni`) and why each wrong answer is wrong (`proc_spatne`).
+
+## Content Workflow
+
+The end-to-end process for building a topic — read source photos → author the questions JSON → **review via `/second-opinion` (Codex)** → add support data (timeline, glossary, cheat sheet) → build the HTML pages → publish to GitHub Pages — is documented in [CONTRIBUTING.md](CONTRIBUTING.md). Read it before authoring a new test. The `/second-opinion` review is a mandatory quality gate: a test that teaches a wrong fact is worse than no test.
+
 ## Architecture
 
 ### Directory Layout
@@ -59,12 +65,22 @@ This is an educational web application repository ("Terka – rodinná cvičení
   - `cj/slovni_druhy_test.json`: `{sentences: [{id, sentence, word, correct, options, hint}]}` — 50 items
   - `cj/vyjmenovana_slova_test.json`: `{categories: {B: {base, examples}, L: ...}, settings}` — y/i pairs per category
   - `en/english_tenses_test.json`: `{sentences: [{id, sentence, correct, options, hint}]}` — 100 items
-  - `dejepis/questions.json`: `{tema: [{nazev, otazky: [{id, otazka, odpovedi, spravna, obtiznost, vysvetleni}]}]}` — 4 themes
-  - `dejepis/cesky-stat-questions.json`: Same structure as above — 1 theme, 30 questions
-  - `dejepis/posledni-premyslovci-questions.json`: Same structure — 1 theme, 50 questions
-  - `dejepis/lucemburkove-questions.json`: Same structure — 6 themes, 50 questions
-  - `dejepis/husitska-revoluce-questions.json`: Same structure — 6 themes, 50 questions
-  - `dejepis/konec-stredoveku-questions.json`: Same structure plus `zdroj_kategorie` per question — 5 sub-themes, 50 questions (35 from teacher's handouts + 15 from textbook bonus)
+  - `dejepis/*-questions.json`: **One file per topic** is the single source of truth for that topic's test, flashcards and intro page. Top-level shape:
+    ```
+    {jazyk, rocnik, tema: [...names], zdroj, hlavni_osy: [...], terminologie: {section: [{pojem, vysvetleni}]}, casova_osa: [{rok, udalost}], otazky: [...]}
+    ```
+    Each entry in the flat `otazky` array:
+    ```
+    {id, tema, obtiznost, typ, otazka, spravna_odpoved, spatne_odpovedi: [...3], oduvodneni, proc_spatne: {"<wrong answer text>": "why it's wrong"}}
+    ```
+    Sub-themes are the distinct values of each question's `tema` field, not a nested structure. `oduvodneni` explains why the correct answer is right; `proc_spatne` maps each wrong answer string to why that specific choice is wrong (keys must match `spatne_odpovedi` exactly).
+  - Per-file specifics:
+    - `questions.json` — Early Middle Ages, 40 questions
+    - `cesky-stat-questions.json` — 30 questions
+    - `posledni-premyslovci-questions.json` — 50 questions
+    - `lucemburkove-questions.json` — 50 questions
+    - `husitska-revoluce-questions.json` — 50 questions
+    - `konec-stredoveku-questions.json` — 50 questions; variant shape with split sources: `zdroj_ucitelka`/`zdroj_ucebnice`, `kategorie`, `hlavni_osy_ucitelka`/`hlavni_osy_ucebnice`, and a `zdroj_kategorie` (`ucitelka`|`ucebnice`) field per question so the test can filter by source (35 teacher + 15 textbook bonus)
 
 ### HTML Applications
 All HTML files are **self-contained** with inline CSS and JavaScript, loading data from JSON files via fetch API.
@@ -111,11 +127,13 @@ git push origin main
 4. Update `dejepis/index.html` or `README.md` with links to new content
 
 ### Adding New History Topics
-The history section follows a repeatable pattern per topic:
-1. `{topic}-questions.json` — question data
-2. `{topic}-test-mobil.html` — mobile test
-3. `{topic}-flashcards.html` — flashcards
-4. Add cards to `dejepis/index.html` under a new `<h2>` section
+The history section follows a repeatable pattern per topic (full step-by-step process in [CONTRIBUTING.md](CONTRIBUTING.md)):
+1. `{topic}-questions.json` — question data, plus `terminologie` / `casova_osa` / `hlavni_osy_*` that power the flashcards and intro page from the same file
+2. **Review the questions via `/second-opinion`** for factual accuracy before building any HTML
+3. `{topic}-test-mobil.html` — mobile test
+4. `{topic}-flashcards.html` — flashcards
+5. `{topic}-intro.html` — timeline + glossary + cheat sheet (recommended)
+6. Add cards to `dejepis/index.html` under a new `<h2>` section, and links to `README.md`
 
 ### Mobile Optimization
 Mobile versions should:
