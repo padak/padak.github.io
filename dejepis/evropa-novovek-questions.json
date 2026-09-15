@@ -1,0 +1,1132 @@
+{
+  "jazyk": "cs",
+  "rocnik": 8,
+  "tema": [
+    "Evropa na počátku novověku - Španělsko a Nizozemí, Anglie, Francie"
+  ],
+  "zdroj": "1 stránka podkladů od učitelky - IV_2 Evropa na počátku novověku: Španělsko a Nizozemí (Karel V., Filip II., nizozemské povstání, Vilém I. Oranžský, obchodní společnosti), Anglie (Alžběta I., korzáři, porážka španělského loďstva 1588, Shakespeare, Stuartovci, puritáni, občanská válka 1642-1648, Cromwell, konstituční monarchie), Francie (hugenoti, Bartolomějská noc 1572, Jindřich IV. a Edikt nantský 1598, Ludvík XIII. a kardinál Richelieu).",
+  "hlavni_osy": [
+    "Španělsko - od konce 15. st. bohatne z kolonií v Americe (Kryštof Kolumbus), v 16. st. je jednou z nejbohatších a nejmocnějších zemí světa. Vládne španělská větev Habsburků (u nás rakouská větev). Král Karel V. Habsburský je bratr našeho Ferdinanda I.",
+    "Nizozemí patřilo Španělsku - díky obchodu nejbohatší španělská provincie, 17 malých států (+ část Belgie). Španělsko je katolické, v Nizozemí se šíří kalvinismus (Jan Kalvín ze Švýcarska; predestinace = předurčení, zda budeme spaseni).",
+    "Filip II. pronásleduje v Nizozemí kalvinisty (rekatolizace) a omezuje práva stavů (šlechta + města) → ve 2. pol. 16. st. povstání nizozemské šlechty (Vilém I. Oranžský, 'mlčenlivý princ') + prostého lidu. Španělské vojsko bylo po letech ze severu vyhnáno.",
+    "Výsledek povstání: sever vyhlásil samostatný stát - základ dnešního Nizozemska (nezávislost uznána až po roce 1648). Jih zůstal pod Habsburky - dnešní Belgie. Původní Nizozemí se tak rozdělilo na S a J část.",
+    "Nizozemský obchod - poč. 17. st. Východoindická společnost (výsada obchodovat s východními zeměmi - Čína, Japonsko); Západoindická společnost pronikla přes Atlantik a založila Nový Amsterdam (dnešní New York).",
+    "Anglie - alžbětinská doba = úspěšná vláda královny Alžběty I. (1558-1603). Angličtí piráti (korzáři) přepadávali španělské lodě se zlatem a stříbrem z Ameriky. Španělská válečná flotila byla roku 1588 poražena a zničena → Anglie ovládá námořní cesty a zakládá vlastní kolonie. Renesanční kultura - William Shakespeare.",
+    "17. st. - v Anglii vládnou Stuartovci. Král Karel I. chce absolutistickou vládu, parlament (šlechta, později i města; převaha kalvinistů = puritánů) má velké pravomoci → spory → občanská válka (1642-1648). Puritáni = 'čistota': prostý oděv, skromnost v jídle, pracovitost, přísná morálka.",
+    "Vítěz občanské války Oliver Cromwell (puritánský šlechtic) - Karel I. popraven, parlament vyhlásil republiku. Cromwell později parlament rozpustil a stal se neomezeným diktátorem. Po jeho smrti obnovení monarchie - zpět Stuartovci.",
+    "Konec 17. st. - Stuartovci znovu usilují o absolutismus → revoluce, král uprchl do Francie. Na žádost parlamentu se králem stal jeho zeť, nizozemský místodržící Vilém III. Oranžský. Anglie prohlášena konstituční monarchií (panovník vládne podle konstituce = ústavy).",
+    "Francie - v 16. st. náboženská občanská válka mezi katolíky a protestanty (= hugenoty; byli i mezi šlechtou a v královské rodině). Nejkrvavější událost: Bartolomějská noc 23./24. 8. 1572 - vyvraždění desetitisíců hugenotů v Paříži a po celé Francii.",
+    "Jindřich IV. vydal roku 1598 Edikt nantský (nařízení o náboženském smíru) - ukončil náboženskou válku, zaručil rovnost protestantů (hugenotů) a katolíků → rozkvět Francie. Francie bojovala ve třicetileté válce proti Habsburkům.",
+    "Po smrti Jindřicha IV. se králem stal jeho 9letý syn Ludvík XIII. (vládla za něj matka). Velký vliv měl jeho ministr kardinál Richelieu, který se snažil oslabit moc Habsburků v Evropě."
+  ],
+  "terminologie": {
+    "Spanelsko_a_Nizozemi": [
+      {
+        "pojem": "Španělská větev Habsburků",
+        "vysvetleni": "Část rodu Habsburků, která vládla v 16. století Španělsku (u nás vládla rakouská větev). Král Karel V. Habsburský byl bratr českého krále Ferdinanda I."
+      },
+      {
+        "pojem": "Kolonie",
+        "vysvetleni": "Zámořská území ovládaná evropskou zemí. Španělsko díky nim (po Kolumbově objevení Ameriky) od konce 15. st. bohatlo a v 16. st. bylo jednou z nejbohatších a nejmocnějších zemí světa."
+      },
+      {
+        "pojem": "Nizozemí",
+        "vysvetleni": "Nejbohatší španělská provincie (díky obchodu), 17 malých států (+ část dnešní Belgie). Po povstání se rozdělilo na severní samostatný stát (dnešní Nizozemsko) a jižní část pod Habsburky (dnešní Belgie)."
+      },
+      {
+        "pojem": "Kalvinismus",
+        "vysvetleni": "Protestantské učení reformátora Jana Kalvína ze Švýcarska, rozšířené v Nizozemí. Věří v predestinaci - předurčení, zda budeme nebo nebudeme spaseni."
+      },
+      {
+        "pojem": "Predestinace",
+        "vysvetleni": "Předurčení - kalvinistická víra, že Bůh předem rozhodl, zda bude člověk spasen nebo ne."
+      },
+      {
+        "pojem": "Filip II.",
+        "vysvetleni": "Španělský král, který pronásledoval v Nizozemí kalvinisty (snaha o rekatolizaci) a omezoval práva nizozemských stavů. Vyslal do Nizozemí vojsko, to bylo po letech ze severu vyhnáno."
+      },
+      {
+        "pojem": "Rekatolizace",
+        "vysvetleni": "Snaha vrátit obyvatele k výhradně katolické víře - v Nizozemí ji prosazoval Filip II. proti kalvinistům."
+      },
+      {
+        "pojem": "Vilém I. Oranžský",
+        "vysvetleni": "'Mlčenlivý princ' - vůdce povstání nizozemské šlechty proti Španělsku ve 2. polovině 16. století. K šlechtě se přidal i prostý lid."
+      },
+      {
+        "pojem": "Východoindická společnost",
+        "vysvetleni": "Nizozemská obchodní společnost z počátku 17. st. s výsadou obchodovat s východními zeměmi (navázala vztahy s Čínou a Japonskem)."
+      },
+      {
+        "pojem": "Západoindická společnost",
+        "vysvetleni": "Nizozemská obchodní společnost, která pronikla přes Atlantik a založila Nový Amsterdam (dnešní New York)."
+      }
+    ],
+    "Anglie": [
+      {
+        "pojem": "Alžběta I.",
+        "vysvetleni": "Anglická královna (1558-1603), její úspěšná vláda se nazývá alžbětinská doba. Anglie za ní konkurovala Španělsku na moři."
+      },
+      {
+        "pojem": "Korzáři",
+        "vysvetleni": "Angličtí piráti, kteří přepadávali španělské lodě vozící zlato a stříbro z Ameriky."
+      },
+      {
+        "pojem": "Porážka španělského loďstva (1588)",
+        "vysvetleni": "Španělé vypravili k břehům Anglie válečnou flotilu, ta byla roku 1588 poražena a zničena. Anglie pak ovládla námořní cesty a zakládala vlastní kolonie."
+      },
+      {
+        "pojem": "William Shakespeare",
+        "vysvetleni": "Nejslavnější představitel renesanční kultury v alžbětinské Anglii - dramatik a básník."
+      },
+      {
+        "pojem": "Stuartovci",
+        "vysvetleni": "Královský rod vládnoucí v Anglii v 17. století (Karel I. a po obnovení monarchie znovu). Usilovali o absolutistickou vládu."
+      },
+      {
+        "pojem": "Karel I.",
+        "vysvetleni": "Anglický král ze Stuartovců, chtěl absolutistickou vládu a dostal se do sporu s parlamentem → občanská válka (1642-1648). Po ní byl popraven."
+      },
+      {
+        "pojem": "Puritáni",
+        "vysvetleni": "Angličtí kalvinisté (z anglického 'pure' = čistý): prostý oděv, skromnost v jídle, pracovitost, přísná morálka. Měli převahu v parlamentu, král je pronásledoval."
+      },
+      {
+        "pojem": "Anglická občanská válka (1642-1648)",
+        "vysvetleni": "Válka mezi králem Karlem I. a parlamentem. Zvítězil parlament v čele s Oliverem Cromwellem."
+      },
+      {
+        "pojem": "Oliver Cromwell",
+        "vysvetleni": "Puritánský šlechtic, vítěz občanské války. Karel I. byl popraven a parlament vyhlásil republiku. Cromwell později parlament rozpustil a vládl jako neomezený diktátor; po jeho smrti byla obnovena monarchie."
+      },
+      {
+        "pojem": "Vilém III. Oranžský",
+        "vysvetleni": "Nizozemský místodržící a zeť uprchlého stuartovského krále. Na žádost parlamentu se na konci 17. st. stal anglickým králem - Anglie prohlášena konstituční monarchií."
+      },
+      {
+        "pojem": "Konstituční monarchie",
+        "vysvetleni": "Stát, kde panovník vládne podle konstituce (= ústavy), ne neomezeně. Anglie od konce 17. století."
+      },
+      {
+        "pojem": "Absolutistická vláda",
+        "vysvetleni": "Neomezená vláda panovníka bez ohledu na parlament - usilovali o ni Stuartovci (Karel I. i pozdější králové)."
+      }
+    ],
+    "Francie": [
+      {
+        "pojem": "Hugenoti",
+        "vysvetleni": "Francouzští protestanti. Byli i mezi šlechtou a v královské rodině. V 16. st. s nimi katolíci vedli náboženskou občanskou válku."
+      },
+      {
+        "pojem": "Bartolomějská noc (23./24. 8. 1572)",
+        "vysvetleni": "Nejkrvavější událost francouzských náboženských válek - nečekané vyvraždění desetitisíců hugenotů v Paříži a po celé Francii."
+      },
+      {
+        "pojem": "Jindřich IV.",
+        "vysvetleni": "Francouzský král, který roku 1598 vydal Edikt nantský a uklidnil tak situaci ve Francii. Po jeho smrti nastoupil jeho 9letý syn Ludvík XIII."
+      },
+      {
+        "pojem": "Edikt nantský (1598)",
+        "vysvetleni": "Nařízení Jindřicha IV. o náboženském smíru - ukončilo náboženskou válku a zaručilo rovnost protestantů (hugenotů) a katolíků. Následoval rozkvět Francie."
+      },
+      {
+        "pojem": "Ludvík XIII.",
+        "vysvetleni": "Syn Jindřicha IV., králem se stal jako 9letý (vládla za něj matka). Velký vliv na něj měl ministr kardinál Richelieu."
+      },
+      {
+        "pojem": "Kardinál Richelieu",
+        "vysvetleni": "Ministr Ludvíka XIII. s velkým vlivem. Snažil se oslabit moc Habsburků v Evropě - Francie proto bojovala ve třicetileté válce proti Habsburkům."
+      }
+    ]
+  },
+  "casova_osa": [
+    {
+      "rok": 1492,
+      "udalost": "Kryštof Kolumbus doplul do Ameriky - Španělsko od konce 15. st. bohatne z kolonií."
+    },
+    {
+      "rok": 1558,
+      "udalost": "Nástup královny Alžběty I. na anglický trůn - začátek alžbětinské doby (vládla do 1603)."
+    },
+    {
+      "rok": 1572,
+      "udalost": "23./24. 8. - Bartolomějská noc, vyvraždění desetitisíců hugenotů v Paříži a po celé Francii."
+    },
+    {
+      "rok": 1588,
+      "udalost": "Španělské válečné loďstvo vypravené proti Anglii poraženo a zničeno - Anglie ovládá námořní cesty."
+    },
+    {
+      "rok": 1598,
+      "udalost": "Jindřich IV. vydává Edikt nantský - náboženský smír, rovnost hugenotů a katolíků."
+    },
+    {
+      "rok": 1603,
+      "udalost": "Smrt Alžběty I. - konec alžbětinské doby; v 17. st. nastupují v Anglii Stuartovci."
+    },
+    {
+      "rok": 1642,
+      "udalost": "Začátek anglické občanské války mezi králem Karlem I. a parlamentem."
+    },
+    {
+      "rok": 1648,
+      "udalost": "Konec anglické občanské války (vítěz Cromwell). Téhož roku končí třicetiletá válka - nezávislost Nizozemska uznána až po tomto roce."
+    },
+    {
+      "rok": 1688,
+      "udalost": "Konec 17. st. - revoluce v Anglii, král uprchl do Francie, králem se stává Vilém III. Oranžský - Anglie konstituční monarchií."
+    }
+  ],
+  "otazky": [
+    {
+      "id": "EN1",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Díky čemu Španělsko na konci 15. století zbohatlo?",
+      "spravna_odpoved": "Díky koloniím v Americe (po plavbách Kryštofa Kolumba)",
+      "spatne_odpovedi": [
+        "Díky obchodu s Čínou a Japonskem",
+        "Díky těžbě stříbra v Nizozemí",
+        "Díky daním vybíraným od anglických korzárů"
+      ],
+      "oduvodneni": "Po plavbách Kryštofa Kolumba (1492) získalo Španělsko kolonie v Americe a bohatlo z nich - v 16. století pak bylo jednou z nejbohatších a nejmocnějších zemí světa.",
+      "proc_spatne": {
+        "Díky obchodu s Čínou a Japonskem": "Obchod s Čínou a Japonskem navázali na počátku 17. století Nizozemci (Východoindická společnost), ne Španělé v 15. století.",
+        "Díky těžbě stříbra v Nizozemí": "Nizozemí bylo bohaté díky obchodu, ne stříbru. Zlato a stříbro vozili Španělé z Ameriky.",
+        "Díky daním vybíraným od anglických korzárů": "Korzáři byli angličtí piráti, kteří Španělsku naopak škodili - přepadávali jeho lodě se zlatem a stříbrem."
+      }
+    },
+    {
+      "id": "EN2",
+      "tema": "Anglie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V kterých letech vládla anglická královna Alžběta I.?",
+      "spravna_odpoved": "1558-1603",
+      "spatne_odpovedi": [
+        "1642-1648",
+        "1588-1603",
+        "1517-1558"
+      ],
+      "oduvodneni": "Alžběta I. vládla v letech 1558-1603. Její úspěšná vláda se nazývá alžbětinská doba - Anglie v ní konkurovala Španělsku na moři a rozvíjela se renesanční kultura (Shakespeare).",
+      "proc_spatne": {
+        "1642-1648": "To jsou roky anglické občanské války mezi Karlem I. a parlamentem - o půl století později.",
+        "1588-1603": "Rok 1588 je porážka španělského loďstva, ne začátek Alžbětiny vlády. Ta začala už roku 1558.",
+        "1517-1558": "Rok 1517 je začátek Lutherovy reformace. Alžběta nastoupila až v roce 1558, tedy na konci tohoto rozmezí."
+      }
+    },
+    {
+      "id": "EN3",
+      "tema": "Francie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se říkalo francouzským protestantům?",
+      "spravna_odpoved": "Hugenoti",
+      "spatne_odpovedi": [
+        "Puritáni",
+        "Jezuité",
+        "Korzáři"
+      ],
+      "oduvodneni": "Francouzští protestanti se nazývali hugenoti. Byli i mezi šlechtou a v královské rodině a v 16. století proti nim katolíci vedli náboženskou občanskou válku.",
+      "proc_spatne": {
+        "Puritáni": "Puritáni byli angličtí kalvinisté - protestanti v Anglii, ne ve Francii.",
+        "Jezuité": "Jezuité jsou katolický řád, který naopak bojoval proti protestantům (rekatolizace).",
+        "Korzáři": "Korzáři byli angličtí piráti přepadávající španělské lodě - s náboženstvím ve Francii nemají nic společného."
+      }
+    },
+    {
+      "id": "EN4",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která větev rodu Habsburků vládla v 16. století ve Španělsku?",
+      "spravna_odpoved": "Španělská větev (u nás vládla rakouská větev)",
+      "spatne_odpovedi": [
+        "Rakouská větev (stejná jako u nás)",
+        "Nizozemská větev",
+        "Francouzská větev"
+      ],
+      "oduvodneni": "Habsburkové se rozdělili na dvě větve: španělská vládla ve Španělsku, rakouská v našich zemích (Ferdinand I.). Španělský král Karel V. byl bratr našeho Ferdinanda I.",
+      "proc_spatne": {
+        "Rakouská větev (stejná jako u nás)": "Rakouská větev vládla v českých zemích a Rakousku. Ve Španělsku vládla samostatná španělská větev.",
+        "Nizozemská větev": "Žádná nizozemská větev Habsburků neexistovala. Nizozemí bylo španělskou provincií.",
+        "Francouzská větev": "Ve Francii Habsburkové nevládli - Francie byla jejich hlavním soupeřem (bojovala proti nim i ve třicetileté válce)."
+      }
+    },
+    {
+      "id": "EN5",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kým byl španělský král Karel V. Habsburský pro našeho krále Ferdinanda I.?",
+      "spravna_odpoved": "Bratrem",
+      "spatne_odpovedi": [
+        "Synem",
+        "Otcem",
+        "Bratrancem"
+      ],
+      "oduvodneni": "Karel V. Habsburský (španělský král) a Ferdinand I. (první Habsburk na českém trůně) byli bratři - každý vládl jedné větvi rodu.",
+      "proc_spatne": {
+        "Synem": "Karel V. nebyl synem Ferdinanda I. - byli stejná generace, bratři.",
+        "Otcem": "Karel V. nebyl otcem Ferdinanda I. - byli bratři.",
+        "Bratrancem": "Byli si blíž než bratranci - byli to vlastní bratři."
+      }
+    },
+    {
+      "id": "EN6",
+      "tema": "Anglie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl nejslavnějším představitelem renesanční kultury v alžbětinské Anglii?",
+      "spravna_odpoved": "William Shakespeare",
+      "spatne_odpovedi": [
+        "Oliver Cromwell",
+        "Jan Kalvín",
+        "Vilém Oranžský"
+      ],
+      "oduvodneni": "Za vlády Alžběty I. se v Anglii rozvíjela renesanční kultura, jejím nejslavnějším představitelem byl dramatik William Shakespeare.",
+      "proc_spatne": {
+        "Oliver Cromwell": "Cromwell byl puritánský šlechtic a vítěz občanské války v 17. století - politik a vojevůdce, ne umělec.",
+        "Jan Kalvín": "Kalvín byl náboženský reformátor ze Švýcarska, zakladatel kalvinismu - ne anglický umělec.",
+        "Vilém Oranžský": "Vilém Oranžský je jméno nizozemských politiků (vůdce povstání, později anglický král), ne umělce."
+      }
+    },
+    {
+      "id": "EN7",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč bylo Nizozemí nejbohatší španělskou provincií?",
+      "spravna_odpoved": "Díky obchodu",
+      "spatne_odpovedi": [
+        "Díky zlatu dováženému z Ameriky",
+        "Díky úrodnému zemědělství",
+        "Díky těžbě stříbra"
+      ],
+      "oduvodneni": "Nizozemí bylo díky obchodu nejbohatší provincií Španělska. Nizozemští obchodníci později založili i Východoindickou a Západoindickou společnost.",
+      "proc_spatne": {
+        "Díky zlatu dováženému z Ameriky": "Zlato a stříbro z Ameriky bohatlo Španělsko samotné, ne Nizozemí. Nizozemské bohatství stálo na obchodu.",
+        "Díky úrodnému zemědělství": "Nizozemí zbohatlo obchodem, ne zemědělstvím.",
+        "Díky těžbě stříbra": "V Nizozemí se stříbro netěžilo - to Španělé vozili z Ameriky. Nizozemí bohatlo obchodem."
+      }
+    },
+    {
+      "id": "EN8",
+      "tema": "Anglie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byli korzáři?",
+      "spravna_odpoved": "Angličtí piráti, kteří přepadávali španělské lodě se zlatem a stříbrem z Ameriky",
+      "spatne_odpovedi": [
+        "Španělští vojáci, kteří chránili flotilu se zlatem",
+        "Nizozemští obchodníci obchodující s Čínou",
+        "Puritánští kazatelé v anglickém parlamentu"
+      ],
+      "oduvodneni": "Anglie za Alžběty I. konkurovala Španělsku na moři - angličtí piráti (korzáři) přepadávali španělské lodě vozící zlato a stříbro z Ameriky.",
+      "proc_spatne": {
+        "Španělští vojáci, kteří chránili flotilu se zlatem":"Korzáři byli naopak Angličané, kteří španělské lodě přepadávali, ne chránili.",
+        "Nizozemští obchodníci obchodující s Čínou": "To byla Východoindická společnost. Korzáři byli angličtí piráti.",
+        "Puritánští kazatelé v anglickém parlamentu": "Puritáni byli angličtí kalvinisté v parlamentu - s pirátstvím nemají nic společného."
+      }
+    },
+    {
+      "id": "EN9",
+      "tema": "Francie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kdy se odehrála Bartolomějská noc?",
+      "spravna_odpoved": "23./24. 8. 1572",
+      "spatne_odpovedi": [
+        "23./24. 8. 1598",
+        "23./24. 8. 1588",
+        "23./24. 8. 1648"
+      ],
+      "oduvodneni": "Bartolomějská noc z 23. na 24. srpna 1572 byla nejkrvavější událostí francouzských náboženských válek - nečekané vyvraždění desetitisíců hugenotů v Paříži a po celé Francii.",
+      "proc_spatne": {
+        "23./24. 8. 1598": "Rok 1598 je vydání Ediktu nantského - ten naopak náboženskou válku ukončil.",
+        "23./24. 8. 1588": "Rok 1588 je porážka španělského loďstva u Anglie, ne Bartolomějská noc.",
+        "23./24. 8. 1648": "Rok 1648 je konec třicetileté války a anglické občanské války - Bartolomějská noc byla o 76 let dřív."
+      }
+    },
+    {
+      "id": "EN10",
+      "tema": "Anglie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se nazývá období úspěšné vlády královny Alžběty I.?",
+      "spravna_odpoved": "Alžbětinská doba",
+      "spatne_odpovedi": [
+        "Puritánská doba",
+        "Stuartovská doba",
+        "Viktoriánská doba"
+      ],
+      "oduvodneni": "Období vlády Alžběty I. (1558-1603) se nazývá alžbětinská doba - Anglie sílila na moři, zakládala kolonie a rozvíjela renesanční kulturu.",
+      "proc_spatne": {
+        "Puritánská doba": "Puritáni byli angličtí kalvinisté, kteří získali vliv až v 17. století za Stuartovců a Cromwella.",
+        "Stuartovská doba": "Stuartovci vládli v Anglii až v 17. století, po Alžbětě I.",
+        "Viktoriánská doba": "Viktoriánská doba je vláda královny Viktorie v 19. století - úplně jiná éra."
+      }
+    },
+    {
+      "id": "EN11",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Z kolika malých států se skládalo Nizozemí?",
+      "spravna_odpoved": "Ze 17 (+ část dnešní Belgie)",
+      "spatne_odpovedi": [
+        "Ze 7",
+        "Ze 2 (severní a jižní)",
+        "Ze 30"
+      ],
+      "oduvodneni": "Nizozemí tvořilo 17 malých států (+ část dnešní Belgie). Po povstání se rozdělilo na severní samostatný stát a jižní část pod Habsburky.",
+      "proc_spatne": {
+        "Ze 7": "Nizozemí tvořilo 17 malých států, ne 7.",
+        "Ze 2 (severní a jižní)": "Na severní a jižní část se Nizozemí rozdělilo až po povstání proti Španělsku. Původně to bylo 17 malých států.",
+        "Ze 30": "Nizozemí tvořilo 17 malých států, ne 30."
+      }
+    },
+    {
+      "id": "EN12",
+      "tema": "Francie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který francouzský král vydal roku 1598 Edikt nantský?",
+      "spravna_odpoved": "Jindřich IV.",
+      "spatne_odpovedi": [
+        "Ludvík XIII.",
+        "Kardinál Richelieu",
+        "Karel V."
+      ],
+      "oduvodneni": "Jindřich IV. vydal roku 1598 Edikt nantský - nařízení o náboženském smíru, které ukončilo náboženskou válku a zaručilo rovnost hugenotů a katolíků.",
+      "proc_spatne": {
+        "Ludvík XIII.": "Ludvík XIII. byl syn Jindřicha IV. a králem se stal až po jeho smrti - jako 9letý.",
+        "Kardinál Richelieu": "Richelieu nebyl král, ale ministr Ludvíka XIII.",
+        "Karel V.": "Karel V. Habsburský byl španělský král, ne francouzský."
+      }
+    },
+    {
+      "id": "EN13",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je predestinace, ve kterou věří kalvinisté?",
+      "spravna_odpoved": "Předurčení - Bůh předem rozhodl, zda budeme nebo nebudeme spaseni",
+      "spatne_odpovedi": [
+        "Možnost koupit si spásu odpustky",
+        "Víra, že o spáse rozhodují jen dobré skutky člověka",
+        "Víra, že o spáse rozhoduje papež"
+      ],
+      "oduvodneni": "Kalvinismus (reformátor Jan Kalvín ze Švýcarska) učí predestinaci = předurčení: Bůh předem rozhodl, zda budeme nebo nebudeme spaseni.",
+      "proc_spatne": {
+        "Možnost koupit si spásu odpustky": "Odpustky prodávala katolická církev a reformátoři je právě kritizovali. Predestinace je opak - spása je předem daná.",
+        "Víra, že o spáse rozhodují jen dobré skutky člověka": "Predestinace říká pravý opak - o spáse je rozhodnuto předem, člověk to skutky nezmění.",
+        "Víra, že o spáse rozhoduje papež": "Kalvinisté papeže neuznávali. Predestinace znamená, že o spáse rozhodl předem Bůh."
+      }
+    },
+    {
+      "id": "EN14",
+      "tema": "Anglie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co se stalo roku 1588?",
+      "spravna_odpoved": "Španělské válečné loďstvo vypravené k břehům Anglie bylo poraženo a zničeno",
+      "spatne_odpovedi": [
+        "Alžběta I. nastoupila na anglický trůn",
+        "Začala anglická občanská válka",
+        "Byl popraven král Karel I."
+      ],
+      "oduvodneni": "Španělé vypravili k břehům Anglie válečnou flotilu, ta však byla roku 1588 poražena a zničena. Anglie pak ovládla námořní cesty a začala zakládat vlastní kolonie.",
+      "proc_spatne": {
+        "Alžběta I. nastoupila na anglický trůn": "Alžběta nastoupila už roku 1558, o 30 let dřív.",
+        "Začala anglická občanská válka": "Občanská válka začala roku 1642, za Karla I.",
+        "Byl popraven král Karel I.": "Karel I. byl popraven až po občanské válce (1642-1648), v 17. století."
+      }
+    },
+    {
+      "id": "EN15",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaké náboženství vyznávalo Španělsko v 16. století?",
+      "spravna_odpoved": "Katolické",
+      "spatne_odpovedi": [
+        "Kalvinismus",
+        "Luteránství",
+        "Puritánství"
+      ],
+      "oduvodneni": "Španělsko bylo katolickou zemí. Právě proto vadilo, že se v jeho provincii Nizozemí šířil kalvinismus - Filip II. tam kalvinisty pronásledoval.",
+      "proc_spatne": {
+        "Kalvinismus": "Kalvinismus se šířil v Nizozemí, ne ve Španělsku. Španělsko ho naopak potíralo.",
+        "Luteránství": "Luteránství (Martin Luther) se šířilo hlavně v Německu. Španělsko zůstalo katolické.",
+        "Puritánství": "Puritáni byli angličtí kalvinisté. Španělsko bylo katolické."
+      }
+    },
+    {
+      "id": "EN16",
+      "tema": "Anglie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byli puritáni?",
+      "spravna_odpoved": "Angličtí kalvinisté, kteří měli převahu v parlamentu a král je pronásledoval",
+      "spatne_odpovedi": [
+        "Francouzští protestanti",
+        "Katoličtí stoupenci krále Karla I.",
+        "Španělští mniši, kteří prováděli rekatolizaci"
+      ],
+      "oduvodneni": "Puritáni byli angličtí kalvinisté. Měli převahu v parlamentu a král Karel I. je pronásledoval. Jejich jméno znamená 'čistotu': prostý oděv, skromnost v jídle, pracovitost, přísná morálka.",
+      "proc_spatne": {
+        "Francouzští protestanti": "Francouzští protestanti se nazývali hugenoti. Puritáni byli v Anglii.",
+        "Katoličtí stoupenci krále Karla I.": "Puritáni byli protestanti (kalvinisté) a stáli proti králi - ten je pronásledoval.",
+        "Španělští mniši, kteří prováděli rekatolizaci": "Puritáni byli protestanti v Anglii, ne katoličtí mniši ve Španělsku."
+      }
+    },
+    {
+      "id": "EN17",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo vedl povstání nizozemské šlechty proti Španělsku?",
+      "spravna_odpoved": "Vilém I. Oranžský, zvaný 'mlčenlivý princ'",
+      "spatne_odpovedi": [
+        "Vilém III. Oranžský",
+        "Filip II.",
+        "Jan Kalvín"
+      ],
+      "oduvodneni": "Ve 2. polovině 16. století se nizozemská šlechta pod vedením Viléma I. Oranžského ('mlčenlivý princ') vzbouřila proti Filipovi II. Přidal se i prostý lid.",
+      "proc_spatne": {
+        "Vilém III. Oranžský": "Vilém III. Oranžský byl nizozemský místodržící o sto let později, který se stal anglickým králem na konci 17. století.",
+        "Filip II.": "Filip II. byl španělský král, proti kterému povstání směřovalo.",
+        "Jan Kalvín": "Kalvín byl náboženský reformátor ze Švýcarska, ne vojevůdce nizozemského povstání."
+      }
+    },
+    {
+      "id": "EN18",
+      "tema": "Francie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Na které straně bojovala Francie ve třicetileté válce?",
+      "spravna_odpoved": "Proti Habsburkům",
+      "spatne_odpovedi": [
+        "Na straně Habsburků, protože byla katolická",
+        "Nebojovala, zůstala neutrální",
+        "Proti Anglii"
+      ],
+      "oduvodneni": "Francie bojovala ve třicetileté válce proti Habsburkům - kardinál Richelieu se snažil oslabit jejich moc v Evropě, i když Francie byla katolická.",
+      "proc_spatne": {
+        "Na straně Habsburků, protože byla katolická": "Přestože byla Francie katolická, Habsburkové byli její mocenský soupeř - bojovala proti nim.",
+        "Nebojovala, zůstala neutrální": "Francie se do třicetileté války zapojila - proti Habsburkům.",
+        "Proti Anglii": "Anglie nebyla hlavním soupeřem Francie ve třicetileté válce. Francie bojovala proti Habsburkům."
+      }
+    },
+    {
+      "id": "EN19",
+      "tema": "Anglie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který rod vládl v Anglii po většinu 17. století a vrátil se na trůn po Cromwellově smrti?",
+      "spravna_odpoved": "Stuartovci",
+      "spatne_odpovedi": [
+        "Habsburkové",
+        "Oranžští",
+        "Tudorovci"
+      ],
+      "oduvodneni": "V 17. století vládl v Anglii rod Stuartovců (např. Karel I.). Po Cromwellově diktatuře se Stuartovci na trůn vrátili.",
+      "proc_spatne": {
+        "Habsburkové": "Habsburkové vládli ve Španělsku a v našich zemích, v Anglii ne.",
+        "Oranžští": "Vilém III. Oranžský se stal anglickým králem až na konci 17. století na žádost parlamentu - nebyl to vládnoucí rod celého století.",
+        "Tudorovci": "Tudorovci (včetně Alžběty I.) vládli v 16. století. V 17. století je vystřídali Stuartovci."
+      }
+    },
+    {
+      "id": "EN20",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Odkud působil reformátor Jan Kalvín, zakladatel kalvinismu?",
+      "spravna_odpoved": "Ze Švýcarska",
+      "spatne_odpovedi": [
+        "Z Nizozemí",
+        "Z Německa",
+        "Z Anglie"
+      ],
+      "oduvodneni": "Kalvinismus založil reformátor Jan Kalvín ze Švýcarska. Odtud se učení rozšířilo mimo jiné do Nizozemí.",
+      "proc_spatne": {
+        "Z Nizozemí": "V Nizozemí se kalvinismus rozšířil, ale Kalvín sám působil ve Švýcarsku.",
+        "Z Německa": "Z Německa pocházel reformátor Martin Luther (luteránství), ne Kalvín.",
+        "Z Anglie": "V Anglii se kalvinistům říkalo puritáni, ale Kalvín působil ve Švýcarsku."
+      }
+    },
+    {
+      "id": "EN21",
+      "tema": "Anglie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "O co usiloval král Karel I., což vedlo ke sporům s parlamentem?",
+      "spravna_odpoved": "O absolutistickou vládu",
+      "spatne_odpovedi": [
+        "O zrušení monarchie",
+        "O zavedení kalvinismu jako státního náboženství",
+        "O předání moci parlamentu"
+      ],
+      "oduvodneni": "Karel I. ze Stuartovců chtěl vládnout absolutisticky (neomezeně), ale anglický parlament měl velké pravomoci. Spory vyústily v občanskou válku (1642-1648).",
+      "proc_spatne": {
+        "O zrušení monarchie": "Monarchii zrušil až parlament po vítězství Cromwella. Karel I. naopak chtěl svou královskou moc posílit.",
+        "O zavedení kalvinismu jako státního náboženství": "Kalvinisté (puritáni) byli jeho odpůrci v parlamentu - král je pronásledoval.",
+        "O předání moci parlamentu": "Přesně naopak - Karel I. chtěl parlament obejít a vládnout sám."
+      }
+    },
+    {
+      "id": "EN22",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kdy byla nezávislost severního Nizozemí definitivně uznána?",
+      "spravna_odpoved": "Až po roce 1648",
+      "spatne_odpovedi": [
+        "Hned po roce 1588",
+        "Roku 1572",
+        "Roku 1598"
+      ],
+      "oduvodneni": "Nizozemští povstalci sice vyhlásili samostatný stát (základ dnešního Nizozemska) už během povstání, ale nezávislost byla uznána až po roce 1648, tedy po skončení třicetileté války.",
+      "proc_spatne": {
+        "Hned po roce 1588": "Rok 1588 se týká porážky španělského loďstva u Anglie, ne Nizozemí.",
+        "Roku 1572": "Rok 1572 je Bartolomějská noc ve Francii. Nezávislost Nizozemí byla uznána až po 1648.",
+        "Roku 1598": "Rok 1598 je Edikt nantský ve Francii. Nizozemská nezávislost byla uznána až po 1648."
+      }
+    },
+    {
+      "id": "EN23",
+      "tema": "Anglie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo zvítězil v anglické občanské válce?",
+      "spravna_odpoved": "Oliver Cromwell",
+      "spatne_odpovedi": [
+        "Král Karel I.",
+        "Vilém III. Oranžský",
+        "Královna Alžběta I."
+      ],
+      "oduvodneni": "V občanské válce (1642-1648) zvítězil parlament vedený puritánským šlechticem Oliverem Cromwellem. Karel I. byl popraven a parlament vyhlásil republiku.",
+      "proc_spatne": {
+        "Král Karel I.": "Karel I. válku prohrál a byl popraven.",
+        "Vilém III. Oranžský": "Vilém III. se stal anglickým králem až po revoluci na konci 17. století, občanské války se neúčastnil.",
+        "Královna Alžběta I.": "Alžběta I. zemřela roku 1603, dávno před občanskou válkou."
+      }
+    },
+    {
+      "id": "EN24",
+      "tema": "Francie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co zaručil Edikt nantský?",
+      "spravna_odpoved": "Rovnost protestantů (hugenotů) a katolíků",
+      "spatne_odpovedi": [
+        "Zákaz protestantského náboženství ve Francii",
+        "Vyhnání hugenotů z Francie",
+        "Nadvládu hugenotů nad katolíky"
+      ],
+      "oduvodneni": "Edikt nantský (1598) byl nařízením o náboženském smíru: ukončil náboženskou válku a zaručil rovnost protestantů (hugenotů) a katolíků. Následoval rozkvět Francie.",
+      "proc_spatne": {
+        "Zákaz protestantského náboženství ve Francii": "Edikt naopak protestanty zrovnoprávnil - proto ukončil válku.",
+        "Vyhnání hugenotů z Francie": "Edikt hugenoty chránil, ne vyháněl.",
+        "Nadvládu hugenotů nad katolíky": "Edikt zaručil rovnost obou stran, ne nadvládu jedné."
+      }
+    },
+    {
+      "id": "EN25",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak postupoval Filip II. v Nizozemí?",
+      "spravna_odpoved": "Pronásledoval kalvinisty (rekatolizace) a omezoval práva nizozemských stavů",
+      "spatne_odpovedi": [
+        "Povolil kalvinismus a rozšířil práva stavů",
+        "Udělil Nizozemí nezávislost",
+        "Přesunul své sídlo do Amsterdamu"
+      ],
+      "oduvodneni": "Filip II. pronásledoval v Nizozemí kalvinisty (snaha o rekatolizaci) a omezoval práva nizozemských stavů (šlechty a měst). To vyvolalo ve 2. polovině 16. století povstání.",
+      "proc_spatne": {
+        "Povolil kalvinismus a rozšířil práva stavů": "Přesně naopak - kalvinisty pronásledoval a práva stavů omezoval, proto vypuklo povstání.",
+        "Udělil Nizozemí nezávislost": "Nezávislost si sever Nizozemí vybojoval sám, uznána byla až po roce 1648.",
+        "Přesunul své sídlo do Amsterdamu": "Filip II. vládl ze Španělska. Do Nizozemí vyslal vojsko, ne své sídlo."
+      }
+    },
+    {
+      "id": "EN26",
+      "tema": "Anglie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "V kterých letech probíhala anglická občanská válka?",
+      "spravna_odpoved": "1642-1648",
+      "spatne_odpovedi": [
+        "1618-1648",
+        "1558-1603",
+        "1588-1603"
+      ],
+      "oduvodneni": "Anglická občanská válka mezi králem Karlem I. a parlamentem probíhala v letech 1642-1648. Zvítězil Oliver Cromwell.",
+      "proc_spatne": {
+        "1618-1648": "To jsou roky třicetileté války v Evropě, ne anglické občanské války.",
+        "1558-1603": "To je vláda Alžběty I. - alžbětinská doba.",
+        "1588-1603": "Rok 1588 je porážka španělského loďstva, 1603 smrt Alžběty I. - občanská válka byla později."
+      }
+    },
+    {
+      "id": "EN27",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která část původního Nizozemí zůstala pod nadvládou Habsburků?",
+      "spravna_odpoved": "Jižní část - dnešní Belgie",
+      "spatne_odpovedi": [
+        "Severní část - dnešní Nizozemsko",
+        "Celé Nizozemí",
+        "Žádná, celé Nizozemí získalo nezávislost"
+      ],
+      "oduvodneni": "Původní Nizozemí se rozdělilo na severní část (samostatný stát, dnešní Nizozemsko) a jižní část, která zůstala pod Habsburky - dnešní Belgie.",
+      "proc_spatne": {
+        "Severní část - dnešní Nizozemsko": "Sever se naopak osamostatnil - odtud bylo španělské vojsko vyhnáno.",
+        "Celé Nizozemí": "Sever se osamostatnil, Habsburkům zůstal jen jih.",
+        "Žádná, celé Nizozemí získalo nezávislost": "Jižní část (dnešní Belgie) zůstala pod Habsburky."
+      }
+    },
+    {
+      "id": "EN28",
+      "tema": "Anglie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co se stalo s králem Karlem I. po porážce v občanské válce?",
+      "spravna_odpoved": "Byl popraven a parlament vyhlásil republiku",
+      "spatne_odpovedi": [
+        "Uprchl do Francie",
+        "Zůstal králem s omezenou mocí",
+        "Vzdal se trůnu ve prospěch Cromwella"
+      ],
+      "oduvodneni": "Po vítězství Cromwella byl Karel I. popraven a parlament vyhlásil republiku - Anglie na čas neměla krále.",
+      "proc_spatne": {
+        "Uprchl do Francie": "Do Francie uprchl až jiný stuartovský král při revoluci na konci 17. století. Karel I. byl popraven.",
+        "Zůstal králem s omezenou mocí": "Karel I. byl popraven. Král vládnoucí s omezenou mocí (konstituční monarchie) přišel až na konci 17. století.",
+        "Vzdal se trůnu ve prospěch Cromwella": "Karel I. byl popraven. Cromwell se králem nestal - byl diktátorem republiky."
+      }
+    },
+    {
+      "id": "EN29",
+      "tema": "Francie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byl Ludvík XIII. ve vztahu k Jindřichovi IV.?",
+      "spravna_odpoved": "Jeho syn - králem se stal jako 9letý",
+      "spatne_odpovedi": [
+        "Jeho bratr",
+        "Jeho ministr",
+        "Jeho zeť"
+      ],
+      "oduvodneni": "Po smrti Jindřicha IV. se králem stal jeho 9letý syn Ludvík XIII. Protože byl dítě, vládla za něj jeho matka.",
+      "proc_spatne": {
+        "Jeho bratr": "Ludvík XIII. byl syn Jindřicha IV., ne bratr.",
+        "Jeho ministr": "Ministrem byl kardinál Richelieu - a to ministrem Ludvíka XIII.",
+        "Jeho zeť": "Zeť uprchlého krále byl Vilém III. Oranžský - to je anglická historie. Ludvík XIII. byl syn."
+      }
+    },
+    {
+      "id": "EN30",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jakou výsadu měla nizozemská Východoindická společnost?",
+      "spravna_odpoved": "Obchodovat s východními zeměmi (Čína, Japonsko)",
+      "spatne_odpovedi": [
+        "Zakládat kolonie v Americe",
+        "Vybírat daně v celém Nizozemí",
+        "Vládnout jižnímu Nizozemí"
+      ],
+      "oduvodneni": "Na počátku 17. století nizozemští obchodníci navázali vztahy s Čínou a Japonskem a založili Východoindickou společnost - ta měla výsadu obchodovat s východními zeměmi.",
+      "proc_spatne": {
+        "Zakládat kolonie v Americe": "Přes Atlantik pronikla Západoindická společnost (založila Nový Amsterdam). Východoindická obchodovala s východem.",
+        "Vybírat daně v celém Nizozemí": "Byla to obchodní společnost, ne úřad - výsada se týkala obchodu s východními zeměmi.",
+        "Vládnout jižnímu Nizozemí": "Jižní Nizozemí ovládali Habsburkové. Východoindická společnost byla obchodní."
+      }
+    },
+    {
+      "id": "EN31",
+      "tema": "Anglie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak Oliver Cromwell později naložil s parlamentem?",
+      "spravna_odpoved": "Rozpustil ho a stal se neomezeným diktátorem",
+      "spatne_odpovedi": [
+        "Posílil jeho pravomoci a podřídil se mu",
+        "Nechal ho zvolit nového krále",
+        "Předal mu veškerou vládu a odešel do ústraní"
+      ],
+      "oduvodneni": "Cromwell, který za parlament bojoval, ho později sám rozpustil a stal se neomezeným diktátorem. Po jeho smrti byla obnovena monarchie.",
+      "proc_spatne": {
+        "Posílil jeho pravomoci a podřídil se mu": "Naopak - Cromwell parlament rozpustil a vládl sám.",
+        "Nechal ho zvolit nového krále": "Monarchie byla obnovena až po Cromwellově smrti. Cromwell parlament rozpustil.",
+        "Předal mu veškerou vládu a odešel do ústraní": "Cromwell se moci nevzdal - stal se neomezeným diktátorem."
+      }
+    },
+    {
+      "id": "EN32",
+      "tema": "Francie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kde se odehrálo vraždění hugenotů během Bartolomějské noci?",
+      "spravna_odpoved": "V Paříži a po celé Francii",
+      "spatne_odpovedi": [
+        "Jen v Nantes",
+        "V Nizozemí",
+        "V Londýně"
+      ],
+      "oduvodneni": "Bartolomějská noc (23./24. 8. 1572) bylo nečekané vyvraždění desetitisíců hugenotů v Paříži a následně po celé Francii.",
+      "proc_spatne": {
+        "Jen v Nantes": "Nantes je spojeno s Ediktem nantským (1598), ne s Bartolomějskou nocí. Vraždění začalo v Paříži a rozšířilo se po celé Francii.",
+        "V Nizozemí": "V Nizozemí probíhalo povstání proti Španělsku. Bartolomějská noc byla ve Francii.",
+        "V Londýně": "Bartolomějská noc se týkala francouzských hugenotů, ne Anglie."
+      }
+    },
+    {
+      "id": "EN33",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo založil Nový Amsterdam (dnešní New York)?",
+      "spravna_odpoved": "Nizozemská Západoindická společnost",
+      "spatne_odpovedi": [
+        "Nizozemská Východoindická společnost",
+        "Angličané za vlády Alžběty I.",
+        "Španělé za vlády Filipa II."
+      ],
+      "oduvodneni": "Západoindická společnost pronikla přes Atlantik do Ameriky a založila Nový Amsterdam - dnešní New York.",
+      "proc_spatne": {
+        "Nizozemská Východoindická společnost": "Východoindická společnost obchodovala s východními zeměmi (Čína, Japonsko). Do Ameriky pronikla Západoindická.",
+        "Angličané za vlády Alžběty I.": "Anglie sice zakládala vlastní kolonie, ale Nový Amsterdam založili Nizozemci - Angličané ho přejmenovali na New York až později.",
+        "Španělé za vlády Filipa II.": "Španělské kolonie byly hlavně ve Střední a Jižní Americe. Nový Amsterdam založili Nizozemci."
+      }
+    },
+    {
+      "id": "EN34",
+      "tema": "Anglie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kdo se stal anglickým králem po revoluci na konci 17. století?",
+      "spravna_odpoved": "Vilém III. Oranžský - nizozemský místodržící a zeť uprchlého krále",
+      "spatne_odpovedi": [
+        "Oliver Cromwell",
+        "Karel I.",
+        "Vilém I. Oranžský"
+      ],
+      "oduvodneni": "Když se Stuartovci znovu pokusili o absolutismus, vypukla na konci 17. století revoluce, král uprchl do Francie a na žádost parlamentu se králem stal jeho zeť, nizozemský místodržící Vilém III. Oranžský.",
+      "proc_spatne": {
+        "Oliver Cromwell": "Cromwell vládl jako diktátor republiky v polovině 17. století a nikdy nebyl králem. Do konce století už byl mrtvý.",
+        "Karel I.": "Karel I. byl popraven po občanské válce - to byl začátek celého příběhu, ne jeho konec.",
+        "Vilém I. Oranžský": "Vilém I. vedl nizozemské povstání proti Španělsku ve 2. pol. 16. století. Anglickým králem se stal Vilém III."
+      }
+    },
+    {
+      "id": "EN35",
+      "tema": "Francie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl kardinál Richelieu?",
+      "spravna_odpoved": "Ministr Ludvíka XIII. s velkým vlivem, který se snažil oslabit moc Habsburků",
+      "spatne_odpovedi": [
+        "Francouzský král",
+        "Vůdce hugenotů",
+        "Španělský vyslanec ve Francii"
+      ],
+      "oduvodneni": "Kardinál Richelieu byl ministr krále Ludvíka XIII. a měl na něj velký vliv. Snažil se oslabit moc Habsburků v Evropě.",
+      "proc_spatne": {
+        "Francouzský král": "Richelieu byl kardinál a ministr, ne král. Králem byl Ludvík XIII.",
+        "Vůdce hugenotů": "Richelieu byl katolický kardinál, ne protestantský vůdce.",
+        "Španělský vyslanec ve Francii": "Richelieu byl Francouz a proti Španělsku (Habsburkům) naopak bojoval."
+      }
+    },
+    {
+      "id": "EN36",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaký byl výsledek nizozemského povstání proti Španělsku?",
+      "spravna_odpoved": "Sever vyhlásil samostatný stát - základ dnešního Nizozemska",
+      "spatne_odpovedi": [
+        "Celé Nizozemí zůstalo španělské",
+        "Nizozemí připadlo Anglii",
+        "Nizozemí se stalo katolickým"
+      ],
+      "oduvodneni": "Španělské vojsko bylo po letech bojů ze severu vyhnáno. Povstalci vyhlásili samostatný stát - základ dnešního Nizozemska. Jih (dnešní Belgie) zůstal Habsburkům.",
+      "proc_spatne": {
+        "Celé Nizozemí zůstalo španělské": "Španělsku (Habsburkům) zůstal jen jih - dnešní Belgie. Sever se osamostatnil.",
+        "Nizozemí připadlo Anglii": "Anglie s tím neměla nic společného. Sever Nizozemí se stal samostatným státem.",
+        "Nizozemí se stalo katolickým": "Naopak - sever zůstal kalvinistický, rekatolizace Filipa II. se nezdařila."
+      }
+    },
+    {
+      "id": "EN37",
+      "tema": "Anglie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co znamená konstituční monarchie?",
+      "spravna_odpoved": "Panovník vládne podle konstituce, tedy ústavy",
+      "spatne_odpovedi": [
+        "Panovník vládne neomezeně bez parlamentu",
+        "Stát bez panovníka, kde vládne parlament",
+        "Vláda vojenského diktátora"
+      ],
+      "oduvodneni": "Na konci 17. století byla Anglie prohlášena konstituční monarchií - král zůstává, ale vládne podle konstituce (= ústavy), ne neomezeně.",
+      "proc_spatne": {
+        "Panovník vládne neomezeně bez parlamentu": "To je absolutistická vláda - právě to, o co se marně snažili Stuartovci.",
+        "Stát bez panovníka, kde vládne parlament": "To je republika (jako po popravě Karla I.). Konstituční monarchie krále má.",
+        "Vláda vojenského diktátora": "To odpovídá Cromwellově vládě. Konstituční monarchie má krále omezeného ústavou."
+      }
+    },
+    {
+      "id": "EN38",
+      "tema": "Francie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Ve kterých vrstvách francouzské společnosti byli hugenoti?",
+      "spravna_odpoved": "I mezi šlechtou i v královské rodině",
+      "spatne_odpovedi": [
+        "Jen mezi chudým prostým lidem",
+        "Jen mezi cizinci ze Švýcarska",
+        "Jen mezi duchovními"
+      ],
+      "oduvodneni": "Hugenoti (francouzští protestanti) nebyli jen prostí lidé - byli i mezi šlechtou a dokonce v královské rodině. Proto byla náboženská válka tak rozsáhlá.",
+      "proc_spatne": {
+        "Jen mezi chudým prostým lidem": "Hugenoti byli i ve vysokých vrstvách - mezi šlechtou i v královské rodině.",
+        "Jen mezi cizinci ze Švýcarska": "Ze Švýcarska pocházel reformátor Kalvín, ale hugenoti byli Francouzi všech vrstev.",
+        "Jen mezi duchovními": "Hugenoti byli protestanti ze všech vrstev, včetně šlechty a královské rodiny."
+      }
+    },
+    {
+      "id": "EN39",
+      "tema": "Anglie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaké hodnoty vyznávali puritáni?",
+      "spravna_odpoved": "Prostý oděv, skromnost v jídle, pracovitost, přísná morálka",
+      "spatne_odpovedi": [
+        "Přepych, nádheru a bohaté hostiny",
+        "Bohoslužby v latině a úctu k papeži",
+        "Pirátství a dobývání kolonií"
+      ],
+      "oduvodneni": "Slovo puritán souvisí s 'čistotou' - puritáni vyznávali prostý oděv, skromnost v jídle, pracovitost a přísnou morálku.",
+      "proc_spatne": {
+        "Přepych, nádheru a bohaté hostiny": "Přesný opak - puritáni odmítali přepych a žili skromně.",
+        "Bohoslužby v latině a úctu k papeži": "To je katolictví. Puritáni byli kalvinisté (protestanti), papeže neuznávali.",
+        "Pirátství a dobývání kolonií": "To se týká korzárů za Alžběty I. Puritáni vyznávali přísnou morálku."
+      }
+    },
+    {
+      "id": "EN40",
+      "tema": "Francie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co následovalo ve Francii po vydání Ediktu nantského?",
+      "spravna_odpoved": "Ukončení náboženské války a rozkvět Francie",
+      "spatne_odpovedi": [
+        "Bartolomějská noc",
+        "Vyhnání všech hugenotů ze země",
+        "Okamžitý vstup Francie do třicetileté války"
+      ],
+      "oduvodneni": "Edikt nantský (1598) ukončil náboženskou válku, zaručil rovnost hugenotů a katolíků a Francie začala vzkvétat.",
+      "proc_spatne": {
+        "Bartolomějská noc": "Bartolomějská noc (1572) byla o 26 let dřív - edikt naopak přinesl smír.",
+        "Vyhnání všech hugenotů ze země": "Edikt hugenoty zrovnoprávnil, ne vyhnal.",
+        "Okamžitý vstup Francie do třicetileté války": "Třicetiletá válka začala až roku 1618. Po ediktu následovalo období klidu a rozkvětu."
+      }
+    },
+    {
+      "id": "EN41",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Se kterými zeměmi Dálného východu navázali nizozemští obchodníci na počátku 17. století obchodní vztahy (Východoindická společnost)?",
+      "spravna_odpoved": "S Čínou a Japonskem",
+      "spatne_odpovedi": [
+        "S Anglií a Francií",
+        "S Mexikem a Peru",
+        "S Tureckem a Egyptem"
+      ],
+      "oduvodneni": "Na počátku 17. století navázali nizozemští obchodníci vztahy s Čínou a Japonskem a založili Východoindickou společnost s výsadou obchodovat s východními zeměmi.",
+      "proc_spatne": {
+        "S Anglií a Francií": "To jsou evropští sousedé, ne země Dálného východu. Východoindická společnost obchodovala s Čínou a Japonskem.",
+        "S Mexikem a Peru": "To byly španělské kolonie v Americe, ne na Dálném východě. Nizozemci mířili do Číny a Japonska.",
+        "S Tureckem a Egyptem": "To jsou země Středomoří, ne Dálného východu. Východoindická společnost obchodovala s Čínou a Japonskem."
+      }
+    },
+    {
+      "id": "EN42",
+      "tema": "Anglie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kdo zasedal v anglickém parlamentu v 17. století?",
+      "spravna_odpoved": "Zástupci šlechty, později i měst - s převahou puritánů",
+      "spatne_odpovedi": [
+        "Pouze katoličtí biskupové",
+        "Pouze král a jeho rádci",
+        "Zástupci rolníků z venkova"
+      ],
+      "oduvodneni": "V parlamentu zasedali zástupci šlechty a později i měst. Převahu měli kalvinisté (puritáni), které král pronásledoval - odtud spory s Karlem I.",
+      "proc_spatne": {
+        "Pouze katoličtí biskupové": "V parlamentu měli převahu protestantští puritáni, ne katolíci.",
+        "Pouze král a jeho rádci": "Parlament byl protiváhou krále - právě proto s ním Karel I. bojoval.",
+        "Zástupci rolníků z venkova": "Prostí rolníci v parlamentu zastoupeni nebyli - zasedala tam šlechta a města."
+      }
+    },
+    {
+      "id": "EN43",
+      "tema": "Francie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Mezi kým probíhala v 16. století ve Francii náboženská občanská válka?",
+      "spravna_odpoved": "Mezi katolíky a protestanty (hugenoty)",
+      "spatne_odpovedi": [
+        "Mezi králem a parlamentem",
+        "Mezi Francií a Španělskem",
+        "Mezi šlechtou a měšťany"
+      ],
+      "oduvodneni": "V 16. století zuřila ve Francii náboženská občanská válka mezi katolíky a protestanty, kterým se říkalo hugenoti. Ukončil ji až Edikt nantský (1598).",
+      "proc_spatne": {
+        "Mezi králem a parlamentem": "Spor krále s parlamentem je anglická občanská válka (1642-1648), ne francouzská.",
+        "Mezi Francií a Španělskem": "Šlo o občanskou (vnitřní) válku uvnitř Francie, ne válku s cizím státem.",
+        "Mezi šlechtou a měšťany": "Válka byla náboženská - hugenoti i katolíci byli ve všech vrstvách včetně šlechty."
+      }
+    },
+    {
+      "id": "EN44",
+      "tema": "Anglie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co získala Anglie po porážce španělského loďstva roku 1588?",
+      "spravna_odpoved": "Ovládla námořní cesty a začala zakládat vlastní kolonie",
+      "spatne_odpovedi": [
+        "Získala Nizozemí",
+        "Podřídila se Španělsku",
+        "Přenechala moře Nizozemcům"
+      ],
+      "oduvodneni": "Po zničení španělské flotily (1588) Anglie ovládla námořní cesty a začala zakládat vlastní kolonie - stala se námořní velmocí.",
+      "proc_spatne": {
+        "Získala Nizozemí": "Nizozemí si nezávislost vybojovalo samo, Anglii nikdy nepatřilo.",
+        "Podřídila se Španělsku": "Naopak - Anglie Španělsko porazila a nahradila ho na moři.",
+        "Přenechala moře Nizozemcům": "Anglie moře ovládla sama. Nizozemci obchodovali přes vlastní společnosti, ale Anglie jim nic nepřenechala."
+      }
+    },
+    {
+      "id": "EN45",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo se přidal k povstání nizozemské šlechty proti Španělsku?",
+      "spravna_odpoved": "Prostý lid",
+      "spatne_odpovedi": [
+        "Španělské vojsko",
+        "Francouzští hugenoti",
+        "Anglický parlament"
+      ],
+      "oduvodneni": "Povstání zahájila nizozemská šlechta v čele s Vilémem I. Oranžským a přidal se k němu i prostý lid. Filip II. proti nim vyslal vojsko.",
+      "proc_spatne": {
+        "Španělské vojsko": "Španělské vojsko vyslal Filip II. proti povstalcům - bylo jejich nepřítelem.",
+        "Francouzští hugenoti": "Hugenoti měli vlastní válku ve Francii. K nizozemskému povstání se přidal domácí prostý lid.",
+        "Anglický parlament": "Anglický parlament v 16. století s nizozemským povstáním neměl nic společného."
+      }
+    },
+    {
+      "id": "EN46",
+      "tema": "Anglie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co se stalo v Anglii po smrti Olivera Cromwella?",
+      "spravna_odpoved": "Byla obnovena monarchie - na trůn se vrátili Stuartovci",
+      "spatne_odpovedi": [
+        "Republika trvala dalších sto let",
+        "Králem se ihned stal Vilém III. Oranžský",
+        "Anglie se připojila k Nizozemí"
+      ],
+      "oduvodneni": "Po Cromwellově smrti byla obnovena monarchie a na trůn se vrátili Stuartovci. Ti se znovu pokusili o absolutismus, což vedlo k revoluci na konci 17. století.",
+      "proc_spatne": {
+        "Republika trvala dalších sto let": "Republika skončila s Cromwellovou smrtí - hned byla obnovena monarchie.",
+        "Králem se ihned stal Vilém III. Oranžský": "Vilém III. přišel až po revoluci na konci 17. století. Nejdřív se vrátili Stuartovci.",
+        "Anglie se připojila k Nizozemí": "Anglie zůstala samostatná. Nizozemský místodržící Vilém III. se později stal jejím králem, ale země se nespojily."
+      }
+    },
+    {
+      "id": "EN47",
+      "tema": "Francie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo vládl za nezletilého Ludvíka XIII.?",
+      "spravna_odpoved": "Jeho matka",
+      "spatne_odpovedi": [
+        "Kardinál Richelieu",
+        "Jindřich IV.",
+        "Francouzský parlament"
+      ],
+      "oduvodneni": "Ludvík XIII. se stal králem jako 9letý, proto za něj vládla jeho matka. Později získal velký vliv ministr kardinál Richelieu.",
+      "proc_spatne": {
+        "Kardinál Richelieu": "Richelieu byl vlivný ministr Ludvíka XIII. až později. Za nezletilého krále vládla jeho matka.",
+        "Jindřich IV.": "Jindřich IV. byl jeho otec - Ludvík nastoupil právě po jeho smrti.",
+        "Francouzský parlament": "Parlament je anglický příběh. Ve Francii za malého krále vládla matka."
+      }
+    },
+    {
+      "id": "EN48",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak dopadlo španělské vojsko, které Filip II. vyslal do Nizozemí?",
+      "spravna_odpoved": "Po letech bojů bylo ze severu Nizozemí vyhnáno",
+      "spatne_odpovedi": [
+        "Rychle povstání potlačilo",
+        "Dobylo celé Nizozemí včetně severu",
+        "Bylo zničeno na moři roku 1588"
+      ],
+      "oduvodneni": "Filip II. vyslal do Nizozemí vojsko, ale to bylo po letech bojů ze severu země vyhnáno. Sever pak vyhlásil samostatný stát.",
+      "proc_spatne": {
+        "Rychle povstání potlačilo": "Boje trvaly roky a nakonec Španělé sever ztratili.",
+        "Dobylo celé Nizozemí včetně severu": "Španělům zůstal jen jih (dnešní Belgie). Ze severu byli vyhnáni.",
+        "Bylo zničeno na moři roku 1588": "Roku 1588 byla zničena španělská flotila vyslaná proti Anglii, ne vojsko v Nizozemí."
+      }
+    },
+    {
+      "id": "EN49",
+      "tema": "Anglie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co udělal stuartovský král při revoluci na konci 17. století?",
+      "spravna_odpoved": "Uprchl do Francie",
+      "spatne_odpovedi": [
+        "Byl popraven",
+        "Rozpustil parlament a vládl jako diktátor",
+        "Vzdal se trůnu ve prospěch svého syna"
+      ],
+      "oduvodneni": "Když Stuartovci znovu usilovali o absolutismus, vypukla na konci 17. století revoluce a král uprchl do Francie. Parlament pak povolal jeho zetě Viléma III. Oranžského.",
+      "proc_spatne": {
+        "Byl popraven": "Popraven byl Karel I. po občanské válce v polovině století. Král na konci století uprchl.",
+        "Rozpustil parlament a vládl jako diktátor": "To udělal Cromwell. Král na konci 17. století uprchl do Francie.",
+        "Vzdal se trůnu ve prospěch svého syna": "Novým králem se na žádost parlamentu stal jeho zeť Vilém III. Oranžský, ne syn."
+      }
+    },
+    {
+      "id": "EN50",
+      "tema": "Španělsko a Nizozemí",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který španělský král vyslal do Nizozemí vojsko proti povstalcům?",
+      "spravna_odpoved": "Filip II.",
+      "spatne_odpovedi": [
+        "Karel V.",
+        "Ferdinand I.",
+        "Vilém I. Oranžský"
+      ],
+      "oduvodneni": "Filip II. pronásledoval v Nizozemí kalvinisty a omezoval práva stavů; když vypuklo povstání, vyslal proti němu vojsko. To bylo nakonec ze severu vyhnáno.",
+      "proc_spatne": {
+        "Karel V.": "Karel V. byl španělský král před Filipem II. (bratr našeho Ferdinanda I.). Vojsko do Nizozemí vyslal Filip II.",
+        "Ferdinand I.": "Ferdinand I. vládl v našich zemích (rakouská větev Habsburků), ne ve Španělsku.",
+        "Vilém I. Oranžský": "Vilém I. Oranžský byl vůdce nizozemských povstalců - stál na opačné straně."
+      }
+    }
+  ]
+}
