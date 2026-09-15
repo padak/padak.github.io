@@ -27,10 +27,18 @@
         box-sizing: border-box;
       }
 
+      html {
+        min-height: 100%;
+      }
+
       body {
         margin: 0;
         padding: 0 1rem 2rem;
-        background: linear-gradient(135deg, #1e3a8a 0%, #f97316 100%);
+        min-height: 100vh;
+        box-sizing: border-box;
+        /* no-repeat + solid fallback colour prevents the gradient tiling below short content */
+        background: linear-gradient(135deg, #1e3a8a 0%, #f97316 100%) no-repeat;
+        background-color: #f97316;
         color: var(--ink);
       }
 
@@ -70,6 +78,25 @@
         font-size: 1rem;
         list-style: none;
         user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* chevron so the collapsed box reads as expandable */
+      details summary::after {
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        border-right: 2px solid var(--accent);
+        border-bottom: 2px solid var(--accent);
+        transform: rotate(45deg);
+        transition: transform 0.2s ease;
+        margin-right: 0.3rem;
+      }
+
+      details[open] summary::after {
+        transform: rotate(-135deg);
       }
 
       details summary::-webkit-details-marker {
@@ -366,7 +393,7 @@
         <summary>Témata testu</summary>
         <ul class="topics">
           <li>Španělsko a Nizozemí - Karel V. Habsburský, kolonie v Americe, kalvinismus, nizozemské povstání a vznik Nizozemska</li>
-          <li>Anglie - alžbětinská doba, porážka španělské Armady, Stuartovci, občanská válka a Oliver Cromwell, konstituční monarchie</li>
+          <li>Anglie - alžbětinská doba, porážka španělského loďstva 1588, Stuartovci, občanská válka a Oliver Cromwell, konstituční monarchie</li>
           <li>Francie - náboženské války mezi katolíky a hugenoty, Bartolomějská noc, Edikt nantský, kardinál Richelieu</li>
         </ul>
       </details>
