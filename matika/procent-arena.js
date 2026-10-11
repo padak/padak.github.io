@@ -1,5 +1,6 @@
 import * as THREE from './vendor/three.module.js';
 import { createMission } from './arena-questions.js';
+import { ArenaAudio } from './arena-audio.js';
 
 export async function init() {
   const $ = id => document.getElementById(id);
@@ -23,7 +24,30 @@ export async function init() {
   const sectors=['ZÁKLADNA','SLEVOVÉ DOKY','REAKTOR'];
   let questions=createMission(), level=0, mode='intro', yaw=0, pitch=0, recoil=0;
   let attempts=0, helped=false, results=[], flight=null, lastShot=-Infinity, time=0, previous=0;
-  let pointer=null, sound=false, audio=null, lastHover=null;
+  let pointer=null, lastHover=null, mixerTrigger=null;
+  const audio=new ArenaAudio(syncAudioControls);
+  function syncAudioControls() {
+    const s=audio.settings;
+    $('sound').textContent=audio.unavailable?'Zvuk: —':s.enabled?'Zvuk: zap.':'Zvuk: vyp.';
+    $('sound').setAttribute('aria-pressed',String(s.enabled&&!audio.unavailable));
+    $('sound').setAttribute('aria-label',s.enabled?'Vypnout zvuk':'Zapnout zvuk');
+    $('audio-enabled').checked=s.enabled;$('music-enabled').checked=s.music;$('effects-enabled').checked=s.effects;
+    for(const channel of ['music','effects']) {
+      const volume=Math.round(s[`${channel}Volume`]*100);
+      $(`${channel}-volume`).value=volume;$(`${channel}-value`).textContent=`${volume} %`;
+      $(`${channel}-volume`).setAttribute('aria-valuetext',`${volume} %`);
+    }
+    $('audio-status').textContent=audio.unavailable?'Zvuk tento prohlížeč nepovolil. Mise funguje i bez něj.':!s.enabled?'Všechny zvuky jsou ztlumené. Nastavení si stanice pamatuje.':'Vlastní sci-fi soundtrack. Při pauze je ticho.';
+  }
+  function closeMixer(focus=true) {
+    $('audio-panel').hidden=true;$('audio-settings').setAttribute('aria-expanded','false');$('paused-audio').setAttribute('aria-expanded','false');
+    if(focus&&mixerTrigger&&!mixerTrigger.closest('[inert]'))mixerTrigger.focus({preventScroll:true});
+  }
+  function openMixer(event) {
+    if(!$('audio-panel').hidden){closeMixer();return;}
+    unlock();keys.clear();moving.clear();mixerTrigger=event.currentTarget;$('audio-panel').hidden=false;
+    mixerTrigger.setAttribute('aria-expanded','true');$('audio-close').focus({preventScroll:true});
+  }
   const station=new THREE.Group();scene.add(station);
 
   function box(w,h,d,x,y,z,color,glow=false,parent=station) {
@@ -139,12 +163,7 @@ export async function init() {
     $('reveal').hidden=!offerReveal;$('dismiss').hidden=solved;$('feedback').hidden=false;
   }
   function playSound(kind) {
-    if(!sound)return;
-    try {
-      audio??=new (window.AudioContext||window.webkitAudioContext)();audio.resume().catch(()=>{});
-      const now=audio.currentTime;const notes=kind==='success'?[523,659,784]:kind==='wrong'?[230]:[500];
-      notes.forEach((frequency,index)=>{const osc=audio.createOscillator(),gain=audio.createGain();osc.type=kind==='shot'?'triangle':'sine';osc.frequency.setValueAtTime(frequency,now+index*.09);if(kind==='shot')osc.frequency.exponentialRampToValueAtTime(150,now+.08);gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(.035,now+index*.09+.008);gain.gain.exponentialRampToValueAtTime(.0001,now+index*.09+.14);osc.connect(gain);gain.connect(audio.destination);osc.start(now+index*.09);osc.stop(now+index*.09+.15);});
-    } catch {sound=false;$('sound').textContent='Zvuk nedostupný';$('sound').setAttribute('aria-pressed','false');}
+    audio.play(kind);
   }
   function beam(end,good=false) {
     scene.updateMatrixWorld(true);const start=muzzle.getWorldPosition(new THREE.Vector3());
@@ -191,6 +210,7 @@ export async function init() {
   function unlock(){if(document.pointerLockElement===canvas)document.exitPointerLock();}
   function positionPlayer(){camera.position.set(0,1.7,-level*22+5);yaw=0;pitch=0;camera.rotation.set(0,0,0);fill.position.copy(camera.position);}
   function start() {
+    closeMixer(false);audio.pause();void audio.start().then(()=>{if(mode==='playing')playSound('launch');});
     unlock();questions=createMission();level=0;results=[];attempts=0;helped=false;mode='playing';flight=null;lastShot=-Infinity;
     keys.clear();moving.clear();for(const gate of gates){gate.open=0;gate.left.position.x=-2.78;gate.right.position.x=2.78;}
     orb.material.emissive.setHex(0x1a4543);orb.material.emissiveIntensity=.8;
@@ -199,10 +219,11 @@ export async function init() {
     hideFeedback();positionPlayer();createTargets();updateBrief();canvas.focus({preventScroll:true});
   }
   function pause() {
-    if(mode!=='playing'&&mode!=='solved')return;
+    audio.pause();closeMixer(false);
+    if(!['playing','solved','transit'].includes(mode))return;
     const old=mode;mode='paused';$('paused').dataset.previous=old;keys.clear();moving.clear();pointer=null;unlock();$('hud').inert=true;canvas.inert=true;$('paused').hidden=false;$('resume').focus({preventScroll:true});
   }
-  function resume(){mode=$('paused').dataset.previous||'playing';$('hud').inert=false;canvas.inert=false;$('paused').hidden=true;(mode==='solved'?$('continue'):canvas).focus({preventScroll:true});}
+  function resume(){closeMixer(false);mode=$('paused').dataset.previous||'playing';$('hud').inert=false;canvas.inert=false;$('paused').hidden=true;void audio.start();(mode==='solved'?$('continue'):canvas).focus({preventScroll:true});}
   function victory() {
     mode='victory';unlock();keys.clear();moving.clear();hideFeedback();$('transit').hidden=true;document.querySelector('.brief').style.visibility='visible';
     $('hud').inert=true;canvas.inert=true;$('victory').hidden=false;orb.material.emissive.setHex(0x59ffd2);orb.material.emissiveIntensity=3;
@@ -210,11 +231,12 @@ export async function init() {
     $('review').replaceChildren();const missed=results.filter(result=>!result.firstTry);
     if(!missed.length){const text=document.createElement('p');text.textContent='Všechny cenovky jsi rozluštila na první zásah. Zkus další misi — čísla se změní.';$('review').append(text);}
     else for(const result of missed){const text=document.createElement('p');const title=document.createElement('strong');title.textContent=`${result.skill}: `;text.append(title,document.createTextNode(result.explanation));$('review').append(text);}
-    $('debrief').open=false;$('again').focus({preventScroll:true});playSound('success');
+    $('debrief').open=false;$('again').focus({preventScroll:true});audio.pause();playSound('win');
   }
   function advance() {
     if(mode!=='solved')return;
     hideFeedback();unlock();keys.clear();moving.clear();
+    playSound('door');
     const final=level===11;
     if(final){orb.material.emissive.setHex(0x59ffd2);orb.material.emissiveIntensity=3;}
     mode='transit';flight={elapsed:0,start:camera.position.clone(),end:final?new THREE.Vector3(0,2.2,-253):new THREE.Vector3(0,1.7,-(level+1)*22+5),yaw,pitch,final};
@@ -273,7 +295,8 @@ export async function init() {
     for(const type of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(type,()=>moving.delete(button.dataset.move));
   });
   document.addEventListener('keydown',event=>{
-    if(event.code==='Escape'){if(mode==='paused')resume();else pause();return;}
+    if(event.code==='Escape'){if(!$('audio-panel').hidden)closeMixer();else if(mode==='paused')resume();else pause();return;}
+    if(event.target.closest('input,select,textarea')||!$('audio-panel').hidden)return;
     if(mode!=='playing')return;
     if(event.code==='Space'&&event.target.closest('button,a,summary'))return;
     if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyW','KeyA','KeyS','KeyD'].includes(event.code))event.preventDefault();
@@ -285,7 +308,13 @@ export async function init() {
   document.addEventListener('pointerlockchange',()=>{const locked=document.pointerLockElement===canvas;$('lock').setAttribute('aria-pressed',String(locked));$('lock').textContent=locked?'Uvolnit myš':'Zamknout myš';hover.set(9,9);});
   document.addEventListener('pointerlockerror',()=>{if(mode==='playing')feedback('MYŠ ZŮSTÁVÁ VOLNÁ','Tento prohlížeč nepovolil zamknutí myši. Můžeš normálně klikat na terče a rozhlížet se tažením.');});
   $('lock').addEventListener('click',()=>{if(document.pointerLockElement===canvas){unlock();return;}if(mode!=='playing')return;try{const request=canvas.requestPointerLock();request?.catch(()=>{});}catch{feedback('KLIKACÍ REŽIM','Můžeš klikat na terče a rozhlížet se tažením.');}});
-  $('sound').addEventListener('click',()=>{sound=!sound;$('sound').setAttribute('aria-pressed',String(sound));$('sound').setAttribute('aria-label',sound?'Vypnout zvuk':'Zapnout zvuk');$('sound').textContent=sound?'Zvuk: zap.':'Zvuk: vyp.';if(sound)playSound('success');});
+  $('sound').addEventListener('click',()=>{audio.update({enabled:!audio.settings.enabled});if(audio.settings.enabled)void audio.unlock();});
+  for(const id of ['audio-settings','paused-audio'])$(id).addEventListener('click',openMixer);
+  $('audio-close').addEventListener('click',()=>closeMixer());
+  document.addEventListener('pointerdown',event=>{if(!$('audio-panel').hidden&&!event.target.closest('#audio-panel,#audio-settings,#paused-audio'))closeMixer(false);});
+  for(const [id,key] of [['audio-enabled','enabled'],['music-enabled','music'],['effects-enabled','effects']])$(id).addEventListener('change',()=>{audio.update({[key]:$(id).checked});void audio.unlock();});
+  for(const channel of ['music','effects'])$(`${channel}-volume`).addEventListener('input',()=>{audio.update({[`${channel}Volume`]:Number($(`${channel}-volume`).value)/100});void audio.unlock();});
+  syncAudioControls();
   $('start').addEventListener('click',start);$('restart').addEventListener('click',start);$('again').addEventListener('click',start);
   $('pause').addEventListener('click',pause);$('resume').addEventListener('click',resume);
   $('hint').addEventListener('click',()=>hint());$('reveal').addEventListener('click',()=>hint(true));$('dismiss').addEventListener('click',hideFeedback);$('continue').addEventListener('click',advance);$('fire').addEventListener('click',()=>shootAt());
