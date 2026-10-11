@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Procenta pro 8. třídu: hýbej táhly, pochop cenu před slevou a vyzkoušej si krátkou výzvu.">
+  <title>Sleva pozpátku · Procentová laboratoř</title>
+  <style>
+    :root{color-scheme:light;--ink:#202138;--muted:#62647a;--purple:#5546c5;--pale:#f0edff;--teal:#087c72;--line:#e5e3ee;--paper:#fff;--bg:#f6f5fc}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#e8e3ff,transparent 65%),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{max-width:1060px;margin:auto;padding:30px 24px 60px}a{color:var(--purple)}button,input{font:inherit}button{cursor:pointer;min-height:44px}button:disabled{cursor:default}button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--purple);outline-offset:4px}
+    .eyebrow{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);font-weight:700}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;letter-spacing:-.04em;margin:12px 0}h2{font-size:1.35rem;line-height:1.3;margin:0 0 14px}h3{font-size:1.05rem;margin:0 0 4px}p{margin:0 0 12px}.lead{max-width:680px;color:var(--muted)}.small{font-size:.85rem;color:var(--muted)}.mono{font-variant-numeric:tabular-nums}.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 8px 28px #32285f08}
+    .controls{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:26px}.field-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.field-head label{font-weight:650}.number-wrap{display:flex;align-items:center;gap:6px}.number-wrap input{width:105px;min-height:44px;padding:7px 10px;border:1px solid #bdb9d4;border-radius:10px;color:var(--ink);background:var(--paper);font-weight:600;font-variant-numeric:tabular-nums}.number-wrap.percent input{width:77px}
+    input[type=range]{width:100%;min-height:44px;margin:0;accent-color:var(--purple);cursor:ew-resize}.range-limits{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted)}.presets{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:15px 0 0}.preset{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:100px;padding:7px 14px}.preset:hover{background:var(--pale)}
+    .lab{display:grid;grid-template-columns:1fr 1.13fr;gap:22px;margin:22px 0}.visual-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.whole-label{white-space:nowrap;color:var(--muted)}.hundred{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;max-width:370px;margin:18px auto}.tile{height:21px;border-radius:4px;background:var(--teal);transition:background-color .15s}.tile.removed{background:linear-gradient(135deg,transparent 45%,#a29acb 46%,#a29acb 53%,transparent 54%),#eeeafb}.legend{display:grid;grid-template-columns:1fr 1fr;gap:15px}.legend strong{display:block;font-size:1.3rem;font-variant-numeric:tabular-nums}.legend-label{display:flex;align-items:center;gap:7px;font-size:.85rem}.swatch{width:13px;height:13px;border-radius:3px;background:var(--teal);flex:none}.swatch.removed{background:linear-gradient(135deg,transparent 42%,#a29acb 43%,#a29acb 56%,transparent 57%),#eeeafb}.insight{background:var(--pale);border-radius:12px;padding:14px;margin-top:18px;color:#413588}.insight p{margin:0}
+    .steps{display:grid;gap:15px}.step{display:grid;grid-template-columns:30px 1fr;gap:12px}.step-index{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--pale);color:var(--purple);font-weight:650}.equation{font-size:1.22rem;font-weight:650;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.result{padding:17px 20px;border-radius:15px;background:var(--pale);margin-top:20px}.result output{display:block;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:750;line-height:1.3;letter-spacing:-.03em}.check{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}.check p{margin:0}.error{background:#fff0ed;color:#923524;padding:14px;border-radius:12px;margin-top:18px}[hidden]{display:none!important}
+    details{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}summary{min-height:44px;cursor:pointer;font-weight:650}details p{margin-top:12px}.try{font-size:.9rem;margin-top:16px;color:var(--muted)}
+    .challenge{margin-top:28px}.challenge-header{display:flex;justify-content:space-between;gap:16px;align-items:center}.challenge-header h2{margin:6px 0}.primary,.secondary{border:0;border-radius:12px;padding:11px 18px;font-weight:650}.primary{background:var(--purple);color:white}.primary:hover{background:#4434af}.secondary{background:var(--pale);color:#413588}.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px}.progress{height:7px;background:#efedf6;border-radius:100px;margin:10px 0 22px;overflow:hidden}.progress span{display:block;height:100%;background:var(--purple);transition:width .2s}.question{font-size:1.3rem;font-weight:650;line-height:1.4;max-width:730px}.options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}.option{min-height:54px;border:1px solid #ccc8e1;border-radius:12px;background:white;color:var(--ink);padding:12px;text-align:left}.option:hover:not(:disabled){background:var(--pale)}.option.correct{border-color:var(--teal);background:#e8f6f0;color:#145e53}.option.wrong{border-color:#aa573e;background:#fff1e9;color:#873b28}.option:disabled{opacity:1}.feedback{padding:18px;border-radius:14px;background:#f1f7f4;margin:15px 0}.feedback.needs-help{background:#fff5eb}.feedback h3{margin-bottom:8px}.feedback p:last-child{margin-bottom:0}.quiz-actions{display:flex;gap:10px;flex-wrap:wrap}.review-item{padding:14px 0;border-top:1px solid var(--line)}.review-item strong{display:block}.footer{margin-top:24px}.rounding{margin-top:8px;font-size:.8rem;color:var(--muted)}
+    @media(max-width:700px){main{padding:22px 16px 40px}.controls,.lab{grid-template-columns:1fr}.controls{gap:20px}.card{padding:20px;border-radius:20px}.lab{gap:16px}.challenge-header{align-items:flex-start;flex-direction:column}.hundred{max-width:370px}.challenge-header button{width:100%}}
+    @media(max-width:380px){main{padding:18px 12px 32px}.card{padding:16px}.field-head{gap:6px}.field-head label{max-width:140px}.options{grid-template-columns:1fr}.equation{font-size:1.1rem}.legend strong{font-size:1.15rem}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="small" href="../">← Rodinná cvičení</a>
+    <div class="eyebrow" style="margin-top:22px">Procentová laboratoř · 8. třída</div>
+    <h1>Sleva pozpátku</h1>
+    <p class="lead">Znáš cenu po slevě. Ale kolik to stálo předtím? Hýbej táhly a sleduj, jak se dostaneš zpátky ke <strong>100 %</strong>.</p>
+  </header>
+  <section class="card controls" aria-label="Nastavení příkladu">
+    <div>
+      <div class="field-head"><label for="price">Cena po slevě</label><div class="number-wrap"><input id="price" type="number" min="0" max="10000" step="1" value="800" inputmode="numeric" aria-describedby="price-unit"><span id="price-unit">Kč</span></div></div>
+      <input id="price-range" type="range" min="0" max="10000" step="1" value="800" aria-label="Cena po slevě v korunách">
+      <div class="range-limits"><span>0 Kč</span><span>10 000 Kč</span></div>
+    </div>
+    <div>
+      <div class="field-head"><label for="discount">Sleva</label><div class="number-wrap percent"><input id="discount" type="number" min="0" max="100" step="1" value="20" inputmode="numeric" aria-describedby="discount-unit"><span id="discount-unit">%</span></div></div>
+      <input id="discount-range" type="range" min="0" max="100" step="1" value="20" aria-label="Sleva v procentech">
+      <div class="range-limits"><span>0 %</span><span>100 %</span></div>
+    </div>
+  </section>
+  <div class="presets" aria-label="Příklady k vyzkoušení"><span class="small">Zkus třeba:</span><button class="preset" data-price="800" data-discount="20">800 Kč · sleva 20 %</button><button class="preset" data-price="600" data-discount="25">600 Kč · sleva 25 %</button><button class="preset" data-price="500" data-discount="50">500 Kč · sleva 50 %</button></div>
+  <p id="input-error" class="error" role="alert" hidden></p>
+  <div id="lab" class="lab">
+    <section class="card" aria-labelledby="visual-heading">
+      <div class="visual-title"><h2 id="visual-heading">Celá původní cena</h2><span class="whole-label">100 dílků = 100 %</span></div>
+      <p class="small">Jeden dílek je <strong>1 % původní ceny</strong>. Přeškrtnuté dílky tvoří slevu.</p>
+      <div id="hundred" class="hundred" role="img" aria-label="80 dílků zaplatíš, 20 dílků tvoří slevu."></div>
+      <div class="legend">
+        <div><div class="legend-label"><span class="swatch" aria-hidden="true"></span>Zaplatíš <span id="remaining-label">80 %</span></div><strong id="paid-value">800 Kč</strong></div>
+        <div><div class="legend-label"><span class="swatch removed" aria-hidden="true"></span>Sleva <span id="discount-label">20 %</span></div><strong id="saved-value">200 Kč</strong></div>
+      </div>
+      <div class="insight"><p id="insight">800 Kč je cena za 80 dílků. Hledáme cenu všech 100 dílků.</p></div>
+      <p class="try">Experiment: nech cenu po slevě stejnou a zvyšuj slevu. Co se děje s původní cenou?</p>
+    </section>
+    <section class="card" aria-labelledby="calculation-heading">
+      <h2 id="calculation-heading">Zpátky ke 100 %</h2>
+      <div id="calculation">
+        <div class="steps">
+          <div class="step"><span class="step-index" aria-hidden="true">1</span><div><h3>Kolik procent zaplatíš?</h3><div id="step-remaining" class="equation">100 − 20 = 80 %</div></div></div>
+          <div class="step"><span class="step-index" aria-hidden="true">2</span><div><h3>Kolik stojí jeden dílek (1 %)?</h3><div id="step-one" class="equation">800 ÷ 80 = 10 Kč</div></div></div>
+          <div class="step"><span class="step-index" aria-hidden="true">3</span><div><h3>Kolik stojí všech 100 dílků?</h3><div id="step-original" class="equation">10 × 100 = 1 000 Kč</div></div></div>
+        </div>
+        <div class="result" aria-live="polite" aria-atomic="true"><span>Původní cena</span><output id="original">1 000 Kč</output></div>
+        <p id="rounding" class="rounding" hidden>Znak ≈ znamená „přibližně“. Počítáme s celou přesností; zobrazená čísla zaokrouhlujeme.</p>
+        <div class="check"><h3>Kontrola opačným směrem</h3><p id="check">20 % z 1 000 Kč je 200 Kč. 1 000 − 200 = 800 Kč. Sedí!</p></div>
+        <details id="pitfall"><summary id="pitfall-heading">Proč nestačí přičíst 20 %?</summary><p>Sleva se počítá z <strong>původní ceny</strong>. Když přidáš procenta k ceně po slevě, počítáš je z menšího čísla.</p><p id="pitfall-example"></p></details>
+      </div>
+      <p id="boundary" class="error" role="status" hidden></p>
+    </section>
+  </div>
+  <section class="card challenge" aria-labelledby="challenge-heading">
+    <div class="challenge-header"><div><span class="eyebrow">Procentová mise</span><h2 id="challenge-heading">Zařiď filmový večer</h2><p class="lead">8 krátkých rozhodnutí: nákupy, rozpočet a slevy. Bez časovače. Klidně použij papír, kalkulačku i simulátor.</p></div><button id="start" class="primary">Jdu na výzvu →</button></div>
+    <div id="quiz" hidden>
+      <div class="quiz-top"><span id="question-counter" class="small"></span><span id="question-skill" class="small"></span></div><div class="progress" aria-hidden="true"><span id="quiz-progress"></span></div>
+      <p id="question" class="question" tabindex="-1"></p><div id="options" class="options" role="group" aria-labelledby="question"></div>
+      <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+      <div class="quiz-actions"><button id="next" class="primary" hidden>Další rozhodnutí →</button><button id="show-solution" class="secondary" hidden>Ukaž mi celý postup</button><button id="revisit" class="secondary" hidden>Prozkoumat v simulátoru ↑</button></div>
+    </div>
+    <div id="finish" hidden></div>
+  </section>
+  <p class="small footer">Zapamatuj si: <strong>100 % je celek, ze kterého právě počítáš.</strong> Než začneš počítat, najdi, z jaké ceny nebo množství se procenta berou.</p>
+  <noscript><p class="error">Pro táhla a výzvu zapni v prohlížeči JavaScript.</p></noscript>
+</main>
+<script>
+(() => {
+  'use strict';
+  const byId = id => document.getElementById(id);
+  const price = byId('price'), discount = byId('discount');
+  const priceRange = byId('price-range'), discountRange = byId('discount-range');
+  const number = (value, digits = 2) => new Intl.NumberFormat('cs-CZ', {maximumFractionDigits: digits}).format(value);
+  const money = (value, digits = 2) => `${number(value, digits)} Kč`;
+  const rounded = (value, digits = 2) => Math.abs(value - Math.round(value * 10 ** digits) / 10 ** digits) > 1e-8;
+  const tiles = Array.from({length:100}, () => {const tile = document.createElement('span');tile.className = 'tile';tile.setAttribute('aria-hidden','true');byId('hundred').append(tile);return tile;});
+  let state = {price:800, discount:20};
+  function render() {
+    const paid = price.valueAsNumber, off = discount.valueAsNumber;
+    const valid = price.validity.valid && discount.validity.valid && Number.isFinite(paid) && Number.isFinite(off);
+    byId('input-error').hidden = valid;byId('lab').hidden = !valid;
+    if (!valid) {byId('input-error').textContent = 'Zadej celou cenu od 0 do 10 000 Kč a celé procento slevy od 0 do 100.';return;}
+    state = {price:paid, discount:off};priceRange.value = paid;discountRange.value = off;
+    const remaining = 100 - off;
+    tiles.forEach((tile,index) => tile.classList.toggle('removed',index >= remaining));
+    byId('hundred').setAttribute('aria-label',`${remaining} dílků zaplatíš, ${off} dílků tvoří slevu. Jeden dílek je 1 % původní ceny.`);
+    byId('remaining-label').textContent = `${remaining} %`;byId('discount-label').textContent = `${off} %`;
+    byId('paid-value').textContent = money(paid);
+    byId('calculation').hidden = remaining === 0;byId('boundary').hidden = remaining !== 0;
+    if (remaining === 0) {
+      byId('saved-value').textContent = 'Nelze určit';
+      byId('insight').textContent = 'Všech 100 dílků tvoří sleva. Zůstalo 0 dílků k zaplacení.';
+      byId('boundary').textContent = paid === 0 ? 'Při 100% slevě je cena po slevě vždy 0 Kč. Původní cena mohla být jakákoli — z tohoto zadání ji nezjistíme.' : 'Tohle zadání nejde: při 100% slevě musí být cena po slevě 0 Kč. Sniž slevu nebo nastav cenu na 0 Kč.';
+      return;
+    }
+    const one = paid / remaining, original = one * 100, saved = original * off / 100;
+    const approxOne = rounded(one,4) ? '≈' : '=', approxOriginal = rounded(original) || rounded(one,4) ? '≈' : '=';
+    byId('saved-value').textContent = `${rounded(saved) ? '≈ ' : ''}${money(saved)}`;
+    byId('insight').textContent = `${money(paid)} je cena za ${remaining} ${remaining === 1 ? 'dílek' : remaining >= 2 && remaining <= 4 ? 'dílky' : 'dílků'}. Hledáme cenu všech 100 dílků.`;
+    byId('step-remaining').textContent = `100 − ${off} = ${remaining} %`;
+    byId('step-one').textContent = `${number(paid)} ÷ ${remaining} ${approxOne} ${money(one,4)}`;
+    byId('step-original').textContent = `${number(one,4)} × 100 ${approxOriginal} ${money(original)}`;
+    byId('original').textContent = `${rounded(original) ? '≈ ' : ''}${money(original)}`;
+    byId('rounding').hidden = !rounded(original) && !rounded(one,4);
+    byId('check').textContent = `${off} % z ${money(original)} ${rounded(original) || rounded(saved) ? 'je přibližně' : 'je'} ${money(saved)}. ${number(original)} − ${number(saved)} ${rounded(original) || rounded(saved) ? '≈' : '='} ${money(paid)}. Sedí!`;
+    byId('pitfall').hidden = off === 0 || paid === 0;
+    byId('pitfall-heading').textContent = `Proč nestačí přičíst ${off} %?`;
+    const wrongExtra = paid * off / 100;
+    byId('pitfall-example').textContent = `${off} % z ${money(paid)} je ${money(wrongExtra)}. Přičtením vyjde ${money(paid + wrongExtra)}, ale původní cena je ${rounded(original) ? 'přibližně ' : ''}${money(original)}. Jiný základ, jiný výsledek.`;
+  }
+  [[price,priceRange],[discount,discountRange]].forEach(([field,range]) => {
+    field.addEventListener('input',render);
+    range.addEventListener('input',() => {field.value = range.value;render();});
+  });
+  document.querySelectorAll('.preset').forEach(button => button.addEventListener('click',() => {price.value=button.dataset.price;discount.value=button.dataset.discount;render();}));
+  render();
+
+  // Reviewed for mathematical correctness and age-appropriate explanations.
+  const questions = [
+    {skill:'Co zbývá po slevě',question:'Cedulka hlásí slevu 25 %. Kolik procent původní ceny zaplatíš?',correct:0,
+      options:[{text:'75 %'},{text:'25 %',why:'25 % je sleva — ta část, kterou neplatíš. Kolik zbývá do celých 100 %?'},{text:'125 %',why:'Při slevě platíš méně než původních 100 %. Slevu odečítáme.'},{text:'100 %',why:'100 % bys zaplatila bez slevy. Tady část původní ceny neplatíš.'}],
+      explanation:'Celá původní cena je 100 %. Odečteme slevu: 100 − 25 = 75 %. Sleva je to, co neplatíš.'},
+    {skill:'Procentová část',question:'Občerstvení stojí před slevou 200 Kč. Sleva je 20 %. Kolik korun ušetříte?',correct:0,
+      options:[{text:'40 Kč'},{text:'160 Kč',why:'To je cena u pokladny. Otázka se ptá na úsporu, tedy na odečtenou část.'},{text:'20 Kč',why:'20 % není totéž co 20 Kč. Zjisti nejdřív, kolik korun je 1 % z 200 Kč.'},{text:'400 Kč',why:'Úspora při 20% slevě nemůže být větší než celá původní cena. Jedno procento je jedna setina.'}],
+      explanation:'1 % z 200 Kč jsou 2 Kč. Dvacet procent je 20 × 2 = 40 Kč. Otázka se ptá na úsporu, ne na cenu u pokladny.'},
+    {skill:'Cena po slevě',question:'Světelný řetěz stojí před slevou 300 Kč. Sleva je 30 %. Kolik zaplatíte?',correct:0,
+      options:[{text:'210 Kč'},{text:'90 Kč',why:'90 Kč je hodnota slevy. Tu od původní ceny ještě odečti.'},{text:'270 Kč',why:'Odečetla jsi 30 korun. Na cedulce je ale 30 procent z 300 Kč.'},{text:'390 Kč',why:'Při slevě musí být výsledná cena nižší než původní. Přičtením by cena rostla.'}],
+      explanation:'Zaplatíte 70 % původní ceny. Jedno procento jsou 3 Kč, takže 70 × 3 = 210 Kč. Částka 90 Kč je sleva.'},
+    {skill:'Původní cena',question:'Pronájem projektoru stojí po slevě 20 % celkem 720 Kč. Kolik stál před slevou?',correct:0,simulator:{price:720,discount:20},
+      options:[{text:'900 Kč'},{text:'864 Kč',why:'Přidala jsi 20 % z nynějších 720 Kč. Sleva se ale počítala z původní ceny. Kolik procent původní ceny je 720 Kč?'},{text:'576 Kč',why:'To je další sleva z 720 Kč. Hledáme cenu před slevou, takže musí být vyšší.'},{text:'3 600 Kč',why:'3 600 Kč by vyšlo, kdyby 720 Kč představovalo 20 % původní ceny. Jenže 720 Kč je částka po slevě: představuje zbývajících 80 %.'}],
+      explanation:'720 Kč představuje zbývajících 80 %. Jedno procento je 720 ÷ 80 = 9 Kč. Celých 100 % je 900 Kč. Kontrola: 900 − 180 = 720 Kč.'},
+    {skill:'Úspora z nové ceny',question:'Promítací plátno stojí po slevě 25 % celkem 600 Kč. Kolik korun díky slevě ušetříte?',correct:0,simulator:{price:600,discount:25},
+      options:[{text:'200 Kč'},{text:'150 Kč',why:'To je 25 % ze současných 600 Kč. Těchto 600 Kč však představuje jen 75 % původní ceny. Zkus zjistit cenu jednoho procenta.'},{text:'800 Kč',why:'To je původní cena plátna. Otázka se ptá, o kolik se cena snížila.'},{text:'25 Kč',why:'25 je počet procent. Peněžní hodnotu slevy zjistíš z původní ceny.'}],
+      explanation:'600 Kč je 75 % původní ceny. Jedno procento je 600 ÷ 75 = 8 Kč a sleva je 25 × 8 = 200 Kč. Původní cena byla 800 Kč.'},
+    {skill:'Kolik procent je sleva',question:'Malý reproduktor původně stál 400 Kč, teď stojí 300 Kč. Jak velká je sleva v procentech?',correct:0,
+      options:[{text:'25 %'},{text:'Přibližně 33,3 %',why:'Porovnáváš slevu se současnou cenou 300 Kč. U slevy je základem původních 400 Kč.'},{text:'75 %',why:'75 % původní ceny stále platíš. Otázka se ptá na procenta, která byla odečtena.'},{text:'100 %',why:'Ušetříš 100 Kč, ale to není 100 %. Při 100% slevě bys neplatila nic.'}],
+      explanation:'Ušetříte 100 Kč. Původních 400 Kč je 100 %, takže 1 % jsou 4 Kč. Sleva je 100 ÷ 4 = 25 %. Úsporu porovnáváme s původní cenou.'},
+    {skill:'Porovnání nabídek',question:'Stejný větší reproduktor: obchod A má původní cenu 800 Kč a slevu 25 %, obchod B původní cenu 750 Kč a slevu 20 %. Kde bude levnější?',correct:0,
+      options:[{text:'V obou stejně: 600 Kč'},{text:'V obchodě A',why:'Větší procentní sleva nemusí znamenat nižší cenu. Vypočítej částku po slevě v obou obchodech.'},{text:'V obchodě B',why:'Nižší původní cena nemusí znamenat nižší cenu po slevě. Porovnej obě výsledné částky.'}],
+      explanation:'A: 25 % z 800 Kč je 200 Kč, zaplatíte 600 Kč. B: 20 % ze 750 Kč je 150 Kč, také zaplatíte 600 Kč. Záleží na procentu slevy i na původní ceně.'},
+    {skill:'Dvě slevy za sebou',question:'Vybavení stojí před slevami 1 000 Kč. Nejdřív dostanete slevu 20 %. Pak kupon zlevní už sníženou cenu ještě o 10 %. Kolik zaplatíte?',correct:0,
+      options:[{text:'720 Kč'},{text:'700 Kč',why:'To by byla jedna sleva 30 %. Druhá sleva 10 % se ale počítá až z částky po první slevě.'},{text:'800 Kč',why:'To je cena po první slevě. Teď ještě odečti 10 % z této nové ceny.'},{text:'900 Kč',why:'To odpovídá pouze slevě 10 % z původní ceny. Tady nejprve použijeme slevu 20 %.'}],
+      explanation:'Po první slevě zbývá 800 Kč. Druhá sleva je 10 % z 800 Kč, tedy 80 Kč. Zaplatíte 720 Kč. Celková úspora je 280 Kč, tedy 28 % původní ceny. Slevy nesčítáme: mají různý základ.'}
+  ];
+  let questionIndex = 0;
+  let answers = [];
+  let optionOrder = [];
+  let attempts = 0;
+  const shuffle = values => {for(let i=values.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[values[i],values[j]]=[values[j],values[i]];}return values;};
+  function showQuestion(moveFocus = true) {
+    const item = questions[questionIndex];
+    attempts = 0;
+    byId('question-counter').textContent = `Rozhodnutí ${questionIndex+1} z ${questions.length}`;
+    byId('question-skill').textContent = item.skill;
+    byId('quiz-progress').style.width = `${100*questionIndex/questions.length}%`;
+    byId('question').textContent = item.question;
+    byId('feedback').hidden = true;byId('next').hidden = true;byId('show-solution').hidden = true;byId('revisit').hidden = !item.simulator;
+    byId('options').replaceChildren();
+    optionOrder = shuffle(item.options.map((option,index) => ({...option,index})));
+    optionOrder.forEach(option => {
+      const button = document.createElement('button');button.className='option';button.textContent=option.text;button.type='button';button.dataset.index=option.index;
+      button.addEventListener('click',() => answer(option.index));byId('options').append(button);
+    });
+    if(moveFocus) byId('question').focus({preventScroll:true});
+  }
+  function answer(index) {
+    if(answers.length > questionIndex)return;
+    const item = questions[questionIndex], correct = index === item.correct;
+    const firstTry = attempts === 0;
+    attempts++;
+    if (!correct) {
+      const button = byId('options').querySelector(`[data-index="${index}"]`);
+      button.disabled = true;button.classList.add('wrong');button.textContent=`↪ ${item.options[index].text}`;
+      const feedback=byId('feedback');feedback.classList.add('needs-help');feedback.replaceChildren();
+      const heading=document.createElement('h3');heading.textContent='Ještě jeden pohled na cenovku…';
+      const hint=document.createElement('p');hint.textContent=item.options[index].why;
+      const retry=document.createElement('p');retry.textContent='Zkus jinou odpověď, nebo si nech ukázat celý postup.';
+      feedback.append(heading,hint,retry);feedback.hidden=false;byId('show-solution').hidden=false;
+      return;
+    }
+    completeQuestion(firstTry);
+  }
+  function completeQuestion(firstTry) {
+    if(answers.length > questionIndex)return;
+    const item=questions[questionIndex];
+    answers.push({correct:firstTry});
+    byId('options').querySelectorAll('button').forEach(button => {
+      button.disabled=true;const optionIndex=Number(button.dataset.index);
+      if(optionIndex===item.correct){button.classList.add('correct');button.textContent=`✓ ${item.options[optionIndex].text}`;}
+    });
+    const feedback = byId('feedback');feedback.classList.remove('needs-help');feedback.replaceChildren();
+    const heading=document.createElement('h3');heading.textContent=firstTry ? 'To sedí! ✨' : 'Tady je celý postup.';
+    const explanation=document.createElement('p');explanation.textContent=item.explanation;
+    feedback.append(heading,explanation);
+    feedback.hidden=false;byId('show-solution').hidden=true;byId('next').hidden=false;byId('next').textContent=questionIndex===questions.length-1?'Dokončit misi →':'Další rozhodnutí →';
+    byId('revisit').hidden=!item.simulator;
+    byId('quiz-progress').style.width=`${100*(questionIndex+1)/questions.length}%`;
+  }
+  function finish() {
+    byId('quiz').hidden=true;const finish=byId('finish');finish.replaceChildren();finish.hidden=false;
+    const heading=document.createElement('h3');heading.textContent='Filmový večer je připravený! 🍿';heading.tabIndex=-1;
+    const score=document.createElement('p');const count=answers.filter(answer=>answer.correct).length;score.textContent=`${count} z ${questions.length} rozhodnutí ti vyšlo na první pokus. Všechna vysvětlení máš za sebou — to je to hlavní.`;
+    finish.append(heading,score);
+    const missed=questions.filter((item,index)=>!answers[index].correct);
+    if(missed.length){const intro=document.createElement('p');intro.textContent='Tohle se vyplatí ještě zkusit:';finish.append(intro);missed.forEach(item=>{const row=document.createElement('div');row.className='review-item';const label=document.createElement('strong');label.textContent=item.skill;const text=document.createElement('p');text.textContent=item.explanation;row.append(label,text);finish.append(row);});}
+    else{const text=document.createElement('p');text.textContent='Máš dobrý radar na procenta. Zkus teď změnit hodnoty v laboratoři a výsledek odhadnout dřív, než se podíváš.';finish.append(text);}
+    const again=document.createElement('button');again.className='primary';again.textContent='Zkusit celou misi znovu';again.addEventListener('click',start);finish.append(again);heading.focus({preventScroll:true});
+  }
+  function start(){questionIndex=0;answers=[];byId('start').hidden=true;byId('finish').hidden=true;byId('quiz').hidden=false;showQuestion();}
+  byId('start').addEventListener('click',start);
+  byId('show-solution').addEventListener('click',()=>completeQuestion(false));
+  byId('next').addEventListener('click',()=>{questionIndex++;if(questionIndex===questions.length)finish();else showQuestion();});
+  byId('revisit').addEventListener('click',()=>{const item=questions[questionIndex];price.value=item.simulator.price;discount.value=item.simulator.discount;render();byId('price').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});byId('price').focus({preventScroll:true});});
+})();
+</script>
+</body>
+</html>

@@ -2,6 +2,9 @@
 
 Rychlý rozcestník k našim domácím školním testům.
 
+## 🧮 Matematika
+- \[2026-10-11\] [Procentová laboratoř: sleva pozpátku + filmová mise (8. třída)](https://padak.github.io/matika/slevy.html)
+
 ## 📜 Dějepis
 - \[2026-09-15\] [Evropa na počátku novověku (Španělsko, Anglie, Francie) – mobil](https://padak.github.io/dejepis/evropa-novovek-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/evropa-novovek-flashcards.html) · [příprava](https://padak.github.io/dejepis/evropa-novovek-intro.html)
 - \[2026-06-12\] [Počátek novověku v českých zemích – mobil](https://padak.github.io/dejepis/pocatek-novoveku-test-mobil.html) · [flashcards](https://padak.github.io/dejepis/pocatek-novoveku-flashcards.html) · [příprava](https://padak.github.io/dejepis/pocatek-novoveku-intro.html)
