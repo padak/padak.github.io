@@ -65,12 +65,12 @@ export class ArenaAudio {
     this.step=0;this.nextBeat=this.context.currentTime+.04;
     this.scheduleMusic();this.timer=setInterval(()=>this.scheduleMusic(),40);
   }
-  voice(bus,at,duration,volume,{note=60,type='sine',endNote=null,noise=false,cutoff=2200,attack=.012}={}) {
+  voice(bus,at,duration,volume,{note=60,type='sine',endNote=null,noise=false,cutoff=2200,attack=.012,filterType='lowpass',resonance=1}={}) {
     const ctx=this.context;if(!ctx)return;
     const source=noise?ctx.createBufferSource():ctx.createOscillator();
     if(noise)source.buffer=this.noise;
     else {source.type=type;source.frequency.setValueAtTime(frequency(note),at);if(endNote!==null)source.frequency.exponentialRampToValueAtTime(frequency(endNote),at+duration*.8);}
-    const filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.setValueAtTime(cutoff,at);
+    const filter=ctx.createBiquadFilter();filter.type=filterType;filter.frequency.setValueAtTime(cutoff,at);filter.Q.value=resonance;
     const gain=ctx.createGain();gain.gain.setValueAtTime(0,at);gain.gain.linearRampToValueAtTime(volume,at+Math.min(attack,duration*.2));gain.gain.exponentialRampToValueAtTime(.0001,at+duration);
     source.connect(filter);filter.connect(gain);gain.connect(bus);
     const voices=bus===this.musicBus?this.musicVoices:this.effectVoices;
@@ -108,6 +108,14 @@ export class ArenaAudio {
       mod.onended=()=>{mod.disconnect();depth.disconnect();};
       note(67,.015,.48,.14,{type:'triangle',endNote:28,cutoff:1600,attack:.004});
       this.voice(bus,at,.085,.085,{noise:true,cutoff:6500,attack:.002});
+    } else if(kind==='laugh') {
+      // Breath + voiced "ha" pulses, with two vowel resonances and a falling pitch.
+      for(let i=0;i<9;i++){
+        const t=.13+i*.21,pitch=55+(i%3)*3;
+        this.voice(bus,at+t,.065,.035,{noise:true,cutoff:1800,attack:.003});
+        for(const [cutoff,volume] of [[760,.24],[1180,.12]])note(pitch,t+.035,.17,volume,{type:'sawtooth',endNote:pitch-7,cutoff,filterType:'bandpass',resonance:4,attack:.022});
+        note(pitch-12,t+.035,.16,.065,{type:'triangle',endNote:pitch-19,cutoff:650,attack:.02});
+      }
     } else if(kind==='splat') {
       this.voice(bus,at,.11,.18,{noise:true,cutoff:1800,attack:.003});
       note(65,.015,.19,.16,{type:'triangle',endNote:37,cutoff:2000,attack:.003});

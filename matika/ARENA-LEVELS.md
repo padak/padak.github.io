@@ -3,6 +3,8 @@
 The maze, collision detection, 360-degree controls, spiders, cartoon NPC guides, audio, themes and
 gate progression are shared by all levels. Level 1 currently teaches percentages.
 Levels 2 and 3 are disabled placeholders until their questions are authored.
+The guides talk via E / the Talk button. A laser hit tickles them: they laugh,
+flee along a reachable path, and return to patrol without affecting math scores.
 
 1. Add a question module exporting a factory that returns an array of 1–24 questions.
 2. Import that factory in `arena-levels.js` and register an available level with
@@ -19,4 +21,4 @@ Levels 2 and 3 are disabled placeholders until their questions are authored.
 progress bar and results come from the returned array, rather than a fixed 12.
 The level picker enables only levels that have a question factory.
 
-Run the collision and progression checks with `node --test matika/tests/arena-maze.test.mjs`.
+Run the collision, progression and NPC checks with `node --test matika/tests/*.test.mjs`.

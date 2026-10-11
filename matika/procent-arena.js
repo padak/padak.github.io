@@ -1,10 +1,10 @@
 import * as THREE from './vendor/three.module.js';
 import { arenaLevels, loadLevel } from './arena-levels.js';
 import { MazeModel, CELL, ZONE_ROWS } from './arena-maze.js';
-import { ArenaAudio } from './arena-audio.js?v=junction-1';
+import { ArenaAudio } from './arena-audio.js?v=tickle-1';
 import { Station, directions } from './arena-station.js?v=maze-1';
 import { SpiderHunt } from './arena-spiders.js?v=maze-1';
-import { StationGuides } from './arena-npcs.js?v=maze-1';
+import { StationGuides } from './arena-npcs.js?v=tickle-1';
 
 export async function init() {
   const $ = id => document.getElementById(id);
@@ -228,10 +228,17 @@ export async function init() {
     if(!canWalk()||performance.now()-lastShot<220)return;
     scene.updateMatrixWorld(true);raycaster.setFromCamera(point,camera);
     const hit=aimHit();
-    if(hit?.object.userData.npc){talkToGuide(hit.object.userData.npc);return;}
+    if(hit?.object.userData.npc){
+      lastShot=performance.now();beam(hit.point,true);
+      if(guides.tickle(hit.object.userData.npc,camera.position)){
+        closeGuide();playSound('laugh');$('bonus-toast').classList.add('npc-bonus');$('bonus-toast').textContent='HI HI HI! To lechtá! 😆';$('bonus-toast').hidden=false;
+        clearTimeout(bonusTimer);bonusTimer=setTimeout(()=>{$('bonus-toast').hidden=true;},2200);
+      }
+      return;
+    }
     if(hit?.object.userData.spider) {
       lastShot=performance.now();beam(hit.point,true);const position=spiders.hit(hit.object.userData.spider);
-      if(position){spiderCount++;burst(position,0xb1ed8a);playSound('splat');updateScore();$('bonus-toast').textContent='PLÁC! +100 bonusových bodů';$('bonus-toast').hidden=false;clearTimeout(bonusTimer);bonusTimer=setTimeout(()=>{$('bonus-toast').hidden=true;},1600);}
+      if(position){spiderCount++;burst(position,0xb1ed8a);playSound('splat');updateScore();$('bonus-toast').classList.remove('npc-bonus');$('bonus-toast').textContent='PLÁC! +100 bonusových bodů';$('bonus-toast').hidden=false;clearTimeout(bonusTimer);bonusTimer=setTimeout(()=>{$('bonus-toast').hidden=true;},1600);}
       return;
     }
     if(hit){shootTarget(hit.object.userData.index,hit.point);return;}
@@ -265,11 +272,11 @@ export async function init() {
   function unlock(){if(document.pointerLockElement===canvas)document.exitPointerLock();}
   function closeGuide(){clearTimeout(guideTimer);$('guide-dialogue').hidden=true;}
   function talkToGuide(character=nearbyGuide) {
-    if(!canWalk()||!character)return;
+    if(!canWalk()||!character||!guides.canTalk(character))return;
     if(character.root.position.distanceTo(camera.position)>5){$('aim-label').textContent='Přijď blíž a promluv si';return;}
     character.reaction=1;unlock();
     const tips=[
-      'Brrr… mozek mám trochu zarezlý, ale cestu znám! Tlačítko Mapa ukáže zelenou cestu k další bráně.',
+      'Brrr… laser mě lechtá! Pro radu stiskni E nebo tlačítko Promluvit. Tlačítko Mapa ukáže zelenou cestu k další bráně.',
       'Nejsem nepřítel! Klidně se otoč úplně dokola. Myš táhni do strany, nebo použij šipky ← a →.',
       'Na rozcestí odpověď odemkne jednu z cest. Pak musíš otevřenou bránou opravdu projít.',
       'Pavouci na stěnách jsou tajný bonus. Hledej i za sebou! Za každého máš 100 bodů.',
@@ -283,6 +290,7 @@ export async function init() {
     if(canWalk()&&!mathActive){
       let distance=4.5;
       for(const character of guides.characters){
+        if(!guides.canTalk(character))continue;
         const point=character.root.position.clone();point.y=1.7;
         const length=point.distanceTo(camera.position);if(length>=distance)continue;
         raycaster.set(camera.position,point.clone().sub(camera.position).normalize());
@@ -355,8 +363,8 @@ export async function init() {
       for(const target of targets){target.group.position.y=target.baseY+(reduced?0:Math.sin(time*1.3+target.index)*.055);target.group.rotation.y=Math.atan2(camera.position.x-target.group.position.x,camera.position.z-target.group.position.z);if(!reduced){target.ring.rotation.z=time*.12;target.body.rotation.y=time*.3;}}
       if(canWalk()) {
         scene.updateMatrixWorld(true);raycaster.setFromCamera(document.pointerLockElement===canvas?center:hover,camera);
-        const hit=aimHit();const next=hit?.object.userData.spider?'spider':hit?.object.userData.npc?'npc':hit?.object.userData.index??null;
-        if(next!==lastHover){$('crosshair').classList.toggle('hot',next!==null);$('aim-label').textContent=next===null?'':next==='spider'?'🕷 BONUS +100':next==='npc'?'ZOMBI PRŮVODCE · promluvit':`TERČ ${next+1}`;lastHover=next;}
+        const hit=aimHit();const next=hit?.object.userData.spider?'spider':hit?.object.userData.npc?(guides.canTalk(hit.object.userData.npc)?'npc':'npc-laugh'):hit?.object.userData.index??null;
+        if(next!==lastHover){$('crosshair').classList.toggle('hot',next!==null);$('aim-label').textContent=next===null?'':next==='spider'?'🕷 BONUS +100':next==='npc'?'ZOMBI · laserem polechtat / E promluvit':next==='npc-laugh'?'HI HI! Utíká před lechtáním':`TERČ ${next+1}`;lastHover=next;}
       } else {$('crosshair').classList.remove('hot');$('aim-label').textContent='';lastHover=null;}
     }
     if(canWalk()&&timestamp-navTime>300){navTime=timestamp;updateNavigation();updateNearbyGuide();}
