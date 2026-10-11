@@ -2,11 +2,10 @@ import * as THREE from './vendor/three.module.js';
 
 export class SpiderHunt {
   constructor(scene) {this.scene=scene;this.spiders=[];this.hitMeshes=[];this.stickers=[];}
-  spawn(level,junction) {
+  populate(placements) {
     this.clear();
-    const positions=junction?[[-9.8,2.2,2],[9.8,3.2,0],[9.8,1.4,5]]:[[-6.9,1.8,-7],[6.9,3.2,-5],[6.9,1.3,2]];
-    positions.forEach(([x,y,z],index)=>{
-      const group=new THREE.Group();group.position.set(x,y,z);group.rotation.y=x<0?Math.PI/2:-Math.PI/2;this.scene.add(group);
+    placements.forEach(({x,y,z,angle,level},index)=>{
+      const group=new THREE.Group();group.position.set(x,y,z);group.rotation.y=angle;this.scene.add(group);
       const bodyMaterial=new THREE.MeshStandardMaterial({color:[0xb2d86b,0xc598f5,0xf2bc69][(level+index)%3],roughness:.45,metalness:.18});
       const legMaterial=new THREE.MeshStandardMaterial({color:0x424855,roughness:.7});
       const sphere=(r,sx,sy,sz,px,py,pz,material)=>{const mesh=new THREE.Mesh(new THREE.SphereGeometry(r,12,8),material);mesh.scale.set(sx,sy,sz);mesh.position.set(px,py,pz);group.add(mesh);return mesh;};

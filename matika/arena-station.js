@@ -1,8 +1,7 @@
 import * as THREE from './vendor/three.module.js';
+import { CELL, ZONE_ROWS, COLUMNS } from './arena-maze.js';
 
-export const isJunction=level=>[2,5,8,10].includes(level);
 export const directions=['↖ VLEVO','↑ ROVNĚ','↗ VPRAVO'];
-export const exitAngle=(level,index)=>isJunction(level)?[Math.PI/4,0,-Math.PI/4][index]:0;
 
 // Painted metal, brushed grain, recessed seams, rivets, grime and scuffs.
 // Seeded locally so visual detail never changes the exercise random generator.
@@ -35,7 +34,7 @@ function panelTexture(floor=false,bump=false) {
 
 export class Station {
   constructor(scene,renderer,makeSign) {
-    this.scene=scene;this.makeSign=makeSign;this.rooms=[];
+    this.scene=scene;this.makeSign=makeSign;this.root=null;this.doors=[];this.blockers=[];
     const map=panelTexture(),bump=panelTexture(false,true),floor=panelTexture(true);
     for(const t of [map,bump,floor])t.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());
     this.wall=new THREE.MeshStandardMaterial({map,bumpMap:bump,bumpScale:.055,roughness:.55,metalness:.32,color:0x637286});
@@ -56,53 +55,42 @@ export class Station {
     for(let face=0;face<6;face++)for(let j=0;j<4;j++){const i=face*4+j;uv.setXY(i,uv.getX(i)*sizes[face][0]/4,uv.getY(i)*sizes[face][1]/4);}
     const mesh=new THREE.Mesh(geometry,material);mesh.position.set(x,y,z);parent.add(mesh);return mesh;
   }
-  room(level,position=new THREE.Vector3(),angle=0) {
-    const group=new THREE.Group();group.position.copy(position);group.rotation.y=angle;this.scene.add(group);
-    const junction=isJunction(level),width=junction?20:14.4;
-    const glow=new THREE.MeshBasicMaterial({color:[0x66ead3,0xb893ff,0xffbe75][Math.min(2,Math.floor(level/4))]});
-    this.box(group,junction?44:width,.3,junction?48:18,0,-.18,junction?-10:-1,this.floor);
-    this.box(group,junction?44:width,.18,junction?48:18,0,6.15,junction?-10:-1,this.wall);
-    if(junction){for(const side of [-1,1])this.box(group,.3,6.2,48,side*22,3,-10,this.wall);this.box(group,44,6.2,.3,0,3,-34,this.wall);}
-    const room={group,gates:[],junction,level};this.rooms.push(room);
-    for(const side of [-1,1]) {
-      this.box(group,.3,6.2,junction?10:18,side*(width/2+.12),3,junction?3:-1,this.wall);
-      this.box(group,.8,6,.5,side*(width/2-.3),3,4,this.trim);
-      this.box(group,.09,4.7,.07,side*(width/2-.75),2.8,4,glow);
-      this.box(group,.07,.08,junction?7:18,side*(width/2-.1),1.1,junction?4.5:-1,glow);
+  build(model) {
+    this.reset();this.model=model;this.root=new THREE.Group();this.scene.add(this.root);
+    const edges=model.wallEdges(),geometry=new THREE.BoxGeometry(CELL,4.8,.18);
+    const walls=new THREE.InstancedMesh(geometry,this.wall,edges.length),dummy=new THREE.Object3D();
+    edges.forEach((edge,index)=>{dummy.position.set(edge.x,2.4,edge.z);dummy.rotation.y=edge.angle;dummy.updateMatrix();walls.setMatrixAt(index,dummy.matrix);});
+    walls.instanceMatrix.needsUpdate=true;walls.computeBoundingSphere();this.root.add(walls);this.blockers=[walls];
+    const length=(model.gateCount*ZONE_ROWS+3)*CELL;
+    this.box(this.root,COLUMNS*CELL,.3,length,0,-.18,-length/2+CELL/2,this.floor);
+    this.box(this.root,COLUMNS*CELL,.18,length,0,4.9,-length/2+CELL/2,this.wall);
+    const strip=new THREE.InstancedMesh(new THREE.BoxGeometry(CELL,.045,.04),new THREE.MeshBasicMaterial({color:0x7cded2}),edges.length);
+    edges.forEach((edge,index)=>{dummy.position.set(edge.x,.23,edge.z);dummy.rotation.y=edge.angle;dummy.updateMatrix();strip.setMatrixAt(index,dummy.matrix);});
+    strip.instanceMatrix.needsUpdate=true;strip.computeBoundingSphere();this.root.add(strip);
+    for(const gate of model.gates) {
+      const portal=new THREE.Group();portal.position.set(gate.x,0,gate.z);this.root.add(portal);
+      const glow=new THREE.MeshBasicMaterial({color:[0x66ead3,0xb893ff,0xffbe75][Math.floor(gate.stage/4)%3]});
+      this.box(portal,.15,4.5,.4,-1.9,2.25,0,glow);this.box(portal,.15,4.5,.4,1.9,2.25,0,glow);this.box(portal,4,.17,.4,0,4.4,0,glow);
+      const left=this.box(portal,1.9,4.25,.3,-.96,2.125,0,this.door),right=this.box(portal,1.9,4.25,.3,.96,2.125,0,this.door);
+      for(const half of [left,right])this.box(half,.035,3.8,.05,0,0,.18,glow);
+      this.doors.push({gate,left,right,open:0});this.blockers.push(left,right);
+      this.makeSign(`BRÁNA ${gate.stage+1}`,model.junctions.has(gate.stage)?directions[gate.index]:'MATEMATICKÝ ZÁMEK',2.7,.72,0,3.75,.22,portal);
     }
-    for(const z of [4,-2,-8]){this.box(group,width,.18,.4,0,5.9,z,this.trim);this.box(group,5,.04,.4,0,5.76,z,new THREE.MeshBasicMaterial({color:0xd8e9e8}));}
-    const angles=junction?[Math.PI/4,0,-Math.PI/4]:[0];
-    if(junction)for(const side of [-1,1])this.box(group,3,6.2,8,side*5.5,3,-17,this.wall);
-    for(const a of angles) {
-      const branch=new THREE.Group();branch.position.z=-4;branch.rotation.y=a;group.add(branch);
-      this.box(branch,7,.3,24,0,-.20,-12,this.floor);this.box(branch,7,.2,24,0,6.15,-12,this.wall);
-      for(const side of [-1,1]) {
-        this.box(branch,.3,6.2,12,side*3.6,3,-18,this.wall);
-        this.box(branch,.08,.05,19,side*3.2,.13,-14,glow);
-        this.box(branch,.07,.08,12,side*3.42,2.2,-18,glow);
-      }
-      const portal=new THREE.Group();portal.position.z=-12;branch.add(portal);
-      this.box(portal,.24,5.4,.5,-3.35,2.7,0,glow);this.box(portal,.24,5.4,.5,3.35,2.7,0,glow);this.box(portal,6.9,.25,.5,0,5.3,0,glow);
-      const left=this.box(portal,3.25,5.1,.3,-1.65,2.55,0,this.door),right=this.box(portal,3.25,5.1,.3,1.65,2.55,0,this.door);
-      for(const half of [left,right])this.box(half,.05,4.5,.05,0,0,.19,glow);
-      room.gates.push({left,right,open:0});
-      this.makeSign(`BRÁNA ${level+1}`,junction?directions[room.gates.length-1]:'DALŠÍ SEKTOR',2.7,.85,0,4.6,.23,portal);
-      // Bulkhead at the far end of unused branches; the chosen route continues.
-      this.box(branch,7,6,.3,0,3,-27,this.wall);
+    for(let stage=0;stage<model.gateCount;stage++) {
+      const z=-stage*ZONE_ROWS*CELL;
+      for(const offset of [0,3,7,11])this.box(this.root,2.3,.03,.3,0,4.78,z-offset*CELL,new THREE.MeshBasicMaterial({color:0xdbeef1}));
+      this.makeSign(`SEKTOR ${stage+1}`,'PROZKOUMEJ CHODBY',2.2,.75,-4,3.4,z+1.85,this.root).rotation.y=Math.PI;
     }
-    if(junction)this.makeSign('ROZCESTÍ','SPRÁVNÁ CENA OTEVŘE CESTU',3.7,1.1,0,5,-6,group);
-    return room;
   }
-  nextPose(level,index) {
-    const angle=exitAngle(level,index);
-    return {angle,position:new THREE.Vector3(-Math.sin(angle)*28,0,-4-Math.cos(angle)*28)};
+  unlock(stage,index) {
+    const gate=this.model.unlock(stage,index);const door=this.doors.find(d=>d.gate===gate);
+    if(door)door.open=1;return gate;
   }
-  remove(room) {
-    room.group.traverse(obj=>{if(obj.isMesh){obj.geometry.dispose();const materials=Array.isArray(obj.material)?obj.material:[obj.material];for(const m of materials)if(!this.shared.has(m)){m.map?.dispose();m.dispose();}}});
-    room.group.removeFromParent();this.rooms=this.rooms.filter(r=>r!==room);
+  reset() {
+    if(this.root){this.root.traverse(obj=>{if(obj.isMesh){obj.geometry.dispose();if(obj.isInstancedMesh)obj.dispose();const materials=Array.isArray(obj.material)?obj.material:[obj.material];for(const m of materials)if(!this.shared.has(m)){m.map?.dispose();m.dispose();}}});this.root.removeFromParent();}
+    this.root=null;this.doors=[];this.blockers=[];
   }
-  reset() {for(const room of [...this.rooms])this.remove(room);}
   animate(dt,reduced) {
-    for(const room of this.rooms)for(const gate of room.gates){const x=1.65+gate.open*3.3,rate=reduced?1:Math.min(1,dt*4);gate.left.position.x=THREE.MathUtils.lerp(gate.left.position.x,-x,rate);gate.right.position.x=THREE.MathUtils.lerp(gate.right.position.x,x,rate);}
+    for(const door of this.doors){const x=.96+door.open*1.95,rate=reduced?1:Math.min(1,dt*4);door.left.position.x=THREE.MathUtils.lerp(door.left.position.x,-x,rate);door.right.position.x=THREE.MathUtils.lerp(door.right.position.x,x,rate);}
   }
 }
