@@ -1,6 +1,8 @@
 import * as THREE from './vendor/three.module.js';
 import { createMission } from './arena-questions.js';
-import { ArenaAudio } from './arena-audio.js';
+import { ArenaAudio } from './arena-audio.js?v=junction-1';
+import { Station, isJunction, directions, exitAngle } from './arena-station.js';
+import { SpiderHunt } from './arena-spiders.js';
 
 export async function init() {
   const $ = id => document.getElementById(id);
@@ -14,17 +16,20 @@ export async function init() {
   const scene=new THREE.Scene();
   scene.background=new THREE.Color(0x091222);scene.fog=new THREE.Fog(0x091222,22,72);
   const camera=new THREE.PerspectiveCamera(65,1,.05,80);camera.rotation.order='YXZ';scene.add(camera);
-  scene.add(new THREE.HemisphereLight(0xb9dbff,0x1e1c35,2));
+  const ambient=new THREE.HemisphereLight(0xb9dbff,0x1e1c35,2);scene.add(ambient);
   const light=new THREE.DirectionalLight(0x9dcaff,2.5);light.position.set(3,8,6);scene.add(light);
   const fill=new THREE.PointLight(0x7fffe0,12,20);scene.add(fill);
   const raycaster=new THREE.Raycaster(), center=new THREE.Vector2(), hover=new THREE.Vector2(9,9);
   const colors=[0x66ead3,0xb893ff,0xffbe75];
   const keys=new Set(), moving=new Set();
-  const effects=[], gates=[], targets=[], targetMeshes=[];
+  const effects=[], targets=[], targetMeshes=[];
   const sectors=['ZÁKLADNA','SLEVOVÉ DOKY','REAKTOR'];
   let questions=createMission(), level=0, mode='intro', yaw=0, pitch=0, recoil=0;
   let attempts=0, helped=false, results=[], flight=null, lastShot=-Infinity, time=0, previous=0;
   let pointer=null, lastHover=null, mixerTrigger=null;
+  let currentRoom=null, nextRoom=null, selectedExit=1, spiderCount=0, trail=[], bonusTimer=null;
+  let lightTheme=false;
+  try {lightTheme=localStorage.getItem('percentage-arena-theme')==='light';}catch { /* Optional storage. */ }
   const audio=new ArenaAudio(syncAudioControls);
   function syncAudioControls() {
     const s=audio.settings;
@@ -57,13 +62,13 @@ export async function init() {
   function labelTexture(text,sub='',color='#a0fff0') {
     const image=document.createElement('canvas');image.width=1024;image.height=384;
     const ctx=image.getContext('2d');
-    ctx.fillStyle='#101f35';ctx.fillRect(0,0,1024,384);
+    ctx.fillStyle=lightTheme?'#e8f1f3':'#101f35';ctx.fillRect(0,0,1024,384);
     ctx.strokeStyle=color;ctx.lineWidth=7;ctx.strokeRect(8,8,1008,368);
     ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;
     ctx.font='700 40px system-ui';ctx.fillText(sub,512,70);
     let size=106;ctx.font=`700 ${size}px system-ui`;
     while(ctx.measureText(text).width>930 && size>52){size-=2;ctx.font=`700 ${size}px system-ui`;}
-    ctx.fillStyle='#f0f9ff';ctx.fillText(text,512,218);
+    ctx.fillStyle=lightTheme?'#12313f':'#f0f9ff';ctx.fillText(text,512,218);
     const texture=new THREE.CanvasTexture(image);texture.colorSpace=THREE.SRGBColorSpace;
     texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());return texture;
   }
@@ -71,32 +76,8 @@ export async function init() {
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:labelTexture(text,sub),toneMapped:false}));
     mesh.position.set(x,y,z);parent.add(mesh);return mesh;
   }
-  box(14.8,.3,292,0,-.18,-132,0x172538);
-  box(.45,6.5,292,-7.3,3,-132,0x111e32);box(.45,6.5,292,7.3,3,-132,0x111e32);
-  const gridPoints=[];
-  for(let x=-7;x<=7;x++)gridPoints.push(x,.01,14,x,.01,-278);
-  for(let z=14;z>=-278;z-=2)gridPoints.push(-7,.01,z,7,.01,z);
-  const gridGeometry=new THREE.BufferGeometry();gridGeometry.setAttribute('position',new THREE.Float32BufferAttribute(gridPoints,3));
-  station.add(new THREE.LineSegments(gridGeometry,new THREE.LineBasicMaterial({color:0x365169,transparent:true,opacity:.65})));
-  for(let i=0;i<12;i++) {
-    const z=-i*22, color=colors[Math.floor(i/4)];
-    for(const side of [-1,1]) {
-      box(.12,.05,19,side*6.5,.12,z-2,color,true);
-      box(.06,.09,14,side*7,2.1,z-2,color,true);
-      box(.8,5.8,1.2,side*6.8,2.9,z-10,0x273951);
-      box(.09,5.6,.12,side*6.32,2.8,z-9.3,color,true);
-      for(let j=0;j<3;j++)box(.09,.45,1.5,side*7.04,3.8,z-j*5,0x32526b);
-    }
-    box(14.4,.3,.6,0,5.7,z-10,0x2a3e56);box(10,.04,.12,0,5.5,z-9.7,color,true);
-    const gate=new THREE.Group();gate.position.z=z-12;station.add(gate);
-    box(.3,5,.5,-5.6,2.5,0,color,true,gate);box(.3,5,.5,5.6,2.5,0,color,true,gate);box(11.5,.2,.5,0,5,0,color,true,gate);
-    const left=box(5.5,4.7,.35,-2.78,2.35,0,0x22304a,false,gate);
-    const right=box(5.5,4.7,.35,2.78,2.35,0,0x22304a,false,gate);
-    for(const half of [left,right])box(.04,4.2,.06,0,0,.21,color,true,half);
-    gates.push({left,right,open:0});
-    sign(`BRÁNA ${String(i+1).padStart(2,'0')}`,sectors[Math.floor(i/4)],3.2,1.2,0,4.1,z-11.77);
-  }
-  const core=new THREE.Group();core.position.set(0,2.7,-260);station.add(core);
+  const halls=new Station(scene,renderer,sign),spiders=new SpiderHunt(scene);
+  const core=new THREE.Group();core.position.set(0,2.7,-27);core.visible=false;station.add(core);
   const orb=new THREE.Mesh(new THREE.IcosahedronGeometry(1.5,2),new THREE.MeshStandardMaterial({color:0x446269,emissive:0x1a4543,emissiveIntensity:.8,metalness:.7,roughness:.25}));core.add(orb);
   for(let i=0;i<3;i++){const ring=new THREE.Mesh(new THREE.TorusGeometry(2+i*.25,.045,8,64),new THREE.MeshBasicMaterial({color:colors[i]}));ring.rotation.set(i*.8,i*.5,0);core.add(ring);}
   const weapon=new THREE.Group();camera.add(weapon);weapon.scale.setScalar(.7);weapon.position.set(.34,-.34,-.9);weapon.rotation.set(.04,-.12,0);
@@ -104,32 +85,49 @@ export async function init() {
   box(.08,.2,.12,.02,-.13,.16,0x172331,false,weapon);box(.12,.035,.32,0,.03,-.02,0x79f5dc,true,weapon);
   const muzzle=new THREE.Mesh(new THREE.TorusGeometry(.074,.014,8,24),new THREE.MeshBasicMaterial({color:0x79f5dc}));muzzle.position.z=-.25;weapon.add(muzzle);
 
+  function setTheme() {
+    document.documentElement.dataset.theme=lightTheme?'light':'dark';halls.setTheme(lightTheme);
+    scene.background.setHex(lightTheme?0xc8d9e2:0x091222);scene.fog.color.copy(scene.background);
+    ambient.color.setHex(lightTheme?0xeaf5ff:0xb9dbff);ambient.groundColor.setHex(lightTheme?0x798b96:0x1e1c35);ambient.intensity=lightTheme?3:2;
+    light.intensity=lightTheme?3.2:2.5;renderer.toneMappingExposure=lightTheme?1.15:1.35;
+    for(const id of ['theme','intro-theme','paused-theme']){
+      const text=lightTheme?'Tmavý režim':'Světlý režim';$(id).textContent=id==='theme'?(lightTheme?'☾':'☀'):`${lightTheme?'☾':'☀'} ${text}`;
+      $(id).setAttribute('aria-pressed',String(lightTheme));$(id).setAttribute('aria-label',`Přepnout na ${text.toLowerCase()}`);$(id).title=text;
+    }
+    for(const target of targets)refreshLabel(target);
+    try{localStorage.setItem('percentage-arena-theme',lightTheme?'light':'dark');}catch { /* Optional storage. */ }
+  }
+  function refreshLabel(target) {
+    target.face.material.map?.dispose();target.face.material.map=labelTexture(target.option.label,isJunction(level)?directions[target.index]:`TERČ ${target.index+1}`,lightTheme?'#075e68':'#a0fff0');
+  }
+  function enterRoom() {
+    core.visible=level===11;spiders.spawn(level,isJunction(level));selectedExit=1;
+    positionPlayer();createTargets();updateBrief();
+  }
+
   function disposeGroup(group) {
     group.traverse(obj=>{if(obj.isMesh){obj.geometry.dispose();const materials=Array.isArray(obj.material)?obj.material:[obj.material];materials.forEach(material=>{material.map?.dispose();material.dispose();});}});
-    scene.remove(group);
+    group.removeFromParent();
   }
   function createTargets() {
     for(const target of targets)disposeGroup(target.group);
     targets.length=0;targetMeshes.length=0;
     questions[level].options.forEach((option,index)=>{
-      const group=new THREE.Group();group.position.set((index-1)*4.2,2.5,-level*22-7);scene.add(group);
-      const face=sign(option.label,`TERČ ${index+1}`,3.2,1.2,0,0,.16,group);
+      const group=new THREE.Group();group.position.set((index-1)*4.2,2.5,-7);scene.add(group);
+      const face=sign(option.label,isJunction(level)?directions[index]:`TERČ ${index+1}`,3.2,1.2,0,0,.16,group);
       face.userData.index=index;targetMeshes.push(face);
       const hitArea=new THREE.Mesh(new THREE.CircleGeometry(1.38,32),new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,colorWrite:false}));
       hitArea.position.z=-.02;hitArea.userData.index=index;group.add(hitArea);targetMeshes.push(hitArea);
       const ring=new THREE.Mesh(new THREE.TorusGeometry(1.38,.035,8,64),new THREE.MeshBasicMaterial({color:0x69bdce}));ring.position.z=-.06;group.add(ring);
       const body=new THREE.Mesh(new THREE.IcosahedronGeometry(.45,0),new THREE.MeshStandardMaterial({color:0x50617a,metalness:.7,roughness:.4}));body.position.y=-.92;group.add(body);
       box(.8,.05,.12,0,-.94,.04,0x7fffe0,true,group);
-      const pedestal=new THREE.Mesh(new THREE.CylinderGeometry(.6,.8,.22,12),new THREE.MeshStandardMaterial({color:0x253951}));pedestal.position.set(group.position.x,.11,group.position.z);scene.add(pedestal);
-      // The pedestal belongs to this disposable group but sits at floor level.
-      group.attach(pedestal);
       targets.push({group,face,ring,body,option,index,baseY:2.5});
     });
     responsive();
   }
   function responsive() {
     const bounds=$('arena').getBoundingClientRect();renderer.setSize(bounds.width,bounds.height,false);
-    camera.aspect=bounds.width/bounds.height;camera.fov=camera.aspect<.8?82:65;camera.updateProjectionMatrix();
+    camera.aspect=bounds.width/bounds.height;camera.fov=camera.aspect<.8?(isJunction(level)?100:88):65;camera.updateProjectionMatrix();
     camera.clearViewOffset();
     if(!$('hud').hidden) {
       const questionBottom=document.querySelector('.brief').getBoundingClientRect().bottom-bounds.top;
@@ -140,26 +138,37 @@ export async function init() {
       if(offset>0)camera.setViewOffset(bounds.width,bounds.height,0,-offset,bounds.width,bounds.height);
     }
     const compact=camera.aspect<.8;
-    for(const target of targets){target.group.position.x=(target.index-1)*(compact?2.7:4.2);target.group.scale.x=compact?.79:1;}
+    for(const target of targets){
+      if(isJunction(level)) {
+        const a=exitAngle(level,target.index);target.group.position.x=-Math.sin(a)*8;target.group.position.z=-4-Math.cos(a)*8;
+        target.group.rotation.y=Math.atan2(-target.group.position.x,5-target.group.position.z);target.group.scale.setScalar(compact?.72:.9);
+      } else {target.group.position.x=(target.index-1)*(compact?2.7:4.2);target.group.position.z=-7;target.group.rotation.y=0;target.group.scale.set( compact?.79:1,1,1);}
+    }
   }
   new ResizeObserver(responsive).observe($('arena'));
   function updateBrief() {
     $('sector').textContent=`0${Math.floor(level/4)+1} / ${sectors[Math.floor(level/4)]}`;
     $('counter').textContent=`BRÁNA ${level+1} / 12`;$('question').textContent=questions[level].text;$('skill').textContent=questions[level].skill;
+    $('junction-label').textContent=isJunction(level)?'ROZCESTÍ · ↖ vlevo / ↑ rovně / ↗ vpravo':'CHODBA · další brána před tebou';
+    $('path-history').textContent=trail.length?`Tvoje trasa: ${trail.join(' · ')}`:'Tvoje trasa: start';
+    $('bonus-score').textContent=`🕷 ${spiderCount} · ${spiderCount*100} bodů`;
     $('route').replaceChildren();for(let i=0;i<12;i++){const segment=document.createElement('span');segment.className=i<level?'done':i===level?'current':'';$('route').append(segment);}
     $('route').setAttribute('aria-label',`${level} z 12 bran otevřeno`);
     $('answer-buttons').replaceChildren();questions[level].options.forEach((option,index)=>{
-      const button=document.createElement('button');button.type='button';button.dataset.index=index;button.setAttribute('aria-label',`Terč ${index+1}: ${option.label}`);
+      const direction=isJunction(level)?directions[index]:'';
+      const button=document.createElement('button');button.type='button';button.dataset.index=index;button.setAttribute('aria-label',`Terč ${index+1}: ${option.label}${direction?`, ${direction}`:''}`);
       const key=document.createElement('span');key.className='answer-key';key.textContent=index+1;
       const label=document.createElement('span');label.className='answer-label';label.textContent=option.label;
-      button.append(key,label);button.addEventListener('click',()=>shootTarget(index));$('answer-buttons').append(button);
+      const contents=document.createElement('span');contents.className='answer-content';contents.append(label);
+      if(direction){const arrow=document.createElement('small');arrow.textContent=direction;contents.append(arrow);}
+      button.append(key,contents);button.addEventListener('click',()=>shootTarget(index));$('answer-buttons').append(button);
     });
     responsive();
   }
   function hideFeedback(){ $('feedback').hidden=true; }
   function feedback(tag,text,solved=false,offerReveal=false) {
     $('feedback').classList.toggle('hint',!solved);$('feedback-tag').textContent=tag;$('feedback-text').textContent=text;
-    $('continue').hidden=!solved;$('continue').textContent=level===11?'Spustit reaktor →':'Otevřít bránu →';
+    $('continue').hidden=!solved;$('continue').textContent=level===11?'Spustit reaktor →':isJunction(level)?`Pokračovat ${['vlevo ↖','rovně ↑','vpravo ↗'][selectedExit]}`:'Otevřít bránu →';
     $('reveal').hidden=!offerReveal;$('dismiss').hidden=solved;$('feedback').hidden=false;
   }
   function playSound(kind) {
@@ -179,7 +188,12 @@ export async function init() {
   function shootAt(point=center) {
     if(mode!=='playing'||performance.now()-lastShot<220)return;
     scene.updateMatrixWorld(true);raycaster.setFromCamera(point,camera);
-    const hit=raycaster.intersectObjects(targetMeshes,false)[0];
+    const hit=raycaster.intersectObjects([...targetMeshes,...spiders.hitMeshes],false)[0];
+    if(hit?.object.userData.spider) {
+      lastShot=performance.now();beam(hit.point,true);const position=spiders.hit(hit.object.userData.spider);
+      if(position){spiderCount++;burst(position,0xb1ed8a);playSound('splat');$('bonus-score').textContent=`🕷 ${spiderCount} · ${spiderCount*100} bodů`;$('bonus-toast').textContent='PLÁC! +100 bonusových bodů';$('bonus-toast').hidden=false;clearTimeout(bonusTimer);bonusTimer=setTimeout(()=>{$('bonus-toast').hidden=true;},1600);}
+      return;
+    }
     if(hit){shootTarget(hit.object.userData.index,hit.point);return;}
     lastShot=performance.now();beam(raycaster.ray.at(18,new THREE.Vector3()));
     $('aim-label').textContent='Miř na svítící terč';
@@ -190,7 +204,9 @@ export async function init() {
     lastShot=performance.now();scene.updateMatrixWorld(true);const point=hitPoint??target.face.getWorldPosition(new THREE.Vector3());beam(point,target.option.correct);
     attempts++;
     if(target.option.correct) {
-      mode='solved';keys.clear();moving.clear();burst(point,colors[Math.floor(level/4)]);target.group.visible=false;gates[level].open=1;
+      mode='solved';keys.clear();moving.clear();burst(point,colors[Math.floor(level/4)]);target.group.visible=false;selectedExit=index;
+      currentRoom.gates[isJunction(level)?index:0].open=1;
+      if(level<11){const pose=halls.nextPose(level,index);nextRoom=halls.room(level+1,pose.position,pose.angle);}
       results.push({firstTry:attempts===1&&!helped,assisted:helped,skill:questions[level].skill,explanation:questions[level].explanation});
       unlock();playSound('success');feedback('SPRÁVNÝ ZÁSAH · BRÁNA ODEMČENA',questions[level].explanation,true);
       $('answer-buttons').querySelectorAll('button').forEach(button=>button.disabled=true);
@@ -208,15 +224,16 @@ export async function init() {
     if(full){const index=questions[level].options.findIndex(option=>option.correct);targets[index].ring.material.color.setHex(0x86ffe0);$('answer-buttons').querySelector(`[data-index="${index}"]`).classList.add('assisted');}
   }
   function unlock(){if(document.pointerLockElement===canvas)document.exitPointerLock();}
-  function positionPlayer(){camera.position.set(0,1.7,-level*22+5);yaw=0;pitch=0;camera.rotation.set(0,0,0);fill.position.copy(camera.position);}
+  function positionPlayer(){camera.position.set(0,1.7,5);yaw=0;pitch=0;camera.rotation.set(0,0,0);fill.position.copy(camera.position);}
   function start() {
     closeMixer(false);audio.pause();void audio.start().then(()=>{if(mode==='playing')playSound('launch');});
     unlock();questions=createMission();level=0;results=[];attempts=0;helped=false;mode='playing';flight=null;lastShot=-Infinity;
-    keys.clear();moving.clear();for(const gate of gates){gate.open=0;gate.left.position.x=-2.78;gate.right.position.x=2.78;}
+    keys.clear();moving.clear();halls.reset();currentRoom=halls.room(0);nextRoom=null;spiderCount=0;trail=[];
+    clearTimeout(bonusTimer);$('bonus-toast').hidden=true;
     orb.material.emissive.setHex(0x1a4543);orb.material.emissiveIntensity=.8;
     $('intro').hidden=true;$('victory').hidden=true;$('paused').hidden=true;$('hud').hidden=false;$('hud').inert=false;canvas.inert=false;
     document.querySelector('.brief').style.visibility='visible';$('transit').hidden=true;
-    hideFeedback();positionPlayer();createTargets();updateBrief();canvas.focus({preventScroll:true});
+    hideFeedback();enterRoom();canvas.focus({preventScroll:true});
   }
   function pause() {
     audio.pause();closeMixer(false);
@@ -228,6 +245,8 @@ export async function init() {
     mode='victory';unlock();keys.clear();moving.clear();hideFeedback();$('transit').hidden=true;document.querySelector('.brief').style.visibility='visible';
     $('hud').inert=true;canvas.inert=true;$('victory').hidden=false;orb.material.emissive.setHex(0x59ffd2);orb.material.emissiveIntensity=3;
     const count=results.filter(result=>result.firstTry).length;$('victory-stats').textContent=`12 / 12 bran otevřeno · ${count} na první zásah`;
+    $('victory-bonus').textContent=`🕷 ${spiderCount} ${spiderCount===1?'pavouk':spiderCount>=2&&spiderCount<=4?'pavouci':'pavouků'} · ${spiderCount*100} bonusových bodů`;
+    $('victory-path').textContent=`Rozcestí: ${trail.join(' · ')}`;
     $('review').replaceChildren();const missed=results.filter(result=>!result.firstTry);
     if(!missed.length){const text=document.createElement('p');text.textContent='Všechny cenovky jsi rozluštila na první zásah. Zkus další misi — čísla se změní.';$('review').append(text);}
     else for(const result of missed){const text=document.createElement('p');const title=document.createElement('strong');title.textContent=`${result.skill}: `;text.append(title,document.createTextNode(result.explanation));$('review').append(text);}
@@ -239,7 +258,12 @@ export async function init() {
     playSound('door');
     const final=level===11;
     if(final){orb.material.emissive.setHex(0x59ffd2);orb.material.emissiveIntensity=3;}
-    mode='transit';flight={elapsed:0,start:camera.position.clone(),end:final?new THREE.Vector3(0,2.2,-253):new THREE.Vector3(0,1.7,-(level+1)*22+5),yaw,pitch,final};
+    const angle=exitAngle(level,selectedExit);
+    if(isJunction(level))trail.push(['↖','↑','↗'][selectedExit]);
+    const end=final?new THREE.Vector3(0,2.2,-23):nextRoom.group.localToWorld(new THREE.Vector3(0,1.7,5));
+    const path=new THREE.CatmullRomCurve3([camera.position.clone(),new THREE.Vector3(0,1.7,-4),end]);
+    mode='transit';flight={elapsed:0,path,angle,yaw,pitch,final};
+    $('transit').textContent=final?'Reaktor na dohled':isJunction(level)?`Brána otevřena · odbočujeme ${['vlevo','rovně','vpravo'][selectedExit]}`:'Brána otevřena · letíme dál';
     document.querySelector('.brief').style.visibility='hidden';$('transit').hidden=false;
   }
   function updateEffects(dt) {
@@ -250,7 +274,7 @@ export async function init() {
     if(mode!=='paused'&&!document.hidden){
       time+=dt;updateEffects(dt);recoil=Math.max(0,recoil-dt*.25);weapon.position.z=-.9+recoil;
       if(!reduced){core.rotation.y+=dt*.15;core.rotation.z+=dt*.06;}
-      for(const gate of gates){const targetX=2.78+gate.open*4.5;const rate=reduced?1:Math.min(1,dt*4);gate.left.position.x=THREE.MathUtils.lerp(gate.left.position.x,-targetX,rate);gate.right.position.x=THREE.MathUtils.lerp(gate.right.position.x,targetX,rate);}
+      halls.animate(dt,reduced);spiders.animate(time,reduced);
       if(mode==='playing') {
         const forward=(keys.has('KeyW')||keys.has('ArrowUp')||moving.has('forward')?1:0)-(keys.has('KeyS')||keys.has('ArrowDown')||moving.has('backward')?1:0);
         const sideways=(keys.has('KeyD')?1:0)-(keys.has('KeyA')?1:0);
@@ -258,19 +282,24 @@ export async function init() {
         const step=4*dt/Math.max(1,Math.hypot(forward,sideways));
         camera.position.x+=(-Math.sin(yaw)*forward+Math.cos(yaw)*sideways)*step;
         camera.position.z+=(-Math.cos(yaw)*forward-Math.sin(yaw)*sideways)*step;
-        camera.position.x=THREE.MathUtils.clamp(camera.position.x,-5.3,5.3);camera.position.z=THREE.MathUtils.clamp(camera.position.z,-level*22-4,-level*22+7);
+        camera.position.x=THREE.MathUtils.clamp(camera.position.x,-5.3,5.3);camera.position.z=THREE.MathUtils.clamp(camera.position.z,-4,7);
       }
       if(mode==='transit') {
-        flight.elapsed+=dt;const t=reduced?1:Math.min(flight.elapsed/1.55,1),ease=t*t*(3-2*t);
-        camera.position.lerpVectors(flight.start,flight.end,ease);yaw=flight.yaw*(1-ease);pitch=flight.pitch*(1-ease);
-        if(t>=1){if(flight.final){flight=null;victory();}else{level++;attempts=0;helped=false;mode='playing';flight=null;lastShot=-Infinity;createTargets();updateBrief();$('transit').hidden=true;document.querySelector('.brief').style.visibility='visible';canvas.focus({preventScroll:true});}}
+        flight.elapsed+=dt;const t=reduced?1:Math.min(flight.elapsed/2.2,1),ease=t*t*(3-2*t);
+        camera.position.copy(flight.path.getPoint(ease));yaw=THREE.MathUtils.lerp(flight.yaw,flight.angle,ease);pitch=flight.pitch*(1-ease);
+        if(t>=1){if(flight.final){flight=null;victory();}else{
+          // Rebase the modular station at the new room; camera and room move together.
+          halls.remove(currentRoom);currentRoom=nextRoom;nextRoom=null;currentRoom.group.position.set(0,0,0);currentRoom.group.rotation.y=0;
+          level++;attempts=0;helped=false;mode='playing';flight=null;lastShot=-Infinity;
+          enterRoom();$('transit').hidden=true;document.querySelector('.brief').style.visibility='visible';responsive();canvas.focus({preventScroll:true});
+        }}
       }
       camera.rotation.set(pitch,yaw,0);fill.position.copy(camera.position);
       for(const target of targets){target.group.position.y=target.baseY+(reduced?0:Math.sin(time*1.3+target.index)*.055);if(!reduced){target.ring.rotation.z=time*.12;target.body.rotation.y=time*.3;}}
       if(mode==='playing') {
         scene.updateMatrixWorld(true);raycaster.setFromCamera(document.pointerLockElement===canvas?center:hover,camera);
-        const hit=raycaster.intersectObjects(targetMeshes,false)[0];const next=hit?.object.userData.index??null;
-        if(next!==lastHover){$('crosshair').classList.toggle('hot',next!==null);$('aim-label').textContent=next===null?'':`TERČ ${next+1}`;lastHover=next;}
+        const hit=raycaster.intersectObjects([...targetMeshes,...spiders.hitMeshes],false)[0];const next=hit?.object.userData.spider?'spider':hit?.object.userData.index??null;
+        if(next!==lastHover){$('crosshair').classList.toggle('hot',next!==null);$('aim-label').textContent=next===null?'':next==='spider'?'🕷 BONUS +100':`TERČ ${next+1}`;lastHover=next;}
       } else {$('crosshair').classList.remove('hot');$('aim-label').textContent='';lastHover=null;}
     }
     renderer.render(scene,camera);
@@ -320,6 +349,7 @@ export async function init() {
   $('hint').addEventListener('click',()=>hint());$('reveal').addEventListener('click',()=>hint(true));$('dismiss').addEventListener('click',hideFeedback);$('continue').addEventListener('click',advance);$('fire').addEventListener('click',()=>shootAt());
   canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();pause();$('intro').hidden=false;$('paused').hidden=true;$('hud').hidden=true;$('loading-error').hidden=false;$('loading-error').textContent='Grafika se přerušila. Obnov stránku a začni novou misi.';$('start').textContent='Obnovit stránku';$('start').onclick=()=>location.reload();});
   if(matchMedia('(pointer: coarse)').matches)$('control-tip').textContent='Ťukni na terč · tažením rozhlížení · šipkami chůze';
-  positionPlayer();createTargets();updateBrief();responsive();renderer.setAnimationLoop(animate);
+  for(const id of ['theme','intro-theme','paused-theme'])$(id).addEventListener('click',()=>{lightTheme=!lightTheme;setTheme();});
+  currentRoom=halls.room(0);enterRoom();setTheme();responsive();renderer.setAnimationLoop(animate);
   $('start').disabled=false;$('start').textContent='Vstoupit na stanici →';
 }

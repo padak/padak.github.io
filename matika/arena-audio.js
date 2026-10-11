@@ -108,6 +108,10 @@ export class ArenaAudio {
       mod.onended=()=>{mod.disconnect();depth.disconnect();};
       note(67,.015,.48,.14,{type:'triangle',endNote:28,cutoff:1600,attack:.004});
       this.voice(bus,at,.085,.085,{noise:true,cutoff:6500,attack:.002});
+    } else if(kind==='splat') {
+      this.voice(bus,at,.11,.18,{noise:true,cutoff:1800,attack:.003});
+      note(65,.015,.19,.16,{type:'triangle',endNote:37,cutoff:2000,attack:.003});
+      note(83,.12,.14,.09,{type:'sine',endNote:72});
     } else if(kind==='wrong') {
       note(48,.1,.2,.15,{type:'triangle'});note(43,.28,.26,.12,{type:'triangle'});
     } else if(kind==='door') {
