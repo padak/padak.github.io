@@ -3,6 +3,7 @@
 Rychlý rozcestník k našim domácím školním testům.
 
 ## 🧮 Matematika
+- \[2026-10-11\] [Operace 100 %: 3D procentová aréna (8. třída)](https://padak.github.io/matika/procent-arena.html)
 - \[2026-10-11\] [Procentová laboratoř: sleva pozpátku + filmová mise (8. třída)](https://padak.github.io/matika/slevy.html)
 
 ## 📜 Dějepis
