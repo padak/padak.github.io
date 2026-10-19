@@ -103,3 +103,65 @@ export const glossary = [
   ['Opačný výraz', 'Vznikne vynásobením všech členů číslem −1. Součet výrazu a jeho opaku je nula.'],
   ['Podmínka při dělení', 'Dělitel musí být nenulový. Při dělení 3y platí y ≠ 0, i když po zkrácení y ve výsledku zmizí.']
 ];
+
+// A guided step always preserves the value from `before` to `after`.
+// Choices ask one small question; explanation is shown on request or after success.
+const step = (title, before, after, question, choices, correct, explanation, visual = null) => ({title,before,after,question,choices,correct,explanation,visual});
+const lesson = (id,title,steps) => ({id,title,steps});
+export const foundations = lesson('signs','Nejdřív jen čísla a znaménka',[
+  step('Znaménko čísla a odčítání nejsou totéž.','5 − 3','(+5) + (−3)','Co znamená „od pěti odečti tři“?',['K pěti přičti −3.','K pěti přičti +3.','Z pěti udělej −5.'],0,'Minus mezi dvěma výrazy je pokyn k odčítání. Můžeme ho nahradit přičtením opačného čísla. Na ose jdeme z 5 o tři doleva a dojdeme na 2.',{kind:'line',from:5,to:2,label:'Od 5 o tři doleva'}),
+  step('Minus před číslem říká: vezmi opak.','−(+3)','(−1) · (+3)','Jaký je opak čísla +3?',['0','−3','+3'],1,'Opak +3 je −3. Jsou stejně daleko od nuly, ale na opačné straně. Vynásobení číslem −1 udělá přesně toto otočení.',{kind:'line',from:3,to:-3,label:'Z +3 na jeho opak −3'}),
+  step('Záporné číslo má také svůj opak.','−(−3)','(+3)','Jaký je opak čísla −3?',['−6','−3','+3'],2,'Opak −3 je +3: −3 + 3 = 0. Proto −(−3) = +3. Dvě mínus tady znamenají, že hledáme opak záporného čísla.',{kind:'line',from:-3,to:3,label:'Z −3 na jeho opak +3'}),
+  step('Proč záporné krát záporné dává kladné?','(−3) · (−2)','−(3 · (−2))','Tři kopie −2 dávají −6. Jaký je opak −6?',['+6','−6','0'],0,'Nejdřív 3 · (−2) = −6. Násobit −3 znamená vzít opak tohoto výsledku: −(−6) = +6. Znaménka tedy nejsou kouzlo: dvakrát hledáme opak.',{kind:'signs',pieces:['3 · (−2) = −6','opak −6 je +6'],result:'(−3) · (−2) = +6'})
+]);
+export const walkthroughs = {
+  combine:[lesson('same-terms','Co sčítám: počty, nebo proměnné?',[
+    step('Samotné x má schovanou jedničku.','x','(+1) · x','Kolikrát je x v samotném zápisu x?',['Jednou.','Nulakrát.','To nejde poznat.'],0,'Jedničkou můžeme násobit, aniž se hodnota změní. Proto 1 · x zkracujeme na x. Písmeno stále zastupuje číslo.',{kind:'parts',pieces:['+1','x'],labels:['kolikrát','co násobím'],result:'(+1) · x'}),
+    step('Dvě x jsou dvě kopie téhož čísla.','x + x','2 · x','Když sečtu x a x, dostanu…',['x²','2x','2'],1,'Přidávám dvě kopie x. Je to stejný rozdíl jako 3 + 3 = 2 · 3. Naproti tomu x · x píšeme x².',{kind:'copies',pieces:['x','x'],result:'2 · x'}),
+    step('Sčítáme počty stejných členů.','3x + 2x','(3 + 2) · x','Co se sečte ve výrazu 3x + 2x?',['3 + 2, proměnná x zůstane.','x + x se změní na x².','3x a 2x se vynásobí.'],0,'Tři kopie x a dvě kopie x dohromady tvoří pět kopií. Koeficienty se sečtou, x se nemění.',{kind:'copies',pieces:['x','x','x','x','x'],result:'5x'}),
+    step('Znaménko patří k počtu kopií.','3x − x','((+3) + (−1)) · x','Kolik je (+3) + (−1)?',['4','−2','2'],2,'−x znamená (−1) · x. Počítáme 3 − 1 = 2, takže zbude 2x. Dvě stejné proměnné nesčítáme na mocninu.',{kind:'parts',pieces:['+3','−1'],labels:['první koeficient','druhý koeficient'],result:'(+3) + (−1) = 2'})
+  ])],
+  minus:[lesson('hidden-one','Co je schovaného v −x?',[
+    step('Neviditelná jednička.','−x','(−1) · x','Jaké číslo násobí x ve výrazu −x?',['−1','0','+1'],0,'−x je zkrácený zápis (−1) · x. Nula krát x by byla nula. Plus jedna krát x by zůstalo x.',{kind:'parts',pieces:['−1','x'],labels:['koeficient','proměnná'],result:'(−1) · x'}),
+    step('I plus můžeme napsat výslovně.','(−1) · x','(−1) · (+x)','Změní připsání plus před x jeho hodnotu?',['Ano, vždy z něj udělá kladné číslo.','Ne. +x má stejnou hodnotu jako x.','Ano, přičte k x jedničku.'],1,'+x znamená (+1) · x. Neříká, že x je kladné! Když x = −3, pak +x = −3 a −x = +3.',{kind:'mirror'}),
+    step('Záporný koeficient obrací hodnotu x.','−x','(−1) · x','Když x = −3, kolik je −x?',['−3','0','+3'],2,'Dosadíme: (−1) · (−3) = +3. Zápis −x tedy nemusí mít zápornou hodnotu. Minus říká, že bereme opak hodnoty x.',{kind:'mirror',value:-3})
+  ]),lesson('minus-plus','Proč −(x + 3) = −x − 3?',[
+    step('Minus před závorkou je násobení −1.','−(x + 3)','(−1) · (x + 3)','Jaké násobení je schované před celou závorkou?',['× 0','× (−1)','× (+1)'],1,'Celý součet x + 3 má dostat opačnou hodnotu. Zápis −1 · (x + 3) říká totéž, ale vidíme v něm násobení.'),
+    step('Odkryj znaménka obou členů.','(−1) · (x + 3)','(−1) · ((+x) + (+3))','Které dva členy jsou uvnitř?',['+x a +3','−x a +3','+x a −3'],0,'Uvnitř je součet +x a +3. Zatím jsme nic nepřepočítali — jen doplnili znaménka, která se běžně nepíšou.',{kind:'parts',pieces:['+x','+3'],labels:['první člen','druhý člen'],operator:'+',result:'(+x) + (+3)'}),
+    step('−1 násobí každý člen zvlášť.','(−1) · ((+x) + (+3))','(−1) · (+x) + (−1) · (+3)','Co se musí vynásobit číslem −1?',['Jen x.','Jen 3.','x i 3.'],2,'Roznásobení znamená, že činitel před závorkou dostane každý člen uvnitř. Proto máme dvě násobení, propojená sčítáním.',{kind:'distribute',factor:'−1',members:['+x','+3'],products:['(−1) · (+x)','(−1) · (+3)']}),
+    step('Vypočítej každé násobení.','(−1) · (+x) + (−1) · (+3)','(−1) · x + (−3)','Kolik je (−1) · (+3)?',['−3','+3','−2'],0,'Číselný součin −1 · 3 je −3. U prvního členu zůstává koeficient −1 a proměnná x. Jeho hodnotu bez dosazení x neznáme.',{kind:'parts',pieces:['−1','+3'],labels:['první číslo','druhé číslo'],result:'(−1) · (+3) = −3'}),
+    step('Teprve teď zkrať zápis.','(−1) · x + (−3)','−x − 3','Který zápis říká totéž jako (−1) · x + (−3)?',['−x + 3','−x − 3','x − 3'],1,'(−1) · x zkrátíme na −x. Přičíst −3 můžeme napsat jako odečíst 3. Žádný člen se neztratil.')
+  ]),lesson('minus-minus','A co −(x − 3)?',[
+    step('Odčítání přepiš na přičtení opaku.','−(x − 3)','(−1) · ((+x) + (−3))','Jaký je druhý člen uvnitř závorky?',['+3','−1','−3'],2,'Výraz x − 3 je součet +x a −3. Vnější minus je další samostatná operace: násobení celé závorky číslem −1.'),
+    step('Roznásob i záporný člen.','(−1) · ((+x) + (−3))','(−1) · (+x) + (−1) · (−3)','Kolik je (−1) · (−3)?',['+3','−3','−4'],0,'Hledáme opak −3, tedy +3. Druhý člen po roznásobení bude kladná trojka.',{kind:'distribute',factor:'−1',members:['+x','−3'],products:['−x','+3']}),
+    step('Zapiš oba výsledky.','(−1) · (+x) + (−1) · (−3)','−x + 3','Co zůstane po odstranění závorky?',['−x − 3','−x + 3','x + 3'],1,'První člen je −x. Druhý člen je +3. Změnila se znaménka obou členů, protože oba jsme násobili −1.')
+  ])],
+  distribute:[lesson('positive-copies','Nejdřív tři stejné balíčky',[
+    step('Násobení třemi znamená tři kopie.','3(x + 2)','(x + 2) + (x + 2) + (x + 2)','Kolikrát je v těch třech balíčcích číslo 2?',['Jednou.','Třikrát.','Šestkrát.'],1,'Každý balíček obsahuje x a 2. Když vezmu tři balíčky, vezmu třikrát x a třikrát dvojku.',{kind:'copies',pieces:['x + 2','x + 2','x + 2'],result:'3 · x + 3 · 2'}),
+    step('Obě části dostanou stejný násobitel.','3(x + 2)','3 · x + 3 · 2','Kolik je 3 · 2?',['5','2','6'],2,'Násobíme x i 2. Proto bude výsledek 3x + 6. Dvojka nemůže zůstat beze změny.',{kind:'distribute',factor:'+3',members:['+x','+2'],products:['3x','+6']})
+  ]),lesson('negative-monomial','Rozkresli −4x(5 − x)',[
+    step('Najdi skryté násobení.','−4x(5 − x)','((−4) · x) · (5 − x)','Co násobí celou závorku?',['Jen −4.','Celý člen −4x.','Jen x.'],1,'Mezi −4 a x je násobení. Další násobení je mezi členem −4x a závorkou. Celý činitel −4x musí dostat každý člen uvnitř.',{kind:'parts',pieces:['−4','x'],labels:['číselný koeficient','proměnná'],result:'−4x = (−4) · x'}),
+    step('Přepiš rozdíl jako součet členů.','((−4) · x) · (5 − x)','((−4) · x) · ((+5) + ((−1) · x))','Jak zapíšeme samotný člen −x?',['(−1) · x','(+1) · x','(−4) · x'],0,'Uvnitř jsou dva členy: +5 a −x. Ten druhý je (−1) · x. −1 patří k vnitřnímu x; −4 patří k činiteli před závorkou.'),
+    step('Rozděl násobení do dvou větví.','−4x(5 − x)','(−4x) · (+5) + (−4x) · (−x)','Které dvě násobení potřebujeme?',['−4x · 5 a −4x · (−x)','−4x · 5 a samotné −x','−4 · 5 a x · x'],0,'Oba členy uvnitř se násobí celým −4x. Mezi výslednými součiny je plus: sčítáme výsledky obou větví.',{kind:'distribute',factor:'−4x',members:['+5','−x'],products:['(−4x) · (+5)','(−4x) · (−x)']}),
+    step('První větev: čísla a proměnná zvlášť.','(−4x) · (+5) + (−4x) · (−x)','((−4) · (+5)) · x + (−4x) · (−x)','Kolik je (−4) · (+5)?',['+20','−9','−20'],2,'V první větvi násobíme −4 a +5: dostaneme −20. Proměnná x zůstane jednou, takže první člen je −20x.',{kind:'parts',pieces:['−4','+5'],labels:['koeficient zvenku','číslo zevnitř'],result:'(−4) · (+5) = −20'}),
+    step('Druhá větev: odhal −1 u −x.','−20x + (−4x) · (−x)','−20x + ((−4) · (−1)) · (x · x)','Kolik je (−4) · (−1)?',['−4','+4','−5'],1,'Čísla násobíme spolu: −4 · (−1) = +4, protože bereme opak −4. Proměnné násobíme také spolu: x · x. Nejde o sčítání x + x.',{kind:'split',groups:[{label:'Čísla',expression:'(−4) · (−1)',result:'+4'},{label:'Proměnné',expression:'x · x',result:'x²'}]}),
+    step('Součin x · x je druhá mocnina.','−20x + ((−4) · (−1)) · (x · x)','−20x + 4x²','Jak se zkrátí x · x?',['2x','x','x²'],2,'x · x píšeme x². Celý výsledek je −20x + 4x². Tyto členy nesloučíme: jeden má x, druhý x². Pořadí můžeme obrátit na 4x² − 20x.',{kind:'split',groups:[{label:'První větev',expression:'(−4x) · (+5)',result:'−20x'},{label:'Druhá větev',expression:'(−4x) · (−x)',result:'+4x²'}]})
+  ])],
+  multiply:[lesson('four-products','Každý člen s každým, opravdu po jednom',[
+    step('Rozděl druhou závorku na členy.','(x + 2)(x − 3)','(x + 2)((+x) + (−3))','Jaký je druhý člen druhé závorky?',['−3','+3','−x'],0,'Znaménko patří ke členu: druhá závorka obsahuje +x a −3. Než začneme násobit, rozpoznáme tyto dva členy.'),
+    step('První x násobí celou druhou závorku.','(x + 2)(x − 3)','x · (x − 3) + 2 · (x − 3)','Kolikrát musíme použít celou druhou závorku v tomto rozpisu?',['Jednou.','Dvakrát: pro x a pro 2.','Třikrát.'],1,'První závorka má dva členy. Každý z nich násobí celou druhou závorku.',{kind:'distribute',factor:'(x − 3)',members:['x','+2'],products:['x · (x − 3)','2 · (x − 3)']}),
+    step('Každou malou závorku roznásob.','x · (x − 3) + 2 · (x − 3)','x · x + x · (−3) + 2 · x + 2 · (−3)','Kolik je 2 · (−3)?',['+6','−1','−6'],2,'Vznikly čtyři součiny. Jsou to x², −3x, +2x a −6. Znaménka počítáme v každém součinu zvlášť.'),
+    step('Nakonec sluč jen stejné druhy.','x² − 3x + 2x − 6','x² − x − 6','Které dva členy můžeme sloučit?',['x² a −6','−3x a +2x','x² a +2x'],1,'Koeficienty u x jsou −3 a +2. Jejich součet je −1. Proto zůstane −x; x² a −6 se nemění.')
+  ])],
+  factor:[lesson('reverse-products','Vytýkání: najdi stejné násobení',[
+    step('Oba členy rozepiš jako součiny.','6x + 9','3 · (2x) + 3 · (+3)','Který činitel je v obou součinech?',['3','x','2x'],0,'6x můžeme napsat jako 3 · 2x a 9 jako 3 · 3. V obou členech je stejná trojka.',{kind:'split',groups:[{label:'První člen',expression:'6x',result:'3 · 2x'},{label:'Druhý člen',expression:'+9',result:'3 · (+3)'}]}),
+    step('Společnou trojku napiš jednou před závorku.','3 · (2x) + 3 · (+3)','3(2x + 3)','Co zůstane v závorkách?',['6x + 9','2x + 3','2x + 9'],1,'V každém členu vyjmeme násobení třemi. Zůstane 2x a +3. Je to roznásobování pozpátku.'),
+    step('Ověř oba členy zpětným násobením.','3(2x + 3)','6x + 9','Jak ověříme vytknutí?',['Znovu závorku roznásobíme.','Vynásobíme jen první člen.','Závorku vymažeme.'],0,'3 · 2x = 6x a 3 · 3 = 9. Dostali jsme oba původní členy, takže vytknutí sedí.',{kind:'distribute',factor:'+3',members:['2x','+3'],products:['6x','+9']})
+  ])],
+  divide:[lesson('divide-each','Dělení: čísla a proměnné zvlášť',[
+    step('Nejdřív podmínka.','(12xy − 6y) : (3y)','(12xy − 6y) : (3y)','Kdy nesmíme dělit číslem 3y?',['Když y = 1.','Když y = 0.','Když y = −1.'],1,'Pokud y = 0, pak 3y = 0. Nulou dělit nejde. Po celou dobu proto platí y ≠ 0. I když se y později zkrátí.'),
+    step('Dělitele dostane každý člen.','(12xy − 6y) : (3y)','(12xy) : (3y) + (−6y) : (3y)','Co se dělí jednočlenem 3y?',['Jen 12xy.','Jen −6y.','Oba členy.'],2,'Celý součet dělíme stejným nenulovým dělitelem. Zachováme i znaménko − u druhého členu.',{kind:'split',groups:[{label:'První člen',expression:'12xy : 3y',result:'4x'},{label:'Druhý člen',expression:'−6y : 3y',result:'−2'}]}),
+    step('Společný nenulový činitel y se zkrátí.','(12xy) : (3y) + (−6y) : (3y)','(12 : 3) · x + ((−6) : 3)','Kolik je y : y, když y ≠ 0?',['0','1','y'],1,'Stejné nenulové číslo dělené sebou je 1. V první části zůstane x, protože ve jmenovateli žádné x nebylo. Podmínka y ≠ 0 stále platí.'),
+    step('Dopočítej číselné koeficienty.','(12 : 3) · x + ((−6) : 3)','4x − 2','Kolik je (−6) : (+3)?',['−2','+2','−3'],0,'12 : 3 = 4. Číslo −6 dělené 3 je −2, protože (−2) · 3 = −6. Výsledek je 4x − 2, pro y ≠ 0.')
+  ])]
+};

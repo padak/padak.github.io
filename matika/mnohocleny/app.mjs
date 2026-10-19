@@ -1,4 +1,5 @@
-import { workshops, glossary } from './content.mjs';
+import { workshops, glossary, foundations, walkthroughs } from './content.mjs';
+import { gardenItems, unlockedItems, newlyUnlocked, sanitizeGarden, placeItem } from './garden.mjs';
 import { add, multiply, parse, format, term, monomial, number, checkAnswer } from './algebra.mjs';
 
 const $ = id => document.getElementById(id);
@@ -8,10 +9,16 @@ const validIds = new Set(workshops.flatMap(w => w.exercises.map(e => e.id)));
 let saved = {};
 try { saved = JSON.parse(localStorage.getItem(storageKey) || '{}') || {}; } catch { saved = {}; }
 const completed = new Set(Array.isArray(saved.completed) ? saved.completed.filter(id => validIds.has(id)) : []);
+const validGuidedIds = new Set([foundations,...Object.values(walkthroughs).flat()].flatMap(l=>l.steps.map((_,i)=>`${l.id}-${i}`)));
+const guidedCompleted = new Set(Array.isArray(saved.guidedCompleted)?saved.guidedCompleted.filter(id=>validGuidedIds.has(id)):[]);
+const totalDrops = () => completed.size + guidedCompleted.size;
+let gardenSlots = sanitizeGarden(saved.gardenSlots,totalDrops()), selectedPlant=null, removingPlant=false;
+let guidedLesson=0, guidedStep=0, guidedRevealed=false, guidedChoice=null, mirrorValue=3;
 const cursors = Object.fromEntries(workshops.map(w => [w.id, Number.isInteger(saved.cursors?.[w.id]) && saved.cursors[w.id] >= 0 && saved.cursors[w.id] < w.exercises.length ? saved.cursors[w.id] : 0]));
+const requestedLesson = new URLSearchParams(location.search).get('lesson');
 const hashId = location.hash.slice(1);
 let active = Math.max(0, workshops.findIndex(w => w.id === (hashId || saved.active)));
-let mode = 'discover';
+let mode = 'guided';
 const examples = Object.fromEntries(workshops.map(w => [w.id, 0]));
 let scene = {}, history = [], hints = 0, sceneVersion = 0, merging = false;
 const workshop = () => workshops[active];
@@ -26,7 +33,7 @@ function quotientPair(a,b) {
   return entry ? [entry[1],entry[0]] : [0,''];
 }
 function persist() {
-  try { localStorage.setItem(storageKey, JSON.stringify({completed:[...completed], cursors, active:workshop().id})); }
+  try { localStorage.setItem(storageKey, JSON.stringify({completed:[...completed], guidedCompleted:[...guidedCompleted], gardenSlots, cursors, active:workshop().id})); }
   catch { $('save-label').textContent = 'Pokrok teď držíme jen do zavření stránky'; }
 }
 function feedback(message, success = false) {
@@ -36,7 +43,7 @@ function feedback(message, success = false) {
 function renderNav() {
   $('workshop-nav').innerHTML = workshops.map((w,i) => `<button type="button" class="workshop-link ${countDone(w)>=3?'earned':''}" data-workshop="${i}" data-color="${w.color}" aria-current="${i===active}" aria-label="${i+1}. ${w.name}, vyřešeno ${countDone(w)} z 8"><span class="workshop-icon" aria-hidden="true">${w.icon}</span><span class="workshop-number">${countDone(w)>=3?'✦':`0${i+1}`}</span><strong>${w.short}</strong><span class="workshop-progress">${countDone(w) ? `${countDone(w)} / 8 vyřešeno` : 'Otevřít dílnu'}</span></button>`).join('');
   const parts = workshops.filter(w=>countDone(w)>=3).length;
-  $('parts-count').textContent = `${parts} / 6`;
+  updateGardenCount();
   document.querySelector('.robot-body>span').innerHTML = parts===6 ? '✦' : 'm<span>+</span>';
 }
 const why = {
@@ -58,18 +65,21 @@ function chooseWorkshop(index, scroll = false) {
   $('lesson-intro').textContent = w.intro;
   $('lesson-rule').textContent = w.rule;
   $('lesson-why').textContent = why[w.id];
-  renderNav(); resetScene(); renderPaper(); setMode('discover'); persist();
+  guidedLesson=active===0&&!foundations.steps.every((_,i)=>guidedCompleted.has(`${foundations.id}-${i}`))?0:1;
+  guidedStep=0;guidedRevealed=false;guidedChoice=null;
+  renderNav(); resetScene(); renderPaper(); setMode('guided'); persist(); updateGardenCount();
   window.history.replaceState(null,'',`#${w.id}`);
   if(scroll) $('workbench').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
 }
 function setMode(next) {
   mode = next;
-  for(const m of ['discover','practice','paper']) {
+  for(const m of ['guided','discover','practice','paper']) {
     $(`tab-${m}`).setAttribute('aria-selected', String(m===next));
     $(`tab-${m}`).tabIndex = m===next ? 0 : -1;
     $(`panel-${m}`).hidden = m!==next;
   }
   if(next==='practice') renderPractice();
+  if(next==='guided') renderGuided();
 }
 function resetScene() {
   sceneVersion++; merging = false;
@@ -177,7 +187,7 @@ async function handleScene(event) {
 function renderPractice() {
   const w=workshop(), index=cursors[w.id], e=w.exercises[index];
   hints=0;
-  $('practice').innerHTML=`<div class="practice-wrap"><div class="practice-head"><div><span class="level">${e.level} · úloha ${index+1} / ${w.exercises.length}</span><p>${countDone(w)} různých úloh vyřešeno. ${countDone(w)>=3?'Součástku už máš. Další úlohy jsou tvoje výzva.':'Za 3 různé úlohy získáš součástku pro Míšu.'}</p></div><span class="workshop-icon" aria-hidden="true">${w.icon}</span></div><div class="question-dots" aria-label="Vyber úlohu">${w.exercises.map((item,i)=>`<button type="button" class="question-dot ${i===index?'current':''} ${completed.has(item.id)?'done':''}" data-question="${i}" aria-label="Úloha ${i+1}${completed.has(item.id)?', vyřešeno':''}" aria-current="${i===index}">${completed.has(item.id)?'✓':i+1}</button>`).join('')}</div><p class="question-label">${e.factor?'Vytkni společného činitele. Zapiš jako součin.':'Uprav výraz. Ve výsledku sluč stejné členy.'}</p><div class="question-equation">${escape(e.prompt)} = ?</div><form class="answer-form" id="answer-form"><label for="answer">Tvůj výsledek</label><div class="answer-row"><input class="answer-input" id="answer" name="answer" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" maxlength="180" enterkeyhint="done" aria-describedby="input-help" placeholder="${e.factor?'např. 3(x + 2)':'např. 2x + 3'}"><button type="submit" class="primary">Zkontrolovat →</button></div><p class="input-help" id="input-help">x² můžeš napsat jako x^2. Desetinná čárka i tečka fungují. Na pořadí členů nezáleží.</p><div class="math-keypad" aria-label="Matematické znaky">${['x','y','a','b','−','+','²','(',')',','].map(k=>`<button type="button" data-insert="${k}" aria-label="Vložit ${k}">${k}</button>`).join('')}</div>${e.condition?`<div class="condition-select"><label for="condition">Původní dělitel je nenulový, když:</label><select id="condition"><option value="">Vyber podmínku</option><option value="none">Žádná podmínka není potřeba</option><option value="zero">${e.condition} = 0</option><option value="${e.condition}">${e.condition} ≠ 0</option><option value="positive">${e.condition} &gt; 0</option></select></div>`:''}</form><div class="feedback" id="answer-feedback" role="status" aria-live="polite" hidden></div><div class="hint-box" id="hint-box" hidden></div><div class="practice-actions"><button type="button" class="secondary" id="hint-button">Malá nápověda</button><button type="button" class="secondary" id="back-discover">Zpátky k pokusu</button><button type="button" class="secondary" id="next-question">${index===w.exercises.length-1?'Znovu od začátku ↻':'Další úloha →'}</button><button type="button" class="primary" id="next-workshop" hidden>${active===5?'Zpátky do třídírny →':'Další dílna →'}</button></div></div>`;
+  $('practice').innerHTML=`<div class="practice-wrap"><div class="practice-head"><div><span class="level">${e.level} · úloha ${index+1} / ${w.exercises.length}</span><p>${countDone(w)} různých úloh vyřešeno. Každý nový vyřešený příklad přidá kapku do zahrady.</p></div><span class="workshop-icon" aria-hidden="true">${w.icon}</span></div><div class="question-dots" aria-label="Vyber úlohu">${w.exercises.map((item,i)=>`<button type="button" class="question-dot ${i===index?'current':''} ${completed.has(item.id)?'done':''}" data-question="${i}" aria-label="Úloha ${i+1}${completed.has(item.id)?', vyřešeno':''}" aria-current="${i===index}">${completed.has(item.id)?'✓':i+1}</button>`).join('')}</div><p class="question-label">${e.factor?'Vytkni společného činitele. Zapiš jako součin.':'Uprav výraz. Ve výsledku sluč stejné členy.'}</p><div class="question-equation">${escape(e.prompt)} = ?</div><form class="answer-form" id="answer-form"><label for="answer">Tvůj výsledek</label><div class="answer-row"><input class="answer-input" id="answer" name="answer" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" maxlength="180" enterkeyhint="done" aria-describedby="input-help" placeholder="${e.factor?'např. 3(x + 2)':'např. 2x + 3'}"><button type="submit" class="primary">Zkontrolovat →</button></div><p class="input-help" id="input-help">x² můžeš napsat jako x^2. Desetinná čárka i tečka fungují. Na pořadí členů nezáleží.</p><div class="math-keypad" aria-label="Matematické znaky">${['x','y','a','b','−','+','²','(',')',','].map(k=>`<button type="button" data-insert="${k}" aria-label="Vložit ${k}">${k}</button>`).join('')}</div>${e.condition?`<div class="condition-select"><label for="condition">Původní dělitel je nenulový, když:</label><select id="condition"><option value="">Vyber podmínku</option><option value="none">Žádná podmínka není potřeba</option><option value="zero">${e.condition} = 0</option><option value="${e.condition}">${e.condition} ≠ 0</option><option value="positive">${e.condition} &gt; 0</option></select></div>`:''}</form><div class="feedback" id="answer-feedback" role="status" aria-live="polite" hidden></div><div class="hint-box" id="hint-box" hidden></div><div class="practice-actions"><button type="button" class="secondary" id="hint-button">Malá nápověda</button><button type="button" class="secondary" id="back-discover">Zpátky k pokusu</button><button type="button" class="secondary" id="next-question">${index===w.exercises.length-1?'Znovu od začátku ↻':'Další úloha →'}</button><button type="button" class="primary" id="next-workshop" hidden>${active===5?'Zpátky do třídírny →':'Další dílna →'}</button></div></div>`;
 }
 function submitAnswer(event) {
   event.preventDefault();
@@ -187,8 +197,9 @@ function submitAnswer(event) {
   box.replaceChildren();
   const title=document.createElement('strong');title.textContent=result.ok?'✦ Sedí to!':'Ještě jeden malý krok.';box.append(title,document.createTextNode(result.message));
   if(result.ok) {
-    const before=countDone(w); completed.add(e.id);persist();renderNav();
-    if(before<3&&countDone(w)>=3){const p=document.createElement('p');p.textContent=`Nová součástka pro Míšu: ${w.badge}! Můžeš pokračovat ve výzvách nebo jít do další dílny.`;box.append(p);box.classList.add('celebrate');}
+    const dropsBefore=totalDrops();
+    completed.add(e.id);persist();renderNav();updateGardenCount();
+    if(totalDrops()>dropsBefore)box.insertAdjacentHTML('beforeend',rewardMarkup(dropsBefore));
     $('next-question').className='primary';$('next-workshop').hidden=false;
     const dot=document.querySelector(`[data-question="${cursors[w.id]}"]`);dot.classList.add('done');dot.textContent='✓';dot.setAttribute('aria-label',`Úloha ${cursors[w.id]+1}, vyřešeno`);
   }
@@ -215,7 +226,7 @@ document.querySelector('.mode-tabs').addEventListener('click',e=>{const b=e.targ
 document.querySelector('.mode-tabs').addEventListener('keydown',e=>{
   const tabs=[...document.querySelectorAll('[data-mode]')],i=tabs.indexOf(document.activeElement);
   if(i<0||!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;
-  e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3;setMode(tabs[next].dataset.mode);tabs[next].focus();
+  e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;setMode(tabs[next].dataset.mode);tabs[next].focus();
 });
 $('scene').addEventListener('click',handleScene);
 $('scene').addEventListener('input',e=>{
@@ -254,4 +265,75 @@ $('value-x').addEventListener('input',e=>{const x=Number(e.target.value);$('x-va
 document.querySelectorAll('[data-count]').forEach(b=>b.addEventListener('click',()=>{$('count-feedback').textContent=b.dataset.count==='3'?'Ano: 2ab, −3a a +7. Znaménko patří ke členu.':'Počítej části oddělené + a −: 2ab, −3a, +7. Součin ab zůstává uvnitř jednoho členu.';}));
 $('glossary').innerHTML=glossary.map(([name,description])=>`<dt>${escape(name)}</dt><dd>${escape(description)}</dd>`).join('');
 window.addEventListener('hashchange',()=>{const i=workshops.findIndex(w=>w.id===location.hash.slice(1));if(i>=0&&i!==active)chooseWorkshop(i);});
+
+
+function dropsText(n, accusative = false) { return `${n} ${n===1?(accusative?'kapku':'kapka'):n>=2&&n<=4?'kapky':'kapek'}`; }
+function updateGardenCount() {
+  const label=`${unlockedItems(totalDrops()).length} / ${gardenItems.length}`;
+  $('garden-count').textContent=label; $('parts-count').textContent=label;
+}
+function rewardMarkup(before) {
+  const gifts=newlyUnlocked(before,totalDrops());
+  const next=gardenItems.find(item=>item.at>totalDrops());
+  return `<div class="reward ${gifts.length?'new-gift':''}"><span class="reward-icon" aria-hidden="true">${gifts.length?gifts[0].icon:'💧'}</span><div><strong>${gifts.length?`Nové do zahrady: ${escape(gifts[0].name)}!`:'+1 kapka pro tvoji zahradu'}</strong><p>${gifts.length?'Vyber jí místo ve své zahrádce.':next?`Další odměna za ${dropsText(next.at-totalDrops(),true)}. Každý nový vyřešený krok přidá jednu.`:'Tvoje zahrada už má celou sbírku. Další kroky jsou pro radost z matematiky.'}</p></div><button type="button" class="secondary" data-open-garden>${gifts.length?'Zasadit →':'Moje zahrada'}</button>${gifts.length?'<span class="reward-spark" aria-hidden="true">✦</span><span class="reward-spark second" aria-hidden="true">✧</span>':''}</div>`;
+}
+function renderGarden() {
+  const drops=totalDrops(), owned=unlockedItems(drops), next=gardenItems.find(i=>i.at>drops);
+  const selected=gardenItems.find(i=>i.id===selectedPlant);
+  $('garden-body').innerHTML=`<div class="garden-summary"><strong>💧 ${dropsText(drops)}</strong><span>${owned.length} / ${gardenItems.length} objevených pokladů</span></div><p class="garden-instruction" role="status">${removingPlant?'Ťukni na obsazené místo. Rostlina se vrátí do sbírky.':selected?`Vybráno: ${escape(selected.name)}. Teď ťukni na místo v zahradě.`:owned.length?'Nejdřív vyber poklad ze sbírky dole. Potom ťukni na místo v zahradě.':'První květinu získáš za jeden správně vyřešený krok. Pak si ji sem zasadíš.'}</p><div class="garden-land"><div class="garden-sky" aria-hidden="true"><span>☀</span><span>☁</span><span>☁</span></div><div class="garden-plots" aria-label="Dvanáct míst v zahradě">${gardenSlots.map((id,i)=>{const item=gardenItems.find(p=>p.id===id);return `<button type="button" class="garden-plot ${item?'planted':''}" data-plot="${i}" aria-label="Místo ${i+1}: ${item?escape(item.name):'prázdné'}${selected?', zasadit '+escape(selected.name):''}" ${!selected&&!removingPlant?'disabled':''}><span aria-hidden="true">${item?item.icon:'+'}</span><small>${item?escape(item.name):`Místo ${i+1}`}</small></button>`;}).join('')}</div></div><div class="garden-tools"><button type="button" class="secondary" id="garden-remove" aria-pressed="${removingPlant}">${removingPlant?'Ukončit přesazování':'Vrátit poklad do sbírky'}</button><span>Přesazování nic nestojí.</span></div><h3 class="collection-title">Tvoje sbírka</h3><div class="garden-collection">${gardenItems.map(item=>`<button type="button" class="collection-item ${item.at<=drops?'owned':''}" data-plant="${item.id}" ${item.at>drops?'disabled':''} aria-pressed="${selectedPlant===item.id}" aria-label="${escape(item.name)}, ${item.at<=drops?'vybrat':`odemkne se při ${item.at} kapkách`}"><span aria-hidden="true">${item.at<=drops?item.icon:'◇'}</span><strong>${escape(item.name)}</strong><small>${item.at<=drops?gardenSlots.includes(item.id)?'V zahradě · přesadit':'Můžeš zasadit':dropsText(item.at)}</small></button>`).join('')}</div><p class="garden-footnote">${next?`Další poklad: ${escape(next.name)} za ${dropsText(next.at-drops,true)}. `:'Celá sbírka je tvoje! '}Jedna kapka za každý nový správně vyřešený krok nebo příklad. Nápověda i oprava chyby se počítají. Opakování už vyřešeného úkolu další kapku nepřidá. Za chyby nic neztrácíš.</p>`;
+}
+function openGarden() {
+  selectedPlant=null;removingPlant=false;renderGarden();
+  if(!$('garden-dialog').open)$('garden-dialog').showModal();
+}
+const guidedLessons = () => [foundations,...walkthroughs[workshop().id]];
+function resetGuidedStep() {guidedRevealed=false;guidedChoice=null;mirrorValue=guidedLessons()[guidedLesson].steps[guidedStep].visual?.value??3;renderGuided();}
+function numberLine(from,to,label) {
+  const x=n=>150+n*20;
+  const ticks=[-6,-3,0,3,6];
+  return `<svg class="guided-line" viewBox="0 0 300 100" role="img" aria-label="${escape(label)}"><title>${escape(label)}</title><line x1="20" y1="58" x2="280" y2="58" stroke="currentColor" stroke-width="2"/>${ticks.map(n=>`<line x1="${x(n)}" y1="53" x2="${x(n)}" y2="63" stroke="currentColor"/><text x="${x(n)}" y="88" text-anchor="middle">${n}</text>`).join('')}<path class="line-journey" d="M ${x(from)} 49 Q ${(x(from)+x(to))/2} -14 ${x(to)} 49" fill="none" stroke="var(--accent)" stroke-width="3"/><circle cx="${x(from)}" cy="58" r="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"/><circle class="line-destination" cx="${x(to)}" cy="58" r="7" fill="var(--accent)"/><text x="${x(from)}" y="24" text-anchor="middle">${number(from)}</text><text x="${x(to)}" y="44" text-anchor="middle">${number(to)}</text></svg><div class="line-legend"><span>○ začátek: ${number(from)}</span><span>● výsledek: ${number(to)}</span></div>`;
+}
+function visualMarkup(v) {
+  if(!v)return '';
+  if(v.kind==='line')return numberLine(v.from,v.to,v.label);
+  if(v.kind==='mirror')return `<div class="mirror-controls"><span>Zkus dosadit za x:</span>${[-3,0,3].map(n=>`<button type="button" class="secondary" data-mirror="${n}" aria-pressed="${mirrorValue===n}">x = ${n}</button>`).join('')}</div>${numberLine(mirrorValue,-mirrorValue,`Hodnota x je ${mirrorValue}, hodnota −x je ${-mirrorValue}`)}<p class="mirror-result">+x = ${mirrorValue} <span>ale</span> −x = (−1) · (${mirrorValue}) = ${-mirrorValue}</p><p class="visual-caption">+x má stejnou hodnotu jako x. Minus před x hledá opačnou hodnotu.</p>`;
+  if(v.kind==='distribute')return `<div class="branch-diagram" aria-label="Činitel násobí oba členy"><div class="branch-source">${escape(v.factor)}</div><svg viewBox="0 0 300 62" preserveAspectRatio="none" aria-hidden="true"><path class="branch-path" d="M150 0 L150 16 L75 16 L75 56 M150 16 L225 16 L225 56"/><path d="M69 49 L75 57 L81 49 M219 49 L225 57 L231 49"/></svg><div class="branch-targets">${v.members.map((member,i)=>`<div class="branch-target"><span class="branch-member">${escape(member)}</span><span class="branch-caption">${i+1}. násobení</span><strong>${escape(v.products[i])}</strong></div>`).join('<span class="branch-plus" aria-label="plus">+</span>')}</div></div>`;
+  if(v.kind==='split')return `<div class="split-groups">${v.groups.map(g=>`<div><span class="eyebrow">${escape(g.label)}</span><p>${escape(g.expression)}</p><strong>↓ ${escape(g.result)}</strong></div>`).join('')}</div>`;
+  return `<div class="guided-pieces">${v.pieces.map((piece,i)=>`${i?`<span class="piece-op">${v.kind==='parts'?(v.operator||'·'):v.kind==='copies'?'+':'→'}</span>`:''}<div class="guided-piece"><strong>${escape(piece)}</strong>${v.labels?`<small>${escape(v.labels[i])}</small>`:''}</div>`).join('')}</div><p class="visual-result">${escape(v.result)}</p>`;
+}
+function renderGuided() {
+  const lessons=guidedLessons(), l=lessons[guidedLesson], s=l.steps[guidedStep];
+  const stepId=`${l.id}-${guidedStep}`, done=guidedCompleted.has(stepId), last=guidedStep===l.steps.length-1;
+  const url=new URL(location.href);url.searchParams.set('lesson',l.id);url.hash=workshop().id;window.history.replaceState(null,'',url);
+  $('guided').innerHTML=`<div class="guided-wrap"><div class="guided-heading"><div><p class="eyebrow">ŽÁDNÁ PŘESKOČENÁ JEDNIČKA ANI ZNAMÉNKO</p><h3>Podíváme se operacím pod ruce.</h3></div><span class="guided-drop">💧 ${dropsText(totalDrops())}</span></div><label class="guided-select-label" for="guided-lesson">Co si rozkreslíme?</label><select id="guided-lesson">${lessons.map((item,i)=>`<option value="${i}" ${i===guidedLesson?'selected':''}>${escape(item.title)}</option>`).join('')}</select><div class="guided-progress" aria-label="Krok ${guidedStep+1} z ${l.steps.length}">${l.steps.map((_,i)=>`<span class="${i===guidedStep?'current':i<guidedStep?'past':''}"></span>`).join('')}</div><div class="guided-step-head"><span class="level">KROK ${guidedStep+1} / ${l.steps.length}${done?' · UŽ VYZKOUŠENO':''}</span><h3 id="guided-step-title" tabindex="-1">${escape(s.title)}</h3></div><div class="guided-before"><span class="eyebrow">VÝCHOZÍ ZÁPIS</span><div class="formula">${escape(s.before)}</div></div><div class="guided-question"><p>${escape(s.question)}</p><div class="guided-options">${s.choices.map((choice,i)=>`<button type="button" class="guided-option ${guidedChoice===i?(i===s.correct?'correct':'retry'):''}" data-guide-choice="${i}" ${guidedChoice===s.correct?'disabled':''}>${escape(choice)}</button>`).join('')}</div><p class="guided-feedback" id="guided-feedback" role="status" aria-live="polite">${guidedChoice===null?'Nejdřív si zkus vybrat. Když nevíš, ukážeme si proč.':guidedChoice===s.correct?'Ano. Teď sleduj, co jsme v zápisu odkryli.':'Zkus se podívat na vysvětlení a vyber znovu. Chybou o nic nepřijdeš.'}</p></div><div id="guided-reveal" ${guidedRevealed?'':'hidden'}><div class="guided-visual">${visualMarkup(s.visual)}</div><div class="guided-after"><span class="eyebrow">STEJNÁ HODNOTA, ROZEPSANÝ KROK</span><div class="formula">${escape(s.after)}</div></div><p class="guided-explanation">${escape(s.explanation)}</p>${workshop().id==='divide'&&l.id!=='signs'?'<p class="condition-note">Po celou dobu: y ≠ 0. Původní dělitel 3y nesmí být nula.</p>':''}</div><div id="guided-reward" aria-live="polite"></div><div class="guided-actions"><button type="button" class="secondary" id="guided-prev" ${guidedStep===0?'disabled':''}>← Předchozí krok</button><button type="button" class="secondary" id="guided-explain">${guidedRevealed?'Přehrát rozkreslení ↻':'Nevím — ukaž mi proč'}</button><button type="button" class="primary" id="guided-next" ${guidedRevealed?'':'disabled'}>${last?guidedLesson<lessons.length-1?'Další vysvětlení →':'Zkusit pokus →':'Další malý krok →'}</button></div><p class="guided-bottom">Můžeš se vracet i použít vysvětlení. Nový správně vyřešený krok přidá kapku do zahrady.</p></div>`;
+}
+$('guided').addEventListener('change',event=>{if(event.target.id==='guided-lesson'){guidedLesson=Number(event.target.value);guidedStep=0;resetGuidedStep();}});
+$('guided').addEventListener('click',event=>{
+  const b=event.target.closest('button');if(!b)return;
+  const l=guidedLessons()[guidedLesson], s=l.steps[guidedStep];
+  if('guideChoice' in b.dataset){
+    guidedChoice=Number(b.dataset.guideChoice);
+    if(guidedChoice===s.correct){const before=totalDrops();guidedCompleted.add(`${l.id}-${guidedStep}`);guidedRevealed=true;persist();updateGardenCount();renderGuided();if(totalDrops()>before)$('guided-reward').innerHTML=rewardMarkup(before);}
+    else {guidedRevealed=true;renderGuided();}
+    $('guided-feedback').scrollIntoView({block:'nearest',behavior:'auto'});
+  }
+  if('mirror' in b.dataset){mirrorValue=Number(b.dataset.mirror);document.querySelector('#guided-reveal .guided-visual').innerHTML=visualMarkup(s.visual);}
+  if(b.id==='guided-explain'){guidedRevealed=true;renderGuided();}
+  if(b.id==='guided-prev'&&guidedStep>0){guidedStep--;resetGuidedStep();}
+  if(b.id==='guided-next'&&guidedRevealed){
+    if(guidedStep<l.steps.length-1){guidedStep++;resetGuidedStep();}
+    else if(guidedLesson<guidedLessons().length-1){guidedLesson++;guidedStep=0;resetGuidedStep();}
+    else setMode('discover');
+    if(mode==='guided'){$('guided-step-title').focus({preventScroll:true});$('guided-step-title').scrollIntoView({block:'nearest',behavior:'auto'});}
+  }
+});
+document.addEventListener('click',event=>{if(event.target.closest('[data-open-garden]'))openGarden();});
+$('garden-close').addEventListener('click',()=>$('garden-dialog').close());
+$('garden-body').addEventListener('click',event=>{
+  const b=event.target.closest('button');if(!b||b.disabled)return;
+  if('plant' in b.dataset){selectedPlant=b.dataset.plant;removingPlant=false;renderGarden();document.querySelector('.garden-instruction').scrollIntoView({block:'nearest',behavior:'auto'});}
+  if('plot' in b.dataset){const index=Number(b.dataset.plot);if(removingPlant)gardenSlots[index]=null;else if(selectedPlant)gardenSlots=placeItem(gardenSlots,selectedPlant,index,totalDrops());persist();renderGarden();}
+  if(b.id==='garden-remove'){removingPlant=!removingPlant;selectedPlant=null;renderGarden();}
+});
 chooseWorkshop(active);
+if(requestedLesson){const index=guidedLessons().findIndex(l=>l.id===requestedLesson);if(index>=0){guidedLesson=index;guidedStep=0;resetGuidedStep();}}

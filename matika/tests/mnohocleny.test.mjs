@@ -90,3 +90,40 @@ test('all discovery examples produce the intended kind of mathematical result',(
     }
   }
 });
+
+test('guided steps preserve values, offer valid choices and cover requested decompositions',async()=>{
+  const {foundations,walkthroughs}=await import('../mnohocleny/content.mjs');
+  const ids=new Set();let count=0;
+  for(const lesson of [foundations,...Object.values(walkthroughs).flat()]){
+    assert.ok(!ids.has(lesson.id));ids.add(lesson.id);
+    for(const s of lesson.steps){
+      assert.ok(equal(parse(s.before),parse(s.after)),`${lesson.id}: ${s.before} → ${s.after}`);
+      assert.ok(s.correct>=0&&s.correct<s.choices.length);
+      assert.equal(new Set(s.choices).size,s.choices.length);
+      assert.ok(s.explanation.length>30);
+      count++;
+    }
+  }
+  assert.equal(count,38);
+  const requested=walkthroughs.distribute.find(l=>l.id==='negative-monomial');
+  assert.equal(requested.steps[0].before,'−4x(5 − x)');
+  assert.ok(equal(parse(requested.steps.at(-1).after),{x:-20,xx:4}));
+  assert.ok(walkthroughs.minus.find(l=>l.id==='hidden-one').steps.some(s=>s.explanation.includes('x = −3')));
+});
+
+test('garden rewards are deterministic, available at the first success, and never duplicate on replacement',async()=>{
+  const {gardenItems,unlockedItems,newlyUnlocked,sanitizeGarden,placeItem}=await import('../mnohocleny/garden.mjs');
+  assert.equal(unlockedItems(0).length,0);
+  assert.equal(unlockedItems(1)[0].id,'daisy');
+  assert.equal(newlyUnlocked(1,1).length,0);
+  assert.equal(newlyUnlocked(2,3)[0].id,'tulip');
+  assert.equal(unlockedItems(48+38).length,gardenItems.length);
+  let garden=sanitizeGarden(['fairy','daisy','daisy','malicious-id'],1);
+  assert.equal(garden.filter(Boolean).length,1);
+  garden=placeItem(garden,'daisy',3,1);
+  assert.equal(garden[3],'daisy');assert.equal(garden[1],null);
+  garden=placeItem(garden,'fairy',0,1);
+  assert.equal(garden[0],null);
+  garden=placeItem(garden,'tulip',3,3);
+  assert.equal(garden[3],'tulip');assert.equal(garden.filter(Boolean).length,1);
+});
