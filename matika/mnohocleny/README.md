@@ -1,0 +1,45 @@
+# Polynomial workshops
+
+Entry point: `../mnohocleny.html`. Buildless ES modules, local assets, no dependencies or external requests.
+
+## Learning scope
+
+Original Czech exercises follow the supplied textbook photos, pages 22–28:
+
+1. Terms, coefficients, variables and like terms; addition and subtraction.
+2. Opposite expressions, plus/minus before brackets, nested brackets.
+3. Multiplication by a number or monomial, including negative and decimal coefficients.
+4. Polynomial multiplication: every term by every term; collecting the resulting terms.
+5. Factoring out a common number or monomial; checking by expansion.
+6. Division by a nonzero monomial; numerical fractions/decimals and explicit variable conditions.
+
+Each workshop has four interactive examples, eight practice exercises with targeted hints and worked steps, and two printable paper exercises. All modes remain available regardless of progress. Three distinct solved exercises earn a cosmetic part; hints and retries are unlimited. Progress is stored on the current browser/device, with an in-memory fallback if storage is unavailable.
+
+## Files
+
+- `content.mjs`: single source for original authored exercises, hints, explanations, examples and glossary.
+- `algebra.mjs`: bounded polynomial parser and answer validation, without JavaScript evaluation. Adjacent factors after division form a monomial denominator, e.g. `12xy/3y`. Numerical coefficient fractions can be written as `3x/2` or `(3/2)x`.
+- `app.mjs`: touch/keyboard interactions and progress. No account or server required.
+- `style.css`: responsive layout, reduced-motion support and paper-only print styles.
+- `../tests/mnohocleny.test.mjs`: identities, independent expected coefficient maps, invalid input, misconception feedback and domain conditions.
+
+The checker accepts reordered terms and equivalent variable ordering. For collected answers it requires no brackets and no repeated monomials. Factoring exercises require a nontrivial monomial factor and one remaining bracket. Equivalent valid factorizations are accepted; a greatest common factor is not required. Extra variable denominators in student answers are rejected to avoid silently introducing new domain restrictions.
+
+## Verification
+
+```sh
+python3 -m http.server 8765 --bind 127.0.0.1
+node --test matika/tests/*.test.mjs
+```
+
+Open `http://127.0.0.1:8765/matika/mnohocleny.html`.
+
+Local verification on 2026-10-19:
+
+- All 60 authored identities and 48 canonical practice answers pass.
+- All 48 practice answers submitted through Chromium, including required division conditions, and progress restored after reload.
+- All six scenes exercised; wrong-pair feedback, zero-pair removal, undo, sign flips, multiplication cells, factoring and division checked.
+- 72 layout combinations: six workshops × three modes × widths 320, 390, 768 and 1024, without document overflow.
+- Touch-context interactions checked at 820px and 390px, including a stable slider element during value changes. This is browser emulation, not a physical iPad/Safari acceptance test.
+
+Independent content review completed with OpenAI Codex (`gpt-5.6-terra`, medium) on 2026-10-19 after explicit user authorization. The reviewer verified all 60 algebraic answers and division conditions. Both findings were fixed with regression coverage: paper factoring tasks now declare their answer form, and zero powers of variable expressions are rejected rather than silently losing domain conditions. A separate local check also tightened factoring-form validation and bounded large polynomial expansions.

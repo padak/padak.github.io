@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3ee">
+  <meta name="description" content="Dílny mnohočlenů pro 8. třídu. Hýbej členy, objev závorky, násobení, vytýkání a dělení. České animované vysvětlení, 48 výzev a úlohy na papír.">
+  <title>Dílny mnohočlenů · Matematika, která se hýbe</title>
+  <link rel="stylesheet" href="mnohocleny/style.css">
+  <script type="module" src="mnohocleny/app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#workbench">Přejít do dílny</a>
+<div class="page">
+  <header class="topbar">
+    <a class="brand" href="../"><span class="brand-icon" aria-hidden="true">m<span>+</span></span><span>Rodinná cvičení<small>MATEMATIKA · 8. TŘÍDA</small></span></a>
+    <span class="save-label" id="save-label">Pokrok zůstává v tomto zařízení</span>
+  </header>
+  <section class="hero" aria-labelledby="page-title">
+    <div><p class="eyebrow"><span class="status-dot"></span> OTEVŘENO PRO ZVÍDAVÉ HLAVY</p><h1 id="page-title">Dílny<br><span>mnohočlenů.</span></h1><p class="hero-lead">Velké výrazy. Malé kroky.<br>Rozhýbej matematiku a přijď jí na kloub.</p><div class="hero-tags"><span>✦ Dotkni se a objevuj</span><span>↺ Chyby jsou součást pokusu</span></div></div>
+    <div class="hero-art" aria-label="Průvodce robot Míša s algebraickými dílky" role="img">
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      <span class="float-token token-one">3x</span><span class="float-token token-two">+ 2x</span><span class="float-token token-three">5x ✦</span>
+      <div class="robot"><div class="antenna"><i></i></div><div class="robot-head"><div class="robot-face"><i></i><i></i><b></b></div><span class="robot-cheek"></span></div><div class="robot-body"><span>m<span>+</span></span><i></i></div><div class="robot-foot left"></div><div class="robot-foot right"></div></div>
+      <span class="art-caption">„Každý člen má svoje místo.“</span>
+    </div>
+  </section>
+  <div class="journey-head"><div><span class="eyebrow">TVOJE CESTA DÍLNOU</span><p>Začni jedničkou. Vrátit se můžeš kdykoli.</p></div><div class="parts-counter"><strong id="parts-count">0 / 6</strong><span>součástek pro Míšu</span></div></div>
+  <nav id="workshop-nav" class="workshop-nav" aria-label="Vyber dílnu"></nav>
+  <main id="workbench" tabindex="-1">
+    <div class="lesson-top"><div><div class="eyebrow" id="lesson-number"></div><h2 id="lesson-title"></h2><p id="lesson-mission"></p></div><div class="lesson-symbol" id="lesson-symbol" aria-hidden="true"></div></div>
+    <div class="mode-tabs" role="tablist" aria-label="Způsob učení">
+      <button type="button" role="tab" id="tab-discover" aria-controls="panel-discover" aria-selected="true" data-mode="discover"><span>01</span> Objevuj</button>
+      <button type="button" role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" data-mode="practice"><span>02</span> Vyzkoušej</button>
+      <button type="button" role="tab" id="tab-paper" aria-controls="panel-paper" aria-selected="false" data-mode="paper"><span>03</span> Na papír</button>
+    </div>
+    <section role="tabpanel" id="panel-discover" aria-labelledby="tab-discover">
+      <div class="discover-layout"><div class="experiment"><div class="experiment-top"><span class="eyebrow">ŽIVÝ POKUS</span><button type="button" class="text-button" id="next-example">Jiný příklad <span aria-hidden="true">↻</span></button></div><div id="scene"></div><div class="scene-actions"><button type="button" class="secondary" id="reset-scene">↺ Zkusit znovu</button><button type="button" class="primary" id="to-practice">Jdu to zkusit <span aria-hidden="true">→</span></button></div></div>
+      <aside class="guide"><div class="guide-heading"><span class="mini-bot" aria-hidden="true">▣</span><strong>Míša napovídá</strong></div><p id="lesson-intro"></p><div class="insight"><span class="eyebrow">CO SI ODNÉST</span><p id="lesson-rule"></p></div><div class="live-note" id="scene-feedback" role="status" aria-live="polite"></div><details><summary>Proč to funguje?</summary><p id="lesson-why"></p></details></aside></div>
+    </section>
+    <section role="tabpanel" id="panel-practice" aria-labelledby="tab-practice" hidden><div id="practice"></div></section>
+    <section role="tabpanel" id="panel-paper" aria-labelledby="tab-paper" hidden><div id="paper"></div></section>
+  </main>
+  <section class="toolbox" aria-labelledby="toolbox-title"><div><p class="eyebrow">KDYŽ SE HODÍ MALÁ POMOC</p><h2 id="toolbox-title">Nářadí po ruce.</h2></div><details class="primer"><summary>Co vlastně znamená x? A co je člen?</summary><div class="primer-body"><p>Písmeno zastupuje číslo. Hýbej táhlem: <strong>3x + 2</strong> má dva členy — <strong>3x</strong> a <strong>+2</strong>.</p><label for="value-x">Hodnota x: <output id="x-value">2</output></label><input type="range" id="value-x" min="-4" max="5" value="2"><p class="formula" id="value-result" aria-live="polite">3 · 2 + 2 = 8</p><p><strong>3xy je jeden člen.</strong> Násobení ho nerozděluje. V zápisu 3xy − x + 2 jsou tři členy.</p><div class="quick-check"><p>Kolik členů má výraz <strong>2ab − 3a + 7</strong>?</p><div class="button-row"><button type="button" class="secondary" data-count="2">2</button><button type="button" class="secondary" data-count="3">3</button><button type="button" class="secondary" data-count="4">4</button></div><p id="count-feedback" role="status"></p></div></div></details><details><summary>Malý slovník a pravidla</summary><dl id="glossary"></dl></details><details><summary>Jak se učit s iPadem a papírem</summary><div class="primer-body"><p><strong>1. Objevuj:</strong> nejdřív odhadni výsledek, potom s výrazy pohni. Sleduj, co se změnilo a co zůstalo.</p><p><strong>2. Vyzkoušej:</strong> zapiš výsledek. Nápověda odhalí jeden krok. Každý pokus můžeš opravit.</p><p><strong>3. Na papír:</strong> odlož obrazovku a napiš celý postup. Pak ho porovnej krok za krokem.</p><p>Stačí jedna dílna za sezení, přibližně 10–15 minut. Součástku pro Míšu získáš za tři různé vyřešené výzvy v dílně. Všechny dílny a vysvětlení jsou dostupné od začátku.</p></div></details></section>
+  <footer><span>Vyrobeno pro hlavu, ruce a trochu zvědavosti.</span><a href="slevy.html">Procentová laboratoř ↗</a><span>Bez časomíry. Bez ztracených životů.</span></footer>
+</div>
+<noscript><p class="noscript">Pro pohyblivé dílny zapni JavaScript v prohlížeči. Základní pravidla: slučuj jen stejné členy; minus před závorkou otočí všechna znaménka; násob i děl každý člen; dělitel nesmí být nula.</p></noscript>
+</body>
+</html>
