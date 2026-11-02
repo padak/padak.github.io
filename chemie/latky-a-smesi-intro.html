@@ -621,6 +621,151 @@
           font-size: 1.35rem;
         }
       }
+
+      /* Learning mode: answers marked with [data-quiz] get covered; tap toggles. */
+      .quiz-toggle {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem 0.75rem;
+        margin-top: 1.25rem;
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+      }
+
+      .quiz-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        min-height: 44px;
+        padding: 0.45rem 1.1rem 0.45rem 0.5rem;
+        border-radius: 999px;
+        border: 2px solid var(--indigo);
+        background: var(--surface);
+        color: var(--ink);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+      }
+
+      .quiz-knob {
+        position: relative;
+        width: 40px;
+        height: 24px;
+        flex: none;
+        border-radius: 999px;
+        background: #cbd5e1;
+        transition: background 0.2s;
+      }
+
+      .quiz-knob::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        transition: transform 0.2s;
+      }
+
+      .quiz-switch[aria-checked="true"] .quiz-knob { background: var(--indigo); }
+      .quiz-switch[aria-checked="true"] .quiz-knob::after { transform: translateX(16px); }
+
+      .quiz-switch:focus-visible,
+      .quiz-bar button:focus-visible,
+      .quiz-on [data-quiz]:focus-visible {
+        outline: 3px solid var(--indigo);
+        outline-offset: 3px;
+      }
+
+      /* Each answer is one inline-block, so a wrapped answer is a single rectangle
+         with a single "?" instead of a striped strip per line. The display stays the
+         same when revealed, so revealing never moves the layout. */
+      .quiz-on [data-quiz] {
+        display: inline-block;
+        max-width: 100%;
+        cursor: pointer;
+        border-radius: 6px;
+        padding: 0.05em 0.25em;
+        transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .quiz-on [data-quiz]:not(.revealed) {
+        background:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%230e7490'/%3E%3Ctext x='8' y='12.2' font-family='Arial' font-size='11' font-weight='700' text-anchor='middle' fill='%23fff'%3E%3F%3C/text%3E%3C/svg%3E") center / 1.1em no-repeat,
+          repeating-linear-gradient(135deg, #a5f3fc 0 6px, #cffafe 6px 12px);
+        box-shadow: 0 0 0 1.5px #22d3ee;
+        user-select: none;
+      }
+
+      .quiz-on [data-quiz]:not(.revealed),
+      .quiz-on [data-quiz]:not(.revealed) * {
+        color: transparent !important;
+      }
+
+      .quiz-on [data-quiz].revealed {
+        background-color: rgba(79, 70, 229, 0.08);
+        box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25);
+      }
+
+      /* SVG covers are rects drawn over each label (built by the script). */
+      .quiz-svg { display: none; }
+      .quiz-on .quiz-svg { display: inline; cursor: pointer; transition: opacity 0.25s; }
+      .quiz-on .quiz-svg.revealed { opacity: 0; }
+      .quiz-on .quiz-svg.revealed:hover,
+      .quiz-on .quiz-svg.revealed:focus-visible { opacity: 0.15; }
+
+      .quiz-bar {
+        position: fixed;
+        left: 50%;
+        bottom: max(0.6rem, env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        max-width: calc(100vw - 1rem);
+        padding: 0.35rem 0.4rem 0.35rem 0.9rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.88rem;
+        white-space: nowrap;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.3);
+      }
+
+      .quiz-bar[hidden] { display: none; }
+      .quiz-bar output { font-weight: 700; margin-right: 0.2rem; }
+
+      .quiz-bar button {
+        min-height: 36px;
+        padding: 0.3rem 0.75rem;
+        border-radius: 999px;
+        border: 0;
+        background: #fff;
+        color: var(--ink);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .quiz-bar .quiz-off { background: transparent; color: #cbd5e1; padding: 0.3rem 0.55rem; }
+
+      /* Room for the floating bar at the end of the page. */
+      body.quiz-on { padding-bottom: 5rem; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .quiz-on [data-quiz],
+        .quiz-on .quiz-svg,
+        .quiz-knob,
+        .quiz-knob::after { transition: none; }
+      }
     </style>
   </head>
   <body>
@@ -632,6 +777,12 @@
           <a href="latky-a-smesi-test-mobil.html">Spustit test</a>
           <a href="latky-a-smesi-flashcards.html">Flash cards</a>
           <a href="roztoky-vypocty.html">Trenažér výpočtů</a>
+        </div>
+        <div class="quiz-toggle">
+          <button type="button" class="quiz-switch" role="switch" aria-checked="false" aria-describedby="quizHint" data-quiz-toggle>
+            <span class="quiz-knob" aria-hidden="true"></span>Učicí mód
+          </button>
+          <span id="quizHint">Zakryje odpovědi – ťukni a zkontroluj se</span>
         </div>
       </header>
 
@@ -646,6 +797,9 @@
               <marker id="arrWarm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                 <path d="M0,0 L10,5 L0,10 z" fill="#dc2626" />
               </marker>
+              <pattern id="quizStripes" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="8" height="8" fill="#cffafe" /><rect width="4" height="8" fill="#a5f3fc" />
+              </pattern>
               <marker id="arrCool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                 <path d="M0,0 L10,5 L0,10 z" fill="#2563eb" />
               </marker>
@@ -674,12 +828,12 @@
             </g>
 
             <g font-size="15" font-weight="700">
-              <text x="180" y="272" text-anchor="middle" fill="#dc2626">tání</text>
-              <text x="180" y="320" text-anchor="middle" fill="#2563eb">tuhnutí</text>
-              <text x="113" y="165" text-anchor="end" fill="#dc2626">sublimace</text>
-              <text x="131" y="212" text-anchor="start" fill="#2563eb">desublimace</text>
-              <text x="247" y="165" text-anchor="start" fill="#dc2626">vypařování</text>
-              <text x="233" y="244" text-anchor="end" fill="#2563eb">kondenzace</text>
+              <text x="180" y="272" text-anchor="middle" fill="#dc2626" data-quiz-label>tání</text>
+              <text x="180" y="320" text-anchor="middle" fill="#2563eb" data-quiz-label>tuhnutí</text>
+              <text x="113" y="165" text-anchor="end" fill="#dc2626" data-quiz-label>sublimace</text>
+              <text x="131" y="212" text-anchor="start" fill="#2563eb" data-quiz-label>desublimace</text>
+              <text x="247" y="165" text-anchor="start" fill="#dc2626" data-quiz-label>vypařování</text>
+              <text x="233" y="244" text-anchor="end" fill="#2563eb" data-quiz-label>kondenzace</text>
             </g>
           </svg>
         </div>
@@ -696,30 +850,30 @@
           <div class="cls-box cls-root"><b>Látky</b></div>
           <div class="cls-fork">
             <div class="cls-branch">
-              <div class="cls-box cls-pure"><b>Chemicky čisté látky</b><small>hliník, měď, jód, hypermangan</small></div>
+              <div class="cls-box cls-pure"><b>Chemicky čisté látky</b><small><span data-quiz>hliník, měď, jód, hypermangan</span></small></div>
               <ul class="cls-kids">
-                <li><div class="cls-box cls-pure"><b>Prvky</b><small>hliník, měď, jód</small></div></li>
-                <li><div class="cls-box cls-pure"><b>Sloučeniny</b><small>CO₂ (oxid uhličitý), H₂O (voda)</small></div></li>
+                <li><div class="cls-box cls-pure"><b>Prvky</b><small><span data-quiz>hliník, měď, jód</span></small></div></li>
+                <li><div class="cls-box cls-pure"><b>Sloučeniny</b><small><span data-quiz>CO₂ (oxid uhličitý), H₂O (voda)</span></small></div></li>
               </ul>
             </div>
             <div class="cls-branch">
-              <div class="cls-box cls-mix"><b>Směsi</b><small>ocel, žula</small></div>
+              <div class="cls-box cls-mix"><b>Směsi</b><small><span data-quiz>ocel, žula</span></small></div>
               <ul class="cls-kids">
                 <li>
                   <div class="cls-box cls-mix">
                     <b>Stejnorodé</b>
-                    <small>= homogenní = roztoky<br>všude stejné, složky nerozeznáš</small>
+                    <small><span data-quiz>= homogenní = roztoky<br>všude stejné, složky nerozeznáš</span></small>
                     <ul class="cls-states">
-                      <li><strong>pevné = slitiny:</strong> ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín)</li>
-                      <li><strong>kapalné:</strong> roztok čaje, voda se šťávou</li>
-                      <li><strong>plynné:</strong> suchý čistý vzduch</li>
+                      <li><strong>pevné = slitiny:</strong> <span data-quiz>ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín)</span></li>
+                      <li><strong>kapalné:</strong> <span data-quiz>roztok čaje, voda se šťávou</span></li>
+                      <li><strong>plynné:</strong> <span data-quiz>suchý čistý vzduch</span></li>
                     </ul>
                   </div>
                 </li>
                 <li>
                   <div class="cls-box cls-mix">
                     <b>Různorodé</b>
-                    <small>= heterogenní<br>složky rozeznáš: žula, čaj s lístky</small>
+                    <small><span data-quiz>= heterogenní<br>složky rozeznáš: žula, čaj s lístky</span></small>
                     <small><a href="#druhy-smesi">suspenze, emulze, pěna, mlha, dým ↓</a></small>
                   </div>
                 </li>
@@ -750,7 +904,7 @@
               <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
             </svg>
             <b>Mlha</b>
-            <span class="mix">kapalina <i>v</i> plynu</span>
+            <span class="mix"><span data-quiz>kapalina <i>v</i> plynu</span></span>
             <small>např. ranní opar</small>
           </li>
           <li class="lens-card">
@@ -762,7 +916,7 @@
               <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
             </svg>
             <b>Pěna</b>
-            <span class="mix">plyn <i>v</i> kapalině</span>
+            <span class="mix"><span data-quiz>plyn <i>v</i> kapalině</span></span>
             <small>např. našlehaná šlehačka</small>
           </li>
           <li class="lens-card">
@@ -774,7 +928,7 @@
               <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
             </svg>
             <b>Emulze</b>
-            <span class="mix">kapalina <i>v</i> kapalině</span>
+            <span class="mix"><span data-quiz>kapalina <i>v</i> kapalině</span></span>
             <small>např. olej ve vodě – krém</small>
           </li>
           <li class="lens-card">
@@ -786,7 +940,7 @@
               <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
             </svg>
             <b>Dým / kouř</b>
-            <span class="mix">pevná látka <i>v</i> plynu</span>
+            <span class="mix"><span data-quiz>pevná látka <i>v</i> plynu</span></span>
             <small>např. kouř nad ohněm</small>
           </li>
           <li class="lens-card">
@@ -798,7 +952,7 @@
               <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
             </svg>
             <b>Suspenze</b>
-            <span class="mix">pevná látka <i>v</i> kapalině</span>
+            <span class="mix"><span data-quiz>pevná látka <i>v</i> kapalině</span></span>
             <small>např. písek ve vodě</small>
           </li>
         </ul>
@@ -809,22 +963,22 @@
         <div class="eq-strip" role="group" aria-label="roztok = rozpouštědlo + rozpuštěná látka">
           <div class="eq-item">
             <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 C24 5 10 21 10 31 A14 14 0 0 0 38 31 C38 21 24 5 24 5 Z" fill="#60a5fa" stroke="#1d4ed8" stroke-width="2" /><path d="M17 31 A7 7 0 0 0 22 38" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" /></svg>
-            <b>rozpouštědlo</b><small>voda H₂O</small>
+            <b><span data-quiz>rozpouštědlo</span></b><small>voda H₂O</small>
           </div>
           <span class="eq-op" aria-hidden="true">+</span>
           <div class="eq-item">
             <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 L39 17 L34 41 L14 41 L9 17 Z" fill="#7e22ce" stroke="#581c87" stroke-width="2" stroke-linejoin="round" /><path d="M24 5 L24 41 M9 17 L24 22 L39 17" fill="none" stroke="#c084fc" stroke-width="1.5" /></svg>
-            <b>rozpuštěná látka</b><small>manganistan draselný KMnO₄</small>
+            <b><span data-quiz>rozpuštěná látka</span></b><small>manganistan draselný KMnO₄</small>
           </div>
           <span class="eq-op" aria-hidden="true">=</span>
           <div class="eq-item">
             <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="18" width="20" height="23" fill="#a855f7" /><path d="M10 7 H38 M13 7 V39 A4 4 0 0 0 17 43 H31 A4 4 0 0 0 35 39 V7" fill="none" stroke="#475569" stroke-width="2.5" stroke-linejoin="round" /></svg>
-            <b>roztok</b><small>fialový roztok</small>
+            <b><span data-quiz>roztok</span></b><small>fialový roztok</small>
           </div>
         </div>
         <ul class="eq-more" aria-label="Další příklady roztoků">
-          <li>voda <span>+</span> kyselina octová <span>=</span> <strong>ocet</strong></li>
-          <li>voda <span>+</span> sirup <span>=</span> <strong>šťáva</strong></li>
+          <li>voda <span>+</span> kyselina octová <span>=</span> <strong data-quiz>ocet</strong></li>
+          <li>voda <span>+</span> sirup <span>=</span> <strong data-quiz>šťáva</strong></li>
         </ul>
         <p>
           <strong>Rozpouštědlo</strong> v celém objemu převažuje - nejčastěji voda (H₂O).
@@ -881,18 +1035,18 @@
             <span class="seg water" style="width: 80%"><em>80 %</em></span>
           </div>
           <ul class="bar-keys">
-            <li style="--key: #f59e0b">sůl NaCl: 20 % = <strong>40 g</strong></li>
-            <li style="--key: #60a5fa">voda H₂O: 80 % = <strong>160 g</strong></li>
+            <li style="--key: #f59e0b">sůl NaCl: 20 % = <strong data-quiz>40 g</strong></li>
+            <li style="--key: #60a5fa">voda H₂O: 80 % = <strong data-quiz>160 g</strong></li>
           </ul>
           <ol class="steps">
-            <li>1 % z 200 g = 200 : 100 = <strong>2 g</strong></li>
-            <li>sůl: 20 · 2 g = <strong>40 g soli</strong></li>
-            <li>voda: 200 g − 40 g = <strong>160 g vody</strong></li>
+            <li>1 % z 200 g = 200 : 100 = <strong data-quiz>2 g</strong></li>
+            <li>sůl: 20 · 2 g = <strong data-quiz>40 g soli</strong></li>
+            <li>voda: 200 g − 40 g = <strong data-quiz>160 g vody</strong></li>
           </ol>
           <ul class="steps">
-            <li class="check">kontrola: 40 g + 160 g = 200 g</li>
+            <li class="check">kontrola: <span data-quiz>40 g + 160 g</span> = 200 g</li>
           </ul>
-          <p class="answer">Připravím ho ze 160 g H₂O a 40 g NaCl.</p>
+          <p class="answer">Připravím ho ze <span data-quiz>160 g</span> H₂O a <span data-quiz>40 g</span> NaCl.</p>
 
           <h4>Ocet = 92 % vody + 8 % kyseliny octové</h4>
           <div class="bar-total"><span>0 g</span><span>250 g octa = 100 %</span></div>
@@ -901,18 +1055,18 @@
             <span class="seg water" style="width: 92%"><em>92 %</em></span>
           </div>
           <ul class="bar-keys">
-            <li style="--key: #a3e635">kyselina octová: 8 % = <strong>20 g</strong></li>
-            <li style="--key: #60a5fa">voda H₂O: 92 % = <strong>230 g</strong></li>
+            <li style="--key: #a3e635">kyselina octová: 8 % = <strong data-quiz>20 g</strong></li>
+            <li style="--key: #60a5fa">voda H₂O: 92 % = <strong data-quiz>230 g</strong></li>
           </ul>
           <ol class="steps">
-            <li>1 % z 250 g = 250 : 100 = <strong>2,5 g</strong></li>
-            <li>kyselina: 8 · 2,5 g = <strong>20 g</strong></li>
-            <li>voda: 250 g − 20 g = <strong>230 g vody</strong></li>
+            <li>1 % z 250 g = 250 : 100 = <strong data-quiz>2,5 g</strong></li>
+            <li>kyselina: 8 · 2,5 g = <strong data-quiz>20 g</strong></li>
+            <li>voda: 250 g − 20 g = <strong data-quiz>230 g vody</strong></li>
           </ol>
           <ul class="steps">
-            <li class="check">kontrola: 20 g + 230 g = 250 g</li>
+            <li class="check">kontrola: <span data-quiz>20 g + 230 g</span> = 250 g</li>
           </ul>
-          <p>Další příklady: 100 g octa = 92 g H₂O + 8 g kyseliny octové; 200 g octa = 184 g H₂O + 16 g kyseliny octové.</p>
+          <p>Další příklady: 100 g octa = <span data-quiz>92 g H₂O + 8 g</span> kyseliny octové; 200 g octa = <span data-quiz>184 g H₂O + 16 g</span> kyseliny octové.</p>
           <a href="roztoky-vypocty.html" class="trainer-link">Procvičit výpočty v trenažéru →</a>
         </div>
       </section>
@@ -936,6 +1090,12 @@
       </div>
     </main>
 
+    <div class="quiz-bar" role="region" aria-label="Učicí mód" hidden>
+      <output aria-live="polite">Odkryto <span data-quiz-count>0</span> z <span data-quiz-total>0</span></output>
+      <button type="button" data-quiz-reset>Zakrýt vše</button>
+      <button type="button" class="quiz-off" data-quiz-toggle aria-label="Vypnout učicí mód">Vypnout</button>
+    </div>
+
     <script>
       async function loadData() {
         try {
@@ -945,6 +1105,7 @@
 
           renderMainPoints(data.hlavni_osy || []);
           renderGlossary(data.terminologie || {});
+          quiz.refresh();
         } catch (error) {
           console.error('Failed to load data:', error);
           document.getElementById('glossary').innerHTML =
@@ -1001,6 +1162,9 @@
             </li>`;
           })
           .join('');
+        // Learning mode covers the emphasized answers in the lines, never the card title.
+        document.querySelectorAll('#main-points .point-lines strong')
+          .forEach(el => el.setAttribute('data-quiz', ''));
       }
 
       function renderGlossary(terms) {
@@ -1010,12 +1174,135 @@
             <div class="cheat-card">
               <h4>${section}</h4>
               <ul>
-                ${items.map(item => `<li><strong>${item.pojem}:</strong> ${item.vysvetleni}</li>`).join('')}
+                ${items.map(item => `<li><strong>${item.pojem}:</strong> <span data-quiz>${item.vysvetleni}</span></li>`).join('')}
               </ul>
             </div>
           `)
           .join('');
       }
+
+      // Learning mode ("Učicí mód"): every [data-quiz] element becomes a cover the child
+      // taps to check herself. SVG labels marked [data-quiz-label] get a rect drawn over them.
+      const quiz = (() => {
+        const STORAGE_KEY = 'chemie-latky-quiz-mode';
+        const root = document.body;
+        const bar = document.querySelector('.quiz-bar');
+        let on = false;
+
+        const items = () => document.querySelectorAll('[data-quiz]');
+        const answerText = el => (el.dataset.quizText || el.textContent).replace(/\s+/g, ' ').trim();
+
+        function buildSvgCovers() {
+          const NS = 'http://www.w3.org/2000/svg';
+          document.querySelectorAll('svg [data-quiz-label]').forEach(label => {
+            const box = label.getBBox();
+            const g = document.createElementNS(NS, 'g');
+            g.setAttribute('class', 'quiz-svg');
+            g.setAttribute('data-quiz', '');
+            g.dataset.quizText = label.textContent;
+            const rect = document.createElementNS(NS, 'rect');
+            const padX = 6, padY = 3;
+            Object.entries({
+              x: box.x - padX, y: box.y - padY, width: box.width + 2 * padX, height: box.height + 2 * padY,
+              rx: 7, fill: 'url(#quizStripes)', stroke: '#22d3ee', 'stroke-width': 2
+            }).forEach(([k, v]) => rect.setAttribute(k, v));
+            const mark = document.createElementNS(NS, 'text');
+            Object.entries({
+              x: box.x + box.width / 2, y: box.y + box.height / 2 + 5, 'text-anchor': 'middle',
+              'font-size': 15, 'font-weight': 700, fill: '#0e7490'
+            }).forEach(([k, v]) => mark.setAttribute(k, v));
+            mark.textContent = '?';
+            g.append(rect, mark);
+            label.parentNode.parentNode.append(g);
+          });
+        }
+
+        function setRevealed(el, revealed) {
+          el.classList.toggle('revealed', revealed);
+          if (!on) return;
+          el.setAttribute('aria-pressed', String(revealed));
+          el.setAttribute('aria-label', revealed ? `Zakrýt odpověď: ${answerText(el)}` : 'Odkrýt odpověď');
+        }
+
+        function updateCount() {
+          const all = items();
+          bar.querySelector('[data-quiz-count]').textContent =
+            [...all].filter(el => el.classList.contains('revealed')).length;
+          bar.querySelector('[data-quiz-total]').textContent = all.length;
+        }
+
+        // Make every cover (including ones rendered later from JSON) match the current mode.
+        function refresh() {
+          items().forEach(el => {
+            if (on) {
+              el.setAttribute('tabindex', '0');
+              el.setAttribute('role', 'button');
+              setRevealed(el, el.classList.contains('revealed'));
+            } else {
+              el.classList.remove('revealed');
+              ['tabindex', 'role', 'aria-pressed', 'aria-label'].forEach(a => el.removeAttribute(a));
+            }
+          });
+          // A role="img" ancestor would hide the covers from screen readers; lift it while on.
+          document.querySelectorAll(on ? '[role="img"]' : '[data-quiz-img-label]').forEach(el => {
+            if (on && !el.querySelector('[data-quiz]')) return;
+            if (on) {
+              el.dataset.quizImgLabel = el.getAttribute('aria-label') || '';
+              el.removeAttribute('role');
+              el.removeAttribute('aria-label');
+            } else {
+              el.setAttribute('role', 'img');
+              if (el.dataset.quizImgLabel) el.setAttribute('aria-label', el.dataset.quizImgLabel);
+              delete el.dataset.quizImgLabel;
+            }
+          });
+          updateCount();
+        }
+
+        function setMode(next) {
+          on = next;
+          root.classList.toggle('quiz-on', on);
+          bar.hidden = !on;
+          document.querySelectorAll('.quiz-switch').forEach(b => b.setAttribute('aria-checked', String(on)));
+          // Always start a fresh round fully covered.
+          items().forEach(el => el.classList.remove('revealed'));
+          refresh();
+          try { localStorage.setItem(STORAGE_KEY, on ? '1' : '0'); } catch (e) { /* storage blocked */ }
+        }
+
+        function toggleItem(el) {
+          setRevealed(el, !el.classList.contains('revealed'));
+          updateCount();
+        }
+
+        document.addEventListener('click', event => {
+          if (event.target.closest('[data-quiz-toggle]')) return setMode(!on);
+          if (event.target.closest('[data-quiz-reset]')) {
+            items().forEach(el => setRevealed(el, false));
+            return updateCount();
+          }
+          const item = on && event.target.closest('[data-quiz]');
+          if (item) {
+            event.preventDefault();
+            toggleItem(item);
+          }
+        });
+
+        document.addEventListener('keydown', event => {
+          if (!on || (event.key !== 'Enter' && event.key !== ' ')) return;
+          const item = event.target.closest && event.target.closest('[data-quiz]');
+          if (item && item === event.target) {
+            event.preventDefault();
+            toggleItem(item);
+          }
+        });
+
+        buildSvgCovers();
+        let saved = null;
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* storage blocked */ }
+        setMode(saved === '1');
+        return { refresh };
+      })();
 
       loadData();
     </script>
