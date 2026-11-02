@@ -30,6 +30,15 @@ The end-to-end process for building a topic — read source photos → author th
 │   ├── english_tenses_test.json        # 100 sentences — Present Simple vs Continuous
 │   ├── english-tenses-practice.html    # Desktop test
 │   └── english-tenses-practice-mobile.html # Mobile test
+├── chemie/                 # Chemistry exercises (7th grade)
+│   ├── index.html                      # Landing page (teal/cyan accent)
+│   ├── latky-a-smesi-questions.json    # 33 questions — Substances and mixtures (casova_osa intentionally empty)
+│   ├── latky-a-smesi-test-mobil.html   # Mobile test - filter by sub-theme, retry wrong answers
+│   ├── latky-a-smesi-flashcards.html   # Flashcards from terminologie (no timeline mode when casova_osa is empty)
+│   ├── latky-a-smesi-intro.html        # Cheat sheet: state-change triangle SVG, classification tree, mixtures table
+│   ├── roztoky-vypocty.html            # Solution composition calculation trainer
+│   ├── roztoky/                        # JS modules for the calculation trainer
+│   └── tests/                          # Node tests for the calculation trainer
 └── dejepis/                # History exercises (7th grade)
     ├── index.html                      # Landing page with all history topics
     ├── questions.json                  # 40 questions — Early Middle Ages (4 themes)

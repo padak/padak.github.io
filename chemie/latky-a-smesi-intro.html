@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tahák - Látky a směsi</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        --surface: #ffffff;
+        --surface-soft: #cffafe;
+        --surface-strong: #67e8f9;
+        --ink: #1f2937;
+        --ink-soft: #6b7280;
+        --accent: #0891b2;
+        --accent-dark: #0e7490;
+        --indigo: #4f46e5;
+        --warm: #dc2626;
+        --cool: #2563eb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #cffafe 0%, #67e8f9 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 2.5rem 0 2rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        background: linear-gradient(135deg, var(--accent), var(--indigo));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      header p {
+        margin: 0 auto 2rem;
+        max-width: 60ch;
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+
+      .quick-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .quick-links a {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 2px solid var(--accent);
+        box-shadow: 0 4px 12px rgba(8, 145, 178, 0.15);
+      }
+
+      .quick-links a:hover {
+        background: var(--surface-soft);
+      }
+
+      section {
+        background: var(--surface);
+        border-radius: 20px;
+        padding: 2rem 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 20px 50px rgba(8, 145, 178, 0.12);
+        border: 1px solid rgba(8, 145, 178, 0.12);
+      }
+
+      section h2 {
+        margin: 0 0 1rem;
+        font-size: 1.6rem;
+        color: var(--accent-dark);
+      }
+
+      section h3 {
+        margin: 1.5rem 0 0.75rem;
+        font-size: 1.2rem;
+      }
+
+      section p.lead {
+        color: var(--ink-soft);
+        margin: 0 0 1.25rem;
+      }
+
+      /* State-change triangle */
+      .triangle-wrap {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .triangle-wrap svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+        justify-content: center;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      .legend span::before {
+        content: '';
+        display: inline-block;
+        width: 1.4rem;
+        height: 3px;
+        vertical-align: middle;
+        margin-right: 0.4rem;
+        background: currentColor;
+      }
+
+      .legend .warm { color: var(--warm); }
+      .legend .cool { color: var(--cool); }
+
+      /* Classification tree */
+      .tree,
+      .tree ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .tree ul {
+        margin-left: 0.9rem;
+        padding-left: 0.9rem;
+        border-left: 3px solid var(--surface-strong);
+      }
+
+      .tree li {
+        margin: 0.5rem 0;
+      }
+
+      .node {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        border-radius: 10px;
+        background: var(--surface-soft);
+        border: 1px solid var(--surface-strong);
+        font-weight: 600;
+      }
+
+      .node.root {
+        background: linear-gradient(135deg, var(--accent), var(--indigo));
+        color: #fff;
+        border: none;
+        font-size: 1.1rem;
+      }
+
+      .node.pure { background: #e0e7ff; border-color: #a5b4fc; }
+      .node.mix { background: #fef3c7; border-color: #fcd34d; }
+
+      .examples {
+        display: block;
+        font-weight: 400;
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+        margin: 0.2rem 0 0 0.25rem;
+      }
+
+      /* Heterogeneous mixtures table */
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 0.6rem 0.65rem;
+        border-bottom: 1px solid var(--surface-strong);
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--surface-soft);
+        color: var(--accent-dark);
+      }
+
+      td.name {
+        font-weight: 700;
+        color: var(--accent-dark);
+      }
+
+      /* Solution box */
+      .formula {
+        text-align: center;
+        font-size: 1.15rem;
+        font-weight: 700;
+        background: var(--surface-soft);
+        border-radius: 12px;
+        padding: 0.9rem;
+        margin: 0 0 1rem;
+      }
+
+      .formula .plus {
+        color: var(--accent);
+      }
+
+      .calc-box {
+        background: linear-gradient(135deg, #fde68a, #fcd34d);
+        border: 2px solid #f59e0b;
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        margin-top: 1.25rem;
+        color: #78350f;
+      }
+
+      .calc-box h3 {
+        margin: 0 0 0.75rem;
+        color: #92400e;
+      }
+
+      .calc-box ol {
+        margin: 0 0 0.75rem;
+        padding-left: 1.25rem;
+      }
+
+      .calc-box li {
+        margin: 0.35rem 0;
+      }
+
+      .calc-box .answer {
+        font-weight: 700;
+      }
+
+      .trainer-link {
+        display: inline-block;
+        margin-top: 0.5rem;
+        text-decoration: none;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        padding: 0.7rem 1.25rem;
+        border-radius: 999px;
+      }
+
+      /* Glossary / main points (rendered from JSON) */
+      .cheat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .cheat-card {
+        background: linear-gradient(135deg, var(--surface-soft), #fff);
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        border: 2px solid var(--surface-strong);
+        border-top: 4px solid var(--accent);
+      }
+
+      .cheat-card h4 {
+        margin: 0 0 0.75rem;
+        font-size: 1.15rem;
+        color: var(--accent);
+      }
+
+      .cheat-card ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .cheat-card li {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .cheat-card strong {
+        color: var(--accent-dark);
+      }
+
+      .main-points {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .main-points li {
+        margin: 0.6rem 0;
+      }
+
+      .error-msg {
+        color: #dc2626;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        section {
+          padding: 1.5rem 1rem;
+        }
+
+        section h2 {
+          font-size: 1.35rem;
+        }
+
+        table {
+          font-size: 0.88rem;
+        }
+
+        th,
+        td {
+          padding: 0.5rem 0.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Tahák: Látky a směsi</h1>
+        <p>Chemie 7. třída - skupenské přeměny, čisté látky a směsi, druhy směsí, roztoky a výpočet složení roztoku</p>
+        <div class="quick-links">
+          <a href="latky-a-smesi-test-mobil.html">Spustit test</a>
+          <a href="latky-a-smesi-flashcards.html">Flash cards</a>
+          <a href="roztoky-vypocty.html">Trenažér výpočtů</a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Skupenské přeměny</h2>
+        <p class="lead">Fyzikální procesy - látka mění skupenství, ale zůstává stejnou látkou.</p>
+        <div class="triangle-wrap">
+          <svg viewBox="0 0 360 330" role="img" aria-labelledby="triTitle triDesc">
+            <title id="triTitle">Trojúhelník skupenských přeměn</title>
+            <desc id="triDesc">Pevná látka na kapalinu: tání. Kapalina na pevnou látku: tuhnutí. Kapalina na plyn: vypařování. Plyn na kapalinu: kondenzace. Pevná látka na plyn: sublimace. Plyn na pevnou látku: desublimace.</desc>
+            <defs>
+              <marker id="arrWarm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#dc2626" />
+              </marker>
+              <marker id="arrCool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#2563eb" />
+              </marker>
+            </defs>
+
+            <!-- States: gas on top, solid bottom-left, liquid bottom-right -->
+            <g font-weight="700" font-size="16" text-anchor="middle" fill="#1f2937">
+              <rect x="120" y="22" width="120" height="44" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2" />
+              <text x="180" y="50">plyn</text>
+              <rect x="5" y="266" width="120" height="44" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2" />
+              <text x="65" y="294">pevná látka</text>
+              <rect x="235" y="266" width="120" height="44" rx="12" fill="#cffafe" stroke="#0891b2" stroke-width="2" />
+              <text x="295" y="294">kapalina</text>
+            </g>
+
+            <g stroke-width="3" fill="none">
+              <!-- solid -> liquid / liquid -> solid -->
+              <line x1="132" y1="280" x2="228" y2="280" stroke="#dc2626" marker-end="url(#arrWarm)" />
+              <line x1="228" y1="297" x2="132" y2="297" stroke="#2563eb" marker-end="url(#arrCool)" />
+              <!-- solid -> gas (outer) / gas -> solid (inner) -->
+              <line x1="100" y1="252" x2="139" y2="84" stroke="#dc2626" marker-end="url(#arrWarm)" />
+              <line x1="154" y1="88" x2="116" y2="256" stroke="#2563eb" marker-end="url(#arrCool)" />
+              <!-- liquid -> gas (outer) / gas -> liquid (inner) -->
+              <line x1="260" y1="252" x2="221" y2="84" stroke="#dc2626" marker-end="url(#arrWarm)" />
+              <line x1="206" y1="88" x2="244" y2="256" stroke="#2563eb" marker-end="url(#arrCool)" />
+            </g>
+
+            <g font-size="15" font-weight="700">
+              <text x="180" y="272" text-anchor="middle" fill="#dc2626">tání</text>
+              <text x="180" y="320" text-anchor="middle" fill="#2563eb">tuhnutí</text>
+              <text x="113" y="165" text-anchor="end" fill="#dc2626">sublimace</text>
+              <text x="131" y="212" text-anchor="start" fill="#2563eb">desublimace</text>
+              <text x="247" y="165" text-anchor="start" fill="#dc2626">vypařování</text>
+              <text x="233" y="244" text-anchor="end" fill="#2563eb">kondenzace</text>
+            </g>
+          </svg>
+        </div>
+        <div class="legend">
+          <span class="warm">zahříváním</span>
+          <span class="cool">ochlazováním</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Rozdělení látek</h2>
+        <p class="lead">Každá látka je buď chemicky čistá látka, nebo směs.</p>
+        <ul class="tree">
+          <li>
+            <span class="node root">Látky</span>
+            <ul>
+              <li>
+                <span class="node pure">Chemicky čisté látky</span>
+                <span class="examples">např. hliník, měď, jód, hypermangan</span>
+                <ul>
+                  <li>
+                    <span class="node pure">Prvky</span>
+                    <span class="examples">hliník, měď, jód</span>
+                  </li>
+                  <li>
+                    <span class="node pure">Sloučeniny</span>
+                    <span class="examples">CO₂ (oxid uhličitý), H₂O (voda)</span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span class="node mix">Směsi</span>
+                <span class="examples">např. ocel, žula</span>
+                <ul>
+                  <li>
+                    <span class="node mix">Stejnorodé = homogenní = roztoky</span>
+                    <span class="examples">složky nerozeznáš, všude stejné vlastnosti</span>
+                    <ul>
+                      <li>
+                        <span class="node">Pevné = slitiny</span>
+                        <span class="examples">ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín)</span>
+                      </li>
+                      <li>
+                        <span class="node">Kapalné</span>
+                        <span class="examples">roztok čaje, voda se šťávou</span>
+                      </li>
+                      <li>
+                        <span class="node">Plynné</span>
+                        <span class="examples">suchý čistý vzduch</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="node mix">Různorodé = heterogenní</span>
+                    <span class="examples">složky rozeznáš: žula, čaj s lístky</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Druhy různorodých směsí</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Složení</th>
+                <th>Název</th>
+                <th>Příklad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>kapalina v plynu</td>
+                <td class="name">mlha</td>
+                <td>ranní opar</td>
+              </tr>
+              <tr>
+                <td>plyn v kapalině</td>
+                <td class="name">pěna</td>
+                <td>našlehaná šlehačka</td>
+              </tr>
+              <tr>
+                <td>kapalina v kapalině, např. olej ve vodě</td>
+                <td class="name">emulze</td>
+                <td>krém</td>
+              </tr>
+              <tr>
+                <td>pevná látka v plynu</td>
+                <td class="name">dým / kouř</td>
+                <td>kouř nad ohněm</td>
+              </tr>
+              <tr>
+                <td>pevná látka v kapalině</td>
+                <td class="name">suspenze</td>
+                <td>písek ve vodě</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Roztok</h2>
+        <div class="formula">
+          roztok = rozpouštědlo <span class="plus">+</span> rozpuštěná látka
+        </div>
+        <p>
+          <strong>Rozpouštědlo</strong> v celém objemu převažuje - nejčastěji voda (H₂O).
+          Příklady: voda + manganistan draselný KMnO₄ = fialový roztok; voda + kyselina octová = ocet; voda + sirup = šťáva.
+        </p>
+
+        <h3>Pokus: difuze</h3>
+        <p>
+          Krystalky manganistanu draselného (hypermanganu) vložíme do vody v odměrném válci. Samy se pomalu rozptylují -
+          to je <strong>difuze</strong> (samovolné pronikání částic jedné látky mezi částice druhé). Po promíchání vznikne fialový roztok.
+        </p>
+
+        <div class="calc-box">
+          <h3>Vzorový výpočet (metoda 1 %)</h3>
+          <p><strong>Zadání:</strong> Připrav 200 g 20% roztoku soli (NaCl).</p>
+          <ol>
+            <li>1 % z 200 g = 200 : 100 = <strong>2 g</strong></li>
+            <li>sůl: 20 · 2 g = <strong>40 g</strong></li>
+            <li>voda: 200 g − 40 g = <strong>160 g</strong></li>
+          </ol>
+          <p class="answer">Připravím ho ze 160 g H₂O a 40 g NaCl.</p>
+          <p>
+            <strong>Ocet</strong> = 92 % vody + 8 % kyseliny octové. Např. 100 g octa = 92 g H₂O + 8 g kyseliny octové;
+            200 g octa = 184 g H₂O + 16 g kyseliny octové.
+          </p>
+          <a href="roztoky-vypocty.html" class="trainer-link">Procvičit výpočty v trenažéru</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Hlavní věci, které musíš umět</h2>
+        <ul class="main-points" id="main-points">
+          <!-- Rendered from JSON (hlavni_osy) -->
+        </ul>
+      </section>
+
+      <section>
+        <h2>Slovníček pojmů</h2>
+        <div class="cheat-grid" id="glossary">
+          <!-- Rendered from JSON (terminologie) -->
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" style="color: var(--accent-dark); text-decoration: none; font-weight: 600;">&larr; Zpět na chemii</a>
+      </div>
+    </main>
+
+    <script>
+      async function loadData() {
+        try {
+          const response = await fetch('latky-a-smesi-questions.json');
+          if (!response.ok) throw new Error('Failed to load data');
+          const data = await response.json();
+
+          renderMainPoints(data.hlavni_osy || []);
+          renderGlossary(data.terminologie || {});
+        } catch (error) {
+          console.error('Failed to load data:', error);
+          document.getElementById('glossary').innerHTML =
+            '<p class="error-msg">Nepodařilo se načíst data. Spusť lokální server: python3 -m http.server</p>';
+        }
+      }
+
+      function renderMainPoints(points) {
+        document.getElementById('main-points').innerHTML = points
+          .map(point => `<li>${point}</li>`)
+          .join('');
+      }
+
+      function renderGlossary(terms) {
+        // Sections come straight from the JSON keys, so new sections show up automatically.
+        document.getElementById('glossary').innerHTML = Object.entries(terms)
+          .map(([section, items]) => `
+            <div class="cheat-card">
+              <h4>${section}</h4>
+              <ul>
+                ${items.map(item => `<li><strong>${item.pojem}:</strong> ${item.vysvetleni}</li>`).join('')}
+              </ul>
+            </div>
+          `)
+          .join('');
+      }
+
+      loadData();
+    </script>
+  </body>
+</html>

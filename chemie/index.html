@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chemie - 7. třída</title>
+    <style>
+      :root {
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 1.5rem 3rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 60%, #0e7490 100%);
+        color: #1f2937;
+        min-height: 100vh;
+      }
+
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 3rem 0 2rem;
+        color: #fff;
+      }
+
+      header h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      header p {
+        margin: 0;
+        font-size: 1.2rem;
+        opacity: 0.95;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        border-top: 6px solid #0891b2;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .card-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+
+      .card h2 {
+        margin: 0 0 0.75rem;
+        font-size: 1.5rem;
+        color: #0e7490;
+      }
+
+      .card p {
+        margin: 0 0 1rem;
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+
+      .card-badge {
+        display: inline-block;
+        background: #cffafe;
+        color: #0e7490;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      .info-box h3 {
+        margin: 0 0 1rem;
+        font-size: 1.5rem;
+        color: #4f46e5;
+      }
+
+      .info-box ol {
+        margin: 0;
+        padding-left: 1.5rem;
+      }
+
+      .info-box li {
+        margin: 0.75rem 0;
+        font-size: 1.05rem;
+      }
+
+      .info-box strong {
+        color: #4f46e5;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 0 1rem 2rem;
+        }
+
+        header {
+          padding: 2rem 0 1.5rem;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .card {
+          padding: 2rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>🧪 Chemie</h1>
+        <p>Interaktivní učební materiály pro 7. třídu</p>
+      </header>
+
+      <h2 style="color: #fff; margin: 2rem 0 0.5rem; font-size: 1.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.2);">Látky a směsi</h2>
+      <div class="cards">
+        <a href="latky-a-smesi-intro.html" class="card">
+          <div class="card-icon">📖</div>
+          <h2>Tahák</h2>
+          <p>Skupenské přeměny, rozdělení látek, druhy směsí, roztoky a slovníček pojmů</p>
+          <span class="card-badge">Začni tady</span>
+        </a>
+
+        <a href="latky-a-smesi-test-mobil.html" class="card">
+          <div class="card-icon">🎯</div>
+          <h2>Test</h2>
+          <p>Otázky s vysvětlením, proč je odpověď správně a proč ostatní ne</p>
+          <span class="card-badge">33 otázek</span>
+        </a>
+
+        <a href="latky-a-smesi-flashcards.html" class="card">
+          <div class="card-icon">🃏</div>
+          <h2>Kartičky</h2>
+          <p>Flash cards s pojmy podle oblastí i s otázkami z testu</p>
+          <span class="card-badge">24 pojmů</span>
+        </a>
+
+        <a href="roztoky-vypocty.html" class="card">
+          <div class="card-icon">⚗️</div>
+          <h2>Trenažér výpočtů</h2>
+          <p>Procvič si výpočet složení roztoku metodou 1 %</p>
+          <span class="card-badge">Výpočty</span>
+        </a>
+      </div>
+
+      <div class="info-box">
+        <h3>🎓 Jak se učit krok za krokem</h3>
+        <ol>
+          <li><strong>Prostuduj tahák</strong> - trojúhelník přeměn, rozdělení látek, tabulka směsí</li>
+          <li><strong>Procvičuj kartičky</strong> - projdi všechny pojmy 2-3×</li>
+          <li><strong>Natrénuj výpočty</strong> - metoda 1 % v trenažéru</li>
+          <li><strong>Zkus test</strong> - začni s 10 otázkami, chyby si procvič znovu</li>
+          <li><strong>Finální test</strong> - když zvládáš 80 %+, zkus všech 33 otázek</li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem; color: #fff; opacity: 0.9;">
+        <a href="../" style="color: #fff; text-decoration: underline;">← Zpět na hlavní stránku</a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4338ca">
+  <meta name="description" content="Trenažér výpočtů složení roztoku pro 7. třídu: metoda 1 %, rozpuštěná látka a voda, nekonečně příkladů.">
+  <title>Složení roztoku · Chemie 7. třída</title>
+  <style>
+    :root { --primary: #4f46e5; --primary-dark: #4338ca; --text: #1f2937; --muted: #6b7280; --ok: #047857; --ok-bg: #ecfdf5; --bad: #b45309; --bad-bg: #fffbeb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--text);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); background-attachment: fixed; line-height: 1.5; }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 40px; }
+    header { color: #fff; margin-bottom: 12px; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; color: #fff; text-decoration: none; font-weight: 600; }
+    h1 { margin: 4px 0 4px; font-size: 1.6rem; }
+    .lead { margin: 0; opacity: .9; }
+    .card { background: #fff; border-radius: 18px; box-shadow: 0 10px 30px rgba(31, 41, 55, .18); padding: 18px; margin-bottom: 14px; }
+    details summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 700; color: var(--primary-dark); }
+    .method ol { padding-left: 1.3rem; margin: 6px 0; }
+    .terms { color: var(--muted); font-size: .95rem; margin: 6px 0 0; }
+    .score { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .score span { background: rgba(255,255,255,.18); color: #fff; border-radius: 999px; padding: 6px 12px; font-size: .9rem; }
+    .levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
+    .levels button { min-height: 48px; border-radius: 12px; border: 2px solid rgba(255,255,255,.6); background: rgba(255,255,255,.15); color: #fff; font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; padding: 4px; }
+    .levels button[aria-pressed="true"] { background: #fff; color: var(--primary-dark); border-color: #fff; }
+    .tag { margin: 0 0 4px; color: var(--primary); font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
+    .question { font-size: 1.2rem; margin: 0 0 14px; }
+    .mini { margin: 0; color: var(--muted); font-size: .85rem; }
+    .q2 { font-weight: 700; margin: 2px 0 8px; }
+    .choices { display: grid; gap: 8px; }
+    .choice { min-height: 48px; text-align: left; padding: 10px 14px; border-radius: 12px; border: 2px solid #e5e7eb; background: #fff; font: inherit; color: var(--text); cursor: pointer; }
+    .choice:hover:not([disabled]) { border-color: var(--primary); }
+    .choice.ok { border-color: var(--ok); background: var(--ok-bg); }
+    .choice.bad { border-color: var(--bad); background: var(--bad-bg); opacity: .8; }
+    .field { margin-bottom: 10px; }
+    .field label { display: block; font-weight: 600; margin-bottom: 4px; }
+    .row { display: flex; align-items: center; gap: 8px; }
+    .row input { flex: 1; min-width: 0; min-height: 48px; font-size: 1.15rem; padding: 8px 12px; border-radius: 12px; border: 2px solid #d1d5db; color: var(--text); }
+    .row input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79,70,229,.2); }
+    .row input:disabled { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); font-weight: 700; }
+    .unit { color: var(--muted); font-weight: 600; }
+    .tick { color: var(--ok); font-size: 1.4rem; font-weight: 800; min-width: 44px; text-align: center; }
+    .primary { min-height: 48px; padding: 10px 18px; border: 0; border-radius: 12px; background: var(--primary); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    .primary:hover { background: var(--primary-dark); }
+    .primary.small { padding: 10px 12px; }
+    .secondary { min-height: 48px; padding: 10px 18px; border-radius: 12px; border: 2px solid #fff; background: transparent; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    .fb { margin: 6px 0 0; border-radius: 10px; }
+    .fb:empty { display: none; }
+    .fb.ok { color: var(--ok); background: var(--ok-bg); padding: 8px 10px; }
+    .fb.bad { color: #92400e; background: var(--bad-bg); padding: 8px 10px; }
+    .worked { list-style: none; padding: 0; margin: 0 0 12px; }
+    .worked li { display: flex; gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed #e5e7eb; font-size: 1.05rem; }
+    .num { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; }
+    .result { margin: 12px 0; padding: 12px 14px; border-radius: 12px; background: #eef2ff; border-left: 4px solid var(--primary); }
+    .sentence { margin: 0 0 4px; font-weight: 700; }
+    .check { margin: 0; color: var(--muted); }
+    .concept { margin-bottom: 4px; }
+    .concept .primary { margin-top: 10px; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .actions .primary { background: #fff; color: var(--primary-dark); }
+  </style>
+  <script type="module" src="roztoky/app.mjs"></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="back" href="index.html">← Chemie</a>
+    <h1>Složení roztoku</h1>
+    <p class="lead">Kolik je v roztoku rozpuštěné látky a kolik vody? Počítej přes 1 %.</p>
+  </header>
+
+  <details class="card method">
+    <summary>Jak na to – metoda 1 %</summary>
+    <p><b>Jak připravím 200 g 20% roztoku soli (NaCl)?</b></p>
+    <ol>
+      <li>1 % z 200 g = 2 g</li>
+      <li>20 · 2 g = 40 g (sůl – rozpuštěná látka)</li>
+      <li>200 g − 40 g = 160 g (voda – rozpouštědlo)</li>
+    </ol>
+    <p><b>Připravím ho ze 160 g H₂O a 40 g NaCl.</b></p>
+    <p class="terms"><b>roztok</b> = celek (rozpouštědlo + rozpuštěná látka) · <b>rozpouštědlo</b> = voda · <b>rozpuštěná látka</b> = sůl, cukr, kyselina octová…</p>
+  </details>
+
+  <div class="score" id="score" aria-live="polite"></div>
+  <div class="levels" role="group" aria-label="Úroveň nápovědy">
+    <button type="button" data-level="1" aria-pressed="false">1 · Ukázka</button>
+    <button type="button" data-level="2" aria-pressed="false">2 · Po krocích</button>
+    <button type="button" data-level="3" aria-pressed="false">3 · Sama</button>
+  </div>
+
+  <main class="card" id="card"><p>Načítám příklad…</p></main>
+
+  <div class="actions">
+    <button type="button" class="primary" id="next">Další příklad</button>
+    <button type="button" class="secondary" id="retry">Zkusit znovu</button>
+  </div>
+  <noscript><p class="card">Tato stránka potřebuje zapnutý JavaScript.</p></noscript>
+</div>
+</body>
+</html>
