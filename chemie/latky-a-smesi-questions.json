@@ -1,0 +1,756 @@
+{
+  "jazyk": "cs",
+  "rocnik": 7,
+  "tema": [
+    "Látky a směsi"
+  ],
+  "zdroj": "5 stránek ze sešitu (bez učebnice): Fyzikální procesy (skupenské přeměny), 2. kapitola Směsi (čisté látky a směsi, stejnorodé a různorodé směsi, slitiny), pracovní list PL – Směsi (druhy různorodých směsí), Stejnorodé směsi = roztok (pokus s manganistanem draselným, rozpouštědlo a rozpuštěná látka) a příklady na výpočet složení roztoku metodou 1 %.",
+  "hlavni_osy": [
+    "Skupenské přeměny (fyzikální procesy): pevná látka → kapalina = TÁNÍ, kapalina → pevná látka = TUHNUTÍ, kapalina → plyn = VYPAŘOVÁNÍ, plyn → kapalina = KONDENZACE, pevná látka → plyn = SUBLIMACE, plyn → pevná látka = DESUBLIMACE.",
+    "Látky dělíme na chemicky čisté látky (hliník, měď, jód, hypermangan) a směsi (ocel, žula). Chemicky čisté látky jsou prvky (hliník, měď, jód) a sloučeniny (CO₂, H₂O).",
+    "Stejnorodá (homogenní) směs má ve všech místech stejné vlastnosti – nerozeznáš v ní jednotlivé složky (ocel, mosaz, slaná voda, voda se šťávou). Stejnorodé směsi = roztoky.",
+    "Různorodá (heterogenní) směs má v různých místech jiné vlastnosti – složky v ní rozeznáš (žula, čaj s lístky, voda s pískem).",
+    "Roztoky podle skupenství: pevné – ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín) = SLITINY; kapalné – roztok čaje, voda se šťávou, slaná voda; plynné – suchý čistý vzduch.",
+    "Druhy různorodých směsí: SUSPENZE = pevná látka v kapalině (písek ve vodě), EMULZE = kapalina v kapalině, např. olej ve vodě (krém), PĚNA = plyn v kapalině (našlehaná šlehačka), MLHA = kapalina v plynu (ranní opar), DÝM / KOUŘ = pevná látka v plynu (kouř nad ohněm).",
+    "Roztok = rozpouštědlo + rozpuštěná látka. Rozpouštědlo (nejčastěji voda H₂O) v celém objemu převažuje. Příklady: voda + manganistan draselný KMnO₄ = fialový roztok; voda + kyselina octová = ocet; voda + sirup = šťáva.",
+    "Pokus: krystalky manganistanu draselného ve vodě v odměrném válci se samy pomalu rozptylují – DIFUZE. Po promíchání vznikne fialový roztok.",
+    "Výpočet složení roztoku (metoda 1 %): 200 g 20% roztoku soli → 1 % z 200 g = 2 g → sůl: 20 · 2 g = 40 g → voda: 200 g − 40 g = 160 g. Připravím ho ze 160 g H₂O a 40 g NaCl.",
+    "Ocet = 92 % vody + 8 % kyseliny octové: 250 g octa = 230 g H₂O + 20 g kyseliny octové; 200 g octa = 184 g H₂O + 16 g kyseliny octové; 100 g octa = 92 g H₂O + 8 g kyseliny octové."
+  ],
+  "terminologie": {
+    "Skupenské přeměny": [
+      {
+        "pojem": "Tání",
+        "vysvetleni": "Přeměna pevné látky na kapalinu (led → voda)."
+      },
+      {
+        "pojem": "Tuhnutí",
+        "vysvetleni": "Přeměna kapaliny na pevnou látku (voda → led)."
+      },
+      {
+        "pojem": "Vypařování",
+        "vysvetleni": "Přeměna kapaliny na plyn (louže na slunci mizí)."
+      },
+      {
+        "pojem": "Kondenzace",
+        "vysvetleni": "Přeměna plynu na kapalinu (orosené studené okno, kapky na pokličce)."
+      },
+      {
+        "pojem": "Sublimace",
+        "vysvetleni": "Přeměna pevné látky přímo na plyn, bez kapaliny (jód, suchý led)."
+      },
+      {
+        "pojem": "Desublimace",
+        "vysvetleni": "Přeměna plynu přímo na pevnou látku, bez kapaliny (jinovatka, námraza)."
+      }
+    ],
+    "Látky": [
+      {
+        "pojem": "Chemicky čistá látka",
+        "vysvetleni": "Látka složená jen z jednoho druhu látky – prvek nebo sloučenina (hliník, měď, jód, hypermangan)."
+      },
+      {
+        "pojem": "Prvek",
+        "vysvetleni": "Chemicky čistá látka, kterou už chemicky nerozložíme na jednodušší látky (hliník, měď, jód)."
+      },
+      {
+        "pojem": "Sloučenina",
+        "vysvetleni": "Chemicky čistá látka vzniklá chemickým spojením prvků (CO₂ – oxid uhličitý, H₂O – voda)."
+      },
+      {
+        "pojem": "Směs",
+        "vysvetleni": "Látka složená ze dvou nebo více látek (ocel, žula)."
+      }
+    ],
+    "Směsi": [
+      {
+        "pojem": "Stejnorodá (homogenní) směs",
+        "vysvetleni": "Ve všech místech má stejné vlastnosti, složky nerozeznáme. Stejnorodé směsi jsou roztoky (ocel, mosaz, voda se šťávou)."
+      },
+      {
+        "pojem": "Různorodá (heterogenní) směs",
+        "vysvetleni": "V různých místech má jiné vlastnosti, složky rozeznáme (žula, čaj s lístky)."
+      },
+      {
+        "pojem": "Slitina",
+        "vysvetleni": "Pevný stejnorodý roztok kovů: ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín)."
+      },
+      {
+        "pojem": "Suspenze",
+        "vysvetleni": "Různorodá směs pevné látky v kapalině (písek ve vodě, bahno)."
+      },
+      {
+        "pojem": "Emulze",
+        "vysvetleni": "Různorodá směs kapaliny v kapalině, např. oleje ve vodě (krém, pleťové mléko)."
+      },
+      {
+        "pojem": "Pěna",
+        "vysvetleni": "Různorodá směs plynu v kapalině (našlehaná šlehačka, pěna na holení)."
+      },
+      {
+        "pojem": "Mlha",
+        "vysvetleni": "Různorodá směs kapaliny v plynu (ranní opar, vystříknutý lak na vlasy)."
+      },
+      {
+        "pojem": "Dým (kouř)",
+        "vysvetleni": "Různorodá směs pevné látky v plynu (kouř nad ohněm, kouř z kamen)."
+      }
+    ],
+    "Roztoky": [
+      {
+        "pojem": "Roztok",
+        "vysvetleni": "Stejnorodá směs rozpouštědla a rozpuštěné látky."
+      },
+      {
+        "pojem": "Rozpouštědlo",
+        "vysvetleni": "Látka, která v roztoku v celém objemu převažuje – nejčastěji voda (H₂O)."
+      },
+      {
+        "pojem": "Rozpuštěná látka",
+        "vysvetleni": "Látka rozpuštěná v rozpouštědle (manganistan draselný, kyselina octová, sirup, sůl)."
+      },
+      {
+        "pojem": "Difuze",
+        "vysvetleni": "Samovolné pronikání částic jedné látky mezi částice druhé (krystalky hypermanganu se ve vodě samy rozptylují)."
+      },
+      {
+        "pojem": "Manganistan draselný (KMnO₄)",
+        "vysvetleni": "Hypermangan – fialové krystalky; s vodou tvoří fialový roztok."
+      },
+      {
+        "pojem": "Odměrný válec",
+        "vysvetleni": "Laboratorní sklo na odměřování objemu kapalin; použili jsme ho při pokusu s difuzí."
+      }
+    ]
+  },
+  "casova_osa": [],
+  "otazky": [
+    {
+      "id": "CH1",
+      "tema": "Skupenské přeměny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenuje přeměna pevné látky na kapalinu?",
+      "spravna_odpoved": "Tání",
+      "spatne_odpovedi": [
+        "Tuhnutí",
+        "Sublimace",
+        "Kondenzace"
+      ],
+      "oduvodneni": "Tání je přeměna pevné látky na kapalinu – například led taje na vodu.",
+      "proc_spatne": {
+        "Tuhnutí": "Tuhnutí je opačný děj: kapalina se mění na pevnou látku (voda zamrzá).",
+        "Sublimace": "Při sublimaci se pevná látka mění rovnou na plyn, kapalina vůbec nevznikne.",
+        "Kondenzace": "Kondenzace je přeměna plynu na kapalinu, s pevnou látkou nemá nic společného."
+      }
+    },
+    {
+      "id": "CH2",
+      "tema": "Látky – čisté látky a směsi",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Na jaké dvě skupiny dělíme látky?",
+      "spravna_odpoved": "Na chemicky čisté látky a směsi",
+      "spatne_odpovedi": [
+        "Na prvky a sloučeniny",
+        "Na stejnorodé a různorodé směsi",
+        "Na kovy a plyny"
+      ],
+      "oduvodneni": "Látky (hliník, ocel, měď, žula…) dělíme na chemicky čisté látky (hliník, měď, jód, hypermangan) a směsi (ocel, žula).",
+      "proc_spatne": {
+        "Na prvky a sloučeniny": "Prvky a sloučeniny jsou až druhý krok – takto se dělí jen chemicky čisté látky, ne všechny látky.",
+        "Na stejnorodé a různorodé směsi": "Takto se dělí jen směsi, ne všechny látky.",
+        "Na kovy a plyny": "Takové dělení jsme se neučili – kovy a plyny jsou skupenství nebo druhy látek, ne hlavní dělení látek."
+      }
+    },
+    {
+      "id": "CH3",
+      "tema": "Směsi – stejnorodé a různorodé",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co platí pro stejnorodou (homogenní) směs?",
+      "spravna_odpoved": "Ve všech místech má stejné vlastnosti",
+      "spatne_odpovedi": [
+        "V různých místech má jiné vlastnosti",
+        "Je složená jen z jedné látky",
+        "Vždy je to kapalina"
+      ],
+      "oduvodneni": "Stejnorodá směs má ve všech místech stejné vlastnosti, takže v ní jednotlivé složky nerozeznáš – třeba ocel nebo voda se šťávou.",
+      "proc_spatne": {
+        "V různých místech má jiné vlastnosti": "To je definice různorodé (heterogenní) směsi, třeba žuly.",
+        "Je složená jen z jedné látky": "Z jedné látky je chemicky čistá látka. Každá směs má aspoň dvě složky.",
+        "Vždy je to kapalina": "Stejnorodá směs může být i pevná (ocel, mosaz) nebo plynná (suchý čistý vzduch)."
+      }
+    },
+    {
+      "id": "CH4",
+      "tema": "Druhy různorodých směsí",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Písek ve vodě je…",
+      "spravna_odpoved": "Suspenze",
+      "spatne_odpovedi": [
+        "Emulze",
+        "Pěna",
+        "Roztok"
+      ],
+      "oduvodneni": "Suspenze je pevná látka v kapalině. Písek (pevná látka) je ve vodě (kapalina) a po chvíli se usadí na dně.",
+      "proc_spatne": {
+        "Emulze": "Emulze je kapalina v kapalině (olej ve vodě). Písek je pevná látka.",
+        "Pěna": "Pěna je plyn v kapalině (bublinky). V písku ve vodě žádný plyn není.",
+        "Roztok": "Roztok je stejnorodá směs. Písek ve vodě rozeznáš, je to různorodá směs."
+      }
+    },
+    {
+      "id": "CH5",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ze kterých dvou částí se skládá roztok?",
+      "spravna_odpoved": "Z rozpouštědla a rozpuštěné látky",
+      "spatne_odpovedi": [
+        "Z prvku a sloučeniny",
+        "Z kapaliny a plynu",
+        "Z vody a soli – nic jiného roztok být nemůže"
+      ],
+      "oduvodneni": "Roztok = rozpouštědlo (nejčastěji voda) + rozpuštěná látka (třeba manganistan draselný, kyselina octová nebo sirup).",
+      "proc_spatne": {
+        "Z prvku a sloučeniny": "Prvky a sloučeniny jsou druhy chemicky čistých látek. Části roztoku se jmenují rozpouštědlo a rozpuštěná látka.",
+        "Z kapaliny a plynu": "Roztok nemusí obsahovat plyn – např. voda se šťávou. Roztok může být dokonce i pevný (ocel).",
+        "Z vody a soli – nic jiného roztok být nemůže": "Slaná voda je jen jeden příklad. Roztokem je i ocet, šťáva nebo fialový roztok hypermanganu."
+      }
+    },
+    {
+      "id": "CH6",
+      "tema": "Skupenské přeměny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Ráno je na trávě jinovatka – vodní pára ze vzduchu se změnila přímo na led. Jak se tento děj jmenuje?",
+      "spravna_odpoved": "Desublimace",
+      "spatne_odpovedi": [
+        "Sublimace",
+        "Kondenzace",
+        "Tuhnutí"
+      ],
+      "oduvodneni": "Desublimace je přeměna plynu přímo na pevnou látku, bez kapaliny. Vodní pára (plyn) se změní rovnou na ledové krystalky.",
+      "proc_spatne": {
+        "Sublimace": "Sublimace je opačný směr: pevná látka → plyn (třeba jód).",
+        "Kondenzace": "Při kondenzaci vznikne z plynu kapalina (kapky rosy), ne led.",
+        "Tuhnutí": "Tuhnutí je přeměna kapaliny na pevnou látku. Tady se ale mění plyn, ne kapalina."
+      }
+    },
+    {
+      "id": "CH7",
+      "tema": "Látky – čisté látky a směsi",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která z látek je SLOUČENINA?",
+      "spravna_odpoved": "Voda (H₂O)",
+      "spatne_odpovedi": [
+        "Měď",
+        "Hliník",
+        "Žula"
+      ],
+      "oduvodneni": "Voda H₂O je sloučenina – vznikla chemickým spojením vodíku a kyslíku. Dalším příkladem ze sešitu je oxid uhličitý CO₂.",
+      "proc_spatne": {
+        "Měď": "Měď je prvek – chemicky čistá látka, kterou už nerozložíme.",
+        "Hliník": "Hliník je prvek, ne sloučenina.",
+        "Žula": "Žula vůbec není chemicky čistá látka, je to různorodá směs."
+      }
+    },
+    {
+      "id": "CH8",
+      "tema": "Směsi – stejnorodé a různorodé",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která směs je RŮZNORODÁ?",
+      "spravna_odpoved": "Žula",
+      "spatne_odpovedi": [
+        "Mosaz",
+        "Voda s rozmíchaným sirupem",
+        "Přecezený čaj s rozpuštěným cukrem"
+      ],
+      "oduvodneni": "Žula má v různých místech jiné vlastnosti – vidíš v ní různobarevná zrnka. Je to různorodá směs.",
+      "proc_spatne": {
+        "Mosaz": "Mosaz je slitina mědi a zinku. Je stejnorodá – ve všech místech stejná.",
+        "Voda s rozmíchaným sirupem": "Sirup se ve vodě rozpustí a vznikne stejnorodý roztok – šťáva.",
+        "Přecezený čaj s rozpuštěným cukrem": "Přecezený čaj bez lístků s rozpuštěným cukrem je všude stejný – stejnorodý roztok."
+      }
+    },
+    {
+      "id": "CH9",
+      "tema": "Druhy různorodých směsí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenuje směs kapaliny v plynu – například ranní opar?",
+      "spravna_odpoved": "Mlha",
+      "spatne_odpovedi": [
+        "Pěna",
+        "Dým",
+        "Emulze"
+      ],
+      "oduvodneni": "Mlha je kapalina v plynu: drobné kapičky vody jsou rozptýlené ve vzduchu. Proto je ranní opar mlha.",
+      "proc_spatne": {
+        "Pěna": "Pěna je opačně – plyn v kapalině (bublinky vzduchu ve šlehačce).",
+        "Dým": "Dým (kouř) je pevná látka v plynu – drobné pevné částečky, ne kapičky.",
+        "Emulze": "Emulze je kapalina v kapalině (olej ve vodě). Žádný plyn v ní není."
+      }
+    },
+    {
+      "id": "CH10",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která část roztoku podle sešitu v celém objemu převažuje?",
+      "spravna_odpoved": "Rozpouštědlo",
+      "spatne_odpovedi": [
+        "Rozpuštěná látka",
+        "Obou částí je vždy stejné množství",
+        "Ta, kterou přidáme jako první"
+      ],
+      "oduvodneni": "Podle sešitu v celém objemu roztoku převažuje rozpouštědlo – nejčastěji voda. Například ocet je z 92 % voda.",
+      "proc_spatne": {
+        "Rozpuštěná látka": "Rozpuštěné látky je méně – v octu je jí jen 8 %, zbytek je voda (rozpouštědlo).",
+        "Obou částí je vždy stejné množství": "Není – v příkladech ze sešitu je vody vždy mnohem víc než rozpuštěné látky.",
+        "Ta, kterou přidáme jako první": "Na pořadí přidávání nezáleží. Podle sešitu převažuje rozpouštědlo."
+      }
+    },
+    {
+      "id": "CH11",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ze kterých kovů je mosaz?",
+      "spravna_odpoved": "Z mědi a zinku",
+      "spatne_odpovedi": [
+        "Z mědi a cínu",
+        "Ze železa a mědi",
+        "Z hliníku a zinku"
+      ],
+      "oduvodneni": "Mosaz je slitina mědi a zinku. Slitiny jsou pevné stejnorodé směsi (roztoky).",
+      "proc_spatne": {
+        "Z mědi a cínu": "Měď + cín je bronz, ne mosaz. Pozor, obě slitiny obsahují měď.",
+        "Ze železa a mědi": "Železo je základem oceli, v mosazi železo není.",
+        "Z hliníku a zinku": "V mosazi je měď, ne hliník."
+      }
+    },
+    {
+      "id": "CH12",
+      "tema": "Výpočty složení roztoku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kolik gramů je 1 % z 200 g roztoku?",
+      "spravna_odpoved": "2 g",
+      "spatne_odpovedi": [
+        "20 g",
+        "1 g",
+        "0,2 g"
+      ],
+      "oduvodneni": "1 % je setina celku: 200 g : 100 = 2 g. Tohle je vždy první krok výpočtu.",
+      "proc_spatne": {
+        "20 g": "20 g je 10 % z 200 g – vydělil(a) jsi deseti místo stem.",
+        "1 g": "1 % neznamená 1 g. Je to setina celku, tedy 200 : 100 = 2 g.",
+        "0,2 g": "To by bylo 200 : 1000. Pro 1 % dělíme stem: 200 : 100 = 2 g."
+      }
+    },
+    {
+      "id": "CH13",
+      "tema": "Skupenské přeměny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Studené okno se v teplé kuchyni orosí. Který děj nastal?",
+      "spravna_odpoved": "Kondenzace",
+      "spatne_odpovedi": [
+        "Vypařování",
+        "Tání",
+        "Desublimace"
+      ],
+      "oduvodneni": "Vodní pára (plyn) se na studeném skle změní na kapičky vody (kapalina). Přeměna plynu na kapalinu je kondenzace.",
+      "proc_spatne": {
+        "Vypařování": "Vypařování je opačný děj – kapalina se mění na plyn.",
+        "Tání": "Tání je přeměna pevné látky na kapalinu. Na okně ale nic pevného netálo.",
+        "Desublimace": "Při desublimaci vzniká z páry přímo led. Na skle se ale tvoří kapky vody, proto jde o kondenzaci."
+      }
+    },
+    {
+      "id": "CH14",
+      "tema": "Směsi – stejnorodé a různorodé",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč je čaj s plovoucími lístky různorodá směs, ale přecezený oslazený čaj stejnorodá?",
+      "spravna_odpoved": "Lístky v čaji rozeznáme, rozpuštěný cukr ne",
+      "spatne_odpovedi": [
+        "Protože každý čaj je stejnorodá směs",
+        "Protože cukr je sloučenina",
+        "Protože rozpuštěný cukr tvoří suspenzi"
+      ],
+      "oduvodneni": "Různorodá směs má v různých místech jiné vlastnosti – lístky vidíme. Rozpuštěný cukr nevidíme, čaj je všude stejný, a proto je stejnorodý.",
+      "proc_spatne": {
+        "Protože cukr je sloučenina": "To, že je cukr sloučenina, neříká nic o tom, jestli je směs stejnorodá. Rozhoduje, že se cukr rozpustil.",
+        "Protože každý čaj je stejnorodá směs": "Není – čaj s plovoucími lístky je různorodý, lístky v něm vidíme.",
+        "Protože rozpuštěný cukr tvoří suspenzi": "Rozpuštěný cukr tvoří roztok. Suspenze obsahuje nerozpuštěné pevné částice, které vidíme."
+      }
+    },
+    {
+      "id": "CH15",
+      "tema": "Druhy různorodých směsí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Našlehaná šlehačka nebo pěna na holení je…",
+      "spravna_odpoved": "Pěna (plyn v kapalině)",
+      "spatne_odpovedi": [
+        "Emulze (kapalina v kapalině)",
+        "Mlha (kapalina v plynu)",
+        "Suspenze (pevná látka v kapalině)"
+      ],
+      "oduvodneni": "Při šlehání se do smetany dostanou bublinky vzduchu. Plyn rozptýlený v kapalině je pěna.",
+      "proc_spatne": {
+        "Emulze (kapalina v kapalině)": "Tekutá šlehačka před šleháním je emulze. Po našlehání v ní rozhodují bublinky vzduchu v kapalině – je to pěna.",
+        "Mlha (kapalina v plynu)": "Mlha je opačně – kapičky v plynu. Ve šlehačce jsou bublinky plynu v kapalině.",
+        "Suspenze (pevná látka v kapalině)": "Pro zařazení jsou rozhodující bublinky plynu v kapalině, ne pevné částice."
+      }
+    },
+    {
+      "id": "CH16",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Do vody v odměrném válci nasypeme krystalky manganistanu draselného. Fialová barva se sama pomalu rozšiřuje celou vodou. Jak se tento jev jmenuje?",
+      "spravna_odpoved": "Difuze",
+      "spatne_odpovedi": [
+        "Kondenzace",
+        "Sublimace",
+        "Tání"
+      ],
+      "oduvodneni": "Krystalky se ve vodě rozpouštějí a rozpuštěné částice se samy šíří celou vodou – tento jev se jmenuje difuze. Promíchání to jen urychlí a vznikne fialový roztok.",
+      "proc_spatne": {
+        "Kondenzace": "Kondenzace je přeměna plynu na kapalinu. Tady se nic nemění na kapalinu.",
+        "Sublimace": "Sublimace je přeměna pevné látky přímo na plyn. Krystalky se ale rozpouštějí ve vodě.",
+        "Tání": "Krystalky netají (to by bylo teplem), ale rozpouštějí se a jejich částice se šíří vodou."
+      }
+    },
+    {
+      "id": "CH17",
+      "tema": "Výpočty složení roztoku",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak připravím 200 g 20% roztoku soli (NaCl)?",
+      "spravna_odpoved": "40 g soli a 160 g vody",
+      "spatne_odpovedi": [
+        "20 g soli a 180 g vody",
+        "40 g soli a 200 g vody",
+        "160 g soli a 40 g vody"
+      ],
+      "oduvodneni": "1 % z 200 g = 2 g. Sůl: 20 · 2 g = 40 g. Voda: 200 g − 40 g = 160 g. Kontrola: 40 g + 160 g = 200 g.",
+      "proc_spatne": {
+        "20 g soli a 180 g vody": "20 % neznamená 20 g. Nejdřív najdi 1 % (2 g) a vynásob dvaceti: 40 g.",
+        "40 g soli a 200 g vody": "200 g váží celý roztok, ne jen voda. 40 g + 200 g = 240 g, to je moc. Vodu musíš odečíst: 200 − 40 = 160 g.",
+        "160 g soli a 40 g vody": "Prohodil(a) jsi sůl a vodu. Sůl tvoří 20 % a voda zbytek (80 %), proto potřebujeme 40 g soli a 160 g vody."
+      }
+    },
+    {
+      "id": "CH18",
+      "tema": "Skupenské přeměny",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Která dvojice dějů je navzájem OPAČNÁ?",
+      "spravna_odpoved": "Vypařování a kondenzace",
+      "spatne_odpovedi": [
+        "Tání a sublimace",
+        "Kondenzace a tuhnutí",
+        "Sublimace a vypařování"
+      ],
+      "oduvodneni": "Vypařování: kapalina → plyn, kondenzace: plyn → kapalina. Další opačné dvojice jsou tání ↔ tuhnutí a sublimace ↔ desublimace.",
+      "proc_spatne": {
+        "Tání a sublimace": "Oba děje začínají u pevné látky (→ kapalina, → plyn). Opačné nejsou.",
+        "Kondenzace a tuhnutí": "Kondenzace vede z plynu na kapalinu, tuhnutí z kapaliny na pevnou látku. Neobracejí stejnou přeměnu, proto nejsou opačné.",
+        "Sublimace a vypařování": "Oba děje končí u plynu. Opačné nejsou."
+      }
+    },
+    {
+      "id": "CH19",
+      "tema": "Látky – čisté látky a směsi",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která trojice obsahuje jen chemicky čisté látky?",
+      "spravna_odpoved": "Hliník, měď, jód",
+      "spatne_odpovedi": [
+        "Hliník, ocel, měď",
+        "Měď, žula, jód",
+        "Ocel, mosaz, bronz"
+      ],
+      "oduvodneni": "Hliník, měď i jód jsou chemicky čisté látky (prvky). Podle sešitu sem patří i hypermangan.",
+      "proc_spatne": {
+        "Hliník, ocel, měď": "Ocel je směs (slitina), ne chemicky čistá látka.",
+        "Měď, žula, jód": "Žula je různorodá směs.",
+        "Ocel, mosaz, bronz": "Všechny tři jsou slitiny, tedy stejnorodé směsi."
+      }
+    },
+    {
+      "id": "CH20",
+      "tema": "Druhy různorodých směsí",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kouř nad táborovým ohněm je…",
+      "spravna_odpoved": "Dým – pevná látka v plynu",
+      "spatne_odpovedi": [
+        "Mlha – kapalina v plynu",
+        "Pěna – plyn v kapalině",
+        "Stejnorodá směs (roztok)"
+      ],
+      "oduvodneni": "V kouři jsou drobné pevné částečky (saze, popílek) rozptýlené ve vzduchu. Pevná látka v plynu je dým (kouř).",
+      "proc_spatne": {
+        "Mlha – kapalina v plynu": "Mlhu tvoří kapičky vody. V kouři jsou pevné částečky sazí.",
+        "Pěna – plyn v kapalině": "Kouř není kapalina s bublinkami, ale vzduch s pevnými částečkami.",
+        "Stejnorodá směs (roztok)": "Kouř vidíme a v různých místech je jinak hustý – je to různorodá směs."
+      }
+    },
+    {
+      "id": "CH21",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co mají společného ocel, mosaz a bronz?",
+      "spravna_odpoved": "Jsou to slitiny – pevné stejnorodé směsi",
+      "spatne_odpovedi": [
+        "Jsou to chemicky čisté prvky",
+        "Jsou to různorodé směsi",
+        "Všechny obsahují cín"
+      ],
+      "oduvodneni": "V sešitě řadíme ocel, mosaz a bronz mezi pevné stejnorodé směsi – slitiny. U oceli je uvedeno „železo + jiný kov“; přesněji obsahuje hlavně železo a malé množství uhlíku. Mosaz tvoří měď a zinek, bronz měď a cín.",
+      "proc_spatne": {
+        "Jsou to chemicky čisté prvky": "Každá slitina je složená aspoň ze dvou látek, takže je to směs, ne prvek.",
+        "Jsou to různorodé směsi": "Podle sešitu jsou slitiny stejnorodé směsi – ve všech místech stejné.",
+        "Všechny obsahují cín": "Cín je jen v bronzu. Mosaz je měď + zinek a ocel je ze železa."
+      }
+    },
+    {
+      "id": "CH22",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je v octu rozpouštědlo a co rozpuštěná látka?",
+      "spravna_odpoved": "Rozpouštědlo je voda, rozpuštěná látka je kyselina octová",
+      "spatne_odpovedi": [
+        "Rozpouštědlo je kyselina octová, rozpuštěná látka je voda",
+        "Ocet je chemicky čistá látka, nic v něm rozpuštěné není",
+        "Rozpouštědlo je sirup, rozpuštěná látka je voda"
+      ],
+      "oduvodneni": "Ocet = 92 % vody + 8 % kyseliny octové. Voda převažuje, proto je rozpouštědlem. Kyselina octová je rozpuštěná látka.",
+      "proc_spatne": {
+        "Rozpouštědlo je kyselina octová, rozpuštěná látka je voda": "Rozpouštědlo převažuje. V octu je 92 % vody a jen 8 % kyseliny, takže rozpouštědlem je voda.",
+        "Ocet je chemicky čistá látka, nic v něm rozpuštěné není": "Ocet je roztok – směs vody a kyseliny octové.",
+        "Rozpouštědlo je sirup, rozpuštěná látka je voda": "Sirup a voda tvoří šťávu, ne ocet. V octu je kyselina octová."
+      }
+    },
+    {
+      "id": "CH23",
+      "tema": "Výpočty složení roztoku",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Ocet obsahuje 8 % kyseliny octové. Kolik VODY je ve 250 g octa?",
+      "spravna_odpoved": "230 g",
+      "spatne_odpovedi": [
+        "20 g",
+        "242 g",
+        "250 g"
+      ],
+      "oduvodneni": "1 % z 250 g = 2,5 g. Kyselina octová: 8 · 2,5 g = 20 g. Voda: 250 g − 20 g = 230 g.",
+      "proc_spatne": {
+        "20 g": "20 g je kyselina octová (rozpuštěná látka). Ptáme se na vodu: 250 − 20 = 230 g.",
+        "242 g": "Odečetl(a) jsi 8 g místo 8 %. 8 % z 250 g je 8 · 2,5 g = 20 g, vody je tedy 230 g.",
+        "250 g": "250 g váží celý ocet. Vody je méně, protože část tvoří kyselina octová."
+      }
+    },
+    {
+      "id": "CH24",
+      "tema": "Skupenské přeměny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Louže na slunci postupně zmizí. Který děj probíhá?",
+      "spravna_odpoved": "Vypařování",
+      "spatne_odpovedi": [
+        "Kondenzace",
+        "Tuhnutí",
+        "Sublimace"
+      ],
+      "oduvodneni": "Voda (kapalina) se mění na vodní páru (plyn). Přeměna kapaliny na plyn je vypařování.",
+      "proc_spatne": {
+        "Kondenzace": "Kondenzace je opak – pára se mění zpět na vodu.",
+        "Tuhnutí": "Při tuhnutí by voda zamrzla, louže by se změnila na led.",
+        "Sublimace": "Sublimace začíná u pevné látky. Louže je kapalina."
+      }
+    },
+    {
+      "id": "CH25",
+      "tema": "Druhy různorodých směsí",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Pleťový krém nebo pleťové mléko jsou…",
+      "spravna_odpoved": "Emulze – kapalina v kapalině",
+      "spatne_odpovedi": [
+        "Suspenze – pevná látka v kapalině",
+        "Pěna – plyn v kapalině",
+        "Roztok – stejnorodá směs"
+      ],
+      "oduvodneni": "V krému jsou drobné kapičky oleje rozptýlené ve vodě (nebo naopak). Kapalina v kapalině je emulze.",
+      "proc_spatne": {
+        "Suspenze – pevná látka v kapalině": "Pro zařazení jsou rozhodující kapičky jedné kapaliny (oleje) rozptýlené v druhé (vodě) – to je emulze.",
+        "Pěna – plyn v kapalině": "Krém není plný bublinek vzduchu, to by byla pěna (např. pěnové tužidlo).",
+        "Roztok – stejnorodá směs": "Olej se ve vodě nerozpouští, jen se rozptýlí na kapičky. Proto je krém různorodá směs – emulze."
+      }
+    },
+    {
+      "id": "CH26",
+      "tema": "Směsi – stejnorodé a různorodé",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Který z příkladů je PLYNNÁ stejnorodá směs (plynný roztok)?",
+      "spravna_odpoved": "Suchý čistý vzduch",
+      "spatne_odpovedi": [
+        "Kouř z kamen",
+        "Ranní opar",
+        "Vodní pára"
+      ],
+      "oduvodneni": "Suchý čistý vzduch je směs plynů (hlavně dusíku a kyslíku), která je všude stejná – je to plynný roztok.",
+      "proc_spatne": {
+        "Kouř z kamen": "Kouř obsahuje pevné částečky, je to různorodá směs – dým.",
+        "Ranní opar": "Opar obsahuje kapičky vody ve vzduchu, je to různorodá směs – mlha.",
+        "Vodní pára": "Vodní pára je jen jedna látka (voda v plynném skupenství), ne směs."
+      }
+    },
+    {
+      "id": "CH27",
+      "tema": "Výpočty složení roztoku",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kolik gramů rozpuštěné látky je ve 350 g 16% roztoku?",
+      "spravna_odpoved": "56 g",
+      "spatne_odpovedi": [
+        "16 g",
+        "35 g",
+        "294 g"
+      ],
+      "oduvodneni": "1 % z 350 g = 3,5 g. Rozpuštěná látka: 16 · 3,5 g = 56 g. Na rozpouštědlo zbývá 350 − 56 = 294 g.",
+      "proc_spatne": {
+        "16 g": "16 % neznamená 16 g. Nejdřív spočítej 1 % (3,5 g) a vynásob šestnácti.",
+        "35 g": "35 g je 10 % z 350 g. Nás zajímá 16 %: 16 · 3,5 g = 56 g.",
+        "294 g": "294 g je hmotnost rozpouštědla. Ptáme se na rozpuštěnou látku: 56 g."
+      }
+    },
+    {
+      "id": "CH28",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které roztoky ze sešitu jsou KAPALNÉ?",
+      "spravna_odpoved": "Roztok čaje a voda se šťávou",
+      "spatne_odpovedi": [
+        "Ocel a mosaz",
+        "Suchý čistý vzduch a zemní plyn",
+        "Bronz a voda se šťávou"
+      ],
+      "oduvodneni": "V sešitě jsou kapalné roztoky: roztok čaje a voda se šťávou. Pevné roztoky jsou slitiny (ocel, mosaz, bronz), plynný je suchý čistý vzduch.",
+      "proc_spatne": {
+        "Ocel a mosaz": "Ocel a mosaz jsou pevné roztoky – slitiny.",
+        "Suchý čistý vzduch a zemní plyn": "To jsou plynné směsi.",
+        "Bronz a voda se šťávou": "Voda se šťávou je kapalný roztok, ale bronz je pevná slitina."
+      }
+    },
+    {
+      "id": "CH29",
+      "tema": "Druhy různorodých směsí",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Která dvojice je přiřazena SPRÁVNĚ?",
+      "spravna_odpoved": "Bahno – suspenze",
+      "spatne_odpovedi": [
+        "Pěnové tužidlo – emulze",
+        "Cigaretový kouř – mlha",
+        "Ranní opar – dým"
+      ],
+      "oduvodneni": "Bahno je hlína (pevná látka) ve vodě (kapalina), tedy suspenze.",
+      "proc_spatne": {
+        "Pěnové tužidlo – emulze": "Tužidlo je plné bublinek plynu v kapalině – je to pěna.",
+        "Cigaretový kouř – mlha": "Kouř obsahuje pevné částečky v plynu – je to dým.",
+        "Ranní opar – dým": "Opar tvoří kapičky vody ve vzduchu – je to mlha."
+      }
+    },
+    {
+      "id": "CH30",
+      "tema": "Výpočty složení roztoku",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Spolužák smíchal 40 g soli a 200 g vody a tvrdí, že má 200 g 20% roztoku. Co je špatně?",
+      "spravna_odpoved": "Roztok váží 240 g – vody mělo být jen 160 g",
+      "spatne_odpovedi": [
+        "Nic, je to správně",
+        "Soli mělo být 20 g",
+        "Měl přidat 40 g vody navíc"
+      ],
+      "oduvodneni": "200 g má vážit CELÝ roztok (sůl + voda). 40 g + 200 g = 240 g. Správně: 1 % z 200 g = 2 g → sůl 40 g → voda 200 − 40 = 160 g.",
+      "proc_spatne": {
+        "Nic, je to správně": "Sečti to: 40 g + 200 g = 240 g. Roztok měl vážit 200 g.",
+        "Soli mělo být 20 g": "Soli je opravdu 40 g (20 · 2 g). Chyba je ve vodě – měl ji odečíst.",
+        "Měl přidat 40 g vody navíc": "Tím by roztok vážil ještě víc (280 g). Vody má být méně, ne víc."
+      }
+    },
+    {
+      "id": "CH31",
+      "tema": "Skupenské přeměny",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se jmenuje přeměna pevné látky PŘÍMO na plyn (bez kapaliny)?",
+      "spravna_odpoved": "Sublimace",
+      "spatne_odpovedi": [
+        "Desublimace",
+        "Vypařování",
+        "Tání"
+      ],
+      "oduvodneni": "Sublimace je přeměna pevné látky přímo na plyn – třeba jód nebo suchý led.",
+      "proc_spatne": {
+        "Desublimace": "Desublimace je opačný směr: plyn → pevná látka (jinovatka).",
+        "Vypařování": "Vypařování začíná u kapaliny, ne u pevné látky.",
+        "Tání": "Při tání vzniká z pevné látky kapalina, ne plyn."
+      }
+    },
+    {
+      "id": "CH32",
+      "tema": "Roztoky a slitiny",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Bronz je slitina mědi a…",
+      "spravna_odpoved": "cínu",
+      "spatne_odpovedi": [
+        "zinku",
+        "železa",
+        "hliníku"
+      ],
+      "oduvodneni": "Bronz = měď + cín, mosaz = měď + zinek. Obě slitiny obsahují měď – liší se druhým kovem.",
+      "proc_spatne": {
+        "zinku": "Měď + zinek je mosaz, ne bronz.",
+        "železa": "Železo je základem oceli, v bronzu není.",
+        "hliníku": "Hliník v bronzu není. Bronz je měď + cín."
+      }
+    },
+    {
+      "id": "CH33",
+      "tema": "Látky – čisté látky a směsi",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kam podle sešitu patří hypermangan (manganistan draselný, KMnO₄)?",
+      "spravna_odpoved": "Mezi chemicky čisté látky",
+      "spatne_odpovedi": [
+        "Mezi stejnorodé směsi",
+        "Mezi různorodé směsi",
+        "Mezi slitiny"
+      ],
+      "oduvodneni": "Samotný hypermangan (fialové krystalky) je chemicky čistá látka – v sešitě je ve stejné skupině jako hliník, měď a jód. Směs (fialový roztok) vznikne až po rozpuštění ve vodě.",
+      "proc_spatne": {
+        "Mezi stejnorodé směsi": "Stejnorodá směs je až fialový roztok hypermanganu ve vodě, ne samotné krystalky.",
+        "Mezi různorodé směsi": "Samotné krystalky jsou jedna látka, nejsou to směs.",
+        "Mezi slitiny": "Slitiny jsou směsi kovů (ocel, mosaz, bronz). Hypermangan není kov."
+      }
+    }
+  ]
+}
