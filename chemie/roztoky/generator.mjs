@@ -305,6 +305,11 @@ export function explainMistake(p, mistake, field) {
 }
 
 // Fields asked at each scaffolding level (1 = worked example has no inputs).
+// The "Co váží X g?" check belongs to the guided level only: the worked example
+// already explains it and the independent level skips scaffolding. Gating every
+// level behind it made the level switch look like it did nothing.
+export const conceptGate = (level, conceptDone) => level === 2 && !conceptDone;
+
 export function fieldsFor(p, level) {
   if (level === 2) return ['onePct', 'solute', 'water', 'check'];
   if (level === 3) return p.kind === 'water' ? ['water'] : ['solute', 'water'];
