@@ -1,4 +1,4 @@
-import { generateProblem, steps, answerSentence, checkLine, checkStep, fieldsFor, g } from './generator.mjs';
+import { conceptGate, generateProblem, steps, answerSentence, checkLine, checkStep, fieldsFor, g } from './generator.mjs';
 
 const $ = id => document.getElementById(id);
 const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -111,12 +111,12 @@ function render() {
   const isCalc = p.kind !== 'findError';
   const tag = !isCalc ? 'Najdi chybu' : p.kind === 'water' ? 'Jen voda' : 'Látka a voda';
   let html = `<p class="tag">${tag}${p.seriesNote ? ` · ${esc(p.seriesNote)}` : ''}</p><h2 class="question">${esc(p.question)}</h2>`;
-  if (!isCalc) html += renderFindError();
-  else if (!st.conceptDone) html += renderConcept();
+  if (!isCalc) html += `<p class="mini">Úrovně Ukázka / Po krocích / Sama platí pro výpočty. Tohle je úloha „Najdi chybu“ – vyber, co je špatně.</p>` + renderFindError();
+  else if (conceptGate(level, st.conceptDone)) html += renderConcept();
   else if (level === 1) html += renderWorked();
   else html += renderInputs();
   $('card').innerHTML = html;
-  $('retry').hidden = !isCalc || level === 1 || !st.conceptDone;
+  $('retry').hidden = !isCalc || level === 1 || conceptGate(level, st.conceptDone);
   renderScore();
   const firstInput = $('card').querySelector('input:not([disabled])');
   if (firstInput && document.activeElement?.tagName !== 'BUTTON') firstInput.focus({ preventScroll: true });

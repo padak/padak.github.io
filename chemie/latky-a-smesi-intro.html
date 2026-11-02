@@ -142,97 +142,249 @@
       .legend .warm { color: var(--warm); }
       .legend .cool { color: var(--cool); }
 
-      /* Classification tree */
-      .tree,
-      .tree ul {
+      /* Classification diagram: root, a fork into two columns, children on a spine */
+      .cls {
+        --line: #94a3b8;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .cls-box {
+        border-radius: 12px;
+        padding: 0.6rem 0.75rem;
+        border: 2px solid;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      .cls-box b { display: block; font-size: 1.02rem; }
+      .cls-box small { display: block; margin-top: 0.2rem; font-size: 0.86rem; color: var(--ink-soft); }
+
+      .cls-root {
+        width: max-content;
+        margin: 0 auto;
+        padding: 0.5rem 1.6rem;
+        color: #fff;
+        border: none;
+        background: linear-gradient(135deg, var(--accent), var(--indigo));
+      }
+
+      .cls-root b { font-size: 1.2rem; }
+
+      .cls-pure { background: #eef2ff; border-color: #818cf8; }
+      .cls-mix { background: #fffbeb; border-color: #f59e0b; }
+
+      .cls-fork {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        position: relative;
+        padding-top: 2rem;
+      }
+
+      /* stem from the root, then the horizontal bar between the two column centres */
+      .cls-fork::before,
+      .cls-fork::after {
+        content: "";
+        position: absolute;
+        background: var(--line);
+      }
+
+      .cls-fork::before { left: calc(50% - 1.5px); top: 0; width: 3px; height: 1rem; }
+      .cls-fork::after { left: 25%; right: 25%; top: 1rem; height: 3px; }
+
+      .cls-branch { position: relative; }
+
+      .cls-branch::before {
+        content: "";
+        position: absolute;
+        left: calc(50% - 1.5px);
+        top: -1rem;
+        width: 3px;
+        height: 1rem;
+        background: var(--line);
+      }
+
+      .cls-kids {
+        --gap: 1rem;
+        list-style: none;
+        margin: 0 0 0 0.9rem;
+        padding: 0.75rem 0 0 var(--gap);
+      }
+
+      .cls-kids > li { position: relative; padding-bottom: 0.75rem; }
+      .cls-kids > li:last-child { padding-bottom: 0; }
+
+      /* each child draws its own spine segment and a tick; the last one stops at its tick */
+      .cls-kids > li::before,
+      .cls-kids > li::after {
+        content: "";
+        position: absolute;
+        left: calc(-1 * var(--gap));
+        background: var(--line);
+      }
+
+      .cls-kids > li::before { top: 1.25rem; width: var(--gap); height: 3px; }
+      .cls-kids > li::after { top: -0.75rem; bottom: 0; width: 3px; }
+      .cls-kids > li:last-child::after { bottom: auto; height: calc(2rem + 3px); }
+
+      .cls-kids .cls-box { text-align: left; }
+
+      .cls-states {
+        list-style: none;
+        margin: 0.5rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      .cls-states li {
+        margin: 0;
+        padding: 0.35rem 0.5rem;
+        border-radius: 8px;
+        background: #fff;
+        border: 1px solid #fcd34d;
+        font-size: 0.86rem;
+        color: var(--ink-soft);
+      }
+
+      .cls-states strong { color: var(--ink); }
+
+      .cls-box a { color: var(--accent-dark); font-weight: 600; }
+
+      @media (max-width: 480px) {
+        .cls-fork { gap: 0.5rem; }
+        .cls-box { padding: 0.5rem 0.55rem; }
+        .cls-box b { font-size: 0.95rem; }
+        .cls-kids { --gap: 0.6rem; margin-left: 0.4rem; }
+      }
+
+      /* Heterogeneous mixtures: cards with a magnifier "under the lens" */
+      .hook {
+        margin: 0 0 1rem;
+        padding: 0.55rem 0.9rem;
+        border-radius: 12px;
+        background: #fffbeb;
+        border: 2px solid #f59e0b;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .lens-legend {
+        list-style: none;
+        margin: 0 0 1.25rem;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1rem;
+        justify-content: center;
+        font-size: 0.86rem;
+        color: var(--ink-soft);
+      }
+
+      .lens-legend li { display: inline-flex; align-items: center; gap: 0.35rem; }
+      .lens-legend svg { width: 20px; height: 20px; flex: none; }
+
+      .lens-grid {
         list-style: none;
         margin: 0;
         padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
       }
 
-      .tree ul {
-        margin-left: 0.9rem;
-        padding-left: 0.9rem;
-        border-left: 3px solid var(--surface-strong);
+      .lens-card {
+        border-radius: 14px;
+        border: 2px solid #f59e0b;
+        background: #fffbeb;
+        padding: 0.75rem 0.6rem 0.85rem;
+        text-align: center;
+        line-height: 1.3;
       }
 
-      .tree li {
-        margin: 0.5rem 0;
-      }
+      .lens-card svg { display: block; width: 100%; max-width: 120px; height: auto; margin: 0 auto 0.4rem; }
+      .lens-card b { display: block; font-size: 1.3rem; color: var(--accent-dark); }
+      .lens-card .mix { display: block; margin-top: 0.2rem; font-weight: 600; }
+      .lens-card .mix i { font-style: normal; color: var(--ink-soft); }
+      .lens-card small { display: block; margin-top: 0.3rem; font-size: 0.86rem; color: var(--ink-soft); }
 
-      .node {
-        display: inline-block;
-        padding: 0.35rem 0.75rem;
-        border-radius: 10px;
+      /* Solution: equation strip with icons */
+      .eq-strip {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        align-items: start;
+        gap: 0.4rem;
+        max-width: 720px;
+        padding: 0.9rem 0.6rem;
+        margin: 0 auto 0.75rem;
+        border-radius: 14px;
         background: var(--surface-soft);
-        border: 1px solid var(--surface-strong);
-        font-weight: 600;
+        border: 2px solid var(--accent);
+        text-align: center;
+        line-height: 1.25;
       }
 
-      .node.root {
-        background: linear-gradient(135deg, var(--accent), var(--indigo));
-        color: #fff;
-        border: none;
-        font-size: 1.1rem;
+      .eq-item svg { display: block; width: 52px; height: 52px; margin: 0 auto 0.3rem; }
+      .eq-item b { display: block; font-size: 1rem; }
+      .eq-item small { display: block; margin-top: 0.15rem; font-size: 0.82rem; color: var(--ink-soft); }
+      .eq-op { font-size: 1.6rem; font-weight: 700; color: var(--accent); line-height: 52px; }
+
+      .eq-more {
+        list-style: none;
+        margin: 0 0 1rem;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
       }
 
-      .node.pure { background: #e0e7ff; border-color: #a5b4fc; }
-      .node.mix { background: #fef3c7; border-color: #fcd34d; }
-
-      .examples {
-        display: block;
-        font-weight: 400;
+      .eq-more li {
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        background: #fff;
+        border: 2px solid var(--surface-strong);
         font-size: 0.92rem;
-        color: var(--ink-soft);
-        margin: 0.2rem 0 0 0.25rem;
       }
 
-      /* Heterogeneous mixtures table */
-      .table-wrap {
-        overflow-x: auto;
+      .eq-more span { color: var(--accent); font-weight: 700; }
+
+      /* Diffusion experiment: three comic panels */
+      .comic {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
+        max-width: 640px;
+        margin: 0 auto;
       }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
+      .comic figure {
+        margin: 0;
+        padding: 0.6rem 0.4rem 0.7rem;
+        border-radius: 14px;
+        border: 2px solid #c4b5fd;
+        background: #f5f3ff;
+        text-align: center;
+      }
+
+      .comic svg { display: block; width: 100%; max-width: 130px; height: auto; margin: 0 auto 0.35rem; }
+      .comic figcaption { font-size: 0.88rem; line-height: 1.3; }
+      .comic figcaption b { display: block; color: #6d28d9; }
+
+      .note {
+        max-width: 640px;
+        margin: 0.6rem auto 0;
+        padding: 0.5rem 0.8rem;
+        border-left: 4px solid #8b5cf6;
+        background: #f5f3ff;
+        border-radius: 0 10px 10px 0;
         font-size: 0.95rem;
       }
 
-      th,
-      td {
-        text-align: left;
-        padding: 0.6rem 0.65rem;
-        border-bottom: 1px solid var(--surface-strong);
-        vertical-align: top;
-      }
-
-      th {
-        background: var(--surface-soft);
-        color: var(--accent-dark);
-      }
-
-      td.name {
-        font-weight: 700;
-        color: var(--accent-dark);
-      }
-
-      /* Solution box */
-      .formula {
-        text-align: center;
-        font-size: 1.15rem;
-        font-weight: 700;
-        background: var(--surface-soft);
-        border-radius: 12px;
-        padding: 0.9rem;
-        margin: 0 0 1rem;
-      }
-
-      .formula .plus {
-        color: var(--accent);
-      }
-
+      /* Worked calculations with proportional bars */
       .calc-box {
-        background: linear-gradient(135deg, #fde68a, #fcd34d);
+        background: #fffbeb;
         border: 2px solid #f59e0b;
         border-radius: 14px;
         padding: 1.25rem 1.5rem;
@@ -240,36 +392,178 @@
         color: #78350f;
       }
 
-      .calc-box h3 {
-        margin: 0 0 0.75rem;
-        color: #92400e;
-      }
+      .calc-box h3 { margin: 0 0 0.6rem; color: #92400e; }
+      .calc-box h4 { margin: 1.4rem 0 0.4rem; font-size: 1.05rem; color: #92400e; }
+      .calc-box p { margin: 0.4rem 0; }
+      .calc-box .answer { font-weight: 700; }
 
-      .calc-box ol {
-        margin: 0 0 0.75rem;
-        padding-left: 1.25rem;
-      }
-
-      .calc-box li {
-        margin: 0.35rem 0;
-      }
-
-      .calc-box .answer {
+      .bar-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
         font-weight: 700;
+        margin: 0.6rem 0 0.2rem;
       }
+
+      .bar {
+        position: relative;
+        display: flex;
+        height: 2.6rem;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid #92400e;
+      }
+
+      /* tick every 10 % so the proportions can be counted */
+      .bar::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(to right, transparent 0, transparent calc(10% - 2px), rgba(255, 255, 255, 0.75) calc(10% - 2px), rgba(255, 255, 255, 0.75) 10%);
+        pointer-events: none;
+      }
+
+      .seg {
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .seg em {
+        position: relative;
+        z-index: 1;
+        font-style: normal;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 0 0.35rem;
+        border-radius: 6px;
+      }
+
+      .seg.solute { background: #f59e0b; color: #451a03; }
+      .seg.acid { background: #a3e635; color: #1a2e05; }
+      .seg.water { background: #60a5fa; color: #172554; }
+
+      .bar-keys {
+        list-style: none;
+        margin: 0.4rem 0 0.6rem;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .bar-keys li::before {
+        content: "";
+        display: inline-block;
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 3px;
+        margin-right: 0.35rem;
+        vertical-align: -0.1rem;
+        background: var(--key);
+      }
+
+      .steps {
+        list-style: none;
+        margin: 0.4rem 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .steps li {
+        padding: 0.3rem 0.6rem;
+        border-radius: 8px;
+        background: #fff;
+        border: 1px solid #fcd34d;
+        font-size: 0.92rem;
+      }
+
+      .steps li + li::before { content: "→ "; color: #b45309; font-weight: 700; }
+      .steps li.check { background: #ecfdf5; border-color: #34d399; color: #065f46; }
+      .steps li.check::before { content: ""; }
 
       .trainer-link {
-        display: inline-block;
-        margin-top: 0.5rem;
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        margin: 1.4rem auto 0;
+        text-align: center;
         text-decoration: none;
         font-weight: 700;
+        font-size: 1.1rem;
         color: #fff;
-        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-        padding: 0.7rem 1.25rem;
+        background: linear-gradient(135deg, var(--accent), var(--indigo));
+        padding: 0.85rem 1.6rem;
         border-radius: 999px;
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
       }
 
-      /* Glossary / main points (rendered from JSON) */
+      .trainer-link:hover { filter: brightness(1.08); }
+
+      /* Main points (rendered from JSON) */
+      .points {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .point {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.75rem;
+        align-items: start;
+        padding: 0.8rem 0.9rem;
+        border-radius: 14px;
+        border: 2px solid var(--surface-strong);
+        background: linear-gradient(135deg, var(--surface-soft), #fff 60%);
+        line-height: 1.45;
+        font-size: 0.95rem;
+      }
+
+      .point-badge { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; width: 52px; }
+      .point-badge svg { display: block; width: 52px; height: 52px; }
+
+      .point-badge span {
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 50%;
+        background: var(--indigo);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        line-height: 1.6rem;
+        text-align: center;
+      }
+
+      .point strong { color: var(--accent-dark); }
+
+      @media (max-width: 480px) {
+        .lens-card b { font-size: 1.15rem; }
+        .eq-strip { gap: 0.2rem; padding: 0.75rem 0.3rem; }
+        .eq-item svg { width: 42px; height: 42px; }
+        .eq-item b { font-size: 0.88rem; }
+        .eq-item small { font-size: 0.74rem; }
+        .eq-op { font-size: 1.3rem; line-height: 42px; }
+        .comic { gap: 0.35rem; }
+        .comic figcaption { font-size: 0.78rem; }
+        .calc-box { padding: 1rem 0.8rem; }
+        .points { grid-template-columns: 1fr; }
+        .point-badge, .point-badge svg { width: 44px; }
+        .point-badge svg { height: 44px; }
+      }
+
+      /* Glossary (rendered from JSON) */
       .cheat-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -305,15 +599,6 @@
         color: var(--accent-dark);
       }
 
-      .main-points {
-        margin: 0;
-        padding-left: 1.25rem;
-      }
-
-      .main-points li {
-        margin: 0.6rem 0;
-      }
-
       .error-msg {
         color: #dc2626;
       }
@@ -329,15 +614,6 @@
 
         section h2 {
           font-size: 1.35rem;
-        }
-
-        table {
-          font-size: 0.88rem;
-        }
-
-        th,
-        td {
-          padding: 0.5rem 0.4rem;
         }
       }
     </style>
@@ -411,107 +687,142 @@
       <section>
         <h2>Rozdělení látek</h2>
         <p class="lead">Každá látka je buď chemicky čistá látka, nebo směs.</p>
-        <ul class="tree">
-          <li>
-            <span class="node root">Látky</span>
-            <ul>
-              <li>
-                <span class="node pure">Chemicky čisté látky</span>
-                <span class="examples">např. hliník, měď, jód, hypermangan</span>
-                <ul>
-                  <li>
-                    <span class="node pure">Prvky</span>
-                    <span class="examples">hliník, měď, jód</span>
-                  </li>
-                  <li>
-                    <span class="node pure">Sloučeniny</span>
-                    <span class="examples">CO₂ (oxid uhličitý), H₂O (voda)</span>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span class="node mix">Směsi</span>
-                <span class="examples">např. ocel, žula</span>
-                <ul>
-                  <li>
-                    <span class="node mix">Stejnorodé = homogenní = roztoky</span>
-                    <span class="examples">složky nerozeznáš, všude stejné vlastnosti</span>
-                    <ul>
-                      <li>
-                        <span class="node">Pevné = slitiny</span>
-                        <span class="examples">ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín)</span>
-                      </li>
-                      <li>
-                        <span class="node">Kapalné</span>
-                        <span class="examples">roztok čaje, voda se šťávou</span>
-                      </li>
-                      <li>
-                        <span class="node">Plynné</span>
-                        <span class="examples">suchý čistý vzduch</span>
-                      </li>
+        <div class="cls" role="img" aria-label="Látky se dělí na chemicky čisté látky (prvky a sloučeniny) a směsi (stejnorodé a různorodé).">
+          <div class="cls-box cls-root"><b>Látky</b></div>
+          <div class="cls-fork">
+            <div class="cls-branch">
+              <div class="cls-box cls-pure"><b>Chemicky čisté látky</b><small>hliník, měď, jód, hypermangan</small></div>
+              <ul class="cls-kids">
+                <li><div class="cls-box cls-pure"><b>Prvky</b><small>hliník, měď, jód</small></div></li>
+                <li><div class="cls-box cls-pure"><b>Sloučeniny</b><small>CO₂ (oxid uhličitý), H₂O (voda)</small></div></li>
+              </ul>
+            </div>
+            <div class="cls-branch">
+              <div class="cls-box cls-mix"><b>Směsi</b><small>ocel, žula</small></div>
+              <ul class="cls-kids">
+                <li>
+                  <div class="cls-box cls-mix">
+                    <b>Stejnorodé</b>
+                    <small>= homogenní = roztoky<br>všude stejné, složky nerozeznáš</small>
+                    <ul class="cls-states">
+                      <li><strong>pevné = slitiny:</strong> ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín)</li>
+                      <li><strong>kapalné:</strong> roztok čaje, voda se šťávou</li>
+                      <li><strong>plynné:</strong> suchý čistý vzduch</li>
                     </ul>
-                  </li>
-                  <li>
-                    <span class="node mix">Různorodé = heterogenní</span>
-                    <span class="examples">složky rozeznáš: žula, čaj s lístky</span>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="cls-box cls-mix">
+                    <b>Různorodé</b>
+                    <small>= heterogenní<br>složky rozeznáš: žula, čaj s lístky</small>
+                    <small><a href="#druhy-smesi">suspenze, emulze, pěna, mlha, dým ↓</a></small>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="druhy-smesi">
+        <h2>Druhy různorodých směsí</h2>
+        <p class="hook">Vždy se ptej: CO je rozptýlené a V&nbsp;ČEM?</p>
+        <ul class="lens-legend" aria-label="Legenda obrázků">
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="4" fill="#e0f2fe" stroke="#94a3b8" /></svg> pozadí: plyn (vzduch)</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="4" fill="#93c5fd" stroke="#94a3b8" /></svg> pozadí: kapalina</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4,7 l8,-3 l4,7 l-8,5z" fill="#b45309" stroke="#78350f" /></svg> zrníčka pevné látky</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#60a5fa" stroke="#1d4ed8" /></svg> kapičky kapaliny</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#fde047" stroke="#ca8a04" /></svg> kapičky oleje</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="4" fill="#93c5fd" /><circle cx="10" cy="10" r="6" fill="#fff" stroke="#1e40af" /></svg> bublinky plynu</li>
+        </ul>
+        <ul class="lens-grid">
+          <li class="lens-card">
+            <svg viewBox="0 0 120 120" role="img" aria-label="Pod lupou: kapičky kapaliny rozptýlené ve vzduchu">
+              <defs><clipPath id="lensMlha"><circle cx="50" cy="50" r="42" /></clipPath></defs>
+              <line x1="80" y1="80" x2="110" y2="110" stroke="#475569" stroke-width="11" stroke-linecap="round" />
+              <g clip-path="url(#lensMlha)"><rect x="0" y="0" width="100" height="100" fill="#e0f2fe" /><circle cx="30" cy="30" r="3.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="52" cy="24" r="3" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="70" cy="36" r="4" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="38" cy="50" r="3" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="60" cy="55" r="3.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="26" cy="62" r="3" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="46" cy="72" r="4" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="70" cy="70" r="3" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="80" cy="52" r="2.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="50" cy="40" r="2.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="34" cy="82" r="2.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /><circle cx="62" cy="84" r="3" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" /></g>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#334155" stroke-width="5" />
+              <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+            </svg>
+            <b>Mlha</b>
+            <span class="mix">kapalina <i>v</i> plynu</span>
+            <small>např. ranní opar</small>
+          </li>
+          <li class="lens-card">
+            <svg viewBox="0 0 120 120" role="img" aria-label="Pod lupou: bublinky plynu v kapalině">
+              <defs><clipPath id="lensPena"><circle cx="50" cy="50" r="42" /></clipPath></defs>
+              <line x1="80" y1="80" x2="110" y2="110" stroke="#475569" stroke-width="11" stroke-linecap="round" />
+              <g clip-path="url(#lensPena)"><rect x="0" y="0" width="100" height="100" fill="#93c5fd" /><circle cx="35" cy="35" r="10" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="58" cy="30" r="8" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="73" cy="48" r="9" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="48" cy="53" r="11" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="27" cy="60" r="8" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="61" cy="71" r="9" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="40" cy="77" r="7" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="79" cy="68" r="6" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="21" cy="43" r="5" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="48" cy="15" r="6" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /><circle cx="70" cy="16" r="4" fill="#ffffff" stroke="#1e40af" stroke-width="1.2" /></g>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#334155" stroke-width="5" />
+              <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+            </svg>
+            <b>Pěna</b>
+            <span class="mix">plyn <i>v</i> kapalině</span>
+            <small>např. našlehaná šlehačka</small>
+          </li>
+          <li class="lens-card">
+            <svg viewBox="0 0 120 120" role="img" aria-label="Pod lupou: žluté kapičky oleje ve vodě">
+              <defs><clipPath id="lensEmulze"><circle cx="50" cy="50" r="42" /></clipPath></defs>
+              <line x1="80" y1="80" x2="110" y2="110" stroke="#475569" stroke-width="11" stroke-linecap="round" />
+              <g clip-path="url(#lensEmulze)"><rect x="0" y="0" width="100" height="100" fill="#93c5fd" /><circle cx="32" cy="34" r="7" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="58" cy="28" r="5" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="71" cy="50" r="8" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="45" cy="55" r="6" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="27" cy="63" r="5" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="56" cy="74" r="7" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="76" cy="72" r="4" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="40" cy="80" r="4" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="19" cy="47" r="4" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="62" cy="43" r="3.5" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /><circle cx="44" cy="20" r="4" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" /></g>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#334155" stroke-width="5" />
+              <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+            </svg>
+            <b>Emulze</b>
+            <span class="mix">kapalina <i>v</i> kapalině</span>
+            <small>např. olej ve vodě – krém</small>
+          </li>
+          <li class="lens-card">
+            <svg viewBox="0 0 120 120" role="img" aria-label="Pod lupou: drobná zrníčka pevné látky ve vzduchu">
+              <defs><clipPath id="lensDym"><circle cx="50" cy="50" r="42" /></clipPath></defs>
+              <line x1="80" y1="80" x2="110" y2="110" stroke="#475569" stroke-width="11" stroke-linecap="round" />
+              <g clip-path="url(#lensDym)"><rect x="0" y="0" width="100" height="100" fill="#e0f2fe" /><path d="M26,32 l5,-2 l2,4 l-5,2z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M48,22 l4,1 l-1,4 l-4,-1z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M68,32 l5,0 l-1,5 l-5,-1z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M36,48 l4,-2 l2,4 l-4,2z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M58,50 l6,1 l-2,4 l-4,-1z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M78,50 l4,-1 l0,4 l-4,0z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M24,64 l5,1 l-2,4 l-4,-2z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M46,68 l4,-1 l1,5 l-5,0z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M66,70 l5,-2 l1,4 l-5,2z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M36,84 l4,0 l-1,4 l-4,-1z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M56,86 l5,-1 l0,4 l-5,0z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /><path d="M50,38 l3,0 l0,3 l-3,0z" fill="#57534e" stroke="#292524" stroke-width="1" stroke-linejoin="round" /></g>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#334155" stroke-width="5" />
+              <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+            </svg>
+            <b>Dým / kouř</b>
+            <span class="mix">pevná látka <i>v</i> plynu</span>
+            <small>např. kouř nad ohněm</small>
+          </li>
+          <li class="lens-card">
+            <svg viewBox="0 0 120 120" role="img" aria-label="Pod lupou: zrnka písku ve vodě, část z nich se usadila na dně">
+              <defs><clipPath id="lensSusp"><circle cx="50" cy="50" r="42" /></clipPath></defs>
+              <line x1="80" y1="80" x2="110" y2="110" stroke="#475569" stroke-width="11" stroke-linecap="round" />
+              <g clip-path="url(#lensSusp)"><rect x="0" y="0" width="100" height="100" fill="#93c5fd" /><path d="M8,96 Q50,72 92,96 Z" fill="#b45309" stroke="#78350f" stroke-width="1" /><path d="M30,38 l7,-2 l2,6 l-6,3z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /><path d="M56,30 l6,2 l-3,6 l-5,-3z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /><path d="M42,52 l7,0 l-1,6 l-7,-2z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /><path d="M66,50 l5,-3 l3,6 l-6,2z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /><path d="M28,84 l6,-3 l4,4 l-6,3z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /><path d="M43,79 l7,-1 l1,5 l-7,1z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /><path d="M58,80 l6,1 l-1,5 l-6,-1z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /><path d="M68,85 l5,-1 l1,4 l-5,1z" fill="#d97706" stroke="#78350f" stroke-width="1" stroke-linejoin="round" /></g>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#334155" stroke-width="5" />
+              <path d="M24 32 A30 30 0 0 1 40 17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+            </svg>
+            <b>Suspenze</b>
+            <span class="mix">pevná látka <i>v</i> kapalině</span>
+            <small>např. písek ve vodě</small>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2>Druhy různorodých směsí</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Složení</th>
-                <th>Název</th>
-                <th>Příklad</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>kapalina v plynu</td>
-                <td class="name">mlha</td>
-                <td>ranní opar</td>
-              </tr>
-              <tr>
-                <td>plyn v kapalině</td>
-                <td class="name">pěna</td>
-                <td>našlehaná šlehačka</td>
-              </tr>
-              <tr>
-                <td>kapalina v kapalině, např. olej ve vodě</td>
-                <td class="name">emulze</td>
-                <td>krém</td>
-              </tr>
-              <tr>
-                <td>pevná látka v plynu</td>
-                <td class="name">dým / kouř</td>
-                <td>kouř nad ohněm</td>
-              </tr>
-              <tr>
-                <td>pevná látka v kapalině</td>
-                <td class="name">suspenze</td>
-                <td>písek ve vodě</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section>
         <h2>Roztok</h2>
-        <div class="formula">
-          roztok = rozpouštědlo <span class="plus">+</span> rozpuštěná látka
+        <div class="eq-strip" role="group" aria-label="roztok = rozpouštědlo + rozpuštěná látka">
+          <div class="eq-item">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 C24 5 10 21 10 31 A14 14 0 0 0 38 31 C38 21 24 5 24 5 Z" fill="#60a5fa" stroke="#1d4ed8" stroke-width="2" /><path d="M17 31 A7 7 0 0 0 22 38" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" /></svg>
+            <b>rozpouštědlo</b><small>voda H₂O</small>
+          </div>
+          <span class="eq-op" aria-hidden="true">+</span>
+          <div class="eq-item">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 L39 17 L34 41 L14 41 L9 17 Z" fill="#7e22ce" stroke="#581c87" stroke-width="2" stroke-linejoin="round" /><path d="M24 5 L24 41 M9 17 L24 22 L39 17" fill="none" stroke="#c084fc" stroke-width="1.5" /></svg>
+            <b>rozpuštěná látka</b><small>manganistan draselný KMnO₄</small>
+          </div>
+          <span class="eq-op" aria-hidden="true">=</span>
+          <div class="eq-item">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="18" width="20" height="23" fill="#a855f7" /><path d="M10 7 H38 M13 7 V39 A4 4 0 0 0 17 43 H31 A4 4 0 0 0 35 39 V7" fill="none" stroke="#475569" stroke-width="2.5" stroke-linejoin="round" /></svg>
+            <b>roztok</b><small>fialový roztok</small>
+          </div>
         </div>
+        <ul class="eq-more" aria-label="Další příklady roztoků">
+          <li>voda <span>+</span> kyselina octová <span>=</span> <strong>ocet</strong></li>
+          <li>voda <span>+</span> sirup <span>=</span> <strong>šťáva</strong></li>
+        </ul>
         <p>
           <strong>Rozpouštědlo</strong> v celém objemu převažuje - nejčastěji voda (H₂O).
-          Příklady: voda + manganistan draselný KMnO₄ = fialový roztok; voda + kyselina octová = ocet; voda + sirup = šťáva.
         </p>
 
         <h3>Pokus: difuze</h3>
@@ -519,29 +830,93 @@
           Krystalky manganistanu draselného (hypermanganu) vložíme do vody v odměrném válci. Samy se pomalu rozptylují -
           to je <strong>difuze</strong> (samovolné pronikání částic jedné látky mezi částice druhé). Po promíchání vznikne fialový roztok.
         </p>
+        <div class="comic">
+          <figure>
+            <svg viewBox="0 0 120 200" role="img" aria-label="Odměrný válec s čistou vodou, nahoře do něj padají fialové krystalky">
+                <defs><clipPath id="cyl1"><rect x="37" y="50" width="46" height="128" /></clipPath></defs>
+                <rect x="37" y="50" width="46" height="128" fill="#dbeafe" />
+                <g clip-path="url(#cyl1)"><path d="M50,54 l5,-3 l4,5 l-5,3z" fill="#581c87" /><path d="M66,56 l5,-3 l4,5 l-5,3z" fill="#581c87" /></g>
+                <path d="M52,32 l5,-3 l4,5 l-5,3z" fill="#581c87" /><path d="M64,26 l5,-3 l4,5 l-5,3z" fill="#581c87" /><path d="M58,40 l5,-3 l4,5 l-5,3z" fill="#581c87" /><path d="M50 14 v8 M62 10 v8 M70 18 v6" stroke="#7e22ce" stroke-width="1.5" stroke-linecap="round" /><g stroke="#64748b" stroke-width="1.5"><line x1="37" y1="60" x2="47" y2="60" /><line x1="37" y1="80" x2="43" y2="80" /><line x1="37" y1="100" x2="47" y2="100" /><line x1="37" y1="120" x2="43" y2="120" /><line x1="37" y1="140" x2="47" y2="140" /><line x1="37" y1="160" x2="43" y2="160" /></g>
+                <path d="M29 20 H91 M35 20 V178 H85 V20" fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round" />
+                <rect x="24" y="178" width="72" height="9" rx="3" fill="#94a3b8" stroke="#475569" stroke-width="2" />
+              </svg>
+            <figcaption><b>1</b>Nasypu krystalky</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 120 200" role="img" aria-label="Odměrný válec: od krystalků se vodou samy šíří fialové pruhy">
+                <defs><clipPath id="cyl2"><rect x="37" y="50" width="46" height="128" /></clipPath></defs>
+                <rect x="37" y="50" width="46" height="128" fill="#dbeafe" />
+                <g clip-path="url(#cyl2)"><path d="M52 50 C46 80 58 100 50 130 C46 150 54 165 52 178" fill="none" stroke="#a855f7" stroke-width="7" opacity="0.55" /><path d="M66 50 C72 75 62 105 68 135 C71 155 64 168 66 178" fill="none" stroke="#a855f7" stroke-width="6" opacity="0.45" /><path d="M59 60 C56 90 63 120 58 178" fill="none" stroke="#c084fc" stroke-width="4" opacity="0.5" /><ellipse cx="60" cy="176" rx="24" ry="12" fill="#a855f7" opacity="0.45" /><path d="M48,172 l5,-3 l4,5 l-5,3z" fill="#581c87" /><path d="M64,173 l5,-3 l4,5 l-5,3z" fill="#581c87" /></g>
+                <g stroke="#64748b" stroke-width="1.5"><line x1="37" y1="60" x2="47" y2="60" /><line x1="37" y1="80" x2="43" y2="80" /><line x1="37" y1="100" x2="47" y2="100" /><line x1="37" y1="120" x2="43" y2="120" /><line x1="37" y1="140" x2="47" y2="140" /><line x1="37" y1="160" x2="43" y2="160" /></g>
+                <path d="M29 20 H91 M35 20 V178 H85 V20" fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round" />
+                <rect x="24" y="178" width="72" height="9" rx="3" fill="#94a3b8" stroke="#475569" stroke-width="2" />
+              </svg>
+            <figcaption><b>2</b>Difuze – fialová se sama šíří</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 120 200" role="img" aria-label="Odměrný válec se stejnoměrně fialovým roztokem po promíchání">
+                <defs><clipPath id="cyl3"><rect x="37" y="50" width="46" height="128" /></clipPath></defs>
+                <rect x="37" y="50" width="46" height="128" fill="#dbeafe" />
+                <g clip-path="url(#cyl3)"><rect x="37" y="50" width="46" height="128" fill="#a855f7" opacity="0.85" /></g>
+                <g stroke="#64748b" stroke-width="1.5"><line x1="37" y1="60" x2="47" y2="60" /><line x1="37" y1="80" x2="43" y2="80" /><line x1="37" y1="100" x2="47" y2="100" /><line x1="37" y1="120" x2="43" y2="120" /><line x1="37" y1="140" x2="47" y2="140" /><line x1="37" y1="160" x2="43" y2="160" /></g>
+                <path d="M29 20 H91 M35 20 V178 H85 V20" fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round" />
+                <line x1="74" y1="6" x2="56" y2="168" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" opacity="0.9" /><rect x="24" y="178" width="72" height="9" rx="3" fill="#94a3b8" stroke="#475569" stroke-width="2" />
+              </svg>
+            <figcaption><b>3</b>Po promíchání: fialový roztok</figcaption>
+          </figure>
+        </div>
+        <p class="note">Difuze probíhá sama, bez míchání. Promícháním jen urychlíme, aby byl roztok všude stejně fialový.</p>
 
         <div class="calc-box">
           <h3>Vzorový výpočet (metoda 1 %)</h3>
           <p><strong>Zadání:</strong> Připrav 200 g 20% roztoku soli (NaCl).</p>
-          <ol>
+          <div class="bar-total"><span>0 g</span><span>200 g roztoku = 100 %</span></div>
+          <div class="bar" role="img" aria-label="Pruh 200 g roztoku: 20 % je sůl, 40 g; 80 % je voda, 160 g">
+            <span class="seg solute" style="width: 20%"><em>20 %</em></span>
+            <span class="seg water" style="width: 80%"><em>80 %</em></span>
+          </div>
+          <ul class="bar-keys">
+            <li style="--key: #f59e0b">sůl NaCl: 20 % = <strong>40 g</strong></li>
+            <li style="--key: #60a5fa">voda H₂O: 80 % = <strong>160 g</strong></li>
+          </ul>
+          <ol class="steps">
             <li>1 % z 200 g = 200 : 100 = <strong>2 g</strong></li>
-            <li>sůl: 20 · 2 g = <strong>40 g</strong></li>
-            <li>voda: 200 g − 40 g = <strong>160 g</strong></li>
+            <li>sůl: 20 · 2 g = <strong>40 g soli</strong></li>
+            <li>voda: 200 g − 40 g = <strong>160 g vody</strong></li>
           </ol>
+          <ul class="steps">
+            <li class="check">kontrola: 40 g + 160 g = 200 g</li>
+          </ul>
           <p class="answer">Připravím ho ze 160 g H₂O a 40 g NaCl.</p>
-          <p>
-            <strong>Ocet</strong> = 92 % vody + 8 % kyseliny octové. Např. 100 g octa = 92 g H₂O + 8 g kyseliny octové;
-            200 g octa = 184 g H₂O + 16 g kyseliny octové.
-          </p>
-          <a href="roztoky-vypocty.html" class="trainer-link">Procvičit výpočty v trenažéru</a>
+
+          <h4>Ocet = 92 % vody + 8 % kyseliny octové</h4>
+          <div class="bar-total"><span>0 g</span><span>250 g octa = 100 %</span></div>
+          <div class="bar" role="img" aria-label="Pruh 250 g octa: 8 % je kyselina octová, 20 g; 92 % je voda, 230 g">
+            <span class="seg acid" style="width: 8%"></span>
+            <span class="seg water" style="width: 92%"><em>92 %</em></span>
+          </div>
+          <ul class="bar-keys">
+            <li style="--key: #a3e635">kyselina octová: 8 % = <strong>20 g</strong></li>
+            <li style="--key: #60a5fa">voda H₂O: 92 % = <strong>230 g</strong></li>
+          </ul>
+          <ol class="steps">
+            <li>1 % z 250 g = 250 : 100 = <strong>2,5 g</strong></li>
+            <li>kyselina: 8 · 2,5 g = <strong>20 g</strong></li>
+            <li>voda: 250 g − 20 g = <strong>230 g vody</strong></li>
+          </ol>
+          <ul class="steps">
+            <li class="check">kontrola: 20 g + 230 g = 250 g</li>
+          </ul>
+          <p>Další příklady: 100 g octa = 92 g H₂O + 8 g kyseliny octové; 200 g octa = 184 g H₂O + 16 g kyseliny octové.</p>
+          <a href="roztoky-vypocty.html" class="trainer-link">Procvičit výpočty v trenažéru →</a>
         </div>
       </section>
 
       <section>
         <h2>Hlavní věci, které musíš umět</h2>
-        <ul class="main-points" id="main-points">
+        <ol class="points" id="main-points">
           <!-- Rendered from JSON (hlavni_osy) -->
-        </ul>
+        </ol>
       </section>
 
       <section>
@@ -572,9 +947,42 @@
         }
       }
 
+      // Small 48x48 icons for the main points, picked by keyword (first match wins).
+      const POINT_ICONS = [
+        [/^skupensk/i, '<rect x="17" y="3" width="14" height="10" rx="3" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/><rect x="3" y="35" width="14" height="10" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><rect x="31" y="35" width="14" height="10" rx="3" fill="#cffafe" stroke="#0891b2" stroke-width="2"/><path d="M12 33 L21 15 M36 33 L27 15" stroke="#dc2626" stroke-width="2.5"/><path d="M19 40 H29" stroke="#2563eb" stroke-width="2.5"/>'],
+        [/^látky dělíme/i, '<rect x="14" y="3" width="20" height="10" rx="3" fill="#4f46e5"/><path d="M24 13 V20 M12 20 H36 M12 20 V27 M36 20 V27" stroke="#94a3b8" stroke-width="2.5" fill="none"/><rect x="3" y="27" width="18" height="12" rx="3" fill="#eef2ff" stroke="#818cf8" stroke-width="2"/><rect x="27" y="27" width="18" height="12" rx="3" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>'],
+        [/^stejnorod/i, '<path d="M12 10 H36 L33 42 H15 Z" fill="#fff" stroke="#475569" stroke-width="2.5" stroke-linejoin="round"/><path d="M13.5 20 H34.5 L33 40 H15 Z" fill="#67e8f9"/>'],
+        [/^druhy různorod/i, '<circle cx="20" cy="20" r="14" fill="#93c5fd" stroke="#334155" stroke-width="3"/><circle cx="15" cy="17" r="3" fill="#fde047" stroke="#ca8a04"/><circle cx="24" cy="24" r="4" fill="#fff" stroke="#1e40af"/><path d="M18 28 l4,-1 l1,3 l-4,1z" fill="#b45309"/><path d="M30 30 L44 44" stroke="#475569" stroke-width="5" stroke-linecap="round"/>'],
+        [/^různorod/i, '<rect x="4" y="8" width="40" height="32" rx="6" fill="#e7e5e4" stroke="#78716c" stroke-width="2"/><path d="M10 14 l6,-1 l1,5 l-6,1z M28 12 l5,2 l-2,5 l-5,-2z M18 26 l7,0 l-1,6 l-6,-1z M33 28 l5,-1 l1,5 l-6,0z" fill="#1c1917"/><path d="M24 18 l4,1 l-1,4 l-4,-1z M10 30 l5,1 l-2,4 l-4,-2z M37 18 l3,1 l-1,3 l-3,-1z" fill="#f9a8d4" stroke="#be185d"/>'],
+        [/slitin/i, '<path d="M4 34 L12 20 H40 L44 34 Z" fill="#cbd5e1" stroke="#475569" stroke-width="2" stroke-linejoin="round"/><path d="M4 34 H44 V40 H4 Z" fill="#94a3b8" stroke="#475569" stroke-width="2" stroke-linejoin="round"/><path d="M16 24 H34" stroke="#fff" stroke-width="2" stroke-linecap="round"/>'],
+        [/^roztok\s*=/i, '<rect x="14" y="18" width="20" height="23" fill="#a855f7"/><path d="M10 7 H38 M13 7 V39 A4 4 0 0 0 17 43 H31 A4 4 0 0 0 35 39 V7" fill="none" stroke="#475569" stroke-width="2.5" stroke-linejoin="round"/>'],
+        [/difuze/i, '<rect x="18" y="14" width="12" height="28" fill="#dbeafe"/><path d="M24 14 C21 22 27 30 23 41" stroke="#a855f7" stroke-width="4" fill="none"/><path d="M14 5 H34 M17 5 V42 H31 V5" fill="none" stroke="#475569" stroke-width="2.5" stroke-linejoin="round"/><rect x="12" y="42" width="24" height="4" rx="2" fill="#94a3b8"/>'],
+        [/výpočet/i, '<rect x="8" y="4" width="32" height="40" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="2.5"/><rect x="13" y="9" width="22" height="9" rx="2" fill="#fde68a"/><text x="24" y="38" font-size="17" font-weight="700" text-anchor="middle" fill="#92400e">%</text>'],
+        [/^ocet/i, '<path d="M20 4 H28 V12 C28 16 36 17 36 24 V42 A2 2 0 0 1 34 44 H14 A2 2 0 0 1 12 42 V24 C12 17 20 16 20 12 Z" fill="#fff" stroke="#475569" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 28 H34 V42 H14 Z" fill="#a3e635"/><rect x="19" y="2" width="10" height="5" rx="1" fill="#dc2626"/>']
+      ];
+      const FALLBACK_ICON = '<circle cx="24" cy="24" r="18" fill="#cffafe" stroke="#0891b2" stroke-width="2.5"/><path d="M24 14 V27 M24 32 V34" stroke="#0e7490" stroke-width="3.5" stroke-linecap="round"/>';
+
+      // Bold ALL-CAPS key terms (TÁNÍ, DÝM / KOUŘ) and short phrases right after "=".
+      function emphasize(text) {
+        return text
+          .replace(/(?<![\p{L}\p{N}])\p{Lu}{2,}(?:\s*\/\s*\p{Lu}{2,})?(?![\p{L}\p{N}])/gu, '<strong>$&</strong>')
+          .replace(/= ([^,;.:()→=<]+)/g, (match, phrase) => {
+            const trimmed = phrase.trim();
+            return trimmed && trimmed.split(/\s+/).length <= 4
+              ? `= <strong>${trimmed}</strong>${phrase.slice(phrase.trimEnd().length)}`
+              : match;
+          });
+      }
+
       function renderMainPoints(points) {
         document.getElementById('main-points').innerHTML = points
-          .map(point => `<li>${point}</li>`)
+          .map((point, i) => {
+            const icon = (POINT_ICONS.find(([re]) => re.test(point)) || [null, FALLBACK_ICON])[1];
+            return `<li class="point">
+              <div class="point-badge"><span>${i + 1}</span><svg viewBox="0 0 48 48" aria-hidden="true">${icon}</svg></div>
+              <div>${emphasize(point)}</div>
+            </li>`;
+          })
           .join('');
       }
 

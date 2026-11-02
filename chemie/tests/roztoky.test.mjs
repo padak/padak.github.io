@@ -149,3 +149,11 @@ test('feminine šťáva and masculine roztok/ocet agree in feedback', () => {
   assert.match(salt, /celého roztoku/); assert.match(salt, /jeho část/);
   assert.match(checkStep(makeCalc('ocet', 200, 8), 'water', '200').message, /celého octa/);
 });
+
+test('each level looks different from the first screen: only guided mode is gated by the concept check', async () => {
+  const { conceptGate } = await import('../roztoky/generator.mjs');
+  assert.equal(conceptGate(1, false), false);
+  assert.equal(conceptGate(2, false), true);
+  assert.equal(conceptGate(2, true), false);
+  assert.equal(conceptGate(3, false), false);
+});
