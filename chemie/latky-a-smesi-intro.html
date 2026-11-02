@@ -547,6 +547,11 @@
       }
 
       .point strong { color: var(--accent-dark); }
+      .point-title { margin: 0 0 0.4rem; font-weight: 700; color: var(--ink); line-height: 1.35; }
+      .point-title strong { color: inherit; }
+      .point-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; }
+      .point-lines li { padding-left: 0.9rem; position: relative; line-height: 1.4; }
+      .point-lines li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.35rem; height: 0.35rem; border-radius: 50%; background: var(--surface-strong); }
 
       @media (max-width: 480px) {
         .lens-card b { font-size: 1.15rem; }
@@ -950,7 +955,7 @@
       // Small 48x48 icons for the main points, picked by keyword (first match wins).
       const POINT_ICONS = [
         [/^skupensk/i, '<rect x="17" y="3" width="14" height="10" rx="3" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/><rect x="3" y="35" width="14" height="10" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><rect x="31" y="35" width="14" height="10" rx="3" fill="#cffafe" stroke="#0891b2" stroke-width="2"/><path d="M12 33 L21 15 M36 33 L27 15" stroke="#dc2626" stroke-width="2.5"/><path d="M19 40 H29" stroke="#2563eb" stroke-width="2.5"/>'],
-        [/^látky dělíme/i, '<rect x="14" y="3" width="20" height="10" rx="3" fill="#4f46e5"/><path d="M24 13 V20 M12 20 H36 M12 20 V27 M36 20 V27" stroke="#94a3b8" stroke-width="2.5" fill="none"/><rect x="3" y="27" width="18" height="12" rx="3" fill="#eef2ff" stroke="#818cf8" stroke-width="2"/><rect x="27" y="27" width="18" height="12" rx="3" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>'],
+        [/^rozdělení látek/i, '<rect x="14" y="3" width="20" height="10" rx="3" fill="#4f46e5"/><path d="M24 13 V20 M12 20 H36 M12 20 V27 M36 20 V27" stroke="#94a3b8" stroke-width="2.5" fill="none"/><rect x="3" y="27" width="18" height="12" rx="3" fill="#eef2ff" stroke="#818cf8" stroke-width="2"/><rect x="27" y="27" width="18" height="12" rx="3" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>'],
         [/^stejnorod/i, '<path d="M12 10 H36 L33 42 H15 Z" fill="#fff" stroke="#475569" stroke-width="2.5" stroke-linejoin="round"/><path d="M13.5 20 H34.5 L33 40 H15 Z" fill="#67e8f9"/>'],
         [/^druhy různorod/i, '<circle cx="20" cy="20" r="14" fill="#93c5fd" stroke="#334155" stroke-width="3"/><circle cx="15" cy="17" r="3" fill="#fde047" stroke="#ca8a04"/><circle cx="24" cy="24" r="4" fill="#fff" stroke="#1e40af"/><path d="M18 28 l4,-1 l1,3 l-4,1z" fill="#b45309"/><path d="M30 30 L44 44" stroke="#475569" stroke-width="5" stroke-linecap="round"/>'],
         [/^různorod/i, '<rect x="4" y="8" width="40" height="32" rx="6" fill="#e7e5e4" stroke="#78716c" stroke-width="2"/><path d="M10 14 l6,-1 l1,5 l-6,1z M28 12 l5,2 l-2,5 l-5,-2z M18 26 l7,0 l-1,6 l-6,-1z M33 28 l5,-1 l1,5 l-6,0z" fill="#1c1917"/><path d="M24 18 l4,1 l-1,4 l-4,-1z M10 30 l5,1 l-2,4 l-4,-2z M37 18 l3,1 l-1,3 l-3,-1z" fill="#f9a8d4" stroke="#be185d"/>'],
@@ -966,12 +971,24 @@
       function emphasize(text) {
         return text
           .replace(/(?<![\p{L}\p{N}])\p{Lu}{2,}(?:\s*\/\s*\p{Lu}{2,})?(?![\p{L}\p{N}])/gu, '<strong>$&</strong>')
-          .replace(/= ([^,;.:()→=<]+)/g, (match, phrase) => {
+          .replace(/=([ \u00a0])([^,;.:()→=<]+)/g, (match, space, phrase) => {
             const trimmed = phrase.trim();
             return trimmed && trimmed.split(/\s+/).length <= 4
-              ? `= <strong>${trimmed}</strong>${phrase.slice(phrase.trimEnd().length)}`
+              ? `=${space}<strong>${trimmed}</strong>${phrase.slice(phrase.trimEnd().length)}`
               : match;
           });
+      }
+
+      // Each point is "Title\nline\nline…" in the JSON: the title becomes a heading and
+      // every following line its own row. Numbers stay glued to their units (200 g, 20 %)
+      // and "=" / "→" to the term after them, so a line breaks before "= TÁNÍ", not inside it.
+      function formatPoint(point) {
+        const glue = s => s
+          .replace(/(\d) (g|%)(?![\p{L}])/gu, '$1\u00a0$2')
+          .replace(/ ([=→]) /g, ' $1\u00a0');
+        const [title, ...lines] = point.split('\n').map(glue);
+        return `<p class="point-title">${emphasize(title)}</p>` +
+          (lines.length ? `<ul class="point-lines">${lines.map(l => `<li>${emphasize(l)}</li>`).join('')}</ul>` : '');
       }
 
       function renderMainPoints(points) {
@@ -980,7 +997,7 @@
             const icon = (POINT_ICONS.find(([re]) => re.test(point)) || [null, FALLBACK_ICON])[1];
             return `<li class="point">
               <div class="point-badge"><span>${i + 1}</span><svg viewBox="0 0 48 48" aria-hidden="true">${icon}</svg></div>
-              <div>${emphasize(point)}</div>
+              <div>${formatPoint(point)}</div>
             </li>`;
           })
           .join('');

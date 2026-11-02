@@ -6,16 +6,16 @@
   ],
   "zdroj": "5 stránek ze sešitu (bez učebnice): Fyzikální procesy (skupenské přeměny), 2. kapitola Směsi (čisté látky a směsi, stejnorodé a různorodé směsi, slitiny), pracovní list PL – Směsi (druhy různorodých směsí), Stejnorodé směsi = roztok (pokus s manganistanem draselným, rozpouštědlo a rozpuštěná látka) a příklady na výpočet složení roztoku metodou 1 %.",
   "hlavni_osy": [
-    "Skupenské přeměny (fyzikální procesy): pevná látka → kapalina = TÁNÍ, kapalina → pevná látka = TUHNUTÍ, kapalina → plyn = VYPAŘOVÁNÍ, plyn → kapalina = KONDENZACE, pevná látka → plyn = SUBLIMACE, plyn → pevná látka = DESUBLIMACE.",
-    "Látky dělíme na chemicky čisté látky (hliník, měď, jód, hypermangan) a směsi (ocel, žula). Chemicky čisté látky jsou prvky (hliník, měď, jód) a sloučeniny (CO₂, H₂O).",
-    "Stejnorodá (homogenní) směs má ve všech místech stejné vlastnosti – nerozeznáš v ní jednotlivé složky (ocel, mosaz, slaná voda, voda se šťávou). Stejnorodé směsi = roztoky.",
-    "Různorodá (heterogenní) směs má v různých místech jiné vlastnosti – složky v ní rozeznáš (žula, čaj s lístky, voda s pískem).",
-    "Roztoky podle skupenství: pevné – ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín) = SLITINY; kapalné – roztok čaje, voda se šťávou, slaná voda; plynné – suchý čistý vzduch.",
-    "Druhy různorodých směsí: SUSPENZE = pevná látka v kapalině (písek ve vodě), EMULZE = kapalina v kapalině, např. olej ve vodě (krém), PĚNA = plyn v kapalině (našlehaná šlehačka), MLHA = kapalina v plynu (ranní opar), DÝM / KOUŘ = pevná látka v plynu (kouř nad ohněm).",
-    "Roztok = rozpouštědlo + rozpuštěná látka. Rozpouštědlo (nejčastěji voda H₂O) v celém objemu převažuje. Příklady: voda + manganistan draselný KMnO₄ = fialový roztok; voda + kyselina octová = ocet; voda + sirup = šťáva.",
-    "Pokus: krystalky manganistanu draselného ve vodě v odměrném válci se samy pomalu rozptylují – DIFUZE. Po promíchání vznikne fialový roztok.",
-    "Výpočet složení roztoku (metoda 1 %): 200 g 20% roztoku soli → 1 % z 200 g = 2 g → sůl: 20 · 2 g = 40 g → voda: 200 g − 40 g = 160 g. Připravím ho ze 160 g H₂O a 40 g NaCl.",
-    "Ocet = 92 % vody + 8 % kyseliny octové: 250 g octa = 230 g H₂O + 20 g kyseliny octové; 200 g octa = 184 g H₂O + 16 g kyseliny octové; 100 g octa = 92 g H₂O + 8 g kyseliny octové."
+    "Skupenské přeměny (fyzikální procesy)\npevná látka → kapalina = TÁNÍ\nkapalina → pevná látka = TUHNUTÍ\nkapalina → plyn = VYPAŘOVÁNÍ\nplyn → kapalina = KONDENZACE\npevná látka → plyn = SUBLIMACE\nplyn → pevná látka = DESUBLIMACE",
+    "Rozdělení látek\nLátky dělíme na chemicky čisté látky (hliník, měď, jód, hypermangan) a směsi (ocel, žula).\nChemicky čisté látky jsou prvky (hliník, měď, jód) a sloučeniny (CO₂, H₂O).",
+    "Stejnorodá (homogenní) směs\nVe všech místech má stejné vlastnosti – nerozeznáš v ní jednotlivé složky.\nPříklady: ocel, mosaz, slaná voda, voda se šťávou.\nStejnorodé směsi = roztoky.",
+    "Různorodá (heterogenní) směs\nV různých místech má jiné vlastnosti – složky v ní rozeznáš.\nPříklady: žula, čaj s lístky, voda s pískem.",
+    "Roztoky podle skupenství\npevné – ocel (železo + jiný kov), mosaz (měď + zinek), bronz (měď + cín) = SLITINY\nkapalné – roztok čaje, voda se šťávou, slaná voda\nplynné – suchý čistý vzduch",
+    "Druhy různorodých směsí\nSUSPENZE = pevná látka v kapalině (písek ve vodě)\nEMULZE = kapalina v kapalině, např. olej ve vodě (krém)\nPĚNA = plyn v kapalině (našlehaná šlehačka)\nMLHA = kapalina v plynu (ranní opar)\nDÝM / KOUŘ = pevná látka v plynu (kouř nad ohněm)",
+    "Roztok = rozpouštědlo + rozpuštěná látka\nRozpouštědlo (nejčastěji voda H₂O) v celém objemu převažuje.\nvoda + manganistan draselný KMnO₄ = fialový roztok\nvoda + kyselina octová = ocet\nvoda + sirup = šťáva",
+    "Pokus: difuze\nKrystalky manganistanu draselného ve vodě v odměrném válci se samy pomalu rozptylují – DIFUZE.\nPo promíchání vznikne fialový roztok.",
+    "Výpočet složení roztoku (metoda 1 %)\nZadání: 200 g 20% roztoku soli\n1 % z 200 g = 2 g\nsůl: 20 · 2 g = 40 g\nvoda: 200 g − 40 g = 160 g\nPřipravím ho ze 160 g H₂O a 40 g NaCl.",
+    "Ocet = 92 % vody + 8 % kyseliny octové\n250 g octa = 230 g H₂O + 20 g kyseliny octové\n200 g octa = 184 g H₂O + 16 g kyseliny octové\n100 g octa = 92 g H₂O + 8 g kyseliny octové"
   ],
   "terminologie": {
     "Skupenské přeměny": [
