@@ -1,0 +1,2098 @@
+{
+  "jazyk": "cs",
+  "rocnik": 8,
+  "tema": [
+    "Baroko - společnost, život, kultura a umění 17. a 18. století"
+  ],
+  "zdroj": "7 stran učebnice dějepisu pro 8. ročník, str. 18-24: 3. Baroko (společnost v době baroka, typy monarchií, rozvrstvení společnosti, životní styl šlechty, venkovanů a měšťanů, oblékání, stravování) a 4. Barokní kultura a umění (architektura, české baroko, malířství, sochařství, literatura, hudba, divadlo). Otázky se sovičkou z učebnice jsou zodpovězené zvlášť v tématu Sovičky z učebnice.",
+  "hlavni_osy": [
+    "Co je baroko\nKultura, umění a životní styl evropské společnosti 17. a 18. století.\nZrodilo se na sklonku 16. století v Itálii.\nNázev: portugalsky „pérola barroca“ = nepravidelná perla, perlová ozdoba.\nU nás rychle zakořenilo už po bitvě na Bílé hoře.\nVládci: Leopold I., Karel VI., Marie Terezie, Josef II.",
+    "Společnost\nDva způsoby uspořádání: absolutistická a konstituční monarchie.\nHlavní roli hraje panovník, v konstituční monarchii je jeho moc omezená parlamentem.\nČtyři vrstvy: šlechta, církevní hodnostáři, měšťané, venkované.\nNejtěžší život: chudí venkované a městská chudina.\nPůdu vlastní hlavně šlechta a církev, nová vrstva = majetní měšťané.",
+    "Život\nLidé se po válkách a epidemiích obrátili k Bohu, smrt připomíná krátkost pozemského života.\nRozptýlení: náboženské slavnosti, poutě, oslavné bohoslužby.\nŠlechta: zámky, služebnictvo, park, hony, hostiny, plesy.\nVenkov: statky s několika místnostmi, robota většinou 3 dny v týdnu, daně pánovi a desátek církvi.\nMěsto: rychtář a městská rada (konšelé), pomalé zotavování po třicetileté válce.",
+    "Móda a jídlo\nMóda bohatých je proměnlivá: mužský oděv napodobuje vojenské uniformy, ženský odhaluje dekolt a posouvá pas vzhůru.\nKrajky, paruky, pudr, muška. Dětský oděv neexistuje, děti vypadají jako malí dospělí.\nNové potraviny: základem jsou brambory, víc rýže, místo kaší pečivo, méně masa.\nZačíná se používat vidlička.\nKáva: móda na konci 17. století, z Asie, první Itálie. Čaj: u nás oblíbený až v 19. století.",
+    "Architektura a výtvarné umění\nNepravidelné tvary, přehnaná zdobnost, okázalost, mramor, zlato, stříbro, malby, půlkruhová okna, sochy s rozevlátými rouchy.\nStavitelé: Jan Blažej Santini-Aichel, otec a syn Dientzenhoferovi.\nMalíři: Karel Škréta, Petr Jan Brandl, Jan Kupecký.\nSochaři: Matyáš Bernard Braun, Ferdinand Maxmilián Brokoff.\nVe městech: kašny, morové neboli mariánské sloupy, sochy, cihlové hradby se zdobenými branami.",
+    "Literatura\nKvětnatý sloh a složitá stavba vět.\nOvlivněná rekatolizací, hlavně náboženská témata.\nAdam Václav Michna z Otradovic: náboženská poezie, ukolébavka „Chtíc, aby spal“.\nBohuslav Balbín: jezuita, historické prózy, psal pouze latinsky.\nNekatolíci odešli do exilu, díla exulantů (Komenský) se četla tajně.\nLidová tvorba: knížky lidového čtení, kalendáře, kramářské písně.",
+    "Hudba a divadlo\nHudba je vznešená, majestátní, zpěvná, líbivá a má působit na city.\nRozvíjí se varhanní hudba.\nSkladatelé: Němci Händel a Bach, Ital Vivaldi.\nŠlechtická sídla: první profesionální kapely, koncerty, opery.\nDivadlo: pantomima, fraška, činohra, nově opera (Claudio Monteverdi)."
+  ],
+  "terminologie": {
+    "Baroko_a_společnost": [
+      {
+        "pojem": "Baroko",
+        "vysvetleni": "Kultura, umění a životní styl evropské společnosti 17. a 18. století. Zrodilo se na sklonku 16. století v Itálii."
+      },
+      {
+        "pojem": "Pérola barroca",
+        "vysvetleni": "Portugalský výraz, ze kterého pochází název baroko. V překladu nepravidelná perla, perlová ozdoba."
+      },
+      {
+        "pojem": "Absolutistická monarchie",
+        "vysvetleni": "Způsob uspořádání státu, kde vládne panovník a jeho moc parlament neomezuje. Příklady z učebnice: Ludvík XIV. ve Francii, Marie Terezie."
+      },
+      {
+        "pojem": "Konstituční monarchie",
+        "vysvetleni": "Země, kde je moc panovníka omezena parlamentem. Příklad z učebnice: Anglie, Dolní sněmovna a král Vilém III. Oranžský."
+      },
+      {
+        "pojem": "Parlament",
+        "vysvetleni": "Shromáždění, které v některých zemích omezovalo moc panovníka. Takovým zemím říkáme konstituční monarchie."
+      },
+      {
+        "pojem": "Čtyři vrstvy obyvatelstva",
+        "vysvetleni": "Pod panovníkem: šlechta, církevní hodnostáři, měšťané a venkované."
+      },
+      {
+        "pojem": "Majetní měšťané",
+        "vysvetleni": "Nová vrstva společnosti, která bohatla zejména díky řemeslům a obchodu."
+      },
+      {
+        "pojem": "Poddaní",
+        "vysvetleni": "Lidé na venkově závislí na svém pánovi. Museli robotovat a odvádět daně pánovi a desátek církvi."
+      }
+    ],
+    "Život_v_baroku": [
+      {
+        "pojem": "Robota",
+        "vysvetleni": "Povinná práce poddaných na polích pána od jara do začátku zimy, většinou tři dny v týdnu. V neděli a o svátcích se pracovat nesmělo."
+      },
+      {
+        "pojem": "Desátek",
+        "vysvetleni": "Dávka, kterou poddaní odváděli církvi."
+      },
+      {
+        "pojem": "Velkostatkáři",
+        "vysvetleni": "Nejvyšší skupina na venkově. Pod nimi byli sedláci, střední a drobní rolníci a dole nemajetná chudina."
+      },
+      {
+        "pojem": "Venkovský statek",
+        "vysvetleni": "Obydlí v 17. a 18. století. Na rozdíl od středověku bylo členěné na několik místností vytápěných krbem nebo pecí."
+      },
+      {
+        "pojem": "Skříň",
+        "vysvetleni": "Postupně nahradila truhlu na šaty. Nábytek se rozlišoval podle účelu: šatní a prádelní skříně, komody a prosklené skříně zvané skleníky."
+      },
+      {
+        "pojem": "Zámek",
+        "vysvetleni": "Sídlo šlechty s drahocenným nábytkem. Patřila k němu kaple, jídelna, taneční sál, salonky, někde i divadelní sál, služebnictvo a upravený zámecký park."
+      },
+      {
+        "pojem": "Rychtář a městská rada",
+        "vysvetleni": "Spravovali město. Členům městské rady se říkalo konšelé."
+      },
+      {
+        "pojem": "Šatlava",
+        "vysvetleni": "Městské vězení pro rušitele pořádku. Provinilci tam museli vydržet jen o chlebu a vodě."
+      },
+      {
+        "pojem": "Ponocný",
+        "vysvetleni": "Spolu se stráží dohlížel na pořádek ve městě."
+      }
+    ],
+    "Móda_a_jídlo": [
+      {
+        "pojem": "Mužský oděv",
+        "vysvetleni": "Napodoboval vojenské uniformy. Doplňoval ho široký zdobený límec, široký klobouk a vysoké boty."
+      },
+      {
+        "pojem": "Ženský oděv",
+        "vysvetleni": "Odhaloval dekolt a posouval pas poněkud vzhůru. Ženský i mužský oděv byl často zdoben krajkami."
+      },
+      {
+        "pojem": "Paruka",
+        "vysvetleni": "Součást mužské i ženské barokní módy."
+      },
+      {
+        "pojem": "Muška",
+        "vysvetleni": "Umělá piha, kterou si muži i ženy z vyšších vrstev nalepovali na tvář, aby dodala tváři na zajímavosti."
+      },
+      {
+        "pojem": "Dětský oděv",
+        "vysvetleni": "V této době stále neexistoval. Děti se oblékaly jako malí dospělí."
+      },
+      {
+        "pojem": "Brambory",
+        "vysvetleni": "Základní nová potravina. Lidé jim zpočátku nedůvěřovali a někteří se otrávili, protože jedlé jsou jen hlízy. Pruský král Fridrich II. nařídil jejich pěstování."
+      },
+      {
+        "pojem": "Vidlička",
+        "vysvetleni": "Začíná se používat při stolování. Na venkově se ale často stále jedlo lžícemi z jedné společné mísy."
+      },
+      {
+        "pojem": "Káva",
+        "vysvetleni": "Na konci 17. století se její pití stává velkou módou. Do Evropy se rozšířila z Asie, první se pití kávy ujalo v Itálii."
+      },
+      {
+        "pojem": "Čaj",
+        "vysvetleni": "Oblíbený v západní Evropě a v Rusku. V českých zemích získal oblibu až v 19. století."
+      }
+    ],
+    "Umění": [
+      {
+        "pojem": "Barokní architektura",
+        "vysvetleni": "Nepravidelné tvary, přehnaná zdobnost, okázalost a vznešenost, výzdoba z mramoru, zlata a stříbra, stropní a nástěnné malby, velká půlkruhová okna a vstupní portály, plastiky a sochy s rozevlátými rouchy."
+      },
+      {
+        "pojem": "České baroko",
+        "vysvetleni": "Baroko obohacené o domácí rysy. Stavby jsou dokonale propojené s okolní krajinou, se kterou je spojují aleje nebo parky."
+      },
+      {
+        "pojem": "Jan Blažej Santini-Aichel",
+        "vysvetleni": "Architekt, navrhl kostel sv. Jana Nepomuckého na Zelené hoře ve Žďáru nad Sázavou."
+      },
+      {
+        "pojem": "Dientzenhoferovi",
+        "vysvetleni": "Otec a syn, významní architekti barokních staveb na našem území."
+      },
+      {
+        "pojem": "Morový sloup",
+        "vysvetleni": "Učebnice mu říká také mariánský. Stál na náměstích barokních měst, známý je sloup Nejsvětější Trojice v Olomouci. Přesněji: morový souvisí s morem, mariánský je zasvěcen Panně Marii."
+      },
+      {
+        "pojem": "Selské baroko",
+        "vysvetleni": "Označení pro barokní sloh, který se u nás dlouho uplatňoval na venkově. Statky tohoto typu se dochovaly převážně v jižních Čechách, řada z nich je až z 19. století."
+      },
+      {
+        "pojem": "Škréta, Brandl, Kupecký",
+        "vysvetleni": "Nejznámější čeští barokní malíři: Karel Škréta, Petr Jan Brandl, Jan Kupecký."
+      },
+      {
+        "pojem": "Braun a Brokoff",
+        "vysvetleni": "Sochaři tvořící v našich zemích: Matyáš Bernard Braun a Ferdinand Maxmilián Brokoff (socha sv. Vojtěcha na Karlově mostě)."
+      },
+      {
+        "pojem": "Krajina, zátiší, portrét",
+        "vysvetleni": "Časté náměty barokních malířů vedle náboženských témat."
+      }
+    ],
+    "Literatura": [
+      {
+        "pojem": "Květnatý sloh",
+        "vysvetleni": "Bohatě rozvinutá přirovnání. Spolu se složitou stavbou vět je typický pro barokní literaturu."
+      },
+      {
+        "pojem": "Adam Václav Michna z Otradovic",
+        "vysvetleni": "Autor nejkrásnější česky psané náboženské poezie a hudební skladatel. Složil ukolébavku „Chtíc, aby spal“."
+      },
+      {
+        "pojem": "Bohuslav Balbín",
+        "vysvetleni": "Jezuita, významný autor historických próz. Psal pouze latinsky."
+      },
+      {
+        "pojem": "Exulant",
+        "vysvetleni": "Člověk, který musel opustit zemi. Nekatolíci, kteří po Bílé hoře nechtěli přistoupit na katolickou víru, museli odejít. Díla exulantů se u nás četla tajně."
+      },
+      {
+        "pojem": "Jan Amos Komenský",
+        "vysvetleni": "Nejznámější český exulant. Jeho dříve vydané práce se u nás četly tajně."
+      },
+      {
+        "pojem": "Kramářská píseň",
+        "vysvetleni": "Oblíbená lidová tvorba s příběhy ze života (nešťastná láska, vražda, přírodní katastrofa). Zpívala se na poutích a jarmarcích, melodie se přebíraly ze známých lidových písní."
+      },
+      {
+        "pojem": "Doba temna",
+        "vysvetleni": "Jiráskovo označení baroka jako doby úpadku češtiny, kdy prý jezuité pálili české knihy. Skutečnost byla jiná: jezuité potlačovali jinou víru než katolickou. Rozhodoval obsah knih, ne čeština."
+      }
+    ],
+    "Hudba_a_divadlo": [
+      {
+        "pojem": "Barokní hudba",
+        "vysvetleni": "Typická je vznešenost, majestátnost, zpěvnost a líbivost. Jejím hlavním úkolem bylo působit na city posluchače."
+      },
+      {
+        "pojem": "Händel a Bach",
+        "vysvetleni": "Němci Georg Friedrich Händel a Johann Sebastian Bach, největší evropští barokní skladatelé."
+      },
+      {
+        "pojem": "Antonio Vivaldi",
+        "vysvetleni": "Ital, jeden z největších evropských barokních skladatelů."
+      },
+      {
+        "pojem": "Profesionální kapely",
+        "vysvetleni": "První vznikaly ve šlechtických sídlech, kde se pořádaly i koncerty a operní představení."
+      },
+      {
+        "pojem": "Opera",
+        "vysvetleni": "Nový žánr doby baroka. Nejznámějším autorem barokních oper byl Claudio Monteverdi."
+      },
+      {
+        "pojem": "Pantomima, fraška, činohra",
+        "vysvetleni": "Představení, která se hrála v zámeckých divadelních sálech. Zámecký pán si často držel vlastní herecký soubor."
+      }
+    ]
+  },
+  "casova_osa": [
+    {
+      "rok": "sklonek 16. století",
+      "udalost": "V Itálii se zrodilo baroko."
+    },
+    {
+      "rok": "počátek 17. století",
+      "udalost": "V Evropě se ujal kulturní a životní styl zvaný baroko."
+    },
+    {
+      "rok": "1618-1648",
+      "udalost": "Třicetiletá válka. Její hrůzy obrátily lidi k Bohu a města se po ní jen pomalu vzpamatovávala."
+    },
+    {
+      "rok": "1620",
+      "udalost": "Bitva na Bílé hoře. Po ní baroko v našich zemích rychle zakořenilo."
+    },
+    {
+      "rok": "od 2. poloviny 17. století",
+      "udalost": "V Evropě se prosazují dva způsoby uspořádání společnosti: absolutistická a konstituční monarchie."
+    },
+    {
+      "rok": "konec 17. století",
+      "udalost": "Pití kávy se v Evropě stává velkou módou."
+    },
+    {
+      "rok": "konec 18. století",
+      "udalost": "Líčili se i muži."
+    },
+    {
+      "rok": "19. století",
+      "udalost": "Čaj si získal oblibu i v českých zemích."
+    },
+    {
+      "rok": "1994",
+      "udalost": "Kostel sv. Jana Nepomuckého na Zelené hoře byl zapsán na seznam památek UNESCO."
+    }
+  ],
+  "hry": {
+    "monarchie": {
+      "nazev": "Kdo má moc?",
+      "zadani": "Zařaď příklad k typu monarchie.",
+      "kose": [
+        {
+          "id": "abs",
+          "nazev": "Absolutistická monarchie"
+        },
+        {
+          "id": "kon",
+          "nazev": "Konstituční monarchie"
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Ludvík XIV., francouzský král",
+          "kos": [
+            "abs"
+          ],
+          "proc": "Ludvík XIV. je v učebnici příklad absolutistické monarchie."
+        },
+        {
+          "text": "Marie Terezie, habsburská panovnice",
+          "kos": [
+            "abs"
+          ],
+          "proc": "Marie Terezie je v učebnici druhý příklad absolutistické monarchie."
+        },
+        {
+          "text": "Dolní sněmovna v Anglii",
+          "kos": [
+            "kon"
+          ],
+          "proc": "Dolní sněmovna je část anglického parlamentu, a ten omezuje moc panovníka."
+        },
+        {
+          "text": "Vilém III. Oranžský, anglický král",
+          "kos": [
+            "kon"
+          ],
+          "proc": "Vilém III. vládl v Anglii, kde moc panovníka omezoval parlament."
+        },
+        {
+          "text": "Moc panovníka omezuje parlament",
+          "kos": [
+            "kon"
+          ],
+          "proc": "Přesně tak učebnice definuje konstituční monarchii."
+        },
+        {
+          "text": "Moc panovníka parlament neomezuje",
+          "kos": [
+            "abs"
+          ],
+          "proc": "V absolutistické monarchii rozhoduje panovník, parlament ho neomezuje."
+        }
+      ]
+    },
+    "vrstvy": {
+      "nazev": "Kam patří?",
+      "zadani": "Zařaď kartu k vrstvě společnosti.",
+      "kose": [
+        {
+          "id": "sle",
+          "nazev": "Šlechta"
+        },
+        {
+          "id": "cir",
+          "nazev": "Církev"
+        },
+        {
+          "id": "mes",
+          "nazev": "Měšťané"
+        },
+        {
+          "id": "ven",
+          "nazev": "Venkované"
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Bydlí na zámku se spoustou služebnictva",
+          "kos": [
+            "sle"
+          ],
+          "proc": "Zámky, služebnictvo a park patřily šlechtě."
+        },
+        {
+          "text": "Baví se na honech, hostinách a plesech",
+          "kos": [
+            "sle"
+          ],
+          "proc": "Takhle se bavilo panstvo na zámcích."
+        },
+        {
+          "text": "Vyjíždí si na koni nebo v kočáře",
+          "kos": [
+            "sle"
+          ],
+          "proc": "Vyjížďky byly oblíbená zábava šlechty."
+        },
+        {
+          "text": "Dostává od poddaných desátek",
+          "kos": [
+            "cir"
+          ],
+          "proc": "Desátek byl dávka určená církvi."
+        },
+        {
+          "text": "Spolu se šlechtou vlastní nejvíc zemědělské půdy",
+          "kos": [
+            "cir"
+          ],
+          "proc": "Hlavními majiteli půdy byla šlechta a církev."
+        },
+        {
+          "text": "Bohatne hlavně díky řemeslům a obchodu",
+          "kos": [
+            "mes"
+          ],
+          "proc": "To je nová vrstva: majetní měšťané."
+        },
+        {
+          "text": "Má dům ve městě a pole za hradbami",
+          "kos": [
+            "mes"
+          ],
+          "proc": "Měšťané vlastnili kromě domů i hospodářství za hradbami a v okolních vesnicích."
+        },
+        {
+          "text": "Zasedá v městské radě jako konšel",
+          "kos": [
+            "mes"
+          ],
+          "proc": "Město spravoval rychtář spolu s městskou radou (konšelé)."
+        },
+        {
+          "text": "Robotuje na polích většinou tři dny v týdnu",
+          "kos": [
+            "ven"
+          ],
+          "proc": "Robota byla povinnost poddaných na venkově."
+        },
+        {
+          "text": "V zimě opravuje nářadí nebo dere peří",
+          "kos": [
+            "ven"
+          ],
+          "proc": "Zimní práce poddaných na venkově."
+        }
+      ]
+    },
+    "tabule": {
+      "nazev": "Co je na barokním stole?",
+      "zadani": "Přibývá to, nebo ubývá?",
+      "kose": [
+        {
+          "id": "plus",
+          "nazev": "Přibývá"
+        },
+        {
+          "id": "minus",
+          "nazev": "Ubývá"
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Brambory",
+          "kos": [
+            "plus"
+          ],
+          "proc": "Brambory se stávají základní potravinou."
+        },
+        {
+          "text": "Rýže",
+          "kos": [
+            "plus"
+          ],
+          "proc": "Rýže dostává v jídelníčku významnější místo."
+        },
+        {
+          "text": "Pečivo",
+          "kos": [
+            "plus"
+          ],
+          "proc": "Pečivo se stává oblíbeným pokrmem místo obilných kaší."
+        },
+        {
+          "text": "Maso",
+          "kos": [
+            "minus"
+          ],
+          "proc": "Na stole masa ubývá, jeho úprava je ale pestřejší."
+        },
+        {
+          "text": "Obilné kaše",
+          "kos": [
+            "minus"
+          ],
+          "proc": "Místo obilných kaší se oblíbilo pečivo."
+        },
+        {
+          "text": "Zelenina a ovoce u vyšší společnosti",
+          "kos": [
+            "plus"
+          ],
+          "proc": "Největší změna na stolech vyšší společnosti: víc zeleniny a ovoce."
+        },
+        {
+          "text": "Kořenová zelenina",
+          "kos": [
+            "plus"
+          ],
+          "proc": "Znali ji už dřív, ale jako potravu ji začínají používat až teď."
+        },
+        {
+          "text": "Rajčata",
+          "kos": [
+            "plus"
+          ],
+          "proc": "Rajčata jsou nový druh zeleniny."
+        }
+      ]
+    },
+    "tvurci": {
+      "nazev": "Barokní galerie",
+      "zadani": "Přiřaď jméno k oboru. Pozor, jedno jméno patří do dvou oborů.",
+      "kose": [
+        {
+          "id": "sta",
+          "nazev": "Stavitel"
+        },
+        {
+          "id": "mal",
+          "nazev": "Malíř"
+        },
+        {
+          "id": "soc",
+          "nazev": "Sochař"
+        },
+        {
+          "id": "lit",
+          "nazev": "Literatura"
+        },
+        {
+          "id": "hud",
+          "nazev": "Hudba"
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Jan Blažej Santini-Aichel",
+          "kos": [
+            "sta"
+          ],
+          "proc": "Architekt, navrhl kostel na Zelené hoře."
+        },
+        {
+          "text": "Otec a syn Dientzenhoferovi",
+          "kos": [
+            "sta"
+          ],
+          "proc": "Architekti nejvýznamnějších barokních staveb u nás."
+        },
+        {
+          "text": "Karel Škréta",
+          "kos": [
+            "mal"
+          ],
+          "proc": "Jeden ze tří nejznámějších českých barokních malířů."
+        },
+        {
+          "text": "Petr Jan Brandl",
+          "kos": [
+            "mal"
+          ],
+          "proc": "Barokní malíř, v učebnici je jeho autoportrét."
+        },
+        {
+          "text": "Jan Kupecký",
+          "kos": [
+            "mal"
+          ],
+          "proc": "Barokní malíř, v učebnici je jeho podobizna."
+        },
+        {
+          "text": "Matyáš Bernard Braun",
+          "kos": [
+            "soc"
+          ],
+          "proc": "Vynikající sochař tvořící v našich zemích."
+        },
+        {
+          "text": "Ferdinand Maxmilián Brokoff",
+          "kos": [
+            "soc"
+          ],
+          "proc": "Sochař, socha sv. Vojtěcha na Karlově mostě."
+        },
+        {
+          "text": "Adam Václav Michna z Otradovic",
+          "kos": [
+            "lit",
+            "hud"
+          ],
+          "proc": "Náboženský básník a zároveň hudební skladatel, správně je obojí."
+        },
+        {
+          "text": "Bohuslav Balbín",
+          "kos": [
+            "lit"
+          ],
+          "proc": "Jezuita, autor historických próz, psal latinsky."
+        },
+        {
+          "text": "Jan Amos Komenský",
+          "kos": [
+            "lit"
+          ],
+          "proc": "Exulant, jeho díla se u nás četla tajně."
+        },
+        {
+          "text": "Johann Sebastian Bach",
+          "kos": [
+            "hud"
+          ],
+          "proc": "Německý skladatel, jeden z největších v baroku."
+        },
+        {
+          "text": "Georg Friedrich Händel",
+          "kos": [
+            "hud"
+          ],
+          "proc": "Německý skladatel, jeden z největších v baroku."
+        },
+        {
+          "text": "Antonio Vivaldi",
+          "kos": [
+            "hud"
+          ],
+          "proc": "Italský skladatel, jeden z největších v baroku."
+        },
+        {
+          "text": "Claudio Monteverdi",
+          "kos": [
+            "hud"
+          ],
+          "proc": "Italský skladatel, nejznámější autor barokních oper."
+        }
+      ]
+    },
+    "nahrady": {
+      "nazev": "Staré a nové",
+      "zadani": "Spoj staré s tím, co to v baroku nahradilo.",
+      "pary": [
+        {
+          "stare": "Truhla na šaty",
+          "nove": "Skříň",
+          "proc": "Truhlu postupně nahradila skříň, v baroku už specializovaná."
+        },
+        {
+          "stare": "Krb v měšťanském domě",
+          "nove": "Kachlová kamna",
+          "proc": "V bohatých měšťanských domech krby nahradila kachlová kamna."
+        },
+        {
+          "stare": "Obilná kaše",
+          "nove": "Pečivo",
+          "proc": "Místo obilných kaší se oblíbilo pečivo."
+        },
+        {
+          "stare": "Jedna velká obytná místnost",
+          "nove": "Několik vytápěných místností",
+          "proc": "Venkovské statky se členily na několik místností vytápěných krbem nebo pecí."
+        }
+      ]
+    },
+    "venkov": {
+      "nazev": "Dům venkova",
+      "zadani": "Poskládej obyvatele venkova odshora dolů, jako na schématu z učebnice.",
+      "poradi": [
+        "Velkostatkáři",
+        "Sedláci",
+        "Střední a drobní rolníci",
+        "Chudina"
+      ]
+    },
+    "pravda": {
+      "nazev": "Pravda, nebo mýtus?",
+      "zadani": "Rozhodni o každém tvrzení.",
+      "vyroky": [
+        {
+          "text": "Jezuité nebyli odpůrci české literatury.",
+          "pravda": true,
+          "proc": "Učebnice říká, že potlačovali pouze jinou víru než katolickou. Rozhodoval obsah knih, ne čeština."
+        },
+        {
+          "text": "Bohuslav Balbín psal své knihy česky.",
+          "pravda": false,
+          "proc": "Balbín psal pouze latinsky."
+        },
+        {
+          "text": "Děti se v baroku oblékaly jako malí dospělí.",
+          "pravda": true,
+          "proc": "Dětský oděv ještě neexistoval."
+        },
+        {
+          "text": "Paruky nosili jen muži.",
+          "pravda": false,
+          "proc": "Paruky patřily k mužské i ženské módě."
+        },
+        {
+          "text": "Z brambor jsou jedlé jen hlízy.",
+          "pravda": true,
+          "proc": "Celá ostatní rostlina je jedovatá, proto se lidé zpočátku otravovali."
+        },
+        {
+          "text": "Čaj si u nás hned oblíbili jako v Rusku.",
+          "pravda": false,
+          "proc": "V českých zemích se zpočátku příliš neujal, oblibu získal až v 19. století."
+        },
+        {
+          "text": "Pití kávy se v Evropě ujalo nejdřív v Itálii.",
+          "pravda": true,
+          "proc": "Itálie byla první evropská země, kde se ujalo."
+        },
+        {
+          "text": "Poddaní museli robotovat i v neděli.",
+          "pravda": false,
+          "proc": "V neděli a o svátcích se pracovat nesmělo."
+        },
+        {
+          "text": "Selské baroko najdeš dnes hlavně v jižních Čechách.",
+          "pravda": true,
+          "proc": "Statky tohoto typu se dochovaly převážně tam."
+        },
+        {
+          "text": "Líčily se jen ženy, muži nikdy.",
+          "pravda": false,
+          "proc": "Na konci 18. století se líčili i muži."
+        },
+        {
+          "text": "Čeští nekatolíci mohli po Bílé hoře svobodně psát doma.",
+          "pravda": false,
+          "proc": "Museli opustit zem, díla exulantů se četla tajně."
+        },
+        {
+          "text": "Barokní hudba měla hlavně působit na city.",
+          "pravda": true,
+          "proc": "Právě to byl její hlavní úkol."
+        }
+      ]
+    },
+    "odev": {
+      "nazev": "Oblékni se do baroka",
+      "muz": [
+        {
+          "id": "paruka",
+          "text": "Paruka",
+          "proc": "Součást mužské i ženské módy."
+        },
+        {
+          "id": "klobouk",
+          "text": "Široký klobouk",
+          "proc": "Doplňoval mužské oblečení."
+        },
+        {
+          "id": "limec",
+          "text": "Široký zdobený límec",
+          "proc": "Dlouho oblíbená součást obleku."
+        },
+        {
+          "id": "kabat",
+          "text": "Oděv jako vojenská uniforma",
+          "proc": "Mužský oděv napodoboval vojenské uniformy."
+        },
+        {
+          "id": "boty",
+          "text": "Vysoké boty",
+          "proc": "Doplňovaly mužské oblečení."
+        },
+        {
+          "id": "muska",
+          "text": "Muška",
+          "proc": "Umělá piha na tváři, nosili ji muži i ženy z vyšších vrstev."
+        },
+        {
+          "id": "krajky",
+          "text": "Krajky",
+          "proc": "Krajkami se zdobil ženský i mužský oděv."
+        }
+      ],
+      "zena": [
+        {
+          "id": "paruka",
+          "text": "Paruka",
+          "proc": "Součást mužské i ženské módy."
+        },
+        {
+          "id": "dekolt",
+          "text": "Dekolt",
+          "proc": "Barokní ženský oděv odhaloval dekolt."
+        },
+        {
+          "id": "pas",
+          "text": "Pas posunutý vzhůru",
+          "proc": "Ženský oděv posouval pas poněkud vzhůru."
+        },
+        {
+          "id": "krajky",
+          "text": "Krajky",
+          "proc": "Ženský i mužský oděv byl často zdoben krajkami."
+        },
+        {
+          "id": "pudr",
+          "text": "Pudr",
+          "proc": "Ženy z vyšších vrstev se okázale líčily a používaly hodně pudru."
+        },
+        {
+          "id": "muska",
+          "text": "Muška",
+          "proc": "Umělá piha, která měla dodat tváři na zajímavosti."
+        }
+      ]
+    },
+    "kostel": {
+      "nazev": "Najdi baroko na kostele",
+      "body": [
+        {
+          "id": "tvar",
+          "text": "Nepravidelné tvary",
+          "proc": "Typický prvek barokní architektury."
+        },
+        {
+          "id": "okno",
+          "text": "Velké půlkruhové okno",
+          "proc": "Velká půlkruhová okna patří k typickým prvkům."
+        },
+        {
+          "id": "portal",
+          "text": "Vstupní portál",
+          "proc": "Velké vstupní portály patří k typickým prvkům."
+        },
+        {
+          "id": "socha",
+          "text": "Socha s rozevlátým rouchem",
+          "proc": "Dekorativní plastiky a sochy s rozevlátými rouchy."
+        },
+        {
+          "id": "zlato",
+          "text": "Výzdoba ze zlata",
+          "proc": "Bohatá výzdoba z mramoru, zlata a stříbra."
+        }
+      ]
+    },
+    "brambora": {
+      "nazev": "Co z brambory sníst?",
+      "zadani": "Klepni na část rostliny, kterou můžeš jíst.",
+      "casti": [
+        {
+          "id": "kvet",
+          "text": "Květ",
+          "jedle": false,
+          "proc": "Jedovatý. S výjimkou jedlých hlíz je celá rostlina jedovatá."
+        },
+        {
+          "id": "nat",
+          "text": "Nať",
+          "jedle": false,
+          "proc": "Někteří lidé vařili bramborovou nať, a někteří se otrávili."
+        },
+        {
+          "id": "hliza",
+          "text": "Hlíza",
+          "jedle": true,
+          "proc": "Jedlá je jen hlíza. Lidé zpočátku nevěděli, jak brambory jíst."
+        }
+      ]
+    }
+  },
+  "otazky": [
+    {
+      "id": "BA1",
+      "tema": "Baroko a společnost",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co označuje termín baroko?",
+      "spravna_odpoved": "Kulturu, umění a životní styl evropské společnosti 17. a 18. století",
+      "spatne_odpovedi": [
+        "Náboženské hnutí proti katolické církvi v 16. století",
+        "Vojenskou taktiku používanou za třicetileté války",
+        "Politický systém, ve kterém vládne parlament"
+      ],
+      "oduvodneni": "Baroko není jen stavební sloh. Učebnice jím označuje kulturu, umění a životní styl evropské společnosti 17. a 18. století.",
+      "proc_spatne": {
+        "Náboženské hnutí proti katolické církvi v 16. století": "To by byla reformace. Baroko je naopak spojené s katolickou vírou a u nás s rekatolizací.",
+        "Vojenskou taktiku používanou za třicetileté války": "Třicetiletá válka proběhla v době baroka, ale baroko samo žádná válečná taktika není.",
+        "Politický systém, ve kterém vládne parlament": "Způsoby vlády v té době jsou monarchie absolutistická a konstituční. Baroko je kultura a životní styl."
+      }
+    },
+    {
+      "id": "BA2",
+      "tema": "Baroko a společnost",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kde a kdy se baroko zrodilo?",
+      "spravna_odpoved": "V Itálii na sklonku 16. století",
+      "spatne_odpovedi": [
+        "Ve Francii na počátku 16. století",
+        "V českých zemích po bitvě na Bílé hoře",
+        "V Portugalsku na konci 15. století"
+      ],
+      "oduvodneni": "Baroko se zrodilo na sklonku 16. století v Itálii a na počátku 17. století se ujalo v Evropě.",
+      "proc_spatne": {
+        "Ve Francii na počátku 16. století": "Francie je spojená s Ludvíkem XIV., ale kolébkou baroka je Itálie a začátek 16. století je moc brzy.",
+        "V českých zemích po bitvě na Bílé hoře": "Po Bílé hoře u nás baroko rychle zakořenilo. Vzniklo ale už dříve v Itálii.",
+        "V Portugalsku na konci 15. století": "Z portugalštiny pochází jen název. Vznik baroka patří do Itálie."
+      }
+    },
+    {
+      "id": "BA3",
+      "tema": "Baroko a společnost",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co znamená portugalské „pérola barroca“, ze kterého pochází název baroko?",
+      "spravna_odpoved": "Nepravidelná perla, perlová ozdoba",
+      "spatne_odpovedi": [
+        "Zlatá koruna, královská ozdoba",
+        "Vysoká věž, kostelní stavba",
+        "Rozevlátá látka, slavnostní šat"
+      ],
+      "oduvodneni": "Pérola barroca je v překladu nepravidelná perla, perlová ozdoba. Nepravidelné tvary jsou pro baroko typické i v architektuře.",
+      "proc_spatne": {
+        "Zlatá koruna, královská ozdoba": "Zlato do baroka patří, ale „pérola“ je perla, ne koruna.",
+        "Vysoká věž, kostelní stavba": "Kostely jsou nejznámější barokní stavby, ale název pochází od perly.",
+        "Rozevlátá látka, slavnostní šat": "Rozevlátá roucha mají barokní sochy, název s nimi nesouvisí."
+      }
+    },
+    {
+      "id": "BA4",
+      "tema": "Baroko a společnost",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Po které události rychle zakořenilo baroko v našich zemích?",
+      "spravna_odpoved": "Po bitvě na Bílé hoře",
+      "spatne_odpovedi": [
+        "Po smrti Karla IV.",
+        "Po nástupu Marie Terezie",
+        "Po vydání Rudolfova majestátu"
+      ],
+      "oduvodneni": "V našich zemích baroko rychle zakořenilo už po bitvě na Bílé hoře (1620), jak říká učebnice hned na začátku kapitoly.",
+      "proc_spatne": {
+        "Po smrti Karla IV.": "Karel IV. je středověk, baroko přišlo o několik staletí později.",
+        "Po nástupu Marie Terezie": "Marie Terezie patří k období baroka, ale baroko tu tehdy už dávno bylo. Zakořenilo po Bílé hoře.",
+        "Po vydání Rudolfova majestátu": "Rudolfův majestát je z doby před Bílou horou a týká se náboženské svobody, ne baroka."
+      }
+    },
+    {
+      "id": "BA5",
+      "tema": "Baroko a společnost",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "S vládou kterých panovníků je baroko u nás spojeno?",
+      "spravna_odpoved": "Leopold I., Karel VI., Marie Terezie, Josef II.",
+      "spatne_odpovedi": [
+        "Karel IV., Václav IV., Zikmund Lucemburský",
+        "Ferdinand I., Maxmilián II., Rudolf II., Matyáš",
+        "Přemysl Otakar II., Václav II., Václav III."
+      ],
+      "oduvodneni": "Učebnice spojuje baroko s obdobím vlády Leopolda I., Karla VI., Marie Terezie a Josefa II.",
+      "proc_spatne": {
+        "Karel IV., Václav IV., Zikmund Lucemburský": "To jsou Lucemburkové, tedy středověk.",
+        "Ferdinand I., Maxmilián II., Rudolf II., Matyáš": "To jsou první Habsburkové na českém trůně, ti vládli ještě před Bílou horou.",
+        "Přemysl Otakar II., Václav II., Václav III.": "To jsou poslední Přemyslovci ze 13. a začátku 14. století."
+      }
+    },
+    {
+      "id": "BA6",
+      "tema": "Baroko a společnost",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Které dva typy monarchie porovnává učebnice v kapitole o baroku?",
+      "spravna_odpoved": "Absolutistická a konstituční monarchie",
+      "spatne_odpovedi": [
+        "Stavovská a absolutistická monarchie",
+        "Stavovská a konstituční monarchie",
+        "Dědičná a volená monarchie"
+      ],
+      "oduvodneni": "Učebnice uvádí dva typy: absolutistickou monarchii a konstituční monarchii.",
+      "proc_spatne": {
+        "Stavovská a absolutistická monarchie": "V této kapitole učebnice porovnává absolutistickou a konstituční monarchii.",
+        "Stavovská a konstituční monarchie": "V této kapitole učebnice porovnává absolutistickou a konstituční monarchii.",
+        "Dědičná a volená monarchie": "V této kapitole učebnice porovnává absolutistickou a konstituční monarchii."
+      }
+    },
+    {
+      "id": "BA7",
+      "tema": "Baroko a společnost",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které zemi s králem Vilémem III. Oranžským učebnice přiřazuje konstituční monarchii?",
+      "spravna_odpoved": "Anglii",
+      "spatne_odpovedi": [
+        "Francii",
+        "Habsburské monarchii",
+        "Španělsku"
+      ],
+      "oduvodneni": "Pod konstituční monarchií je v učebnici Dolní sněmovna v Anglii a anglický král Vilém III. Oranžský.",
+      "proc_spatne": {
+        "Francii": "Francie s Ludvíkem XIV. je v učebnici příklad absolutistické monarchie.",
+        "Habsburské monarchii": "Marie Terezie je v učebnici pod absolutistickou monarchií.",
+        "Španělsku": "Vilém III. Oranžský byl anglický král, otázka míří na Anglii."
+      }
+    },
+    {
+      "id": "BA8",
+      "tema": "Baroko a společnost",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je hlavní rozdíl konstituční monarchie proti absolutistické?",
+      "spravna_odpoved": "Moc panovníka je omezena parlamentem",
+      "spatne_odpovedi": [
+        "Panovníka každý rok volí měšťané",
+        "Zemi spravuje církev místo krále",
+        "Panovník vládne bez jakýchkoli pravidel"
+      ],
+      "oduvodneni": "Konstituční monarchie jsou podle učebnice země, kde je moc panovníka omezena parlamentem.",
+      "proc_spatne": {
+        "Panovníka každý rok volí měšťané": "Panovník v monarchii volený každý rok není. Rozhoduje omezení parlamentem.",
+        "Zemi spravuje církev místo krále": "Panovník hrál hlavní roli dál, i v konstituční monarchii. Omezuje ho parlament, ne církev.",
+        "Panovník vládne bez jakýchkoli pravidel": "Ani absolutistický panovník nevládl bez všech pravidel. Rozdíl je v tom, zda jeho moc omezuje parlament."
+      }
+    },
+    {
+      "id": "BA9",
+      "tema": "Baroko a společnost",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Na které čtyři základní vrstvy se dělila společnost pod panovníkem?",
+      "spravna_odpoved": "Šlechta, církevní hodnostáři, měšťané, venkované",
+      "spatne_odpovedi": [
+        "Králové, rytíři, vojáci, otroci",
+        "Šlechta, kněží, kupci, námořníci",
+        "Úředníci, učitelé, dělníci, zemědělci"
+      ],
+      "oduvodneni": "Učebnice jmenuje čtyři vrstvy: šlechtu, církevní hodnostáře, měšťany a venkovany. Nad nimi stojí panovník.",
+      "proc_spatne": {
+        "Králové, rytíři, vojáci, otroci": "Panovník stojí nad vrstvami a otroctví do baroka u nás nepatří.",
+        "Šlechta, kněží, kupci, námořníci": "Kupci patří mezi měšťany a námořníci nejsou samostatná vrstva. Chybí tu venkované.",
+        "Úředníci, učitelé, dělníci, zemědělci": "To připomíná moderní povolání, ne barokní společnost."
+      }
+    },
+    {
+      "id": "BA10",
+      "tema": "Baroko a společnost",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo žil v době baroka v nejtěžších podmínkách?",
+      "spravna_odpoved": "Chudí venkované a městská chudina",
+      "spatne_odpovedi": [
+        "Velkostatkáři a sedláci",
+        "Majetní měšťané a kupci",
+        "Advokáti a lékaři ve městech"
+      ],
+      "oduvodneni": "V nejtěžších podmínkách žili chudí venkované a městská chudina. Dotýkalo se to chudých na venkově i ve městě.",
+      "proc_spatne": {
+        "Velkostatkáři a sedláci": "To je vršek venkovského schématu. Dole je chudina.",
+        "Majetní měšťané a kupci": "Měšťané naopak bohatli z řemesel a obchodu.",
+        "Advokáti a lékaři ve městech": "Ti patřili k lépe situovaným obyvatelům měst, ne k chudině."
+      }
+    },
+    {
+      "id": "BA11",
+      "tema": "Baroko a společnost",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které dvě skupiny byly podle učebnice hlavními majiteli zemědělské půdy?",
+      "spravna_odpoved": "Šlechta a církev",
+      "spatne_odpovedi": [
+        "Měšťané a kupci",
+        "Sedláci a střední rolníci",
+        "Panovník a parlament"
+      ],
+      "oduvodneni": "Hlavními majiteli zemědělské půdy byla šlechta a církev.",
+      "proc_spatne": {
+        "Měšťané a kupci": "Měšťané měli pole za hradbami, ale hlavní majitelé půdy to nebyli.",
+        "Sedláci a střední rolníci": "Ti na půdě pracovali, hlavními majiteli ale byla šlechta a církev.",
+        "Panovník a parlament": "Panovník také vlastnil půdu, ale učebnice jako hlavní majitele uvádí šlechtu a církev."
+      }
+    },
+    {
+      "id": "BA12",
+      "tema": "Baroko a společnost",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která nová vrstva společnosti bohatla zejména díky řemeslům a obchodu?",
+      "spravna_odpoved": "Majetní měšťané",
+      "spatne_odpovedi": [
+        "Velkostatkáři",
+        "Církevní hodnostáři",
+        "Ponocní a městská stráž"
+      ],
+      "oduvodneni": "Novou vrstvou společnosti byli majetní měšťané, kteří bohatli zejména díky řemeslům a obchodu.",
+      "proc_spatne": {
+        "Velkostatkáři": "Učebnice spojuje bohatnutí díky řemeslům a obchodu s majetnými měšťany.",
+        "Církevní hodnostáři": "Církevní hodnostáři nejsou skupina, kterou učebnice označuje za novou vrstvu.",
+        "Ponocní a městská stráž": "Ti ve městě dohlíželi na pořádek. Vrstva to není."
+      }
+    },
+    {
+      "id": "BA13",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč je v barokní kultuře věnováno velké místo tématu smrti?",
+      "spravna_odpoved": "Smrt druhých člověku připomínala krátkost pozemského života",
+      "spatne_odpovedi": [
+        "Církev zakazovala jakákoli jiná témata",
+        "Lidé si smrti vůbec nevšímali a chtěli ji pochopit",
+        "Malíři se učili hlavně malovat válečná pole"
+      ],
+      "oduvodneni": "Lidé viděli tolik útlaku a utrpení ve válkách a během epidemií, že se obrátili k Bohu. Smrt druhých jim připomínala krátkost pozemského života.",
+      "proc_spatne": {
+        "Církev zakazovala jakákoli jiná témata": "Malíři měli i krajiny, zátiší a portréty, takže zákaz to není.",
+        "Lidé si smrti vůbec nevšímali a chtěli ji pochopit": "Naopak, smrt viděli kolem sebe ve válkách a epidemiích.",
+        "Malíři se učili hlavně malovat válečná pole": "Důvod není malířská škola, ale zkušenost s utrpením a krátkostí života."
+      }
+    },
+    {
+      "id": "BA14",
+      "tema": "Život v baroku",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kde hledali barokní lidé rozptýlení spolu s duchovní útěchou?",
+      "spravna_odpoved": "Na náboženských slavnostech, poutích a oslavných bohoslužbách",
+      "spatne_odpovedi": [
+        "Na trzích, řemeslnických slavnostech a obchodních cestách",
+        "V kavárnách, hostincích a při karetních hrách",
+        "Na zasedáních parlamentu a městských radách"
+      ],
+      "oduvodneni": "Rozptýlení spolu s duchovní útěchou nacházeli při nábožensky laděných akcích: slavnostech, poutích a oslavných bohoslužbách.",
+      "proc_spatne": {
+        "Na zasedáních parlamentu a městských radách": "To je politika a správa města, ne zábava s duchovní útěchou.",
+        "Na trzích, řemeslnických slavnostech a obchodních cestách": "Otázka spojuje rozptýlení s duchovní útěchou. Učebnice uvádí náboženské slavnosti, poutě a bohoslužby.",
+        "V kavárnách, hostincích a při karetních hrách": "To jsou příklady světské zábavy. Otázka se ptá i na duchovní útěchu."
+      }
+    },
+    {
+      "id": "BA15",
+      "tema": "Život v baroku",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co obvykle patřilo k baroknímu zámku?",
+      "spravna_odpoved": "Kaple, taneční sál, salonky a upravený park",
+      "spatne_odpovedi": [
+        "Hradby s vodním příkopem a padacím mostem",
+        "Dílny řemeslníků a tržiště pro kupce",
+        "Pouze jedna obytná místnost s krbem"
+      ],
+      "oduvodneni": "Součástí zámku byly zpravidla kaple, prostorná jídelna, taneční sál a spousta salonků, k zámku patřil upravený park.",
+      "proc_spatne": {
+        "Hradby s vodním příkopem a padacím mostem": "To je obranný středověký hrad, zámek slouží pohodlí a reprezentaci.",
+        "Dílny řemeslníků a tržiště pro kupce": "Dílny a trhy patří do města.",
+        "Pouze jedna obytná místnost s krbem": "Jednu velkou místnost měla středověká obydlí na venkově, zámek jich měl spoustu."
+      }
+    },
+    {
+      "id": "BA16",
+      "tema": "Život v baroku",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se barokní panstvo na zámku bavilo?",
+      "spravna_odpoved": "Na honech, hostinách a plesech",
+      "spatne_odpovedi": [
+        "Na jarmarcích a při zpěvu kramářských písní",
+        "Na poli při sklizni brambor",
+        "Na veřejných přednáškách a při školních disputacích"
+      ],
+      "oduvodneni": "Panstvo se bavilo na honech, hostinách a plesech, oblíbené byly i vyjížďky na koni nebo v kočáře.",
+      "proc_spatne": {
+        "Na jarmarcích a při zpěvu kramářských písní": "Kramářské písně byly zábava prostých lidí.",
+        "Na poli při sklizni brambor": "Na poli pracovali poddaní, ne panstvo.",
+        "Na veřejných přednáškách a při školních disputacích": "Učebnice jako zábavu panstva uvádí hony, hostiny a plesy."
+      }
+    },
+    {
+      "id": "BA17",
+      "tema": "Život v baroku",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Které dvě funkce zámeckých tapet z luxusních tkanin uvádí učebnice?",
+      "spravna_odpoved": "K ozdobě a zateplení",
+      "spatne_odpovedi": [
+        "K zakrytí oken před sluncem",
+        "K výrobě šatů pro služebnictvo",
+        "K zadržování zvuku v divadelním sále"
+      ],
+      "oduvodneni": "Stěny zámku pokrývaly tapety z luxusních tkanin, které sloužily k ozdobě i zateplení.",
+      "proc_spatne": {
+        "K zakrytí oken před sluncem": "Tapety byly na stěnách, ne na oknech.",
+        "K výrobě šatů pro služebnictvo": "Nešlo o látku na šaty, ale o výzdobu stěn.",
+        "K zadržování zvuku v divadelním sále": "Látky mohou tlumit zvuk, ale učebnice uvádí ozdobu a zateplení."
+      }
+    },
+    {
+      "id": "BA18",
+      "tema": "Život v baroku",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Které dvě země učebnice uvádí jako původ exotických výrobků oblíbených na zámcích?",
+      "spravna_odpoved": "Z Číny a Japonska",
+      "spatne_odpovedi": [
+        "Z Ameriky a Afriky",
+        "Z Itálie a Portugalska",
+        "Z Ruska a Turecka"
+      ],
+      "oduvodneni": "Do módy vedle skla přichází i porcelán, majolika a také exotické výrobky z Číny a Japonska.",
+      "proc_spatne": {
+        "Z Ameriky a Afriky": "Učebnice v této pasáži výslovně uvádí Čínu a Japonsko.",
+        "Z Itálie a Portugalska": "Učebnice v této pasáži výslovně uvádí Čínu a Japonsko.",
+        "Z Ruska a Turecka": "Učebnice v této pasáži výslovně uvádí Čínu a Japonsko."
+      }
+    },
+    {
+      "id": "BA19",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "V jakém pořadí odshora dolů jsou skupiny venkovanů na schématu v učebnici?",
+      "spravna_odpoved": "Velkostatkáři, sedláci, střední a drobní rolníci, chudina",
+      "spatne_odpovedi": [
+        "Sedláci, velkostatkáři, chudina, střední a drobní rolníci",
+        "Chudina, střední a drobní rolníci, sedláci, velkostatkáři",
+        "Velkostatkáři, střední a drobní rolníci, sedláci, chudina"
+      ],
+      "oduvodneni": "Nahoře jsou velkostatkáři, pod nimi sedláci, potom střední a drobní rolníci a dole nemajetná chudina.",
+      "proc_spatne": {
+        "Sedláci, velkostatkáři, chudina, střední a drobní rolníci": "Velkostatkáři jsou nejvýš a chudina úplně dole.",
+        "Chudina, střední a drobní rolníci, sedláci, velkostatkáři": "To je pořadí zespodu nahoru. Otázka je odshora.",
+        "Velkostatkáři, střední a drobní rolníci, sedláci, chudina": "Sedláci stáli nad středními a drobnými rolníky."
+      }
+    },
+    {
+      "id": "BA20",
+      "tema": "Život v baroku",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Čím se lišily venkovské statky v 17. a 18. století od středověkých obydlí?",
+      "spravna_odpoved": "Byly členěné na několik vytápěných místností",
+      "spatne_odpovedi": [
+        "Měly jen jednu velkou obytnou místnost",
+        "Byly postavené z mramoru se zlatou výzdobou",
+        "Neměly žádný krb ani pec"
+      ],
+      "oduvodneni": "Na rozdíl od středověkých obydlí s jednou velkou místností byly statky členěné na několik místností vytápěných krbem nebo pecí.",
+      "proc_spatne": {
+        "Měly jen jednu velkou obytnou místnost": "To je právě středověké obydlí, nikoli barokní statek.",
+        "Byly postavené z mramoru se zlatou výzdobou": "Mramor a zlato patří k okázalým barokním stavbám, ne ke statkům.",
+        "Neměly žádný krb ani pec": "Místnosti se krbem nebo pecí vytápěly."
+      }
+    },
+    {
+      "id": "BA21",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co postupně nahradilo truhlu na šaty?",
+      "spravna_odpoved": "Skříň, v baroku už specializovaná",
+      "spatne_odpovedi": [
+        "Police ze skla a porcelánu",
+        "Kachlová kamna",
+        "Čalouněný nábytek"
+      ],
+      "oduvodneni": "Truhly na šaty postupně nahrazovaly skříně. Nábytek se rozlišoval podle účelu: šatní a prádelní skříně, komody a prosklené skříně, kterým se říkalo skleníky.",
+      "proc_spatne": {
+        "Police ze skla a porcelánu": "Sklo a porcelán přišly do módy jako ozdoby. Truhlu nahradila skříň.",
+        "Kachlová kamna": "Kachlová kamna nahradila krby, ne truhly.",
+        "Čalouněný nábytek": "Čalouněný nábytek přibyl v bohatých domech, ale na šaty sloužila skříň."
+      }
+    },
+    {
+      "id": "BA22",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak často museli poddaní většinou robotovat na polích svého pána?",
+      "spravna_odpoved": "Tři dny v týdnu od jara do začátku zimy",
+      "spatne_odpovedi": [
+        "Jeden den v týdnu od jara do začátku zimy",
+        "Tři dny v měsíci od jara do začátku zimy",
+        "Šest dní v týdnu od jara do začátku zimy"
+      ],
+      "oduvodneni": "Poddaní měli povinnost od jara až do začátku zimy robotovat na polích svého pána, většinou tři dny v týdnu. V neděli a o svátcích se nesmělo pracovat.",
+      "proc_spatne": {
+        "Jeden den v týdnu od jara do začátku zimy": "Učebnice uvádí většinou tři dny v týdnu.",
+        "Tři dny v měsíci od jara do začátku zimy": "Učebnice uvádí většinou tři dny v týdnu.",
+        "Šest dní v týdnu od jara do začátku zimy": "Učebnice uvádí většinou tři dny v týdnu."
+      }
+    },
+    {
+      "id": "BA23",
+      "tema": "Život v baroku",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co kromě roboty odváděli poddaní?",
+      "spravna_odpoved": "Daně pánovi a desátek církvi",
+      "spatne_odpovedi": [
+        "Desátek pánovi a daně městské radě",
+        "Daně panovníkovi a robotu parlamentu",
+        "Jen desátek králi"
+      ],
+      "oduvodneni": "Kromě roboty odváděli svému pánovi daně (z půdy, kováren, mlýnů atd.) a církvi desátek.",
+      "proc_spatne": {
+        "Desátek pánovi a daně městské radě": "Desátek patřil církvi a městská rada spravovala město, ne venkov.",
+        "Daně panovníkovi a robotu parlamentu": "Učebnice mluví o daních pánovi a parlamentu poddaní nerobotovali.",
+        "Jen desátek králi": "Desátek šel církvi a navíc odváděli daně pánovi."
+      }
+    },
+    {
+      "id": "BA24",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které zimní práce poddaných uvádí učebnice?",
+      "spravna_odpoved": "Opravovali hospodářské budovy a nářadí nebo drali peří",
+      "spatne_odpovedi": [
+        "Odpočívali a nepracovali, protože robota skončila",
+        "Stavěli pro šlechtu barokní zámky",
+        "Odcházeli do měst učit se řemeslu"
+      ],
+      "oduvodneni": "V zimě opravovali hospodářské budovy a nářadí nebo drali peří.",
+      "proc_spatne": {
+        "Odpočívali a nepracovali, protože robota skončila": "Práce na polích skončila, ale pracovali dál v hospodářství.",
+        "Stavěli pro šlechtu barokní zámky": "Učebnice uvádí opravy hospodářských budov a nářadí a draní peří.",
+        "Odcházeli do měst učit se řemeslu": "Učebnice uvádí práce v hospodářství, ne odchod do města."
+      }
+    },
+    {
+      "id": "BA25",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo spravoval barokní město?",
+      "spravna_odpoved": "Rychtář spolu s městskou radou",
+      "spatne_odpovedi": [
+        "Velkostatkář spolu s hejtmanem",
+        "Ponocný spolu s městskou stráží",
+        "Biskup spolu s kramáři"
+      ],
+      "oduvodneni": "Město spravoval rychtář spolu s městskou radou, jejíž členové se nazývali konšelé.",
+      "proc_spatne": {
+        "Velkostatkář spolu s hejtmanem": "Velkostatkáři patří na venkov.",
+        "Ponocný spolu s městskou stráží": "Ti jen dohlíželi na pořádek, město nespravovali.",
+        "Biskup spolu s kramáři": "Biskup je církevní hodnostář a kramáři zpívali a prodávali na trzích a poutích."
+      }
+    },
+    {
+      "id": "BA26",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co nahradilo v bohatých měšťanských domech krby?",
+      "spravna_odpoved": "Kachlová kamna",
+      "spatne_odpovedi": [
+        "Porcelánové pece",
+        "Teplovzdušné vytápění",
+        "Tapety z luxusních tkanin"
+      ],
+      "oduvodneni": "V zařízení bohatých měšťanských domů přibyly luxusní tkaniny a čalouněný nábytek a krby nahradila kachlová kamna.",
+      "proc_spatne": {
+        "Porcelánové pece": "Porcelán šel do módy jako ozdoba, ne jako pec.",
+        "Teplovzdušné vytápění": "Učebnice jako náhradu krbů v měšťanských domech uvádí kachlová kamna.",
+        "Tapety z luxusních tkanin": "Tapety zateplují stěny zámku, krb ale nenahrazují."
+      }
+    },
+    {
+      "id": "BA27",
+      "tema": "Život v baroku",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byla městská šatlava?",
+      "spravna_odpoved": "Vězení pro rušitele pořádku",
+      "spatne_odpovedi": [
+        "Místnost na ukládání šatů",
+        "Sál pro zasedání městské rady",
+        "Obchod s luxusními látkami"
+      ],
+      "oduvodneni": "Pro rušitele pořádku byla zřízena městská šatlava, tedy vězení. Provinilci tam museli vydržet jen o chlebu a vodě.",
+      "proc_spatne": {
+        "Místnost na ukládání šatů": "Podobnost se slovem šaty klame. Šatlava je vězení.",
+        "Sál pro zasedání městské rady": "Městská rada spravovala město, šatlava sloužila k trestání.",
+        "Obchod s luxusními látkami": "Luxusní tkaniny jsou v domech, ne v šatlavě."
+      }
+    },
+    {
+      "id": "BA28",
+      "tema": "Móda a jídlo",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co napodoboval barokní mužský oděv?",
+      "spravna_odpoved": "Vojenské uniformy",
+      "spatne_odpovedi": [
+        "Oděv kněží",
+        "Oblečení venkovanů",
+        "Antické tógy"
+      ],
+      "oduvodneni": "Mužský oděv napodoboval vojenské uniformy. Doplňoval ho široký zdobený límec, široký klobouk a vysoké boty.",
+      "proc_spatne": {
+        "Oděv kněží": "Móda bohatých vrstev se držela vojenského stylu.",
+        "Oblečení venkovanů": "Móda bohatých vrstev se od venkovského oblečení naopak lišila.",
+        "Antické tógy": "Tógy jsou starověk, muži v baroku nosili oděv podobný uniformě."
+      }
+    },
+    {
+      "id": "BA29",
+      "tema": "Móda a jídlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je pravda o barokním ženském oděvu?",
+      "spravna_odpoved": "Odhaloval dekolt a posouval pas vzhůru",
+      "spatne_odpovedi": [
+        "Zakrýval krk a posouval pas dolů",
+        "Byl jednoduchý a bez ozdob",
+        "Napodoboval vojenské uniformy"
+      ],
+      "oduvodneni": "Barokní ženský oděv odhaloval dekolt a posouval pas poněkud vzhůru. Ženský i mužský oděv byl často zdoben krajkami.",
+      "proc_spatne": {
+        "Zakrýval krk a posouval pas dolů": "Je to obráceně: dekolt byl odhalený a pas se posouval vzhůru.",
+        "Byl jednoduchý a bez ozdob": "Oděv byl často zdoben krajkami a móda byla okázalá.",
+        "Napodoboval vojenské uniformy": "To platí pro mužský oděv."
+      }
+    },
+    {
+      "id": "BA30",
+      "tema": "Móda a jídlo",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jak se v době baroka oblékaly děti?",
+      "spravna_odpoved": "Jako malí dospělí, dětský oděv neexistoval",
+      "spatne_odpovedi": [
+        "Měly speciální barevné dětské oblečení",
+        "Všechny nosily stejnou školní uniformu",
+        "Do deseti let chodily jen v krajkové košilce"
+      ],
+      "oduvodneni": "V této době stále neexistoval dětský oděv, děti se oblékaly jako malí dospělí.",
+      "proc_spatne": {
+        "Měly speciální barevné dětské oblečení": "Dětský oděv v této době stále neexistoval.",
+        "Všechny nosily stejnou školní uniformu": "Vojenské uniformy napodoboval mužský oděv, dětské školní uniformy učebnice nezmiňuje.",
+        "Do deseti let chodily jen v krajkové košilce": "Krajky zdobily oděv dospělých a děti se oblékaly stejně jako oni."
+      }
+    },
+    {
+      "id": "BA31",
+      "tema": "Móda a jídlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byla muška?",
+      "spravna_odpoved": "Umělá piha nalepená na tvář",
+      "spatne_odpovedi": [
+        "Malý zdobený klobouček",
+        "Krajka přišitá na límec",
+        "Pudr určený na vlasy"
+      ],
+      "oduvodneni": "Muži i ženy z vyšších vrstev si nalepovali na tvář tzv. mušku, umělou pihu, která měla dodat tváři na zajímavosti.",
+      "proc_spatne": {
+        "Malý zdobený klobouček": "Klobouk nosili muži, široký. Muška je na tváři.",
+        "Krajka přišitá na límec": "Krajky zdobily oděv, muška je umělá piha.",
+        "Pudr určený na vlasy": "Pudr používaly ženy při líčení. Muška je něco jiného."
+      }
+    },
+    {
+      "id": "BA32",
+      "tema": "Móda a jídlo",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která nová plodina se v baroku stala základní potravinou?",
+      "spravna_odpoved": "Brambory",
+      "spatne_odpovedi": [
+        "Rajčata",
+        "Obilná kaše",
+        "Zelí"
+      ],
+      "oduvodneni": "Ve stravování se prosazují nové potraviny. Tou základní se stávají brambory.",
+      "proc_spatne": {
+        "Rajčata": "Rajčata jsou nový druh zeleniny, ale základní potravinou byly brambory.",
+        "Obilná kaše": "Obilné kaše ustupují pečivu. Jsou to starší jídla.",
+        "Zelí": "Zelí bylo dřív nejvíc zastoupenou zeleninou. Novou základní potravinou jsou brambory."
+      }
+    },
+    {
+      "id": "BA33",
+      "tema": "Móda a jídlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč se někteří lidé zpočátku bramborami otrávili?",
+      "spravna_odpoved": "Jedlé jsou jen hlízy, zbytek rostliny je jedovatý",
+      "spatne_odpovedi": [
+        "Brambory se v Evropě kazily při dlouhé cestě lodí",
+        "Lidé je pěstovali na jedovaté půdě u dolů",
+        "Vařili je v měděných nádobách z Itálie"
+      ],
+      "oduvodneni": "Lidé nevěděli, jak brambory jíst. Někteří vařili nať, jiní jedli syrové a nezralé hlízy. S výjimkou jedlých hlíz je celá rostlina jedovatá.",
+      "proc_spatne": {
+        "Brambory se v Evropě kazily při dlouhé cestě lodí": "Otravy nezpůsobila cesta, ale neznalost, co se dá jíst.",
+        "Lidé je pěstovali na jedovaté půdě u dolů": "O půdě učebnice nic neříká, jedovatá je sama rostlina.",
+        "Vařili je v měděných nádobách z Itálie": "O nádobách učebnice nemluví. Chyba byla, že jedli nesprávné části a nezralé hlízy."
+      }
+    },
+    {
+      "id": "BA34",
+      "tema": "Móda a jídlo",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Který panovník nařídil ve své zemi pěstování brambor v rámci osvícenských reforem?",
+      "spravna_odpoved": "Pruský král Fridrich II.",
+      "spatne_odpovedi": [
+        "Francouzský král Ludvík XIV.",
+        "Anglický král Vilém III. Oranžský",
+        "Císař Leopold I."
+      ],
+      "oduvodneni": "Pruský král Fridrich II. přihlíží sklizni brambor: v rámci osvícenských reforem nařídil ve své zemi jejich pěstování.",
+      "proc_spatne": {
+        "Francouzský král Ludvík XIV.": "Ten je v učebnici příklad absolutistického panovníka, brambory patří k Fridrichovi II.",
+        "Anglický král Vilém III. Oranžský": "Ten je příklad konstituční monarchie.",
+        "Císař Leopold I.": "Leopold I. je panovník spojený s barokem u nás. Pěstování brambor nařídil Fridrich II."
+      }
+    },
+    {
+      "id": "BA35",
+      "tema": "Móda a jídlo",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který příbor se začíná při stolování používat?",
+      "spravna_odpoved": "Vidlička",
+      "spatne_odpovedi": [
+        "Lžíce",
+        "Hůlky",
+        "Nůž"
+      ],
+      "oduvodneni": "Při stolování se začíná používat vidlička, i když na venkově se často stále jedlo lžícemi z jedné společné mísy.",
+      "proc_spatne": {
+        "Lžíce": "Lžíce není novinka, lidé jí jedli i dřív a na venkově dál z jedné mísy.",
+        "Hůlky": "Exotické výrobky přicházely z Číny a Japonska, novinkou v jídle u nás je ale vidlička.",
+        "Nůž": "Nůž novinkou není, učebnice uvádí vidličku."
+      }
+    },
+    {
+      "id": "BA36",
+      "tema": "Móda a jídlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co platí o pití kávy v Evropě?",
+      "spravna_odpoved": "Velkou módou se stalo na konci 17. století, přišlo z Asie",
+      "spatne_odpovedi": [
+        "Velkou módou se stalo na konci 15. století, přišlo z Ameriky",
+        "Ujalo se až v 19. století v českých zemích",
+        "První se ujalo v Rusku a v západní Evropě"
+      ],
+      "oduvodneni": "Na konci 17. století se stává velkou módou pití kávy, která se do Evropy rozšířila z Asie. První evropskou zemí, ve které se její pití ujalo, byla Itálie.",
+      "proc_spatne": {
+        "Velkou módou se stalo na konci 15. století, přišlo z Ameriky": "Špatně je století i směr. Z Ameriky přišly brambory a rajčata.",
+        "Ujalo se až v 19. století v českých zemích": "To se týká čaje, ne kávy.",
+        "První se ujalo v Rusku a v západní Evropě": "To je zase čaj. Pití kávy se první ujalo v Itálii."
+      }
+    },
+    {
+      "id": "BA37",
+      "tema": "Móda a jídlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdy si čaj získal oblibu v českých zemích?",
+      "spravna_odpoved": "Až v 19. století",
+      "spatne_odpovedi": [
+        "Už na konci 17. století",
+        "Hned po bitvě na Bílé hoře",
+        "Na konci 18. století"
+      ],
+      "oduvodneni": "Čaj byl oblíbený v západní Evropě a v Rusku. V českých zemích se zpočátku příliš neujal, oblibu si získal až v 19. století.",
+      "proc_spatne": {
+        "Už na konci 17. století": "Tehdy šla do módy káva, čaj se u nás ještě neujal.",
+        "Hned po bitvě na Bílé hoře": "Po Bílé hoře u nás zakořenilo baroko, ne čaj.",
+        "Na konci 18. století": "Učebnice klade oblibu čaje v českých zemích až do 19. století."
+      }
+    },
+    {
+      "id": "BA38",
+      "tema": "Móda a jídlo",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "K čemu se používaly lihové nápoje dříve, než se rozšířila jejich spotřeba?",
+      "spravna_odpoved": "Jen v lékařství",
+      "spatne_odpovedi": [
+        "Jen při bohoslužbách",
+        "Jen pro výrobu parfémů",
+        "Jen na hostinách šlechty"
+      ],
+      "oduvodneni": "Kromě piva a vína obrovsky roste spotřeba lihových nápojů, dříve využívaných jen v lékařství.",
+      "proc_spatne": {
+        "Jen při bohoslužbách": "Lihové nápoje se podle učebnice používaly v lékařství.",
+        "Jen pro výrobu parfémů": "Parfémy učebnice nezmiňuje.",
+        "Jen na hostinách šlechty": "Na hostinách se pilo, ale původní užití lihu bylo lékařské."
+      }
+    },
+    {
+      "id": "BA39",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co je typické pro barokní architekturu?",
+      "spravna_odpoved": "Nepravidelné tvary a přehnaná zdobnost",
+      "spatne_odpovedi": [
+        "Jednoduché rovné tvary bez ozdob",
+        "Úzká lomená okna a vysoké věže",
+        "Tmavé hrady se silnými zdmi"
+      ],
+      "oduvodneni": "Typickými prvky jsou nepravidelné tvary, přehnaná zdobnost, okázalost a vznešenost staveb, bohatá výzdoba, malby, velká půlkruhová okna a sochy s rozevlátými rouchy.",
+      "proc_spatne": {
+        "Jednoduché rovné tvary bez ozdob": "To je pravý opak. Baroko je zdobné a okázalé.",
+        "Úzká lomená okna a vysoké věže": "Lomená okna patří ke gotice, baroko má velká půlkruhová.",
+        "Tmavé hrady se silnými zdmi": "To připomíná románský sloh a středověké hrady."
+      }
+    },
+    {
+      "id": "BA40",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaká okna a portály patří k barokním stavbám?",
+      "spravna_odpoved": "Velká půlkruhová okna a vstupní portály",
+      "spatne_odpovedi": [
+        "Malá čtvercová okna bez portálu",
+        "Úzká lomená okna s růžicí",
+        "Sdružená okénka oddělená sloupkem"
+      ],
+      "oduvodneni": "K typickým prvkům patří velká půlkruhová okna a vstupní portály.",
+      "proc_spatne": {
+        "Malá čtvercová okna bez portálu": "Učebnice jako typický znak zdůrazňuje velká půlkruhová okna a výrazné vstupní portály.",
+        "Úzká lomená okna s růžicí": "To je gotika.",
+        "Sdružená okénka oddělená sloupkem": "Tato možnost neodpovídá typickým prvkům, které uvádí učebnice."
+      }
+    },
+    {
+      "id": "BA41",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč mluvíme o českém baroku?",
+      "spravna_odpoved": "Baroko se u nás obohatilo o domácí rysy",
+      "spatne_odpovedi": [
+        "Baroko vzniklo v Čechách a odtud se šířilo",
+        "Barokní umělci u nás nesměli tvořit katolické stavby",
+        "Používaly se jen stavební vzory z českého středověku"
+      ],
+      "oduvodneni": "V českých zemích se baroko začalo šířit už po bitvě na Bílé hoře. Obohatilo se o domácí rysy, takže mluvíme o českém baroku.",
+      "proc_spatne": {
+        "Baroko vzniklo v Čechách a odtud se šířilo": "Baroko se zrodilo v Itálii.",
+        "Barokní umělci u nás nesměli tvořit katolické stavby": "Právě naopak, české baroko je plné kostelů a klášterů.",
+        "Používaly se jen stavební vzory z českého středověku": "České baroko navazovalo na evropské baroko a obohacovalo je o domácí rysy."
+      }
+    },
+    {
+      "id": "BA42",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo navrhl kostel sv. Jana Nepomuckého na Zelené hoře ve Žďáru nad Sázavou?",
+      "spravna_odpoved": "Jan Blažej Santini-Aichel",
+      "spatne_odpovedi": [
+        "Matyáš Bernard Braun",
+        "Karel Škréta",
+        "Bohuslav Balbín"
+      ],
+      "oduvodneni": "Barokní kostel sv. Jana Nepomuckého na Zelené hoře navrhl architekt Jan Blažej Santini-Aichel.",
+      "proc_spatne": {
+        "Matyáš Bernard Braun": "Braun byl sochař.",
+        "Karel Škréta": "Škréta byl malíř.",
+        "Bohuslav Balbín": "Balbín byl jezuita a spisovatel."
+      }
+    },
+    {
+      "id": "BA43",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kteří dva architekti, otec a syn, navrhli nejvýznamnější barokní stavby u nás vedle Santiniho?",
+      "spravna_odpoved": "Dientzenhoferovi",
+      "spatne_odpovedi": [
+        "Brokoffovi",
+        "Monteverdiové",
+        "Kupečtí"
+      ],
+      "oduvodneni": "Nejvýznamnější barokní stavby na našem území navrhli Jan Blažej Santini-Aichel a otec a syn Dientzenhoferovi.",
+      "proc_spatne": {
+        "Brokoffovi": "Brokoffové byli sochařská rodina. Otázka hledá architekty Dientzenhoferovy.",
+        "Monteverdiové": "Claudio Monteverdi byl italský skladatel oper.",
+        "Kupečtí": "Jan Kupecký byl malíř."
+      }
+    },
+    {
+      "id": "BA44",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co vyrůstalo v době baroka na náměstích?",
+      "spravna_odpoved": "Kašny, morové neboli mariánské sloupy a sochy",
+      "spatne_odpovedi": [
+        "Pranýře, šibenice a katovny",
+        "Radnice s věžemi a hodinami ze skla",
+        "Hrady a rytířské turnajové dráhy"
+      ],
+      "oduvodneni": "Změnil se i vzhled měst: na náměstích vyrůstaly kašny, morové neboli mariánské sloupy a množství soch. Učebnice používá společné označení. Přesněji: morový sloup souvisí s morem, mariánský je zasvěcen Panně Marii a ne každý sloup splňuje obojí.",
+      "proc_spatne": {
+        "Pranýře, šibenice a katovny": "To učebnice o barokních náměstích neříká, jde o kašny a sloupy.",
+        "Radnice s věžemi a hodinami ze skla": "Barokní radnice existují, ale učebnice tu uvádí kašny, sloupy a sochy.",
+        "Hrady a rytířské turnajové dráhy": "To patří do středověku."
+      }
+    },
+    {
+      "id": "BA45",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co je selské baroko?",
+      "spravna_odpoved": "Barokní sloh, který se dlouho uplatňoval na venkově",
+      "spatne_odpovedi": [
+        "Povstání sedláků proti panovníkům v 18. století",
+        "Baroko, které stavěli sedláci pro šlechtu na zámcích",
+        "Styl barokních oper o životě na vsi"
+      ],
+      "oduvodneni": "Barokní sloh se v českých zemích uplatňoval velmi dlouho, zejména na venkově. Vžilo se pro něj označení selské baroko a statky se dochovaly převážně v jižních Čechách. Pozor na datování: řada známých staveb selského baroka je až z 19. století a využívá starší barokní prvky.",
+      "proc_spatne": {
+        "Povstání sedláků proti panovníkům v 18. století": "Selské baroko je stavební styl, ne vzpoura.",
+        "Baroko, které stavěli sedláci pro šlechtu na zámcích": "Jde o venkovské statky, ne o zámky.",
+        "Styl barokních oper o životě na vsi": "Je to označení pro venkovskou architekturu, ne pro hudbu."
+      }
+    },
+    {
+      "id": "BA46",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kteří tři jsou nejznámější čeští barokní malíři?",
+      "spravna_odpoved": "Karel Škréta, Petr Jan Brandl, Jan Kupecký",
+      "spatne_odpovedi": [
+        "Matyáš Bernard Braun, Ferdinand Maxmilián Brokoff, Jan Kupecký",
+        "Jan Blažej Santini-Aichel, Karel Škréta, Adam Michna",
+        "Bach, Händel, Vivaldi"
+      ],
+      "oduvodneni": "Nejznámějšími českými barokními malíři jsou Karel Škréta, Petr Jan Brandl a Jan Kupecký.",
+      "proc_spatne": {
+        "Matyáš Bernard Braun, Ferdinand Maxmilián Brokoff, Jan Kupecký": "Braun a Brokoff byli sochaři, malířem je tu jen Kupecký.",
+        "Jan Blažej Santini-Aichel, Karel Škréta, Adam Michna": "Santini je architekt a Michna básník a skladatel.",
+        "Bach, Händel, Vivaldi": "To jsou skladatelé."
+      }
+    },
+    {
+      "id": "BA47",
+      "tema": "Architektura a výtvarné umění",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím proslul Ferdinand Maxmilián Brokoff?",
+      "spravna_odpoved": "Sochami, třeba sv. Vojtěcha na Karlově mostě",
+      "spatne_odpovedi": [
+        "Stavbou zámku ve Slavkově u Brna",
+        "Obrazy krajin a zátiší",
+        "Historickými prózami psanými latinsky"
+      ],
+      "oduvodneni": "Ze sochařů tvořících v našich zemích vynikli Braun a Brokoff. Brokoffova socha sv. Vojtěcha stojí na Karlově mostě. Přesnější určení autorství zahrnuje i jeho bratra Michala Jana Josefa.",
+      "proc_spatne": {
+        "Stavbou zámku ve Slavkově u Brna": "Brokoff nebyl stavitel, ale sochař.",
+        "Obrazy krajin a zátiší": "To jsou náměty malířů.",
+        "Historickými prózami psanými latinsky": "To je Bohuslav Balbín."
+      }
+    },
+    {
+      "id": "BA48",
+      "tema": "Literatura",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co je typické pro barokní literaturu?",
+      "spravna_odpoved": "Květnatý sloh a složitá stavba vět",
+      "spatne_odpovedi": [
+        "Krátké věty a strohý sloh",
+        "Psaní výhradně v rýmech pro děti",
+        "Popisy cest do zámoří"
+      ],
+      "oduvodneni": "Pro barokní literaturu je typický květnatý sloh, tedy bohatě rozvinutá přirovnání, a složitá stavba vět.",
+      "proc_spatne": {
+        "Krátké věty a strohý sloh": "To je přesný opak květnatého slohu.",
+        "Psaní výhradně v rýmech pro děti": "Vznikaly i knihy pro děti, ale barokní literatura nebyla jen dětská a nepsala se jen v rýmech.",
+        "Popisy cest do zámoří": "Literatura je hlavně náboženská, cestopisy nejsou typické."
+      }
+    },
+    {
+      "id": "BA49",
+      "tema": "Literatura",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím byla ovlivněna česká barokní literatura?",
+      "spravna_odpoved": "Rekatolizací, proto volili autoři náboženská témata",
+      "spatne_odpovedi": [
+        "Husitstvím, proto psali autoři válečné písně",
+        "Revolucí v Anglii, proto psali o parlamentu",
+        "Objevem Ameriky, proto psali o koloniích"
+      ],
+      "oduvodneni": "Česká barokní literatura byla ovlivněna rekatolizací, takže autoři volili především náboženská témata: kázání, modlitební knihy, duchovní poezii.",
+      "proc_spatne": {
+        "Husitstvím, proto psali autoři válečné písně": "Husitství je středověk a rekatolizace šla proti nekatolické víře.",
+        "Revolucí v Anglii, proto psali o parlamentu": "Česká literatura se věnovala hlavně náboženství.",
+        "Objevem Ameriky, proto psali o koloniích": "Hlavní byla náboženská témata."
+      }
+    },
+    {
+      "id": "BA50",
+      "tema": "Literatura",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo je autorem nejkrásnější česky psané náboženské poezie a ukolébavky „Chtíc, aby spal“?",
+      "spravna_odpoved": "Adam Václav Michna z Otradovic",
+      "spatne_odpovedi": [
+        "Bohuslav Balbín",
+        "Jan Amos Komenský",
+        "Alois Jirásek"
+      ],
+      "oduvodneni": "Za nejkrásnější z česky psané náboženské poezie je považována tvorba Adama Václava Michny z Otradovic. Byl i hudebním skladatelem a složil ukolébavku „Chtíc, aby spal“.",
+      "proc_spatne": {
+        "Bohuslav Balbín": "Balbín psal pouze latinsky, ne česky.",
+        "Jan Amos Komenský": "Komenský je exulant, jeho díla se u nás četla tajně.",
+        "Alois Jirásek": "Jirásek žil později a v učebnici je spojený s označením doba temna."
+      }
+    },
+    {
+      "id": "BA51",
+      "tema": "Literatura",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jakým jazykem psal jezuita Bohuslav Balbín?",
+      "spravna_odpoved": "Pouze latinsky",
+      "spatne_odpovedi": [
+        "Pouze česky",
+        "Česky a německy",
+        "Italsky"
+      ],
+      "oduvodneni": "Významným autorem historických próz byl jezuita Bohuslav Balbín, který však psal pouze latinsky.",
+      "proc_spatne": {
+        "Pouze česky": "Česky psal Michna. Učebnice u Balbína výslovně říká pouze latinsky.",
+        "Česky a německy": "Balbín psal pouze latinsky.",
+        "Italsky": "Italština patří k Monteverdimu a Vivaldimu, Balbín psal latinsky."
+      }
+    },
+    {
+      "id": "BA52",
+      "tema": "Literatura",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jak se v českých zemích četla díla nekatolických exulantů?",
+      "spravna_odpoved": "Tajně, třeba práce Komenského",
+      "spatne_odpovedi": [
+        "Veřejně na poutích a jarmarcích",
+        "Povinně ve všech školách",
+        "Vůbec, všechna byla zničena"
+      ],
+      "oduvodneni": "Nekatolíci, kteří nechtěli přistoupit na katolickou víru, museli opustit zem. Proto se tajně četla díla nekatolických exulantů, například dříve vydané práce Komenského.",
+      "proc_spatne": {
+        "Veřejně na poutích a jarmarcích": "Na poutích a jarmarcích se zpívaly kramářské písně.",
+        "Povinně ve všech školách": "Nekatolická literatura povinná nebyla, četla se tajně.",
+        "Vůbec, všechna byla zničena": "Učebnice říká, že se četla tajně."
+      }
+    },
+    {
+      "id": "BA53",
+      "tema": "Literatura",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kde se zpívaly kramářské písně?",
+      "spravna_odpoved": "Na poutích a jarmarcích",
+      "spatne_odpovedi": [
+        "V kostele při mši",
+        "Na zámeckých plesech",
+        "V divadelních sálech"
+      ],
+      "oduvodneni": "Kramářské písně byly populární hlavně mezi prostými lidmi. Vyprávěly příběhy ze života a zpívaly se na poutích nebo jarmarcích.",
+      "proc_spatne": {
+        "V kostele při mši": "Kramářské písně mohly mít i náboženský obsah, ale učebnice jako místa zpěvu uvádí poutě a jarmarky.",
+        "Na zámeckých plesech": "Plesy patřily šlechtě, kramářské písně prostým lidem.",
+        "V divadelních sálech": "V divadelních sálech se hrála pantomima, fraška, činohra a opera."
+      }
+    },
+    {
+      "id": "BA54",
+      "tema": "Literatura",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "S kterým spisovatelem učebnice spojuje označení „doba temna“?",
+      "spravna_odpoved": "Alois Jirásek",
+      "spatne_odpovedi": [
+        "Bohuslav Balbín",
+        "Jan Amos Komenský",
+        "Adam Václav Michna z Otradovic"
+      ],
+      "oduvodneni": "Alois Jirásek popsal baroko jako dobu temna, kdy prý jezuité pálili české knihy. Podle učebnice byla skutečnost jiná: jezuité nebyli odpůrci české literatury, potlačovali pouze jinou víru než katolickou. Nekatolické knihy přitom skutečně zabavovali a některé ničili, rozhodující byl jejich obsah, ne čeština.",
+      "proc_spatne": {
+        "Bohuslav Balbín": "Učebnice toto označení spojuje s Aloisem Jiráskem.",
+        "Jan Amos Komenský": "Učebnice toto označení spojuje s Aloisem Jiráskem.",
+        "Adam Václav Michna z Otradovic": "Učebnice toto označení spojuje s Aloisem Jiráskem."
+      }
+    },
+    {
+      "id": "BA55",
+      "tema": "Hudba a divadlo",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co bylo hlavním úkolem barokní hudby?",
+      "spravna_odpoved": "Působit na city posluchače",
+      "spatne_odpovedi": [
+        "Vyprávět zprávy z války",
+        "Přesně napodobovat zvuky přírody",
+        "Doprovázet práci na poli"
+      ],
+      "oduvodneni": "Pro barokní hudbu je typická vznešenost, majestátnost, zpěvnost a líbivost. Jejím hlavním úkolem bylo působit na city posluchače.",
+      "proc_spatne": {
+        "Vyprávět zprávy z války": "Příběhy vyprávěly spíš kramářské písně.",
+        "Doprovázet práci na poli": "Barokní hudba se pěstovala i ve šlechtických sídlech, hlavní úkol je působení na city.",
+        "Přesně napodobovat zvuky přírody": "Učebnice za hlavní úkol barokní hudby označuje působení na city."
+      }
+    },
+    {
+      "id": "BA56",
+      "tema": "Hudba a divadlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která trojice patří mezi největší evropské barokní skladatele?",
+      "spravna_odpoved": "Händel, Bach, Vivaldi",
+      "spatne_odpovedi": [
+        "Škréta, Brandl, Kupecký",
+        "Braun, Brokoff, Santini",
+        "Balbín, Michna, Jirásek"
+      ],
+      "oduvodneni": "Za největší evropské barokní skladatele jsou považováni Němci Georg Friedrich Händel a Johann Sebastian Bach a Ital Antonio Vivaldi.",
+      "proc_spatne": {
+        "Škréta, Brandl, Kupecký": "To jsou malíři.",
+        "Braun, Brokoff, Santini": "Braun a Brokoff jsou sochaři, Santini architekt.",
+        "Balbín, Michna, Jirásek": "To je literatura, i když Michna byl i skladatel."
+      }
+    },
+    {
+      "id": "BA57",
+      "tema": "Hudba a divadlo",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jaké národnosti byl Antonio Vivaldi?",
+      "spravna_odpoved": "Ital",
+      "spatne_odpovedi": [
+        "Němec",
+        "Čech",
+        "Francouz"
+      ],
+      "oduvodneni": "Händel a Bach byli Němci, Antonio Vivaldi Ital.",
+      "proc_spatne": {
+        "Němec": "Němci byli Händel a Bach.",
+        "Čech": "Česky tvořil Michna, Vivaldi Čech nebyl.",
+        "Francouz": "Vivaldi byl Ital."
+      }
+    },
+    {
+      "id": "BA58",
+      "tema": "Hudba a divadlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kde podle učebnice vznikaly první profesionální kapely?",
+      "spravna_odpoved": "Ve šlechtických sídlech",
+      "spatne_odpovedi": [
+        "V domácnostech městských řemeslníků",
+        "Na venkovských statcích",
+        "Na univerzitách jezuitů"
+      ],
+      "oduvodneni": "Barokní hudba se pěstovala i ve šlechtických sídlech, kde vznikaly první profesionální kapely a pořádaly se koncerty a operní představení.",
+      "proc_spatne": {
+        "Na venkovských statcích": "Učebnice uvádí šlechtická sídla, ne venkovské statky.",
+        "Na univerzitách jezuitů": "Učebnice spojuje vznik kapel se šlechtickými sídly.",
+        "V domácnostech městských řemeslníků": "Učebnice spojuje vznik kapel se šlechtickými sídly."
+      }
+    },
+    {
+      "id": "BA59",
+      "tema": "Hudba a divadlo",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který nový divadelní žánr se objevil v baroku a kdo byl jeho nejznámějším autorem?",
+      "spravna_odpoved": "Opera, Claudio Monteverdi",
+      "spatne_odpovedi": [
+        "Fraška, Antonio Vivaldi",
+        "Činohra, Johann Sebastian Bach",
+        "Pantomima, Georg Friedrich Händel"
+      ],
+      "oduvodneni": "Objevuje se nový žánr, opera. Nejznámějším autorem barokních oper byl italský skladatel Claudio Monteverdi.",
+      "proc_spatne": {
+        "Fraška, Antonio Vivaldi": "Fraška se na zámcích hrála, nový žánr je ale opera a autor Monteverdi.",
+        "Činohra, Johann Sebastian Bach": "Novým žánrem je opera a učebnice s ní spojuje Claudia Monteverdiho.",
+        "Pantomima, Georg Friedrich Händel": "Pantomima se předváděla, ale novinkou je opera."
+      }
+    },
+    {
+      "id": "BA60",
+      "tema": "Hudba a divadlo",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Co se předvádělo v zámeckých divadelních sálech?",
+      "spravna_odpoved": "Pantomima, fraška i činohra",
+      "spatne_odpovedi": [
+        "Rytířské turnaje",
+        "Kramářské písně na jarmarcích",
+        "Bohoslužby a kázání"
+      ],
+      "oduvodneni": "Na zámcích se zřizovaly divadelní sály, kde se předváděla pantomima, fraška i činohra. Zámecký pán si často držel vlastní herecký soubor.",
+      "proc_spatne": {
+        "Rytířské turnaje": "Rytířský turnaj není divadelní žánr. Učebnice uvádí pantomimu, frašku a činohru.",
+        "Kramářské písně na jarmarcích": "Ty patřily prostým lidem na jarmarcích.",
+        "Bohoslužby a kázání": "Bohoslužby se konaly v kapli nebo kostele."
+      }
+    },
+    {
+      "id": "BA61",
+      "tema": "Sovičky z učebnice",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce proběhla bitva na Bílé hoře?",
+      "spravna_odpoved": "1620",
+      "spatne_odpovedi": [
+        "1618",
+        "1648",
+        "1526"
+      ],
+      "oduvodneni": "Bitva na Bílé hoře proběhla roku 1620. Bojovali v ní čeští stavové proti císaři a Bílá hora leží u Prahy.",
+      "proc_spatne": {
+        "1618": "Roku 1618 začalo české stavovské povstání a třicetiletá válka.",
+        "1648": "Roku 1648 skončila třicetiletá válka.",
+        "1526": "Roku 1526 nastoupili na český trůn Habsburkové."
+      }
+    },
+    {
+      "id": "BA62",
+      "tema": "Sovičky z učebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Odkud a kdy byly do Evropy přivezeny brambory?",
+      "spravna_odpoved": "Z Ameriky v 16. století",
+      "spatne_odpovedi": [
+        "Z Asie ve 13. století",
+        "Z Afriky v 18. století",
+        "Z Ruska v 19. století"
+      ],
+      "oduvodneni": "Brambory pocházejí z Ameriky a do Evropy je přivezli v 16. století, po objevných plavbách.",
+      "proc_spatne": {
+        "Z Asie ve 13. století": "Brambory pocházejí z Ameriky a do Evropy se dostaly až v 16. století.",
+        "Z Afriky v 18. století": "Brambory jsou z Ameriky a do Evropy dorazily dřív.",
+        "Z Ruska v 19. století": "Rusko není původní oblast brambor. Do Evropy byly přivezeny z Ameriky v 16. století."
+      }
+    },
+    {
+      "id": "BA63",
+      "tema": "Sovičky z učebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Čím se ve středověkých českých zemích běžně sladilo?",
+      "spravna_odpoved": "Medem",
+      "spatne_odpovedi": [
+        "Běžně dostupným třtinovým cukrem",
+        "Řepným cukrem vyráběným v cukrovarech",
+        "Průmyslově vyráběným glukózovým sirupem"
+      ],
+      "oduvodneni": "Běžným sladidlem byl med. Třtinový cukr byl také známý, ale bylo to drahé dovážené zboží.",
+      "proc_spatne": {
+        "Běžně dostupným třtinovým cukrem": "Třtinový cukr byl známý, ale nebyl běžně dostupným sladidlem.",
+        "Řepným cukrem vyráběným v cukrovarech": "Výroba řepného cukru v cukrovarech se rozvinula až po středověku.",
+        "Průmyslově vyráběným glukózovým sirupem": "Průmyslová výroba tohoto sirupu do středověku nepatří."
+      }
+    },
+    {
+      "id": "BA64",
+      "tema": "Sovičky z učebnice",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "S kterou zemí vedla habsburská monarchie a další evropské státy na konci 17. století válku?",
+      "spravna_odpoved": "S Tureckem",
+      "spatne_odpovedi": [
+        "S Čínou",
+        "S Japonskem",
+        "S Indií"
+      ],
+      "oduvodneni": "S Tureckem, přesněji s Osmanskou říší. Učebnice se ptá, jak to souvisí s kávou: Turci kávu pili a Evropané ji při kontaktech s nimi poznávali. Do Evropy se ale káva šířila obchodem už před touto válkou.",
+      "proc_spatne": {
+        "S Čínou": "Z Číny šly exotické výrobky. Válka se vedla s Tureckem.",
+        "S Japonskem": "Z Japonska šly exotické výrobky. Válka se vedla s Tureckem.",
+        "S Indií": "Tato válka se týkala Turecka."
+      }
+    },
+    {
+      "id": "BA65",
+      "tema": "Sovičky z učebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Proč lidé stavěli morové sloupy a proč se jim říká také mariánské?",
+      "spravna_odpoved": "Jako prosbu o ochranu před morem nebo díky za jeho konec, bývají zasvěcené Panně Marii",
+      "spatne_odpovedi": [
+        "Jako označení hrobu obětí moru, jméno mají po Marii Terezii",
+        "Na oslavu vojenských vítězství, jméno mají po poutním místě Mariazell",
+        "Na památku korunovací, jméno mají po matce krále"
+      ],
+      "oduvodneni": "Morové sloupy se stavěly jako prosba o ochranu před morem nebo poděkování za jeho ústup. Mariánské se jim říká podle Panny Marie, které bývají zasvěcené. Učebnice obě označení spojuje, přesněji ale ne každý morový sloup je mariánský a naopak.",
+      "proc_spatne": {
+        "Jako označení hrobu obětí moru, jméno mají po Marii Terezii": "Morový sloup není označení hrobu a mariánský odkazuje na Pannu Marii.",
+        "Na oslavu vojenských vítězství, jméno mají po poutním místě Mariazell": "Vítězství s morem nesouvisí a mariánský odkazuje na Pannu Marii.",
+        "Na památku korunovací, jméno mají po matce krále": "Sloup souvisí s morem a mariánský odkazuje na Pannu Marii."
+      }
+    },
+    {
+      "id": "BA66",
+      "tema": "Sovičky z učebnice",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který z těchto barokních kostelů byl v roce 1994 zapsán na seznam památek UNESCO?",
+      "spravna_odpoved": "Kostel sv. Jana Nepomuckého na Zelené hoře",
+      "spatne_odpovedi": [
+        "Kostel sv. Mikuláše na Malé Straně v Praze",
+        "Kostel sv. Mikuláše na Staroměstském náměstí v Praze",
+        "Kostel sv. Jana Nepomuckého na Skalce v Praze"
+      ],
+      "oduvodneni": "Kostel sv. Jana Nepomuckého na Zelené hoře ve Žďáru nad Sázavou je na seznamu UNESCO od roku 1994.",
+      "proc_spatne": {
+        "Kostel sv. Mikuláše na Malé Straně v Praze": "Zápis z roku 1994 se týká poutního kostela sv. Jana Nepomuckého na Zelené hoře ve Žďáru nad Sázavou.",
+        "Kostel sv. Mikuláše na Staroměstském náměstí v Praze": "Zápis z roku 1994 se týká poutního kostela sv. Jana Nepomuckého na Zelené hoře ve Žďáru nad Sázavou.",
+        "Kostel sv. Jana Nepomuckého na Skalce v Praze": "Zápis z roku 1994 se týká poutního kostela sv. Jana Nepomuckého na Zelené hoře ve Žďáru nad Sázavou."
+      }
+    }
+  ]
+}
