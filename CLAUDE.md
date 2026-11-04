@@ -82,6 +82,11 @@ The end-to-end process for building a topic — read source photos → author th
     ├── konec-stredoveku-test-mobil.html # Mobile test (Konec středověku) - filter by source
     ├── konec-stredoveku-flashcards.html # Flashcards (gold/violet theme)
     ├── konec-stredoveku-intro.html     # Prep page with cheat sheet (Konec středověku)
+    ├── baroko-questions.json           # 66 questions plus `hry` (game data) — Baroque, textbook source
+    ├── baroko-test-mobil.html          # Mobile test (Baroko) - filter by sub-theme, retry wrong answers
+    ├── baroko-flashcards.html          # Flashcards (burgundy/gold theme)
+    ├── baroko-intro.html               # Prep page: ten games, pearl necklace reward, learning mode
+    ├── tests/                          # Node tests for the data contract
     └── img/                            # Scanned textbook images (JPEG)
 ```
 

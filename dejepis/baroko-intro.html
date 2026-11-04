@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perlový náhrdelník - Baroko</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+        --surface: #ffffff;
+        --surface-soft: #fdf2f8;
+        --surface-strong: #f3d38a;
+        --ink: #1f2937;
+        --ink-soft: #6b7280;
+        --accent: #881337;
+        --accent-dark: #6b1230;
+        --gold: #b8860b;
+        --gold-dark: #7c5a05;
+        --positive: #16a34a;
+        --positive-bg: #dcfce7;
+        --negative: #dc2626;
+        --negative-bg: #fee2e2;
+        --title: Georgia, "Times New Roman", serif;
+      }
+
+      * { box-sizing: border-box; }
+      /* Component display rules must never win over the hidden attribute. */
+      [hidden] { display: none !important; }
+
+      body {
+        margin: 0;
+        background: linear-gradient(160deg, #fdf2f8 0%, #f3d38a 100%) no-repeat;
+        background-color: #f3d38a;
+        color: var(--ink);
+        overflow-wrap: break-word;
+      }
+
+      main {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 0.75rem 2rem;
+      }
+
+      button { font: inherit; color: inherit; cursor: pointer; }
+      button:focus-visible, a:focus-visible, summary:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 2px;
+      }
+
+      .sr {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      /* Sticky necklace. Pearls sit in a zigzag swag so ten 44 px targets fit 375 px. */
+      .necklace {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 2px 8px;
+        background: linear-gradient(180deg, var(--accent-dark), var(--accent));
+        box-shadow: 0 3px 10px rgba(107, 18, 48, 0.35);
+      }
+
+      .string {
+        position: relative;
+        height: 66px;
+        max-width: 460px;
+        margin: 0 auto;
+      }
+
+      .string > svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      /* Direct child only: the pearls inside the buttons have paths of their own. */
+      .string > svg path {
+        fill: none;
+        stroke: var(--surface-strong);
+        stroke-width: 1.5;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .slot {
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        transform: translate(-50%, -50%);
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        display: grid;
+        place-items: center;
+      }
+
+      .slot .num {
+        display: grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1.5px dashed var(--surface-strong);
+        background: var(--accent-dark);
+        color: var(--surface-strong);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .slot .pearl { display: none; width: 31px; height: 31px; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45)); }
+      .slot.has .num { display: none; }
+      .slot.has .pearl { display: block; }
+      .slot[aria-current="true"] .num { background: var(--surface-strong); color: var(--accent-dark); border-style: solid; }
+      .slot[aria-current="true"].has .pearl { filter: drop-shadow(0 0 5px #f3d38a); }
+      .slot:focus-visible { outline-color: var(--surface-strong); outline-offset: -2px; }
+      .slot.fresh .pearl { animation: thread 0.75s cubic-bezier(0.2, 1.4, 0.4, 1); }
+
+      @keyframes thread {
+        0% { transform: translateY(-34px) scale(0.3) rotate(-90deg); opacity: 0; }
+        60% { transform: translateY(3px) scale(1.25) rotate(10deg); opacity: 1; }
+        100% { transform: none; }
+      }
+
+      .toast {
+        position: fixed;
+        top: 78px;
+        left: 50%;
+        z-index: 30;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100vw - 2rem);
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        border: 2px solid var(--surface-strong);
+        background: var(--accent-dark);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.92rem;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(107, 18, 48, 0.35);
+      }
+
+      header.intro { text-align: center; padding: 1.25rem 0 0.75rem; }
+      header.intro h1 {
+        margin: 0.15rem 0 0.25rem;
+        color: var(--accent-dark);
+        font-family: var(--title);
+        font-size: 1.95rem;
+        line-height: 1.15;
+      }
+      header.intro p { margin: 0; color: var(--ink); font-size: 0.97rem; }
+
+      .flourish { display: block; width: 170px; height: 22px; margin: 0 auto; color: var(--gold); }
+
+      .quick-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 0.85rem;
+      }
+
+      .quick-links a, .finale-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0.4rem 0.5rem;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.92rem;
+        text-align: center;
+        text-decoration: none;
+      }
+      .quick-links a:nth-child(3) { background: var(--surface); color: var(--accent-dark); box-shadow: inset 0 0 0 2px var(--accent); }
+
+      .tally {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-top: 0.6rem;
+        font-weight: 700;
+        color: var(--accent-dark);
+      }
+
+      .link-button {
+        min-height: 44px;
+        padding: 0.3rem 0.8rem;
+        border: 1.5px solid var(--accent);
+        border-radius: 10px;
+        background: transparent;
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-size: 0.88rem;
+      }
+
+      section.station, section.sheet, section.finale {
+        margin-top: 1rem;
+        padding: 1rem 0.9rem 1.1rem;
+        border-radius: 16px;
+        border: 1px solid rgba(184, 134, 11, 0.4);
+        background: var(--surface);
+        box-shadow: 0 6px 16px rgba(136, 19, 55, 0.12);
+        scroll-margin-top: 78px;
+      }
+
+      section h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        color: var(--accent-dark);
+        font-family: var(--title);
+        font-size: 1.32rem;
+        line-height: 1.2;
+      }
+
+      .badge {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--surface-strong);
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      .badge .pearl { width: 34px; height: 34px; }
+      section.earned .badge { background: transparent; }
+
+      .task { margin: 0.35rem 0 0.75rem; color: var(--ink-soft); font-size: 0.95rem; }
+      h3.sub { margin: 1.1rem 0 0.15rem; color: var(--accent-dark); font-family: var(--title); font-size: 1.1rem; }
+
+      .meter { display: flex; justify-content: space-between; gap: 0.5rem; color: var(--ink-soft); font-size: 0.85rem; font-weight: 600; }
+
+      .primary {
+        display: block;
+        width: 100%;
+        min-height: 48px;
+        margin-top: 0.7rem;
+        padding: 0.55rem 0.9rem;
+        border: 0;
+        border-radius: 12px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+      }
+      .primary:disabled { background: #e5e7eb; color: #4b5563; cursor: default; }
+
+      /* Card shared by the sort game and Pravda, nebo mýtus. */
+      .card {
+        margin-top: 0.35rem;
+        padding: 0.85rem;
+        border-radius: 12px;
+        border: 2px solid var(--surface-strong);
+        background: var(--surface-soft);
+        transition: background-color 0.2s, border-color 0.2s;
+      }
+      .card .said { display: block; font-size: 1.12rem; font-weight: 700; text-align: center; }
+      .card.ok { border-color: var(--positive); background: var(--positive-bg); }
+      .card.bad { border-color: var(--negative); background: var(--negative-bg); }
+
+      .why { margin: 0.5rem 0 0; font-size: 0.95rem; }
+      .why b { display: block; }
+
+      .buckets { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.6rem; }
+      .bucket {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+        min-height: 60px;
+        padding: 0.4rem;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-size: 0.97rem;
+        line-height: 1.2;
+        transition: background-color 0.15s, border-color 0.15s;
+      }
+      .bucket:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      .bucket.ok, .pick.ok { border-color: var(--positive); background: var(--positive-bg); color: #14532d; }
+      .bucket.bad, .pick.bad { border-color: var(--negative); background: var(--negative-bg); color: #7f1d1d; }
+      .tray { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; min-height: 9px; }
+      .tray i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, #fff 0, #fdf2f8 40%, #d9b8a6 100%);
+        box-shadow: 0 0 0 1px #c9a78f;
+      }
+
+      .shake { animation: shake 0.4s; }
+      @keyframes shake {
+        20% { transform: translateX(-6px); }
+        40% { transform: translateX(6px); }
+        60% { transform: translateX(-4px); }
+        80% { transform: translateX(4px); }
+      }
+
+      /* Flip card with the two pearls. Faces share one grid cell so height follows the text. */
+      .flip {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: none;
+        perspective: 900px;
+        overflow: hidden;
+        border-radius: 14px;
+      }
+      .flip-inner { display: grid; transform-style: preserve-3d; transition: transform 0.55s; }
+      .face {
+        grid-area: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+        min-height: 168px;
+        padding: 0.75rem;
+        border-radius: 14px;
+        border: 2px solid var(--gold);
+        background: linear-gradient(160deg, var(--surface-soft), #f9e6bd);
+        backface-visibility: hidden;
+        font-size: 1.08rem;
+        font-weight: 600;
+      }
+      .face.back { transform: rotateY(180deg); }
+      .face svg { width: 100%; max-width: 280px; height: auto; }
+      .face small { color: var(--accent-dark); font-weight: 700; }
+      .flip-dots { display: flex; justify-content: center; gap: 0.35rem; margin-top: 0.4rem; }
+      .flip-dots svg { width: 18px; height: 18px; opacity: 0.25; }
+      .flip-dots svg.seen { opacity: 1; }
+
+      .timeline { list-style: none; position: relative; margin: 0.5rem 0 0; padding: 0; }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        bottom: 12px;
+        left: 10px;
+        width: 2px;
+        background: var(--gold);
+      }
+      .timeline li { position: relative; padding: 0 0 0.6rem 2rem; font-size: 0.95rem; }
+      .timeline svg { position: absolute; left: 0; top: 1px; width: 22px; height: 22px; }
+      .timeline b { display: block; color: var(--accent-dark); line-height: 1.3; }
+
+      .figure { display: block; width: 100%; max-width: 420px; margin: 0.5rem auto 0; height: auto; }
+      .small-figure { max-width: 340px; }
+
+      .hot { outline: none; cursor: pointer; }
+      .hot rect {
+        fill: rgba(255, 255, 255, 0.01);
+        stroke: var(--gold);
+        stroke-width: 2;
+        stroke-dasharray: 5 5;
+      }
+      .hot:hover rect { fill: rgba(243, 211, 138, 0.3); }
+      .hot:focus-visible rect { stroke: var(--accent-dark); stroke-width: 4; stroke-dasharray: none; }
+      .hot.ok rect { fill: rgba(22, 163, 74, 0.14); stroke: var(--positive); stroke-dasharray: none; }
+      .hot.bad rect { fill: rgba(220, 38, 38, 0.2); stroke: var(--negative); stroke-dasharray: none; }
+      .tag { pointer-events: none; animation: pop 0.25s; transform-box: fill-box; transform-origin: center; }
+      .tag rect { fill: #fff; stroke: var(--positive); stroke-width: 1.5; }
+      .tag text { fill: #14532d; font-size: 13px; font-weight: 700; }
+      .tag.poison rect { stroke: var(--negative); }
+      .tag.poison text { fill: #7f1d1d; }
+      @keyframes pop { from { transform: scale(0.4); opacity: 0; } }
+
+      .prompt {
+        margin-top: 0.4rem;
+        padding: 0.6rem 0.75rem;
+        border-radius: 12px;
+        border: 2px solid var(--surface-strong);
+        background: var(--surface-soft);
+      }
+      .prompt.ok { border-color: var(--positive); background: var(--positive-bg); }
+      .prompt.bad { border-color: var(--negative); background: var(--negative-bg); }
+      .prompt p { margin: 0; font-size: 0.93rem; }
+      .prompt .ask { font-size: 1.1rem; font-weight: 700; color: var(--accent-dark); }
+
+      .found { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0 0; padding: 0; list-style: none; font-size: 0.85rem; }
+      .found li { padding: 0.1rem 0.55rem; border-radius: 999px; background: var(--positive-bg); color: #14532d; font-weight: 600; }
+      .parts { margin: 0.5rem 0 0; padding: 0; list-style: none; font-size: 0.93rem; }
+      .parts li { margin-top: 0.3rem; }
+
+      .switch { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+      .switch button {
+        min-height: 48px;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--accent-dark);
+        font-weight: 700;
+      }
+      .switch button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+      .floors { display: grid; gap: 0.45rem; margin-top: 0.6rem; }
+      .pick {
+        min-height: 48px;
+        padding: 0.4rem 0.6rem;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--accent-dark);
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem; }
+      .columns > div { display: grid; gap: 0.45rem; align-content: start; }
+      .columns .pick { position: relative; min-height: 62px; font-size: 0.92rem; }
+      .columns h4 { margin: 0; text-align: center; color: var(--gold-dark); font-size: 0.85rem; }
+      .pick[aria-pressed="true"] { background: var(--surface-strong); }
+      .pick.done { border-color: var(--positive); background: var(--positive-bg); color: #14532d; cursor: default; }
+
+      .truth { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.6rem; }
+      .truth .pick { min-height: 64px; font-size: 1.08rem; }
+
+      .result {
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        gap: 0.2rem 0.65rem;
+        align-items: center;
+        margin-top: 0.85rem;
+        padding: 0.7rem;
+        border-radius: 12px;
+        border: 2px solid var(--gold);
+        background: linear-gradient(160deg, var(--surface-soft), #f9e6bd);
+      }
+      .result .pearl { width: 52px; height: 52px; filter: drop-shadow(0 2px 3px rgba(107, 18, 48, 0.4)); }
+      .result p { margin: 0; font-weight: 700; color: var(--accent-dark); }
+      .result small { display: block; font-weight: 600; color: var(--ink); }
+      .result-actions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; margin-top: 0.3rem; }
+      .result-actions button { min-height: 44px; padding: 0.3rem 0.5rem; border-radius: 10px; font-weight: 700; border: 2px solid var(--accent); background: var(--surface); color: var(--accent-dark); }
+      .result-actions button:last-child { background: var(--accent); color: #fff; }
+
+      section.finale { text-align: center; background: linear-gradient(170deg, var(--accent-dark), var(--accent)); color: #fff; }
+      section.finale h2 { justify-content: center; color: var(--surface-strong); }
+      section.finale svg.big { display: block; width: 100%; max-width: 340px; height: auto; margin: 0.5rem auto; }
+      .big .pearl-in { animation: thread 0.7s backwards; transform-box: fill-box; transform-origin: center; }
+      .finale-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.75rem; }
+      .finale-links a { background: var(--surface-strong); color: var(--accent-dark); }
+
+      .quiz-toggle {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem 0.75rem;
+        margin: 0.6rem 0;
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+      }
+      .quiz-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        min-height: 44px;
+        padding: 0.45rem 1.1rem 0.45rem 0.5rem;
+        border-radius: 999px;
+        border: 2px solid var(--accent);
+        background: var(--surface);
+        color: var(--ink);
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(136, 19, 55, 0.15);
+      }
+      .quiz-knob { position: relative; width: 40px; height: 24px; flex: none; border-radius: 999px; background: #cbd5e1; transition: background 0.2s; }
+      .quiz-knob::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        transition: transform 0.2s;
+      }
+      .quiz-switch[aria-checked="true"] .quiz-knob { background: var(--accent); }
+      .quiz-switch[aria-checked="true"] .quiz-knob::after { transform: translateX(16px); }
+      .quiz-bar button:focus-visible,
+      .quiz-on [data-quiz]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+      /* Same cover as the chemistry page: one inline-block per answer, stable when revealed. */
+      .quiz-on [data-quiz] {
+        display: inline-block;
+        max-width: 100%;
+        cursor: pointer;
+        border-radius: 6px;
+        padding: 0.05em 0.25em;
+        transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .quiz-on [data-quiz]:not(.revealed) {
+        background:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23881337'/%3E%3Ctext x='8' y='12.2' font-family='Arial' font-size='11' font-weight='700' text-anchor='middle' fill='%23fff'%3E%3F%3C/text%3E%3C/svg%3E") center / 1.1em no-repeat,
+          repeating-linear-gradient(135deg, #f3d38a 0 6px, #f9e6bd 6px 12px);
+        box-shadow: 0 0 0 1.5px var(--gold);
+        user-select: none;
+      }
+      .quiz-on [data-quiz]:not(.revealed),
+      .quiz-on [data-quiz]:not(.revealed) * { color: transparent !important; }
+      .quiz-on [data-quiz].revealed { background-color: rgba(136, 19, 55, 0.08); box-shadow: 0 0 0 2px rgba(136, 19, 55, 0.25); }
+
+      .quiz-bar {
+        position: fixed;
+        left: 50%;
+        bottom: max(0.6rem, env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        z-index: 25;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        max-width: calc(100vw - 0.75rem);
+        padding: 0.3rem 0.35rem 0.3rem 0.8rem;
+        border-radius: 999px;
+        background: var(--accent-dark);
+        color: #fff;
+        font-size: 0.86rem;
+        white-space: nowrap;
+        box-shadow: 0 8px 24px rgba(107, 18, 48, 0.4);
+      }
+      .quiz-bar output { font-weight: 700; margin-right: 0.15rem; }
+      .quiz-bar button { min-height: 44px; padding: 0.3rem 0.65rem; border-radius: 999px; border: 0; background: #fff; color: var(--accent-dark); font-weight: 700; }
+      .quiz-bar .quiz-off { background: transparent; color: var(--surface-strong); padding: 0.3rem 0.45rem; }
+      body.quiz-on { padding-bottom: 5rem; }
+
+      .sheet-grid { display: grid; gap: 0.6rem; }
+      .sheet-card { padding: 0.6rem 0.75rem; border-radius: 12px; border-left: 4px solid var(--gold); background: var(--surface-soft); }
+      .sheet-card h3 { margin: 0 0 0.2rem; color: var(--accent-dark); font-family: var(--title); font-size: 1.05rem; }
+      .sheet-card ul { margin: 0; padding: 0; list-style: none; font-size: 0.95rem; }
+      .sheet-card li { padding: 0.2rem 0; }
+
+      details.gloss { border-radius: 12px; background: var(--surface-soft); margin-top: 0.5rem; }
+      details.gloss summary {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.3rem 0.75rem;
+        font-weight: 700;
+        color: var(--accent-dark);
+        cursor: pointer;
+      }
+      details.gloss dl { margin: 0; padding: 0 0.75rem 0.6rem; font-size: 0.95rem; }
+      details.gloss dt { font-weight: 700; margin-top: 0.45rem; }
+      details.gloss dd { margin: 0; }
+
+      .error-msg { margin: 1rem 0; padding: 1rem; border-radius: 12px; background: var(--negative-bg); color: #7f1d1d; font-weight: 600; }
+      .back { display: block; margin-top: 1.5rem; text-align: center; color: var(--accent-dark); font-weight: 700; text-decoration: none; padding: 0.75rem; min-height: 44px; }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <radialGradient id="pearlFill" cx="0.5" cy="0.5" r="0.62" fx="0.34" fy="0.28">
+          <stop offset="0" stop-color="#ffffff" />
+          <stop offset="0.45" stop-color="#fdf2f8" />
+          <stop offset="0.8" stop-color="#f1d7e0" />
+          <stop offset="1" stop-color="#cfa98f" />
+        </radialGradient>
+        <symbol id="flourish" viewBox="0 0 170 22">
+          <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M74 11 C60 2 46 2 38 9 C32 15 22 13 24 7 C26 2 33 4 30 9" />
+            <path d="M74 11 C60 20 46 20 34 14 C22 9 12 12 4 11" />
+            <path d="M96 11 C110 2 124 2 132 9 C138 15 148 13 146 7 C144 2 137 4 140 9" />
+            <path d="M96 11 C110 20 124 20 136 14 C148 9 158 12 166 11" />
+          </g>
+          <circle cx="85" cy="11" r="7" fill="url(#pearlFill)" stroke="currentColor" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <nav class="necklace" aria-label="Perlový náhrdelník: stanice">
+      <div class="string" id="string"></div>
+    </nav>
+    <div class="toast" id="toast" hidden></div>
+    <div class="sr" id="say" aria-live="polite"></div>
+
+    <main>
+      <header class="intro">
+        <svg class="flourish" aria-hidden="true"><use href="#flourish" /></svg>
+        <h1>Perlový náhrdelník</h1>
+        <p>Baroko, příprava na test. Za každou splněnou stanici si navlékneš jednu perlu. Pořadí si vybereš sama.</p>
+        <div class="quick-links">
+          <a href="baroko-test-mobil.html">Spustit test</a>
+          <a href="baroko-flashcards.html">Flash cards</a>
+          <a href="#tahak">Tahák</a>
+        </div>
+        <div class="tally">
+          <span id="tally"></span>
+          <button type="button" class="link-button" id="reset">Začít znovu</button>
+        </div>
+      </header>
+
+      <div id="stations"></div>
+
+      <section class="finale" id="finale" hidden aria-labelledby="finaleTitle">
+        <h2 id="finaleTitle" tabindex="-1">Náhrdelník je hotový!</h2>
+        <div id="finaleArt"></div>
+        <p id="finaleText"></p>
+        <div class="finale-links">
+          <a href="baroko-test-mobil.html">Jdu na test</a>
+          <a href="baroko-flashcards.html">Flash cards</a>
+        </div>
+      </section>
+
+      <section class="sheet" id="tahak" aria-labelledby="tahakTitle">
+        <h2 id="tahakTitle">Tahák</h2>
+        <div class="quiz-toggle">
+          <button type="button" class="quiz-switch" role="switch" aria-checked="false" aria-describedby="quizHint" data-quiz-toggle>
+            <span class="quiz-knob" aria-hidden="true"></span>Učicí mód
+          </button>
+          <span id="quizHint">Zakryje odpovědi, ťukni a zkontroluj se</span>
+        </div>
+        <div class="sheet-grid" id="sheet"></div>
+      </section>
+
+      <section class="sheet" id="slovnik" aria-labelledby="slovnikTitle">
+        <h2 id="slovnikTitle">Slovníček</h2>
+        <p class="task">V učicím módu vidíš pojem a vysvětlení si odkrýváš.</p>
+        <div id="glossary"></div>
+      </section>
+
+      <a class="back" href="index.html">&larr; Zpět na dějepis</a>
+    </main>
+
+    <div class="quiz-bar" role="region" aria-label="Učicí mód" hidden>
+      <output aria-live="polite">Odkryto <span data-quiz-count>0</span> z <span data-quiz-total>0</span></output>
+      <button type="button" data-quiz-reset>Zakrýt vše</button>
+      <button type="button" class="quiz-off" data-quiz-toggle aria-label="Vypnout učicí mód">Vypnout</button>
+    </div>
+
+    <script>
+      const STORE_KEY = 'dejepis-baroko-perly';
+      const SKIN = '#f6d7bf';
+      const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Slightly irregular outlines: a baroque pearl is never round.
+      const BLOBS = [
+        'M16 3c7-1 13 4 13 11 1 8-5 15-13 15S3 23 3 16 9 4 16 3z',
+        'M14 3c8-2 15 3 15 10 0 5-2 7-2 11-1 4-8 6-13 4-6-2-11-6-10-13C5 9 8 5 14 3z',
+        'M17 3c6 0 12 3 12 10 0 4 1 6-1 10-3 5-9 7-14 5-6-2-11-7-10-13 1-7 6-12 13-12z',
+        'M15 4c5-3 13 0 14 7 1 5-1 7-2 11-2 5-9 7-14 6-6-1-10-6-10-12 0-5 7-9 12-12z',
+        'M16 2c8 0 12 6 12 12 0 8-4 15-12 15-7 0-13-5-13-12S10 2 16 2z'
+      ];
+
+      function pearlMarkup(i, cls = 'pearl') {
+        return `<svg class="${cls}" viewBox="0 0 32 32" aria-hidden="true">
+          <path transform="rotate(${i * 37} 16 16)" d="${BLOBS[i % BLOBS.length]}" fill="url(#pearlFill)" stroke="#c9a78f" stroke-width="0.6"/>
+          <ellipse cx="11" cy="10" rx="4.5" ry="2.8" fill="#fff" opacity="0.9" transform="rotate(-30 11 10)"/></svg>`;
+      }
+
+      // 'html' takes constant art only; JSON text always goes in through 'text'.
+      function el(tag, props = {}, ...kids) {
+        const node = document.createElement(tag);
+        for (const [key, value] of Object.entries(props)) {
+          if (key === 'class') node.className = value;
+          else if (key === 'text') node.textContent = value;
+          else if (key === 'html') node.innerHTML = value;
+          else if (key === 'onclick') node.addEventListener('click', value);
+          else node.setAttribute(key, value);
+        }
+        node.append(...kids);
+        return node;
+      }
+
+      function svgEl(tag, attrs = {}, text) {
+        const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+        if (text !== undefined) node.textContent = text;
+        return node;
+      }
+
+      const button = (text, cls, onclick) => el('button', { type: 'button', class: cls, text, onclick });
+
+      function shuffle(list) {
+        const copy = [...list];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      function mistakesText(n) {
+        if (n === 0) return 'Bez jediné chyby';
+        if (n === 1) return '1 chyba';
+        return n < 5 ? `${n} chyby` : `${n} chyb`;
+      }
+
+      function shake(node) {
+        node.classList.remove('shake');
+        void node.getBoundingClientRect(); // restarts the animation on a repeated wrong tap
+        node.classList.add('shake');
+        setTimeout(() => node.classList.remove('shake'), 450);
+      }
+
+      const say = text => { document.getElementById('say').textContent = text; };
+
+      // --- Progress ---------------------------------------------------------
+
+      let progress = {};
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORE_KEY));
+        if (saved && typeof saved === 'object') progress = saved;
+      } catch (e) { /* storage blocked or corrupt: start empty */ }
+
+      function saveProgress() {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(progress)); } catch (e) { /* storage blocked */ }
+      }
+
+      // --- Necklace bar -----------------------------------------------------
+
+      const slotPos = i => ({ x: 6 + i * (88 / 9), y: i % 2 ? 43 : 22 });
+
+      function buildNecklace() {
+        const host = document.getElementById('string');
+        const points = STATIONS.map((_, i) => slotPos(i));
+        let d = 'M0 0 Q3 14 ' + points[0].x + ' ' + points[0].y;
+        points.slice(1).forEach((p, i) => {
+          const prev = points[i];
+          d += ` Q${(prev.x + p.x) / 2} ${Math.max(prev.y, p.y) + 8} ${p.x} ${p.y}`;
+        });
+        d += ` Q97 14 100 0`;
+        const thread = svgEl('svg', { viewBox: '0 0 100 66', preserveAspectRatio: 'none', 'aria-hidden': 'true' });
+        thread.append(svgEl('path', { d }));
+        host.append(thread);
+        STATIONS.forEach((st, i) => {
+          const pos = slotPos(i);
+          st.slot = el('button', {
+            type: 'button',
+            class: 'slot',
+            style: `left:${pos.x}%;top:${pos.y}px`,
+            html: `<span class="num">${i + 1}</span>${pearlMarkup(i)}`,
+            onclick: () => jump(st.section)
+          });
+          host.append(st.slot);
+        });
+      }
+
+      function paintSlot(st, i) {
+        const has = st.id in progress;
+        st.slot.classList.toggle('has', has);
+        st.slot.setAttribute('aria-label', `Stanice ${i + 1}: ${st.title}${has ? ', perla získána' : ''}`);
+        st.section.classList.toggle('earned', has);
+        st.badge.innerHTML = has ? pearlMarkup(i) : String(i + 1);
+      }
+
+      function paintAll() {
+        STATIONS.forEach(paintSlot);
+        const count = STATIONS.filter(st => st.id in progress).length;
+        document.getElementById('tally').textContent = `Perly: ${count} z ${STATIONS.length}`;
+        return count;
+      }
+
+      function jump(target) {
+        target.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
+        const heading = target.querySelector('h2');
+        heading.focus({ preventScroll: true });
+      }
+
+      let toastTimer;
+      function toast(text) {
+        const node = document.getElementById('toast');
+        node.textContent = text;
+        node.hidden = false;
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => { node.hidden = true; }, 2600);
+      }
+
+      // --- Station lifecycle ------------------------------------------------
+
+      function earn(st, mistakes) {
+        const first = !(st.id in progress);
+        progress[st.id] = mistakes;
+        saveProgress();
+        const count = paintAll();
+        if (first) {
+          st.slot.classList.add('fresh');
+          setTimeout(() => st.slot.classList.remove('fresh'), 800);
+          toast(count === STATIONS.length ? 'Poslední perla! Náhrdelník je hotový.' : `Navlečeno, perla ${count} z ${STATIONS.length}`);
+        }
+        showResult(st);
+        document.querySelectorAll('.result-next').forEach(b => { b.textContent = nextLabel(); });
+        st.body.querySelector('.result').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'nearest' });
+        updateFinale();
+      }
+
+      const nextLabel = () => STATIONS.every(s => s.id in progress) ? 'Ukázat náhrdelník' : 'Další stanice';
+
+      function showResult(st) {
+        st.body.querySelector('.result')?.remove();
+        const index = STATIONS.indexOf(st);
+        // Worked out on click: other stations may be finished after this panel appears.
+        const rest = () => [...STATIONS.slice(index + 1), ...STATIONS.slice(0, index)].filter(s => !(s.id in progress));
+        const text = el('p', { text: 'Perla je tvoje!' });
+        if (!st.noScore) text.append(el('small', { text: mistakesText(progress[st.id]) }));
+        st.body.append(el('div', { class: 'result', role: 'status', html: pearlMarkup(index) }, text,
+          el('div', { class: 'result-actions' },
+            button('Hrát znovu', '', () => play(st)),
+            button(nextLabel(), 'result-next', () => {
+              jump(rest()[0]?.section ?? document.getElementById('finale'));
+            }))));
+      }
+
+      function play(st) {
+        st.body.replaceChildren();
+        st.play(st.body, mistakes => earn(st, mistakes));
+      }
+
+      // Stations with two games earn their pearl after the last one, mistakes added up.
+      function together(parts, finish) {
+        let left = parts, sum = 0;
+        return mistakes => {
+          sum += mistakes;
+          if (--left === 0) finish(sum);
+        };
+      }
+
+      function updateFinale() {
+        const done = STATIONS.every(st => st.id in progress);
+        const finale = document.getElementById('finale');
+        finale.hidden = !done;
+        if (!done) return;
+        const total = STATIONS.reduce((sum, st) => sum + progress[st.id], 0);
+        document.getElementById('finaleText').textContent =
+          `Všech ${STATIONS.length} perel je navlečených. Celkem: ${mistakesText(total).toLowerCase()}. Teď si to ověř v testu.`;
+        const art = svgEl('svg', { class: 'big', viewBox: '0 0 320 210', role: 'img', 'aria-label': `Hotový náhrdelník s ${STATIONS.length} nepravidelnými perlami` });
+        art.append(svgEl('path', { d: 'M24 18 C60 200 260 200 296 18', fill: 'none', stroke: '#f3d38a', 'stroke-width': 2 }));
+        STATIONS.forEach((_, i) => {
+          const t = (i + 0.5) / STATIONS.length;
+          const u = 1 - t;
+          const x = 3 * u * u * t * 60 + 3 * u * t * t * 260 + u * u * u * 24 + t * t * t * 296;
+          const y = 3 * u * u * t * 200 + 3 * u * t * t * 200 + u * u * u * 18 + t * t * t * 18;
+          const g = svgEl('g', { class: 'pearl-in', style: `animation-delay:${i * 60}ms` });
+          g.innerHTML = `<svg x="${x - 17}" y="${y - 17}" width="34" height="34" viewBox="0 0 32 32">${pearlMarkup(i).replace(/^<svg[^>]*>|<\/svg>$/g, '')}</svg>`;
+          art.append(g);
+        });
+        document.getElementById('finaleArt').replaceChildren(art);
+      }
+
+      // --- Generic sort engine (stations 2, 3, 6, 9) ------------------------
+
+      function sortGame(host, game, finish) {
+        const queue = shuffle(game.polozky);
+        const total = queue.length;
+        let placed = 0, mistakes = 0, locked = false;
+
+        const meter = el('div', { class: 'meter' });
+        const said = el('span', { class: 'said' });
+        const why = el('p', { class: 'why', hidden: '' });
+        const next = button('Další karta', 'primary', show);
+        next.hidden = true;
+        const card = el('div', { class: 'card' }, said, why, next);
+        const buckets = game.kose.map(kos => {
+          const tray = el('span', { class: 'tray', 'aria-hidden': 'true' });
+          const node = el('button', { type: 'button', class: 'bucket', onclick: () => pick(kos, node, tray) },
+            el('span', { text: kos.nazev }), tray);
+          return node;
+        });
+        host.append(meter, card, el('div', { class: 'buckets' }, ...buckets));
+
+        function paintMeter() {
+          meter.replaceChildren(el('span', { text: `Zařazeno ${placed} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+        }
+
+        function show() {
+          locked = false;
+          card.className = 'card';
+          said.textContent = queue[0].text;
+          why.hidden = next.hidden = true;
+          buckets.forEach(b => b.classList.remove('ok', 'bad'));
+          buckets[0].focus({ preventScroll: true });
+          paintMeter();
+        }
+
+        function pick(kos, node, tray) {
+          if (locked) return;
+          locked = true;
+          const item = queue.shift();
+          const right = item.kos.includes(kos.id);
+          card.classList.add(right ? 'ok' : 'bad');
+          node.classList.add(right ? 'ok' : 'bad');
+          why.replaceChildren();
+          if (right) {
+            placed++;
+            tray.append(el('i'));
+            why.append(el('b', { text: 'Správně.' }), item.proc);
+            // A two-bucket card must teach that the bucket she did not pick is right too.
+            const other = game.kose.filter(k => k.id !== kos.id && item.kos.includes(k.id));
+            if (other.length) {
+              why.append(el('b', { text: `Platí i druhá možnost: ${other.map(k => k.nazev).join(', ')}.` }));
+              game.kose.forEach((k, i) => { if (other.includes(k)) buckets[i].classList.add('ok'); });
+            }
+          } else {
+            mistakes++;
+            queue.push(item);
+            shake(node);
+            why.append(el('b', { text: 'Tady ne. Karta se vrátí na konec.' }), item.proc);
+          }
+          why.hidden = false;
+          paintMeter();
+          say(why.textContent);
+          if (queue.length) {
+            next.hidden = false;
+            next.focus({ preventScroll: true });
+          } else {
+            finish(mistakes);
+          }
+        }
+
+        said.textContent = queue[0].text;
+        paintMeter();
+      }
+
+      // --- Hotspots on a picture (stations 5, 6, 8) -------------------------
+
+      function addSpot(svg, spot, onTap) {
+        const g = svgEl('g', { class: 'hot', tabindex: 0, role: 'button', 'aria-label': spot.where });
+        g.append(svgEl('rect', { x: spot.x, y: spot.y, width: spot.w, height: spot.h, rx: 12 }));
+        g.addEventListener('click', () => onTap(g));
+        g.addEventListener('keydown', event => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          onTap(g);
+        });
+        svg.append(g);
+        return g;
+      }
+
+      // The pill is measured after insertion and kept inside the picture.
+      function addTag(svg, x, y, text, cls = '') {
+        const width = parseFloat(svg.getAttribute('viewBox').split(' ')[2]);
+        const g = svgEl('g', { class: `tag ${cls}` });
+        const pill = svgEl('rect', { rx: 6, height: 22 });
+        const label = svgEl('text', { 'text-anchor': 'middle' }, text);
+        g.append(pill, label);
+        svg.append(g);
+        const w = label.getComputedTextLength() + 14;
+        const cx = Math.min(width - w / 2 - 2, Math.max(w / 2 + 2, x));
+        pill.setAttribute('x', cx - w / 2);
+        pill.setAttribute('y', y - 11);
+        pill.setAttribute('width', w);
+        label.setAttribute('x', cx);
+        label.setAttribute('y', y + 5);
+      }
+
+      function findGame(host, { art, label, items, spots, onStep, onDone, doneText }) {
+        const queue = shuffle(items.filter(item => spots[item.id]));
+        const total = queue.length;
+        let mistakes = 0;
+
+        const meter = el('div', { class: 'meter' });
+        const note = el('p', { hidden: '' });
+        const ask = el('p', { class: 'ask' });
+        const prompt = el('div', { class: 'prompt', 'aria-live': 'polite' }, note, ask);
+        const svg = svgEl('svg', { class: 'figure', viewBox: art.viewBox, role: 'group', 'aria-label': label });
+        svg.innerHTML = art.markup;
+        const found = el('ul', { class: 'found', 'aria-label': 'Nalezeno' });
+        host.append(meter, prompt, svg, found);
+        const chips = () => total - queue.length;
+
+        function paint() {
+          meter.replaceChildren(el('span', { text: `Nalezeno ${chips()} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+          ask.textContent = queue.length ? `Najdi: ${queue[0].text}` : doneText;
+          onStep?.(chips(), total);
+        }
+
+        items.forEach(item => {
+          const spot = spots[item.id];
+          if (!spot) return;
+          addSpot(svg, spot, g => {
+            if (g.classList.contains('ok') || !queue.length) return;
+            prompt.className = 'prompt';
+            if (queue[0].id === item.id) {
+              queue.shift();
+              g.classList.add('ok');
+              g.setAttribute('aria-label', `${spot.where}: ${item.text}`);
+              addTag(svg, spot.lx, spot.ly, item.text);
+              found.append(el('li', { text: item.text }));
+              prompt.classList.add('ok');
+              note.textContent = `${item.text}: ${item.proc}`;
+              note.hidden = false;
+              paint();
+              if (!queue.length) onDone(mistakes);
+            } else {
+              mistakes++;
+              prompt.classList.add('bad');
+              note.textContent = 'To je jiné místo, zkus to znovu.';
+              note.hidden = false;
+              g.classList.add('bad');
+              shake(prompt);
+              setTimeout(() => g.classList.remove('bad'), 500);
+              paint();
+            }
+          });
+        });
+        paint();
+      }
+
+      // --- Hand-drawn art ---------------------------------------------------
+
+      const lace = (from, to, step, y) => {
+        let out = '';
+        for (let x = from; x <= to; x += step) {
+          out += `<circle cx="${x}" cy="${y + Math.abs(x - 160) * -0.05}" r="${step * 0.62}" fill="#fff" stroke="#e5c98f"/>`;
+        }
+        return out;
+      };
+
+      const MAN = {
+        viewBox: '0 0 320 430',
+        markup: `
+          <path d="M120 322h36v72l4 12h-50q-6-8 10-14z" fill="#3f2a1d"/>
+          <path d="M164 322h36v70q16 6 10 14h-50l4-12z" fill="#3f2a1d"/>
+          <path d="M122 296h76l2 44h-38l-2-16-2 16h-38z" fill="#f3d38a"/>
+          <path d="M112 338h50l-4 18h-42zM158 338h50l-6 18h-40z" fill="#5b3a26" stroke="#b8860b"/>
+          <path d="M108 194 84 286l22 6 20-78zM212 194l24 92-22 6-20-78z" fill="#6b1230"/>
+          <path d="M80 280l30 8-3 14-32-8zM240 280l-30 8 3 14 32-8z" fill="#f3d38a" stroke="#b8860b"/>
+          <g fill="#fff" stroke="#e5c98f"><circle cx="74" cy="298" r="6"/><circle cx="84" cy="301" r="6"/><circle cx="94" cy="304" r="6"/><circle cx="104" cy="306" r="6"/><circle cx="246" cy="298" r="6"/><circle cx="236" cy="301" r="6"/><circle cx="226" cy="304" r="6"/><circle cx="216" cy="306" r="6"/></g>
+          <circle cx="84" cy="314" r="9" fill="${SKIN}"/><circle cx="236" cy="314" r="9" fill="${SKIN}"/>
+          <path d="M122 176q38 20 76 0l16 20 12 116q-66 16-132 0l12-116z" fill="#881337"/>
+          <path d="M160 192v128" stroke="#6b1230" stroke-width="3"/>
+          <path d="M136 214h48M134 236h52M132 258h56M130 280h60" stroke="#f3d38a" stroke-width="4" stroke-linecap="round"/>
+          <g fill="#b8860b"><circle cx="136" cy="214" r="3.5"/><circle cx="184" cy="214" r="3.5"/><circle cx="134" cy="236" r="3.5"/><circle cx="186" cy="236" r="3.5"/><circle cx="132" cy="258" r="3.5"/><circle cx="188" cy="258" r="3.5"/><circle cx="130" cy="280" r="3.5"/><circle cx="190" cy="280" r="3.5"/></g>
+          <path d="M100 200q10-16 26-14l-2 16zM220 200q-10-16-26-14l2 16z" fill="#f3d38a" stroke="#b8860b"/>
+          <rect x="148" y="150" width="24" height="26" fill="${SKIN}"/>
+          <g fill="#7c4a21" stroke="#5b3413">
+            <circle cx="120" cy="100" r="15"/><circle cx="112" cy="122" r="16"/><circle cx="114" cy="144" r="16"/><circle cx="118" cy="164" r="14"/>
+            <circle cx="200" cy="100" r="15"/><circle cx="208" cy="122" r="16"/><circle cx="206" cy="144" r="16"/><circle cx="202" cy="164" r="14"/>
+          </g>
+          <path d="M108 178Q160 150 212 178q4 18-12 20-10 10-24 2-10 12-16 4-6 8-16-4-14 8-24-2-16-2-12-20z" fill="#fff" stroke="#b8860b" stroke-width="1.5"/>
+          <ellipse cx="160" cy="124" rx="34" ry="38" fill="${SKIN}"/>
+          <path d="M138 112q8-5 15 0M167 112q8-5 15 0" stroke="#5b3413" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="146" cy="122" r="3.2" fill="#1f2937"/><circle cx="174" cy="122" r="3.2" fill="#1f2937"/>
+          <path d="M160 124v10l-3 2" stroke="#c99a7c" stroke-width="2" fill="none"/>
+          <path d="M149 145q11 8 22 0" stroke="#881337" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="183" cy="136" r="3" fill="#1f2937"/>
+          <path d="M116 80q2-40 44-42 42 2 44 42z" fill="#2b1a14"/>
+          <path d="M117 68q43-12 86 0v12h-86z" fill="#b8860b"/>
+          <ellipse cx="160" cy="84" rx="86" ry="14" fill="#2b1a14"/>
+        `
+      };
+
+      const WOMAN = {
+        viewBox: '0 0 320 430',
+        markup: `
+          <path d="M120 236Q76 310 52 396q108 24 216 0-24-86-68-160z" fill="#881337"/>
+          <path d="M140 244q-20 70-34 150M180 244q20 70 34 150M160 248v156" stroke="#6b1230" stroke-width="3" fill="none"/>
+          ${lace(62, 258, 16, 396)}
+          ${lace(70, 250, 16, 378)}
+          <path d="M114 178 84 238l22 12 22-52zM206 178l30 60-22 12-22-52z" fill="#a21d4e"/>
+          <path d="M80 232l30 16-6 12-32-16zM240 232l-30 16 6 12 32-16z" fill="#fff" stroke="#e5c98f" stroke-width="2"/>
+          <circle cx="70" cy="258" r="9" fill="${SKIN}"/><circle cx="250" cy="258" r="9" fill="${SKIN}"/>
+          <path d="M124 170q36 30 72 0l14 14-10 54q-40 10-80 0l-10-54z" fill="#a21d4e"/>
+          <path d="M126 164q34 48 68 0l-8-16h-52z" fill="${SKIN}"/>
+          <path d="M124 164q36 52 72 0" stroke="#fff" stroke-width="5" stroke-dasharray="3 4" fill="none"/>
+          <path d="M120 230q40 12 80 0l2 14q-42 12-84 0z" fill="#f3d38a" stroke="#b8860b"/>
+          <g fill="#d9c7a8" stroke="#a78f6c">
+            <circle cx="116" cy="112" r="14"/><circle cx="112" cy="132" r="14"/><circle cx="118" cy="150" r="12"/>
+            <circle cx="204" cy="112" r="14"/><circle cx="208" cy="132" r="14"/><circle cx="202" cy="150" r="12"/>
+          </g>
+          <ellipse cx="160" cy="112" rx="38" ry="42" fill="#fff4ef"/>
+          <circle cx="139" cy="126" r="9" fill="#fbcfe0" opacity="0.8"/><circle cx="181" cy="126" r="9" fill="#fbcfe0" opacity="0.8"/>
+          <g fill="#fff" stroke="#e5c98f" stroke-width="0.6"><circle cx="134" cy="104" r="2"/><circle cx="142" cy="97" r="1.6"/><circle cx="128" cy="115" r="1.6"/></g>
+          <path d="M138 104q7-5 14 0M168 104q7-5 14 0" stroke="#7c4a21" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="146" cy="112" r="3.2" fill="#1f2937"/><circle cx="174" cy="112" r="3.2" fill="#1f2937"/>
+          <path d="M152 134q8 6 16 0" stroke="#be123c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="186" cy="124" r="3" fill="#1f2937"/>
+          <path d="M118 106Q102 60 130 42q4-28 30-28t30 28q28 18 12 64-6-30-42-34-36 4-42 34z" fill="#e8dcc4" stroke="#a78f6c" stroke-width="1.5"/>
+          <path d="M134 44q26-12 52 0M124 62q36-16 72 0" stroke="#a78f6c" stroke-width="2" fill="none"/>
+        `
+      };
+
+      const CHURCH = {
+        viewBox: '0 0 320 400',
+        markup: `
+          <rect x="0" y="376" width="320" height="24" fill="#f3d38a" opacity="0.6"/>
+          <path d="M50 372V190q0-30 28-40 22-8 26-32 4-22 28-26 14-32 28-34 14 2 28 34 24 4 28 26 4 24 26 32 28 10 28 40v182z" fill="#fbeed2" stroke="#b8860b" stroke-width="2.5"/>
+          <path d="M104 118q-16 4-14 18 4 10 13 5 5-7-2-11M216 118q16 4 14 18-4 10-13 5-5-7 2-11" fill="none" stroke="#881337" stroke-width="4" stroke-linecap="round"/>
+          <path d="M44 240q116-44 232 0" fill="none" stroke="#881337" stroke-width="7" stroke-linecap="round"/>
+          <path d="M44 250q116-44 232 0" fill="none" stroke="#b8860b" stroke-width="2.5"/>
+          <path d="M112 208a48 48 0 0 1 96 0z" fill="#fde9b5" stroke="#881337" stroke-width="3.5"/>
+          <path d="M160 208v-48M160 208l-34-34M160 208l34-34M160 208h-48M160 208h48" stroke="#881337" stroke-width="2"/>
+          <path d="M112 262q48-34 96 0" fill="none" stroke="#b8860b" stroke-width="5" stroke-linecap="round"/>
+          <path d="M116 372v-84M204 372v-84" stroke="#881337" stroke-width="8"/>
+          <path d="M126 372v-76a34 34 0 0 1 68 0v76z" fill="#6b1230"/>
+          <path d="M160 372v-110" stroke="#3f0a1c" stroke-width="2"/>
+          <circle cx="152" cy="330" r="3" fill="#f3d38a"/><circle cx="168" cy="330" r="3" fill="#f3d38a"/>
+          <path d="M60 342v-80a22 22 0 0 1 44 0v80z" fill="#ead6ad" stroke="#b8860b" stroke-width="2"/>
+          <circle cx="82" cy="264" r="8" fill="#fff" stroke="#9ca3af"/>
+          <path d="M76 274q-16 28-10 62h32q2-30-8-62z" fill="#fff" stroke="#9ca3af" stroke-width="1.5"/>
+          <path d="M88 276q24 6 18 26 0 10-8 18-2-12-8-16-6-2-4-10zM76 278q-20 8-18 30 0 8 6 14 2-12 6-16 8-8 6-28z" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+          <path d="M74 296q8 14 2 34M84 294q6 16 4 36" stroke="#9ca3af" stroke-width="1.5" fill="none"/>
+          <ellipse cx="238" cy="292" rx="16" ry="24" fill="#fde9b5" stroke="#881337" stroke-width="3"/>
+          <path d="M160 56V14M146 28h28" stroke="#b8860b" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="160" cy="62" r="6" fill="#f3d38a" stroke="#b8860b"/>
+          <circle cx="50" cy="196" r="5" fill="#f3d38a" stroke="#b8860b"/><circle cx="270" cy="196" r="5" fill="#f3d38a" stroke="#b8860b"/>
+          <rect x="30" y="372" width="260" height="12" fill="#d9c7a8" stroke="#a78f6c"/>
+        `
+      };
+
+      const PLANT = {
+        viewBox: '0 0 320 330',
+        markup: `
+          <rect x="0" y="190" width="320" height="140" fill="#7c5a3a"/>
+          <path d="M0 190q40-8 80 0t80 0 80 0 80 0v8H0z" fill="#5b3a26"/>
+          <path d="M160 196V70M160 150q-30-6-46-24M160 150q30-6 46-24M160 112q-24-6-38-20M160 112q24-6 38-20" stroke="#3f7d3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <g fill="#4f9b47" stroke="#2f6b2b">
+            <ellipse cx="108" cy="122" rx="20" ry="11" transform="rotate(35 108 122)"/>
+            <ellipse cx="212" cy="122" rx="20" ry="11" transform="rotate(-35 212 122)"/>
+            <ellipse cx="116" cy="90" rx="17" ry="10" transform="rotate(30 116 90)"/>
+            <ellipse cx="204" cy="90" rx="17" ry="10" transform="rotate(-30 204 90)"/>
+            <ellipse cx="128" cy="166" rx="20" ry="10" transform="rotate(-20 128 166)"/>
+            <ellipse cx="192" cy="166" rx="20" ry="10" transform="rotate(20 192 166)"/>
+          </g>
+          <g fill="#fff" stroke="#a78bda">
+            <circle cx="146" cy="40" r="8"/><circle cx="160" cy="30" r="8"/><circle cx="174" cy="40" r="8"/><circle cx="168" cy="55" r="8"/><circle cx="152" cy="55" r="8"/>
+          </g>
+          <circle cx="160" cy="44" r="7" fill="#f3d38a" stroke="#b8860b"/>
+          <path d="M160 196v30M160 226q-26 4-40 24M160 226q26 4 40 30M160 226v44" stroke="#e8dcc4" stroke-width="3" fill="none"/>
+          <g fill="#c9a26b" stroke="#8a6a3f" stroke-width="2">
+            <path d="M92 252q14-20 38-12 18 8 8 26-14 16-36 10-18-8-10-24z"/>
+            <path d="M178 262q10-18 36-12 20 8 14 26-12 16-34 12-22-8-16-26z"/>
+            <path d="M134 284q10-14 30-8 16 6 10 20-10 14-28 10-18-6-12-22z"/>
+          </g>
+          <g fill="#8a6a3f"><circle cx="110" cy="258" r="2"/><circle cx="124" cy="266" r="2"/><circle cx="200" cy="266" r="2"/><circle cx="214" cy="276" r="2"/><circle cx="150" cy="288" r="2"/></g>
+        `
+      };
+
+      const POISON = `<g class="poison-mark" aria-hidden="true">
+        <circle r="17" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+        <path d="M-11 -11 11 11M11 -11 -11 11" stroke="#dc2626" stroke-width="2.5" opacity="0.45"/>
+        <circle cy="-3" r="8" fill="#1f2937"/><rect x="-5" y="2" width="10" height="7" rx="2" fill="#1f2937"/>
+        <circle cx="-3" cy="-3" r="2.2" fill="#fff"/><circle cx="3" cy="-3" r="2.2" fill="#fff"/></g>`;
+
+      const SPOTS = {
+        muz: {
+          klobouk: { x: 112, y: 36, w: 96, h: 58, lx: 160, ly: 20, where: 'Místo nad hlavou' },
+          paruka: { x: 88, y: 108, w: 48, h: 56, lx: 56, ly: 136, where: 'Místo vlevo vedle obličeje' },
+          muska: { x: 160, y: 106, w: 32, h: 50, lx: 262, ly: 132, where: 'Pravá tvář' },
+          limec: { x: 110, y: 166, w: 100, h: 48, lx: 160, ly: 222, where: 'Místo pod krkem' },
+          kabat: { x: 120, y: 234, w: 80, h: 66, lx: 160, ly: 312, where: 'Trup' },
+          krajky: { x: 62, y: 276, w: 54, h: 50, lx: 58, ly: 338, where: 'Konec rukávu vlevo' },
+          boty: { x: 104, y: 340, w: 112, h: 66, lx: 160, ly: 418, where: 'Nohy' }
+        },
+        zena: {
+          paruka: { x: 110, y: 14, w: 100, h: 54, lx: 262, ly: 40, where: 'Místo nad čelem' },
+          pudr: { x: 112, y: 88, w: 46, h: 50, lx: 58, ly: 112, where: 'Levá tvář' },
+          muska: { x: 162, y: 92, w: 46, h: 50, lx: 262, ly: 114, where: 'Pravá tvář' },
+          dekolt: { x: 126, y: 158, w: 68, h: 48, lx: 262, ly: 180, where: 'Místo pod krkem' },
+          pas: { x: 114, y: 214, w: 92, h: 46, lx: 160, ly: 276, where: 'Střed postavy' },
+          krajky: { x: 70, y: 364, w: 180, h: 50, lx: 160, ly: 420, where: 'Spodní okraj šatů' }
+        },
+        kostel: {
+          zlato: { x: 132, y: 8, w: 56, h: 60, lx: 244, ly: 36, where: 'Vrchol stavby' },
+          tvar: { x: 200, y: 96, w: 66, h: 60, lx: 240, ly: 82, where: 'Pravá strana štítu' },
+          okno: { x: 108, y: 156, w: 104, h: 56, lx: 160, ly: 230, where: 'Střed průčelí' },
+          socha: { x: 54, y: 248, w: 54, h: 98, lx: 100, ly: 358, where: 'Výklenek vlevo' },
+          portal: { x: 112, y: 262, w: 96, h: 110, lx: 200, ly: 388, where: 'Dole uprostřed' }
+        },
+        brambora: {
+          kvet: { x: 124, y: 16, w: 72, h: 52, lx: 252, ly: 42, poisonX: 106, poisonY: 42, where: 'Vrcholek rostliny' },
+          nat: { x: 88, y: 76, w: 144, h: 108, lx: 252, ly: 70, poisonX: 262, poisonY: 130, where: 'Zelená část nad zemí' },
+          hliza: { x: 84, y: 226, w: 156, h: 92, lx: 160, ly: 214, where: 'Část pod zemí' }
+        }
+      };
+
+      // --- Station games ----------------------------------------------------
+
+      function perlaStation(host, finish, data) {
+        const lines = data.hlavni_osy[0].split('\n').slice(1);
+        const picked = [/pérol|perl/i, /itál/i, /bíl/i].map(re => lines.find(line => re.test(line))).filter(Boolean);
+        const facts = [...new Set(picked)];
+        if (!facts.length) facts.push(...lines.slice(0, 3));
+        const seen = new Set();
+        const earned = 'perla' in progress;
+
+        const art = () => el('span', {
+          html: `<svg viewBox="0 0 280 118" aria-hidden="true">
+            <circle cx="72" cy="56" r="42" fill="url(#pearlFill)" stroke="#c9a78f"/>
+            <ellipse cx="56" cy="38" rx="11" ry="7" fill="#fff" transform="rotate(-30 56 38)"/>
+            <path d="M206 10c26-6 58 14 56 42 0 16-14 18-14 34 0 18-30 26-50 18-30-12-48-22-46-56 2-24 28-34 54-38z" fill="url(#pearlFill)" stroke="#c9a78f"/>
+            <ellipse cx="188" cy="34" rx="12" ry="7" fill="#fff" transform="rotate(-30 188 34)"/>
+          </svg>`
+        });
+        const artFace = () => [art(), el('small', { text: 'Pravidelná a nepravidelná perla. Ťukni!' })];
+
+        const front = el('span', { class: 'face' }, ...artFace());
+        const back = el('span', { class: 'face back', 'aria-hidden': 'true' });
+        const inner = el('span', { class: 'flip-inner' }, front, back);
+        const dots = el('div', { class: 'flip-dots', 'aria-hidden': 'true', html: facts.map((_, i) => pearlMarkup(i, '')).join('') });
+        const done = el('button', { type: 'button', class: 'primary', onclick: () => { threaded = true; done.hidden = true; finish(0); } });
+        // After a reload an earned pearl stays folded; the button returns once she plays again.
+        let threaded = false;
+        done.hidden = earned;
+        function paintDone() {
+          const ready = seen.size === facts.length;
+          done.disabled = !ready;
+          done.textContent = ready ? 'Navléknout perlu' : `Nejdřív otoč perlu (${seen.size} z ${facts.length})`;
+          [...dots.children].forEach((dot, i) => dot.classList.toggle('seen', seen.has(i)));
+        }
+
+        // Each tap turns the card by half: the hidden face gets the next fact first.
+        let turns = 0;
+        const flip = el('button', {
+          type: 'button',
+          class: 'flip',
+          'aria-label': 'Dvě perly vedle sebe, pravidelná a nepravidelná. Ťukni a otoč další fakt.',
+          onclick: () => {
+            turns++;
+            const shown = turns % 2 ? back : front;
+            const hidden = turns % 2 ? front : back;
+            const index = (turns - 1) % (facts.length + 1);
+            if (index < facts.length) {
+              shown.replaceChildren(el('small', { text: `Fakt ${index + 1} z ${facts.length}` }), facts[index]);
+              seen.add(index);
+              say(facts[index]);
+            } else {
+              shown.replaceChildren(...artFace());
+            }
+            shown.removeAttribute('aria-hidden');
+            hidden.setAttribute('aria-hidden', 'true');
+            inner.style.transform = `rotateY(${turns * 180}deg)`;
+            if (!threaded) done.hidden = false;
+            paintDone();
+          }
+        }, inner);
+
+        const timeline = el('ol', { class: 'timeline' });
+        data.casova_osa.forEach((row, i) => {
+          timeline.append(el('li', { html: pearlMarkup(i) }, el('b', { text: row.rok }), row.udalost));
+        });
+
+        host.append(el('p', { class: 'task', text: lines[0] }), flip, dots,
+          el('h3', { class: 'sub', text: 'Časová osa' }), timeline, done);
+        paintDone();
+      }
+
+      const VRSTVY_ART = kose => {
+        const svg = svgEl('svg', { class: 'figure small-figure', viewBox: '0 0 300 160', role: 'img',
+          'aria-label': `Panovník uprostřed, kolem něj čtyři vrstvy: ${kose.map(k => k.nazev).join(', ')}` });
+        svg.innerHTML = `
+          <path d="M150 80 62 30M150 80l88-50M150 80 62 130M150 80l88 50" stroke="#b8860b" stroke-width="2.5"/>
+          <circle cx="150" cy="80" r="42" fill="#881337"/>
+          <path d="M128 76l-4-26 14 12 12-18 12 18 14-12-4 26z" fill="#f3d38a" stroke="#b8860b"/>
+          <circle cx="124" cy="48" r="3" fill="#fdf2f8"/><circle cx="150" cy="42" r="3" fill="#fdf2f8"/><circle cx="176" cy="48" r="3" fill="#fdf2f8"/>`;
+        svg.append(svgEl('text', { x: 150, y: 96, 'text-anchor': 'middle', fill: '#fff', 'font-size': 14, 'font-weight': 700 }, 'Panovník'));
+        [[6, 8], [186, 8], [6, 116], [186, 116]].forEach(([x, y], i) => {
+          if (!kose[i]) return;
+          svg.append(svgEl('rect', { x, y, width: 108, height: 36, rx: 10, fill: '#fdf2f8', stroke: '#b8860b', 'stroke-width': 2 }));
+          svg.append(svgEl('text', { x: x + 54, y: y + 23, 'text-anchor': 'middle', fill: '#6b1230', 'font-size': 14, 'font-weight': 700 }, kose[i].nazev));
+        });
+        return svg;
+      };
+
+      function venkovGame(host, game, finish) {
+        const order = game.poradi;
+        let step = 0, mistakes = 0;
+        const TOP = 112, FLOOR = 54;
+
+        const svg = svgEl('svg', { class: 'figure small-figure', viewBox: '0 0 300 340', role: 'img' });
+        svg.innerHTML = `
+          <path d="M22 ${TOP}Q22 18 150 12q128 6 128 100z" fill="#881337"/>
+          <path d="M46 ${TOP - 6}Q46 38 150 32q104 6 104 74" fill="none" stroke="#f3d38a" stroke-width="2.5"/>
+          <path d="M112 74q18-14 38 0 20-14 38 0" fill="none" stroke="#f3d38a" stroke-width="2.5"/>
+          <circle cx="150" cy="11" r="8" fill="url(#pearlFill)" stroke="#b8860b"/>
+          <rect x="34" y="${TOP}" width="232" height="${FLOOR * order.length + 6}" fill="#fbeed2" stroke="#b8860b" stroke-width="2.5"/>`;
+        const floors = order.map((name, i) => {
+          const y = TOP + 3 + i * FLOOR;
+          const box = svgEl('rect', { x: 42, y: y + 3, width: 216, height: FLOOR - 6, rx: 8, fill: '#fff', stroke: '#e5c98f', 'stroke-width': 2, 'stroke-dasharray': '6 5' });
+          const label = svgEl('text', { x: 150, y: y + FLOOR / 2 + 5, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 700, fill: '#9ca3af' }, `${i + 1}. patro shora`);
+          svg.append(box, label);
+          return { box, label };
+        });
+
+        const meter = el('div', { class: 'meter' });
+        const hint = el('p', { class: 'why', role: 'status' });
+        const paint = () => {
+          meter.replaceChildren(el('span', { text: `Patra ${step} z ${order.length}` }), el('span', { text: `Chyby: ${mistakes}` }));
+          svg.setAttribute('aria-label', `Dům s klenutou střechou a čtyřmi patry. Obsazeno shora: ${order.slice(0, step).join(', ') || 'zatím nic'}`);
+        };
+
+        const picks = shuffle(order).map(name => {
+          const node = button(name, 'pick', () => {
+            if (name === order[step]) {
+              const floor = floors[step];
+              floor.box.setAttribute('fill', step % 2 ? '#a21d4e' : '#881337');
+              floor.box.setAttribute('stroke', '#f3d38a');
+              floor.box.removeAttribute('stroke-dasharray');
+              floor.label.setAttribute('fill', '#fff');
+              floor.label.textContent = name;
+              node.hidden = true;
+              step++;
+              hint.textContent = step < order.length ? 'Správně, další patro níž.' : 'Dům je plný, odshora dolů.';
+              paint();
+              if (step === order.length) finish(mistakes);
+              else picks.find(p => !p.hidden).focus({ preventScroll: true });
+            } else {
+              mistakes++;
+              shake(node);
+              node.classList.add('bad');
+              setTimeout(() => node.classList.remove('bad'), 450);
+              hint.textContent = `Tahle skupina do ${step + 1}. patra shora nepatří.`;
+              paint();
+            }
+          });
+          return node;
+        });
+        host.append(meter, svg, hint, el('div', { class: 'floors' }, ...picks));
+        paint();
+      }
+
+      function odevGame(host, finish, game) {
+        const part = together(2, finish);
+        const figures = [
+          { key: 'muz', name: 'Muž', art: MAN, label: 'Muž v barokním oděvu', other: 'ženu' },
+          { key: 'zena', name: 'Žena', art: WOMAN, label: 'Žena v barokních šatech', other: 'muže' }
+        ];
+        const switchBar = el('div', { class: 'switch', role: 'group', 'aria-label': 'Výběr postavy' });
+        host.append(switchBar);
+        const show = target => figures.forEach(f => {
+          const active = f === target;
+          f.pane.hidden = !active;
+          f.tab.setAttribute('aria-pressed', String(active));
+        });
+        figures.forEach(figure => {
+          figure.tab = button(figure.name, '', () => show(figure));
+          figure.pane = el('div', {});
+          switchBar.append(figure.tab);
+          host.append(figure.pane);
+          findGame(figure.pane, {
+            art: figure.art,
+            label: figure.label,
+            items: game[figure.key],
+            spots: SPOTS[figure.key],
+            doneText: `Hotovo. Nezapomeň přepnout na ${figure.other}.`,
+            onStep: (n, total) => { figure.tab.textContent = `${figure.name} ${n}/${total}`; },
+            onDone: mistakes => part(mistakes)
+          });
+        });
+        show(figures[0]);
+      }
+
+      function bramboraGame(host, game, finish) {
+        let mistakes = 0, over = false;
+        const prompt = el('div', { class: 'prompt', 'aria-live': 'polite' }, el('p', { class: 'ask', text: 'Klepni na rostlinu.' }));
+        const svg = svgEl('svg', { class: 'figure small-figure', viewBox: PLANT.viewBox, role: 'group', 'aria-label': `Rostlina brambory. Části: ${game.casti.map(c => c.text).join(', ')}` });
+        svg.innerHTML = PLANT.markup;
+        const list = el('ul', { class: 'parts' });
+        host.append(el('p', { class: 'task', text: game.zadani }), prompt, svg, list);
+
+        game.casti.forEach(part => {
+          const spot = SPOTS.brambora[part.id];
+          if (!spot) return;
+          addSpot(svg, spot, g => {
+            if (over || g.classList.contains('bad') || g.classList.contains('ok')) return;
+            prompt.className = 'prompt';
+            g.setAttribute('aria-label', `${spot.where}: ${part.text}`);
+            prompt.classList.add(part.jedle ? 'ok' : 'bad');
+            prompt.replaceChildren(el('p', { class: 'ask', text: part.text }), el('p', { text: part.proc }));
+            if (part.jedle) {
+              over = true;
+              g.classList.add('ok');
+              addTag(svg, spot.lx, spot.ly, part.text);
+              // After the win every part gets its reason, so the poison lesson is not skipped.
+              game.casti.filter(c => c !== part).forEach(c => {
+                list.append(el('li', {}, el('strong', { text: `${c.text}: ` }), c.proc));
+              });
+              finish(mistakes);
+            } else {
+              mistakes++;
+              g.classList.add('bad');
+              addTag(svg, spot.lx, spot.ly, part.text, 'poison');
+              const mark = svgEl('g', { transform: `translate(${spot.poisonX} ${spot.poisonY})` });
+              mark.innerHTML = POISON;
+              svg.append(mark);
+              shake(prompt);
+            }
+          });
+        });
+      }
+
+      function pairsGame(host, game, finish) {
+        const total = game.pary.length;
+        let done = 0, mistakes = 0, selected = null;
+        const meter = el('div', { class: 'meter' });
+        const why = el('p', { class: 'why', role: 'status', text: 'Ťukni na staré a pak na to, co ho nahradilo.' });
+        const paint = () => meter.replaceChildren(el('span', { text: `Spojeno ${done} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+
+        function tap(node, pair, side) {
+          if (node.classList.contains('done')) return;
+          if (!selected || selected.side === side) {
+            if (selected) selected.node.setAttribute('aria-pressed', 'false');
+            selected = selected?.node === node ? null : { node, pair, side };
+            if (selected) node.setAttribute('aria-pressed', 'true');
+            return;
+          }
+          const first = selected;
+          selected = null;
+          first.node.setAttribute('aria-pressed', 'false');
+          if (first.pair === pair) {
+            done++;
+            [first.node, node].forEach(n => n.classList.add('done'));
+            why.textContent = pair.proc;
+            paint();
+            if (done === total) finish(mistakes);
+          } else {
+            mistakes++;
+            [first.node, node].forEach(n => {
+              shake(n);
+              n.classList.add('bad');
+              setTimeout(() => n.classList.remove('bad'), 450);
+            });
+            why.textContent = 'Tohle k sobě nepatří, zkus jinou dvojici.';
+            paint();
+          }
+        }
+
+        const column = (title, side, field) => el('div', {}, el('h4', { text: title }),
+          ...shuffle(game.pary).map(pair => {
+            const node = el('button', { type: 'button', class: 'pick', 'aria-pressed': 'false', text: pair[field], onclick: () => tap(node, pair, side) });
+            return node;
+          }));
+        host.append(meter, el('div', { class: 'columns' }, column('Staré', 'old', 'stare'), column('Nové', 'new', 'nove')), why);
+        paint();
+      }
+
+      function pravdaGame(host, game, finish) {
+        const queue = shuffle(game.vyroky);
+        const total = queue.length;
+        let index = 0, mistakes = 0, locked = false;
+
+        const meter = el('div', { class: 'meter' });
+        const said = el('span', { class: 'said' });
+        const why = el('p', { class: 'why', hidden: '' });
+        const next = button('Další tvrzení', 'primary', show);
+        next.hidden = true;
+        const card = el('div', { class: 'card' }, said, why, next);
+        const yes = button('Pravda', 'pick', () => answer(true, yes));
+        const no = button('Mýtus', 'pick', () => answer(false, no));
+        host.append(meter, card, el('div', { class: 'truth' }, yes, no));
+
+        const paint = () => meter.replaceChildren(el('span', { text: `Tvrzení ${Math.min(index + 1, total)} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+
+        function show() {
+          locked = false;
+          card.className = 'card';
+          said.textContent = queue[index].text;
+          why.hidden = next.hidden = true;
+          [yes, no].forEach(b => b.classList.remove('ok', 'bad'));
+          yes.focus({ preventScroll: true });
+          paint();
+        }
+
+        function answer(value, node) {
+          if (locked) return;
+          locked = true;
+          const item = queue[index];
+          const right = item.pravda === value;
+          if (!right) { mistakes++; shake(node); }
+          card.classList.add(right ? 'ok' : 'bad');
+          node.classList.add(right ? 'ok' : 'bad');
+          why.replaceChildren(el('b', { text: right ? 'Správně.' : `Ne, je to ${item.pravda ? 'pravda' : 'mýtus'}.` }), item.proc);
+          why.hidden = false;
+          say(why.textContent);
+          paint();
+          index++;
+          if (index < total) {
+            next.hidden = false;
+            next.focus({ preventScroll: true });
+          } else {
+            finish(mistakes);
+          }
+        }
+
+        said.textContent = queue[0].text;
+        paint();
+      }
+
+      // --- Station list -----------------------------------------------------
+
+      let STATIONS = [];
+
+      function defineStations(data) {
+        const h = data.hry;
+        return [
+          { id: 'perla', title: 'Perla', keep: true, noScore: true, play: (host, done) => perlaStation(host, done, data) },
+          { id: 'monarchie', title: h.monarchie.nazev, task: h.monarchie.zadani, play: (host, done) => sortGame(host, h.monarchie, done) },
+          {
+            id: 'vrstvy', title: h.vrstvy.nazev, task: h.vrstvy.zadani,
+            play: (host, done) => { host.append(VRSTVY_ART(h.vrstvy.kose)); sortGame(host, h.vrstvy, done); }
+          },
+          { id: 'venkov', title: h.venkov.nazev, task: h.venkov.zadani, play: (host, done) => venkovGame(host, h.venkov, done) },
+          { id: 'odev', title: h.odev.nazev, task: 'Stránka jmenuje část oděvu, ty ji ťukneš na postavě. Pak přepni na druhou postavu.', play: (host, done) => odevGame(host, done, h.odev) },
+          {
+            id: 'stul', title: h.tabule.nazev, task: h.tabule.zadani,
+            play: (host, done) => {
+              const part = together(2, done);
+              sortGame(host, h.tabule, part);
+              host.append(el('h3', { class: 'sub', text: h.brambora.nazev }));
+              bramboraGame(host, h.brambora, part);
+            }
+          },
+          { id: 'nahrady', title: h.nahrady.nazev, task: h.nahrady.zadani, play: (host, done) => pairsGame(host, h.nahrady, done) },
+          {
+            id: 'kostel', title: h.kostel.nazev, task: 'Stránka jmenuje typický prvek, ty ho ťukneš na průčelí kostela.',
+            play: (host, done) => findGame(host, {
+              art: CHURCH,
+              label: 'Průčelí barokního kostela',
+              items: h.kostel.body,
+              spots: SPOTS.kostel,
+              doneText: 'Všechno nalezeno.',
+              onDone: done
+            })
+          },
+          { id: 'tvurci', title: h.tvurci.nazev, task: h.tvurci.zadani, play: (host, done) => sortGame(host, h.tvurci, done) },
+          { id: 'pravda', title: h.pravda.nazev, task: h.pravda.zadani, play: (host, done) => pravdaGame(host, h.pravda, done) }
+        ];
+      }
+
+      function buildStations() {
+        const host = document.getElementById('stations');
+        STATIONS.forEach((st, i) => {
+          st.badge = el('span', { class: 'badge', 'aria-hidden': 'true' });
+          st.body = el('div', {});
+          const heading = el('h2', { tabindex: '-1' }, st.badge, st.title);
+          st.section = el('section', { class: 'station', id: st.id }, heading);
+          if (st.task) st.section.append(el('p', { class: 'task', text: st.task }));
+          st.section.append(st.body);
+          host.append(st.section);
+        });
+      }
+
+      function renderStation(st) {
+        st.body.replaceChildren();
+        const earned = st.id in progress;
+        // Earned games stay folded after a reload; "Hrát znovu" brings them back.
+        if (!earned || st.keep) play(st);
+        if (earned) showResult(st);
+      }
+
+      function watchCurrent() {
+        if (!('IntersectionObserver' in window)) return;
+        const observer = new IntersectionObserver(entries => {
+          entries.filter(entry => entry.isIntersecting).forEach(entry => {
+            STATIONS.forEach(st => st.slot.setAttribute('aria-current', String(st.section === entry.target)));
+          });
+        }, { rootMargin: '-35% 0px -60% 0px' });
+        STATIONS.forEach(st => observer.observe(st.section));
+      }
+
+      function armReset() {
+        const reset = document.getElementById('reset');
+        let armed = false, timer;
+        const disarm = () => { armed = false; reset.textContent = 'Začít znovu'; };
+        // Two taps: one stray tap must not wipe a whole necklace.
+        reset.addEventListener('click', () => {
+          if (!armed) {
+            armed = true;
+            reset.textContent = 'Opravdu smazat perly?';
+            timer = setTimeout(disarm, 4000);
+            return;
+          }
+          clearTimeout(timer);
+          disarm();
+          progress = {};
+          saveProgress();
+          STATIONS.forEach(renderStation);
+          paintAll();
+          updateFinale();
+          toast('Náhrdelník je prázdný, jdeme znovu.');
+        });
+      }
+
+      // --- Tahák + glossary -------------------------------------------------
+
+      // The cue is what stands before a colon, otherwise the first three words.
+      function splitCue(line) {
+        const colon = line.indexOf(':');
+        if (colon > 0 && colon < 40) return [line.slice(0, colon + 1), line.slice(colon + 1).trim()];
+        const words = line.split(' ');
+        const keep = Math.min(3, Math.max(1, words.length - 1));
+        return [words.slice(0, keep).join(' '), words.slice(keep).join(' ')];
+      }
+
+      function renderSheet(points) {
+        document.getElementById('sheet').replaceChildren(...points.map(point => {
+          const [title, ...lines] = point.split('\n');
+          return el('div', { class: 'sheet-card' }, el('h3', { text: title }),
+            el('ul', {}, ...lines.map(line => {
+              const [cue, rest] = splitCue(line);
+              return el('li', {}, `${cue} `, el('span', { 'data-quiz': '', text: rest }));
+            })));
+        }));
+      }
+
+      function renderGlossary(terms) {
+        document.getElementById('glossary').replaceChildren(...Object.entries(terms).map(([section, items]) =>
+          el('details', { class: 'gloss' },
+            el('summary', { text: section.replace(/_/g, ' ') }),
+            el('dl', {}, ...items.flatMap(item => [
+              el('dt', { text: item.pojem }),
+              el('dd', {}, el('span', { 'data-quiz': '', text: item.vysvetleni }))
+            ])))));
+      }
+
+      // Learning mode: same behaviour as chemie/latky-a-smesi-intro.html.
+      const quiz = (() => {
+        const STORAGE_KEY = 'dejepis-baroko-quiz-mode';
+        const bar = document.querySelector('.quiz-bar');
+        let on = false;
+
+        const items = () => document.querySelectorAll('[data-quiz]');
+        const answerText = node => node.textContent.replace(/\s+/g, ' ').trim();
+
+        function setRevealed(node, revealed) {
+          node.classList.toggle('revealed', revealed);
+          if (!on) return;
+          node.setAttribute('aria-pressed', String(revealed));
+          node.setAttribute('aria-label', revealed ? `Zakrýt odpověď: ${answerText(node)}` : 'Odkrýt odpověď');
+        }
+
+        function updateCount() {
+          const all = [...items()];
+          bar.querySelector('[data-quiz-count]').textContent = all.filter(n => n.classList.contains('revealed')).length;
+          bar.querySelector('[data-quiz-total]').textContent = all.length;
+        }
+
+        function refresh() {
+          items().forEach(node => {
+            if (on) {
+              node.setAttribute('tabindex', '0');
+              node.setAttribute('role', 'button');
+              setRevealed(node, node.classList.contains('revealed'));
+            } else {
+              node.classList.remove('revealed');
+              ['tabindex', 'role', 'aria-pressed', 'aria-label'].forEach(a => node.removeAttribute(a));
+            }
+          });
+          updateCount();
+        }
+
+        function setMode(next) {
+          on = next;
+          document.body.classList.toggle('quiz-on', on);
+          bar.hidden = !on;
+          document.querySelectorAll('.quiz-switch').forEach(b => b.setAttribute('aria-checked', String(on)));
+          items().forEach(node => node.classList.remove('revealed'));
+          refresh();
+          try { localStorage.setItem(STORAGE_KEY, on ? '1' : '0'); } catch (e) { /* storage blocked */ }
+        }
+
+        function toggleItem(node) {
+          setRevealed(node, !node.classList.contains('revealed'));
+          updateCount();
+        }
+
+        document.addEventListener('click', event => {
+          if (event.target.closest('[data-quiz-toggle]')) return setMode(!on);
+          if (event.target.closest('[data-quiz-reset]')) {
+            items().forEach(node => setRevealed(node, false));
+            return updateCount();
+          }
+          const item = on && event.target.closest('[data-quiz]');
+          if (item) {
+            event.preventDefault();
+            toggleItem(item);
+          }
+        });
+
+        document.addEventListener('keydown', event => {
+          if (!on || (event.key !== 'Enter' && event.key !== ' ')) return;
+          const item = event.target.closest && event.target.closest('[data-quiz]');
+          if (item && item === event.target) {
+            event.preventDefault();
+            toggleItem(item);
+          }
+        });
+
+        let saved = null;
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* storage blocked */ }
+        return { start: () => setMode(saved === '1') };
+      })();
+
+      // --- Start ------------------------------------------------------------
+
+      async function start() {
+        let data;
+        try {
+          const response = await fetch('baroko-questions.json');
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          data = await response.json();
+        } catch (error) {
+          document.getElementById('stations').append(el('p', {
+            class: 'error-msg',
+            text: 'Nepodařilo se načíst data. Spusť lokální server: python3 -m http.server a otevři stránku přes http://localhost:8000/'
+          }));
+          return;
+        }
+        STATIONS = defineStations(data);
+        buildStations();
+        buildNecklace();
+        STATIONS.forEach(renderStation);
+        paintAll();
+        updateFinale();
+        watchCurrent();
+        armReset();
+        renderSheet(data.hlavni_osy);
+        renderGlossary(data.terminologie);
+        quiz.start();
+      }
+
+      start();
+    </script>
+  </body>
+</html>
