@@ -56,6 +56,11 @@ material is mandatory and the textbook is bonus context:
 - **Teacher's handouts** — the required scope. These define what *must* be in the test.
 - **Textbook pages** — extra context that deepens understanding (optional).
 
+A worksheet **filled in by the student** is neither: unless the teacher checked it,
+its answers are only the student's guesses, and "the handout wins" does not apply
+to them. Use the printed tasks, but keep disputed items out of scored questions
+until the answer is confirmed.
+
 ### 2. Read the material
 
 Read the photos carefully (OCR + visual reading). Extract the actual facts,
@@ -123,6 +128,11 @@ nuance. Only change the actual `spravna_odpoved` when it's wrong by the teacher'
 own material — not merely by stricter history. Surface these conflicts to the
 parent rather than silently "correcting" them.
 
+**The same gate applies to interactive trainers.** Have the finished logic and
+feedback texts reviewed too: wrong answers accepted, hints that send the student
+the wrong way, broken flows. The first review of the chemistry trainer found
+seven real defects after its tests had passed.
+
 ### 5. Fill in the support data
 
 In the same JSON, populate the fields that power the other pages (step 1 of "one
@@ -147,6 +157,15 @@ title, and the colour theme):
 
 Give each topic a distinct colour theme so the decks are visually
 distinguishable (e.g. Husité = red/amber, Konec středověku = gold/violet).
+
+Make the pages playful, as described under "Learning Design" in
+[CLAUDE.md](CLAUDE.md): interactive elements, inline SVG illustrations instead of
+long text, and the cover-and-reveal learning mode on the prep page.
+
+**Calculation trainers teach the method from class.** Use exactly the steps in
+the notebook, even if a formula would be shorter, and never vary a fixed fact the
+student learned: random numbers must not change what vinegar "is" (8 % acid).
+Keep generated problems within realistic limits.
 
 ### 7. Test locally
 
@@ -249,7 +268,10 @@ Before publishing, confirm:
 - [ ] Every distractor is plausible; every `proc_spatne` explains the specific error
 - [ ] `proc_spatne` keys match `spatne_odpovedi` strings exactly
 - [ ] Czech text is correct, with full diacritics
-- [ ] **Passed a `/second-opinion` review** for factual accuracy
+- [ ] **Passed a `/second-opinion` review** for factual accuracy (questions and any trainer)
+- [ ] Student-filled answers that the teacher did not confirm are not scored
+- [ ] The topic is playful: something interactive, SVG illustrations, cover-and-reveal on the prep page
+- [ ] Every switch or mode changes the screen at once; pages work at 375 px
 - [ ] `terminologie`, `casova_osa`, `hlavni_osy_*` filled in (powers flashcards + intro)
 - [ ] Pages load and work via local `http.server`
 - [ ] Links added to `README.md` and `dejepis/index.html`

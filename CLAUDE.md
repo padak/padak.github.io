@@ -4,9 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-This is an educational web application repository ("Terka – rodinná cvičení") for school exercises targeting a 7th-grade Czech student. Covers Czech language, English language, and History. Hosted on GitHub Pages at https://padak.github.io/
+This is an educational web application repository ("Terka – rodinná cvičení") for school exercises targeting a Czech student (7th grade; the math section is 8th grade). Covers Czech language, English language, History, Chemistry and Math. Hosted on GitHub Pages at https://padak.github.io/
 
 The goal is that the student **learns** the material by practising it — so a test must *teach*, not just grade. Every question carries an explanation of why the correct answer is right (`oduvodneni`) and why each wrong answer is wrong (`proc_spatne`).
+
+## Learning Design
+
+Learning should be playful and fun, not a wall of text. For every new topic or page:
+
+- **Gamify and make it interactive.** Prefer something the student does (reveal, sort, solve, collect) over something they only read. The bar is set by `matika/procent-arena.html` and `matika/mnohocleny.html`.
+- **Illustrate text with inline SVG.** Replace long lists and tables with diagrams, particle views, comics and proportional bars. SVGs are hand-made in the page, must be correct at the student's level and add no facts beyond the source. Every picture has a text equivalent.
+- **Let the student cover key information and test themselves.** Tap to reveal, tap to cover again: the cue stays visible, the answer is hidden. The reference is "Učicí mód" in `chemie/latky-a-smesi-intro.html`: mark an answer with `data-quiz` and one script handles covers, the counter and "Zakrýt vše". Add it to new prep pages.
+- **Every switch must visibly change something at once.** A mode or level that looks the same until the student answers something reads as broken.
+- **Check it at phone width.** The student works on a phone: 375 px, no horizontal scroll, text breaks cleanly.
 
 ## Content Workflow
 
@@ -35,10 +45,16 @@ The end-to-end process for building a topic — read source photos → author th
 │   ├── latky-a-smesi-questions.json    # 33 questions — Substances and mixtures (casova_osa intentionally empty)
 │   ├── latky-a-smesi-test-mobil.html   # Mobile test - filter by sub-theme, retry wrong answers
 │   ├── latky-a-smesi-flashcards.html   # Flashcards from terminologie (no timeline mode when casova_osa is empty)
-│   ├── latky-a-smesi-intro.html        # Cheat sheet: state-change triangle SVG, classification tree, mixtures table
+│   ├── latky-a-smesi-intro.html        # Cheat sheet: SVG illustrations, classification tree, learning mode (data-quiz)
 │   ├── roztoky-vypocty.html            # Solution composition calculation trainer
 │   ├── roztoky/                        # JS modules for the calculation trainer
 │   └── tests/                          # Node tests for the calculation trainer
+├── matika/                 # Math apps (8th grade), buildless ES modules
+│   ├── procent-arena.html              # 3D percent maze with question levels (see ARENA-LEVELS.md)
+│   ├── slevy.html                      # Percent lab: reverse discounts
+│   ├── mnohocleny.html                 # Guided polynomial workshops with a reward garden
+│   ├── mnohocleny/                     # JS modules and README for the workshops
+│   └── tests/                          # Node tests (node --test matika/tests/*.test.mjs)
 └── dejepis/                # History exercises (7th grade)
     ├── index.html                      # Landing page with all history topics
     ├── questions.json                  # 40 questions — Early Middle Ages (4 themes)
@@ -83,6 +99,7 @@ The end-to-end process for building a topic — read source photos → author th
     {id, tema, obtiznost, typ, otazka, spravna_odpoved, spatne_odpovedi: [...3], oduvodneni, proc_spatne: {"<wrong answer text>": "why it's wrong"}}
     ```
     Sub-themes are the distinct values of each question's `tema` field, not a nested structure. `oduvodneni` explains why the correct answer is right; `proc_spatne` maps each wrong answer string to why that specific choice is wrong (keys must match `spatne_odpovedi` exactly).
+  - `chemie/*-questions.json`: same shape as `dejepis/`. `casova_osa` stays empty when a topic has no timeline; do not invent one. Each `hlavni_osy` entry is `"Title\nline\nline"`: the first line renders as the card heading, every other line as its own row.
   - Per-file specifics:
     - `questions.json` — Early Middle Ages, 40 questions
     - `cesky-stat-questions.json` — 30 questions
@@ -97,9 +114,10 @@ All HTML files are **self-contained** with inline CSS and JavaScript, loading da
 #### Exercise Types
 1. **Tests** (desktop + mobile) — Multiple-choice with immediate feedback, score tracking, final results
 2. **Flashcards** — Flippable cards with keyboard navigation (arrows + space), topic filtering
-3. **Intro/prep pages** — Timeline, glossary, cheat sheet (dejepis only)
+3. **Intro/prep pages** — Glossary and cheat sheet, plus a timeline where the topic has one (dejepis, chemie)
 4. **Story pages** — Narrative text for reading comprehension (dejepis only)
 5. **Textbook pages** — OCR transcription with referenced images (dejepis only)
+6. **Trainers and interactive apps** — Generated practice and games with logic in ES modules and Node tests (`chemie/roztoky/`, `matika/`)
 
 #### Desktop vs Mobile
 - **Desktop version**: Full-featured with sidebar guides
@@ -160,6 +178,8 @@ Mobile versions should:
 - Czech language content: `cj/` directory
 - English language content: `en/` directory
 - History content: `dejepis/` directory
+- Chemistry content: `chemie/` directory
+- Math content: `matika/` directory
 - Mobile versions: append `-mobile` or `-mobil` to filename
-- Data files: `_test.json` (cj, en) or `-questions.json` (dejepis)
+- Data files: `_test.json` (cj, en) or `-questions.json` (dejepis, chemie)
 - HTML filenames use kebab-case, JSON filenames use snake_case or kebab-case
