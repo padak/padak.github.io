@@ -1,0 +1,347 @@
+{
+ "title": "Zmizelá Demänovka",
+ "subtitle": "Rodinná záhada z chaty nad Strážným, Krkonoše, zima 2026",
+ "notice": "Smyšlený příběh. Osoby jsou skutečné, ale všechno, co se v příběhu stalo, je vymyšlené, stejně jako chata, krmelec i vyhlídka. Bez násilí.",
+ "briefing": "<p><b>Spis vyšetřovacího týmu, chata Jeřabinka nad Strážným, neděle 1. února 2026.</b></p><p>Detektive, o víkendu 30. 1. – 1. 2. 2026 byly na chatě Jeřabinka, asi 3 km nad Strážným v Krkonoších, tři rodiny: Šimečkovi, Žákovi a Koneční. Každá rodina spala v jiném podlaží. V neděli ráno zmizela z regálu v zádveří láhev Demänovky, kterou Koneční přivezli na nedělní přípitek na rozloučenou. Nikdo se nepřiznal, a tak vyšetřovací tým (Tereza a Žofie) sestavil u snídaně tuhle složku.</p><p>Zjisti, <b>kdo láhev odnesl, kdy opustila chatu, kde je teď a proč zmizela</b>. Pak vyplň obvinění.</p><p><b>Pravidla:</b> Láhev odnesl právě jeden z pěti podezřelých a jednal sám. Záznamy přístrojů, fotografie, plánek, mapa a zápis žolíků jsou pravé a nikdo je neupravil. Výpovědi lidí, kteří nejsou podezřelí (Ludmila, Tomáš, Kateřina, Alžběta a tým), jsou pravdivé, i když jde o příbuzné. Podezřelí lhát mohou, a to i o věcech, které s lahví nesouvisejí.</p><p><b>Hodnocení:</b> výsledný čas = čas řešení + penalizace za nápovědy (+1, +2, +3 min) a za každé odeslané obvinění, které není celé správně (+5 min). Dozvíš se jen, kolik odpovědí je špatně. Výši penalizace vždy uvidíš předem.</p><p><b>Tip:</b> jeden skládá na hlavním zařízení časovou osu, druhý v režimu čtení pročítá výpovědi. Dokumenty mají písmena.</p>",
+ "suspects": [
+  {
+   "id": "alena",
+   "name": "Alena Šimečková",
+   "role": "maminka Šimečkových, spí v 1. patře",
+   "photo": "img/alena.jpg",
+   "photoAlt": "Alena Šimečková, kreslený portrét do spisu"
+  },
+  {
+   "id": "petr",
+   "name": "Petr Šimeček",
+   "role": "tatínek Šimečkových, spí v 1. patře",
+   "photo": "img/petr.jpg",
+   "photoAlt": "Petr Šimeček, kreslený portrét do spisu"
+  },
+  {
+   "id": "michaela",
+   "name": "Michaela Žáková",
+   "role": "maminka Žákových, říkají jí Míša, spí v podkroví",
+   "photo": "img/michaela.jpg",
+   "photoAlt": "Michaela Žáková, kreslený portrét do spisu"
+  },
+  {
+   "id": "ctirad",
+   "name": "Ctirad Konečný",
+   "role": "s Ludmilou přivezl Demänovku, spí v přízemí",
+   "photo": "img/ctirad.jpg",
+   "photoAlt": "Ctirad Konečný, kreslený portrét do spisu"
+  },
+  {
+   "id": "stepan",
+   "name": "Štěpán Žák",
+   "age": 13,
+   "role": "nejmladší z dětí, spí v podkroví",
+   "photo": "img/stepan.jpg",
+   "photoAlt": "Štěpán Žák, kreslený portrét do spisu"
+  }
+ ],
+ "documents": [
+  {
+   "id": "A",
+   "kind": "report",
+   "group": "Spis",
+   "title": "Záznam vyšetřovacího týmu",
+   "html": "<div class='paper'><p class='head'>VYŠETŘOVACÍ TÝM CHATY JEŘABINKA<br>Spis č. 1/2026 · neděle 1. 2. 2026, 8:15–9:40<br>Sepsaly: Tereza Šimečková (16) a Žofie Žáková (17)</p><table class='kv'><tr><th>Věc</th><td>zmizení láhve Demänovky 0,7 l, neotevřené. Na hrdle visí na provázku malý dřevěný smrček, který vyřezal Ctirad.</td></tr><tr><th>Místo</th><td>regál v zádveří, vedle piv (zádveří se nevytápí, slouží jako lednice)</td></tr><tr><th>Zjištěno</th><td>neděle 7:40, Ludmila Konečná</td></tr><tr><th>V chatě</th><td>11 lidí, nikdo cizí. Přízemí: Ludmila a Ctirad Koneční. 1. patro: Šimečkovi (Petr, Alena, Tereza 16, Kateřina 14). Podkroví: Žákovi (Michaela neboli Míša, Tomáš, Žofie 17, Alžběta 15, Štěpán 13).</td></tr></table><p><b>Zjištění týmu:</b></p><ul><li>Spočítaly jsme všechny láhve v chatě. Chybí jen Demänovka a jiná taková v chatě nebyla.</li><li>Prohledaly jsme celou chatu včetně regálu, bund a zavazadel. Demänovka v chatě není.</li><li>Ze zádveří zmizely i všechny mrkve z bedýnky (na nedělní polévku) a kus Ludmiliny bábovky.</li><li>Auta stojí na parkovišti ve Strážném. Rolba na zavazadla v sobotu ani v noci nejela.</li><li>Ctirad prohlásil, že láhev vzal Krakonoš.</li></ul><p class='head'>Meteostanice (opsáno z displeje v zádveří)</p><table class='grid'><tr><th>Čas</th><th>Teplota</th><th>Počasí</th><th>Sníh celkem</th></tr><tr><td>so 18:00</td><td>−6 °C</td><td>nesněží</td><td>61 cm</td></tr><tr><td>so 22:20</td><td>−7 °C</td><td>začíná sněžit</td><td>61 cm</td></tr><tr><td>ne 03:00</td><td>−5 °C</td><td>sněží</td><td>84 cm</td></tr><tr><td>ne 05:50</td><td>−5 °C</td><td>přestává sněžit</td><td>93 cm</td></tr></table><div class='fridge'><p class='head'>Program na lednici (opsáno)</p><p>NEDĚLE 1. 2.<br>8:00 snídaně<br>10:00 vycházka na vyhlídku Na Křížku, vede Míša<br>12:00 úklid<br>13:30 rolba pro zavazadla</p></div></div>",
+   "look": "team-cover"
+  },
+  {
+   "id": "B",
+   "kind": "report",
+   "group": "Spis",
+   "title": "Plánek chaty",
+   "html": "<div class='paper'><p class='head'>Plánek chaty Jeřabinka (nakreslila Žofie)</p><p><b>Přízemí:</b> zádveří s regálem, věšáky na bundy a botníkem, hala se schodištěm, jídelna s kuchyňským koutem, pokoj Konečných, sprchový kout se záchodem.</p><p><b>1. patro:</b> dva pokoje Šimečkových, koupelna s vanou a záchodem (jediná vana v chatě), chodba s routerem wifi.</p><p><b>Podkroví:</b> dva pokoje Žákových. Koupelna tu není.</p><p><b>Důležité:</b></p><ul><li>Ven se dá jen vchodovými dveřmi ze zádveří. Dveře na terasu jsou přes zimu zasypané sněhem.</li><li>Jedno schodiště spojuje všechna patra. Kdo jde z podkroví dolů, projde chodbou v 1. patře.</li><li>Dveře z jídelny do haly jsou plné, dřevěné a večer bývají kvůli teplu zavřené. Od stolu není vidět do haly, na schody ani do zádveří.</li><li>Koupelna v 1. patře se zamyká otočným zámkem. Ten jde v nouzi otočit i zvenku mincí.</li></ul></div>",
+   "plan": true,
+   "look": "plan"
+  },
+  {
+   "id": "C",
+   "kind": "evidence",
+   "group": "Spis",
+   "title": "Mapka okolí a časy chůze",
+   "html": "<div class='paper'><p class='head'>Mapka okolí a časy chůze (změřila Žofie, v zimě, přibližně)</p><table class='grid'><tr><th>Úsek</th><th>Nahoru</th><th>Dolů</th></tr><tr><td>parkoviště Strážné – chata (3 km)</td><td>55 min</td><td>40 min</td></tr><tr><td>chata – krmelec s fotopastí</td><td>5 min</td><td>4 min</td></tr><tr><td>krmelec – vyhlídka Na Křížku</td><td>8 min</td><td>6 min</td></tr></table><p>Od chaty vede nahoru jediná cesta: kolem krmelce na vyhlídku Na Křížku s dřevěným křížem, jediným v okolí. Na vyhlídce cesta končí. Jiná stavení tu nejsou.</p><p>Wifi z chaty dosáhne venku asi do 15 metrů od vchodových dveří. Mobily tady jinak signál nemají.</p></div>",
+   "map": true,
+   "look": "map"
+  },
+  {
+   "id": "D",
+   "kind": "evidence",
+   "group": "Stopy",
+   "title": "Zápis žolíků",
+   "html": "<div class='paper'><p class='head'>Žolíky, sobota 31. 1., zapisuje Ludmila<br>Trestné body: kdo první vyloží, má 0. Vyhrává nejméně bodů.</p><table class='grid'><tr><th>Kolo</th><th>Začátek</th><th>Petr</th><th>Alena, od 7. kola Míša</th><th>Ctirad</th><th>Tereza</th><th>Žofie</th></tr><tr><td>1</td><td>20:02</td><td>15</td><td>0</td><td>22</td><td>8</td><td>31</td></tr><tr><td>2</td><td>20:15</td><td>0</td><td>12</td><td>9</td><td>25</td><td>14</td></tr><tr><td>3</td><td>20:29</td><td>20</td><td>18</td><td>0</td><td>11</td><td>7</td></tr><tr><td>4</td><td>20:41</td><td>9</td><td>26</td><td>13</td><td>0</td><td>22</td></tr><tr><td>5</td><td>20:55</td><td>33</td><td>5</td><td>17</td><td>12</td><td>0</td></tr><tr><td>6</td><td>21:07</td><td>6</td><td>0</td><td>28</td><td>19</td><td>10</td></tr><tr><td colspan='7' class='note'>21:15 pauza: Tomáš nese pivo. Alena jde ve 21:20 do vany, za ni dohraje Míša.</td></tr><tr><td>7</td><td>21:22</td><td>14</td><td>21</td><td>0</td><td>9</td><td>16</td></tr><tr><td>8</td><td>21:36</td><td>0</td><td>11</td><td>24</td><td>30</td><td>8</td></tr><tr><td>9</td><td>21:51</td><td>27</td><td>0</td><td>12</td><td>6</td><td>19</td></tr><tr><td colspan='7' class='note'>22:05 pauza na čaj, do 22:12</td></tr><tr><td>10</td><td>22:12</td><td>11</td><td>16</td><td>9</td><td>0</td><td>25</td></tr><tr><td>11</td><td>22:26</td><td>18</td><td>7</td><td>30</td><td>14</td><td>0</td></tr><tr><td><b>celkem</b></td><td></td><td><b>153</b></td><td><b>116</b></td><td><b>164</b></td><td><b>134</b></td><td><b>152</b></td></tr></table><p class='hand'>Konec ve 22:40. Od 21:22 do 22:05 se od stolu nikdo nezvedl: Petr, Míša, Ctirad, Tereza, Žofie ani já. Tomáš do 21:50 myl nádobí v kuchyňském koutě a pak seděl s námi na gauči v jídelně. Ve 21:30 jsem Ctiradovi zabavila mobil, koukal pod stolem na hokej. Vypnula jsem ho a ve 21:42 mu ho zase zapnula. L. K.</p><p class='hand'>Potvrzujeme, hrály jsme celou dobu. Tereza, Žofie</p></div>",
+   "look": "scoresheet"
+  },
+  {
+   "id": "E",
+   "kind": "evidence",
+   "group": "Stopy",
+   "title": "Rodinný chat",
+   "html": "<div class='chat'><p class='head'>Skupina „Jeřabinka 2026“ (export, výběr)</p><p class='day'>pátek 30. 1.</p><p class='msg'><b>Tomáš</b> <span class='t'>19:12</span> Internet tu jde jen přes anténu na střeše. Napište mi modely mobilů, ať vím, kdo spotřebovává data. Já mám Galaxy S23.</p><p class='msg'><b>Petr</b> <span class='t'>19:13</span> Pixel 8</p><p class='msg'><b>Alena</b> <span class='t'>19:13</span> iPhone 13</p><p class='msg'><b>Michaela</b> <span class='t'>19:14</span> Galaxy A55</p><p class='msg'><b>Tereza</b> <span class='t'>19:14</span> iPhone 15</p><p class='msg'><b>Žofie</b> <span class='t'>19:15</span> iPhone 14</p><p class='msg'><b>Kateřina</b> <span class='t'>19:15</span> Redmi Note 13</p><p class='msg'><b>Štěpán</b> <span class='t'>19:16</span> Redmi 13C</p><p class='msg'><b>Alžběta</b> <span class='t'>19:16</span> iPhone SE</p><p class='msg'><b>Ctirad</b> <span class='t'>19:18</span> Samsung Galaxy A15. Ludmila má Nokii s tlačítky, ta na wifi nejde. A Demänovka je v zádveří na neděli na rozloučenou. Kdo na ni sáhne, toho si vezme Krakonoš.</p><p class='day'>sobota 31. 1.</p><p class='msg'><b>Michaela</b> <span class='t'>14:40</span> Jdu zkontrolovat cestu na vyhlídku na zítřejší vycházku. Do hodiny jsem zpátky.</p><p class='msg'><b>Michaela</b> <span class='t'>15:27</span> Cesta je v pohodě, výhled nádherný. Zítra v deset jdeme všichni!</p><p class='day'>neděle 1. 2.</p><p class='msg'><b>Ctirad</b> <span class='t'>7:46</span> Kdo vzal Demänovku? Ludmila je v šoku.</p><p class='msg'><b>Petr</b> <span class='t'>7:47</span> Já ne.</p><p class='msg'><b>Štěpán</b> <span class='t'>7:48</span> já taky ne</p><p class='msg'><b>Tereza</b> <span class='t'>7:52</span> Nikdo nic neuklízejte, vyšetřujeme!</p></div>",
+   "look": "chat"
+  },
+  {
+   "id": "F",
+   "kind": "evidence",
+   "group": "Stopy",
+   "title": "Router: historie připojení",
+   "html": "<div class='log'><p class='head'>ROUTER JEŘABINKA — historie připojení (31. 1. 20:00 – 1. 2. 8:50)</p><p>Přihlásila se Žofie heslem ze štítku na routeru, opsáno v 8:50.</p><table><tr><th>Datum</th><th>Čas</th><th>Zařízení</th><th>Událost</th></tr><tr><td>31.1.</td><td>21:30</td><td>Galaxy-A15</td><td>odpojeno</td></tr><tr><td>31.1.</td><td>21:31</td><td>iPhone-13</td><td>odpojeno</td></tr><tr><td>31.1.</td><td>21:42</td><td>Galaxy-A15</td><td>připojeno</td></tr><tr><td>31.1.</td><td>21:57</td><td>iPhone-13</td><td>připojeno</td></tr><tr><td>31.1.</td><td>22:03</td><td>Redmi-13C</td><td>odpojeno</td></tr><tr><td>31.1.</td><td>22:16</td><td>Redmi-13C</td><td>připojeno</td></tr><tr><td>1.2.</td><td>08:31</td><td>iPhone-14</td><td>odpojeno</td></tr><tr><td>1.2.</td><td>08:41</td><td>iPhone-14</td><td>připojeno</td></tr></table><p>Celou dobu bez přerušení připojeno: Pixel-8, Galaxy-A55, Galaxy-S23, iPhone-15, iPhone-SE, Redmi-Note-13.</p><p class='small'>Wifi pokrývá celou chatu včetně zádveří. Zařízení v dosahu zůstává připojené i se zhasnutým displejem. Odpojí se, když odejde z dosahu nebo když se vypne.</p></div>",
+   "look": "router"
+  },
+  {
+   "id": "G",
+   "kind": "evidence",
+   "group": "Stopy",
+   "title": "Fotopast u krmelce",
+   "html": "<div class='paper'><p class='head'>Fotopast u krmelce (patří Ctiradovi), seznam snímků</p><p>Kartu vyndala Žofie v 8:36, hodiny fotopasti se shodovaly s mobilem. Kdo jde na vyhlídku nebo z ní, projde před fotopastí. Snímky popsal tým.</p><table class='grid'><tr><th>Čas</th><th>Co je na snímku</th></tr><tr><td>so 14:45</td><td>dospělá postava jde nahoru (den)</td></tr><tr><td>so 15:21</td><td>tatáž postava jde dolů</td></tr><tr><td>so 21:36</td><td>postava s kapucí a čelovkou jde nahoru, v pravé ruce láhev s malým přívěskem na hrdle (na snímku sotva znát), v levé papírový sáček (foto nahoře)</td></tr><tr><td>so 21:53</td><td>tatáž postava jde dolů, obě ruce prázdné (foto dole)</td></tr><tr><td>so 22:08</td><td>menší postava sype do krmelce mrkev</td></tr><tr><td>so 22:12</td><td>menší postava odchází dolů</td></tr><tr><td>so 22:14</td><td>dvě srny u krmelce</td></tr><tr><td>ne 03:40</td><td>liška, sněží</td></tr><tr><td>ne 08:36</td><td>Žofie vyndává kartu. V krmelci je jen seno a mrkve.</td></tr></table><p>Jiné snímky na kartě nejsou. Obličeje na nočních snímcích vidět nejsou (kapuce, oslnění čelovkou).</p></div>",
+   "look": "trailcam",
+   "image": "img/fotopast-1.jpg",
+   "imageAlt": "Noční snímek fotopasti ve 21:36: postava s kapucí a čelovkou jde nahoru, nese láhev a sáček.",
+   "imageStamp": "31.01.2026 21:36",
+   "gallery": [
+    {
+     "src": "img/fotopast-2.jpg",
+     "alt": "Snímek ve 21:53: tatáž postava jde dolů, ruce prázdné."
+    }
+   ]
+  },
+  {
+   "id": "H",
+   "kind": "evidence",
+   "group": "Stopy",
+   "title": "Sdílené album fotek",
+   "html": "<div class='paper'><p class='head'>Sdílené album „Jeřabinka 2026“, sobota 31. 1. (všechny fotky dne, opsal tým)</p><table class='grid'><tr><th>Vyfoceno</th><th>Nahráno</th><th>Co je na fotce</th></tr><tr><td>15:02</td><td>15:25</td><td>výhled z vyhlídky Na Křížku, kříž ve slunci</td></tr><tr><td>19:40</td><td>19:40</td><td>večeře, všech jedenáct u stolu</td></tr><tr><td>21:46</td><td>21:57</td><td>noční fotka s bleskem: pata kříže na vyhlídce, ve sněhu láhev s mašlí a dřevěným smrčkem na hrdle, vedle papírový sáček a kartička (foto nahoře)</td></tr><tr><td>23:52</td><td>23:52</td><td>Petr v zádveří (viz dokument J)</td></tr></table><p>Do alba se nahrává přes společný rodinný účet „Jeřabinka“, proto u fotek není vidět jméno ani mobil.</p><p><b>Přepis kartičky</b> (tým si fotku zvětšil): „Na rozloučenou od Krakonoše. Dospělým láhev na přípitek, dětem perníčky. Hledejte u kříže!“</p><p class='small'>Všechny tyto fotky se nahrály automaticky přímo z mobilu, který je pořídil, a to přes wifi chaty. Nikdo je nenahrával ručně ani je neposílal mezi mobily. Mimo dosah wifi se fotky neodesílají a nahrají se v minutě, kdy se mobil znovu připojí.</p></div>",
+   "look": "album",
+   "image": "img/kriz.jpg",
+   "imageAlt": "Fotka s bleskem ve 21:46: u paty kříže ve sněhu láhev se smrčkem a mašlí, sáček a kartička.",
+   "imageStamp": "31.01.2026 21:46"
+  },
+  {
+   "id": "I",
+   "kind": "interview",
+   "group": "Výpovědi",
+   "title": "Výpověď: Alena Šimečková",
+   "person": "alena",
+   "html": "<div class='qa'><p class='meta'>Vyslechnuta v neděli 1. 2. v 8:20, vyslýchaly Tereza a Žofie</p><p class='q'>Kde jsi byla v sobotu od 21:20 do 22:05?</p><p class='a'>Ve vaně v prvním patře. Zamkla jsem se, dlouho jsem se koupala a ve sluchátkách poslouchala audioknihu z mobilu přes wifi. Jiný signál tu stejně není.</p><p class='q'>Měla jsi mobil celou dobu u sebe?</p><p class='a'>Celou dobu. Nikomu ho nepůjčuju.</p><p class='q'>Šla jsi večer nebo v noci ven?</p><p class='a'>V té zimě? Ne.</p><p class='q'>Kdy jsi naposledy viděla Demänovku?</p><p class='a'>Nevím, nevšímám si jí. Možná ji opravdu vzal Krakonoš.</p><p class='q'>Platí dnešní program?</p><p class='a'>Určitě. Hlavně ať v deset jdeme všichni na vyhlídku. Bude to hezké rozloučení.</p></div>",
+   "look": "interview",
+   "formRole": "podezrely"
+  },
+  {
+   "id": "J",
+   "kind": "interview",
+   "group": "Výpovědi",
+   "title": "Výpověď: Petr Šimeček",
+   "person": "petr",
+   "html": "<div class='qa'><p class='meta'>Vyslechnut v neděli 1. 2. v 8:30, vyslýchaly Tereza a Žofie</p><p class='q'>Kde jsi byl v sobotu od 20:00 do 22:40?</p><p class='a'>U žolíků, celou dobu. Nevyhrál jsem, ale čestně.</p><p class='q'>Šel jsi v noci dolů?</p><p class='a'>Ne. Od jedenácti jsem spal jako dřevo.</p><p class='q'>Kdy jsi naposledy viděl Demänovku?</p><p class='a'>V pátek, když ji Ctirad stavěl do regálu.</p><p class='q'>Kdo ji podle tebe vzal?</p><p class='a'>Štěpán se večer nějak divně usmíval.</p><p class='note'>Poznámka týmu: fotku nahoře pořídila Tereza v sobotu ve 23:52, když šla dolů pro vodu.</p></div>",
+   "look": "interview",
+   "formRole": "podezrely",
+   "image": "img/zadveri.jpg",
+   "imageAlt": "Fotka s bleskem ve 23:52: Petr v zádveří s kouskem bábovky. Za ním regál s mlékem, džusy, pivem, vínem a bábovkou, vedle piv prázdné místo po Demänovce.",
+   "imageStamp": "31.01.2026 23:52"
+  },
+  {
+   "id": "K",
+   "kind": "interview",
+   "group": "Výpovědi",
+   "title": "Výpověď: Michaela Žáková",
+   "person": "michaela",
+   "html": "<div class='qa'><p class='meta'>Vyslechnuta v neděli 1. 2. v 8:40, vyslýchaly Tereza a Žofie</p><p class='q'>Co jsi dělala v sobotu večer?</p><p class='a'>Do 21:20 jsem v podkroví hrála s dětmi Carcassonne. Chvíli po 21:20 na mě Alena zavolala z chodby v prvním patře, ať ji vystřídám v kartách. Stála tam v županu, že jde do vany. Od 21:22 jsem hrála za ni. A vyhrály jsme!</p><p class='q'>Byla jsi v sobotu venku?</p><p class='a'>Odpoledne, zkontrolovat cestu na vyhlídku. Večer už ne.</p><p class='q'>Kdo vymyslel vycházku na vyhlídku?</p><p class='a'>Já. Všichni o ní vědí, visí to na lednici.</p><p class='q'>Kde je podle tebe Demänovka?</p><p class='a'>Kdybych to věděla, už by stála na stole.</p></div>",
+   "look": "interview",
+   "formRole": "podezrely"
+  },
+  {
+   "id": "L",
+   "kind": "interview",
+   "group": "Výpovědi",
+   "title": "Výpověď: Ctirad Konečný",
+   "person": "ctirad",
+   "html": "<div class='qa'><p class='meta'>Vyslechnut v neděli 1. 2. v 8:50, vyslýchaly Tereza a Žofie</p><p class='q'>Kdy jsi Demänovku viděl naposledy?</p><p class='a'>V pátek večer, sám jsem ji postavil do regálu. V sobotu jsem se na ni nedíval.</p><p class='q'>Kde jsi byl v sobotu od 20:00 do 22:40?</p><p class='a'>U karet. Ludmila zapisovala, ta by mě nepustila ani na záchod.</p><p class='q'>V neděli ráno jsi byl v zádveří první?</p><p class='a'>V půl sedmé, jako každé ráno, kontroluju meteostanici. Jestli tam láhev byla, nevím, díval jsem se na displej.</p><p class='q'>Proč byl tvůj mobil večer dvanáct minut vypnutý?</p><p class='a'>To se ptejte Ludmily. Hrál se hokej a já se jen podíval na skóre.</p><p class='q'>Můžeme se podívat do fotopasti?</p><p class='a'>Klidně. Ale stopy vám sníh stejně zasypal.</p></div>",
+   "look": "interview",
+   "formRole": "podezrely"
+  },
+  {
+   "id": "M",
+   "kind": "interview",
+   "group": "Výpovědi",
+   "title": "Výpověď: Štěpán Žák",
+   "person": "stepan",
+   "html": "<div class='qa'><p class='meta'>Vyslechnut v neděli 1. 2. v 9:00, vyslýchaly Tereza a Žofie</p><p class='q'>Kde jsi byl v sobotu večer?</p><p class='a'>Nahoře. Hráli jsme Carcassonne s Katkou a Bětkou.</p><p class='q'>Celou dobu? Nešel jsi ven?</p><p class='a'>Ne. Proč bych chodil ven?</p><p class='q'>Nevíš, kam zmizely mrkve z bedýnky?</p><p class='a'>Mrkve? To netuším.</p><p class='q'>A Demänovka?</p><p class='a'>Tu jsem viděl v regálu. Na tu bych nesáhl, Ctirad by mě dal Krakonošovi.</p></div>",
+   "look": "interview",
+   "formRole": "podezrely"
+  },
+  {
+   "id": "N",
+   "kind": "interview",
+   "group": "Výpovědi",
+   "title": "Výpovědi svědků",
+   "html": "<div class='qa'><p class='meta'>Ludmila Konečná, zapisovatelka karet</p><p class='a'>Celý večer jsem zapisovala žolíky. V neděli v 7:40 jsem šla do zádveří pro mléko a Demänovka byla pryč. Z bábovky chyběl kus a z bedýnky všechny mrkve.</p><p class='meta'>Tomáš Žák</p><p class='a'>Od devíti jsem myl nádobí, prohrál jsem sázku. Ve 21:15 jsem nesl z regálu v zádveří pivo a Demänovka tam stála i se smrčkem, jako vždycky. Ve 21:20 se Alena zvedla od karet, že jde do vany. Od 21:50 jsem seděl na gauči v jídelně a radil všem špatně.</p><p class='meta'>Alžběta Žáková (15)</p><p class='a'>Hráli jsme v podkroví Carcassonne. Ve 21:44 (koukala jsem na mobil) jsem šla na záchod do koupelny v prvním patře. Bylo zamčeno, pod dveřmi se svítilo a uvnitř bylo ticho. Myslela jsem, že se koupe Alena, tak jsem šla dolů. Ve 21:49 jsem byla zpátky. Ve 22:03 Štěpán řekl, že jde nakrmit srny, a odešel s kapsami plnými mrkve. Vrátil se asi ve čtvrt na jedenáct, spadl do závěje a byl celý od sněhu.</p><p class='meta'>Kateřina Šimečková (14)</p><p class='a'>Štěpán byl s námi v podkroví od půl deváté až do 22:03 a pořád jsme hráli. Bětka byla pryč jen asi pět minut. Míša od nás odešla chvíli po 21:20 dolů ke kartám.</p></div>",
+   "look": "interview",
+   "formRole": "svedek"
+  }
+ ],
+ "hints": [
+  {
+   "id": "cas",
+   "name": "Kdy",
+   "steps": [
+    {
+     "penalty": 1,
+     "text": "Kdo láhev naposledy spolehlivě viděl v chatě a na kterém záznamu se objevila poprvé venku?"
+    },
+    {
+     "penalty": 2,
+     "text": "Tomáš ji viděl ve 21:15 (N). Fotopast zachytila láhev ve 21:36 (G). Podle čeho poznáš, že je to právě Demänovka (A, H)?"
+    },
+    {
+     "penalty": 3,
+     "text": "Láhev opustila chatu mezi 21:15 a 21:36. Zjisti, kdo v té době nebyl u stolu ani v podkroví."
+    }
+   ]
+  },
+  {
+   "id": "alibi",
+   "name": "Alibi",
+   "steps": [
+    {
+     "penalty": 1,
+     "text": "Zápis žolíků (D) má časy kol a poznámky. Kdo od 21:22 do 22:05 seděl u stolu?"
+    },
+    {
+     "penalty": 2,
+     "text": "Od stolu odešla jen jedna podezřelá. Její alibi podpírá zamčená koupelna. Jak se ta koupelna zamyká (B)?"
+    },
+    {
+     "penalty": 3,
+     "text": "Zamčené dveře nedokazují, že je někdo uvnitř. Podle vlastních slov měla mobil u sebe na wifi. Co o tom říká router (F)?"
+    }
+   ]
+  },
+  {
+   "id": "mobily",
+   "name": "Mobily",
+   "steps": [
+    {
+     "penalty": 1,
+     "text": "Album (H) neukazuje, kdo fotil. Ukazuje ale, kdy se fotka nahrála. Co se dělo na wifi ve stejné minutě (F)?"
+    },
+    {
+     "penalty": 2,
+     "text": "Fotka kříže se nahrála ve 21:57. Které zařízení se tehdy vrátilo na wifi? Komu patří (E)?"
+    },
+    {
+     "penalty": 3,
+     "text": "Ve 21:30 se odpojily dva mobily. Jeden vypnula Ludmila (D). Druhý byl mimo chatu až do 21:57 a jeho majitelka tvrdí, že ho měla celou dobu u sebe ve vaně na wifi."
+    }
+   ]
+  },
+  {
+   "id": "noc",
+   "name": "Noční stopy",
+   "steps": [
+    {
+     "penalty": 1,
+     "text": "Ráno chyběly tři věci, ne jedna. Ne všechno spolu souvisí."
+    },
+    {
+     "penalty": 2,
+     "text": "Petr i Štěpán něco tajili. Kdy přesně to bylo a co měli v rukou (J, N, G)?"
+    },
+    {
+     "penalty": 3,
+     "text": "Na fotce z 23:52 už láhev v regálu chybí a Štěpán šel ven až ve 22:03. Oba výlety byly až po odnesení láhve."
+    }
+   ]
+  },
+  {
+   "id": "kde",
+   "name": "Kde a proč",
+   "steps": [
+    {
+     "penalty": 1,
+     "text": "Kam vede cesta od krmelce a kam se v neděli chystá vycházka (C, A)?"
+    },
+    {
+     "penalty": 2,
+     "text": "Přečti si přepis kartičky ve sdíleném albu (H)."
+    },
+    {
+     "penalty": 3,
+     "text": "Po 21:53 šel kolem fotopasti už jen Štěpán ke krmelci a ráno Žofie. Od 22:20 napadlo 32 cm sněhu."
+    }
+   ]
+  }
+ ],
+ "form": {
+  "questions": [
+   {
+    "id": "culprit",
+    "label": "Kdo odnesl Demänovku?",
+    "options": [
+     "Alena Šimečková",
+     "Petr Šimeček",
+     "Michaela Žáková",
+     "Ctirad Konečný",
+     "Štěpán Žák"
+    ]
+   },
+   {
+    "id": "when",
+    "label": "Kdy láhev opustila chatu?",
+    "options": [
+     "mezi 20:00 a 21:00",
+     "mezi 21:15 a 21:40",
+     "mezi 22:00 a 22:20",
+     "mezi 23:30 a 24:00"
+    ]
+   },
+   {
+    "id": "where",
+    "label": "Kde je láhev teď?",
+    "options": [
+     "pod sněhem u kříže na vyhlídce Na Křížku",
+     "v krmelci u fotopasti",
+     "v autě na parkovišti ve Strážném",
+     "schovaná za regálem v zádveří"
+    ]
+   },
+   {
+    "id": "why",
+    "label": "Čím měla láhev podle kartičky a programu být?",
+    "options": [
+     "překvapením na nedělní vycházce",
+     "dárkem, který si pachatel odveze domů",
+     "schovaným pokladem, aby se o ni nikdo nehádal u karet",
+     "poděkováním pro řidiče rolby"
+    ]
+   },
+   {
+    "id": "evidence",
+    "label": "Které dva dokumenty spolu umožňují podle času nahrání určit model mobilu, kterým byla pořízena sobotní fotka kříže z 21:46? Vyber dva.",
+    "multi": 2,
+    "options": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "L",
+     "M",
+     "N"
+    ]
+   }
+  ],
+  "wrongPenalty": 5
+ },
+ "solution": "eyJjdWxwcml0IjogIkFsZW5hIMWgaW1lxI1rb3bDoSIsICJ3aGVuIjogIm1lemkgMjE6MTUgYSAyMTo0MCIsICJ3aGVyZSI6ICJwb2Qgc27Em2hlbSB1IGvFmcOtxb5lIG5hIHZ5aGzDrWRjZSBOYSBLxZnDrcW+a3UiLCAid2h5IjogInDFmWVrdmFwZW7DrW0gbmEgbmVkxJtsbsOtIHZ5Y2jDoXpjZSIsICJldmlkZW5jZSI6IFsiRiIsICJIIl19",
+ "solutionText": "<p><b>Láhev odnesla Alena Šimečková</b>, a to jako překvapení pro všechny.</p><ol><li><b>21:15</b> Tomáš viděl Demänovku se smrčkem v regálu (N).</li><li><b>21:20</b> Alena odešla od karet, že jde do vany (D, N). Michaela ji viděla v županu na chodbě (K). Zamčená a rozsvícená koupelna, kterou ve 21:44 našla Alžběta (N), její přítomnost nedokazuje: zámek jde otočit zvenku mincí (B). Alena tak koupelnu zamkla a odešla.</li><li><b>Kolem 21:31</b> se její iPhone 13 odpojil od wifi a ve 21:57 se vrátil (F, E). Tvrdila přitom, že celou dobu poslouchala ve vaně audioknihu přes wifi a mobil měla u sebe (I). Ctiradův mobil byl vypnutý jen 21:30–21:42, protože mu ho zabavila Ludmila (D, L).</li><li><b>21:36</b> šla kolem fotopasti nahoru s lahví a sáčkem, <b>21:53</b> zpátky s prázdnýma rukama (G). Časy sedí s mapou (C).</li><li><b>21:46</b> vznikla fotka láhve se smrčkem a mašlí u kříže. Nahrála se ve 21:57 (H), právě když se na wifi vrátil iPhone 13 (F), a ten patří Aleně (E). Smrček dokazuje, že jde o Demänovku (A).</li><li><b>Proč:</b> kartička „Na rozloučenou od Krakonoše. Dospělým láhev na přípitek, dětem perníčky. Hledejte u kříže!“ (H). Vycházka v deset vede právě ke kříži (A).</li><li><b>Kde:</b> po 21:53 šel kolem fotopasti už jen Štěpán ke krmelci a ráno Žofie, která v krmelci našla jen seno a mrkve (G). V chatě láhev není (A) a auta jsou 40 minut daleko (C). Od 22:20 napadlo 32 cm sněhu (A). Láhev tedy leží pod sněhem u kříže. Dárek od Krakonoše se musí vykopat.</li></ol><p><b>Proč ne ostatní:</b> Petr, Michaela a Ctirad seděli od 21:22 do 22:05 u karet (D). Štěpán byl do 22:03 v podkroví (N). Noční stopy jsou slepé uličky: Štěpán ve 22:03 vzal mrkve a šel krmit srny (N, F, G), Petr ve 23:52 ujídal bábovku a regál už byl bez láhve (J). Ctirad byl ráno v zádveří, až když láhev dávno chyběla (J, L). Michaela byla odpoledne na vyhlídce, když láhev ještě stála v chatě (E, G, N).</p>"
+}

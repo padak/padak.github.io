@@ -1,0 +1,1377 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zmizelá Demänovka – Brain Bench</title>
+<meta name="description" content="Rodinná detektivní hra pro dva hráče: z chaty v Krkonoších zmizela láhev Demänovky.">
+<meta name="theme-color" content="#1c1410">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Alegreya+SC:wght@700&family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Winter cabin identity: dark warm wood, snow-white paper, rowan-berry red ("Jeřabinka" = rowan). */
+:root{
+  --desk:#1c1410; --desk2:#2a1e16; --ui:#f4eee6; --uimuted:#cdbfae; --accent:#ef6a4c; --accent-bg:#c23a24; --accent-ink:#fff;
+  --paper:#fbf8f2; --paper2:#eef1f3; --ink:#1d2228; --muted:#4f5560; --line:#c4ccd4;
+  --red:#b3301f; --blue:#1f3f8f; --pencil:#3b4250; --ok:#a8dba0; --bad:#ffab98; --snow:#f3f7fb;
+  --disp:'Alegreya SC','Alegreya',Georgia,serif;
+  --serif:'Alegreya','Iowan Old Style',Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --hand:'Caveat','Bradley Hand','Segoe Script',cursive;
+  --typed:'Courier Prime','Courier New',Courier,monospace;
+  --mono:ui-monospace,Menlo,Consolas,'Courier New',monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ui);font:17px/1.55 var(--sans);min-height:100vh;overflow-x:hidden;
+  background:radial-gradient(ellipse at 30% -10%,rgba(255,190,120,.16) 0%,rgba(255,190,120,0) 55%),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 2px,rgba(0,0,0,0) 2px 92px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,rgba(0,0,0,0) 1px 7px),
+    linear-gradient(#2a1e16,#1c1410 340px),var(--desk)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #ffd27a;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none!important}
+a{color:#ffb39f}
+
+/* buttons */
+.btn{min-height:44px;padding:8px 16px;border-radius:10px;border:1px solid #6e5643;background:#34261c;color:var(--ui);font-weight:600;line-height:1.2}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--accent-bg);border-color:#e0573d;color:var(--accent-ink)}
+.btn.danger{border-color:#a4493c;color:#ffc2b6}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+
+/* start screen */
+#start{max-width:860px;margin:0 auto;padding:16px 16px 48px}
+.crumb{display:inline-flex;align-items:center;min-height:44px;color:var(--uimuted);text-decoration:none;font-size:15px}
+.cover{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.6);background:#1d2b44}
+.cover svg,.cover img{display:block;width:100%;height:auto}
+.cover .file{position:absolute;left:12px;top:12px;font:700 15px var(--typed);background:var(--paper);color:var(--ink);padding:4px 10px;transform:rotate(-2deg);box-shadow:0 3px 8px rgba(0,0,0,.4)}
+h1{font:700 clamp(34px,7vw,54px)/1.05 var(--disp);margin:22px 0 6px;letter-spacing:.01em}
+.subtitle{color:var(--uimuted);margin:0 0 14px;font:italic 19px var(--serif)}
+.notice{border-left:4px solid var(--accent);background:rgba(239,106,76,.1);padding:10px 14px;border-radius:0 8px 8px 0;margin:0 0 18px;font-size:16px}
+.cnote{margin:0 0 18px;font-size:15px;color:var(--uimuted)}
+.briefing{background:var(--paper);color:var(--ink);font:19px/1.55 var(--serif);padding:22px 22px 8px;border-radius:3px;box-shadow:0 10px 28px rgba(0,0,0,.5)}
+.briefing p{margin:0 0 14px}
+.startbtns{display:grid;gap:12px;margin:22px 0}
+.startbtns .btn{min-height:56px;font-size:18px}
+.best h2{font:700 23px var(--disp);margin:28px 0 8px}
+.best ol{margin:0;padding-left:1.6em}
+.best li{padding:4px 0}
+.best .none{color:var(--uimuted)}
+
+/* app shell */
+#app{display:flex;flex-direction:column;min-height:100vh}
+.top{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;padding-top:max(8px,env(safe-area-inset-top));
+  background:rgba(24,17,13,.97);border-bottom:1px solid #4a372a}
+.brand{display:flex;flex-direction:column;line-height:1.15;margin-right:auto;min-width:0}
+.brand a{color:var(--uimuted);font-size:13px;text-decoration:none}
+.brand b{font:700 20px var(--disp);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.clock{font:700 20px var(--mono);font-variant-numeric:tabular-nums;padding:4px 10px;border-radius:8px;background:#0f0b08;border:1px solid #4a372a;white-space:nowrap}
+.clock .pen{font-size:14px;color:var(--accent);margin-left:6px}
+.clock.done{color:var(--ok)}
+.modetag{font:700 15px var(--typed);color:#ffd27a;border:1px dashed #ffd27a;padding:4px 8px;border-radius:6px}
+.topbtns{display:flex;gap:8px}
+body[data-mode="reader"] .game-only{display:none!important}
+body[data-mode="game"] .reader-only{display:none!important}
+
+.layout{flex:1;display:block}
+.side{padding:12px 16px 32px}
+.pane{padding:12px 16px 48px}
+.tabs{display:flex;gap:6px;margin:4px 0 14px;background:#120d0a;border-radius:12px;padding:4px;border:1px solid #45332a}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:9px;background:transparent;color:var(--uimuted);font-weight:600}
+.tabs button[aria-pressed="true"]{background:#4a3527;color:var(--ui)}
+
+/* document list */
+.grouph{font:700 17px var(--disp);letter-spacing:.08em;color:var(--uimuted);margin:18px 0 6px;border-bottom:1px solid #45332a;padding-bottom:4px}
+.dlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ditem{display:flex;align-items:stretch;gap:4px}
+.dopen{flex:1;display:flex;align-items:center;gap:12px;text-align:left;min-height:52px;padding:8px 10px;border-radius:10px;border:1px solid #45332a;background:#271c15;color:var(--ui)}
+.dopen[aria-current="true"]{border-color:var(--accent);background:#3e2a1e}
+.dopen .t{flex:1;line-height:1.3}
+.dopen .st{font-size:13px;color:var(--uimuted);display:block}
+.dopen.read .st::before{content:"✓ ";color:var(--ok)}
+.badge{flex:none;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:6px;background:var(--snow);color:var(--ink);font:700 20px var(--disp);box-shadow:inset 0 0 0 2px #b9c4cf}
+.badge.brief{font-size:18px}
+.dopen.read .badge{background:#cfd6dc}
+.starbtn{flex:none;width:48px;min-height:48px;border-radius:10px;border:1px solid #45332a;background:#271c15;color:#8a7867;font-size:24px;line-height:1}
+.starbtn[aria-pressed="true"]{color:#ffd27a;border-color:#8a6a2a}
+
+/* suspects */
+.suspects{display:grid;gap:12px}
+.suspect{background:var(--paper);color:var(--ink);padding:14px 16px;border-radius:3px;box-shadow:0 6px 16px rgba(0,0,0,.45);font-family:var(--serif);display:flex;gap:14px;align-items:flex-start}
+.suspect .info{flex:1;min-width:0}
+.suspect h3{margin:0 0 2px;font:700 21px var(--disp)}
+.suspect p{margin:0 0 10px;font-size:17px}
+.suspect .btn{background:#34261c;color:var(--ui);font-family:var(--sans);font-size:16px}
+.others h2{font:700 19px var(--disp);color:var(--uimuted);margin:22px 0 8px;letter-spacing:.04em}
+.others .suspect{padding:10px 12px}
+.others .suspect h3{font-size:18px}
+.others .suspect p{font-size:15.5px;margin-bottom:6px}
+/* portraits are drawings, so they get a drawing-paper mount, not a photo print border */
+.mug{flex:0 0 96px;width:96px;height:96px;object-fit:cover;display:block;background:#f6efdf;padding:5px;border:1px solid #cbbd9c;
+  box-shadow:0 2px 6px rgba(0,0,0,.3),inset 0 0 0 3px #fbf6ea;transform:rotate(-1.5deg)}
+.others .mug{flex-basis:72px;width:72px;height:72px}
+@media (max-width:420px){.suspect .mug{flex-basis:80px;width:80px;height:80px}}
+
+/* notes + timeline */
+.notes h2{font:700 21px var(--disp);margin:8px 0 8px}
+.notes textarea{width:100%;min-height:180px;padding:12px;border-radius:8px;border:1px solid #6a5444;background:#fdfbf6;color:var(--ink);font:18px/1.5 var(--serif);resize:vertical}
+.tlhelp{font-size:15px;color:var(--uimuted);margin:0 0 8px}
+.tl{display:grid;gap:8px;margin-bottom:10px}
+.tlrow{display:grid;grid-template-columns:6.4em minmax(0,1fr) 4.2em 44px;gap:6px}
+.tlrow input,.tlrow select{min-height:44px;min-width:0;width:100%;padding:6px 8px;border-radius:8px;border:1px solid #6a5444;background:#fdfbf6;color:var(--ink);font-size:16px}
+.tlrow button{min-height:44px;border-radius:8px;border:1px solid #6d4a40;background:#2e201b;color:#ffc2b6}
+.tlhead{display:grid;grid-template-columns:6.4em minmax(0,1fr) 4.2em 44px;gap:6px;font-size:13px;color:var(--uimuted)}
+.resetbox{margin-top:28px;padding-top:14px;border-top:1px solid #45332a}
+
+/* document view */
+.docbar{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.backbtn{display:none}
+.dochead{display:flex;align-items:center;gap:12px;max-width:800px;margin:0 auto 14px}
+.dochead .badge{width:52px;height:52px;font-size:28px}
+.dochead .grp{margin:0;font:700 15px var(--disp);letter-spacing:.08em;color:var(--uimuted)}
+.dochead h2{margin:0;font:700 clamp(20px,3.4vw,26px)/1.25 var(--sans)}
+.dochead .hgroup{flex:1;min-width:0}
+.dochead .starbtn{width:auto;padding:0 12px;font-size:16px;font-weight:600}
+.dochead .starbtn span{font-size:22px;vertical-align:-2px}
+.docbody{max-width:800px;margin:0 auto;display:grid;gap:22px}
+.docbody > *{min-width:0}
+.docnav{max-width:800px;margin:28px auto 0;display:flex;justify-content:space-between;gap:10px}
+.docnav .btn{flex:1;max-width:48%}
+.docnav .next{text-align:right}
+
+/* paper documents (classes from case.json) */
+.paper,.qa,.log,.briefdoc{background:var(--paper);color:var(--ink);font:19px/1.55 var(--serif);padding:22px 22px;border-radius:2px;
+  box-shadow:0 14px 30px rgba(0,0,0,.55),inset 0 0 50px rgba(120,135,150,.12);overflow-wrap:break-word;position:relative}
+.paper p,.qa p{margin:0 0 12px}
+.paper ul{margin:0 0 12px;padding-left:1.2em}
+.paper li{margin-bottom:8px}
+.head{font:700 16px/1.4 var(--typed);letter-spacing:.02em;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px!important}
+.small{font-size:15px;color:var(--muted)}
+.paper table,.log table{border-collapse:collapse;width:100%;margin:0 0 12px}
+.kv th{width:30%;text-align:left;vertical-align:top;padding:7px 10px 7px 0;font:700 12.5px/1.4 var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px dotted #9aa4ae}
+.kv td{padding:7px 0;border-bottom:1px dotted #9aa4ae}
+.grid th{text-align:left;background:var(--paper2);font:700 13px var(--sans);letter-spacing:.03em;padding:7px 9px;border:1px solid #aab4be}
+.grid td{padding:7px 9px;border:1px solid #aab4be;vertical-align:top}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px;max-width:100%}
+.tscroll table{margin:0}
+.scrollhint{margin:0 0 6px!important;font:600 14px var(--sans);color:var(--muted)}
+.sign{display:inline-block;font:700 30px/1 var(--hand);color:var(--blue);transform:rotate(-4deg);margin:0 .35em}
+.qa .q,.qa .a{padding:6px 0 6px 14px;border-left:5px solid}
+.qa .q{border-color:#7f8fb8;color:#1e2f5c}
+.qa .a{border-color:#b0873e;margin-bottom:18px!important}
+.meta{font:400 15px var(--typed);color:var(--muted)}
+.who{display:block;font:700 12px/1.3 var(--sans);letter-spacing:.09em;text-transform:uppercase;font-style:normal;margin-bottom:2px;color:var(--muted)}
+.briefdoc p{margin:0 0 14px}
+
+/* figures */
+.photo{margin:0;display:grid;gap:8px;justify-items:center}
+.zoombtn{display:block;padding:0;border:0;background:none;width:100%;max-width:760px;border-radius:3px}
+.imgwrap{position:relative;display:block;container-type:inline-size;background:#fff;padding:10px;box-shadow:0 12px 26px rgba(0,0,0,.55)}
+.imgwrap img{display:block;width:100%;height:auto}
+.camstamp{position:absolute;right:calc(10px + 3cqw);bottom:calc(10px + 2.5cqw);font:700 4.2cqw/1 var(--mono);color:#ff8f1f;letter-spacing:.04em;
+  text-shadow:0 0 .25em rgba(255,120,0,.85),0 0 1px #ffb15c;pointer-events:none}
+.photo figcaption{font-size:15px;color:var(--uimuted);text-align:center;max-width:680px}
+/* trail-camera print: black info strip burned into the frame */
+.trailfig .imgwrap{background:#0b0b0b;padding:0;box-shadow:0 12px 26px rgba(0,0,0,.6),0 0 0 8px #e9ecef}
+.camstrip{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:8px;padding:1.1cqw 2cqw;background:rgba(0,0,0,.82);
+  font:700 3.4cqw/1 var(--mono);color:#f2f2f2;letter-spacing:.06em;pointer-events:none}
+/* phone photo print */
+.phonefig .imgwrap{padding:8px 8px 30px;background:#fff}
+.phonefig .camstamp{right:calc(8px + 3cqw);bottom:calc(30px + 2.5cqw)}
+
+/* svg figures inside sheets */
+.svgfig{margin:0 0 16px;padding:0}
+.svgfig svg{display:block;width:100%;height:auto;margin:0 auto}
+.svgfig figcaption{font:15.5px/1.45 var(--sans);color:var(--muted);margin-top:10px}
+.svgfig figcaption ul{margin:6px 0 0;padding-left:1.2em}
+.svgfig figcaption li{margin-bottom:4px}
+
+/* ---------- document looks (decor is aria-hidden, every case fact stays in case.json) ---------- */
+.look .head{font-family:var(--typed)}
+.lh{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin:0 0 14px;padding-bottom:10px;border-bottom:3px double currentColor;font-family:var(--sans);color:#24523a}
+.lh-ico{flex:none;width:44px;height:44px;display:block}
+.lh-t{flex:1 1 150px;min-width:0;line-height:1.2}
+.lh-t b{display:block;font:700 18px/1.1 var(--disp);letter-spacing:.06em}
+.lh-t span{display:block;font-size:12.5px;letter-spacing:.03em;opacity:.85}
+.lh-no{flex:0 1 auto;margin-left:auto;font:12.5px/1.4 var(--mono);text-align:right}
+.cornerico{position:absolute;top:16px;right:16px;width:54px;pointer-events:none}
+.cornerico svg{width:54px;height:54px;display:block}
+.rstamp{display:block;width:100%;height:auto;mix-blend-mode:multiply;opacity:.82}
+.has-stamp{padding-bottom:124px!important}
+.stamp-abs{position:absolute;right:24px;bottom:14px;width:104px;pointer-events:none}
+.sigblock{position:relative;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px 22px;margin-top:26px;font-family:var(--sans)}
+.sigline{flex:0 1 170px;min-width:128px;display:flex;flex-direction:column;align-items:center}
+.sigline .scrib{width:118px;height:44px;margin-bottom:-8px;display:block}
+.sigline span{align-self:stretch;border-top:1px dotted #5c5243;padding-top:3px;text-align:center;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.sigstamp{position:absolute;right:112px;top:-34px;width:100px;pointer-events:none}
+
+/* A: team record, typed on white with a folder tab */
+.look-team-cover{font:17px/1.55 var(--typed);padding-top:30px;border-top:10px solid #24523a}
+.look-team-cover > p.head:first-of-type{padding-right:70px;font:700 15px/1.5 var(--typed);color:#24523a;border-bottom:3px double #24523a}
+.look-team-cover .kv td{font-family:var(--typed)}
+.look-team-cover ul{list-style:none;padding-left:0}
+.look-team-cover li{position:relative;padding-left:1.4em}
+.look-team-cover li::before{content:"–";position:absolute;left:.2em}
+.look-team-cover .grid td{font-family:var(--typed)}
+.look-team-cover .grid td:first-child,.look-team-cover .grid td:nth-child(2){white-space:nowrap}
+.snowchart{margin:0 0 16px;border:1px solid #aab4be;background:#fff;padding:8px 8px 4px}
+.snowchart svg{display:block;width:100%;height:auto}
+.snowchart figcaption{font:14px/1.4 var(--sans);color:var(--muted);margin:4px 2px}
+.fridge{position:relative;max-width:330px;margin:26px auto 8px;padding:26px 22px 14px;background:#fffbea;
+  box-shadow:0 8px 16px rgba(0,0,0,.25);transform:rotate(1.6deg);font:700 23px/30px var(--hand);color:#1d3a8a}
+.fridge .head{font:700 17px/1.3 var(--hand)!important;color:#7a2c1c;border:0;padding:0;margin:0 0 6px!important;letter-spacing:0;text-transform:none}
+.fridge p{margin:0!important}
+.fridge::before{content:"";position:absolute;top:-14px;left:50%;width:30px;height:30px;margin-left:-15px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ff8a6e,#c23a24 60%,#7d1f12);box-shadow:0 3px 5px rgba(0,0,0,.4)}
+
+/* B, C: drawn by hand on squared paper */
+.look-plan,.look-map,.look-scoresheet{background-color:#fdfdfa;
+  background-image:linear-gradient(rgba(70,110,170,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(70,110,170,.16) 1px,transparent 1px);
+  background-size:22px 22px;font:600 23px/1.35 var(--hand);color:#22325e}
+.look-plan .head,.look-map .head,.look-scoresheet .head{font:700 25px/1.25 var(--hand)!important;color:#22325e;border-bottom:2px solid rgba(34,50,94,.5);letter-spacing:0}
+.look-plan p,.look-map p{margin:0 0 10px}
+.look-plan ul{padding-left:1em}
+.look-plan li{margin-bottom:6px}
+.look-plan b{font-weight:700;color:#7a2c1c}
+.look-map .grid th{background:transparent;font:700 21px var(--hand);border:1.5px solid rgba(34,50,94,.55);letter-spacing:0;color:#22325e}
+.look-map .grid td{font:600 22px/1.25 var(--hand);border:1.5px solid rgba(34,50,94,.55)}
+.look-map .grid td:not(:first-child){white-space:nowrap}
+.drawing{margin:4px 0 18px;padding:0}
+@media (max-width:520px){.drawing svg{width:calc(100% + 20px);margin:0 -10px}}
+.drawing svg{display:block;width:100%;height:auto;max-width:540px;margin:0 auto}
+.drawing figcaption{font:15.5px/1.45 var(--sans);color:#3b4250;background:rgba(255,255,255,.85);border:1px solid #d5dbe2;padding:8px 12px;margin-top:10px}
+.drawing figcaption ul{margin:6px 0 0;padding-left:1.2em}
+.drawing figcaption li{margin-bottom:4px}
+
+/* D: score sheet in pencil and ink */
+.look-scoresheet{color:#2c3340}
+.look-scoresheet .head{color:#2c3340}
+.look-scoresheet .grid{border-collapse:collapse;width:100%}
+.look-scoresheet .grid th{background:transparent;border:0;border-bottom:2px solid #4a5263;border-right:1.5px solid rgba(74,82,99,.6);font:700 18px/1.05 var(--hand);
+  padding:4px 4px 6px;vertical-align:bottom;color:#2c3340;letter-spacing:0;text-align:center}
+.look-scoresheet .grid td{border:0;border-right:1.5px solid rgba(74,82,99,.6);border-bottom:1px solid rgba(74,82,99,.25);font:700 23px/1.15 var(--hand);
+  padding:3px 4px;text-align:center;color:#34405a}
+.look-scoresheet .grid th:last-child,.look-scoresheet .grid td:last-child{border-right:0}
+.look-scoresheet .grid td:nth-child(2){font-size:19px;color:#5d6576}
+.look-scoresheet .grid td.note{text-align:left;font:700 20px/1.2 var(--hand);color:#8a2d1e;padding:6px 6px;border-right:0}
+.look-scoresheet .grid tr:last-child td{border-top:3px double #2c3340;border-bottom:0;font-size:25px;color:#1d2a52}
+.look-scoresheet .grid tr:last-child td:first-child{font-size:20px}
+.look-scoresheet .hand{font:700 23px/1.35 var(--hand);color:#1d3a8a;margin:16px 0 8px;transform:rotate(-.4deg)}
+.look-scoresheet .hand + .hand{color:#5a2a7a;text-align:right;transform:rotate(-1.2deg)}
+
+/* E: phone chat export */
+.chat{background:#e9e4da;color:#1b1f24;font:17px/1.4 var(--sans);border-radius:34px;padding:0 0 18px;border:11px solid #15171a;
+  box-shadow:0 18px 36px rgba(0,0,0,.6),0 0 0 1px #3b3f45;overflow:hidden;max-width:520px;width:100%;justify-self:center;
+  background-image:radial-gradient(rgba(140,120,90,.13) 1.5px,transparent 2px);background-size:18px 18px}
+.chat .head{position:relative;margin:0 0 6px!important;padding:12px 14px 12px 64px;background:#24523a;color:#fff;border:0;font:700 16px/1.25 var(--sans);letter-spacing:0;min-height:60px;display:flex;align-items:center}
+.chat .head::before{content:"";position:absolute;left:14px;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;
+  background:#fbf8f2 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 6 29 19h-4l7 9h-5l5 6H8l5-6H8l7-9h-4z' fill='%2324523a'/%3E%3Crect x='18' y='32' width='4' height='5' fill='%236b4c2a'/%3E%3C/svg%3E") center/30px no-repeat}
+.chat .statusbar{display:flex;justify-content:space-between;padding:6px 20px 4px;background:#1c4430;color:#fff;font:600 13px var(--sans)}
+.chat .day{display:table;margin:14px auto 8px!important;padding:3px 12px;border-radius:10px;background:rgba(255,255,255,.85);font:600 13px var(--sans);color:#4f5560;box-shadow:0 1px 1px rgba(0,0,0,.12)}
+.chat .msg{display:flex;gap:8px;align-items:flex-end;margin:0 10px 6px 8px!important;max-width:none;padding:0;background:none;border-radius:0;font-family:var(--sans);color:inherit}
+.chat .av{flex:none;width:34px;height:34px;border-radius:50%;object-fit:cover;background:#f6efdf;border:1px solid rgba(0,0,0,.12)}
+.chat .bub{position:relative;min-width:0;max-width:86%;background:#fff;border-radius:4px 14px 14px 14px;padding:6px 10px 6px;box-shadow:0 1px 1px rgba(0,0,0,.15)}
+.chat .bub b{display:block;font-size:14px;margin-bottom:1px}
+.chat .bub .t{display:block;text-align:right;margin-top:1px;font-size:12px;color:#6a7078}
+.chat .bub .mt{overflow-wrap:break-word}
+
+/* F: router admin page */
+.look-router{background:#f4f6f8;padding:0;font:15.5px/1.45 var(--sans);border-radius:8px;overflow:hidden;border:1px solid #9aa6b2}
+.rt-bar{display:flex;align-items:center;gap:8px;padding:7px 10px;background:#d9dee4;border-bottom:1px solid #b6bfc9;font:13px var(--sans);color:#3d4550}
+.rt-bar i{width:11px;height:11px;border-radius:50%;background:#c9cfd6;display:inline-block}
+.rt-url{flex:1;min-width:0;background:#fff;border-radius:6px;padding:3px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#4f5560}
+.rt-top{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#0f3b5f;color:#fff}
+.rt-top svg{width:30px;height:30px;flex:none}
+.rt-top b{font:800 17px var(--sans);letter-spacing:.12em}
+.rt-top span{font-size:12.5px;opacity:.8;display:block;letter-spacing:.04em}
+.rt-nav{display:flex;flex-wrap:wrap;gap:0;background:#e8edf2;border-bottom:1px solid #b6bfc9;font:600 13.5px var(--sans)}
+.rt-nav span{padding:8px 12px;color:#4f5560}
+.rt-nav span.on{background:#f4f6f8;color:#0f3b5f;box-shadow:inset 0 -3px 0 #2f7bbf}
+.rt-body{padding:14px 14px 10px}
+.look-router .head{font:700 16px/1.35 var(--sans)!important;color:#0f3b5f;border-bottom:1px solid #c4ccd4;letter-spacing:0}
+.look-router table{background:#fff;border:1px solid #c4ccd4}
+.look-router th{text-align:left;padding:7px 9px;background:#e8edf2;border-bottom:1px solid #b6bfc9;font:700 12.5px var(--sans);text-transform:uppercase;letter-spacing:.04em;color:#3d4550;white-space:nowrap}
+.look-router td{padding:7px 9px;border-bottom:1px solid #e2e7ec;font:14.5px var(--mono);white-space:nowrap}
+.look-router .small{font-family:var(--sans)}
+
+/* G, H, interviews, N: typed team papers */
+.look-trailcam,.look-album,.look-interview{background-color:#fdfcf8;font:17px/1.55 var(--typed)}
+.look-trailcam > p.head:first-of-type,.look-album > p.head:first-of-type{font:700 16px/1.4 var(--typed);text-transform:uppercase;letter-spacing:.03em;color:#24523a;border-bottom:3px double #24523a}
+.look-trailcam .grid td,.look-album .grid td{font-family:var(--typed)}
+.look-trailcam .grid td:first-child,.look-album .grid td:first-child,.look-album .grid td:nth-child(2){white-space:nowrap}
+.photosheet{background:#e7ebee;color:var(--ink);padding:16px 16px 20px;border-radius:2px;box-shadow:0 14px 30px rgba(0,0,0,.55);display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+.ps-head{margin:0;font:700 13px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#24523a;border-bottom:2px solid #24523a;padding-bottom:6px}
+.pprint{margin:0;display:grid;gap:8px}
+.pprint .zoombtn{max-width:none}
+.pprint figcaption{font:14px/1.45 var(--sans);color:#3d3529}
+
+/* H: phone album screen */
+.albumui{justify-self:center;width:100%;max-width:520px;background:#111417;color:#f1f3f5;border-radius:30px;border:10px solid #15171a;overflow:hidden;
+  box-shadow:0 18px 36px rgba(0,0,0,.6),0 0 0 1px #3b3f45;font-family:var(--sans)}
+.albumui .au-top{padding:12px 14px 8px}
+.albumui .au-top b{display:block;font-size:19px}
+.albumui .au-top span{font-size:13px;color:#a9b1ba}
+.albumui .au-day{padding:6px 14px;font:600 13px var(--sans);color:#c9d0d7}
+.albumui .au-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;padding:0 0 12px}
+.au-tile{position:relative;display:block;aspect-ratio:1;overflow:hidden;background:#222;padding:0;border:0}
+.au-tile img,.au-tile svg{display:block;width:100%;height:100%;object-fit:cover}
+.au-tile span{position:absolute;left:4px;bottom:3px;font:700 12px var(--sans);color:#fff;text-shadow:0 1px 2px #000}
+.cardcopy{margin:6px 0 14px!important}
+
+/* interview records of the team */
+.look-interview{padding-left:34px;line-height:1.6;
+  background-image:radial-gradient(circle at 13px 64px,var(--desk) 0 5px,transparent 6px),radial-gradient(circle at 13px 164px,var(--desk) 0 5px,transparent 6px),
+    linear-gradient(90deg,transparent 26px,rgba(179,48,31,.38) 26px 27px,transparent 27px);background-repeat:no-repeat}
+.look-interview .lh{margin-right:0}
+.formtitle{clear:none;text-align:center;font:700 19px/1.3 var(--typed);letter-spacing:.08em;text-transform:uppercase;margin:4px 0 12px!important;text-decoration:underline double;text-underline-offset:6px}
+.fbox{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid #4a4f58;margin:0 0 12px;background:rgba(255,255,255,.5)}
+.fld{display:flex;flex-direction:column;gap:1px;padding:5px 9px 6px;border-bottom:1px solid #8a919b;min-width:0}
+.fld:nth-child(odd):not(.wide){border-right:1px solid #8a919b}
+.fld.wide{grid-column:1/-1}
+.fld:last-child{border-bottom:0}
+.fl{font:700 10.5px/1.2 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.fv{font:17px/1.35 var(--typed)}
+.fv .meta{margin:0!important;font:inherit;color:inherit}
+.blank{display:inline-block;width:6em;max-width:100%;height:1.15em;border-bottom:1px solid #6c7280}
+.pouc{border:1px dashed #6c7280;padding:8px 10px;font:13.5px/1.45 var(--sans);color:#3b4250;margin:0 0 16px!important;background:rgba(255,255,255,.5)}
+.pouc b{letter-spacing:.06em;text-transform:uppercase;font-size:12px}
+.txh{clear:both;font:700 12px var(--sans)!important;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:4px;color:var(--muted)}
+.look-interview .q,.look-interview .a{position:relative;border-left:0;padding:2px 0;color:var(--ink)}
+.look-interview .q{color:#1e2f5c;margin-bottom:4px!important}
+.look-interview .a{margin-bottom:16px!important}
+.look-interview .who{display:inline;font:700 14px var(--typed);letter-spacing:.02em;text-transform:none;margin-right:.45em;color:inherit}
+.look-interview .a .who{color:#7a2c1c}
+.look-interview .note{font:italic 15.5px/1.45 var(--typed);color:#3b4250;border-top:1px dashed #9aa4ae;padding-top:8px}
+.clipphoto{float:right;position:relative;width:112px;margin:-2px -4px 10px 14px;transform:rotate(2.2deg);z-index:1}
+.clipphoto .mug{flex:none;width:100%;height:auto;aspect-ratio:1;transform:none}
+.clipphoto .clip{position:absolute;top:-22px;left:16px;width:20px;height:62px;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.35))}
+.ffoot{clear:both;margin-top:22px;padding-top:10px;border-top:1px solid var(--line)}
+.ffoot-t{font:italic 15px var(--typed);margin:0!important}
+@media (min-width:600px){
+  .look-interview .q,.look-interview .a{padding-left:6.6em}
+  .look-interview .who{position:absolute;left:0;top:.3em;width:6.2em;font-size:13.5px}
+}
+/* N: one typed slip per witness, clipped to the record */
+.wqa{position:relative;background:#fff;border:1px solid #cfd5dc;padding:16px 14px 10px;margin:22px 0 18px;transform:rotate(-.4deg);box-shadow:0 4px 10px rgba(0,0,0,.16)}
+.wqa:nth-of-type(even){transform:rotate(.35deg)}
+.wqa .meta{font:700 16px/1.35 var(--typed);color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:6px;margin:0 0 10px!important}
+.wqa .a{padding-left:0!important;margin-bottom:6px!important}
+.wqa .clipphoto{width:86px;margin:-30px -6px 8px 12px}
+.wqa .sigblock{margin-top:6px}
+@media (max-width:520px){
+  .docbody > .look-interview{padding-left:28px;font-size:16.5px;
+    background-image:radial-gradient(circle at 9px 64px,var(--desk) 0 4px,transparent 5px),radial-gradient(circle at 9px 164px,var(--desk) 0 4px,transparent 5px),
+    linear-gradient(90deg,transparent 20px,rgba(179,48,31,.38) 20px 21px,transparent 21px)}
+  .clipphoto{width:88px;margin-left:10px}
+  .fbox{clear:both}
+  .docbody > .look-trailcam,.docbody > .look-album,.docbody > .look-interview,.docbody > .look-team-cover{font-size:15.5px}
+  .fv{font-size:15.5px}
+  .wqa .clipphoto{width:72px}
+  .formtitle{font-size:16px;letter-spacing:.04em}
+  .stamp-abs{right:14px;width:94px}
+  .look-scoresheet .grid th{font-size:15.5px;padding:3px 2px 5px}
+  .look-scoresheet .grid td{font-size:21px;padding:2px 2px}
+  .look-scoresheet .grid td:nth-child(2){font-size:17px}
+}
+
+/* dialogs */
+dialog{border:0;padding:0;background:#211812;color:var(--ui);width:100%;max-width:100%;height:100%;max-height:100%;margin:0}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+.dlg{display:flex;flex-direction:column;height:100%}
+.dlghead{display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:max(10px,env(safe-area-inset-top));border-bottom:1px solid #45332a;background:#17110d}
+.dlghead h2{flex:1;margin:0;font:700 23px var(--disp)}
+.dlgbody{flex:1;overflow:auto;padding:16px 16px 40px;-webkit-overflow-scrolling:touch}
+.dlgbody > *{max-width:760px;margin-left:auto;margin-right:auto}
+@media (min-width:700px){
+  dialog:not(.zoomdlg){width:min(820px,94vw);height:auto;max-height:92vh;margin:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+  dialog:not(.zoomdlg) .dlg{max-height:92vh}
+}
+/* hints */
+.pentotal{font-size:17px;margin:0 0 14px;padding:10px 14px;background:#30231a;border-radius:10px;border:1px solid #54402f}
+.track{background:#2a1e16;border:1px solid #45332a;border-radius:12px;padding:12px 16px;margin-bottom:14px}
+.track h3{margin:0 0 8px;font:700 21px var(--disp)}
+.track ol{margin:0 0 10px;padding-left:1.4em}
+.track li{margin-bottom:8px;background:var(--paper);color:var(--ink);padding:8px 12px;border-radius:3px;font-family:var(--serif);font-size:18px}
+.track li .pp{display:block;font:600 12px var(--sans);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.confirmline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px;background:#43261b;border-radius:10px}
+.confirmline p{margin:0;flex-basis:100%;font-weight:700}
+.alldone{color:var(--uimuted);margin:0}
+/* accusation form */
+fieldset{border:1px solid #54402f;border-radius:12px;margin:0 0 16px;padding:10px 14px 12px}
+legend{font-weight:700;font-size:18px;padding:0 6px}
+.opts{display:grid;gap:8px}
+.opts.cols{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:8px 12px;border-radius:10px;border:1px solid #54402f;background:#2a1e16;cursor:pointer}
+.opt input{width:22px;height:22px;flex:none;accent-color:var(--accent-bg);margin:0}
+.opt:has(input:checked){border-color:var(--accent);background:#43281d}
+.opt:has(input:disabled){opacity:.5}
+.opt .badge{width:32px;height:32px;font-size:17px}
+.multinote{font-size:15px;color:var(--uimuted);margin:0 0 8px}
+.feedback{margin:14px 0;padding:12px 14px;border-radius:10px;font-weight:600}
+.feedback.bad{background:#3d1d17;border:1px solid #8a3a2d;color:var(--bad)}
+.feedback.info{background:#30231a;border:1px solid #54402f}
+.giveup{margin-top:30px;padding-top:16px;border-top:1px solid #45332a}
+/* result */
+.final{font:700 clamp(40px,10vw,64px)/1 var(--mono);color:var(--accent);margin:6px 0 12px;font-variant-numeric:tabular-nums}
+.breakdown{border-collapse:collapse;width:100%;margin-bottom:18px}
+.breakdown td{padding:8px 4px;border-bottom:1px solid #45332a}
+.breakdown td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap}
+.breakdown tr.sum td{font-weight:700;border-bottom:0;font-size:19px}
+.soltext{background:var(--paper);color:var(--ink);font:19px/1.55 var(--serif);padding:20px 22px;border-radius:2px}
+.soltext ol{padding-left:1.3em}
+.soltext li{margin-bottom:8px}
+/* zoom */
+.zoomdlg{background:#000}
+.zscroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:auto}
+.zscroll .imgwrap{margin:0 auto;padding:0;box-shadow:none;width:100%}
+.zbar .btn{padding:8px 12px}
+.msg{max-width:640px;margin:40px auto;padding:20px;background:var(--paper);color:var(--ink);border-radius:4px;font-family:var(--serif)}
+.msg code{background:#e3e8ec;padding:2px 6px;border-radius:4px}
+
+/* wide: iPad landscape and desktop - list and document side by side */
+@media (min-width:960px){
+  #app{height:100vh;height:100dvh;min-height:0}
+  .layout{display:grid;grid-template-columns:minmax(330px,390px) 1fr;min-height:0}
+  .side{overflow:auto;border-right:1px solid #45332a;padding-bottom:40px}
+  .pane{overflow:auto;padding:18px 28px 60px}
+}
+/* narrow: list, then full-screen document */
+@media (max-width:959.98px){
+  body.viewdoc .side{display:none}
+  body:not(.viewdoc) .pane{display:none}
+  .backbtn{display:inline-flex;align-items:center}
+}
+@media (max-width:520px){
+  body{font-size:17px}
+  .brand{display:none}
+  .top{justify-content:space-between}
+  .paper,.qa,.briefdoc{padding:16px 15px;font-size:18px}
+  .look-team-cover{font-size:16px}
+  .look-team-cover .grid th,.look-team-cover .grid td{padding:6px 6px;font-size:14.5px}
+  .sigblock .sigstamp{right:auto;left:0;top:-6px}
+  .look-plan,.look-map{font-size:22px}
+  .kv th{width:34%}
+  .dochead{flex-wrap:wrap}
+  .dochead .hgroup{flex-basis:calc(100% - 64px)}
+  .dochead .starbtn{margin-left:64px;min-height:44px}
+  .chat{border-width:8px;border-radius:26px}
+  .albumui{border-width:8px;border-radius:24px}
+  .rt-body{padding:12px 10px 8px}
+  .look-router td{font-size:13.5px;padding:6px 7px}
+  .look-router th{padding:6px 7px}
+}
+</style>
+</head>
+<body data-mode="none">
+
+<noscript><div class="msg">Hra potřebuje zapnutý JavaScript.</div></noscript>
+<div id="loadmsg" class="msg" role="status">Načítám spis…</div>
+
+<!-- START SCREEN -->
+<main id="start" hidden>
+  <a class="crumb" href="../">← Brain Bench</a>
+  <div class="cover" id="cover"><img src="img/cover.jpg" alt="Roubená chata se třemi podlažími v hlubokém sněhu za soumraku, rozsvícená okna, kolem smrkový les." width="1200" height="685"><span class="file">Spis č. 1/2026</span></div>
+  <h1 id="caseTitle"></h1>
+  <p class="subtitle" id="caseSub"></p>
+  <p class="notice" id="caseNotice"></p>
+  <p class="cnote">Pro koho: celá rodina, děti od 13 let. Lehká záhada bez násilí a bez strašení, hraje se asi 25 minut.</p>
+  <section class="briefing" id="caseBrief" aria-label="Zadání"></section>
+  <div class="startbtns">
+    <button class="btn primary" id="btnStartGame">Začít vyšetřování (hlavní zařízení)</button>
+    <button class="btn" id="btnStartReader">Jen číst podklady (druhé zařízení)</button>
+  </div>
+  <p class="small" style="color:var(--uimuted);font-size:15px">Hlavní zařízení měří čas a má nápovědy i formulář obvinění. Druhé zařízení jen zobrazuje dokumenty, bez času a bez nápověd.</p>
+  <section class="best" aria-labelledby="bestH1"><h2 id="bestH1">Nejlepší výsledky na tomto zařízení</h2><div class="bestlist"></div></section>
+</main>
+
+<!-- APP -->
+<div id="app" hidden>
+  <header class="top">
+    <div class="brand"><a href="../">Brain Bench</a><b>Zmizelá Demänovka</b></div>
+    <div class="clock game-only" id="clock" role="timer" aria-label="Čas vyšetřování">0:00</div>
+    <span class="modetag reader-only">Režim čtení</span>
+    <div class="topbtns">
+      <button class="btn game-only" id="btnHints">Nápověda</button>
+      <button class="btn primary game-only" id="btnAccuse">Obvinit</button>
+      <button class="btn ghost" id="btnMenu" aria-label="Menu">☰</button>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="side" aria-label="Složka případu">
+      <div class="tabs" role="group" aria-label="Části složky">
+        <button data-tab="docs" aria-pressed="true">Dokumenty</button>
+        <button data-tab="suspects" aria-pressed="false">Podezřelí</button>
+        <button data-tab="notes" aria-pressed="false">Poznámky</button>
+      </div>
+      <section id="tab-docs" aria-label="Dokumenty"></section>
+      <section id="tab-suspects" aria-label="Podezřelí" hidden></section>
+      <section id="tab-notes" class="notes" aria-label="Poznámky" hidden>
+        <h2><label for="notesField">Poznámky</label></h2>
+        <textarea id="notesField" placeholder="Rozpory, podezření, otázky…"></textarea>
+        <h2 id="tlH">Časová osa</h2>
+        <p class="tlhelp">Čas pište s dvojtečkou (21:15). U neděle přidejte datum (1.2. 7:40), bez data se řádek počítá jako sobota 31. 1.</p>
+        <div class="tlhead" aria-hidden="true"><span>Čas</span><span>Co se stalo</span><span>Dok.</span><span></span></div>
+        <div class="tl" id="tl" aria-labelledby="tlH"></div>
+        <div class="btnrow"><button class="btn" id="tlAdd">+ Přidat řádek</button><button class="btn ghost" id="tlSort">Seřadit podle času</button></div>
+      </section>
+    </aside>
+    <main class="pane" id="pane" tabindex="-1"></main>
+  </div>
+</div>
+
+<!-- DIALOGS -->
+<dialog id="dlgHints" aria-labelledby="hH"><div class="dlg">
+  <div class="dlghead"><h2 id="hH">Nápověda</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><div><p class="pentotal" id="hintTotal"></p><div id="hintTracks"></div></div></div>
+</div></dialog>
+
+<dialog id="dlgAccuse" aria-labelledby="aH"><div class="dlg">
+  <div class="dlghead"><h2 id="aH">Obvinění</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><form id="accForm" novalidate>
+    <p class="feedback info" id="accInfo"></p>
+    <div id="accQuestions"></div>
+    <div id="accFeedback" role="alert"></div>
+    <button class="btn primary" type="submit" style="min-height:56px;font-size:18px;width:100%">Podat obvinění</button>
+    <div class="giveup"><p style="color:var(--uimuted);margin:0 0 10px">Nechcete pokračovat? Řešení se ukáže bez hodnocení.</p><button class="btn danger" type="button" id="btnGiveUp">Vzdát se a ukázat řešení</button></div>
+  </form></div>
+</div></dialog>
+
+<dialog id="dlgResult" aria-labelledby="rH"><div class="dlg">
+  <div class="dlghead"><h2 id="rH">Případ uzavřen</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><div id="resultBody"></div></div>
+</div></dialog>
+
+<dialog id="dlgMenu" aria-labelledby="mH"><div class="dlg">
+  <div class="dlghead"><h2 id="mH">Menu</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><div style="display:grid;gap:12px">
+    <button class="btn" id="mBrief">Zobrazit zadání</button>
+    <button class="btn game-only" id="mResult" hidden>Zobrazit řešení a výsledek</button>
+    <button class="btn reader-only" id="mEndReader">Ukončit čtení (zpět na úvod)</button>
+    <a class="btn" href="../" style="display:flex;align-items:center;text-decoration:none">Zpět na Brain Bench</a>
+    <section class="best" aria-labelledby="bestH2"><h2 id="bestH2">Nejlepší výsledky</h2><div class="bestlist"></div></section>
+    <div class="resetbox"><button class="btn danger" id="mReset">Začít znovu</button>
+      <p style="color:var(--uimuted);font-size:15px">Smaže čas, nápovědy, poznámky, časovou osu i označení dokumentů na tomto zařízení. Nejlepší výsledky zůstanou.</p></div>
+  </div></div>
+</div></dialog>
+
+<dialog id="dlgZoom" class="zoomdlg" aria-label="Zvětšená fotografie"><div class="dlg">
+  <div class="dlghead zbar"><h2 class="sr">Fotografie</h2><span style="flex:1"></span>
+    <button class="btn" data-z="1">100 %</button><button class="btn" data-z="2">200 %</button><button class="btn" data-z="3">300 %</button>
+    <button class="btn primary" data-close>Zavřít</button></div>
+  <div class="zscroll" id="zscroll"></div>
+</div></dialog>
+
+<script>
+(function(){
+'use strict';
+const KEY = 'bb-demanovka-v1', BEST_KEY = 'bb-demanovka-best';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const wideMQ = window.matchMedia('(min-width: 960px)');
+
+let CASE = null, DOCS = {}, ORDER = [], S = null, current = null, listScroll = 0, tickTimer = null;
+
+// Everyone in the cabin has a drawn portrait. Keys are first names as they appear in the documents.
+const PEOPLE = {
+  'Alena': {file: 'alena', full: 'Alena Šimečková'}, 'Petr': {file: 'petr', full: 'Petr Šimeček'},
+  'Tereza': {file: 'tereza', full: 'Tereza Šimečková'}, 'Kateřina': {file: 'katerina', full: 'Kateřina Šimečková'},
+  'Michaela': {file: 'michaela', full: 'Michaela Žáková'}, 'Tomáš': {file: 'tomas', full: 'Tomáš Žák'},
+  'Žofie': {file: 'zofie', full: 'Žofie Žáková'}, 'Alžběta': {file: 'alzbeta', full: 'Alžběta Žáková'},
+  'Štěpán': {file: 'stepan', full: 'Štěpán Žák'}, 'Ludmila': {file: 'ludmila', full: 'Ludmila Konečná'},
+  'Ctirad': {file: 'ctirad', full: 'Ctirad Konečný'}
+};
+const photoOf = p => 'img/portrait-' + p.id + '.jpg';
+const portrait = first => PEOPLE[first] ? 'img/portrait-' + PEOPLE[first].file + '.jpg' : '';
+// Non-suspects shown on the suspects tab (ages as stated in document A).
+const OTHERS = [
+  {first: 'Ludmila', role: 'svědkyně, zapisovala žolíky', doc: 'N'},
+  {first: 'Tomáš', role: 'svědek', doc: 'N'},
+  {first: 'Kateřina', age: 14, role: 'svědkyně', doc: 'N'},
+  {first: 'Alžběta', age: 15, role: 'svědkyně', doc: 'N'},
+  {first: 'Tereza', age: 16, role: 'vyšetřovací tým', doc: 'A'},
+  {first: 'Žofie', age: 17, role: 'vyšetřovací tým', doc: 'A'}
+];
+
+/* ---------- storage (localStorage may be blocked) ---------- */
+function fresh(){ return {mode:null, startedAt:null, read:{}, star:{}, hints:{}, wrong:0, notes:'', timeline:[], draft:{}, solved:null, gaveUp:null, tab:'docs', doc:null}; }
+function load(){ try { const v = JSON.parse(localStorage.getItem(KEY)); return v && typeof v === 'object' ? Object.assign(fresh(), v) : fresh(); } catch(e){ return fresh(); } }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
+function loadBest(){ try { const v = JSON.parse(localStorage.getItem(BEST_KEY)); return Array.isArray(v) ? v : []; } catch(e){ return []; } }
+function saveBest(list){ try { localStorage.setItem(BEST_KEY, JSON.stringify(list)); } catch(e){} }
+
+/* ---------- time + penalties ---------- */
+function fmt(ms){
+  const t = Math.max(0, Math.floor(ms / 1000)), h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), s = t % 60;
+  const pad = n => String(n).padStart(2, '0');
+  return h ? h + ':' + pad(m) + ':' + pad(s) : m + ':' + pad(s);
+}
+function hintMin(){
+  let sum = 0;
+  for (const tr of CASE.hints) { const n = S.hints[tr.id] || 0; for (let i = 0; i < n && i < tr.steps.length; i++) sum += tr.steps[i].penalty; }
+  return sum;
+}
+function wrongMin(){ return S.wrong * CASE.form.wrongPenalty; }
+function elapsed(){
+  if (S.solved) return S.solved.elapsed;
+  if (S.gaveUp) return S.gaveUp.elapsed;
+  return S.startedAt ? Date.now() - S.startedAt : 0;
+}
+function finished(){ return !!(S.solved || S.gaveUp); }
+function minutesWord(n){ return n === 1 ? 'minuta' : (n >= 2 && n <= 4 ? 'minuty' : 'minut'); }
+
+function tick(){
+  const c = $('#clock'); if (!c) return;
+  const pen = hintMin() + wrongMin();
+  c.classList.toggle('done', !!S.solved);
+  c.innerHTML = (S.solved ? 'Hotovo ' + fmt(S.solved.total) : esc(fmt(elapsed()))) +
+    (!S.solved && pen ? '<span class="pen">+' + pen + ' min</span>' : '');
+  c.setAttribute('aria-label', 'Čas vyšetřování ' + fmt(elapsed()) + (pen ? ', penalizace ' + pen + ' ' + minutesWord(pen) : ''));
+}
+
+/* ---------- base64 UTF-8 decode ---------- */
+function b64utf8(s){
+  const bin = atob(s);
+  return new TextDecoder('utf-8').decode(Uint8Array.from(bin, ch => ch.charCodeAt(0)));
+}
+function decodeSolution(){ return JSON.parse(b64utf8(CASE.solution)); }
+// solutionText may be stored base64-encoded so a glance at case.json does not spoil the case; plain HTML still works.
+function solutionHTML(){ const t = CASE.solutionText || ''; return /^\s*</.test(t) ? t : b64utf8(t.trim()); }
+// Show single-choice options in a stable order that does not depend on how the author listed them
+// (so the correct answer is not always first). Same order on every reload and device.
+function stableOrder(q){
+  const h = s => { let x = 2166136261; for (const ch of q.id + '|' + s) x = Math.imul(x ^ ch.codePointAt(0), 16777619); return x >>> 0; };
+  return q.options.slice().sort((a, b) => h(a) - h(b));
+}
+
+/* ---------- boot ---------- */
+async function boot(){
+  if (location.protocol === 'file:') return fail(true);
+  try {
+    const r = await fetch('case.json', {cache: 'no-cache'});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    CASE = await r.json();
+  } catch(e){ return fail(false, e); }
+  CASE.documents.forEach(d => { DOCS[d.id] = d; ORDER.push(d.id); });
+  S = load();
+  $('#loadmsg').hidden = true;
+  fillStart();
+  wire();
+  if (S.mode) enterApp(); else showStart();
+}
+function fail(isFile, err){
+  const m = $('#loadmsg');
+  m.setAttribute('role', 'alert');
+  m.innerHTML = isFile
+    ? '<h2>Spis nejde otevřít přímo ze souboru</h2><p>Prohlížeč z bezpečnostních důvodů nedovolí načíst <code>case.json</code> ze stránky otevřené přes <code>file://</code>.</p><p>Spusťte ve složce repozitáře <code>python3 -m http.server</code> a otevřete <code>http://localhost:8000/brain-bench/zmizela-demanovka/</code>, nebo hrajte online na <a href="https://padak.github.io/brain-bench/zmizela-demanovka/">padak.github.io</a>.</p>'
+    : '<h2>Spis se nepodařilo načíst</h2><p>Zkontrolujte připojení k internetu a obnovte stránku.</p><p class="small">' + esc(err && err.message || '') + '</p>';
+}
+
+/* ---------- start screen ---------- */
+function fillStart(){
+  document.title = CASE.title + ' – Brain Bench';
+  $('#caseTitle').textContent = CASE.title;
+  $('#caseSub').textContent = CASE.subtitle;
+  $('#caseNotice').textContent = CASE.notice;
+  $('#caseBrief').innerHTML = CASE.briefing;
+}
+function renderBest(){
+  const list = loadBest().slice().sort((a, b) => a.total - b.total).slice(0, 10);
+  const html = list.length
+    ? '<ol>' + list.map(b => '<li><b>' + esc(fmt(b.total)) + '</b> · ' + esc(new Date(b.date).toLocaleDateString('cs-CZ')) +
+        ' <span style="color:var(--uimuted)">(čas ' + esc(fmt(b.elapsed)) + ', nápovědy +' + b.hintMin + ' min, omyly +' + b.wrongMin + ' min)</span></li>').join('') + '</ol>'
+    : '<p class="none">Zatím žádný vyřešený případ.</p>';
+  $$('.bestlist').forEach(el => el.innerHTML = html);
+}
+function showStart(){
+  document.body.dataset.mode = 'none';
+  $('#app').hidden = true; $('#start').hidden = false;
+  renderBest();
+  clearInterval(tickTimer);
+  window.scrollTo(0, 0);
+}
+
+/* ---------- app ---------- */
+function enterApp(){
+  document.body.dataset.mode = S.mode;
+  $('#start').hidden = true; $('#app').hidden = false;
+  listScroll = 0; window.scrollTo(0, 0);
+  renderList(); renderSuspects(); renderNotes(); setTab(S.tab || 'docs');
+  clearInterval(tickTimer);
+  if (S.mode === 'game') { tick(); tickTimer = setInterval(tick, 1000); }
+  updateFinishUI();
+  if (wideMQ.matches) openDoc(S.doc && (DOCS[S.doc] || S.doc === 'brief') ? S.doc : 'brief', {push:false});
+  else showList();
+}
+function updateFinishUI(){
+  const done = finished();
+  $('#btnAccuse').textContent = done ? 'Řešení' : 'Obvinit';
+  $('#mResult').hidden = !done;
+}
+function setTab(t){
+  S.tab = t; save();
+  $$('.tabs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tab === t)));
+  ['docs', 'suspects', 'notes'].forEach(k => $('#tab-' + k).hidden = k !== t);
+}
+
+function renderList(){
+  const groups = [];
+  ORDER.forEach(id => { const g = DOCS[id].group; let e = groups.find(x => x.name === g); if (!e) groups.push(e = {name: g, ids: []}); e.ids.push(id); });
+  let h = '<ul class="dlist"><li class="ditem"><button class="dopen' + (S.read.brief ? ' read' : '') + '" data-open="brief"><span class="badge brief" aria-hidden="true">§</span><span class="t">Zadání a pravidla<span class="st">' + (S.read.brief ? 'přečteno' : 'nepřečteno') + '</span></span></button></li></ul>';
+  groups.forEach(g => {
+    h += '<h2 class="grouph">' + esc(g.name) + '</h2><ul class="dlist">';
+    g.ids.forEach(id => {
+      const d = DOCS[id], rd = !!S.read[id], st = !!S.star[id];
+      h += '<li class="ditem"><button class="dopen' + (rd ? ' read' : '') + '" data-open="' + esc(id) + '"' + (current === id ? ' aria-current="true"' : '') + '>' +
+        '<span class="badge" aria-hidden="true">' + esc(id) + '</span><span class="t"><span class="sr">Dokument ' + esc(id) + ': </span>' + esc(d.title) +
+        '<span class="st">' + (rd ? 'přečteno' : 'nepřečteno') + (st ? ' · ★ důležité' : '') + '</span></span></button>' +
+        '<button class="starbtn" data-star="' + esc(id) + '" aria-pressed="' + st + '" aria-label="Důležité: dokument ' + esc(id) + '">' + (st ? '★' : '☆') + '</button></li>';
+    });
+    h += '</ul>';
+  });
+  $('#tab-docs').innerHTML = h;
+  if (current === 'brief') { const b = $('[data-open="brief"]'); if (b) b.setAttribute('aria-current', 'true'); }
+}
+function renderSuspects(){
+  const card = (photo, alt, name, line, doc, label) => '<article class="suspect">' + (photo ? '<img class="mug" src="' + esc(photo) + '" alt="' + esc(alt) + '" width="96" height="96" loading="lazy">' : '') +
+    '<div class="info"><h3>' + esc(name) + '</h3><p>' + esc(line) + '</p>' + (doc ? '<button class="btn" data-open="' + esc(doc) + '">' + label + ' – dokument ' + esc(doc) + '</button>' : '') + '</div></article>';
+  $('#tab-suspects').innerHTML = '<div class="suspects">' + CASE.suspects.map(p => {
+    const doc = ORDER.find(id => DOCS[id].person === p.id);
+    return card(photoOf(p), p.photoAlt || p.name, p.name, (p.age ? p.age + ' let · ' : '') + p.role, doc, 'Výpověď');
+  }).join('') + '</div><section class="others" aria-labelledby="othH"><h2 id="othH">Svědci a vyšetřovací tým</h2><div class="suspects">' +
+    OTHERS.map(o => card(portrait(o.first), PEOPLE[o.first].full + ', kresba', PEOPLE[o.first].full, (o.age ? o.age + ' let · ' : '') + o.role, o.doc, o.doc === 'N' ? 'Výpovědi' : 'Záznam týmu')).join('') +
+    '</div></section>';
+}
+
+/* ---------- notes + timeline ---------- */
+function renderNotes(){
+  $('#notesField').value = S.notes || '';
+  renderTimeline();
+}
+function docOptions(sel){
+  return '<option value="">—</option>' + ORDER.map(id => '<option value="' + esc(id) + '"' + (sel === id ? ' selected' : '') + '>' + esc(id) + '</option>').join('');
+}
+function renderTimeline(){
+  const tl = $('#tl');
+  if (!S.timeline.length) { tl.innerHTML = '<p class="tlhelp">Zatím prázdné. Přidejte první řádek.</p>'; return; }
+  tl.innerHTML = S.timeline.map((r, i) =>
+    '<div class="tlrow" data-i="' + i + '">' +
+      '<input data-f="t" value="' + esc(r.t || '') + '" placeholder="21:15" aria-label="Čas, řádek ' + (i + 1) + '" inputmode="text" autocomplete="off">' +
+      '<input data-f="w" value="' + esc(r.w || '') + '" placeholder="co se stalo" aria-label="Co se stalo, řádek ' + (i + 1) + '" autocomplete="off">' +
+      '<select data-f="d" aria-label="Dokument, řádek ' + (i + 1) + '">' + docOptions(r.d) + '</select>' +
+      '<button type="button" data-del="' + i + '" aria-label="Smazat řádek ' + (i + 1) + '">✕</button></div>').join('');
+}
+// Sort key: without a date the row counts as Saturday 31 January (the evening of the case).
+function timeKey(s){
+  s = s || '';
+  const tm = s.match(/(\d{1,2}):(\d{2})/);
+  if (!tm) return Infinity;
+  const dm = s.replace(tm[0], '').match(/(\d{1,2})\.\s*(\d{1,2})\./);
+  const day = dm ? (+dm[2]) * 31 + (+dm[1]) : 1 * 31 + 31;
+  return day * 1440 + (+tm[1]) * 60 + (+tm[2]);
+}
+
+/* ---------- document view ---------- */
+function speakerOf(d){
+  if (d.person) { const p = CASE.suspects.find(x => x.id === d.person); if (p) return p.name; }
+  const m = d.title.match(/Výpověď:\s*([^,]+)/);
+  return m ? m[1].trim() : 'Vyslýchaný';
+}
+function mugHTML(d){
+  const p = d.person && CASE.suspects.find(x => x.id === d.person);
+  return p ? '<img class="mug mugdoc" src="' + esc(photoOf(p)) + '" alt="' + esc(p.photoAlt || p.name) + '" width="112" height="112">' : '';
+}
+function figureHTML(d){
+  if (!d.image) return '';
+  const trail = d.look === 'trailcam';
+  const stamp = !d.imageStamp ? '' : trail
+    ? '<span class="camstrip" aria-hidden="true"><span>FOTOPAST</span><span>' + esc(d.imageStamp) + '</span></span>'
+    : '<span class="camstamp" aria-hidden="true">' + esc(d.imageStamp) + '</span>';
+  return '<figure class="photo ' + (trail ? 'trailfig' : 'phonefig') + '"><button class="zoombtn" data-zoom="' + esc(d.id) + '" aria-label="Zvětšit fotografii: ' + esc(d.imageAlt || '') + '">' +
+    '<span class="imgwrap"><img src="' + esc(d.image) + '" alt="' + esc(d.imageAlt || '') + '" width="1200" height="900">' + stamp + '</span></button>' +
+    '<figcaption>' + esc(d.imageAlt || '') + ' <span aria-hidden="true">· Klepnutím zvětšíte.</span></figcaption></figure>';
+}
+function openDoc(id, opt){
+  opt = opt || {};
+  if (id !== 'brief' && !DOCS[id]) return;
+  const wasList = !document.body.classList.contains('viewdoc');
+  if (!wideMQ.matches && wasList) listScroll = window.scrollY;
+  current = id; S.doc = id; S.read[id] = true; save();
+  const idx = id === 'brief' ? -1 : ORDER.indexOf(id);
+  const prev = idx > 0 ? ORDER[idx - 1] : (idx === 0 ? 'brief' : null);
+  const next = idx < ORDER.length - 1 ? ORDER[idx + 1] : null;
+  const navBtn = (tid, cls, label) => tid ? '<button class="btn ' + cls + '" data-open="' + esc(tid) + '">' + label + '</button>' : '<span></span>';
+  let h = '<div class="docbar"><button class="btn backbtn" data-back>← Zpět na seznam</button></div>';
+  if (id === 'brief') {
+    h += '<header class="dochead"><span class="badge brief" aria-hidden="true">§</span><div class="hgroup"><p class="grp">Úvod</p><h2 id="docTitle">Zadání a pravidla</h2></div></header>' +
+      '<div class="docbody"><p class="notice" style="margin:0">' + esc(CASE.notice) + '</p><div class="briefdoc">' + CASE.briefing + '</div></div>';
+  } else {
+    const d = DOCS[id], st = !!S.star[id];
+    h += '<header class="dochead"><span class="badge" aria-hidden="true">' + esc(id) + '</span><div class="hgroup"><p class="grp">' + esc(d.group) + ' · dokument ' + esc(id) + '</p><h2 id="docTitle">' + esc(d.title) + '</h2></div>' +
+      '<button class="starbtn" data-star="' + esc(id) + '" aria-pressed="' + st + '"><span aria-hidden="true">' + (st ? '★' : '☆') + '</span> Důležité</button></header>' +
+      '<div class="docbody">' + figureHTML(d) + mugHTML(d) + d.html + galleryHTML(d) + '</div>';
+  }
+  h += '<nav class="docnav" aria-label="Další dokumenty">' + navBtn(prev, 'prev', '← ' + (prev === 'brief' ? 'Zadání' : 'Dokument ' + esc(prev))) + navBtn(next, 'next', 'Dokument ' + esc(next) + ' →') + '</nav>';
+  const pane = $('#pane');
+  pane.innerHTML = '<article aria-labelledby="docTitle">' + h + '</article>';
+  if (id !== 'brief') enhance(pane, DOCS[id]);
+  renderList();
+  if (!wideMQ.matches) {
+    document.body.classList.add('viewdoc');
+    if (opt.push !== false && wasList) history.pushState({doc: id}, '');
+    else if (opt.push !== false) history.replaceState({doc: id}, '');
+    window.scrollTo(0, 0);
+  } else {
+    pane.scrollTop = 0;
+  }
+  if (opt.focus) pane.focus({preventScroll: true});
+}
+function showList(){
+  document.body.classList.remove('viewdoc');
+  if (!wideMQ.matches) requestAnimationFrame(() => window.scrollTo(0, listScroll));
+}
+function enhance(root, d){
+  const typed = d.look === 'interview';
+  if ($$('.qa .q', root).length) {
+    $$('.qa .q', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">' + (typed ? 'Otázka:' : 'Tým') + '</span>'));
+    $$('.qa .a', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">' + (typed ? 'Odpověď:' : esc(speakerOf(d))) + '</span>'));
+  }
+  $$('.docbody table', root).forEach(t => { const w = document.createElement('div'); w.className = 'tscroll'; t.parentNode.insertBefore(w, t); w.appendChild(t); });
+  applyLook(root, d);
+  // Wide tables scroll inside the sheet; tell the reader so.
+  requestAnimationFrame(() => $$('.tscroll', root).forEach(w => {
+    if (w.scrollWidth > w.clientWidth + 2) w.insertAdjacentHTML('beforebegin', '<p class="scrollhint">↔ Tabulku posuňte prstem do strany.</p>');
+  }));
+}
+
+/* ---------- paper looks ----------
+   The team, the router brand and every mark are fictional and drawn here. Decorative chrome is
+   aria-hidden; every case fact stays in case.json. Nothing here highlights a row or adds a fact. */
+const CASE_NO = '1/2026';
+let svgSeq = 0;
+const ICON = {
+  // team badge: a spruce under a magnifying glass, rowan berries
+  team: '<svg class="lh-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="22" fill="#24523a"/><circle cx="24" cy="24" r="18.5" fill="none" stroke="#fbf8f2" stroke-width="1.4"/>' +
+    '<path d="M22 9 31 21h-4l6 8h-5l5 6H11l5-6h-5l6-8h-4z" fill="#fbf8f2"/><rect x="20.5" y="35" width="3" height="5" fill="#fbf8f2"/>' +
+    '<circle cx="33" cy="31" r="5.2" fill="none" stroke="#ef6a4c" stroke-width="2.4"/><path d="M36.8 34.8 41 39" stroke="#ef6a4c" stroke-width="3" stroke-linecap="round"/></svg>',
+  clip: '<svg class="clip" viewBox="0 0 20 62" aria-hidden="true" focusable="false"><path d="M6 46V10a5 5 0 0 1 10 0v40a7 7 0 0 1-14 0V16" fill="none" stroke="#9aa0a8" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  router: '<svg viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="4" y="18" width="22" height="8" rx="2" fill="#fff"/><path d="M9 18V6M21 18V6" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="9" cy="22" r="1.3" fill="#2f7bbf"/><circle cx="13" cy="22" r="1.3" fill="#7fc4ff"/></svg>'
+};
+// Round rubber stamp: ring text on a circle, a centre motif, ink texture from noise.
+function rstamp(ring, center, color, rot){
+  const id = 'rs' + (++svgSeq), n = ring.length;
+  const fs = Math.min(11.5, (262 - .6 * n) / (n * .62));
+  return '<svg class="rstamp" viewBox="0 0 120 120" aria-hidden="true" focusable="false" style="color:' + color + ';transform:rotate(' + rot + 'deg)">' +
+    '<defs><path id="' + id + 'p" d="M16 60a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/>' +
+    '<filter id="' + id + 'f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="2" seed="' + svgSeq + '" result="n"/>' +
+    '<feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3 0 0 0 2.3" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></defs>' +
+    '<g filter="url(#' + id + 'f)"><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="60" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
+    '<text fill="currentColor" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="' + fs.toFixed(1) + '" letter-spacing=".6"><textPath href="#' + id + 'p">' + esc(ring) + '</textPath></text>' +
+    '<g fill="currentColor" font-family="Arial,Helvetica,sans-serif" font-weight="700" text-anchor="middle">' + center + '</g></g></svg>';
+}
+const teamStamp = rot => rstamp('VYŠETŘOVACÍ TÝM • CHATA JEŘABINKA • ', '<path d="M60 38 69 51h-4l6 8h-5l5 6H49l5-6h-5l6-8h-4z" fill="currentColor"/><text x="60" y="82" font-size="10">' + CASE_NO + '</text>', '#b3301f', rot);
+const SCRIB = [
+  'M4 30c6-14 12-22 16-16s-6 20 2 18 10-22 16-20-4 18 4 16 8-14 12-12 2 10 8 8 12-6 20-8',
+  'M6 26c4-18 18-20 14-6s-10 16-2 12 12-20 18-18-2 14 6 12c6-2 10-10 14-8s0 8 6 6 10-4 18-6',
+  'M4 32c10-4 14-22 22-20s-8 18 0 18 8-12 14-12 0 10 8 9 6-8 12-8 4 6 10 5 10-2 18-4M20 37c20-3 50-5 80-6',
+  'M8 24c3-12 10-16 12-10s-4 14 2 14 6-16 12-15-2 12 4 12 10-8 14-6-2 6 4 6c8 0 14-4 22-6',
+  'M5 28c8-20 14-18 12-6s-6 12 2 10 6-16 12-14 0 12 8 10 4-10 10-10 2 8 8 7M60 33c14 2 34 0 52-6'
+];
+function scrib(i){ return '<svg class="scrib" viewBox="0 0 120 44" aria-hidden="true" focusable="false"><path d="' + SCRIB[i % SCRIB.length] + '" fill="none" stroke="#1f3f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
+function sigs(labels, seed, stamp){
+  return '<div class="sigblock" aria-hidden="true">' + labels.map((l, i) => '<div class="sigline">' + scrib(seed + i) + '<span>' + esc(l) + '</span></div>').join('') +
+    (stamp ? '<span class="sigstamp">' + stamp + '</span>' : '') + '</div>';
+}
+const teamLH = right => '<div class="lh" aria-hidden="true">' + ICON.team + '<div class="lh-t"><b>Vyšetřovací tým</b><span>chata Jeřabinka nad Strážným</span></div>' + (right ? '<div class="lh-no">' + right + '</div>' : '') + '</div>';
+const docId = d => d.id.charCodeAt(0);
+
+function applyLook(root, d){
+  const sheet = $('.docbody > .paper, .docbody > .qa, .docbody > .log, .docbody > .chat', root);
+  if (!d.look || !sheet) return;
+  sheet.classList.add('look', 'look-' + d.look);
+  const top = h => sheet.insertAdjacentHTML('afterbegin', h), end = h => sheet.insertAdjacentHTML('beforeend', h);
+  const afterHead = h => { const hd = $(':scope > .head', sheet); if (hd) hd.insertAdjacentHTML('afterend', h); else top(h); };
+  switch (d.look) {
+    case 'team-cover': {
+      top('<span class="cornerico" aria-hidden="true">' + ICON.team.replace('class="lh-ico" ', '') + '</span>');
+      // snow chart right after the weather table (its text equivalent is that table)
+      const tabs = $$('.tscroll', sheet), wt = tabs[tabs.length - 1];
+      if (wt) wt.insertAdjacentHTML('afterend', snowChartSVG());
+      end(sigs(['Tereza Šimečková', 'Žofie Žáková'], 0, teamStamp(-10)));
+      break; }
+    case 'plan': afterHead(planSVG()); break;
+    case 'map': afterHead(mapSVG()); break;
+    case 'scoresheet': break;
+    case 'chat': chatLook(sheet); break;
+    case 'router': routerLook(sheet); break;
+    case 'trailcam': break;
+    case 'album': {
+      const fig = $('.docbody > .photo', root);
+      if (fig) fig.insertAdjacentHTML('afterend', albumUI());
+      // the card transcription paragraph reads like the little card itself
+      break; }
+    case 'interview': interviewLook(root, sheet, d); break;
+  }
+}
+
+// E: the export rendered as the chat app: avatar, bubble, name, time. Text nodes are only regrouped.
+function chatLook(sheet){
+  sheet.insertAdjacentHTML('afterbegin', '<div class="statusbar" aria-hidden="true"><span>Jeřabinka wifi</span><span>▮▮▮▯</span></div>');
+  $$('.msg', sheet).forEach(m => {
+    const b = $('b', m), t = $('.t', m);
+    const name = b ? b.textContent.trim() : '';
+    const mt = document.createElement('span'); mt.className = 'mt';
+    Array.from(m.childNodes).forEach(n => { if (n !== b && n !== t) mt.appendChild(n); });
+    mt.textContent = mt.textContent.trim();
+    const bub = document.createElement('span'); bub.className = 'bub';
+    if (b) bub.appendChild(b);
+    bub.appendChild(mt);
+    if (t) bub.appendChild(t);
+    m.innerHTML = '';
+    const src = portrait(name);
+    if (src) m.insertAdjacentHTML('afterbegin', '<img class="av" src="' + src + '" alt="" width="34" height="34">');
+    m.appendChild(bub);
+  });
+}
+// F: the router's own admin page (fictional brand), table rows left plain.
+function routerLook(sheet){
+  const body = document.createElement('div'); body.className = 'rt-body';
+  while (sheet.firstChild) body.appendChild(sheet.firstChild);
+  sheet.innerHTML = '<div class="rt-bar" aria-hidden="true"><i></i><i></i><i></i><span class="rt-url">http://192.168.8.1/historie</span></div>' +
+    '<div class="rt-top" aria-hidden="true">' + ICON.router + '<div><b>HORALINK</b><span>LTE router · správa zařízení</span></div></div>' +
+    '<div class="rt-nav" aria-hidden="true"><span>Přehled</span><span>Bezdrátová síť</span><span class="on">Historie připojení</span><span>Nastavení</span></div>';
+  sheet.appendChild(body);
+}
+// H: the shared album as the phone shows it, a grid of the day's photos (order and times as in the table).
+function albumUI(){
+  const viewSVG = '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" fill="#7fb6e6"/><circle cx="78" cy="22" r="10" fill="#fff4c2"/>' +
+    '<path d="M0 62 30 40 55 58 80 36 100 50V100H0z" fill="#e9f0f6"/><path d="M0 80 40 64 100 74V100H0z" fill="#fff"/><path d="M48 46v30M41 55h14" stroke="#5a3d22" stroke-width="3.4" stroke-linecap="round"/>' +
+    '<path d="M8 100 14 80 20 100zM88 100 93 84 98 100z" fill="#2f5d3f"/></svg>';
+  const dinnerSVG = '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" fill="#5a3a24"/><rect y="0" width="100" height="46" fill="#7a5233"/>' +
+    '<path d="M0 46h100" stroke="#3e2716" stroke-width="2"/><ellipse cx="50" cy="70" rx="46" ry="20" fill="#e9dcc6"/><g fill="#fff" stroke="#c9b79a"><ellipse cx="24" cy="66" rx="8" ry="4"/><ellipse cx="50" cy="62" rx="8" ry="4"/><ellipse cx="76" cy="66" rx="8" ry="4"/><ellipse cx="36" cy="78" rx="8" ry="4"/><ellipse cx="64" cy="78" rx="8" ry="4"/></g>' +
+    '<rect x="48" y="52" width="4" height="12" fill="#f6f0e0"/><path d="M50 44c-3 4 0 7 0 7s3-3 0-7z" fill="#ffb648"/><circle cx="50" cy="48" r="9" fill="#ffd27a" opacity=".25"/></svg>';
+  const tile = (inner, time, zoom) => '<' + (zoom ? 'button type="button" data-zoom="' + zoom + '"' : 'span') + ' class="au-tile" tabindex="-1">' + inner + '<span>' + time + '</span></' + (zoom ? 'button' : 'span') + '>';
+  const H = DOCS.H, J = DOCS.J;
+  return '<div class="albumui" aria-hidden="true"><div class="au-top"><b>Jeřabinka 2026</b><span>Sdílené album · účet Jeřabinka</span></div><div class="au-day">Sobota 31. 1.</div><div class="au-grid">' +
+    tile(viewSVG, '15:02') + tile(dinnerSVG, '19:40') +
+    tile('<img src="' + esc(H.image) + '" alt="" loading="lazy">', '21:46', 'H') +
+    (J && J.image ? tile('<img src="' + esc(J.image) + '" alt="" loading="lazy">', '23:52', 'J') : '') +
+    '</div></div>';
+}
+// Interviews: the team's typed record. Field values come from the suspect card and the document's own meta line.
+function interviewLook(root, sheet, d){
+  const p = d.person && CASE.suspects.find(x => x.id === d.person);
+  const blank = '<span class="blank"></span><span class="sr">nevyplněno</span>';
+  const fld = (l, v, wide) => '<div class="fld' + (wide ? ' wide' : '') + '"><span class="fl">' + l + '</span><span class="fv">' + v + '</span></div>';
+  const rightNo = 'Spis č. ' + CASE_NO + '<br>Tiskopis VT-2 · list ' + esc(d.id);
+  if (!p) return witnessLook(root, sheet, d, rightNo);
+  const head = teamLH(rightNo) +
+    '<p class="formtitle">Protokol o výslechu</p>' +
+    '<div class="fbox">' + fld('Vyslýchaná osoba', esc(p.name)) + fld('Věk', p.age ? esc(p.age) + ' let' : blank) +
+      fld('Kdo je', esc(p.role), true) + fld('Kdy a kdo vyslýchal', '', true) + '</div>' +
+    '<p class="pouc"><b>Poučení:</b> Vyslýchaná osoba byla poučena, že nemusí odpovídat a že tým zapisuje odpovědi tak, jak zazněly. Poučení porozuměla.</p>' +
+    '<p class="txh">Průběh výslechu</p>';
+  const meta = $(':scope > .meta', sheet);
+  sheet.insertAdjacentHTML('afterbegin', head);
+  const slot = $$('.fld.wide .fv', sheet).pop();
+  if (meta && slot) slot.appendChild(meta);
+  const mug = $('.docbody > .mugdoc', root);
+  if (mug) {
+    const c = document.createElement('div'); c.className = 'clipphoto';
+    c.innerHTML = ICON.clip; c.insertBefore(mug, c.firstChild);
+    $('.lh', sheet).insertAdjacentElement('afterend', c);
+  }
+  sheet.insertAdjacentHTML('beforeend', '<div class="ffoot"><p class="ffoot-t" aria-hidden="true">Přečteno, schváleno, podepsáno.</p>' +
+    sigs(['vyslýchaná osoba', 'vyslýchající'], docId(d), teamStamp(-12)) + '</div>');
+}
+// N: one typed slip per witness (a meta line followed by the statement), each with its drawn portrait.
+function witnessLook(root, sheet, d, rightNo){
+  const metas = $$(':scope > .meta', sheet);
+  metas.forEach((m, i) => {
+    const slip = document.createElement('div'); slip.className = 'wqa';
+    m.parentNode.insertBefore(slip, m);
+    let n = m; const parts = [];
+    do { parts.push(n); n = n.nextElementSibling; } while (n && !n.classList.contains('meta'));
+    const first = m.textContent.trim().split(/\s+/)[0];
+    const src = portrait(first);
+    if (src) slip.insertAdjacentHTML('afterbegin', '<div class="clipphoto">' + '<img class="mug" src="' + src + '" alt="' + esc(PEOPLE[first].full) + ', kresba do spisu" width="86" height="86">' + ICON.clip + '</div>');
+    parts.forEach(x => slip.appendChild(x));
+    slip.insertAdjacentHTML('beforeend', sigs([/[aá]$/.test(first) ? 'svědkyně' : 'svědek'], docId(d) + i));
+  });
+  sheet.insertAdjacentHTML('afterbegin', teamLH(rightNo) + '<p class="formtitle">Výpovědi svědků</p>' +
+    '<p class="pouc"><b>Poučení:</b> Svědci byli poučeni, že mají mluvit pravdu a nic nezamlčet. Každý svou výpověď přečetl a podepsal.</p><p class="txh">Výpovědi</p>');
+  sheet.insertAdjacentHTML('beforeend', '<div class="ffoot"><p class="ffoot-t" aria-hidden="true">Zapsaly a ověřily:</p>' + sigs(['Tereza Šimečková', 'Žofie Žáková'], 3, teamStamp(8)) + '</div>');
+}
+
+/* ---------- gallery: further trail-camera frames (doc G), zoomable ---------- */
+function galleryHTML(d){
+  if (!d.gallery || !d.gallery.length) return '';
+  const date = d.imageStamp ? d.imageStamp.split(' ')[0] : '';
+  return '<section class="photosheet" aria-label="Další snímky"><p class="ps-head" aria-hidden="true">Fotopast u krmelce · další snímek z karty</p>' +
+    d.gallery.map((g, i) => {
+      const tm = (g.alt.match(/\b(\d{1,2}:\d{2})\b/) || [])[1];
+      const strip = d.look === 'trailcam' && tm && date ? '<span class="camstrip" aria-hidden="true"><span>FOTOPAST</span><span>' + esc(date + ' ' + tm) + '</span></span>' : '';
+      return '<figure class="pprint ' + (d.look === 'trailcam' ? 'trailfig' : '') + '"><button class="zoombtn" data-zoom="' + esc(d.id) + '" data-zi="' + i + '" aria-label="Zvětšit fotografii: ' + esc(g.alt) + '">' +
+        '<span class="imgwrap"><img src="' + esc(g.src) + '" alt="' + esc(g.alt) + '" width="1200" height="900" loading="lazy">' + strip + '</span></button>' +
+        '<figcaption>' + esc(g.alt) + ' <span aria-hidden="true">· Klepnutím zvětšíte.</span></figcaption></figure>';
+    }).join('') + '</section>';
+}
+
+/* ---------- SVG: snow depth chart (doc A); the weather table above is its text equivalent ---------- */
+function snowChartSVG(){
+  // x: Saturday 18:00 → Sunday 07:00 (780 min); y: snow depth 60–100 cm. Points are the four readings.
+  const X = m => 46 + m / 780 * 340, Y = v => 150 - (v - 60) * 3.2;
+  const pts = [[0, 61], [260, 61], [540, 84], [710, 93]];
+  let g = '';
+  [60, 70, 80, 90, 100].forEach(v => g += '<path d="M46 ' + Y(v) + 'H386" stroke="#d7dde3"/><text x="40" y="' + (Y(v) + 4) + '" text-anchor="end">' + v + '</text>');
+  [[0, '18:00'], [120, '20:00'], [240, '22:00'], [360, '0:00'], [480, '2:00'], [600, '4:00'], [720, '6:00']].forEach(t => g += '<path d="M' + X(t[0]) + ' 150v4" stroke="#7a828c"/><text x="' + X(t[0]) + '" y="168" text-anchor="middle">' + t[1] + '</text>');
+  return '<figure class="snowchart"><svg viewBox="0 0 400 180" role="img" aria-labelledby="scT scD" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="11" fill="#4f5560">' +
+    '<title id="scT">Graf výšky sněhu podle meteostanice</title>' +
+    '<desc id="scD">Sobota 18:00 a 22:20: 61 cm. Sněží od 22:20 do 5:50. Neděle 3:00: 84 cm, 5:50: 93 cm.</desc>' +
+    '<rect x="' + X(260) + '" y="20" width="' + (X(710) - X(260)) + '" height="130" fill="#e3edf8"/>' +
+    '<text x="' + ((X(260) + X(710)) / 2) + '" y="34" text-anchor="middle" fill="#2f5f93" font-weight="700">sněží 22:20–5:50</text>' + g +
+    '<path d="M46 20V150H386" fill="none" stroke="#7a828c"/>' +
+    '<polyline points="' + pts.map(p => X(p[0]).toFixed(1) + ',' + Y(p[1]).toFixed(1)).join(' ') + '" fill="none" stroke="#1d3a8a" stroke-width="2.4"/>' +
+    pts.map(p => '<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + Y(p[1]).toFixed(1) + '" r="3.5" fill="#1d3a8a"/><text x="' + X(p[0]).toFixed(1) + '" y="' + (Y(p[1]) - 8).toFixed(1) + '" text-anchor="middle" fill="#1d2228" font-weight="700">' + p[1] + '</text>').join('') +
+    '<text x="12" y="14" fill="#4f5560">sníh celkem (cm)</text></svg><figcaption>Graf z opsaných údajů meteostanice (sobota 18:00 až neděle 7:00).</figcaption></figure>';
+}
+
+/* ---------- SVG: floor plan (doc B), three floors in the same footprint ---------- */
+function planSVG(){
+  const W = '#2b3346', HAND = "font-family=\"Caveat,'Bradley Hand',cursive\"";
+  // a doorway: gap in the wall plus a dashed swing arc (orient h = on a horizontal wall)
+  const door = (x, y, len, o, into) => o === 'h'
+    ? '<rect x="' + x + '" y="' + (y - 3) + '" width="' + len + '" height="6" fill="#fdfdfa"/><path d="M' + x + ' ' + y + ' A' + len + ' ' + len + ' 0 0 ' + (into > 0 ? 1 : 0) + ' ' + (x + len) + ' ' + (y + into * len) + '" fill="none" stroke="' + W + '" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M' + x + ' ' + y + 'V' + (y + into * len) + '" stroke="' + W + '" stroke-width="2"/>'
+    : '<rect x="' + (x - 3) + '" y="' + y + '" width="6" height="' + len + '" fill="#fdfdfa"/><path d="M' + x + ' ' + y + ' A' + len + ' ' + len + ' 0 0 ' + (into > 0 ? 0 : 1) + ' ' + (x + into * len) + ' ' + (y + len) + '" fill="none" stroke="' + W + '" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M' + x + ' ' + y + 'H' + (x + into * len) + '" stroke="' + W + '" stroke-width="2"/>';
+  const opening = (x, y, len, o) => o === 'h' ? '<rect x="' + x + '" y="' + (y - 3) + '" width="' + len + '" height="6" fill="#fdfdfa"/>' : '<rect x="' + (x - 3) + '" y="' + y + '" width="6" height="' + len + '" fill="#fdfdfa"/>';
+  const t = (x, y, s, txt, o) => '<text x="' + x + '" y="' + y + '" font-size="' + s + '" text-anchor="' + ((o && o.a) || 'middle') + '"' + (o && o.c ? ' fill="' + o.c + '"' : '') + (o && o.r ? ' transform="rotate(' + o.r + ' ' + x + ' ' + y + ')"' : '') + '>' + txt + '</text>';
+  const stairs = (label) => { let s = '<rect x="150" y="160" width="112" height="36" fill="#eef1f4" stroke="' + W + '" stroke-width="1.6"/>';
+    for (let x = 160; x < 262; x += 10) s += '<path d="M' + x + ' 160v36" stroke="' + W + '" stroke-width="1"/>';
+    return s + '<rect x="153" y="166" width="106" height="24" rx="12" fill="#fff" stroke="#b3301f" stroke-width="1.2"/>' + t(206, 184, 16, label, {c: '#b3301f'}); };
+  const walls = inner => '<g stroke="' + W + '" stroke-width="4.5" fill="none" stroke-linecap="square"><rect x="10" y="0" width="400" height="200"/>' + inner + '</g>';
+  const floor = (oy, title, body) => '<g transform="translate(0 ' + oy + ')"><text x="10" y="-12" font-size="25" font-weight="700" text-anchor="start" fill="#7a2c1c">' + title + '</text>' + body + '</g>';
+  const bed = (x, y, w, h) => '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="3" fill="#fff" stroke="' + W + '" stroke-width="1.3"/><rect x="' + (x + 3) + '" y="' + (y + 3) + '" width="' + (w - 6) + '" height="9" rx="2" fill="#dfe6ee" stroke="' + W + '" stroke-width=".8"/>';
+  const hatch = (x, y, w, h) => '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="url(#plHatch)"/>';
+  // coin lock: keyhole disc with a coin slot
+  const coinLock = (x, y) => '<circle cx="' + x + '" cy="' + y + '" r="8" fill="#f2c94c" stroke="#8a6a12" stroke-width="1.5"/><path d="M' + (x - 4.5) + ' ' + y + 'h9" stroke="#5a4510" stroke-width="2.4" stroke-linecap="round"/>';
+
+  const attic = floor(40, 'PODKROVÍ · Žákovi',
+    hatch(12, 112, 96, 86) + hatch(272, 112, 136, 86) +
+    walls('<path d="M10 110H410M110 110V200M270 110V200M200 0V110"/>') +
+    door(125, 110, 30, 'h', -1) + door(215, 110, 30, 'h', -1) +
+    t(105, 40, 24, 'pokoj Žákových') + bed(30, 56, 34, 38) + bed(146, 56, 34, 38) +
+    t(305, 40, 24, 'pokoj Žákových') + bed(222, 56, 34, 38) + bed(352, 56, 34, 38) +
+    t(60, 160, 20, 'šikmina') + t(340, 160, 20, 'šikmina') +
+    t(190, 142, 21, 'chodba') + stairs('schody ↓ dolů'));
+
+  const first = floor(310, '1. PATRO · Šimečkovi',
+    walls('<path d="M10 110H410M230 0V110M270 110V200"/>') +
+    door(40, 110, 32, 'h', -1) + door(240, 110, 26, 'h', -1) + door(270, 118, 32, 'v', 1) +
+    t(120, 40, 24, 'pokoj Šimečkových') + bed(36, 58, 34, 40) + bed(160, 58, 50, 40) +
+    '<rect x="330" y="8" width="74" height="34" rx="12" fill="#fff" stroke="' + W + '" stroke-width="1.6"/><rect x="336" y="14" width="62" height="22" rx="9" fill="#d8e8f5"/>' + t(367, 31, 18, 'vana') +
+    '<ellipse cx="394" cy="92" rx="9" ry="11" fill="#fff" stroke="' + W + '" stroke-width="1.4"/>' + t(394, 74, 17, 'WC') +
+    t(278, 32, 24, 'koupelna') + t(278, 52, 18, 'jediná vana') +
+    t(318, 80, 18, 'zámek jde otočit') + t(318, 100, 18, 'zvenku mincí') +
+    coinLock(253, 126) +
+    '<rect x="16" y="178" width="20" height="12" rx="2" fill="#2b3346"/><path d="M20 174q6-7 12 0M17 170q9-11 18 0" fill="none" stroke="#2f7bbf" stroke-width="1.6"/>' + t(42, 190, 19, 'router wifi', {a: 'start'}) +
+    t(120, 142, 22, 'chodba') +
+    t(340, 150, 22, 'pokoj') + t(340, 172, 22, 'Šimečkových') + stairs('schody ↑↓'));
+
+  const ground = floor(580, 'PŘÍZEMÍ · Koneční',
+    walls('<path d="M10 110H410M210 0V110M110 110V200M270 110V200"/>') +
+    // solid dining-room door, drawn closed
+    '<rect x="125" y="107" width="34" height="6" fill="#8a5a2b" stroke="#4a2c19" stroke-width="1"/>' +
+    opening(110, 118, 34, 'v') + door(220, 110, 30, 'h', -1) + door(270, 120, 30, 'v', 1) +
+    // terrace door in the dining-room outer wall, snowed in
+    '<rect x="7" y="50" width="6" height="40" fill="#fdfdfa"/><path d="M10 50v40" stroke="' + W + '" stroke-width="1.5"/><path d="M2 52l16 36M18 52 2 88" stroke="#b3301f" stroke-width="2.4"/>' +
+    t(22, 66, 18, 'terasa:', {a: 'start', c: '#b3301f'}) + t(22, 84, 18, 'zasypané', {a: 'start', c: '#b3301f'}) +
+    '<rect x="14" y="4" width="100" height="18" fill="#e6e0d2" stroke="' + W + '" stroke-width="1.2"/>' + t(64, 40, 18, 'kuchyňský kout') +
+    '<rect x="96" y="54" width="62" height="32" rx="4" fill="#d8b98f" stroke="#6b4c2a" stroke-width="1.4"/>' + t(127, 76, 18, 'stůl') +
+    t(176, 40, 22, 'jídelna') +
+    t(300, 56, 24, 'pokoj') + t(300, 80, 24, 'Konečných') + bed(352, 10, 52, 44) +
+    // porch
+    '<rect x="14" y="114" width="20" height="74" fill="#a77b4f" stroke="#4a2c19" stroke-width="1.2"/>' + t(24, 151, 16, 'regál', {r: -90, c: '#fff'}) +
+    '<g fill="' + W + '">' + [50, 62, 74, 86, 98].map(x => '<circle cx="' + x + '" cy="116" r="2.6"/>').join('') + '</g>' + t(74, 134, 18, 'věšáky') +
+    '<rect x="78" y="178" width="24" height="18" fill="#e6e0d2" stroke="' + W + '" stroke-width="1.2"/>' + t(88, 173, 16, 'botník') +
+    t(66, 156, 22, 'zádveří') +
+    // front door, the only way out (opens outwards)
+    door(40, 200, 34, 'h', 1) +
+    t(80, 228, 19, 'vchodové dveře: jediný východ ven', {a: 'start', c: '#b3301f'}) +
+    t(152, 132, 17, 'plné dveře,') + t(152, 148, 17, 'večer zavřené') +
+    t(236, 142, 22, 'hala') +
+    t(328, 172, 21, 'sprcha + WC') + '<rect x="372" y="114" width="34" height="30" fill="url(#plHatch2)" stroke="' + W + '" stroke-width="1.2"/>' +
+    stairs('schody ↑ nahoru'));
+
+  return '<figure class="drawing"><svg viewBox="0 0 420 830" role="img" aria-labelledby="planT planD" xmlns="http://www.w3.org/2000/svg" ' + HAND + ' font-weight="700" fill="#22325e">' +
+    '<title id="planT">Plánek chaty Jeřabinka: podkroví, 1. patro a přízemí</title>' +
+    '<desc id="planD">Tři podlaží nad sebou se stejným půdorysem a jedním schodištěm. Podkroví: dva pokoje Žákových, chodba se schody dolů, koupelna tu není. První patro: dva pokoje Šimečkových, koupelna s jedinou vanou a záchodem, chodba s routerem wifi a schody nahoru i dolů. Koupelna se zamyká otočným zámkem, který jde v nouzi otočit zvenku mincí. Přízemí: jídelna s kuchyňským koutem a stolem, z ní zasypané dveře na terasu; plné dřevěné dveře z jídelny do haly bývají večer zavřené. Hala se schody, pokoj Konečných, sprchový kout se záchodem a zádveří s regálem, věšáky na bundy a botníkem. Ze zádveří vedou vchodové dveře, jediný východ ven.</desc>' +
+    '<defs><marker id="plArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#b3301f"/></marker>' +
+    '<pattern id="plHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v8" stroke="#9aa4b4" stroke-width="2"/></pattern>' +
+    '<pattern id="plHatch2" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0h6M0 0v6" stroke="#7aa6cf" stroke-width="1"/></pattern></defs>' +
+    attic + first + ground +
+    '<text x="410" y="824" font-size="16" text-anchor="end" fill="#4f5560">schéma, ne v měřítku</text></svg>' +
+    '<figcaption><b>Textový popis plánku:</b><ul>' +
+      '<li><b>Podkroví (Žákovi):</b> dva pokoje Žákových a chodba se schody dolů. Koupelna tu není.</li>' +
+      '<li><b>1. patro (Šimečkovi):</b> dva pokoje Šimečkových, koupelna s jedinou vanou a záchodem, chodba s routerem wifi a schody nahoru i dolů. Koupelna se zamyká otočným zámkem, který jde v nouzi otočit zvenku mincí.</li>' +
+      '<li><b>Přízemí (Koneční):</b> jídelna s kuchyňským koutem a stolem; dveře na terasu jsou zasypané. Plné dřevěné dveře z jídelny do haly bývají večer zavřené. Hala se schody, pokoj Konečných, sprchový kout se záchodem a zádveří s regálem, věšáky na bundy a botníkem.</li>' +
+      '<li>Ven vedou jen <b>vchodové dveře ze zádveří</b>.</li>' +
+    '</ul></figcaption></figure>';
+}
+
+/* ---------- SVG: map with walking times (doc C) ---------- */
+function mapSVG(){
+  const INK = '#22325e', HAND = "font-family=\"Caveat,'Bradley Hand',cursive\"";
+  const t = (x, y, s, txt, a, c) => '<text x="' + x + '" y="' + y + '" font-size="' + s + '" text-anchor="' + (a || 'middle') + '"' + (c ? ' fill="' + c + '"' : '') + '>' + txt + '</text>';
+  const tag = (x, y, up, down) => '<g><rect x="' + (x - 58) + '" y="' + (y - 17) + '" width="116" height="40" rx="6" fill="#fffbea" stroke="' + INK + '" stroke-width="1.4"/>' +
+    t(x, y, 17, '↑ nahoru ' + up) + t(x, y + 17, 17, '↓ dolů ' + down) + '</g>';
+  const spruce = (x, y, s) => '<path transform="translate(' + x + ' ' + y + ') scale(' + s + ')" d="M0-22 7-10H3l8 10H5l8 10H-13l8-10h-6l8-10h-4z" fill="#3c6e52"/>';
+  let trees = '';
+  [[40, 120], [70, 160], [360, 170], [30, 350], [350, 300], [380, 360], [40, 420], [330, 470], [370, 430], [30, 230], [385, 225], [120, 70], [330, 60]].forEach(p => trees += spruce(p[0], p[1], 1.1));
+  return '<figure class="drawing"><svg viewBox="0 0 400 600" role="img" aria-labelledby="mapT mapD" xmlns="http://www.w3.org/2000/svg" ' + HAND + ' font-weight="700" fill="' + INK + '">' +
+    '<title id="mapT">Mapka okolí chaty a časy chůze</title>' +
+    '<desc id="mapD">Dole parkoviště ve Strážném. Z něj vede 3 km dlouhá cesta k chatě Jeřabinka: nahoru 55 minut, dolů 40 minut. Od chaty vede nahoru jediná cesta ke krmelci s fotopastí: nahoru 5 minut, dolů 4 minuty. Od krmelce na vyhlídku Na Křížku s dřevěným křížem: nahoru 8 minut, dolů 6 minut. Na vyhlídce cesta končí. Wifi z chaty dosáhne asi do 15 metrů od vchodových dveří. Časy jsou přibližné, změřené v zimě.</desc>' +
+    '<defs><pattern id="mpSnow" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#c9d6e6"/></pattern></defs>' +
+    '<rect width="400" height="600" fill="url(#mpSnow)"/>' +
+    // contour lines
+    '<g fill="none" stroke="#b9c6d8" stroke-width="1.2"><path d="M0 120C100 90 260 70 400 100"/><path d="M0 200C120 170 260 160 400 190"/><path d="M0 290C120 260 260 250 400 280"/><path d="M0 380C120 350 280 350 400 370"/><path d="M0 470C140 450 280 450 400 460"/></g>' +
+    trees +
+    // path: Strážné → cabin (long), cabin → feeding rack → viewpoint
+    '<path d="M150 540C110 500 210 470 170 430S110 380 180 350" fill="none" stroke="' + INK + '" stroke-width="3" stroke-dasharray="7 5"/>' +
+    '<path d="M180 350C200 320 190 290 210 260" fill="none" stroke="' + INK + '" stroke-width="3" stroke-dasharray="7 5"/>' +
+    '<path d="M210 260C230 220 190 170 200 120" fill="none" stroke="' + INK + '" stroke-width="3" stroke-dasharray="7 5"/>' +
+    // wifi range (schematic)
+    '<circle cx="180" cy="350" r="34" fill="rgba(47,123,191,.08)" stroke="#2f7bbf" stroke-width="1.6" stroke-dasharray="4 4"/>' +
+    t(220, 384, 16, 'wifi asi do 15 m', 'start', '#2f7bbf') + t(220, 400, 16, 'od vchodových dveří', 'start', '#2f7bbf') +
+    // Strážné car park and village
+    '<rect x="130" y="535" width="40" height="34" rx="5" fill="#2f5f93"/>' + t(150, 561, 26, 'P', 'middle', '#fff') +
+    '<path d="M196 560h22v-14l11-9 11 9v14h14v-12l9-7 9 7v12" fill="#e6e0d2" stroke="' + INK + '" stroke-width="1.4"/>' +
+    t(200, 590, 22, 'Strážné, parkoviště', 'start') +
+    // cabin
+    '<path d="M162 360v-18l18-15 18 15v18z" fill="#8a5a2b" stroke="' + INK + '" stroke-width="1.6"/><path d="M158 344l22-19 22 19" fill="none" stroke="#fff" stroke-width="3"/>' +
+    t(206, 356, 22, 'chata Jeřabinka', 'start') +
+    // feeding rack + camera
+    '<path d="M196 266h28l-4-14h-20z" fill="#a77b4f" stroke="' + INK + '" stroke-width="1.4"/><path d="M198 266v8M222 266v8" stroke="' + INK + '" stroke-width="2"/>' +
+    '<rect x="232" y="252" width="14" height="11" rx="2" fill="#3b4250"/><circle cx="239" cy="257.5" r="3" fill="#cfe3f5"/>' +
+    t(254, 262, 21, 'krmelec s fotopastí', 'start') +
+    // viewpoint with cross; path ends
+    '<path d="M200 120V82M188 94h24" stroke="#5a3d22" stroke-width="4" stroke-linecap="round"/>' +
+    t(216, 96, 22, 'vyhlídka Na Křížku', 'start') + t(216, 116, 17, 'dřevěný kříž,', 'start') + t(216, 134, 17, 'cesta tu končí', 'start') +
+    // times
+    tag(100, 450, '55 min', '40 min') + t(100, 488, 16, '3 km') +
+    tag(108, 296, '5 min', '4 min') +
+    tag(118, 190, '8 min', '6 min') +
+    t(12, 26, 18, 'Časy chůze v zimě, přibližně', 'start', '#4f5560') +
+    t(12, 46, 16, 'schéma, ne v měřítku', 'start', '#4f5560') +
+    '</svg><figcaption><b>Textový popis mapky:</b> Parkoviště ve Strážném – chata Jeřabinka: 3 km, nahoru 55 min, dolů 40 min. Chata – krmelec s fotopastí: nahoru 5 min, dolů 4 min. Krmelec – vyhlídka Na Křížku s dřevěným křížem: nahoru 8 min, dolů 6 min; na vyhlídce cesta končí. Wifi z chaty dosáhne asi do 15 m od vchodových dveří. Časy jsou přibližné.</figcaption></figure>';
+}
+
+/* ---------- zoom ---------- */
+function openZoom(id, zi){
+  const d = DOCS[id]; if (!d) return;
+  const g = zi != null && d.gallery ? d.gallery[+zi] : null;
+  if (g) { $('#zscroll').innerHTML = '<span class="imgwrap" id="zwrap"><img src="' + esc(g.src) + '" alt="' + esc(g.alt) + '"></span>'; setZoom(1); $('#dlgZoom').showModal(); return; }
+  $('#zscroll').innerHTML = '<span class="imgwrap" id="zwrap"><img src="' + esc(d.image) + '" alt="' + esc(d.imageAlt || '') + '">' +
+    (d.imageStamp ? '<span class="camstamp" aria-hidden="true">' + esc(d.imageStamp) + '</span>' : '') + '</span>';
+  setZoom(1);
+  $('#dlgZoom').showModal();
+}
+function setZoom(z){
+  const w = $('#zwrap'); if (w) w.style.width = (z * 100) + '%';
+  $$('[data-z]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.z === z)));
+}
+
+/* ---------- hints ---------- */
+function renderHints(pendingTrack){
+  const hm = hintMin();
+  $('#hintTotal').innerHTML = 'Penalizace za nápovědy celkem: <b>+' + hm + ' ' + minutesWord(hm) + '</b>' + (S.wrong ? ' · za špatná obvinění +' + wrongMin() + ' min' : '');
+  $('#hintTracks').innerHTML = CASE.hints.map(tr => {
+    const n = S.hints[tr.id] || 0;
+    let h = '<section class="track"><h3>' + esc(tr.name) + '</h3>';
+    if (n) h += '<ol>' + tr.steps.slice(0, n).map((s, i) => '<li><span class="pp">Nápověda ' + (i + 1) + ' · +' + s.penalty + ' min</span>' + esc(s.text) + '</li>').join('') + '</ol>';
+    if (n < tr.steps.length && !finished()) {
+      const p = tr.steps[n].penalty;
+      if (pendingTrack === tr.id) {
+        h += '<div class="confirmline"><p>Odhalit nápovědu ' + (n + 1) + ' (+' + p + ' min)?</p><button class="btn primary" data-hint-yes="' + esc(tr.id) + '">Ano, odhalit (+' + p + ' min)</button><button class="btn" data-hint-no>Zrušit</button></div>';
+      } else {
+        h += '<button class="btn" data-hint-ask="' + esc(tr.id) + '">Odhalit nápovědu ' + (n + 1) + ' z ' + tr.steps.length + ' (+' + p + ' min)</button>';
+      }
+    } else if (n >= tr.steps.length) h += '<p class="alldone">Všechny nápovědy z této řady jsou odhalené.</p>';
+    return h + '</section>';
+  }).join('');
+}
+
+/* ---------- accusation ---------- */
+function renderForm(){
+  const qs = CASE.form.questions;
+  $('#accInfo').textContent = 'Za každé špatné obvinění se přičte +' + CASE.form.wrongPenalty + ' min. Dozvíte se jen, kolik odpovědí je špatně, ne které.' + (S.wrong ? ' Dosud špatných obvinění: ' + S.wrong + '.' : '');
+  $('#accQuestions').innerHTML = qs.map(q => {
+    const dr = S.draft[q.id];
+    if (q.multi) {
+      const sel = Array.isArray(dr) ? dr : [];
+      return '<fieldset data-q="' + esc(q.id) + '" data-multi="' + q.multi + '"><legend>' + esc(q.label) + '</legend><p class="multinote">Vyberte přesně ' + q.multi + ' dokumenty. <span data-count></span></p><div class="opts cols">' +
+        q.options.map(o => '<label class="opt"><input type="checkbox" name="' + esc(q.id) + '" value="' + esc(o) + '"' + (sel.includes(o) ? ' checked' : '') + '><span class="badge" aria-hidden="true">' + esc(o) + '</span><span><span class="sr">Dokument ' + esc(o) + ': </span>' + esc(DOCS[o] ? DOCS[o].title : o) + '</span></label>').join('') + '</div></fieldset>';
+    }
+    return '<fieldset data-q="' + esc(q.id) + '"><legend>' + esc(q.label) + '</legend><div class="opts">' +
+      stableOrder(q).map(o => '<label class="opt"><input type="radio" name="' + esc(q.id) + '" value="' + esc(o) + '"' + (dr === o ? ' checked' : '') + '><span>' + esc(o) + '</span></label>').join('') + '</div></fieldset>';
+  }).join('');
+  $('#accFeedback').innerHTML = '';
+  syncMulti();
+}
+function syncMulti(){
+  $$('#accQuestions fieldset[data-multi]').forEach(fs => {
+    const max = +fs.dataset.multi, boxes = $$('input', fs), n = boxes.filter(b => b.checked).length;
+    boxes.forEach(b => b.disabled = !b.checked && n >= max);
+    $('[data-count]', fs).textContent = 'Vybráno ' + n + ' z ' + max + '.';
+  });
+}
+function readForm(){
+  const out = {};
+  CASE.form.questions.forEach(q => {
+    if (q.multi) out[q.id] = $$('#accQuestions input[name="' + q.id + '"]:checked').map(i => i.value);
+    else { const c = $('#accQuestions input[name="' + q.id + '"]:checked'); out[q.id] = c ? c.value : null; }
+  });
+  return out;
+}
+function plural(n, one, few, many){ return n === 1 ? one : (n >= 2 && n <= 4 ? few : many); }
+function submitForm(ev){
+  ev.preventDefault();
+  if (finished()) return;
+  const ans = readForm(), qs = CASE.form.questions;
+  const incomplete = qs.some(q => q.multi ? ans[q.id].length !== q.multi : !ans[q.id]);
+  const fb = $('#accFeedback');
+  if (incomplete) { fb.innerHTML = '<p class="feedback bad">Odpovězte na všechny otázky (u dokumentů vyberte přesně dva). Penalizace se nepřičetla.</p>'; return; }
+  const sol = decodeSolution();
+  let wrong = 0;
+  qs.forEach(q => {
+    const a = ans[q.id], s = sol[q.id];
+    const ok = q.multi ? (Array.isArray(s) && a.slice().sort().join('|') === s.slice().sort().join('|')) : a === s;
+    if (!ok) wrong++;
+  });
+  if (wrong) {
+    S.wrong++; save(); tick();
+    fb.innerHTML = '<p class="feedback bad">Obvinění neobstálo: špatně ' + plural(wrong, 'je ' + wrong + ' odpověď', 'jsou ' + wrong + ' odpovědi', 'je ' + wrong + ' odpovědí') + ' z ' + qs.length +
+      '. Penalizace +' + CASE.form.wrongPenalty + ' min (za omyly celkem +' + wrongMin() + ' min). Projděte stopy a zkuste to znovu.</p>';
+    renderFormInfoOnly();
+    return;
+  }
+  const el = Date.now() - S.startedAt, hm = hintMin(), wm = wrongMin();
+  S.solved = {elapsed: el, hintMin: hm, wrongMin: wm, wrong: S.wrong, total: el + (hm + wm) * 60000, date: Date.now()};
+  save();
+  const best = loadBest(); best.push({total: S.solved.total, elapsed: el, hintMin: hm, wrongMin: wm, date: S.solved.date}); saveBest(best);
+  tick(); updateFinishUI();
+  $('#dlgAccuse').close();
+  showResult();
+}
+function renderFormInfoOnly(){
+  $('#accInfo').textContent = 'Za každé špatné obvinění se přičte +' + CASE.form.wrongPenalty + ' min. Dozvíte se jen, kolik odpovědí je špatně, ne které. Dosud špatných obvinění: ' + S.wrong + '.';
+}
+function showResult(){
+  const b = $('#resultBody');
+  if (S.solved) {
+    const s = S.solved;
+    $('#rH').textContent = 'Případ uzavřen';
+    b.innerHTML = '<p style="margin:0">Obvinění obstálo. Výsledný čas:</p><p class="final">' + esc(fmt(s.total)) + '</p>' +
+      '<table class="breakdown"><tr><td>Čas řešení</td><td>' + esc(fmt(s.elapsed)) + '</td></tr>' +
+      '<tr><td>Nápovědy</td><td>+' + s.hintMin + ' min</td></tr>' +
+      '<tr><td>Špatná obvinění (' + s.wrong + ' × ' + CASE.form.wrongPenalty + ' min)</td><td>+' + s.wrongMin + ' min</td></tr>' +
+      '<tr class="sum"><td>Výsledný čas</td><td>' + esc(fmt(s.total)) + '</td></tr></table>' +
+      '<h3 style="font:700 23px var(--disp)">Jak to bylo</h3><div class="soltext">' + solutionHTML() + '</div>' +
+      '<section class="best" aria-labelledby="bestH3"><h2 id="bestH3">Nejlepší výsledky</h2><div class="bestlist"></div></section>';
+  } else if (S.gaveUp) {
+    $('#rH').textContent = 'Řešení (bez hodnocení)';
+    b.innerHTML = '<p class="feedback info">Vzdali jste se po ' + esc(fmt(S.gaveUp.elapsed)) + '. Výsledek se do žebříčku nezapočítává.</p><div class="soltext">' + solutionHTML() + '</div>';
+  }
+  renderBest();
+  const d = $('#dlgResult'); if (!d.open) d.showModal();
+  $('.dlgbody', d).scrollTop = 0;
+}
+
+/* ---------- events ---------- */
+function wire(){
+  $('#btnStartGame').addEventListener('click', () => {
+    S = fresh(); S.mode = 'game'; S.startedAt = Date.now(); save(); enterApp();
+  });
+  $('#btnStartReader').addEventListener('click', () => {
+    const keep = S; S = fresh(); S.mode = 'reader';
+    if (keep && keep.mode === 'reader') { S.read = keep.read; S.star = keep.star; S.notes = keep.notes; S.timeline = keep.timeline; }
+    save(); enterApp();
+  });
+  document.addEventListener('click', e => {
+    const t = e.target.closest('button,[data-open]'); if (!t) return;
+    if (t.dataset.open) { openDoc(t.dataset.open, {focus: wideMQ.matches}); return; }
+    if (t.dataset.star) {
+      const id = t.dataset.star; S.star[id] = !S.star[id]; if (!S.star[id]) delete S.star[id]; save();
+      renderList();
+      const hb = $('.dochead .starbtn');
+      if (hb && current === id) { hb.setAttribute('aria-pressed', String(!!S.star[id])); hb.innerHTML = '<span aria-hidden="true">' + (S.star[id] ? '★' : '☆') + '</span> Důležité'; }
+      return;
+    }
+    if (t.hasAttribute('data-back')) { if (history.state && history.state.doc) history.back(); else showList(); return; }
+    if (t.dataset.tab) { setTab(t.dataset.tab); return; }
+    if (t.dataset.zoom) { openZoom(t.dataset.zoom, t.dataset.zi); return; }
+    if (t.dataset.z) { setZoom(+t.dataset.z); return; }
+    if (t.hasAttribute('data-close')) { t.closest('dialog').close(); return; }
+    if (t.dataset.hintAsk) { renderHints(t.dataset.hintAsk); const y = $('[data-hint-yes]'); if (y) y.focus(); return; }
+    if (t.hasAttribute('data-hint-no')) { renderHints(); return; }
+    if (t.dataset.hintYes) {
+      const id = t.dataset.hintYes, tr = CASE.hints.find(x => x.id === id);
+      if (tr && !finished()) { S.hints[id] = Math.min((S.hints[id] || 0) + 1, tr.steps.length); save(); tick(); }
+      renderHints(); return;
+    }
+    if (t.dataset.del !== undefined) { S.timeline.splice(+t.dataset.del, 1); save(); renderTimeline(); return; }
+  });
+  window.addEventListener('popstate', () => { if (!wideMQ.matches && document.body.classList.contains('viewdoc')) showList(); });
+  wideMQ.addEventListener('change', () => {
+    if (!S || !S.mode) return;
+    if (wideMQ.matches) { document.body.classList.remove('viewdoc'); openDoc(current || 'brief', {push: false}); }
+    else if (current) { document.body.classList.add('viewdoc'); }
+  });
+
+  $('#btnHints').addEventListener('click', () => { renderHints(); $('#dlgHints').showModal(); });
+  $('#btnAccuse').addEventListener('click', () => { if (finished()) { showResult(); return; } renderForm(); $('#dlgAccuse').showModal(); });
+  $('#btnMenu').addEventListener('click', () => { renderBest(); $('#dlgMenu').showModal(); });
+  $('#mBrief').addEventListener('click', () => { $('#dlgMenu').close(); openDoc('brief'); });
+  $('#mResult').addEventListener('click', () => { $('#dlgMenu').close(); showResult(); });
+  $('#mEndReader').addEventListener('click', () => { S.mode = null; save(); $('#dlgMenu').close(); showStart(); });
+  $('#mReset').addEventListener('click', () => {
+    if (!confirm('Opravdu začít znovu? Smaže se čas, nápovědy, poznámky, časová osa i označení dokumentů. Nejlepší výsledky zůstanou.')) return;
+    S = fresh(); save(); current = null; document.body.classList.remove('viewdoc');
+    $('#dlgMenu').close(); showStart();
+  });
+  $('#btnGiveUp').addEventListener('click', () => {
+    if (finished()) return;
+    if (!confirm('Opravdu se vzdát? Ukáže se celé řešení a hra skončí bez hodnocení.')) return;
+    S.gaveUp = {elapsed: Date.now() - S.startedAt, date: Date.now()}; save();
+    tick(); updateFinishUI(); $('#dlgAccuse').close(); showResult();
+  });
+  $('#accForm').addEventListener('submit', submitForm);
+  $('#accForm').addEventListener('change', e => {
+    if (e.target.matches('input[type=checkbox]')) syncMulti();
+    const a = readForm(); S.draft = a; save();
+  });
+
+  $('#notesField').addEventListener('input', e => { S.notes = e.target.value; save(); });
+  $('#tlAdd').addEventListener('click', () => {
+    S.timeline.push({t: '', w: '', d: current && DOCS[current] ? current : ''}); save(); renderTimeline();
+    const rows = $$('#tl .tlrow'); const last = rows[rows.length - 1]; if (last) $('input', last).focus();
+  });
+  $('#tlSort').addEventListener('click', () => { S.timeline.sort((a, b) => timeKey(a.t) - timeKey(b.t)); save(); renderTimeline(); });
+  $('#tl').addEventListener('input', e => {
+    const row = e.target.closest('.tlrow'); if (!row) return;
+    const r = S.timeline[+row.dataset.i]; if (!r) return;
+    r[e.target.dataset.f] = e.target.value; save();
+  });
+}
+
+boot();
+})();
+</script>
+</body>
+</html>
