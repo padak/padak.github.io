@@ -1,0 +1,4 @@
+# Case bibles hold the full solution of Brain Bench games; never publish them.
+exclude:
+  - brain-bench/odlozeny-pripad/CASE.md
+  - brain-bench/zmizela-demanovka/CASE.md
