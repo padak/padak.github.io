@@ -8,25 +8,33 @@
    "id": "tomas",
    "name": "Tomáš Hron",
    "age": 34,
-   "role": "syn zavražděného, jediný dědic"
+   "role": "syn zavražděného, jediný dědic",
+   "photo": "img/tomas.jpg",
+   "photoAlt": "Tomáš Hron, fotografie ze spisu"
   },
   {
    "id": "eva",
    "name": "Eva Malá",
    "age": 52,
-   "role": "prodavačka v obchodě, našla tělo"
+   "role": "prodavačka v obchodě, našla tělo",
+   "photo": "img/eva.jpg",
+   "photoAlt": "Eva Malá, fotografie ze spisu"
   },
   {
    "id": "simek",
    "name": "Ing. Radek Šimek",
    "age": 45,
-   "role": "obchodník se starožitnostmi, bývalý společník"
+   "role": "obchodník se starožitnostmi, bývalý společník",
+   "photo": "img/simek.jpg",
+   "photoAlt": "Ing. Radek Šimek, fotografie ze spisu"
   },
   {
    "id": "lang",
    "name": "Viktor Lang",
    "age": 38,
-   "role": "technik bezpečnostní firmy Alarmservis Praha"
+   "role": "technik bezpečnostní firmy Alarmservis Praha",
+   "photo": "img/lang.jpg",
+   "photoAlt": "Viktor Lang, fotografie ze spisu"
   }
  ],
  "documents": [
