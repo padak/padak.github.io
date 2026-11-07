@@ -50,6 +50,7 @@ The end-to-end process for building a topic — read source photos → author th
 │   ├── roztoky/                        # JS modules for the calculation trainer
 │   └── tests/                          # Node tests for the calculation trainer
 ├── brain-bench/            # Logic and attention games (darker noir style); index.html is the section landing
+│                           # New detective cases: follow the skill .claude/skills/brain-bench-case/SKILL.md
 │   └── odlozeny-pripad/                # Detective game: index.html renders case.json (CASE.md is the author's spoiler, never linked)
 ├── matika/                 # Math apps (8th grade), buildless ES modules
 │   ├── procent-arena.html              # 3D percent maze with question levels (see ARENA-LEVELS.md)
