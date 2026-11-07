@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brain Bench — posilovna mozku</title>
+<meta name="description" content="Hry, které trénují pozornost a logické myšlení.">
+<meta name="theme-color" content="#16140f">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--desk:#16140f;--ui:#efe8d8;--muted:#c2b8a3;--accent:#f0b25a;--card:#221e16;--line:#3d3527;
+  --type:'Special Elite','American Typewriter','Courier New',Courier,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ui);font:18px/1.55 var(--sans);overflow-x:hidden;min-height:100vh;
+  background:radial-gradient(ellipse at 20% -10%,#3b3223 0%,rgba(59,50,35,0) 55%),var(--desk)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+main{max-width:1000px;margin:0 auto;padding:16px 16px 56px}
+.crumb{display:inline-flex;align-items:center;min-height:44px;color:var(--muted);text-decoration:none;font-size:15px}
+h1{font:400 clamp(32px,7vw,54px)/1.1 var(--type);margin:12px 0 10px}
+h1 span{display:block;font-size:.5em;color:var(--accent);margin-top:6px}
+.intro{max-width:680px;color:#ddd4c2;margin:0 0 28px}
+h2{font:400 22px var(--type);letter-spacing:.06em;margin:0 0 14px;color:var(--muted)}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ui);text-decoration:none;
+  box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.card img{display:block;width:100%;height:auto;aspect-ratio:1200/685;object-fit:cover}
+.card .body{padding:14px 16px 18px;display:grid;gap:8px}
+.card h3{margin:0;font:400 23px/1.2 var(--type)}
+.meta{margin:0;font-weight:700;color:var(--accent);font-size:16px}
+.card p{margin:0}
+.cn{font-size:15px;color:var(--muted);border-left:3px solid var(--accent);padding-left:10px}
+.go{margin-top:6px;display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--accent)}
+.card:hover,.card:focus-visible{border-color:var(--accent)}
+.soon{border-style:dashed;box-shadow:none;background:transparent;display:grid;place-items:center;min-height:200px;padding:20px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <a class="crumb" href="../">← Rozcestník</a>
+  <h1>Brain Bench<span>posilovna mozku</span></h1>
+  <p class="intro">Hry, které trénují pozornost a logiku. Čtete pozorně, porovnáváte stopy, hledáte rozpory a z drobností skládáte celý obraz. Žádné učení nazpaměť, jen přemýšlení.</p>
+  <h2>Hry</h2>
+  <div class="grid">
+    <a class="card" href="odlozeny-pripad/">
+      <img src="odlozeny-pripad/img/cover.jpg" alt="Výloha starožitnictví v noci, přes ni policejní páska." width="1200" height="685">
+      <div class="body">
+        <h3>Odložený případ: Mánesova 41</h3>
+        <p class="meta">2 hráči · cca 45 min · od 15 let</p>
+        <p>Dvacet let starý spis o vraždě a loupeži ve starožitnictví. Projděte výpovědi, výpis alarmu a stopy a určete pachatele. Hraje se na tabletu a mobilu.</p>
+        <p class="cn">Upozornění: příběh je smyšlený a obsahuje popis násilné smrti, bez krvavých detailů.</p>
+        <span class="go">Otevřít spis →</span>
+      </div>
+    </a>
+    <div class="card soon" aria-hidden="true"><p>Další hry se připravují.</p></div>
+  </div>
+</main>
+</body>
+</html>

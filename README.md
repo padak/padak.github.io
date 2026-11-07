@@ -2,6 +2,9 @@
 
 Rychlý rozcestník k našim domácím školním testům.
 
+## 🧠 Brain Bench
+- \[2026-11-07\] [Odložený případ: Mánesova 41 – detektivní hra pro 2 hráče](https://padak.github.io/brain-bench/odlozeny-pripad/) · [rozcestník](https://padak.github.io/brain-bench/)
+
 ## 🧮 Matematika
 - \[2026-10-19\] [Dílny mnohočlenů: 38 rozkreslených kroků, 48 výzev a kouzelná zahrada (8. třída)](https://padak.github.io/matika/mnohocleny.html)
 - \[2026-10-11\] [Operace 100 %: 3D procentová aréna (8. třída)](https://padak.github.io/matika/procent-arena.html)
