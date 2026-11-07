@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Odložený případ: Mánesova 41 – Brain Bench</title>
+<meta name="description" content="Detektivní hra pro dva hráče: odložený případ vraždy ve starožitnictví, Praha 2006.">
+<meta name="theme-color" content="#16140f">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --desk:#16140f; --desk2:#262117; --ui:#efe8d8; --uimuted:#c2b8a3; --accent:#f0b25a; --accent-ink:#1b1408;
+  --paper:#f4ecd6; --paper2:#e8dcbc; --ink:#1d1a14; --muted:#544b3d; --line:#bfae86;
+  --red:#a3241b; --blue:#1f3f8f; --ok:#9fd38a; --bad:#ff9d8a;
+  --type:'Special Elite','American Typewriter','Courier New',Courier,monospace;
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --hand:'Caveat','Bradley Hand','Segoe Script',cursive;
+  --mono:ui-monospace,Menlo,Consolas,'Courier New',monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ui);font:17px/1.55 var(--sans);min-height:100vh;overflow-x:hidden;
+  background:radial-gradient(ellipse at 25% -10%,#3b3223 0%,rgba(59,50,35,0) 55%),
+    repeating-linear-gradient(92deg,rgba(255,255,255,.018) 0 3px,rgba(0,0,0,0) 3px 11px),var(--desk)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none!important}
+a{color:var(--accent)}
+
+/* buttons */
+.btn{min-height:44px;padding:8px 16px;border-radius:10px;border:1px solid #6d604a;background:#2e281d;color:var(--ui);font-weight:600;line-height:1.2}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.danger{border-color:#a4493c;color:#ffc2b6}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+
+/* start screen */
+#start{max-width:860px;margin:0 auto;padding:16px 16px 48px}
+.crumb{display:inline-flex;align-items:center;min-height:44px;color:var(--uimuted);text-decoration:none;font-size:15px}
+.cover{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+.cover img{display:block;width:100%;height:auto;aspect-ratio:1200/685;object-fit:cover}
+.cover .file{position:absolute;left:12px;top:12px;font:15px var(--type);background:var(--paper);color:var(--ink);padding:4px 10px;transform:rotate(-2deg);box-shadow:0 3px 8px rgba(0,0,0,.4)}
+h1{font:400 clamp(30px,6vw,48px)/1.1 var(--type);margin:22px 0 6px;letter-spacing:.01em}
+.subtitle{color:var(--uimuted);margin:0 0 14px;font-size:18px}
+.notice{border-left:4px solid var(--accent);background:rgba(240,178,90,.08);padding:10px 14px;border-radius:0 8px 8px 0;margin:0 0 18px;font-size:16px}
+.briefing{background:var(--paper);color:var(--ink);font:18px/1.6 var(--serif);padding:22px 22px 8px;border-radius:3px;box-shadow:0 10px 28px rgba(0,0,0,.5)}
+.briefing p{margin:0 0 14px}
+.startbtns{display:grid;gap:12px;margin:22px 0}
+.startbtns .btn{min-height:56px;font-size:18px}
+.best h2{font:400 22px var(--type);margin:28px 0 8px}
+.best ol{margin:0;padding-left:1.6em}
+.best li{padding:4px 0}
+.best .none{color:var(--uimuted)}
+
+/* app shell */
+#app{display:flex;flex-direction:column;min-height:100vh}
+.top{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;padding-top:max(8px,env(safe-area-inset-top));
+  background:rgba(18,16,12,.96);border-bottom:1px solid #3d3527}
+.brand{display:flex;flex-direction:column;line-height:1.15;margin-right:auto;min-width:0}
+.brand a{color:var(--uimuted);font-size:13px;text-decoration:none}
+.brand b{font:400 18px var(--type);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.clock{font:700 20px var(--mono);font-variant-numeric:tabular-nums;padding:4px 10px;border-radius:8px;background:#0c0b08;border:1px solid #3d3527;white-space:nowrap}
+.clock .pen{font-size:14px;color:var(--accent);margin-left:6px}
+.clock.done{color:var(--ok)}
+.modetag{font:15px var(--type);color:var(--accent);border:1px dashed var(--accent);padding:4px 8px;border-radius:6px}
+.topbtns{display:flex;gap:8px}
+body[data-mode="reader"] .game-only{display:none!important}
+body[data-mode="game"] .reader-only{display:none!important}
+
+.layout{flex:1;display:block}
+.side{padding:12px 16px 32px}
+.pane{padding:12px 16px 48px}
+.tabs{display:flex;gap:6px;margin:4px 0 14px;background:#0f0d0a;border-radius:12px;padding:4px;border:1px solid #3a3226}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:9px;background:transparent;color:var(--uimuted);font-weight:600}
+.tabs button[aria-pressed="true"]{background:#3a3224;color:var(--ui)}
+
+/* document list */
+.grouph{font:400 15px var(--type);letter-spacing:.12em;text-transform:uppercase;color:var(--uimuted);margin:18px 0 6px;border-bottom:1px solid #3d3527;padding-bottom:4px}
+.dlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ditem{display:flex;align-items:stretch;gap:4px}
+.dopen{flex:1;display:flex;align-items:center;gap:12px;text-align:left;min-height:52px;padding:8px 10px;border-radius:10px;border:1px solid #3d3527;background:#211d15;color:var(--ui)}
+.dopen[aria-current="true"]{border-color:var(--accent);background:#3a301f}
+.dopen .t{flex:1;line-height:1.3}
+.dopen .st{font-size:13px;color:var(--uimuted);display:block}
+.dopen.read .st::before{content:"✓ ";color:var(--ok)}
+.badge{flex:none;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:6px;background:var(--paper);color:var(--ink);font:700 20px var(--type);box-shadow:inset 0 0 0 2px #b9a67c}
+.badge.brief{font-size:18px}
+.dopen.read .badge{background:#cfc3a3}
+.starbtn{flex:none;width:48px;min-height:48px;border-radius:10px;border:1px solid #3d3527;background:#211d15;color:#7d725f;font-size:24px;line-height:1}
+.starbtn[aria-pressed="true"]{color:var(--accent);border-color:#7a5a25}
+
+/* suspects */
+.suspects{display:grid;gap:12px}
+.suspect{background:var(--paper);color:var(--ink);padding:14px 16px;border-radius:3px;box-shadow:0 6px 16px rgba(0,0,0,.45);font-family:var(--serif)}
+.suspect h3{margin:0 0 2px;font:400 21px var(--type)}
+.suspect p{margin:0 0 10px;font-size:17px}
+.suspect .btn{background:#2e281d;color:var(--ui);font-family:var(--sans);font-size:16px}
+
+/* notes + timeline */
+.notes h2{font:400 20px var(--type);margin:8px 0 8px}
+.notes textarea{width:100%;min-height:180px;padding:12px;border-radius:8px;border:1px solid #5a4e3a;background:#fbf6e7;color:var(--ink);font:17px/1.5 var(--serif);resize:vertical}
+.tlhelp{font-size:15px;color:var(--uimuted);margin:0 0 8px}
+.tl{display:grid;gap:8px;margin-bottom:10px}
+.tlrow{display:grid;grid-template-columns:6.4em minmax(0,1fr) 4.2em 44px;gap:6px}
+.tlrow input,.tlrow select{min-height:44px;min-width:0;width:100%;padding:6px 8px;border-radius:8px;border:1px solid #5a4e3a;background:#fbf6e7;color:var(--ink);font-size:16px}
+.tlrow button{min-height:44px;border-radius:8px;border:1px solid #6d4a40;background:#2e201b;color:#ffc2b6}
+.tlhead{display:grid;grid-template-columns:6.4em minmax(0,1fr) 4.2em 44px;gap:6px;font-size:13px;color:var(--uimuted)}
+.resetbox{margin-top:28px;padding-top:14px;border-top:1px solid #3d3527}
+
+/* document view */
+.docbar{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.backbtn{display:none}
+.dochead{display:flex;align-items:center;gap:12px;max-width:800px;margin:0 auto 14px}
+.dochead .badge{width:52px;height:52px;font-size:28px}
+.dochead .grp{margin:0;font:400 14px var(--type);letter-spacing:.12em;text-transform:uppercase;color:var(--uimuted)}
+.dochead h2{margin:0;font:700 clamp(20px,3.4vw,26px)/1.25 var(--sans)}
+.dochead .hgroup{flex:1;min-width:0}
+.dochead .starbtn{width:auto;padding:0 12px;font-size:16px;font-weight:600}
+.dochead .starbtn span{font-size:22px;vertical-align:-2px}
+.docbody{max-width:800px;margin:0 auto;display:grid;gap:22px}
+.docbody > *{min-width:0}
+.docnav{max-width:800px;margin:28px auto 0;display:flex;justify-content:space-between;gap:10px}
+.docnav .btn{flex:1;max-width:48%}
+.docnav .next{text-align:right}
+
+/* paper documents (classes from case.json) */
+.paper,.letter,.qa,.log,.briefdoc{background:var(--paper);color:var(--ink);font:18px/1.6 var(--serif);padding:22px 22px;border-radius:2px;
+  box-shadow:0 14px 30px rgba(0,0,0,.55),inset 0 0 60px rgba(150,120,60,.18);overflow-wrap:break-word;position:relative}
+.paper p,.letter p,.qa p{margin:0 0 12px}
+.paper ul,.letter ul{margin:0 0 12px;padding-left:1.2em}
+.paper li,.letter li{margin-bottom:8px}
+.head{font:400 17px/1.4 var(--type);letter-spacing:.02em;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px!important}
+.small{font-size:15px;color:var(--muted)}
+.paper table,.letter table,.log table{border-collapse:collapse;width:100%;margin:0 0 12px}
+.kv th{width:36%;text-align:left;vertical-align:top;padding:7px 10px 7px 0;font:400 15px var(--type);color:var(--muted);border-bottom:1px dotted var(--line)}
+.kv td{padding:7px 0;border-bottom:1px dotted var(--line)}
+.grid th{text-align:left;background:var(--paper2);font:400 15px var(--type);padding:8px 10px;border:1px solid var(--line)}
+.grid td{padding:8px 10px;border:1px solid var(--line);vertical-align:top}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px;max-width:100%}
+.tscroll table{margin:0}
+.scrollhint{margin:0 0 6px!important;font:600 14px var(--sans);color:var(--muted)}
+.stamp{display:inline-block;margin:6px 0 0!important;padding:4px 16px;font:400 30px var(--type);letter-spacing:.12em;color:var(--red);border:4px double var(--red);border-radius:4px;transform:rotate(-7deg);opacity:.85;mix-blend-mode:multiply}
+.note2026{background:#fff1a0;color:#2a2206;font:16px/1.45 var(--sans);padding:12px 14px;border-left:6px solid #d9a800;box-shadow:0 4px 10px rgba(0,0,0,.25);transform:rotate(-.6deg)}
+.letter{background:#fbf8ef;background-image:linear-gradient(rgba(31,63,143,.07) 1px,transparent 1px);background-size:100% 1.6em;padding-top:26px}
+.letter .head{text-align:center;border-bottom:2px solid var(--ink)}
+.form{background-color:#f6f1e1;background-image:linear-gradient(rgba(31,63,143,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(31,63,143,.06) 1px,transparent 1px);background-size:22px 22px}
+.sign{display:inline-block;font:600 30px/1 var(--hand);color:var(--blue);transform:rotate(-4deg);margin:0 .35em}
+/* interview */
+.qa{border-top:10px solid #7f6a45}
+.meta{font:400 15px var(--type);color:var(--muted)}
+.q,.a{padding:6px 0 6px 14px;border-left:5px solid}
+.q{border-color:#7f8fb8;color:#1e2f5c;font-style:italic}
+.a{border-color:#b0873e;margin-bottom:18px!important}
+.who{display:block;font:700 12px/1.3 var(--sans);letter-spacing:.09em;text-transform:uppercase;font-style:normal;margin-bottom:2px;color:var(--muted)}
+.q .who{color:#41558a}
+/* alarm log printout */
+.log{background-color:#f7f6ef;padding:18px 34px;font-family:var(--mono);font-size:15px;
+  background-image:radial-gradient(circle at 13px 12px,var(--desk) 5px,transparent 6px),radial-gradient(circle at calc(100% - 13px) 12px,var(--desk) 5px,transparent 6px);
+  background-size:100% 24px;background-repeat:repeat-y}
+.log .head{font-family:var(--mono);font-size:15px}
+.log th{text-align:left;padding:6px 10px;border-bottom:2px solid #555;white-space:nowrap;font-weight:700}
+.log td{padding:7px 10px;white-space:nowrap}
+.log tr:nth-child(even) td{background:#e2ecd9}
+.log tr.hl td{background:#fff0b3;font-weight:700}
+.log .small{font-family:var(--sans)}
+/* ticket */
+.ticket{position:relative;max-width:520px;width:100%;justify-self:center;background:#f8eccf;color:#2b1c10;padding:18px 22px 18px 70px;border-radius:6px;
+  box-shadow:0 10px 24px rgba(0,0,0,.5);transform:rotate(-1.2deg);font-family:var(--serif);
+  background-image:linear-gradient(90deg,#8e1d1d 0 52px,transparent 52px),radial-gradient(circle at 52px 0,var(--desk) 7px,transparent 8px),radial-gradient(circle at 52px 100%,var(--desk) 7px,transparent 8px)}
+.ticket::before{content:"";position:absolute;left:52px;top:10px;bottom:10px;border-left:2px dashed #b88d6a}
+.ticket p{margin:0 0 4px}
+.ticket .t1{font:700 22px/1.2 var(--serif);letter-spacing:.14em;color:#8e1d1d}
+.ticket .t2{font-weight:700;font-size:19px;border-bottom:1px solid #c9a77e;padding-bottom:6px;margin-bottom:8px}
+.ticket .t3{font:400 17px var(--type)}
+.ticket .t4{font:400 16px var(--type)}
+.docbody > .small{background:#fffbe8;color:#3a3122;padding:12px 16px;border-radius:2px;box-shadow:0 6px 14px rgba(0,0,0,.4);transform:rotate(.4deg);margin:0;font-size:16px}
+/* receipt (html fallback) */
+.receipt{background:#fff;color:#222;font:15px/1.5 var(--mono);padding:14px 18px;white-space:pre-wrap}
+.receipt p{margin:0}
+.receipt .c{text-align:center}
+.receiptfig{margin:0;display:grid;justify-items:center;gap:10px}
+.receiptfig svg{width:100%;max-width:380px;height:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.55))}
+details.transcript{background:#211d15;border:1px solid #3d3527;border-radius:10px;padding:0 14px;width:100%;max-width:520px}
+details.transcript summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:600}
+details.transcript[open]{padding-bottom:14px}
+/* figures */
+.photo{margin:0;display:grid;gap:8px;justify-items:center}
+.zoombtn{display:block;padding:0;border:0;background:none;width:100%;max-width:760px;border-radius:3px}
+.imgwrap{position:relative;display:block;container-type:inline-size;background:#fff;padding:10px 10px 10px;box-shadow:0 12px 26px rgba(0,0,0,.55)}
+.imgwrap img{display:block;width:100%;height:auto}
+.camstamp{position:absolute;right:calc(10px + 3cqw);bottom:calc(10px + 2.5cqw);font:700 4.2cqw/1 var(--mono);color:#ff8f1f;letter-spacing:.04em;
+  text-shadow:0 0 .25em rgba(255,120,0,.85),0 0 1px #ffb15c;pointer-events:none}
+.photo figcaption{font-size:15px;color:var(--uimuted);text-align:center;max-width:680px}
+.svgfig{margin:0;background:var(--paper);color:var(--ink);padding:14px;border-radius:2px;box-shadow:0 14px 30px rgba(0,0,0,.55)}
+.svgfig svg{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
+.svgfig figcaption{font-size:15px;color:var(--muted);margin-top:10px}
+.svgfig figcaption ul{margin:6px 0 0;padding-left:1.2em}
+
+/* dialogs */
+dialog{border:0;padding:0;background:#1d1912;color:var(--ui);width:100%;max-width:100%;height:100%;max-height:100%;margin:0}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+.dlg{display:flex;flex-direction:column;height:100%}
+.dlghead{display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:max(10px,env(safe-area-inset-top));border-bottom:1px solid #3d3527;background:#14110c}
+.dlghead h2{flex:1;margin:0;font:400 22px var(--type)}
+.dlgbody{flex:1;overflow:auto;padding:16px 16px 40px;-webkit-overflow-scrolling:touch}
+.dlgbody > *{max-width:760px;margin-left:auto;margin-right:auto}
+@media (min-width:700px){
+  dialog:not(.zoomdlg){width:min(820px,94vw);height:auto;max-height:92vh;margin:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+  dialog:not(.zoomdlg) .dlg{max-height:92vh}
+}
+/* hints */
+.pentotal{font-size:17px;margin:0 0 14px;padding:10px 14px;background:#2a2318;border-radius:10px;border:1px solid #4a3e2b}
+.track{background:#251f16;border:1px solid #3d3527;border-radius:12px;padding:12px 16px;margin-bottom:14px}
+.track h3{margin:0 0 8px;font:400 20px var(--type)}
+.track ol{margin:0 0 10px;padding-left:1.4em}
+.track li{margin-bottom:8px;background:var(--paper);color:var(--ink);padding:8px 12px;border-radius:3px;font-family:var(--serif);font-size:17px}
+.track li .pp{display:block;font:600 12px var(--sans);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.confirmline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px;background:#3a2c17;border-radius:10px}
+.confirmline p{margin:0;flex-basis:100%;font-weight:700}
+.alldone{color:var(--uimuted);margin:0}
+/* accusation form */
+fieldset{border:1px solid #4a3e2b;border-radius:12px;margin:0 0 16px;padding:10px 14px 12px}
+legend{font-weight:700;font-size:18px;padding:0 6px}
+.opts{display:grid;gap:8px}
+.opts.cols{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:8px 12px;border-radius:10px;border:1px solid #4a3e2b;background:#251f16;cursor:pointer}
+.opt input{width:22px;height:22px;flex:none;accent-color:var(--accent);margin:0}
+.opt:has(input:checked){border-color:var(--accent);background:#3a2e1a}
+.opt:has(input:disabled){opacity:.5}
+.opt .badge{width:32px;height:32px;font-size:17px}
+.multinote{font-size:15px;color:var(--uimuted);margin:0 0 8px}
+.feedback{margin:14px 0;padding:12px 14px;border-radius:10px;font-weight:600}
+.feedback.bad{background:#3d1d17;border:1px solid #8a3a2d;color:var(--bad)}
+.feedback.info{background:#2a2318;border:1px solid #4a3e2b}
+.giveup{margin-top:30px;padding-top:16px;border-top:1px solid #3d3527}
+/* result */
+.final{font:700 clamp(40px,10vw,64px)/1 var(--mono);color:var(--accent);margin:6px 0 12px;font-variant-numeric:tabular-nums}
+.breakdown{border-collapse:collapse;width:100%;margin-bottom:18px}
+.breakdown td{padding:8px 4px;border-bottom:1px solid #3d3527}
+.breakdown td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap}
+.breakdown tr.sum td{font-weight:700;border-bottom:0;font-size:19px}
+.soltext{background:var(--paper);color:var(--ink);font:18px/1.6 var(--serif);padding:20px 22px;border-radius:2px}
+.soltext ol{padding-left:1.3em}
+.soltext li{margin-bottom:8px}
+/* zoom */
+.zoomdlg{background:#000}
+.zscroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:auto}
+.zscroll .imgwrap{margin:0 auto;padding:0;box-shadow:none;width:100%}
+.zbar .btn{padding:8px 12px}
+.msg{max-width:640px;margin:40px auto;padding:20px;background:var(--paper);color:var(--ink);border-radius:4px;font-family:var(--serif)}
+.msg code{background:#e6dcc3;padding:2px 6px;border-radius:4px}
+
+/* wide: iPad landscape and desktop - list and document side by side */
+@media (min-width:960px){
+  #app{height:100vh;height:100dvh;min-height:0}
+  .layout{display:grid;grid-template-columns:minmax(330px,390px) 1fr;min-height:0}
+  .side{overflow:auto;border-right:1px solid #3d3527;padding-bottom:40px}
+  .pane{overflow:auto;padding:18px 28px 60px}
+}
+/* narrow: list, then full-screen document */
+@media (max-width:959.98px){
+  body.viewdoc .side{display:none}
+  body:not(.viewdoc) .pane{display:none}
+  .backbtn{display:inline-flex;align-items:center}
+}
+@media (max-width:520px){
+  body{font-size:17px}
+  .brand{display:none}
+  .top{justify-content:space-between}
+  .paper,.letter,.qa,.briefdoc{padding:16px 15px;font-size:17px}
+  .log{padding:14px 26px;font-size:14px}
+  .ticket{padding:14px 14px 14px 64px}
+  .kv th{width:40%}
+  .dochead{flex-wrap:wrap}
+  .dochead .hgroup{flex-basis:calc(100% - 64px)}
+  .dochead .starbtn{margin-left:64px;min-height:44px}
+}
+</style>
+</head>
+<body data-mode="none">
+
+<noscript><div class="msg">Hra potřebuje zapnutý JavaScript.</div></noscript>
+<div id="loadmsg" class="msg" role="status">Načítám spis…</div>
+
+<!-- START SCREEN -->
+<main id="start" hidden>
+  <a class="crumb" href="../">← Brain Bench</a>
+  <div class="cover"><img id="coverImg" src="img/cover.jpg" alt="Výloha starožitnictví v noci, přes ni policejní páska." width="1200" height="685"><span class="file">Spis KRPA-4411/OK-2006</span></div>
+  <h1 id="caseTitle"></h1>
+  <p class="subtitle" id="caseSub"></p>
+  <p class="notice" id="caseNotice"></p>
+  <section class="briefing" id="caseBrief" aria-label="Zadání"></section>
+  <div class="startbtns">
+    <button class="btn primary" id="btnStartGame">Začít vyšetřování (hlavní zařízení)</button>
+    <button class="btn" id="btnStartReader">Jen číst podklady (druhé zařízení)</button>
+  </div>
+  <p class="small" style="color:var(--uimuted);font-size:15px">Hlavní zařízení měří čas a má nápovědy i formulář obvinění. Druhé zařízení jen zobrazuje dokumenty, bez času a bez nápověd.</p>
+  <section class="best" aria-labelledby="bestH1"><h2 id="bestH1">Nejlepší výsledky na tomto zařízení</h2><div class="bestlist"></div></section>
+</main>
+
+<!-- APP -->
+<div id="app" hidden>
+  <header class="top">
+    <div class="brand"><a href="../">Brain Bench</a><b>Mánesova 41</b></div>
+    <div class="clock game-only" id="clock" role="timer" aria-label="Čas vyšetřování">0:00</div>
+    <span class="modetag reader-only">Režim čtení</span>
+    <div class="topbtns">
+      <button class="btn game-only" id="btnHints">Nápověda</button>
+      <button class="btn primary game-only" id="btnAccuse">Obvinit</button>
+      <button class="btn ghost" id="btnMenu" aria-label="Menu">☰</button>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="side" aria-label="Složka případu">
+      <div class="tabs" role="group" aria-label="Části složky">
+        <button data-tab="docs" aria-pressed="true">Dokumenty</button>
+        <button data-tab="suspects" aria-pressed="false">Podezřelí</button>
+        <button data-tab="notes" aria-pressed="false">Poznámky</button>
+      </div>
+      <section id="tab-docs" aria-label="Dokumenty"></section>
+      <section id="tab-suspects" aria-label="Podezřelí" hidden></section>
+      <section id="tab-notes" class="notes" aria-label="Poznámky" hidden>
+        <h2><label for="notesField">Poznámky</label></h2>
+        <textarea id="notesField" placeholder="Rozpory, podezření, otázky…"></textarea>
+        <h2 id="tlH">Časová osa</h2>
+        <p class="tlhelp">Čas pište s dvojtečkou (19:31), u jiného dne než 14. 11. přidejte datum (13.11. 15:10).</p>
+        <div class="tlhead" aria-hidden="true"><span>Čas</span><span>Co se stalo</span><span>Dok.</span><span></span></div>
+        <div class="tl" id="tl" aria-labelledby="tlH"></div>
+        <div class="btnrow"><button class="btn" id="tlAdd">+ Přidat řádek</button><button class="btn ghost" id="tlSort">Seřadit podle času</button></div>
+      </section>
+    </aside>
+    <main class="pane" id="pane" tabindex="-1"></main>
+  </div>
+</div>
+
+<!-- DIALOGS -->
+<dialog id="dlgHints" aria-labelledby="hH"><div class="dlg">
+  <div class="dlghead"><h2 id="hH">Nápověda</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><div><p class="pentotal" id="hintTotal"></p><div id="hintTracks"></div></div></div>
+</div></dialog>
+
+<dialog id="dlgAccuse" aria-labelledby="aH"><div class="dlg">
+  <div class="dlghead"><h2 id="aH">Obvinění</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><form id="accForm" novalidate>
+    <p class="feedback info" id="accInfo"></p>
+    <div id="accQuestions"></div>
+    <div id="accFeedback" role="alert"></div>
+    <button class="btn primary" type="submit" style="min-height:56px;font-size:18px;width:100%">Podat obvinění</button>
+    <div class="giveup"><p style="color:var(--uimuted);margin:0 0 10px">Nechcete pokračovat? Řešení se ukáže bez hodnocení.</p><button class="btn danger" type="button" id="btnGiveUp">Vzdát se a ukázat řešení</button></div>
+  </form></div>
+</div></dialog>
+
+<dialog id="dlgResult" aria-labelledby="rH"><div class="dlg">
+  <div class="dlghead"><h2 id="rH">Případ uzavřen</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><div id="resultBody"></div></div>
+</div></dialog>
+
+<dialog id="dlgMenu" aria-labelledby="mH"><div class="dlg">
+  <div class="dlghead"><h2 id="mH">Menu</h2><button class="btn" data-close>Zavřít</button></div>
+  <div class="dlgbody"><div style="display:grid;gap:12px">
+    <button class="btn" id="mBrief">Zobrazit zadání</button>
+    <button class="btn game-only" id="mResult" hidden>Zobrazit řešení a výsledek</button>
+    <button class="btn reader-only" id="mEndReader">Ukončit čtení (zpět na úvod)</button>
+    <a class="btn" href="../" style="display:flex;align-items:center;text-decoration:none">Zpět na Brain Bench</a>
+    <section class="best" aria-labelledby="bestH2"><h2 id="bestH2">Nejlepší výsledky</h2><div class="bestlist"></div></section>
+    <div class="resetbox"><button class="btn danger" id="mReset">Začít znovu</button>
+      <p style="color:var(--uimuted);font-size:15px">Smaže čas, nápovědy, poznámky, časovou osu i označení dokumentů na tomto zařízení. Nejlepší výsledky zůstanou.</p></div>
+  </div></div>
+</div></dialog>
+
+<dialog id="dlgZoom" class="zoomdlg" aria-label="Zvětšená fotografie"><div class="dlg">
+  <div class="dlghead zbar"><h2 class="sr">Fotografie</h2><span style="flex:1"></span>
+    <button class="btn" data-z="1">100 %</button><button class="btn" data-z="2">200 %</button><button class="btn" data-z="3">300 %</button>
+    <button class="btn primary" data-close>Zavřít</button></div>
+  <div class="zscroll" id="zscroll"></div>
+</div></dialog>
+
+<script>
+(function(){
+'use strict';
+const KEY = 'bb-manesova41-v1', BEST_KEY = 'bb-manesova41-best';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const wideMQ = window.matchMedia('(min-width: 960px)');
+
+let CASE = null, DOCS = {}, ORDER = [], S = null, current = null, listScroll = 0, tickTimer = null;
+
+/* ---------- storage (localStorage may be blocked) ---------- */
+function fresh(){ return {mode:null, startedAt:null, read:{}, star:{}, hints:{}, wrong:0, notes:'', timeline:[], draft:{}, solved:null, gaveUp:null, tab:'docs', doc:null}; }
+function load(){ try { const v = JSON.parse(localStorage.getItem(KEY)); return v && typeof v === 'object' ? Object.assign(fresh(), v) : fresh(); } catch(e){ return fresh(); } }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
+function loadBest(){ try { const v = JSON.parse(localStorage.getItem(BEST_KEY)); return Array.isArray(v) ? v : []; } catch(e){ return []; } }
+function saveBest(list){ try { localStorage.setItem(BEST_KEY, JSON.stringify(list)); } catch(e){} }
+
+/* ---------- time + penalties ---------- */
+function fmt(ms){
+  const t = Math.max(0, Math.floor(ms / 1000)), h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), s = t % 60;
+  const pad = n => String(n).padStart(2, '0');
+  return h ? h + ':' + pad(m) + ':' + pad(s) : m + ':' + pad(s);
+}
+function hintMin(){
+  let sum = 0;
+  for (const tr of CASE.hints) { const n = S.hints[tr.id] || 0; for (let i = 0; i < n && i < tr.steps.length; i++) sum += tr.steps[i].penalty; }
+  return sum;
+}
+function wrongMin(){ return S.wrong * CASE.form.wrongPenalty; }
+function elapsed(){
+  if (S.solved) return S.solved.elapsed;
+  if (S.gaveUp) return S.gaveUp.elapsed;
+  return S.startedAt ? Date.now() - S.startedAt : 0;
+}
+function finished(){ return !!(S.solved || S.gaveUp); }
+function minutesWord(n){ return n === 1 ? 'minuta' : (n >= 2 && n <= 4 ? 'minuty' : 'minut'); }
+
+function tick(){
+  const c = $('#clock'); if (!c) return;
+  const pen = hintMin() + wrongMin();
+  c.classList.toggle('done', !!S.solved);
+  c.innerHTML = (S.solved ? 'Hotovo ' + fmt(S.solved.total) : esc(fmt(elapsed()))) +
+    (!S.solved && pen ? '<span class="pen">+' + pen + ' min</span>' : '');
+  c.setAttribute('aria-label', 'Čas vyšetřování ' + fmt(elapsed()) + (pen ? ', penalizace ' + pen + ' ' + minutesWord(pen) : ''));
+}
+
+/* ---------- base64 UTF-8 decode ---------- */
+function decodeSolution(){
+  const bin = atob(CASE.solution);
+  const bytes = Uint8Array.from(bin, ch => ch.charCodeAt(0));
+  return JSON.parse(new TextDecoder('utf-8').decode(bytes));
+}
+
+/* ---------- boot ---------- */
+async function boot(){
+  if (location.protocol === 'file:') return fail(true);
+  try {
+    const r = await fetch('case.json', {cache: 'no-cache'});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    CASE = await r.json();
+  } catch(e){ return fail(false, e); }
+  CASE.documents.forEach(d => { DOCS[d.id] = d; ORDER.push(d.id); });
+  S = load();
+  $('#loadmsg').hidden = true;
+  fillStart();
+  wire();
+  if (S.mode) enterApp(); else showStart();
+}
+function fail(isFile, err){
+  const m = $('#loadmsg');
+  m.setAttribute('role', 'alert');
+  m.innerHTML = isFile
+    ? '<h2>Spis nejde otevřít přímo ze souboru</h2><p>Prohlížeč z bezpečnostních důvodů nedovolí načíst <code>case.json</code> ze stránky otevřené přes <code>file://</code>.</p><p>Spusťte ve složce repozitáře <code>python3 -m http.server</code> a otevřete <code>http://localhost:8000/brain-bench/odlozeny-pripad/</code>, nebo hrajte online na <a href="https://padak.github.io/brain-bench/odlozeny-pripad/">padak.github.io</a>.</p>'
+    : '<h2>Spis se nepodařilo načíst</h2><p>Zkontrolujte připojení k internetu a obnovte stránku.</p><p class="small">' + esc(err && err.message || '') + '</p>';
+}
+
+/* ---------- start screen ---------- */
+function fillStart(){
+  document.title = CASE.title + ' – Brain Bench';
+  $('#caseTitle').textContent = CASE.title;
+  $('#caseSub').textContent = CASE.subtitle;
+  $('#caseNotice').textContent = CASE.notice;
+  $('#caseBrief').innerHTML = CASE.briefing;
+}
+function renderBest(){
+  const list = loadBest().slice().sort((a, b) => a.total - b.total).slice(0, 10);
+  const html = list.length
+    ? '<ol>' + list.map(b => '<li><b>' + esc(fmt(b.total)) + '</b> · ' + esc(new Date(b.date).toLocaleDateString('cs-CZ')) +
+        ' <span style="color:var(--uimuted)">(čas ' + esc(fmt(b.elapsed)) + ', nápovědy +' + b.hintMin + ' min, omyly +' + b.wrongMin + ' min)</span></li>').join('') + '</ol>'
+    : '<p class="none">Zatím žádný vyřešený případ.</p>';
+  $$('.bestlist').forEach(el => el.innerHTML = html);
+}
+function showStart(){
+  document.body.dataset.mode = 'none';
+  $('#app').hidden = true; $('#start').hidden = false;
+  renderBest();
+  clearInterval(tickTimer);
+  window.scrollTo(0, 0);
+}
+
+/* ---------- app ---------- */
+function enterApp(){
+  document.body.dataset.mode = S.mode;
+  $('#start').hidden = true; $('#app').hidden = false;
+  listScroll = 0; window.scrollTo(0, 0);
+  renderList(); renderSuspects(); renderNotes(); setTab(S.tab || 'docs');
+  clearInterval(tickTimer);
+  if (S.mode === 'game') { tick(); tickTimer = setInterval(tick, 1000); }
+  updateFinishUI();
+  if (wideMQ.matches) openDoc(S.doc && (DOCS[S.doc] || S.doc === 'brief') ? S.doc : 'brief', {push:false});
+  else showList();
+}
+function updateFinishUI(){
+  const done = finished();
+  $('#btnAccuse').textContent = done ? 'Řešení' : 'Obvinit';
+  $('#mResult').hidden = !done;
+}
+function setTab(t){
+  S.tab = t; save();
+  $$('.tabs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tab === t)));
+  ['docs', 'suspects', 'notes'].forEach(k => $('#tab-' + k).hidden = k !== t);
+}
+
+function renderList(){
+  const groups = [];
+  ORDER.forEach(id => { const g = DOCS[id].group; let e = groups.find(x => x.name === g); if (!e) groups.push(e = {name: g, ids: []}); e.ids.push(id); });
+  let h = '<ul class="dlist"><li class="ditem"><button class="dopen' + (S.read.brief ? ' read' : '') + '" data-open="brief"><span class="badge brief" aria-hidden="true">§</span><span class="t">Zadání a pravidla<span class="st">' + (S.read.brief ? 'přečteno' : 'nepřečteno') + '</span></span></button></li></ul>';
+  groups.forEach(g => {
+    h += '<h2 class="grouph">' + esc(g.name) + '</h2><ul class="dlist">';
+    g.ids.forEach(id => {
+      const d = DOCS[id], rd = !!S.read[id], st = !!S.star[id];
+      h += '<li class="ditem"><button class="dopen' + (rd ? ' read' : '') + '" data-open="' + esc(id) + '"' + (current === id ? ' aria-current="true"' : '') + '>' +
+        '<span class="badge" aria-hidden="true">' + esc(id) + '</span><span class="t"><span class="sr">Dokument ' + esc(id) + ': </span>' + esc(d.title) +
+        '<span class="st">' + (rd ? 'přečteno' : 'nepřečteno') + (st ? ' · ★ důležité' : '') + '</span></span></button>' +
+        '<button class="starbtn" data-star="' + esc(id) + '" aria-pressed="' + st + '" aria-label="Důležité: dokument ' + esc(id) + '">' + (st ? '★' : '☆') + '</button></li>';
+    });
+    h += '</ul>';
+  });
+  $('#tab-docs').innerHTML = h;
+  if (current === 'brief') { const b = $('[data-open="brief"]'); if (b) b.setAttribute('aria-current', 'true'); }
+}
+function renderSuspects(){
+  $('#tab-suspects').innerHTML = '<div class="suspects">' + CASE.suspects.map(p => {
+    const doc = ORDER.find(id => DOCS[id].person === p.id);
+    return '<article class="suspect"><h3>' + esc(p.name) + '</h3><p>' + esc(p.age) + ' let · ' + esc(p.role) + '</p>' +
+      (doc ? '<button class="btn" data-open="' + esc(doc) + '">Výpověď – dokument ' + esc(doc) + '</button>' : '') + '</article>';
+  }).join('') + '</div>';
+}
+
+/* ---------- notes + timeline ---------- */
+function renderNotes(){
+  $('#notesField').value = S.notes || '';
+  renderTimeline();
+}
+function docOptions(sel){
+  return '<option value="">—</option>' + ORDER.map(id => '<option value="' + esc(id) + '"' + (sel === id ? ' selected' : '') + '>' + esc(id) + '</option>').join('');
+}
+function renderTimeline(){
+  const tl = $('#tl');
+  if (!S.timeline.length) { tl.innerHTML = '<p class="tlhelp">Zatím prázdné. Přidejte první řádek.</p>'; return; }
+  tl.innerHTML = S.timeline.map((r, i) =>
+    '<div class="tlrow" data-i="' + i + '">' +
+      '<input data-f="t" value="' + esc(r.t || '') + '" placeholder="19:31" aria-label="Čas, řádek ' + (i + 1) + '" inputmode="text" autocomplete="off">' +
+      '<input data-f="w" value="' + esc(r.w || '') + '" placeholder="co se stalo" aria-label="Co se stalo, řádek ' + (i + 1) + '" autocomplete="off">' +
+      '<select data-f="d" aria-label="Dokument, řádek ' + (i + 1) + '">' + docOptions(r.d) + '</select>' +
+      '<button type="button" data-del="' + i + '" aria-label="Smazat řádek ' + (i + 1) + '">✕</button></div>').join('');
+}
+function timeKey(s){
+  s = s || '';
+  const tm = s.match(/(\d{1,2}):(\d{2})/);
+  if (!tm) return Infinity;
+  const dm = s.replace(tm[0], '').match(/(\d{1,2})\.\s*(\d{1,2})\./);
+  const day = dm ? (+dm[2]) * 31 + (+dm[1]) : 11 * 31 + 14;
+  return day * 1440 + (+tm[1]) * 60 + (+tm[2]);
+}
+
+/* ---------- document view ---------- */
+function speakerOf(d){
+  if (d.person) { const p = CASE.suspects.find(x => x.id === d.person); if (p) return p.name; }
+  const m = d.title.match(/Výpověď:\s*([^,]+)/);
+  return m ? m[1].trim() : 'Vyslýchaný';
+}
+function figureHTML(d){
+  if (!d.image) return '';
+  return '<figure class="photo"><button class="zoombtn" data-zoom="' + esc(d.id) + '" aria-label="Zvětšit fotografii: ' + esc(d.imageAlt || '') + '">' +
+    '<span class="imgwrap"><img src="' + esc(d.image) + '" alt="' + esc(d.imageAlt || '') + '" width="1200" height="875">' +
+    (d.imageStamp ? '<span class="camstamp" aria-hidden="true">' + esc(d.imageStamp) + '</span>' : '') + '</span></button>' +
+    '<figcaption>' + esc(d.imageAlt || '') + ' <span aria-hidden="true">· Klepnutím zvětšíte.</span></figcaption></figure>';
+}
+function openDoc(id, opt){
+  opt = opt || {};
+  if (id !== 'brief' && !DOCS[id]) return;
+  const wasList = !document.body.classList.contains('viewdoc');
+  if (!wideMQ.matches && wasList) listScroll = window.scrollY;
+  current = id; S.doc = id; S.read[id] = true; save();
+  const idx = id === 'brief' ? -1 : ORDER.indexOf(id);
+  const prev = idx > 0 ? ORDER[idx - 1] : (idx === 0 ? 'brief' : null);
+  const next = idx < ORDER.length - 1 ? ORDER[idx + 1] : null;
+  const navBtn = (tid, cls, label) => tid ? '<button class="btn ' + cls + '" data-open="' + esc(tid) + '">' + label + '</button>' : '<span></span>';
+  let h = '<div class="docbar"><button class="btn backbtn" data-back>← Zpět na seznam</button></div>';
+  if (id === 'brief') {
+    h += '<header class="dochead"><span class="badge brief" aria-hidden="true">§</span><div class="hgroup"><p class="grp">Úvod</p><h2 id="docTitle">Zadání a pravidla</h2></div></header>' +
+      '<div class="docbody"><p class="notice" style="margin:0">' + esc(CASE.notice) + '</p><div class="briefdoc">' + CASE.briefing + '</div></div>';
+  } else {
+    const d = DOCS[id], st = !!S.star[id];
+    h += '<header class="dochead"><span class="badge" aria-hidden="true">' + esc(id) + '</span><div class="hgroup"><p class="grp">' + esc(d.group) + ' · dokument ' + esc(id) + '</p><h2 id="docTitle">' + esc(d.title) + '</h2></div>' +
+      '<button class="starbtn" data-star="' + esc(id) + '" aria-pressed="' + st + '"><span aria-hidden="true">' + (st ? '★' : '☆') + '</span> Důležité</button></header>' +
+      '<div class="docbody">' + figureHTML(d) + d.html + (d.plan ? planSVG() : '') + (d.map ? mapSVG() : '') + '</div>';
+  }
+  h += '<nav class="docnav" aria-label="Další dokumenty">' + navBtn(prev, 'prev', '← ' + (prev === 'brief' ? 'Zadání' : 'Dokument ' + esc(prev))) + navBtn(next, 'next', 'Dokument ' + esc(next) + ' →') + '</nav>';
+  const pane = $('#pane');
+  pane.innerHTML = '<article aria-labelledby="docTitle">' + h + '</article>';
+  if (id !== 'brief') enhance(pane, DOCS[id]);
+  renderList();
+  if (!wideMQ.matches) {
+    document.body.classList.add('viewdoc');
+    if (opt.push !== false && wasList) history.pushState({doc: id}, '');
+    else if (opt.push !== false) history.replaceState({doc: id}, '');
+    window.scrollTo(0, 0);
+  } else {
+    pane.scrollTop = 0;
+  }
+  if (opt.focus) pane.focus({preventScroll: true});
+}
+function showList(){
+  document.body.classList.remove('viewdoc');
+  if (!wideMQ.matches) requestAnimationFrame(() => window.scrollTo(0, listScroll));
+}
+function enhance(root, d){
+  const who = speakerOf(d);
+  $$('.qa .q', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">Vyšetřovatel</span>'));
+  $$('.qa .a', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">' + esc(who) + '</span>'));
+  $$('.docbody table', root).forEach(t => { const w = document.createElement('div'); w.className = 'tscroll'; t.parentNode.insertBefore(w, t); w.appendChild(t); });
+  // Wide tables (alarm log on phones) scroll inside the card; tell the reader so.
+  requestAnimationFrame(() => $$('.tscroll', root).forEach(w => {
+    if (w.scrollWidth > w.clientWidth + 2) w.insertAdjacentHTML('beforebegin', '<p class="scrollhint">↔ Tabulku posuňte prstem do strany.</p>');
+  }));
+  if (d.receiptSvg) $$('.receipt', root).forEach(rc => {
+    const lines = $$('p', rc).map(p => ({text: p.textContent, center: p.classList.contains('c'),
+      segs: Array.from(p.childNodes).map(n => ({t: n.textContent, b: n.nodeName === 'B'}))}));
+    const fig = document.createElement('figure');
+    fig.className = 'receiptfig';
+    fig.innerHTML = receiptSVG(lines) + '<details class="transcript"><summary>Přepis účtenky (text)</summary></details>';
+    rc.parentNode.insertBefore(fig, rc);
+    $('details', fig).appendChild(rc);
+  });
+}
+
+/* ---------- SVG: thermal receipt (text taken from the document html) ---------- */
+function receiptSVG(lines){
+  const W = 360, x0 = 22, x1 = 338, lh = 24, top = 44, H = top + lines.length * lh + 40;
+  let zig = 'M' + x0 + ' 10 ';
+  for (let x = x0, k = 0; x < x1; x += 12, k++) zig += 'L' + Math.min(x + 6, x1) + ' ' + (k % 2 ? 10 : 4) + ' L' + Math.min(x + 12, x1) + ' 10 ';
+  zig += 'L' + x1 + ' ' + (H - 10) + ' ';
+  for (let x = x1, k = 0; x > x0; x -= 12, k++) zig += 'L' + Math.max(x - 6, x0) + ' ' + (H - (k % 2 ? 10 : 3)) + ' L' + Math.max(x - 12, x0) + ' ' + (H - 10) + ' ';
+  zig += 'Z';
+  const label = 'Pokladní účtenka: ' + lines.map(l => l.text).join('; ');
+  let txt = '';
+  lines.forEach((l, i) => {
+    const y = top + i * lh;
+    txt += '<text x="' + (l.center ? W / 2 : 38) + '" y="' + y + '"' + (l.center ? ' text-anchor="middle"' : '') + ' xml:space="preserve">' + l.segs.map(g => g.b ? '<tspan font-weight="700">' + esc(g.t) + '</tspan>' : esc(g.t)).join('') + '</text>';
+  });
+  return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(label) + '" xmlns="http://www.w3.org/2000/svg">' +
+    '<defs><linearGradient id="rcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbfaf5"/><stop offset=".45" stop-color="#ecebe4"/><stop offset=".55" stop-color="#fdfdf8"/><stop offset="1" stop-color="#e2e0d6"/></linearGradient>' +
+    '<filter id="rcn"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feColorMatrix in="n" type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .08"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter></defs>' +
+    '<g transform="rotate(-3 ' + W / 2 + ' ' + H / 2 + ')">' +
+      '<path d="' + zig + '" fill="url(#rcg)" filter="url(#rcn)"/>' +
+      '<path d="M' + x0 + ' ' + (H * .38) + ' L120 ' + (H * .35) + ' L230 ' + (H * .41) + ' L' + x1 + ' ' + (H * .37) + '" stroke="#c9c7bd" stroke-width="1.2" fill="none"/>' +
+      '<path d="M' + x0 + ' ' + (H * .7) + ' L150 ' + (H * .73) + ' L' + x1 + ' ' + (H * .68) + '" stroke="#cfcdc3" stroke-width="1" fill="none"/>' +
+      '<path d="M190 12 L175 ' + (H * .5) + ' L200 ' + (H - 12) + '" stroke="#d6d4ca" stroke-width="1" fill="none"/>' +
+      '<g font-family="Menlo,Consolas,Courier New,monospace" font-size="13.5" fill="#2e2e33" opacity=".9">' + txt + '</g>' +
+    '</g></svg>';
+}
+
+/* ---------- SVG: floor plan (doc B) ---------- */
+function planSVG(){
+  return '<figure class="svgfig"><svg viewBox="0 0 400 600" role="img" aria-labelledby="planT planD" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">' +
+  '<title id="planT">Plánek obchodu Mánesova 41</title>' +
+  '<desc id="planD">Ulice je dole. Z ulice se vchází do prodejny, kterou hlídá zóna P alarmu. Za prodejnou je chodba s klávesnicí alarmu a vedle ní kancelář se stolem a trezorem. Z chodby vedou samozamykací zadní dveře do dvora, kde stojí popelnice. Ze dvora vede průjezd k bráně do ulice.</desc>' +
+  '<defs><pattern id="hatchP" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#e07b00" stroke-width="3" opacity=".35"/></pattern></defs>' +
+  // courtyard
+  '<rect x="20" y="20" width="360" height="125" fill="#dcdfcf"/>' +
+  '<text x="150" y="52" font-size="17" font-weight="700" fill="#3c4430" letter-spacing="2">DVŮR</text>' +
+  '<rect x="38" y="66" width="46" height="40" rx="4" fill="#5f6f4f" stroke="#2f3a26" stroke-width="2"/><line x1="34" y1="66" x2="88" y2="66" stroke="#2f3a26" stroke-width="4"/>' +
+  '<text x="61" y="126" font-size="15" text-anchor="middle" fill="#1d1a14">popelnice</text>' +
+  '<text x="250" y="96" font-size="14" text-anchor="middle" fill="#1d1a14">zadní dveře</text><text x="250" y="114" font-size="13" text-anchor="middle" fill="#544b3d">(samozamykací)</text>' +
+  // passage
+  '<rect x="300" y="145" width="80" height="355" fill="#e4e0d2"/>' +
+  '<text transform="translate(345 330) rotate(-90)" font-size="15" text-anchor="middle" fill="#544b3d" letter-spacing="2">PRŮJEZD</text>' +
+  '<line x1="300" y1="500" x2="380" y2="500" stroke="#7a4b1e" stroke-width="6" stroke-dasharray="10 5"/>' +
+  '<text x="340" y="488" font-size="14" text-anchor="middle" fill="#1d1a14">brána</text>' +
+  '<line x1="380" y1="20" x2="380" y2="500" stroke="#8a8270" stroke-width="2"/>' +
+  // building floor
+  '<rect x="20" y="145" width="280" height="355" fill="#fbf7ec"/>' +
+  // zone P (showroom only)
+  '<rect x="22" y="327" width="276" height="171" fill="url(#hatchP)"/>' +
+  // walls
+  '<g stroke="#1d1a14" stroke-width="5" stroke-linecap="square" fill="none">' +
+    '<path d="M20 145 H225 M275 145 H300"/>' +       // top wall, back door gap 225-275
+    '<path d="M20 145 V500"/><path d="M300 145 V500"/>' +
+    '<path d="M20 500 H120 M180 500 H300"/>' +       // street wall, entrance gap 120-180
+    '<path d="M200 145 V255 M200 298 V325"/>' +      // office | corridor wall, door gap
+    '<path d="M20 325 H220 M280 325 H300"/>' +       // showroom wall, gap from corridor
+  '</g>' +
+  // door swings
+  '<g stroke="#1d1a14" stroke-width="1.5" fill="none"><path d="M225 145 A50 50 0 0 1 275 145" stroke-dasharray="4 3"/><path d="M200 255 A43 43 0 0 0 200 298" stroke-dasharray="4 3"/><path d="M120 500 A60 60 0 0 1 180 500" stroke-dasharray="4 3"/></g>' +
+  '<line x1="225" y1="145" x2="275" y2="145" stroke="#9a6a2e" stroke-width="4"/>' +
+  // office
+  '<text x="110" y="172" font-size="16" font-weight="700" text-anchor="middle" fill="#1d1a14" letter-spacing="1">KANCELÁŘ</text>' +
+  '<rect x="40" y="200" width="96" height="48" fill="#c9a57a" stroke="#6b4c2a" stroke-width="2"/><text x="88" y="229" font-size="15" text-anchor="middle" fill="#1d1a14">stůl</text>' +
+  '<rect x="148" y="190" width="40" height="40" fill="#4a4a4a" stroke="#1d1a14" stroke-width="2"/><circle cx="168" cy="210" r="8" fill="none" stroke="#ddd" stroke-width="2"/>' +
+  '<text x="168" y="248" font-size="15" text-anchor="middle" fill="#1d1a14">trezor</text>' +
+  '<text x="110" y="300" font-size="13" text-anchor="middle" fill="#544b3d" font-style="italic">nehlídáno</text>' +
+  // corridor
+  '<text x="250" y="190" font-size="16" font-weight="700" text-anchor="middle" fill="#1d1a14" letter-spacing="1">CHODBA</text>' +
+  '<text x="250" y="210" font-size="13" text-anchor="middle" fill="#544b3d" font-style="italic">nehlídáno</text>' +
+  '<rect x="287" y="278" width="10" height="22" fill="#1f3f8f"/>' +
+  '<text x="281" y="266" font-size="13" text-anchor="end" fill="#1f3f8f">klávesnice</text><text x="281" y="282" font-size="13" text-anchor="end" fill="#1f3f8f">alarmu</text>' +
+  // showroom
+  '<text x="160" y="352" font-size="16" font-weight="700" text-anchor="middle" fill="#1d1a14" letter-spacing="1">PRODEJNA</text>' +
+  '<rect x="64" y="364" width="192" height="24" rx="4" fill="#fff4e0" stroke="#e07b00" stroke-width="2"/>' +
+  '<text x="160" y="381" font-size="14" font-weight="700" text-anchor="middle" fill="#8a4300">ZÓNA P – hlídá alarm</text>' +
+  '<rect x="30" y="400" width="24" height="86" fill="#bfd5dc" stroke="#46646e" stroke-width="2"/><text transform="translate(66 443) rotate(-90)" font-size="12" text-anchor="middle" fill="#544b3d">vitrína</text>' +
+  '<rect x="96" y="410" width="96" height="26" fill="#bfd5dc" stroke="#46646e" stroke-width="2"/>' +
+  '<path d="M120 410 L132 423 L126 436 M150 410 L144 422 L158 436" stroke="#46646e" stroke-width="1.5" fill="none"/>' +
+  '<text x="144" y="454" font-size="13" text-anchor="middle" fill="#1d1a14">rozbitá vitrína</text><text x="144" y="470" font-size="13" text-anchor="middle" fill="#1d1a14">s granáty</text>' +
+  '<g stroke-linecap="round"><path d="M214 410 L240 436 M240 410 L214 436" stroke="#fbf7ec" stroke-width="9"/><path d="M214 410 L240 436 M240 410 L214 436" stroke="#a3241b" stroke-width="3.5" fill="none"/></g>' +
+  '<text x="227" y="456" font-size="14" font-weight="700" text-anchor="middle" fill="#a3241b">tělo</text>' +
+  '<rect x="288" y="402" width="9" height="24" fill="#b8862b" stroke="#6b4c2a"/><text x="282" y="418" font-size="13" text-anchor="end" fill="#544b3d">ikona</text>' +
+  '<text x="150" y="527" font-size="13" text-anchor="middle" fill="#2c2820">vchod</text>' +
+  // street
+  '<rect x="0" y="510" width="400" height="70" fill="#b9b2a2"/>' +
+  '<text x="200" y="552" font-size="17" font-weight="700" text-anchor="middle" fill="#2c2820" letter-spacing="2">ULICE MÁNESOVA</text>' +
+  '<text x="200" y="594" font-size="12" text-anchor="middle" fill="#544b3d">schéma, ne v měřítku</text>' +
+  '</svg><figcaption><b>Textový popis plánku:</b><ul>' +
+    '<li>Dole je ulice. Vchodem z ulice se jde do <b>prodejny</b> s vitrínami; tělo (křížek) leží u rozbité vitríny s granáty, na stěně visí ikona.</li>' +
+    '<li><b>Zóna P alarmu hlídá jen prodejnu</b> (šrafovaná plocha).</li>' +
+    '<li>Za prodejnou je <b>chodba</b> s klávesnicí alarmu a vedle ní <b>kancelář</b> se stolem a trezorem. Chodba ani kancelář hlídané nejsou.</li>' +
+    '<li>Z chodby vedou <b>zadní dveře</b> (samozamykací) do <b>dvora</b> s popelnicí. Ze dvora vede průjezd k <b>bráně do ulice</b>.</li>' +
+  '</ul></figcaption></figure>';
+}
+
+/* ---------- SVG: map (doc Y) ---------- */
+function mapSVG(){
+  const node = (x, y, label, anchor, dx, dy, main) =>
+    '<circle cx="' + x + '" cy="' + y + '" r="' + (main ? 9 : 7) + '" fill="' + (main ? '#a3241b' : '#1d1a14') + '" stroke="#fbf7ec" stroke-width="2.5"/>' +
+    '<text x="' + (x + dx) + '" y="' + (y + dy) + '" font-size="15" font-weight="' + (main ? 700 : 600) + '" text-anchor="' + anchor + '" fill="#1d1a14">' + label + '</text>';
+  const tag = (x, y, t) => '<g><rect x="' + (x - t.length * 3.9 - 6) + '" y="' + (y - 13) + '" width="' + (t.length * 7.8 + 12) + '" height="19" rx="4" fill="#fff4e0" stroke="#bfae86"/><text x="' + x + '" y="' + (y + 1) + '" font-size="13" text-anchor="middle" fill="#1d1a14">' + t + '</text></g>';
+  return '<figure class="svgfig"><svg viewBox="0 0 420 380" role="img" aria-labelledby="mapT mapD" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">' +
+  '<title id="mapT">Schematická mapa míst a časů cest</title>' +
+  '<desc id="mapD">Mánesova 41 je uprostřed. Čerpací stanice Korunní 88 je 5 minut pěšky, kostel sv. Ludmily 4 minuty pěšky, Národní divadlo 20 minut tramvají, Zbraslav 35 minut autem. Z Prahy do Brna 2 hodiny 15 minut autem.</desc>' +
+  '<defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1d1a14"/></marker></defs>' +
+  '<rect width="420" height="380" fill="#efe6cc"/>' +
+  '<path d="M120 0 C 95 60, 50 95, 62 150 S 40 250, 70 300 S 60 350, 48 380" stroke="#8fb2c9" stroke-width="16" fill="none" opacity=".8"/>' +
+  '<text transform="translate(30 228) rotate(-80)" font-size="13" font-style="italic" fill="#3d6b88">Vltava</text>' +
+  // links
+  '<line x1="250" y1="150" x2="250" y2="72" stroke="#1d1a14" stroke-width="2.5"/>' +
+  '<line x1="250" y1="150" x2="250" y2="265" stroke="#1d1a14" stroke-width="2.5"/>' +
+  '<line x1="250" y1="150" x2="95" y2="155" stroke="#1d1a14" stroke-width="2.5" stroke-dasharray="9 5"/>' +
+  '<line x1="250" y1="150" x2="102" y2="318" stroke="#1d1a14" stroke-width="2.5" stroke-dasharray="2 5" stroke-linecap="round"/>' +
+  '<line x1="262" y1="154" x2="402" y2="222" stroke="#1d1a14" stroke-width="2.5" stroke-dasharray="2 5" stroke-linecap="round" marker-end="url(#arr)"/>' +
+  tag(250, 114, '4 min pěšky') + tag(250, 220, '5 min pěšky') + tag(168, 157, '20 min tramvají') + tag(172, 246, '35 min autem') +
+  tag(334, 190, '2 h 15 min autem') +
+  node(250, 150, 'Mánesova 41', 'start', 14, -10, true) +
+  node(250, 72, 'kostel sv. Ludmily', 'middle', 0, -15) +
+  node(250, 265, 'ČS Korunní 88', 'start', 14, 20) +
+  node(95, 155, 'Národní divadlo', 'start', -10, 30) +
+  node(102, 318, 'Zbraslav', 'start', 12, 20) +
+  '<text x="404" y="248" font-size="15" font-weight="700" text-anchor="end" fill="#1d1a14">Brno</text>' +
+  '<g font-size="12" fill="#544b3d"><line x1="14" y1="16" x2="40" y2="16" stroke="#1d1a14" stroke-width="2.5"/><text x="46" y="20">pěšky</text>' +
+  '<line x1="92" y1="16" x2="118" y2="16" stroke="#1d1a14" stroke-width="2.5" stroke-dasharray="9 5"/><text x="124" y="20">tramvají</text>' +
+  '<line x1="186" y1="16" x2="212" y2="16" stroke="#1d1a14" stroke-width="2.5" stroke-dasharray="2 5" stroke-linecap="round"/><text x="218" y="20">autem</text>' +
+  '<text x="406" y="372" text-anchor="end" font-style="italic">schéma, ne v měřítku</text></g>' +
+  '</svg><figcaption><b>Textový popis mapky:</b> Mánesova 41 je uprostřed. Kostel sv. Ludmily je 4 min pěšky, čerpací stanice Korunní 88 je 5 min pěšky, Národní divadlo 20 min tramvají, Zbraslav 35 min autem. Šipka vede do Brna: Praha – Brno 2 h 15 min autem.</figcaption></figure>';
+}
+
+/* ---------- zoom ---------- */
+function openZoom(id){
+  const d = DOCS[id]; if (!d) return;
+  $('#zscroll').innerHTML = '<span class="imgwrap" id="zwrap"><img src="' + esc(d.image) + '" alt="' + esc(d.imageAlt || '') + '">' +
+    (d.imageStamp ? '<span class="camstamp" aria-hidden="true">' + esc(d.imageStamp) + '</span>' : '') + '</span>';
+  setZoom(1);
+  $('#dlgZoom').showModal();
+}
+function setZoom(z){
+  const w = $('#zwrap'); if (w) w.style.width = (z * 100) + '%';
+  $$('[data-z]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.z === z)));
+}
+
+/* ---------- hints ---------- */
+function renderHints(pendingTrack){
+  const hm = hintMin();
+  $('#hintTotal').innerHTML = 'Penalizace za nápovědy celkem: <b>+' + hm + ' ' + minutesWord(hm) + '</b>' + (S.wrong ? ' · za špatná obvinění +' + wrongMin() + ' min' : '');
+  $('#hintTracks').innerHTML = CASE.hints.map(tr => {
+    const n = S.hints[tr.id] || 0;
+    let h = '<section class="track"><h3>' + esc(tr.name) + '</h3>';
+    if (n) h += '<ol>' + tr.steps.slice(0, n).map((s, i) => '<li><span class="pp">Nápověda ' + (i + 1) + ' · +' + s.penalty + ' min</span>' + esc(s.text) + '</li>').join('') + '</ol>';
+    if (n < tr.steps.length && !finished()) {
+      const p = tr.steps[n].penalty;
+      if (pendingTrack === tr.id) {
+        h += '<div class="confirmline"><p>Odhalit nápovědu ' + (n + 1) + ' (+' + p + ' min)?</p><button class="btn primary" data-hint-yes="' + esc(tr.id) + '">Ano, odhalit (+' + p + ' min)</button><button class="btn" data-hint-no>Zrušit</button></div>';
+      } else {
+        h += '<button class="btn" data-hint-ask="' + esc(tr.id) + '">Odhalit nápovědu ' + (n + 1) + ' z ' + tr.steps.length + ' (+' + p + ' min)</button>';
+      }
+    } else if (n >= tr.steps.length) h += '<p class="alldone">Všechny nápovědy z této řady jsou odhalené.</p>';
+    return h + '</section>';
+  }).join('');
+}
+
+/* ---------- accusation ---------- */
+function renderForm(){
+  const qs = CASE.form.questions;
+  $('#accInfo').textContent = 'Za každé špatné obvinění se přičte +' + CASE.form.wrongPenalty + ' min. Dozvíte se jen, kolik odpovědí je špatně, ne které.' + (S.wrong ? ' Dosud špatných obvinění: ' + S.wrong + '.' : '');
+  $('#accQuestions').innerHTML = qs.map(q => {
+    const dr = S.draft[q.id];
+    if (q.multi) {
+      const sel = Array.isArray(dr) ? dr : [];
+      return '<fieldset data-q="' + esc(q.id) + '" data-multi="' + q.multi + '"><legend>' + esc(q.label) + '</legend><p class="multinote">Vyberte přesně ' + q.multi + ' dokumenty. <span data-count></span></p><div class="opts cols">' +
+        q.options.map(o => '<label class="opt"><input type="checkbox" name="' + esc(q.id) + '" value="' + esc(o) + '"' + (sel.includes(o) ? ' checked' : '') + '><span class="badge" aria-hidden="true">' + esc(o) + '</span><span><span class="sr">Dokument ' + esc(o) + ': </span>' + esc(DOCS[o] ? DOCS[o].title : o) + '</span></label>').join('') + '</div></fieldset>';
+    }
+    return '<fieldset data-q="' + esc(q.id) + '"><legend>' + esc(q.label) + '</legend><div class="opts">' +
+      q.options.map(o => '<label class="opt"><input type="radio" name="' + esc(q.id) + '" value="' + esc(o) + '"' + (dr === o ? ' checked' : '') + '><span>' + esc(o) + '</span></label>').join('') + '</div></fieldset>';
+  }).join('');
+  $('#accFeedback').innerHTML = '';
+  syncMulti();
+}
+function syncMulti(){
+  $$('#accQuestions fieldset[data-multi]').forEach(fs => {
+    const max = +fs.dataset.multi, boxes = $$('input', fs), n = boxes.filter(b => b.checked).length;
+    boxes.forEach(b => b.disabled = !b.checked && n >= max);
+    $('[data-count]', fs).textContent = 'Vybráno ' + n + ' z ' + max + '.';
+  });
+}
+function readForm(){
+  const out = {};
+  CASE.form.questions.forEach(q => {
+    if (q.multi) out[q.id] = $$('#accQuestions input[name="' + q.id + '"]:checked').map(i => i.value);
+    else { const c = $('#accQuestions input[name="' + q.id + '"]:checked'); out[q.id] = c ? c.value : null; }
+  });
+  return out;
+}
+function plural(n, one, few, many){ return n === 1 ? one : (n >= 2 && n <= 4 ? few : many); }
+function submitForm(ev){
+  ev.preventDefault();
+  if (finished()) return;
+  const ans = readForm(), qs = CASE.form.questions;
+  const incomplete = qs.some(q => q.multi ? ans[q.id].length !== q.multi : !ans[q.id]);
+  const fb = $('#accFeedback');
+  if (incomplete) { fb.innerHTML = '<p class="feedback bad">Odpovězte na všechny otázky (u důkazů vyberte přesně dva dokumenty). Penalizace se nepřičetla.</p>'; return; }
+  const sol = decodeSolution();
+  let wrong = 0;
+  qs.forEach(q => {
+    const a = ans[q.id], s = sol[q.id];
+    const ok = q.multi ? (Array.isArray(s) && a.slice().sort().join('|') === s.slice().sort().join('|')) : a === s;
+    if (!ok) wrong++;
+  });
+  if (wrong) {
+    S.wrong++; save(); tick();
+    fb.innerHTML = '<p class="feedback bad">Obvinění neobstálo: špatně ' + plural(wrong, 'je ' + wrong + ' odpověď', 'jsou ' + wrong + ' odpovědi', 'je ' + wrong + ' odpovědí') + ' z ' + qs.length +
+      '. Penalizace +' + CASE.form.wrongPenalty + ' min (za omyly celkem +' + wrongMin() + ' min). Projděte stopy a zkuste to znovu.</p>';
+    renderFormInfoOnly();
+    return;
+  }
+  const el = Date.now() - S.startedAt, hm = hintMin(), wm = wrongMin();
+  S.solved = {elapsed: el, hintMin: hm, wrongMin: wm, wrong: S.wrong, total: el + (hm + wm) * 60000, date: Date.now()};
+  save();
+  const best = loadBest(); best.push({total: S.solved.total, elapsed: el, hintMin: hm, wrongMin: wm, date: S.solved.date}); saveBest(best);
+  tick(); updateFinishUI();
+  $('#dlgAccuse').close();
+  showResult();
+}
+function renderFormInfoOnly(){
+  $('#accInfo').textContent = 'Za každé špatné obvinění se přičte +' + CASE.form.wrongPenalty + ' min. Dozvíte se jen, kolik odpovědí je špatně, ne které. Dosud špatných obvinění: ' + S.wrong + '.';
+}
+function showResult(){
+  const b = $('#resultBody');
+  if (S.solved) {
+    const s = S.solved;
+    $('#rH').textContent = 'Případ uzavřen';
+    b.innerHTML = '<p style="margin:0">Obvinění obstálo. Výsledný čas:</p><p class="final">' + esc(fmt(s.total)) + '</p>' +
+      '<table class="breakdown"><tr><td>Čas řešení</td><td>' + esc(fmt(s.elapsed)) + '</td></tr>' +
+      '<tr><td>Nápovědy</td><td>+' + s.hintMin + ' min</td></tr>' +
+      '<tr><td>Špatná obvinění (' + s.wrong + ' × ' + CASE.form.wrongPenalty + ' min)</td><td>+' + s.wrongMin + ' min</td></tr>' +
+      '<tr class="sum"><td>Výsledný čas</td><td>' + esc(fmt(s.total)) + '</td></tr></table>' +
+      '<h3 style="font:400 22px var(--type)">Jak to bylo</h3><div class="soltext">' + CASE.solutionText + '</div>' +
+      '<section class="best" aria-labelledby="bestH3"><h2 id="bestH3">Nejlepší výsledky</h2><div class="bestlist"></div></section>';
+  } else if (S.gaveUp) {
+    $('#rH').textContent = 'Řešení (bez hodnocení)';
+    b.innerHTML = '<p class="feedback info">Vzdali jste se po ' + esc(fmt(S.gaveUp.elapsed)) + '. Výsledek se do žebříčku nezapočítává.</p><div class="soltext">' + CASE.solutionText + '</div>';
+  }
+  renderBest();
+  const d = $('#dlgResult'); if (!d.open) d.showModal();
+  $('.dlgbody', d).scrollTop = 0;
+}
+
+/* ---------- events ---------- */
+function wire(){
+  $('#btnStartGame').addEventListener('click', () => {
+    S = fresh(); S.mode = 'game'; S.startedAt = Date.now(); save(); enterApp();
+  });
+  $('#btnStartReader').addEventListener('click', () => {
+    const keep = S; S = fresh(); S.mode = 'reader';
+    if (keep && keep.mode === 'reader') { S.read = keep.read; S.star = keep.star; S.notes = keep.notes; S.timeline = keep.timeline; }
+    save(); enterApp();
+  });
+  document.addEventListener('click', e => {
+    const t = e.target.closest('button,[data-open]'); if (!t) return;
+    if (t.dataset.open) { openDoc(t.dataset.open, {focus: wideMQ.matches}); return; }
+    if (t.dataset.star) {
+      const id = t.dataset.star; S.star[id] = !S.star[id]; if (!S.star[id]) delete S.star[id]; save();
+      renderList();
+      const hb = $('.dochead .starbtn');
+      if (hb && current === id) { hb.setAttribute('aria-pressed', String(!!S.star[id])); hb.innerHTML = '<span aria-hidden="true">' + (S.star[id] ? '★' : '☆') + '</span> Důležité'; }
+      return;
+    }
+    if (t.hasAttribute('data-back')) { if (history.state && history.state.doc) history.back(); else showList(); return; }
+    if (t.dataset.tab) { setTab(t.dataset.tab); return; }
+    if (t.dataset.zoom) { openZoom(t.dataset.zoom); return; }
+    if (t.dataset.z) { setZoom(+t.dataset.z); return; }
+    if (t.hasAttribute('data-close')) { t.closest('dialog').close(); return; }
+    if (t.dataset.hintAsk) { renderHints(t.dataset.hintAsk); const y = $('[data-hint-yes]'); if (y) y.focus(); return; }
+    if (t.hasAttribute('data-hint-no')) { renderHints(); return; }
+    if (t.dataset.hintYes) {
+      const id = t.dataset.hintYes, tr = CASE.hints.find(x => x.id === id);
+      if (tr && !finished()) { S.hints[id] = Math.min((S.hints[id] || 0) + 1, tr.steps.length); save(); tick(); }
+      renderHints(); return;
+    }
+    if (t.dataset.del !== undefined) { S.timeline.splice(+t.dataset.del, 1); save(); renderTimeline(); return; }
+  });
+  window.addEventListener('popstate', () => { if (!wideMQ.matches && document.body.classList.contains('viewdoc')) showList(); });
+  wideMQ.addEventListener('change', () => {
+    if (!S || !S.mode) return;
+    if (wideMQ.matches) { document.body.classList.remove('viewdoc'); openDoc(current || 'brief', {push: false}); }
+    else if (current) { document.body.classList.add('viewdoc'); }
+  });
+
+  $('#btnHints').addEventListener('click', () => { renderHints(); $('#dlgHints').showModal(); });
+  $('#btnAccuse').addEventListener('click', () => { if (finished()) { showResult(); return; } renderForm(); $('#dlgAccuse').showModal(); });
+  $('#btnMenu').addEventListener('click', () => { renderBest(); $('#dlgMenu').showModal(); });
+  $('#mBrief').addEventListener('click', () => { $('#dlgMenu').close(); openDoc('brief'); });
+  $('#mResult').addEventListener('click', () => { $('#dlgMenu').close(); showResult(); });
+  $('#mEndReader').addEventListener('click', () => { S.mode = null; save(); $('#dlgMenu').close(); showStart(); });
+  $('#mReset').addEventListener('click', () => {
+    if (!confirm('Opravdu začít znovu? Smaže se čas, nápovědy, poznámky, časová osa i označení dokumentů. Nejlepší výsledky zůstanou.')) return;
+    S = fresh(); save(); current = null; document.body.classList.remove('viewdoc');
+    $('#dlgMenu').close(); showStart();
+  });
+  $('#btnGiveUp').addEventListener('click', () => {
+    if (finished()) return;
+    if (!confirm('Opravdu se vzdát? Ukáže se celé řešení a hra skončí bez hodnocení.')) return;
+    S.gaveUp = {elapsed: Date.now() - S.startedAt, date: Date.now()}; save();
+    tick(); updateFinishUI(); $('#dlgAccuse').close(); showResult();
+  });
+  $('#accForm').addEventListener('submit', submitForm);
+  $('#accForm').addEventListener('change', e => {
+    if (e.target.matches('input[type=checkbox]')) syncMulti();
+    const a = readForm(); S.draft = a; save();
+  });
+
+  $('#notesField').addEventListener('input', e => { S.notes = e.target.value; save(); });
+  $('#tlAdd').addEventListener('click', () => {
+    S.timeline.push({t: '', w: '', d: current && DOCS[current] ? current : ''}); save(); renderTimeline();
+    const rows = $$('#tl .tlrow'); const last = rows[rows.length - 1]; if (last) $('input', last).focus();
+  });
+  $('#tlSort').addEventListener('click', () => { S.timeline.sort((a, b) => timeKey(a.t) - timeKey(b.t)); save(); renderTimeline(); });
+  $('#tl').addEventListener('input', e => {
+    const row = e.target.closest('.tlrow'); if (!row) return;
+    const r = S.timeline[+row.dataset.i]; if (!r) return;
+    r[e.target.dataset.f] = e.target.value; save();
+  });
+}
+
+boot();
+})();
+</script>
+</body>
+</html>
