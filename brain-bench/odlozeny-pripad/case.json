@@ -43,7 +43,8 @@
    "kind": "report",
    "group": "Spis",
    "title": "Krycí list spisu a usnesení o odložení",
-   "html": "<div class='paper'><p class='head'>POLICIE ČESKÉ REPUBLIKY<br>Správa hl. m. Prahy, 1. oddělení obecné kriminality<br>Č. j. KRPA-4411/OK-2006</p><table class='kv'><tr><th>Věc</th><td>Vražda a krádež, Starožitnosti Hron, Mánesova 41, Praha 2</td></tr><tr><th>Oběť</th><td>Karel Hron, nar. 1942, majitel obchodu</td></tr><tr><th>Čin</th><td>úterý 14. 11. 2006 večer</td></tr><tr><th>Tělo nalezeno</th><td>středa 15. 11. 2006 v 8:30, prodavačka Eva Malá</td></tr><tr><th>Vyšetřovatel</th><td>kpt. Josef Vrba</td></tr></table><p class='head'>Usnesení o odložení věci, 30. 6. 2007</p><p>Dosavadním prověřováním se nepodařilo shromáždit dostatek podkladů k obvinění konkrétní osoby. Věc se odkládá do doby, než budou zjištěny nové skutečnosti.</p><p class='stamp'>ODLOŽENO</p></div>"
+   "html": "<div class='paper'><p class='head'>POLICIE ČESKÉ REPUBLIKY<br>Správa hl. m. Prahy, 1. oddělení obecné kriminality<br>Č. j. KRPA-4411/OK-2006</p><table class='kv'><tr><th>Věc</th><td>Vražda a krádež, Starožitnosti Hron, Mánesova 41, Praha 2</td></tr><tr><th>Oběť</th><td>Karel Hron, nar. 1942, majitel obchodu</td></tr><tr><th>Čin</th><td>úterý 14. 11. 2006 večer</td></tr><tr><th>Tělo nalezeno</th><td>středa 15. 11. 2006 v 8:30, prodavačka Eva Malá</td></tr><tr><th>Vyšetřovatel</th><td>kpt. Josef Vrba</td></tr></table><p class='head'>Usnesení o odložení věci, 30. 6. 2007</p><p>Dosavadním prověřováním se nepodařilo shromáždit dostatek podkladů k obvinění konkrétní osoby. Věc se odkládá do doby, než budou zjištěny nové skutečnosti.</p><p class='stamp'>ODLOŽENO</p></div>",
+   "look": "police-cover"
   },
   {
    "id": "B",
@@ -53,49 +54,67 @@
    "image": "img/scene.jpg",
    "imageAlt": "Zadní kancelář starožitnictví: vytažené šuplíky, papíry na podlaze, prázdný trezor.",
    "html": "<div class='paper'><p class='head'>Protokol o ohledání místa činu, 15. 11. 2006, 9:40</p><p><b>Obchod:</b> přední prodejna s vitrínami, za ní chodba, kancelář s trezorem a zadní dveře do dvora. Plánek viz níže. Šperky jsou ve vitríně v prodejně, kancelář a chodba alarmem hlídané nejsou.</p><ul><li>Tělo Karla Hrona leží v <b>prodejně</b> u rozbité vitríny s granáty. Vedle něj <b>bronzový svícen</b> (zboží z obchodu), otřený, na podstavci zbytky krve.</li><li>Rozbitá vitrína s granátovými šperky je prázdná. Na podlaze pod ní leží <b>skleněné napodobeniny</b> se štítky „replika“. Všechny pravé kusy se štítky G-01 až G-24 chybí.</li><li>V kanceláři jsou <b>vytažené všechny zásuvky</b> psacího stolu. Na stole leží prázdná obálka s nápisem „trezor“.</li><li>Trezor je otevřený a jeho zámek není poškozený. Je prázdný.</li><li>Zadní dveře do dvora mají samozamykací zámek: po zabouchnutí se zamknou, zevnitř jdou otevřít klikou bez klíče. Byly zavřené, bez stop násilného otevření. Okna neporušená.</li><li>Na stěně prodejny visí nepoškozená <b>ikona sv. Mikuláše</b> s cedulkou „komisní prodej“.</li><li>Na stole v kanceláři otevřená účetní kniha, čaj ve hrnku, rozsvícená lampa.</li></ul></div>",
-   "plan": true
+   "plan": true,
+   "look": "police-form"
   },
   {
    "id": "C",
    "kind": "report",
    "group": "Místo činu",
    "title": "Výsledek pitvy (výtah)",
-   "html": "<div class='paper'><p class='head'>Ústav soudního lékařství, 16. 11. 2006</p><p>Příčina smrti: <b>úder těžkým předmětem do hlavy</b>. Tvar zranění odpovídá podstavci bronzového svícnu z místa činu.</p><p>Doba smrti: <b>14. 11. 2006 mezi 19:30 a 21:00</b>.</p><p>Oběť se nebránila, úder přišel zezadu.</p></div>"
+   "html": "<div class='paper autopsy'><p class='head'>ÚSTAV SOUDNÍHO LÉKAŘSTVÍ<br>Pitevní protokol č. 1873/2006 (výtah pro policii), 16. 11. 2006</p><table class='kv'><tr><th>Zemřelý</th><td>Karel Hron, 64 let</td></tr><tr><th>Výška / hmotnost</th><td>174 cm / 81 kg</td></tr><tr><th>Nalezen</th><td>prodejna, Mánesova 41, 15. 11. 2006</td></tr><tr><th>Ohledal na místě</th><td>MUDr. Ivo Šebesta, 15. 11. 2006 v 9:40</td></tr></table><p class='head'>Zranění</p><p>Jediné zranění: <b>úder těžkým předmětem do zadní části hlavy</b> (viz nákres). Tvar rány odpovídá podstavci bronzového svícnu z místa činu. Jiná zranění nejsou, oběť se nebránila. Úder přišel <b>zezadu</b>.</p><p class='head'>Odhad doby smrti</p><table class='grid'><tr><th>Měření v 9:40</th><th>Zjištění</th></tr><tr><td>teplota těla</td><td>23,5 °C (teplota místnosti 18 °C)</td></tr><tr><td>posmrtná ztuhlost</td><td>plně vyvinutá</td></tr><tr><td>obsah žaludku</td><td>čaj, rohlík se sýrem, snědeno asi 1 až 2 hodiny před smrtí</td></tr></table><p class='small'>Pomůcka: tělo v místnosti chladne zhruba o 1 °C za hodinu od běžných 37 °C.</p><p>Závěr: smrt nastala <b>14. 11. 2006 mezi 19:30 a 21:00</b>.</p><p><span class='sign'>MUDr. Ivo Šebesta</span></p></div>",
+   "bodymap": true,
+   "look": "autopsy"
   },
   {
    "id": "D",
    "kind": "report",
    "group": "Místo činu",
    "title": "Seznam odcizených věcí (pojišťovna)",
-   "html": "<div class='paper'><p class='head'>Kooperace pojišťovna, soupis dle inventáře, 20. 11. 2006</p><table class='grid'><tr><th>Č.</th><th>Předmět</th><th>Odhad</th></tr><tr><td>G-01 až G-24</td><td>sbírka českých granátových šperků (brože, náušnice, prsteny)</td><td>610 000 Kč</td></tr><tr><td>T-3</td><td>zlaté kapesní hodinky, Vídeň 1890</td><td>85 000 Kč</td></tr><tr><td>—</td><td>hotovost z trezoru</td><td>42 000 Kč</td></tr></table><p>Celkem 737 000 Kč. Ikona sv. Mikuláše (komisní prodej) <b>nebyla odcizena</b>.</p></div>"
+   "html": "<div class='paper'><p class='head'>Vltavská pojišťovna, soupis dle inventáře, 20. 11. 2006</p><table class='grid'><tr><th>Č.</th><th>Předmět</th><th>Odhad</th></tr><tr><td>G-01 až G-24</td><td>sbírka českých granátových šperků (brože, náušnice, náramek)</td><td>610 000 Kč</td></tr><tr><td>T-3</td><td>zlaté kapesní hodinky, Vídeň 1890</td><td>85 000 Kč</td></tr><tr><td>—</td><td>hotovost z trezoru</td><td>42 000 Kč</td></tr></table><p>Celkem 737 000 Kč. Ikona sv. Mikuláše (komisní prodej) <b>nebyla odcizena</b>.</p></div>",
+   "gallery": [
+    {
+     "src": "img/garnets.jpg",
+     "alt": "Pojišťovací fotodokumentace: granátové brože, náušnice a náramek na modrém sametu."
+    },
+    {
+     "src": "img/watch.jpg",
+     "alt": "Pojišťovací fotodokumentace: zlaté kapesní hodinky, Vídeň kolem 1890."
+    }
+   ],
+   "look": "insurance"
   },
   {
    "id": "E",
    "kind": "evidence",
    "group": "Alarm",
    "title": "Výpis z ústředny alarmu",
-   "html": "<div class='log'><p class='head'>ALARMSERVIS PRAHA — objekt 0417 Mánesova 41 — výpis událostí</p><table><tr><th>Datum</th><th>Čas</th><th>Událost</th><th>Zóna</th><th>Účet</th></tr><tr><td>13.11.2006</td><td>08:27</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>02</td></tr><tr><td>13.11.2006</td><td>15:10</td><td>SERVISNÍ REŽIM ZAP</td><td>—</td><td>00</td></tr><tr><td>13.11.2006</td><td>15:48</td><td>SERVISNÍ REŽIM VYP</td><td>—</td><td>00</td></tr><tr><td>13.11.2006</td><td>18:33</td><td>ZASTŘEŽENO</td><td>P – prodejna</td><td>01</td></tr><tr><td>14.11.2006</td><td>08:31</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>02</td></tr><tr><td>14.11.2006</td><td>18:31</td><td>ZASTŘEŽENO</td><td>P – prodejna</td><td>01</td></tr><tr><td>14.11.2006</td><td>19:52</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>00</td></tr><tr><td>14.11.2006</td><td>20:38</td><td>ZASTŘEŽENO</td><td>P – prodejna</td><td>00</td></tr><tr><td>15.11.2006</td><td>08:29</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>02</td></tr></table><p class='small'>ODSTŘEŽENO = hlídání vypnuto, ZASTŘEŽENO = hlídání zapnuto. Ústředna zaznamenává číslo účtu, ne zadaný PIN. Klávesnice je na chodbě. Zóna P hlídá jen prodejnu; chodba, kancelář a zadní dveře do dvora hlídané nejsou.</p></div>"
+   "html": "<div class='log'><p class='head'>ALARMSERVIS PRAHA — objekt 0417 Mánesova 41 — výpis událostí</p><table><tr><th>Datum</th><th>Čas</th><th>Událost</th><th>Zóna</th><th>Účet</th></tr><tr><td>13.11.2006</td><td>08:27</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>02</td></tr><tr><td>13.11.2006</td><td>15:10</td><td>SERVISNÍ REŽIM ZAP</td><td>—</td><td>00</td></tr><tr><td>13.11.2006</td><td>15:48</td><td>SERVISNÍ REŽIM VYP</td><td>—</td><td>00</td></tr><tr><td>13.11.2006</td><td>18:33</td><td>ZASTŘEŽENO</td><td>P – prodejna</td><td>01</td></tr><tr><td>14.11.2006</td><td>08:31</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>02</td></tr><tr><td>14.11.2006</td><td>18:31</td><td>ZASTŘEŽENO</td><td>P – prodejna</td><td>01</td></tr><tr><td>14.11.2006</td><td>19:52</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>00</td></tr><tr><td>14.11.2006</td><td>20:38</td><td>ZASTŘEŽENO</td><td>P – prodejna</td><td>00</td></tr><tr><td>15.11.2006</td><td>08:29</td><td>ODSTŘEŽENO</td><td>P – prodejna</td><td>02</td></tr></table><p class='small'>ODSTŘEŽENO = hlídání vypnuto, ZASTŘEŽENO = hlídání zapnuto. Ústředna zaznamenává číslo účtu, ne zadaný PIN. Klávesnice je na chodbě. Zóna P hlídá jen prodejnu; chodba, kancelář a zadní dveře do dvora hlídané nejsou.</p></div>",
+   "look": "printout"
   },
   {
    "id": "F",
    "kind": "letter",
    "group": "Alarm",
    "title": "Dopis firmy Alarmservis Praha",
-   "html": "<div class='letter'><p class='head'>ALARMSERVIS PRAHA s.r.o., Na Zlíchově 12, Praha 5</p><p>Vážený pane kapitáne,</p><p>k Vašemu dotazu sdělujeme, jak funguje ústředna v objektu Mánesova 41:</p><ul><li><b>Účet 01</b> patřil panu Karlu Hronovi, <b>účet 02</b> paní Evě Malé. Každý má svůj PIN.</li><li><b>Účet 00</b> je servisní. Jeho PIN znají všichni naši technici, celkem šest osob. Zákazník ho nezná.</li><li>Pokud prodejna není zastřežena do 22:00, systém pošle majiteli SMS. Následující ráno také upozorní náš dispečink, že prodejna zůstala nezastřežená.</li><li>Rozpis služeb našich techniků na 14. 11. 2006 přikládáme (dokument U).</li></ul><p>S pozdravem<br>Ing. Pavel Dvořák, jednatel</p></div>"
+   "html": "<div class='letter'><p class='head'>ALARMSERVIS PRAHA s.r.o., Na Zlíchově 12, Praha 5</p><p>Vážený pane kapitáne,</p><p>k Vašemu dotazu sdělujeme, jak funguje ústředna v objektu Mánesova 41:</p><ul><li><b>Účet 01</b> patřil panu Karlu Hronovi, <b>účet 02</b> paní Evě Malé. Každý má svůj PIN.</li><li><b>Účet 00</b> je servisní. Jeho PIN znají všichni naši technici, celkem šest osob. Zákazník ho nezná.</li><li>Pokud prodejna není zastřežena do 22:00, systém pošle majiteli SMS. Následující ráno také upozorní náš dispečink, že prodejna zůstala nezastřežená.</li><li>Rozpis služeb našich techniků na 14. 11. 2006 přikládáme (dokument U).</li></ul><p>S pozdravem<br>Ing. Pavel Dvořák, jednatel</p></div>",
+   "look": "alarm-letter"
   },
   {
    "id": "G",
    "kind": "evidence",
    "group": "Alarm",
    "title": "Servisní protokol z 13. 11. 2006",
-   "html": "<div class='paper form'><p class='head'>ALARMSERVIS PRAHA — servisní protokol č. 2006/1187</p><table class='kv'><tr><th>Objekt</th><td>0417 Starožitnosti Hron, Mánesova 41</td></tr><tr><th>Datum</th><td>13. 11. 2006, 15:05–15:50</td></tr><tr><th>Důvod</th><td>pravidelná kontrola</td></tr><tr><th>Provedeno</th><td>test čidel, test sirény, kontrola baterie</td></tr><tr><th>Závady</th><td>bez závad</td></tr><tr><th>Technik</th><td><span class='sign'>V. Lang</span></td></tr><tr><th>Zákazník</th><td><span class='sign'>K. Hron</span></td></tr></table><p class='small'>Poznámka dispečinku (doplněno 16. 11. 2006): Pravidelná kontrola objektu 0417 byla naplánována až na únor 2007.</p></div>"
+   "html": "<div class='paper form'><p class='head'>ALARMSERVIS PRAHA — servisní protokol č. 2006/1187</p><table class='kv'><tr><th>Objekt</th><td>0417 Starožitnosti Hron, Mánesova 41</td></tr><tr><th>Datum</th><td>13. 11. 2006, 15:05–15:50</td></tr><tr><th>Důvod</th><td>pravidelná kontrola</td></tr><tr><th>Provedeno</th><td>test čidel, test sirény, kontrola baterie</td></tr><tr><th>Závady</th><td>bez závad</td></tr><tr><th>Technik</th><td><span class='sign'>V. Lang</span></td></tr><tr><th>Zákazník</th><td><span class='sign'>K. Hron</span></td></tr></table><p class='small'>Poznámka dispečinku (doplněno 16. 11. 2006): Pravidelná kontrola objektu 0417 byla naplánována až na únor 2007.</p></div>",
+   "look": "alarm-form"
   },
   {
    "id": "U",
    "kind": "evidence",
    "group": "Alarm",
    "title": "Rozpis služeb techniků, 14. 11. 2006",
-   "html": "<div class='paper'><p class='head'>ALARMSERVIS PRAHA — technici, úterý 14. 11. 2006</p><table class='grid'><tr><th>Technik</th><th>Večer 14. 11.</th></tr><tr><td>J. Novák</td><td>dovolená, Egypt (10.–20. 11.), letenky v kopii</td></tr><tr><td>M. Bureš</td><td>noční pohotovost, zásah v Plzni 19:15–23:40 (zápis klienta)</td></tr><tr><td>P. Kolář</td><td>noční pohotovost, zásah v Plzni s M. Burešem</td></tr><tr><td>R. Hájek</td><td>nemocenská, hospitalizován v nemocnici Motol (11.–17. 11.)</td></tr><tr><td>L. Svoboda</td><td>výjezd Liberec, montáž 16:00–22:30 (podpis zákazníka)</td></tr><tr><td>V. Lang</td><td>služba do 17:00, poté volno</td></tr></table></div>"
+   "html": "<div class='paper'><p class='head'>ALARMSERVIS PRAHA — technici, úterý 14. 11. 2006</p><table class='grid'><tr><th>Technik</th><th>Večer 14. 11.</th></tr><tr><td>J. Novák</td><td>dovolená, Egypt (10.–20. 11.), letenky v kopii</td></tr><tr><td>M. Bureš</td><td>noční pohotovost, zásah v Plzni 19:15–23:40 (zápis klienta)</td></tr><tr><td>P. Kolář</td><td>noční pohotovost, zásah v Plzni s M. Burešem</td></tr><tr><td>R. Hájek</td><td>nemocenská, hospitalizován v nemocnici Motol (11.–17. 11.)</td></tr><tr><td>L. Svoboda</td><td>výjezd Liberec, montáž 16:00–22:30 (podpis zákazníka)</td></tr><tr><td>V. Lang</td><td>služba do 17:00, poté volno</td></tr></table></div>",
+   "look": "alarm-roster"
   },
   {
    "id": "H",
@@ -103,7 +122,9 @@
    "group": "Výpovědi",
    "title": "Výpověď: Eva Malá, prodavačka",
    "person": "eva",
-   "html": "<div class='qa'><p class='meta'>Vyslechnuta 15. 11. 2006, kpt. Vrba</p><p class='q'>Jak jste pana Hrona našla?</p><p class='a'>Přišla jsem v půl deváté jako vždycky, vypnula jsem alarm svým kódem a v prodejně ležel on. Hned jsem volala záchranku.</p><p class='q'>Kdo znal kód od trezoru?</p><p class='a'>Jenom pan Hron. Ale on si všechno zapisoval. Kód měl v obálce s nápisem „trezor“ v horním šuplíku stolu. Kolikrát jsem mu říkala, že je to hloupost.</p><p class='q'>Kdy zůstával v obchodě dlouho?</p><p class='a'>Každé úterý. V půl sedmé zavřel prodejnu, zapnul alarm a seděl vzadu v kanceláři nad účty, tak do devíti. Zadní dveře do dvora se samy zamykají, zvenku se bez klíče otevřít nedají. Když někdo zazvonil, pouštěl jen lidi, které znal.</p><p class='q'>Co bylo ve vitríně?</p><p class='a'>Granátová sbírka. Přes den tam ležely i skleněné napodobeniny se štítkem „replika“, pravé kusy měly štítky G-01 až G-24.</p><p class='q'>Stalo se v posledních dnech něco neobvyklého?</p><p class='a'>V pondělí odpoledne přišel technik z alarmové firmy, že prý pravidelná kontrola. Pan Hron se divil, nic neobjednával. Technik se ho ptal, kdy tu bývá sám, a pan Hron mu řekl o těch úterních večerech. Pak ještě říkal, že se možná ještě staví něco doladit.</p><p class='q'>A syn pana Hrona?</p><p class='a'>Tomáš byl v pondělí ráno v obchodě. Hádali se kvůli penězům, slyšela jsem to až do prodejny. Tomáš odešel a práskl dveřmi.</p><p class='q'>Kde jste byla v úterý večer?</p><p class='a'>Na zkoušce sboru u svaté Ludmily, od sedmi do devíti. Doprovázím na klavír.</p></div>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnuta 15. 11. 2006, kpt. Vrba</p><p class='q'>Jak jste pana Hrona našla?</p><p class='a'>Přišla jsem v půl deváté jako vždycky, vypnula jsem alarm svým kódem a v prodejně ležel on. Hned jsem volala záchranku.</p><p class='q'>Kdo znal kód od trezoru?</p><p class='a'>Jenom pan Hron. Ale on si všechno zapisoval. Kód měl v obálce s nápisem „trezor“ v horním šuplíku stolu. Kolikrát jsem mu říkala, že je to hloupost.</p><p class='q'>Kdy zůstával v obchodě dlouho?</p><p class='a'>Každé úterý. V půl sedmé zavřel prodejnu, zapnul alarm a seděl vzadu v kanceláři nad účty, tak do devíti. Zadní dveře do dvora se samy zamykají, zvenku se bez klíče otevřít nedají. Když někdo zazvonil, pouštěl jen lidi, které znal.</p><p class='q'>Co bylo ve vitríně?</p><p class='a'>Granátová sbírka. Přes den tam ležely i skleněné napodobeniny se štítkem „replika“, pravé kusy měly štítky G-01 až G-24.</p><p class='q'>Stalo se v posledních dnech něco neobvyklého?</p><p class='a'>V pondělí odpoledne přišel technik z alarmové firmy, že prý pravidelná kontrola. Pan Hron se divil, nic neobjednával. Technik se ho ptal, kdy tu bývá sám, a pan Hron mu řekl o těch úterních večerech. Pak ještě říkal, že se možná ještě staví něco doladit.</p><p class='q'>A syn pana Hrona?</p><p class='a'>Tomáš byl v pondělí ráno v obchodě. Hádali se kvůli penězům, slyšela jsem to až do prodejny. Tomáš odešel a práskl dveřmi.</p><p class='q'>Kde jste byla v úterý večer?</p><p class='a'>Na zkoušce sboru u svaté Ludmily, od sedmi do devíti. Doprovázím na klavír.</p></div>",
+   "look": "interview",
+   "formRole": "svedek"
   },
   {
    "id": "I",
@@ -114,21 +135,27 @@
    "image": "img/foyer.jpg",
    "imageAlt": "Fotografie dvojice ve foyer Národního divadla, v rohu datum 14.11.2006 20:31.",
    "imageStamp": "14.11.2006 20:31",
-   "html": "<div class='qa'><p class='meta'>Vyslechnut 15. 11. 2006, kpt. Vrba</p><p class='q'>Kdy jste naposledy viděl otce?</p><p class='a'>V neděli na obědě. Normálně, bez problémů.</p><p class='q'>Máte dluhy?</p><p class='a'>Nějaké. To snad není zločin. Splácím to.</p><p class='q'>Kde jste byl v úterý večer?</p><p class='a'>V Národním divadle na Prodané nevěstě, s přítelkyní Petrou a kamarádem Michalem Novotným. Začínalo to v sedm, skončilo asi ve 21:50. Seděli jsme v lóži. Tady je vstupenka a fotka, co nám Michal udělal o přestávce.</p></div><div class='ticket'><p class='t1'>NÁRODNÍ DIVADLO</p><p class='t2'>Bedřich Smetana: PRODANÁ NEVĚSTA</p><p class='t3'>úterý 14. 11. 2006, 19:00</p><p class='t4'>Lóže č. 7, 1. pořadí, místo 2 · 450 Kč</p></div><p class='small'>Poznámka vyšetřovatele: fotoaparát M. Novotného předán k ověření, čas v přístroji odpovídá skutečnosti (odchylka do 1 minuty).</p>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnut 15. 11. 2006, kpt. Vrba</p><p class='q'>Kdy jste naposledy viděl otce?</p><p class='a'>V neděli na obědě. Normálně, bez problémů.</p><p class='q'>Máte dluhy?</p><p class='a'>Nějaké. To snad není zločin. Splácím to.</p><p class='q'>Kde jste byl v úterý večer?</p><p class='a'>V Národním divadle na Prodané nevěstě, s přítelkyní Petrou a kamarádem Michalem Novotným. Začínalo to v sedm, skončilo asi ve 21:50. Seděli jsme v lóži. Tady je vstupenka a fotka, co nám Michal udělal o přestávce.</p></div><div class='ticket'><p class='t1'>NÁRODNÍ DIVADLO</p><p class='t2'>Bedřich Smetana: PRODANÁ NEVĚSTA</p><p class='t3'>úterý 14. 11. 2006, 19:00</p><p class='t4'>Lóže č. 7, 1. pořadí, místo 2 · 450 Kč</p></div><p class='small'>Poznámka vyšetřovatele: fotoaparát M. Novotného předán k ověření, čas v přístroji odpovídá skutečnosti (odchylka do 1 minuty).</p>",
+   "look": "interview",
+   "formRole": "svedek"
   },
   {
    "id": "J",
    "kind": "interview",
    "group": "Výpovědi",
    "title": "Výpověď: Petra Vaňková, přítelkyně Tomáše",
-   "html": "<div class='qa'><p class='meta'>Vyslechnuta 16. 11. 2006</p><p class='q'>Kde jste byla v úterý večer?</p><p class='a'>S Tomášem a Michalem v divadle. Tomáš přišel rovnou z práce, sešli jsme se v šest u Národního.</p><p class='q'>Odcházel Tomáš během představení?</p><p class='a'>Ne. Celou dobu seděl vedle mě. O přestávce jsme byli ve foyer a Michal nás vyfotil.</p><p class='q'>Víte o jeho dluzích?</p><p class='a'>Vím. Prosil otce o půjčku a ten mu ji nedal. V pondělí se kvůli tomu pohádali. Tomáš mi to večer řekl.</p></div>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnuta 16. 11. 2006</p><p class='q'>Kde jste byla v úterý večer?</p><p class='a'>S Tomášem a Michalem v divadle. Tomáš přišel rovnou z práce, sešli jsme se v šest u Národního.</p><p class='q'>Odcházel Tomáš během představení?</p><p class='a'>Ne. Celou dobu seděl vedle mě. O přestávce jsme byli ve foyer a Michal nás vyfotil.</p><p class='q'>Víte o jeho dluzích?</p><p class='a'>Vím. Prosil otce o půjčku a ten mu ji nedal. V pondělí se kvůli tomu pohádali. Tomáš mi to večer řekl.</p></div>",
+   "look": "interview",
+   "formRole": "svedek"
   },
   {
    "id": "V",
    "kind": "interview",
    "group": "Výpovědi",
    "title": "Výpověď: Michal Novotný, kamarád Tomáše",
-   "html": "<div class='qa'><p class='meta'>Vyslechnut 17. 11. 2006</p><p class='q'>Byl s vámi Tomáš Hron celé představení?</p><p class='a'>Ano. Sešli jsme se v šest, do lóže jsme šli v tři čtvrtě na sedm. První jednání trvalo do čtvrt na devět a nikdo z lóže neodešel, lóže se zavírá a uvaděčka sedí přímo za dveřmi. O přestávce jsem Tomáše a Petru vyfotil ve foyer, po představení jsme šli na pivo do Slavie, až do půl dvanácté.</p></div>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnut 17. 11. 2006</p><p class='q'>Byl s vámi Tomáš Hron celé představení?</p><p class='a'>Ano. Sešli jsme se v šest, do lóže jsme šli v tři čtvrtě na sedm. První jednání trvalo do čtvrt na devět a nikdo z lóže neodešel, lóže se zavírá a uvaděčka sedí přímo za dveřmi. O přestávce jsem Tomáše a Petru vyfotil ve foyer, po představení jsme šli na pivo do Slavie, až do půl dvanácté.</p></div>",
+   "look": "interview",
+   "formRole": "svedek"
   },
   {
    "id": "K",
@@ -136,21 +163,25 @@
    "group": "Výpovědi",
    "title": "Výpověď: Ing. Radek Šimek, obchodník",
    "person": "simek",
-   "html": "<div class='qa'><p class='meta'>Vyslechnut 17. 11. 2006</p><p class='q'>Jaký jste měl vztah s panem Hronem?</p><p class='a'>Byli jsme společníci, rozešli jsme se ve zlém. Karel mě veřejně obvinil, že jsem prodal padělanou ikonu. Podal jsem na něj žalobu.</p><p class='q'>Na záznamníku pana Hrona je váš vzkaz: „Vezmu si zpátky, co je moje.“ Co jste tím myslel?</p><p class='a'>Ikonu svatého Mikuláše. Je moje, dal jsem mu ji do komisního prodeje, ještě když jsme spolu vycházeli. Chtěl jsem ji zpátky. Žádné granáty, ty mě nezajímaly.</p><p class='q'>Kde jste byl v úterý večer?</p><p class='a'>V Brně na aukci ve Starožitnické síni Moravia, od šesti do půl jedenácté. Spal jsem v hotelu Slavia.</p></div>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnut 17. 11. 2006</p><p class='q'>Jaký jste měl vztah s panem Hronem?</p><p class='a'>Byli jsme společníci, rozešli jsme se ve zlém. Karel mě veřejně obvinil, že jsem prodal padělanou ikonu. Podal jsem na něj žalobu.</p><p class='q'>Na záznamníku pana Hrona je váš vzkaz: „Vezmu si zpátky, co je moje.“ Co jste tím myslel?</p><p class='a'>Ikonu svatého Mikuláše. Je moje, dal jsem mu ji do komisního prodeje, ještě když jsme spolu vycházeli. Chtěl jsem ji zpátky. Žádné granáty, ty mě nezajímaly.</p><p class='q'>Kde jste byl v úterý večer?</p><p class='a'>V Brně na aukci ve Starožitnické síni Moravia, od šesti do půl jedenácté. Spal jsem v hotelu Slavia.</p></div>",
+   "look": "interview",
+   "formRole": "svedek"
   },
   {
    "id": "W",
    "kind": "evidence",
    "group": "Výpovědi",
    "title": "Aukční síň Moravia, Brno: protokol a výpověď",
-   "html": "<div class='paper'><p class='head'>STAROŽITNICKÁ SÍŇ MORAVIA, Brno — 47. aukce, 14. 11. 2006 (výtah)</p><table class='grid'><tr><th>Položka</th><th>Čas příklepu</th><th>Dražitel</th></tr><tr><td>č. 88 hodiny Biedermeier</td><td>19:12</td><td>č. 23</td></tr><tr><td>č. 112 ikona Kazaňské Bohorodice</td><td>20:05</td><td>č. 23</td></tr><tr><td>č. 131 stříbrný samovar</td><td>21:10</td><td>č. 23</td></tr></table><p>Dražitelské číslo 23: Ing. Radek Šimek, Praha.</p><p class='head'>Výpověď: Jana Křížová, zapisovatelka aukce</p><p>Pana Šimka znám léta, sedí vždycky v první řadě. Při položce 112 jsem s ním mluvila osobně, podepisoval mi u stolu převzetí. Celý večer byl v sále, odešel až po skončení aukce.</p><p class='small'>Brno – Praha autem cca 2 h 15 min.</p></div>"
+   "html": "<div class='paper'><p class='head'>STAROŽITNICKÁ SÍŇ MORAVIA, Brno — 47. aukce, 14. 11. 2006 (výtah)</p><table class='grid'><tr><th>Položka</th><th>Čas příklepu</th><th>Dražitel</th></tr><tr><td>č. 88 hodiny Biedermeier</td><td>19:12</td><td>č. 23</td></tr><tr><td>č. 112 ikona Kazaňské Bohorodice</td><td>20:05</td><td>č. 23</td></tr><tr><td>č. 131 stříbrný samovar</td><td>21:10</td><td>č. 23</td></tr></table><p>Dražitelské číslo 23: Ing. Radek Šimek, Praha.</p><div class='wqa'><p class='head'>Výpověď: Jana Křížová, zapisovatelka aukce</p><p>Pana Šimka znám léta, sedí vždycky v první řadě. Při položce 112 jsem s ním mluvila osobně, podepisoval mi u stolu převzetí. Celý večer byl v sále, odešel až po skončení aukce.</p></div><p class='small'>Brno – Praha autem cca 2 h 15 min.</p></div>",
+   "look": "auction"
   },
   {
    "id": "X",
    "kind": "evidence",
    "group": "Výpovědi",
    "title": "Komisní smlouva na ikonu",
-   "html": "<div class='paper form'><p class='head'>KOMISNÍ SMLOUVA č. 14/2004</p><p>Komitent: <b>Ing. Radek Šimek</b>. Komisionář: Karel Hron, Starožitnosti Hron.</p><p>Předmět: <b>ikona sv. Mikuláše</b>, Rusko, 19. stol., minimální cena 120 000 Kč.</p><p>Komitent může předmět kdykoli vyzvednout zpět.</p><p class='small'>Komitent = vlastník věci. Komisionář = obchodník, který ji za vlastníka prodává.</p><p>V Praze dne 3. 5. 2004 <span class='sign'>R. Šimek</span> <span class='sign'>K. Hron</span></p></div>"
+   "html": "<div class='paper form'><p class='head'>KOMISNÍ SMLOUVA č. 14/2004</p><p>Komitent: <b>Ing. Radek Šimek</b>. Komisionář: Karel Hron, Starožitnosti Hron.</p><p>Předmět: <b>ikona sv. Mikuláše</b>, Rusko, 19. stol., minimální cena 120 000 Kč.</p><p>Komitent může předmět kdykoli vyzvednout zpět.</p><p class='small'>Komitent = vlastník věci. Komisionář = obchodník, který ji za vlastníka prodává.</p><p>V Praze dne 3. 5. 2004 <span class='sign'>R. Šimek</span> <span class='sign'>K. Hron</span></p></div>",
+   "look": "contract"
   },
   {
    "id": "L",
@@ -158,21 +189,27 @@
    "group": "Výpovědi",
    "title": "Výpověď: Viktor Lang, technik Alarmservisu",
    "person": "lang",
-   "html": "<div class='qa'><p class='meta'>Vyslechnut 20. 11. 2006</p><p class='q'>Byl jste v pondělí 13. 11. v obchodě pana Hrona?</p><p class='a'>Ano, kontrola alarmu. Normální práce, všechno fungovalo.</p><p class='q'>Kdo vám tu kontrolu zadal?</p><p class='a'>Byla v plánu. Možná jsem si spletl měsíc, to se stává.</p><p class='q'>Kde jste byl v úterý 14. 11. večer?</p><p class='a'>Doma na Zbraslavi. Služba mi skončila v pět, pak jsem jel domů a celý večer jsem z domu nevytáhl paty. Seděl jsem v obýváku u televize. Manželka to potvrdí.</p><p class='q'>Kdo používá vaši platební kartu?</p><p class='a'>Jenom já. Nikomu ji nepůjčuju a nikdy jsem ji neztratil.</p><p class='q'>Znáte PIN servisního účtu?</p><p class='a'>Jasně, znají ho všichni technici. To neznamená, že jsem tam byl.</p><p class='q'>Máte finanční problémy?</p><p class='a'>Ne. To je moje věc.</p></div>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnut 20. 11. 2006</p><p class='q'>Byl jste v pondělí 13. 11. v obchodě pana Hrona?</p><p class='a'>Ano, kontrola alarmu. Normální práce, všechno fungovalo.</p><p class='q'>Kdo vám tu kontrolu zadal?</p><p class='a'>Byla v plánu. Možná jsem si spletl měsíc, to se stává.</p><p class='q'>Kde jste byl v úterý 14. 11. večer?</p><p class='a'>Doma na Zbraslavi. Služba mi skončila v pět, pak jsem jel domů a celý večer jsem z domu nevytáhl paty. Seděl jsem v obýváku u televize. Manželka to potvrdí.</p><p class='q'>Kdo používá vaši platební kartu?</p><p class='a'>Jenom já. Nikomu ji nepůjčuju a nikdy jsem ji neztratil.</p><p class='q'>Znáte PIN servisního účtu?</p><p class='a'>Jasně, znají ho všichni technici. To neznamená, že jsem tam byl.</p><p class='q'>Máte finanční problémy?</p><p class='a'>Ne. To je moje věc.</p></div>",
+   "look": "interview",
+   "formRole": "podezrely"
   },
   {
    "id": "M",
    "kind": "interview",
    "group": "Výpovědi",
    "title": "Výpověď: Ivana Langová, manželka",
-   "html": "<div class='qa'><p class='meta'>Vyslechnuta 21. 11. 2006</p><p class='q'>Byl váš manžel v úterý 14. 11. večer doma?</p><p class='a'>Byl doma, celý večer.</p><p class='q'>Viděla jste ho?</p><p class='a'>No… od sedmi jsem byla nahoře s dětmi, ukládala jsem je a pak jsem tam usnula u televize. Viktor byl dole, v obýváku nebo v dílně, on tam často něco kutí. Viděla jsem ho, až když přišel nahoru spát, mohlo být tak půl desáté. Měl mokré vlasy, říkal, že vynášel koše.</p><p class='q'>Jezdí manžel služebním autem?</p><p class='a'>Ano, má dodávku Alarmservisu, nechává ji před domem.</p></div>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnuta 21. 11. 2006</p><p class='q'>Byl váš manžel v úterý 14. 11. večer doma?</p><p class='a'>Byl doma, celý večer.</p><p class='q'>Viděla jste ho?</p><p class='a'>No… od sedmi jsem byla nahoře s dětmi, ukládala jsem je a pak jsem tam usnula u televize. Viktor byl dole, v obýváku nebo v dílně, on tam často něco kutí. Viděla jsem ho, až když přišel nahoru spát, mohlo být tak půl desáté. Měl mokré vlasy, říkal, že vynášel koše.</p><p class='q'>Jezdí manžel služebním autem?</p><p class='a'>Ano, má dodávku Alarmservisu, nechává ji před domem.</p></div>",
+   "look": "interview",
+   "formRole": "svedek"
   },
   {
    "id": "N",
    "kind": "interview",
    "group": "Výpovědi",
    "title": "Výpověď: Jiřina Pokorná, sousedka z 1. patra",
-   "html": "<div class='qa'><p class='meta'>Vyslechnuta 15. 11. 2006</p><p class='q'>Slyšela jste v úterý večer něco?</p><p class='a'>Ano, ránu zespodu, jako když spadne skříň. Bylo to při předpovědi počasí po Událostech, takže tak za pět minut osm. Krátce potom začalo pršet, do té doby bylo sucho.</p><p class='q'>Viděla jste někoho?</p><p class='a'>Později, asi za dvacet minut devět, jsem šla zatáhnout záclony a ve dvoře šel muž k bráně na ulici. Pršelo. Měl tmavou bundu a přes záda <b>pruh, který svítil</b>, jak na něj padlo světlo z lampy. Nesl velkou sportovní tašku. Obličej jsem neviděla, měl kapuci.</p><p class='q'>Chodí přes dvůr hodně lidí?</p><p class='a'>Večer skoro nikdo. Brána do ulice se zamyká až v deset.</p></div>"
+   "html": "<div class='qa'><p class='meta'>Vyslechnuta 15. 11. 2006</p><p class='q'>Slyšela jste v úterý večer něco?</p><p class='a'>Ano, ránu zespodu, jako když spadne skříň. Bylo to při předpovědi počasí po Událostech, takže tak za pět minut osm. Krátce potom začalo pršet, do té doby bylo sucho.</p><p class='q'>Viděla jste někoho?</p><p class='a'>Později, asi za dvacet minut devět, jsem šla zatáhnout záclony a ve dvoře šel muž k bráně na ulici. Pršelo. Měl tmavou bundu a přes záda <b>pruh, který svítil</b>, jak na něj padlo světlo z lampy. Nesl velkou sportovní tašku. Obličej jsem neviděla, měl kapuci.</p><p class='q'>Chodí přes dvůr hodně lidí?</p><p class='a'>Večer skoro nikdo. Brána do ulice se zamyká až v deset.</p></div>",
+   "look": "interview",
+   "formRole": "svedek"
   },
   {
    "id": "O",
@@ -180,14 +217,16 @@
    "group": "Stopy",
    "title": "Obsah popelnice ve dvoře + účtenka",
    "html": "<div class='paper'><p class='head'>Úřední záznam: prohlídka popelnice ve dvoře domu Mánesova 41, 15. 11. 2006</p><p>Hledána vražedná zbraň a odcizené věci (nenalezeny). Obsah: noviny, obaly od jogurtů, slupky, rozbitý hrnek, <b>pokladní účtenka</b> (zajištěna, viz níže), ležela navrchu.</p></div><div class='receipt'><p class='c'>ČERPACÍ STANICE KORUNNÍ</p><p class='c'>Korunní 88, Praha 2</p><p>14.11.2006 19:31</p><p>Káva velká ........ 39,00</p><p>Cigarety ........... 87,00</p><p>CELKEM ........ <b>126,00 Kč</b></p><p>Platební karta **** **** **** 4417</p><p class='c'>Děkujeme za nákup</p></div>",
-   "receiptSvg": true
+   "receiptSvg": true,
+   "look": "police-note"
   },
   {
    "id": "P",
    "kind": "evidence",
    "group": "Stopy",
    "title": "Finanční příloha (nalezena 2026)",
-   "html": "<div class='paper'><p class='head'>Finanční šetření k č. j. KRPA-4411/OK-2006, prosinec 2006</p><p class='note2026'>Nalezeno při digitalizaci 2026, omylem založeno u spisu KRPA-5120. Původní vyšetřovací tým tuto přílohu neměl k dispozici.</p><p><b>1) Tomáš Hron</b>: dluh vůči sázkové kanceláři a nesplacené závazky ze dvou nebankovních půjček, celkem cca 400 000 Kč. Splátky placeny se zpožděním, žádná exekuce.</p><p><b>2) Viktor Lang</b>: exekuční výzva soudního exekutora Mgr. Holuba ze 6. 10. 2006 na <b>248 000 Kč</b>, splatnost <b>30. 11. 2006</b>, jinak dražba domu na Zbraslavi.</p><p><b>Výpis z účtu V. Langa (výtah), karta **** 4417:</b></p><table class='grid'><tr><th>Datum</th><th>Obchodník</th><th>Částka</th></tr><tr><td>12.11.2006</td><td>Hypermarket Zličín</td><td>-1 245,00</td></tr><tr><td>13.11.2006</td><td>Čerpací stanice Zbraslav</td><td>-1 100,00</td></tr><tr><td>14.11.2006</td><td>ČS Korunní, Praha 2</td><td>-126,00</td></tr><tr><td>16.11.2006</td><td>vklad hotovosti</td><td>+40 000,00</td></tr></table></div>"
+   "html": "<div class='paper'><p class='head'>Finanční šetření k č. j. KRPA-4411/OK-2006, prosinec 2006</p><p class='note2026'>Nalezeno při digitalizaci 2026, omylem založeno u spisu KRPA-5120. Původní vyšetřovací tým tuto přílohu neměl k dispozici.</p><p><b>1) Tomáš Hron</b>: dluh vůči sázkové kanceláři a nesplacené závazky ze dvou nebankovních půjček, celkem cca 400 000 Kč. Splátky placeny se zpožděním, žádná exekuce.</p><p class='exek'><b>2) Viktor Lang</b>: exekuční výzva soudního exekutora Mgr. Holuba ze 6. 10. 2006 na <b>248 000 Kč</b>, splatnost <b>30. 11. 2006</b>, jinak dražba domu na Zbraslavi.</p><div class='bank'><p><b>Výpis z účtu V. Langa (výtah), karta **** 4417:</b></p><table class='grid'><tr><th>Datum</th><th>Obchodník</th><th>Částka</th></tr><tr><td>12.11.2006</td><td>Hypermarket Zličín</td><td>-1 245,00</td></tr><tr><td>13.11.2006</td><td>Čerpací stanice Zbraslav</td><td>-1 100,00</td></tr><tr><td>14.11.2006</td><td>ČS Korunní, Praha 2</td><td>-126,00</td></tr><tr><td>16.11.2006</td><td>vklad hotovosti</td><td>+40 000,00</td></tr></table></div></div>",
+   "look": "finance"
   },
   {
    "id": "R",
@@ -196,14 +235,16 @@
    "title": "Reklamní leták firmy Alarmservis",
    "image": "img/leaflet.jpg",
    "imageAlt": "Leták: tři technici v tmavých bundách s reflexním pruhem přes záda u firemní dodávky.",
-   "html": "<div class='paper'><p class='head'>Leták zajištěný v obchodě (ležel na pultu)</p><p>„ALARMSERVIS PRAHA — vaše bezpečí v dobrých rukou.“ Na fotografii jsou technici firmy v pracovních bundách. Nonstop pohotovost.</p><p class='small'>Pracovní bundy techniků jsou tmavomodré s reflexním pruhem přes záda.</p></div>"
+   "html": "<div class='paper'><p class='head'>Leták zajištěný v obchodě (ležel na pultu)</p><p>„ALARMSERVIS PRAHA — vaše bezpečí v dobrých rukou.“ Na fotografii jsou technici firmy v pracovních bundách. Nonstop pohotovost.</p><p class='small'>Pracovní bundy techniků jsou tmavomodré s reflexním pruhem přes záda.</p></div>",
+   "look": "leaflet"
   },
   {
    "id": "T",
    "kind": "letter",
    "group": "Výpovědi",
    "title": "Potvrzení sbormistra",
-   "html": "<div class='letter'><p>Potvrzuji, že paní Eva Malá v úterý 14. 11. 2006 doprovázela zkoušku chrámového sboru u sv. Ludmily na klavír od 19:00 do 21:00. Zkouška byla bez přestávky a paní Malá od klavíru neodešla, bez ní bychom nemohli zpívat.</p><p>Jan Kubát, sbormistr</p></div>"
+   "html": "<div class='letter'><p>Potvrzuji, že paní Eva Malá v úterý 14. 11. 2006 doprovázela zkoušku chrámového sboru u sv. Ludmily na klavír od 19:00 do 21:00. Zkouška byla bez přestávky a paní Malá od klavíru neodešla, bez ní bychom nemohli zpívat.</p><p>Jan Kubát, sbormistr</p></div>",
+   "look": "parish-note"
   },
   {
    "id": "Y",
@@ -211,7 +252,8 @@
    "group": "Spis",
    "title": "Mapa a časy cest",
    "map": true,
-   "html": "<div class='paper'><p class='head'>Mapka sestavená vyšetřovatelem (časy v listopadu 2006, večer)</p><table class='grid'><tr><th>Odkud – kam</th><th>Čas</th></tr><tr><td>Mánesova 41 – ČS Korunní 88</td><td>5 min pěšky</td></tr><tr><td>Mánesova 41 – Národní divadlo</td><td>20 min tramvají</td></tr><tr><td>Mánesova 41 – kostel sv. Ludmily</td><td>4 min pěšky</td></tr><tr><td>Mánesova 41 – Zbraslav</td><td>35 min autem</td></tr><tr><td>Praha – Brno</td><td>2 h 15 min autem</td></tr></table></div>"
+   "html": "<div class='paper'><p class='head'>Mapka sestavená vyšetřovatelem (časy v listopadu 2006, večer)</p><table class='grid'><tr><th>Odkud – kam</th><th>Čas</th></tr><tr><td>Mánesova 41 – ČS Korunní 88</td><td>5 min pěšky</td></tr><tr><td>Mánesova 41 – Národní divadlo</td><td>20 min tramvají</td></tr><tr><td>Mánesova 41 – kostel sv. Ludmily</td><td>4 min pěšky</td></tr><tr><td>Mánesova 41 – Zbraslav</td><td>35 min autem</td></tr><tr><td>Praha – Brno</td><td>2 h 15 min autem</td></tr></table></div>",
+   "look": "police-note"
   }
  ],
  "hints": [

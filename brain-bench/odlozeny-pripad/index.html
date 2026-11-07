@@ -9,7 +9,7 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
 :root{
   --desk:#16140f; --desk2:#262117; --ui:#efe8d8; --uimuted:#c2b8a3; --accent:#f0b25a; --accent-ink:#1b1408;
@@ -208,6 +208,168 @@ details.transcript[open]{padding-bottom:14px}
 .svgfig svg{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
 .svgfig figcaption{font-size:15px;color:var(--muted);margin-top:10px}
 .svgfig figcaption ul{margin:6px 0 0;padding-left:1.2em}
+
+/* ---------- document looks: letterheads, forms, stamps (decor is aria-hidden, text stays in case.json) ---------- */
+.look{--typed:'Courier Prime','Courier New',Courier,monospace;--holes:radial-gradient(circle at 12px 64px,var(--desk) 0 5px,transparent 6px),radial-gradient(circle at 12px 164px,var(--desk) 0 5px,transparent 6px)}
+.lh{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin:0 0 14px;padding-bottom:10px;border-bottom:3px double currentColor;font-family:var(--sans)}
+.lh-ico{flex:none;width:42px;height:48px;display:block}
+.lh-t{flex:1 1 150px;min-width:0;line-height:1.2}
+.lh-t b{display:block;font-size:16px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.lh-t span{display:block;font-size:12.5px;letter-spacing:.03em;opacity:.85}
+.lh-no{flex:0 1 auto;margin-left:auto;font:12.5px/1.4 var(--mono);text-align:right}
+.lh-police{color:#1f3a6b}
+.lh-alarm{color:#13284d;border-bottom:4px solid #f08a1c;box-shadow:0 3px 0 #13284d;margin-bottom:18px}
+.lh-alarm .lh-t b{font-size:20px;font-style:italic;letter-spacing:.03em}
+.lh-ins{color:#1d6b4f}
+.lh-ins .lh-t b{font:700 23px/1 var(--serif);letter-spacing:.14em}
+.lh-ins .lh-t span{font-style:italic;font-size:14px}
+.lh-auct{color:#6b1f2a;justify-content:center;text-align:center;border-bottom:1px solid currentColor}
+.lh-auct .lh-t{flex:0 1 auto}
+.lh-auct .lh-t b{font:400 20px/1.15 var(--serif);letter-spacing:.2em}
+.lh-bank{color:#3a2a6b;border-bottom:2px solid currentColor;margin-bottom:10px}
+.lh-bank .lh-ico{width:34px;height:34px}
+.lh-foot{height:8px;margin-top:18px;background:linear-gradient(#f08a1c 0 50%,#13284d 50%)}
+.cornerico{position:absolute;top:16px;right:16px;width:52px;pointer-events:none}
+.cornerico svg{width:52px;height:60px;display:block}
+/* round rubber stamps and signatures */
+.rstamp{display:block;width:100%;height:auto;mix-blend-mode:multiply;opacity:.8}
+.has-stamp{padding-bottom:124px!important}
+.stamp-abs{position:absolute;right:24px;bottom:14px;width:104px;pointer-events:none}
+.sigblock{position:relative;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px 22px;margin-top:26px;font-family:var(--sans)}
+.sigline{flex:0 1 170px;min-width:128px;display:flex;flex-direction:column;align-items:center}
+.sigline .scrib{width:118px;height:44px;margin-bottom:-8px;display:block}
+.sigline span{align-self:stretch;border-top:1px dotted #5c5243;padding-top:3px;text-align:center;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.sigstamp{position:absolute;right:112px;top:-34px;width:100px;pointer-events:none}
+.scrib-in{display:inline-block;vertical-align:middle;margin:2px 0}
+.scrib-in .scrib{width:120px;height:44px;display:block}
+/* police papers: typed text, punched holes */
+.look-police-cover,.look-police-form,.look-police-note,.look-leaflet,.look-finance,.look-interview{background-color:#f8f5ea;background-image:var(--holes);background-repeat:no-repeat;padding-left:30px;font-family:var(--typed);font-size:17px}
+.look-police-cover > p.head:first-of-type{padding-right:66px;font:700 15px/1.45 var(--sans);letter-spacing:.05em;color:#1f3a6b;border-bottom:3px double #1f3a6b}
+.look-police-cover .kv th,.look-interview .kv th{font-family:var(--sans);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}
+.look-police-cover .stamp{display:table;margin:18px 4px 0 auto!important;padding:7px 18px 5px 22px;font:900 34px/1 var(--sans);letter-spacing:.2em;color:#b3241b;border:5px solid #b3241b;outline:2px solid #b3241b;outline-offset:3px;border-radius:4px;
+  transform:rotate(-9deg);opacity:.82;mix-blend-mode:multiply;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.6 0 0 0 2.15'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.6 0 0 0 2.15'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");-webkit-mask-size:160px;mask-size:160px}
+.look .head{font-family:var(--typed)}
+.look-police-form > p.head:first-of-type,.look-police-note > p.head:first-of-type,.look-leaflet > p.head:first-of-type,.look-finance > p.head:first-of-type{font:700 17px/1.4 var(--typed);text-transform:uppercase;letter-spacing:.04em}
+/* interview records */
+.look-interview{border-top:0;line-height:1.6;padding-left:36px;counter-reset:ln;
+  background-image:var(--holes),linear-gradient(90deg,transparent 27px,rgba(163,36,27,.4) 27px 28px,transparent 28px)}
+.formtitle{clear:none;text-align:center;font:700 19px/1.3 var(--typed);letter-spacing:.1em;text-transform:uppercase;margin:4px 0 12px!important;text-decoration:underline double;text-underline-offset:6px}
+.formtitle.sm{font-size:14px;margin-bottom:6px!important}
+.fbox{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid #4a4235;margin:0 0 12px;background:rgba(255,255,255,.35)}
+.fld{display:flex;flex-direction:column;gap:1px;padding:5px 9px 6px;border-bottom:1px solid #8d8170;min-width:0}
+.fld:nth-child(odd):not(.wide){border-right:1px solid #8d8170}
+.fld.wide{grid-column:1/-1}
+.fld:last-child{border-bottom:0}
+.fl{font:700 10.5px/1.2 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.fv{font:17px/1.35 var(--typed)}
+.fv .meta{margin:0!important;font:inherit;color:inherit}
+.blank{display:inline-block;width:7em;max-width:100%;height:1.15em;border-bottom:1px solid #6c6252}
+.pouc{border:1px dashed #6c6252;padding:8px 10px;font:13.5px/1.45 var(--sans);color:#3d3529;margin:0 0 16px!important;background:rgba(255,255,255,.4)}
+.pouc b{letter-spacing:.06em;text-transform:uppercase;font-size:12px}
+.txh{clear:both;font:700 12px var(--sans)!important;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:4px;color:var(--muted)}
+.look-interview .q,.look-interview .a{position:relative;border-left:0;padding:2px 0;font-style:normal;color:var(--ink)}
+.look-interview .q{color:#1e2f5c;margin-bottom:4px!important}
+.look-interview .a{margin-bottom:16px!important}
+.look-interview .who{display:inline;font:700 14px var(--typed);letter-spacing:.02em;text-transform:none;margin-right:.45em;color:inherit}
+.look-interview .a .who{color:#6a4a16}
+.clipphoto{float:right;position:relative;width:108px;margin:-4px -4px 10px 14px;transform:rotate(2.2deg);z-index:1}
+.clipphoto .mugdoc{float:none;display:block;margin:0;transform:none;width:100%;height:auto;aspect-ratio:3/4}
+.clipphoto .clip{position:absolute;top:-22px;left:16px;width:20px;height:62px;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.35))}
+.ffoot{clear:both;margin-top:22px;padding-top:10px;border-top:1px solid var(--line)}
+.ffoot-t{font:italic 15px var(--typed);margin:0!important}
+@media (min-width:600px){
+  .look-interview .q,.look-interview .a{padding-left:6.6em}
+  .look-interview .who{position:absolute;left:0;top:.3em;width:6.2em;font-size:13.5px}
+  .look-interview .q::before,.look-interview .a::before{counter-increment:ln;content:counter(ln);position:absolute;left:-34px;width:20px;text-align:right;top:.45em;font:11px/1 var(--mono);color:rgba(40,30,20,.38)}
+}
+@media (max-width:520px){
+  .docbody > .look-interview,.docbody > .look-police-cover,.docbody > .look-police-form,.docbody > .look-police-note,.docbody > .look-leaflet,.docbody > .look-finance{padding-left:30px;font-size:16.5px}
+  .fbox{clear:both}
+  .look-interview{background-image:var(--holes),linear-gradient(90deg,transparent 21px,rgba(163,36,27,.4) 21px 22px,transparent 22px);--holes:radial-gradient(circle at 9px 64px,var(--desk) 0 4px,transparent 5px),radial-gradient(circle at 9px 164px,var(--desk) 0 4px,transparent 5px)}
+  .look-police-cover,.look-police-form,.look-police-note,.look-leaflet,.look-finance{--holes:radial-gradient(circle at 9px 64px,var(--desk) 0 4px,transparent 5px),radial-gradient(circle at 9px 164px,var(--desk) 0 4px,transparent 5px)}
+  .fbox{grid-template-columns:1fr 1fr}
+  .clipphoto{width:86px;margin-left:10px}
+  .formtitle{font-size:16.5px;letter-spacing:.06em}
+  .stamp-abs{right:14px;width:94px}
+}
+/* W: witness statement typed on its own sheet */
+.wqa{position:relative;background:#fdfcf6;border:1px solid #cfc6b0;padding:22px 16px 12px;margin:10px 0 16px;transform:rotate(-.5deg);font-family:var(--typed);font-size:17px;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.wqa .clip{position:absolute;top:-20px;left:22px;width:20px;height:60px}
+.wqa .head{font:700 15px var(--typed);border-bottom:1px solid var(--line)}
+.wqa .sigblock{margin-top:8px}
+/* C: forensic institute form */
+.look-autopsy{background:#fbfaf5;border:1px solid #c8c2b0;font-family:var(--sans);font-size:17px}
+.look-autopsy .head{font:700 13.5px/1.35 var(--sans);letter-spacing:.07em;text-transform:uppercase;background:#e4e2d8;border:1px solid #9a9686;padding:5px 8px!important;margin:16px 0 8px!important}
+.look-autopsy > p.head:first-of-type{background:none;border:0;border-bottom:3px double #2c3e50;color:#2c3e50;font-size:14.5px;padding:0 66px 10px 0!important;margin-top:0!important}
+.look-autopsy .kv{border:1px solid #9a9686}
+.look-autopsy .kv th{padding-left:8px;background:#f0eee6;font:700 12px/1.3 var(--sans);text-transform:uppercase;letter-spacing:.05em;color:#3d3a30}
+.look-autopsy .kv td{padding-left:8px;font-family:var(--typed)}
+.look-autopsy .grid th{background:#2c3e50;color:#fff;font:700 12.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;border-color:#2c3e50}
+.look-autopsy .grid td{font-family:var(--typed);background:#fff}
+.look-autopsy .grid td:first-child{font:700 13px var(--sans);background:#f0eee6;text-transform:uppercase;letter-spacing:.04em;width:36%}
+.bodymap{margin:0 0 12px;border:1px solid #9a9686;background:#fff;padding:10px 10px 8px}
+.bodymap svg{display:block;width:100%;max-width:470px;height:auto;margin:0 auto}
+.bodymap figcaption{font:14px/1.4 var(--sans);color:var(--muted);margin-top:6px}
+/* D: insurer + photo documentation */
+.look-insurance{background:#fcfcf8;font-family:var(--serif)}
+.look-insurance > p.head:first-of-type{font:700 14px/1.4 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:#1d6b4f}
+.look-insurance .grid th{background:#1d6b4f;color:#fff;border-color:#1d6b4f;font-family:var(--sans)}
+.look-insurance .grid td:first-child{white-space:nowrap}
+.look-insurance .grid td:last-child{white-space:nowrap;text-align:right;font-family:var(--typed)}
+.photosheet{background:#e9e9e1;color:var(--ink);padding:16px 16px 20px;border-radius:2px;box-shadow:0 14px 30px rgba(0,0,0,.55);display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
+.ps-head{margin:0;font:700 13px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#1d6b4f;border-bottom:2px solid #1d6b4f;padding-bottom:6px}
+.pprint{margin:0;display:grid;gap:8px;transform:rotate(var(--r))}
+.pprint .zoombtn{max-width:none}
+.pprint .imgwrap{padding:8px;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.pprint figcaption{font:14px/1.45 var(--sans);color:#3d3529}
+.ptag{display:inline-block;background:#f6e9b8;border:1px solid #b59a52;padding:1px 10px 1px 22px;margin-right:6px;font:700 13px var(--typed);position:relative;transform:rotate(-2deg)}
+.ptag::before{content:"";position:absolute;left:7px;top:50%;width:7px;height:7px;margin-top:-4px;border-radius:50%;background:#e9e9e1;box-shadow:inset 0 0 0 1.5px #8a7440}
+@media (min-width:640px){.photosheet{grid-template-columns:repeat(2,minmax(0,1fr))}.ps-head{grid-column:1/-1}}
+/* E: dot-matrix printout */
+.look-printout{border-top:2px dashed rgba(0,0,0,.28);border-bottom:2px dashed rgba(0,0,0,.28)}
+.look-printout th,.look-printout td{color:#262626;text-shadow:0 0 .8px rgba(20,20,20,.55)}
+.look-printout .head{font-weight:700;letter-spacing:.06em;border-bottom:1px dashed #555}
+/* F, G, U: Alarmservis */
+.look-alarm-letter{background:#fff;background-image:none;padding-top:22px}
+.look-alarm-letter .head{text-align:right;border-bottom:0;font:12.5px/1.4 var(--sans);color:#13284d;letter-spacing:.03em}
+.look-alarm-form,.look-alarm-roster{background:#fdfdfb;background-image:none;font-family:var(--sans);font-size:17px}
+.look-alarm-form > p.head:first-of-type,.look-alarm-roster > p.head:first-of-type{font:700 14px/1.4 var(--sans);text-transform:uppercase;letter-spacing:.05em;background:#13284d;color:#fff;padding:7px 10px!important;border:0}
+.look-alarm-form .kv{border:1px solid #9aa6bb}
+.look-alarm-form .kv th{padding-left:8px;background:#e8edf5;font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.05em;color:#13284d}
+.look-alarm-form .kv td{padding-left:8px;font-family:var(--typed)}
+.look-alarm-roster .grid th{background:#e8edf5;color:#13284d;font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.05em}
+/* R: leaflet photo framed as the printed leaflet */
+.leafletfig .imgwrap{background:#13284d;padding:0}
+.leafband{display:flex;align-items:center;gap:8px;padding:8px 12px;color:#fff;font:800 italic 18px var(--sans);letter-spacing:.03em}
+.leafband .lh-ico{width:26px;height:30px}
+.leafband2{display:block;padding:5px 12px;background:#f08a1c;color:#13284d;font:800 13px var(--sans);text-transform:uppercase;letter-spacing:.14em;text-align:right}
+/* P: bank statement and enforcement notice */
+.bank{border:1px solid #8b84a8;background:#fff;padding:12px 12px 2px;margin:6px 0 4px;font-family:var(--sans)}
+.bank .grid th{background:#3a2a6b;color:#fff;border-color:#3a2a6b;font-family:var(--sans)}
+.bank .grid td{font-family:var(--mono);font-size:15px}
+.bank .grid td:last-child{text-align:right;white-space:nowrap}
+.exek{position:relative;border:2px solid #6b1f1f;padding:10px 92px 12px 14px;background:#fff8f2}
+.exek::before{content:"Exekutorský úřad · výzva";display:block;font:700 11.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#6b1f1f;margin-bottom:4px}
+.exek-seal{position:absolute;right:8px;top:50%;width:76px;margin-top:-38px;pointer-events:none}
+/* T: handwritten note on choir paper */
+.look-parish-note{justify-self:center;width:100%;max-width:560px;transform:rotate(-.8deg);background-color:#fbf6e6;
+  background-image:linear-gradient(rgba(60,40,90,.14) 1px,transparent 1px);background-size:100% 36px;background-position:0 70px;font:600 26px/36px var(--hand);color:#1e2b6b;padding:20px 24px 30px}
+.look-parish-note p{margin:0!important}
+.look-parish-note p:last-of-type{text-align:right;margin-top:12px!important}
+.parish{display:flex;align-items:center;gap:8px;height:40px;margin:0 0 14px;padding-bottom:6px;border-bottom:1px solid #3b2a55;font:700 12.5px var(--serif);letter-spacing:.14em;text-transform:uppercase;color:#3b2a55}
+.parish svg{width:20px;height:28px;flex:none}
+/* W: auction house */
+.look-auction{background:#fbf7ee;font-family:var(--serif)}
+.look-auction > p.head:first-of-type{text-align:center;font:400 15px/1.4 var(--serif);letter-spacing:.08em;border-bottom:0}
+.look-auction .grid th{background:#6b1f2a;color:#fff;border-color:#6b1f2a;font-family:var(--sans)}
+/* X: typed contract */
+.look-contract{background:#fdfbf3;background-image:none;font-family:var(--typed);font-size:17px;padding:28px 26px 40px}
+.look-contract .head{text-align:center;font:700 20px/1.3 var(--typed);letter-spacing:.16em;border-bottom:0;text-decoration:underline;text-underline-offset:6px;margin-bottom:20px!important}
+.look-contract p:last-of-type{display:flex;flex-wrap:wrap;align-items:flex-end;gap:30px 26px;margin-top:26px!important}
+.look-contract .sign{position:relative;min-width:7.2em;margin:0;padding:0 .3em 4px;border-bottom:1px solid #3a3226;text-align:center;transform:rotate(-2deg)}
+.look-contract .sign::after{position:absolute;top:calc(100% + 4px);left:0;right:0;font:12px var(--sans);color:var(--muted);letter-spacing:.06em}
+.look-contract .sign:nth-of-type(1)::after{content:"komitent"}
+.look-contract .sign:nth-of-type(2)::after{content:"komisionář"}
 
 /* dialogs */
 dialog{border:0;padding:0;background:#1d1912;color:var(--ui);width:100%;max-width:100%;height:100%;max-height:100%;margin:0}
@@ -600,7 +762,7 @@ function openDoc(id, opt){
     const d = DOCS[id], st = !!S.star[id];
     h += '<header class="dochead"><span class="badge" aria-hidden="true">' + esc(id) + '</span><div class="hgroup"><p class="grp">' + esc(d.group) + ' · dokument ' + esc(id) + '</p><h2 id="docTitle">' + esc(d.title) + '</h2></div>' +
       '<button class="starbtn" data-star="' + esc(id) + '" aria-pressed="' + st + '"><span aria-hidden="true">' + (st ? '★' : '☆') + '</span> Důležité</button></header>' +
-      '<div class="docbody">' + figureHTML(d) + mugHTML(d) + d.html + (d.plan ? planSVG() : '') + (d.map ? mapSVG() : '') + '</div>';
+      '<div class="docbody">' + figureHTML(d) + mugHTML(d) + d.html + galleryHTML(d) + (d.plan ? planSVG() : '') + (d.map ? mapSVG() : '') + '</div>';
   }
   h += '<nav class="docnav" aria-label="Další dokumenty">' + navBtn(prev, 'prev', '← ' + (prev === 'brief' ? 'Zadání' : 'Dokument ' + esc(prev))) + navBtn(next, 'next', 'Dokument ' + esc(next) + ' →') + '</nav>';
   const pane = $('#pane');
@@ -622,9 +784,9 @@ function showList(){
   if (!wideMQ.matches) requestAnimationFrame(() => window.scrollTo(0, listScroll));
 }
 function enhance(root, d){
-  const who = speakerOf(d);
-  $$('.qa .q', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">Vyšetřovatel</span>'));
-  $$('.qa .a', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">' + esc(who) + '</span>'));
+  const who = speakerOf(d), typed = d.look === 'interview';
+  $$('.qa .q', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">' + (typed ? 'Otázka:' : 'Vyšetřovatel') + '</span>'));
+  $$('.qa .a', root).forEach(p => p.insertAdjacentHTML('afterbegin', '<span class="who">' + (typed ? 'Odpověď:' : esc(who)) + '</span>'));
   $$('.docbody table', root).forEach(t => { const w = document.createElement('div'); w.className = 'tscroll'; t.parentNode.insertBefore(w, t); w.appendChild(t); });
   // Wide tables (alarm log on phones) scroll inside the card; tell the reader so.
   requestAnimationFrame(() => $$('.tscroll', root).forEach(w => {
@@ -639,6 +801,175 @@ function enhance(root, d){
     rc.parentNode.insertBefore(fig, rc);
     $('details', fig).appendChild(rc);
   });
+  applyLook(root, d);
+}
+
+/* ---------- paper looks: letterheads, stamps, signatures ----------
+   All organisations and marks are fictional and drawn here. Decorative chrome is aria-hidden;
+   every case fact stays in case.json (field values are taken from the document itself). */
+const CASE_NO = 'KRPA-4411/OK-2006';
+let svgSeq = 0;
+const SHIELD = 'M24 2 44 9v18c0 14-9 23-20 27C13 50 4 41 4 27V9z';
+const ICON = {
+  police: '<svg class="lh-ico" viewBox="0 0 48 56" aria-hidden="true" focusable="false"><path d="' + SHIELD + '" fill="#1f3a6b" stroke="#b8963e" stroke-width="2.5"/><path d="M24 12c8 6 9 18 0 30-9-12-8-24 0-30z" fill="#f4ecd6"/><path d="M24 16v28M24 25l-5-4M24 32l5-4" stroke="#1f3a6b" stroke-width="1.6" fill="none"/></svg>',
+  alarm: '<svg class="lh-ico" viewBox="0 0 48 56" aria-hidden="true" focusable="false"><path d="' + SHIELD + '" fill="#13284d"/><path d="M5 40 43 27v7L7 46z" fill="#f08a1c"/><circle cx="24" cy="15" r="5" fill="#fff"/><path d="M21.5 17h5l1.5 10h-8z" fill="#fff"/></svg>',
+  ins: '<svg class="lh-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 24a20 20 0 0 1 40 0c-3-3-7-3-10 0-3-3-7-3-10 0-3-3-7-3-10 0-3-3-7-3-10 0z" fill="#1d6b4f"/><path d="M24 24v14a4 4 0 0 1-8 0" stroke="#1d6b4f" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M24 2v3" stroke="#1d6b4f" stroke-width="3"/></svg>',
+  gavel: '<svg class="lh-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="#6b1f2a"><rect x="8" y="10" width="24" height="11" rx="2" transform="rotate(-45 20 15.5)"/><rect x="24" y="40" width="20" height="5" rx="1"/></g><path d="M22 18 40 36" stroke="#6b1f2a" stroke-width="5" stroke-linecap="round"/></svg>',
+  med: '<svg viewBox="0 0 48 56" aria-hidden="true" focusable="false"><circle cx="24" cy="28" r="22" fill="#fff" stroke="#2c3e50" stroke-width="2"/><path d="M24 9v38" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><path d="M18 16c9 0 12 4 6 8s-8 8 0 10 6 6 0 8" stroke="#8a1c1c" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
+  bank: '<svg class="lh-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="#3a2a6b"><path d="M24 4 44 14H4z"/><rect x="8" y="17" width="5" height="20"/><rect x="17" y="17" width="5" height="20"/><rect x="26" y="17" width="5" height="20"/><rect x="35" y="17" width="5" height="20"/><rect x="4" y="39" width="40" height="5"/></g></svg>',
+  cross: '<svg viewBox="0 0 30 40" aria-hidden="true" focusable="false"><path d="M15 3v34M6 13h18" stroke="#3b2a55" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  clip: '<svg class="clip" viewBox="0 0 20 62" aria-hidden="true" focusable="false"><path d="M6 46V10a5 5 0 0 1 10 0v40a7 7 0 0 1-14 0V16" fill="none" stroke="#9aa0a8" stroke-width="2.6" stroke-linecap="round"/></svg>'
+};
+// Round rubber stamp: ring text on a circle, a centre motif, ink texture from noise.
+function rstamp(ring, center, color, rot){
+  const id = 'rs' + (++svgSeq), n = ring.length;
+  const fs = Math.min(11.5, (262 - .6 * n) / (n * .62));
+  return '<svg class="rstamp" viewBox="0 0 120 120" aria-hidden="true" focusable="false" style="color:' + color + ';transform:rotate(' + rot + 'deg)">' +
+    '<defs><path id="' + id + 'p" d="M16 60a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/>' +
+    '<filter id="' + id + 'f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="2" seed="' + svgSeq + '" result="n"/>' +
+    '<feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3 0 0 0 2.3" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></defs>' +
+    '<g filter="url(#' + id + 'f)"><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="60" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
+    '<text fill="currentColor" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="' + fs.toFixed(1) + '" letter-spacing=".6"><textPath href="#' + id + 'p" xlink:href="#' + id + 'p">' + esc(ring) + '</textPath></text>' +
+    '<g fill="currentColor" font-family="Arial,Helvetica,sans-serif" font-weight="700" text-anchor="middle">' + center + '</g></g></svg>';
+}
+const ctext = (a, b) => '<text x="60" y="' + (b ? 59 : 65) + '" font-size="13">' + esc(a) + '</text>' + (b ? '<text x="60" y="74" font-size="9">' + esc(b) + '</text>' : '');
+const STAMP = {
+  police: () => rstamp('POLICIE ČESKÉ REPUBLIKY • SPRÁVA HL. M. PRAHY • ', ctext('1. OOK', 'PRAHA'), '#2b3f9a', -12),
+  usl: () => rstamp('ÚSTAV SOUDNÍHO LÉKAŘSTVÍ • PITEVNÍ ODDĚLENÍ • ', ctext('ÚSL', 'PRAHA'), '#5b2a7a', 9),
+  ins: () => rstamp('KOOPERACE POJIŠŤOVNA • LIKVIDACE ŠKOD • ', ctext('K', 'PRAHA'), '#1d6b4f', -8),
+  alarm: () => rstamp('ALARMSERVIS PRAHA S.R.O. • NA ZLÍCHOVĚ 12 • ', ctext('AS', 'PRAHA 5'), '#1b3f8a', 11),
+  auct: () => rstamp('STAROŽITNICKÁ SÍŇ MORAVIA • BRNO • ', ctext('47.', 'AUKCE'), '#6b1f2a', -10),
+  exek: () => rstamp('SOUDNÍ EXEKUTOR • MGR. HOLUB • ', ctext('§'), '#7a1f1f', 14)
+};
+const SCRIB = [
+  'M4 30c6-14 12-22 16-16s-6 20 2 18 10-22 16-20-4 18 4 16 8-14 12-12 2 10 8 8 12-6 20-8',
+  'M6 26c4-18 18-20 14-6s-10 16-2 12 12-20 18-18-2 14 6 12c6-2 10-10 14-8s0 8 6 6 10-4 18-6',
+  'M4 32c10-4 14-22 22-20s-8 18 0 18 8-12 14-12 0 10 8 9 6-8 12-8 4 6 10 5 10-2 18-4M20 37c20-3 50-5 80-6',
+  'M8 24c3-12 10-16 12-10s-4 14 2 14 6-16 12-15-2 12 4 12 10-8 14-6-2 6 4 6c8 0 14-4 22-6',
+  'M5 28c8-20 14-18 12-6s-6 12 2 10 6-16 12-14 0 12 8 10 4-10 10-10 2 8 8 7M60 33c14 2 34 0 52-6'
+];
+function scrib(i){ return '<svg class="scrib" viewBox="0 0 120 44" aria-hidden="true" focusable="false"><path d="' + SCRIB[i % SCRIB.length] + '" fill="none" stroke="#1f3f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
+function sigs(labels, seed, stamp){
+  return '<div class="sigblock" aria-hidden="true">' + labels.map((l, i) => '<div class="sigline">' + scrib(seed + i) + '<span>' + esc(l) + '</span></div>').join('') +
+    (stamp ? '<span class="sigstamp">' + stamp + '</span>' : '') + '</div>';
+}
+function lh(cls, icon, name, sub, right){
+  return '<div class="lh ' + cls + '" aria-hidden="true">' + icon + '<div class="lh-t"><b>' + name + '</b>' + (sub ? '<span>' + sub + '</span>' : '') + '</div>' + (right ? '<div class="lh-no">' + right + '</div>' : '') + '</div>';
+}
+const policeLH = right => lh('lh-police', ICON.police, 'Policie České republiky', 'Správa hl. m. Prahy · 1. oddělení obecné kriminality', right);
+const alarmLH = () => lh('lh-alarm', ICON.alarm, 'Alarmservis Praha', 's.r.o. · zabezpečovací systémy', 'Na Zlíchově 12<br>Praha 5');
+const footAlarm = '<div class="lh-foot" aria-hidden="true"></div>';
+const docId = d => d.id.charCodeAt(0);
+
+function applyLook(root, d){
+  const sheet = $('.docbody > .paper, .docbody > .letter, .docbody > .qa, .docbody > .log', root);
+  if (!d.look || !sheet) return;
+  sheet.classList.add('look', 'look-' + d.look);
+  const top = h => sheet.insertAdjacentHTML('afterbegin', h), end = h => sheet.insertAdjacentHTML('beforeend', h);
+  const stampAbs = svg => { sheet.classList.add('has-stamp'); end('<span class="stamp-abs" aria-hidden="true">' + svg + '</span>'); };
+  const refNo = 'Č. j. ' + CASE_NO + '<br>Strana 1/1';
+  switch (d.look) {
+    case 'police-cover':
+      top('<span class="cornerico" aria-hidden="true">' + ICON.police + '</span>');
+      end(sigs(['vyšetřovatel'], 0, STAMP.police())); break;
+    case 'police-form': top(policeLH(refNo)); end(sigs(['ohledání provedl'], 1, STAMP.police())); break;
+    case 'police-note': top(policeLH(refNo)); break;
+    case 'leaflet': {
+      top(policeLH(refNo));
+      const fig = $('.docbody > .photo', root), w = fig && $('.imgwrap', fig);
+      if (w) { fig.classList.add('leafletfig');
+        w.insertAdjacentHTML('afterbegin', '<span class="leafband" aria-hidden="true">' + ICON.alarm + 'ALARMSERVIS PRAHA</span>');
+        w.insertAdjacentHTML('beforeend', '<span class="leafband2" aria-hidden="true">nonstop pohotovost</span>'); }
+      break; }
+    case 'finance': {
+      top(policeLH(refNo));
+      const b = $('.bank', sheet); if (b) b.insertAdjacentHTML('afterbegin', lh('lh-bank', ICON.bank, 'Podskalská banka a.s.', 'výpis z běžného účtu'));
+      const x = $('.exek', sheet); if (x) x.insertAdjacentHTML('beforeend', '<span class="exek-seal" aria-hidden="true">' + STAMP.exek() + '</span>');
+      break; }
+    case 'interview': interviewLook(root, sheet, d); break;
+    case 'autopsy': {
+      top('<span class="cornerico" aria-hidden="true">' + ICON.med + '</span>');
+      if (d.bodymap) { const hs = $$(':scope > .head', sheet); const at = hs[2] || null;
+        if (at) at.insertAdjacentHTML('beforebegin', bodymapSVG()); else end(bodymapSVG()); }
+      stampAbs(STAMP.usl()); break; }
+    case 'insurance':
+      top(lh('lh-ins', ICON.ins, 'Vltavská', 'pojišťovna · likvidace pojistných událostí'));
+      stampAbs(STAMP.ins()); break;
+    case 'alarm-letter': {
+      top(alarmLH());
+      const lp = $$(':scope > p', sheet).pop(), br = lp && $('br', lp);
+      if (br) br.insertAdjacentHTML('afterend', '<span class="scrib-in" aria-hidden="true">' + scrib(2) + '</span><br>');
+      stampAbs(STAMP.alarm()); end(footAlarm); break; }
+    case 'alarm-form': top(alarmLH()); stampAbs(STAMP.alarm()); break;
+    case 'alarm-roster': top(alarmLH()); end(footAlarm); break;
+    case 'auction': {
+      top(lh('lh-auct', ICON.gavel, 'Starožitnická síň Moravia', 'Brno'));
+      const w = $('.wqa', sheet);
+      if (w) { w.insertAdjacentHTML('afterbegin', ICON.clip + '<p class="formtitle sm" aria-hidden="true">Protokol o výslechu svědka</p>');
+        w.insertAdjacentHTML('beforeend', sigs(['svědek'], 3)); }
+      stampAbs(STAMP.auct()); break; }
+    case 'parish-note': top('<div class="parish" aria-hidden="true">' + ICON.cross + '<span>Chrámový sbor u sv. Ludmily</span></div>'); break;
+  }
+}
+// Interview: a typed police record. Field values come from the title, the suspect card and the
+// document's own meta line; anything not in the file is left as a typed blank.
+function interviewLook(root, sheet, d){
+  const p = d.person && CASE.suspects.find(x => x.id === d.person);
+  const name = speakerOf(d), rel = d.title.split(',').slice(1).join(',').trim();
+  const suspect = d.formRole === 'podezrely';
+  const blank = '<span class="blank"></span><span class="sr">nevyplněno</span>';
+  const fld = (l, v, wide) => '<div class="fld' + (wide ? ' wide' : '') + '"><span class="fl">' + l + '</span><span class="fv">' + v + '</span></div>';
+  const head = policeLH('Č. j. ' + CASE_NO + '<br>Tiskopis PČR 23/V · Strana 1/1') +
+    '<p class="formtitle">Protokol o výslechu ' + (suspect ? 'podezřelého' : 'svědka') + '</p>' +
+    '<div class="fbox">' + fld('Vyslýchaná osoba', esc(name)) + fld('Věk', p && p.age ? esc(p.age) + ' let' : blank) +
+      fld('Vztah k věci', rel ? esc(rel) : blank) + fld('Bydliště', blank) + fld('Datum výslechu, vyslýchající', '', true) + '</div>' +
+    '<p class="pouc"><b>Poučení:</b> ' + (suspect
+      ? 'Podezřelý byl poučen o svých právech, zejména že nemusí vypovídat a může si zvolit obhájce. Poučení porozuměl.'
+      : 'Svědek byl před výslechem poučen o svých právech a povinnostech, o povinnosti vypovídat pravdu a nic nezamlčet a o právu odepřít výpověď. Poučení porozuměl(a).') + '</p>' +
+    '<p class="txh">Průběh výslechu</p>';
+  {
+    const meta = $(':scope > .meta', sheet);
+    sheet.insertAdjacentHTML('afterbegin', head);
+    const slot = $('.fld.wide .fv', sheet);
+    if (meta && slot) slot.appendChild(meta);
+  }
+  const mug = $('.docbody > .mugdoc', root);
+  if (mug) {
+    const c = document.createElement('div'); c.className = 'clipphoto';
+    c.innerHTML = ICON.clip; c.insertBefore(mug, c.firstChild);
+    $('.lh', sheet).insertAdjacentElement('afterend', c);
+  }
+  sheet.insertAdjacentHTML('beforeend', '<div class="ffoot"><p class="ffoot-t" aria-hidden="true">Přečteno, schváleno, podepsáno.</p>' +
+    sigs([suspect ? 'podezřelý' : 'vyslýchaná osoba', 'vyslýchající'], docId(d), STAMP.police()) + '</div>');
+}
+
+/* ---------- SVG: body outline (doc C), neutral silhouettes, wound marked on the back of the head ---------- */
+function bodymapSVG(){
+  const body = '<ellipse cx="65" cy="26" rx="16" ry="20"/><rect x="58" y="42" width="14" height="16"/><rect x="36" y="54" width="58" height="96" rx="16"/>' +
+    '<rect x="39" y="128" width="52" height="38" rx="10"/><rect x="40" y="150" width="22" height="128" rx="10"/><rect x="68" y="150" width="22" height="128" rx="10"/>' +
+    '<rect x="20" y="60" width="14" height="104" rx="7" transform="rotate(10 27 60)"/><rect x="96" y="60" width="14" height="104" rx="7" transform="rotate(-10 103 60)"/>' +
+    '<circle cx="10" cy="166" r="7"/><circle cx="120" cy="166" r="7"/><ellipse cx="49" cy="282" rx="12" ry="6"/><ellipse cx="81" cy="282" rx="12" ry="6"/>';
+  const fig = (x, back) => '<g transform="translate(' + x + ' 14)"><g fill="#6d6555" stroke="#6d6555" stroke-width="5">' + body + '</g><g fill="#f3f1ea">' + body + '</g>' +
+    (back ? '<path d="M65 60v80" stroke="#b9b29f" stroke-width="1.2" stroke-dasharray="3 4"/>' : '<path d="M65 60v80" stroke="#d3cebf" stroke-width="1"/>') + '</g>';
+  return '<figure class="bodymap"><svg viewBox="0 0 400 330" role="img" aria-labelledby="bmT bmD" xmlns="http://www.w3.org/2000/svg" font-family="Arial,Helvetica,sans-serif">' +
+    '<title id="bmT">Nákres těla: zepředu a zezadu</title>' +
+    '<desc id="bmD">Obrys těla zepředu a zezadu. Jediné zranění je vyznačeno na zadní části hlavy: úder těžkým předmětem, zezadu. Jiná zranění nejsou.</desc>' +
+    fig(6, false) + fig(150, true) +
+    '<g transform="translate(150 14)"><circle cx="65" cy="34" r="8" fill="none" stroke="#a3241b" stroke-width="2.6"/><path d="M59 28l12 12M71 28 59 40" stroke="#a3241b" stroke-width="2.2"/></g>' +
+    '<path d="M224 48 292 30" stroke="#a3241b" stroke-width="1.4"/><circle cx="292" cy="30" r="2" fill="#a3241b"/>' +
+    '<g font-size="15" fill="#a3241b" font-weight="700"><text x="296" y="26">úder do zadní</text><text x="296" y="44">části hlavy</text></g>' +
+    '<g font-size="14" fill="#3d3a30" font-weight="700" letter-spacing="1.5" text-anchor="middle"><text x="71" y="322">ZEPŘEDU</text><text x="215" y="322">ZEZADU</text></g>' +
+    '<g font-size="14" fill="#6d6555"><text x="296" y="150">jiná zranění</text><text x="296" y="167">nejsou</text></g>' +
+    '</svg><figcaption>Nákres: jediné zranění je úder do zadní části hlavy (vyznačeno křížkem na pohledu zezadu). Jiná zranění nejsou.</figcaption></figure>';
+}
+
+/* ---------- gallery: insurer's photo documentation (doc D), zoomable ---------- */
+function galleryHTML(d){
+  if (!d.gallery || !d.gallery.length) return '';
+  return '<section class="photosheet" aria-label="Fotodokumentace pojišťovny"><p class="ps-head" aria-hidden="true">Vltavská pojišťovna · fotodokumentace</p>' +
+    d.gallery.map((g, i) => '<figure class="pprint" style="--r:' + (i % 2 ? 1.2 : -1) + 'deg"><button class="zoombtn" data-zoom="' + esc(d.id) + '" data-zi="' + i + '" aria-label="Zvětšit fotografii: ' + esc(g.alt) + '">' +
+      '<span class="imgwrap"><img src="' + esc(g.src) + '" alt="' + esc(g.alt) + '" width="1200" height="875" loading="lazy"></span></button>' +
+      '<figcaption><span class="ptag">Foto č. ' + (i + 1) + '</span>' + esc(g.alt) + ' <span aria-hidden="true">· Klepnutím zvětšíte.</span></figcaption></figure>').join('') + '</section>';
 }
 
 /* ---------- SVG: thermal receipt (text taken from the document html) ---------- */
@@ -770,8 +1101,10 @@ function mapSVG(){
 }
 
 /* ---------- zoom ---------- */
-function openZoom(id){
+function openZoom(id, zi){
   const d = DOCS[id]; if (!d) return;
+  const g = zi != null && d.gallery ? d.gallery[+zi] : null;
+  if (g) { $('#zscroll').innerHTML = '<span class="imgwrap" id="zwrap"><img src="' + esc(g.src) + '" alt="' + esc(g.alt) + '"></span>'; setZoom(1); $('#dlgZoom').showModal(); return; }
   $('#zscroll').innerHTML = '<span class="imgwrap" id="zwrap"><img src="' + esc(d.image) + '" alt="' + esc(d.imageAlt || '') + '">' +
     (d.imageStamp ? '<span class="camstamp" aria-hidden="true">' + esc(d.imageStamp) + '</span>' : '') + '</span>';
   setZoom(1);
@@ -910,7 +1243,7 @@ function wire(){
     }
     if (t.hasAttribute('data-back')) { if (history.state && history.state.doc) history.back(); else showList(); return; }
     if (t.dataset.tab) { setTab(t.dataset.tab); return; }
-    if (t.dataset.zoom) { openZoom(t.dataset.zoom); return; }
+    if (t.dataset.zoom) { openZoom(t.dataset.zoom, t.dataset.zi); return; }
     if (t.dataset.z) { setZoom(+t.dataset.z); return; }
     if (t.hasAttribute('data-close')) { t.closest('dialog').close(); return; }
     if (t.dataset.hintAsk) { renderHints(t.dataset.hintAsk); const y = $('[data-hint-yes]'); if (y) y.focus(); return; }
