@@ -1,0 +1,2010 @@
+{
+  "jazyk": "cs",
+  "rocnik": 8,
+  "tema": [
+    "Evropa po třicetileté válce - opakování"
+  ],
+  "zdroj": "2 strany učebnice dějepisu pro 8. ročník, str. 30-31: Opakování - Evropa po třicetileté válce (časové přímky a úkoly 1-11). Učebnice na těchto stranách odpovědi neuvádí, odpovědi a vysvětlení jsou doplněné z obecných znalostí a z tématu Baroko (str. 18-24). Úkoly s nejistou odpovědí jsou jen v hry.ano.orechy a nebodují se.",
+  "hlavni_osy": [
+    "Habsburská monarchie\nLeopold I.: 1657–1705, porážka Turků u Vídně 1683\nPovstání poddaných: 1679–1680, za Leopolda I.\nVálka o španělské dědictví: 1701–1714\nKarel VI.: 1711–1740, pragmatická sankce 1713\nMarie Terezie: 1740–1780\nJosef II.: 1780–1790",
+    "Marie Terezie\nOsobně: 16 dětí, manžel František Lotrinský\nVálky: o rakouské dědictví 1740–1748, sedmiletá 1756–1763\nZtráta: většina Slezska ve prospěch Pruska\nReformy: povinná škola 1774, bankocetle, daně\nPovstání 1775: porážka sedláků u Chlumce",
+    "Josef II.\nPřezdívka: „selský císař“\nRok 1781: toleranční patent a zrušení nevolnictví\nToleranční patent: povolil luterány, kalvinisty a pravoslavné\nZrušení nevolnictví: volné stěhování, sňatek a řemeslo, robota ale zůstala\nŽidé: zlepšení života",
+    "Rusko\nPřed Petrem: zaostalá země\nPetr Veliký: 1689–1725, modernizace hospodářství\n1725–1762: boj o moc\nKateřina II.: 1762–1796, přístup k Černému moři",
+    "Prusko\nPo roce 1648: vznik pruského státu\n1701: Prusko královstvím\nFridrich II.: 1740–1786, rozmach Pruska, získal většinu Slezska",
+    "Souvislosti\nRok 1740: nastupují Marie Terezie i Fridrich II. a začíná válka\nPragmatická sankce 1713: díky ní nastoupila Marie Terezie 1740\nOsvícenský absolutismus: 1740–1790\nVzestup: Rusko, Prusko, Anglie, Francie\nÚpadek: Španělsko, Polsko, Osmanská říše"
+  ],
+  "terminologie": {
+    "Pojmy": [
+      {
+        "pojem": "Pragmatická sankce",
+        "vysvetleni": "Zákon Karla VI. z roku 1713: habsburské země jsou nedělitelné a na trůn může nastoupit i žena."
+      },
+      {
+        "pojem": "Osvícenský absolutismus",
+        "vysvetleni": "Vláda silného panovníka, který sám zavádí reformy podle rozumu (u nás 1740–1790)."
+      },
+      {
+        "pojem": "Osvícenství",
+        "vysvetleni": "Myšlenkový směr 18. století: rozum, vzdělání, kritika moci církve."
+      },
+      {
+        "pojem": "Nevolnictví",
+        "vysvetleni": "Poddaný se bez svolení vrchnosti nesměl stěhovat, oženit ani učit řemeslu."
+      },
+      {
+        "pojem": "Robota",
+        "vysvetleni": "Povinná práce poddaných pro vrchnost. Zrušena až 1848."
+      },
+      {
+        "pojem": "Toleranční patent",
+        "vysvetleni": "Nařízení z roku 1781, které povolilo některá nekatolická vyznání."
+      },
+      {
+        "pojem": "Patent",
+        "vysvetleni": "Nařízení vydané panovníkem."
+      },
+      {
+        "pojem": "Bankocetle",
+        "vysvetleni": "První papírové peníze v habsburské monarchii."
+      },
+      {
+        "pojem": "Selské baroko",
+        "vysvetleni": "Venkovské statky se zdobenými průčelími."
+      }
+    ],
+    "Osobnosti": [
+      {
+        "pojem": "Leopold I.",
+        "vysvetleni": "Habsburk, 1657–1705. Za něj byli poraženi Turci u Vídně."
+      },
+      {
+        "pojem": "Karel VI.",
+        "vysvetleni": "Habsburk, 1711–1740. Vydal pragmatickou sankci."
+      },
+      {
+        "pojem": "Marie Terezie",
+        "vysvetleni": "Habsburská panovnice, 1740–1780. Povinná škola, 16 dětí."
+      },
+      {
+        "pojem": "Josef II.",
+        "vysvetleni": "Habsburk, 1780–1790. „Selský císař“, zrušil nevolnictví."
+      },
+      {
+        "pojem": "František Lotrinský",
+        "vysvetleni": "Císař Svaté říše římské, manžel Marie Terezie."
+      },
+      {
+        "pojem": "Petr Veliký",
+        "vysvetleni": "Ruský car, skutečně vládl 1689–1725. Modernizace."
+      },
+      {
+        "pojem": "Kateřina II.",
+        "vysvetleni": "Ruská carevna, 1762–1796. Přístup k Černému moři."
+      },
+      {
+        "pojem": "Fridrich II.",
+        "vysvetleni": "Pruský král, 1740–1786. Rozmach Pruska."
+      }
+    ],
+    "Války": [
+      {
+        "pojem": "Válka o španělské dědictví",
+        "vysvetleni": "1701–1714, kdo získá španělský trůn."
+      },
+      {
+        "pojem": "Války o rakouské dědictví",
+        "vysvetleni": "1740–1748, spor o dědictví Marie Terezie."
+      },
+      {
+        "pojem": "Sedmiletá válka",
+        "vysvetleni": "1756–1763, Marie Terezie se snažila získat zpět Slezsko."
+      },
+      {
+        "pojem": "Války s Turky",
+        "vysvetleni": "Po celé období, zlom 1683 u Vídně."
+      }
+    ]
+  },
+  "casova_osa": [
+    {
+      "rok": "1648",
+      "udalost": "Konec třicetileté války"
+    },
+    {
+      "rok": "1657",
+      "udalost": "Nastupuje Leopold I."
+    },
+    {
+      "rok": "1679–1680",
+      "udalost": "Povstání poddaných"
+    },
+    {
+      "rok": "1683",
+      "udalost": "Porážka Turků u Vídně"
+    },
+    {
+      "rok": "1689",
+      "udalost": "Petr Veliký se ujímá skutečné vlády"
+    },
+    {
+      "rok": "1701",
+      "udalost": "Prusko královstvím"
+    },
+    {
+      "rok": "1701–1714",
+      "udalost": "Válka o španělské dědictví"
+    },
+    {
+      "rok": "1713",
+      "udalost": "Pragmatická sankce"
+    },
+    {
+      "rok": "1740",
+      "udalost": "Nastupují Marie Terezie a Fridrich II."
+    },
+    {
+      "rok": "1740–1748",
+      "udalost": "Války o rakouské dědictví"
+    },
+    {
+      "rok": "1756–1763",
+      "udalost": "Sedmiletá válka"
+    },
+    {
+      "rok": "1762",
+      "udalost": "Nastupuje Kateřina II."
+    },
+    {
+      "rok": "1774",
+      "udalost": "Povinná školní docházka"
+    },
+    {
+      "rok": "1775",
+      "udalost": "Povstání poddaných, porážka u Chlumce"
+    },
+    {
+      "rok": "1780",
+      "udalost": "Umírá Marie Terezie, Josef II. vládne sám"
+    },
+    {
+      "rok": "1781",
+      "udalost": "Toleranční patent a zrušení nevolnictví"
+    },
+    {
+      "rok": "1790",
+      "udalost": "Umírá Josef II."
+    }
+  ],
+  "hry": {
+    "primky": {
+      "od": 1645,
+      "do": 1800,
+      "staty": [
+        {
+          "id": "hab",
+          "nazev": "Habsburkové"
+        },
+        {
+          "id": "rus",
+          "nazev": "Rusko"
+        },
+        {
+          "id": "pru",
+          "nazev": "Prusko"
+        }
+      ],
+      "vlady": [
+        {
+          "id": "leo",
+          "jmeno": "Leopold I.",
+          "stat": "hab",
+          "od": 1657,
+          "do": 1705,
+          "proc": "Za něj byli v roce 1683 poraženi Turci u Vídně."
+        },
+        {
+          "id": "kar",
+          "jmeno": "Karel VI.",
+          "stat": "hab",
+          "od": 1711,
+          "do": 1740,
+          "proc": "Roku 1713 vydal pragmatickou sankci."
+        },
+        {
+          "id": "mt",
+          "jmeno": "Marie Terezie",
+          "stat": "hab",
+          "od": 1740,
+          "do": 1780,
+          "proc": "Nastoupila ve stejném roce jako pruský Fridrich II."
+        },
+        {
+          "id": "jos",
+          "jmeno": "Josef II.",
+          "stat": "hab",
+          "od": 1780,
+          "do": 1790,
+          "proc": "Jen deset let samostatné vlády, ale spousta reforem."
+        },
+        {
+          "id": "pet",
+          "jmeno": "Petr Veliký",
+          "stat": "rus",
+          "od": 1689,
+          "do": 1725,
+          "proc": "Modernizoval ruské hospodářství."
+        },
+        {
+          "id": "kat",
+          "jmeno": "Kateřina II.",
+          "stat": "rus",
+          "od": 1762,
+          "do": 1796,
+          "proc": "Získala přístup k Černému moři."
+        },
+        {
+          "id": "fri",
+          "jmeno": "Fridrich II.",
+          "stat": "pru",
+          "od": 1740,
+          "do": 1786,
+          "proc": "Za něj přišel rozmach Pruska."
+        }
+      ]
+    },
+    "roky": {
+      "levy": "Rok",
+      "pravy": "Událost",
+      "pary": [
+        {
+          "a": "1648",
+          "b": "Konec třicetileté války",
+          "proc": "1648: konec třicetileté války, začátek našeho období."
+        },
+        {
+          "a": "1683",
+          "b": "Porážka Turků u Vídně",
+          "proc": "1683: Turci poraženi u Vídně za Leopolda I."
+        },
+        {
+          "a": "1701",
+          "b": "Prusko královstvím",
+          "proc": "1701: z Pruska je království."
+        },
+        {
+          "a": "1713",
+          "b": "Pragmatická sankce",
+          "proc": "1713: Karel VI. otevírá cestu na trůn své dceři."
+        },
+        {
+          "a": "1774",
+          "b": "Povinná školní docházka",
+          "proc": "1774: Marie Terezie zavádí povinnou školní docházku."
+        },
+        {
+          "a": "1781",
+          "b": "Toleranční patent a zrušení nevolnictví",
+          "proc": "1781: dvě velké reformy Josefa II. v jednom roce."
+        }
+      ]
+    },
+    "staty": {
+      "kose": [
+        {
+          "id": "up",
+          "nazev": "Vzestup ↑"
+        },
+        {
+          "id": "down",
+          "nazev": "Úpadek ↓"
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Rusko",
+          "kos": [
+            "up"
+          ],
+          "proc": "Petr Veliký ho modernizoval, Kateřina II. získala přístup k Černému moři."
+        },
+        {
+          "text": "Prusko",
+          "kos": [
+            "up"
+          ],
+          "proc": "Roku 1701 královstvím, za Fridricha II. velký rozmach."
+        },
+        {
+          "text": "Anglie",
+          "kos": [
+            "up"
+          ],
+          "proc": "Silné loďstvo, obchod a kolonie."
+        },
+        {
+          "text": "Francie",
+          "kos": [
+            "up"
+          ],
+          "proc": "Za Ludvíka XIV. byla nejmocnějším státem Evropy."
+        },
+        {
+          "text": "Španělsko",
+          "kos": [
+            "down"
+          ],
+          "proc": "Přestalo být hlavní evropskou mocností."
+        },
+        {
+          "text": "Polsko",
+          "kos": [
+            "down"
+          ],
+          "proc": "Slabá královská moc, nakonec si ho rozdělili sousedé."
+        },
+        {
+          "text": "Osmanská říše (Turecko)",
+          "kos": [
+            "down"
+          ],
+          "proc": "Po porážce u Vídně 1683 začala z Evropy ustupovat."
+        }
+      ]
+    },
+    "truny": {
+      "kose": [
+        {
+          "id": "kat",
+          "nazev": "Kateřina II."
+        },
+        {
+          "id": "kar",
+          "nazev": "Karel VI."
+        },
+        {
+          "id": "mt",
+          "nazev": "Marie Terezie"
+        },
+        {
+          "id": "jos",
+          "nazev": "Josef II."
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Osvícenský panovník",
+          "kos": [
+            "kat",
+            "mt",
+            "jos"
+          ],
+          "proc": "Osvícensky vládli Marie Terezie, Josef II. i Kateřina II."
+        },
+        {
+          "text": "16 dětí",
+          "kos": [
+            "mt"
+          ],
+          "proc": "Marie Terezie měla 16 dětí."
+        },
+        {
+          "text": "Sedmiletá válka o Slezsko",
+          "kos": [
+            "mt",
+            "kat"
+          ],
+          "proc": "Probíhala 1756–1763 za Marie Terezie a skončila už za vlády Kateřiny II., která nastoupila 1762."
+        },
+        {
+          "text": "Pragmatická sankce (1713)",
+          "kos": [
+            "kar"
+          ],
+          "proc": "Karel VI. tak zajistil nástup své dcery."
+        },
+        {
+          "text": "Povinná školní docházka (1774)",
+          "kos": [
+            "mt"
+          ],
+          "proc": "Zavedla ji Marie Terezie."
+        },
+        {
+          "text": "Bankocetle",
+          "kos": [
+            "mt"
+          ],
+          "proc": "První papírové peníze zavedla Marie Terezie."
+        },
+        {
+          "text": "Ztráta většiny Slezska",
+          "kos": [
+            "mt"
+          ],
+          "proc": "Získal ho pruský Fridrich II."
+        },
+        {
+          "text": "Porážka sedláků u Chlumce (1775)",
+          "kos": [
+            "mt"
+          ],
+          "proc": "Povstání proběhlo v roce 1775, vládla Marie Terezie."
+        },
+        {
+          "text": "Války o rakouské dědictví",
+          "kos": [
+            "mt"
+          ],
+          "proc": "1740–1748, začaly hned po jejím nástupu."
+        },
+        {
+          "text": "Zrušení nevolnictví (1781)",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Proto „selský císař“ Josef II."
+        },
+        {
+          "text": "Daňová reforma",
+          "kos": [
+            "mt",
+            "jos"
+          ],
+          "proc": "Daně reformovala Marie Terezie a pokračoval v tom i Josef II."
+        },
+        {
+          "text": "Toleranční patent (1781)",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Vydal ho Josef II."
+        },
+        {
+          "text": "Přezdívka „selský císař“",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Tak se říkalo Josefu II."
+        },
+        {
+          "text": "Zlepšení života Židů",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Josef II. uvolnil omezení, která Židé měli."
+        },
+        {
+          "text": "Přístup k Černému moři",
+          "kos": [
+            "kat"
+          ],
+          "proc": "Kateřina II. ho získala ve válce s Turky."
+        }
+      ]
+    },
+    "hlasy": {
+      "kose": [
+        {
+          "id": "mt",
+          "nazev": "Reforma Marie Terezie"
+        },
+        {
+          "id": "jos",
+          "nazev": "Reforma Josefa II."
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Sedlák: „Můžu se odstěhovat a nemusím se ptát pána!“",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Zrušení nevolnictví, 1781."
+        },
+        {
+          "text": "Holka z vesnice: „Musím do školy. Kdo bude pást husy?“",
+          "kos": [
+            "mt"
+          ],
+          "proc": "Povinná školní docházka, 1774."
+        },
+        {
+          "text": "Luterán: „Konečně se nemusím se svou vírou skrývat.“",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Toleranční patent, 1781."
+        },
+        {
+          "text": "Kupec: „Papír místo stříbra? Aspoň se to líp nosí.“",
+          "kos": [
+            "mt"
+          ],
+          "proc": "Bankocetle zavedla Marie Terezie."
+        },
+        {
+          "text": "Židovský student: „Pustili mě na univerzitu!“",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Josef II. zlepšil postavení Židů."
+        },
+        {
+          "text": "Tovaryš: „Pán mi nemůže zakázat učit se řemeslu.“",
+          "kos": [
+            "jos"
+          ],
+          "proc": "Také výsledek zrušení nevolnictví, 1781."
+        },
+        {
+          "text": "Učitel: „Státní škola pro všechny děti. To je práce!“",
+          "kos": [
+            "mt"
+          ],
+          "proc": "Povinnou školní docházku zavedla Marie Terezie v roce 1774."
+        }
+      ]
+    },
+    "masky": {
+      "kolo": [
+        {
+          "zadani": "Dala vybudovat přístavy, když své zemi vybojovala na Turcích přístup k Černému moři.",
+          "spravne": "Kateřina II.",
+          "spatne": [
+            "Marie Terezie",
+            "Alžběta I.",
+            "Marie Antoinetta"
+          ],
+          "proc": "Ruská carevna Kateřina II.",
+          "art": "kat",
+          "stat": "Rusko"
+        },
+        {
+          "zadani": "Neměl mužského potomka, nástupnictví zajistil jiným způsobem.",
+          "spravne": "Karel VI.",
+          "spatne": [
+            "Leopold I.",
+            "Josef II.",
+            "Petr Veliký"
+          ],
+          "proc": "Karel VI. vydal pragmatickou sankci.",
+          "art": "kar",
+          "stat": "Habsburská monarchie"
+        },
+        {
+          "zadani": "Jsme slavní barokní architekti, a navíc otec a syn.",
+          "spravne": "Dientzenhoferové",
+          "spatne": [
+            "Braun a Brokoff",
+            "Škréta a Brandl",
+            "Bach a Händel"
+          ],
+          "proc": "Kryštof a Kilián Ignác Dientzenhoferovi stavěli v českých zemích.",
+          "art": "die",
+          "stat": "Habsburská monarchie"
+        },
+        {
+          "zadani": "Vedla jsem několik válek, abych udržela habsburskou monarchii i své postavení. Pomocí reforem jsem zlepšovala život.",
+          "spravne": "Marie Terezie",
+          "spatne": [
+            "Kateřina II.",
+            "Marie Antoinetta",
+            "Alžběta I."
+          ],
+          "proc": "Marie Terezie vládla 1740–1780.",
+          "art": "mt",
+          "stat": "Habsburská monarchie"
+        },
+        {
+          "zadani": "V počtu reforem a patentů bych měl světový rekord.",
+          "spravne": "Josef II.",
+          "spatne": [
+            "Leopold I.",
+            "Karel VI.",
+            "Fridrich II."
+          ],
+          "proc": "Josef II. vydal tisíce nařízení.",
+          "art": "jos",
+          "stat": "Habsburská monarchie"
+        },
+        {
+          "zadani": "Vypravil jsem se na Západ, abych poznal technické novinky a zmodernizoval svou zemi.",
+          "spravne": "Petr Veliký",
+          "spatne": [
+            "Fridrich II.",
+            "Josef II.",
+            "Leopold I."
+          ],
+          "proc": "Car Petr Veliký modernizoval Rusko.",
+          "art": "pet",
+          "stat": "Rusko"
+        }
+      ],
+      "staty": [
+        "Rusko",
+        "Habsburská monarchie",
+        "Prusko"
+      ]
+    },
+    "umeni": {
+      "kose": [
+        {
+          "id": "mal",
+          "nazev": "Malířství"
+        },
+        {
+          "id": "hud",
+          "nazev": "Hudba"
+        },
+        {
+          "id": "soch",
+          "nazev": "Sochařství"
+        },
+        {
+          "id": "arch",
+          "nazev": "Architektura"
+        },
+        {
+          "id": "op",
+          "nazev": "Opera"
+        },
+        {
+          "id": "lit",
+          "nazev": "Literatura"
+        }
+      ],
+      "polozky": [
+        {
+          "text": "Georg Friedrich Händel",
+          "kos": [
+            "hud",
+            "op"
+          ],
+          "proc": "Skladatel, psal i opery."
+        },
+        {
+          "text": "Bohuslav Balbín",
+          "kos": [
+            "lit"
+          ],
+          "proc": "Spisovatel, jezuita, obránce češtiny."
+        },
+        {
+          "text": "Jan Blažej Santini-Aichel",
+          "kos": [
+            "arch"
+          ],
+          "proc": "Navrhl kostel na Zelené hoře."
+        },
+        {
+          "text": "Maxmilián Brokoff",
+          "kos": [
+            "soch"
+          ],
+          "proc": "Sochař, jeho sochy jsou i na Karlově mostě."
+        },
+        {
+          "text": "Johann Sebastian Bach",
+          "kos": [
+            "hud"
+          ],
+          "proc": "Skladatel, operu nenapsal."
+        },
+        {
+          "text": "Karel Škréta",
+          "kos": [
+            "mal"
+          ],
+          "proc": "Barokní malíř."
+        },
+        {
+          "text": "Claudio Monteverdi",
+          "kos": [
+            "op",
+            "hud"
+          ],
+          "proc": "Skladatel, nejznámější autor prvních oper."
+        },
+        {
+          "text": "Kilián a Kryštof Dientzenhoferovi",
+          "kos": [
+            "arch"
+          ],
+          "proc": "Architekti, syn a otec."
+        },
+        {
+          "text": "Jan Kupecký",
+          "kos": [
+            "mal"
+          ],
+          "proc": "Malíř, proslul portréty."
+        },
+        {
+          "text": "Adam Václav Michna z Otradovic",
+          "kos": [
+            "lit",
+            "hud"
+          ],
+          "proc": "Básník i skladatel."
+        },
+        {
+          "text": "Petr Jan Brandl",
+          "kos": [
+            "mal"
+          ],
+          "proc": "Barokní malíř."
+        },
+        {
+          "text": "Matyáš Braun",
+          "kos": [
+            "soch"
+          ],
+          "proc": "Sochař, mimo jiné sochy v Kuksu."
+        }
+      ]
+    },
+    "vztahy": {
+      "levy": "Kdo s kým",
+      "pravy": "Jaký vztah",
+      "pary": [
+        {
+          "a": "Habsburská monarchie a Prusko",
+          "b": "Nepřátelé, boj o Slezsko",
+          "proc": "Soupeři v bojích o Slezsko."
+        },
+        {
+          "a": "Osvícenci a katolická církev",
+          "b": "Kritika, omezit moc církve",
+          "proc": "Osvícenci dávali přednost rozumu a kritizovali moc církve."
+        },
+        {
+          "a": "Turci a evropské státy",
+          "b": "Dlouhé války, i u Vídně",
+          "proc": "Války s Turky běží na přímce celé období."
+        },
+        {
+          "a": "František Lotrinský a Marie Terezie",
+          "b": "Manželé",
+          "proc": "Manželé. On byl císař, v habsburských zemích vládla ona."
+        },
+        {
+          "a": "Marie Terezie a Josef II.",
+          "b": "Matka a syn",
+          "proc": "Matka a syn, od roku 1765 spoluvládce."
+        },
+        {
+          "a": "Karel VI. a Marie Terezie",
+          "b": "Otec a dcera",
+          "proc": "Otec a dcera. Pragmatická sankce z roku 1713 jí později umožnila nastoupit na trůn."
+        }
+      ]
+    },
+    "obrazy": {
+      "kolo": [
+        {
+          "zadani": "Co je na obrázku?",
+          "spravne": "Morový (svatý) sloup",
+          "spatne": [
+            "Rozhledna",
+            "Hradní věž",
+            "Zámecká kašna"
+          ],
+          "proc": "Barokní sloup Nejsvětější Trojice stojí v Olomouci.",
+          "art": "sloup"
+        },
+        {
+          "zadani": "Kdo je na obrázku?",
+          "spravne": "Fridrich II.",
+          "spatne": [
+            "Petr Veliký",
+            "Karel VI.",
+            "Leopold I."
+          ],
+          "proc": "Pruský král s třírohým kloboukem, soupeř Marie Terezie.",
+          "art": "fritz"
+        },
+        {
+          "zadani": "Co hrají tito lidé?",
+          "spravne": "Barokní hudbu",
+          "spatne": [
+            "Operu o Josefu II.",
+            "Kramářskou píseň",
+            "Vojenský pochod"
+          ],
+          "proc": "Skupina hudebníků připomíná barokní hudbu a kapely.",
+          "art": "hudba"
+        },
+        {
+          "zadani": "Jaký je to dům?",
+          "spravne": "Statek v selském baroku",
+          "spatne": [
+            "Městský palác",
+            "Renesanční tvrz",
+            "Barokní kostel"
+          ],
+          "proc": "Vlnitý štít a bílé průčelí, venkovské selské baroko.",
+          "art": "statek"
+        },
+        {
+          "zadani": "Která panovnice to je?",
+          "spravne": "Marie Terezie",
+          "spatne": [
+            "Kateřina II.",
+            "Alžběta I.",
+            "Marie Stuartovna"
+          ],
+          "proc": "Nápověda je dole: rok 1774 a škola. Vládla 1740–1780.",
+          "art": "terezie"
+        },
+        {
+          "zadani": "Která stavba má půdorys hvězdy?",
+          "spravne": "Kostel na Zelené hoře",
+          "spatne": [
+            "Chrám svatého Víta",
+            "Pražský hrad",
+            "Kostel svatého Mikuláše"
+          ],
+          "proc": "Santiniho kostel sv. Jana Nepomuckého ve Žďáru nad Sázavou.",
+          "art": "hvezda"
+        },
+        {
+          "zadani": "S jakou událostí obrázek souvisí?",
+          "spravne": "Povinná školní docházka",
+          "spatne": [
+            "Pragmatická sankce",
+            "Toleranční patent",
+            "Sedmiletá válka"
+          ],
+          "proc": "Děti s učitelem připomínají povinnou školní docházku, kterou zavedla Marie Terezie v roce 1774.",
+          "art": "skola"
+        },
+        {
+          "zadani": "Čí život ukazuje obrázek?",
+          "spravne": "Chudých poddaných na venkově",
+          "spatne": [
+            "Dvora Marie Terezie",
+            "Bohatých měšťanů",
+            "Církevních hodnostářů"
+          ],
+          "proc": "Chalupa s doškovou střechou: robota, nevolnictví, povstání 1775.",
+          "art": "chalupa"
+        },
+        {
+          "zadani": "Jak se jmenuje toto platidlo?",
+          "spravne": "Bankocetle",
+          "spatne": [
+            "Pragmatická sankce",
+            "Toleranční patent",
+            "Stříbrný tolar"
+          ],
+          "proc": "Papírové peníze z doby Marie Terezie.",
+          "art": "bankocetle"
+        }
+      ]
+    },
+    "ano": {
+      "vyroky": [
+        {
+          "text": "Marie Terezie a Kateřina II. se mohly setkat.",
+          "pravda": true,
+          "proc": "Žily ve stejné době, vládly zároveň 1762–1780. Osobně se ale nesetkaly."
+        },
+        {
+          "text": "Marie Terezie mohla být u zrušení nevolnictví.",
+          "pravda": false,
+          "proc": "Zemřela 1780, nevolnictví bylo zrušeno 1781."
+        },
+        {
+          "text": "Petr Veliký mohl blahopřát Marii Terezii k nástupu na trůn.",
+          "pravda": false,
+          "proc": "Petr Veliký zemřel 1725, Marie Terezie nastoupila 1740."
+        },
+        {
+          "text": "Fridrich II. a Marie Terezie nastoupili ve stejném roce.",
+          "pravda": true,
+          "proc": "Oba v roce 1740."
+        },
+        {
+          "text": "Karel VI. vládl, když Turci utíkali od Vídně.",
+          "pravda": false,
+          "proc": "To bylo 1683 za Leopolda I., Karel VI. vládl od 1711."
+        },
+        {
+          "text": "Josef II. a Kateřina II. vládli ve stejné době.",
+          "pravda": true,
+          "proc": "Josef II. 1780–1790, Kateřina II. 1762–1796."
+        },
+        {
+          "text": "Prusko se stalo královstvím ještě za vlády Leopolda I.",
+          "pravda": true,
+          "proc": "Prusko 1701, Leopold I. vládl do 1705."
+        },
+        {
+          "text": "Po zrušení nevolnictví už nikdo nerobotoval.",
+          "pravda": false,
+          "proc": "Robota zůstala až do roku 1848."
+        }
+      ],
+      "orechy": [
+        {
+          "otazka": "Mohly děti za vlády Marie Terezie chodit do školy jen tři roky?",
+          "odpoved": "Školní řád z roku 1774 počítal s docházkou přibližně od 6 do 12 let, tedy asi šest let. Základní odpověď je proto „ne“. Ve skutečnosti ale řada dětí chodila kratší dobu. Ověř si v sešitě, co chce paní učitelka."
+        },
+        {
+          "otazka": "Museli žít Židé za vlády Josefa II. v ghettech?",
+          "odpoved": "Josef II. zmírnil omezení a zlepšil Židům život, v učebnici to patří k jeho zásluhám. Stará omezení bydlení ale nezmizela všude hned. Ověř si v sešitě, jakou odpověď píšete."
+        },
+        {
+          "otazka": "V jakém slohu jsou tři památky z úkolu 11?",
+          "odpoved": "Učebnice názvy neuvádí. Ozdobné průčelí a) i zámek c) mají barokní znaky. Domy s podloubím b) z fotky jistě určit nejdou. Ověř si v sešitě."
+        }
+      ]
+    }
+  },
+  "otazky": [
+    {
+      "id": "ET1",
+      "tema": "Časové přímky",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce skončila třicetiletá válka?",
+      "spravna_odpoved": "1648",
+      "spatne_odpovedi": [
+        "1618",
+        "1620",
+        "1683"
+      ],
+      "oduvodneni": "Rokem 1648 (vestfálský mír) skončila třicetiletá válka a začíná období, které toto opakování popisuje.",
+      "proc_spatne": {
+        "1618": "V roce 1618 válka začala. Trvala třicet let, takže skončila 1648.",
+        "1620": "V roce 1620 byla bitva na Bílé hoře, tedy začátek války.",
+        "1683": "V roce 1683 byli Turci poraženi u Vídně, 35 let po konci války."
+      }
+    },
+    {
+      "id": "ET2",
+      "tema": "Časové přímky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která událost se stala v roce 1683?",
+      "spravna_odpoved": "Porážka Turků u Vídně",
+      "spatne_odpovedi": [
+        "Vydání pragmatické sankce",
+        "Vyhlášení Pruska královstvím",
+        "Vydání tolerančního patentu"
+      ],
+      "oduvodneni": "V roce 1683, za vlády Leopolda I., byli Turci poraženi u Vídně.",
+      "proc_spatne": {
+        "Vydání pragmatické sankce": "Pragmatická sankce je z roku 1713 a vydal ji Karel VI.",
+        "Vyhlášení Pruska královstvím": "Prusko se stalo královstvím v roce 1701.",
+        "Vydání tolerančního patentu": "Toleranční patent vydal Josef II. v roce 1781."
+      }
+    },
+    {
+      "id": "ET3",
+      "tema": "Časové přímky",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Která válka probíhala v letech 1756–1763?",
+      "spravna_odpoved": "Sedmiletá válka",
+      "spatne_odpovedi": [
+        "Válka o španělské dědictví",
+        "Války o rakouské dědictví",
+        "Třicetiletá válka"
+      ],
+      "oduvodneni": "Sedmiletá válka trvala od 1756 do 1763, tedy sedm let. Probíhala za Marie Terezie.",
+      "proc_spatne": {
+        "Válka o španělské dědictví": "Ta probíhala v letech 1701–1714.",
+        "Války o rakouské dědictví": "Ty probíhaly v letech 1740–1748, hned po nástupu Marie Terezie.",
+        "Třicetiletá válka": "Ta skončila už v roce 1648."
+      }
+    },
+    {
+      "id": "ET4",
+      "tema": "Časové přímky",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce byla v habsburské monarchii zavedena povinná školní docházka?",
+      "spravna_odpoved": "1774",
+      "spatne_odpovedi": [
+        "1713",
+        "1781",
+        "1648"
+      ],
+      "oduvodneni": "Povinnou školní docházku zavedla Marie Terezie v roce 1774.",
+      "proc_spatne": {
+        "1713": "V roce 1713 byla vydána pragmatická sankce.",
+        "1781": "V roce 1781 vydal Josef II. toleranční patent a zrušil nevolnictví.",
+        "1648": "V roce 1648 skončila třicetiletá válka. Povinná školní docházka byla zavedena až 1774."
+      }
+    },
+    {
+      "id": "ET5",
+      "tema": "Časové přímky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce byla vydána pragmatická sankce?",
+      "spravna_odpoved": "1713",
+      "spatne_odpovedi": [
+        "1683",
+        "1740",
+        "1774"
+      ],
+      "oduvodneni": "Karel VI. vydal pragmatickou sankci v roce 1713.",
+      "proc_spatne": {
+        "1683": "V roce 1683 byli Turci poraženi u Vídně.",
+        "1740": "V roce 1740 Karel VI. zemřel a na trůn nastoupila Marie Terezie. Sankce vznikla dřív.",
+        "1774": "V roce 1774 byla zavedena povinná školní docházka."
+      }
+    },
+    {
+      "id": "ET6",
+      "tema": "Časové přímky",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Které války začaly ve stejném roce, kdy nastoupila Marie Terezie?",
+      "spravna_odpoved": "Války o rakouské dědictví",
+      "spatne_odpovedi": [
+        "Válka o španělské dědictví",
+        "Sedmiletá válka",
+        "Napoleonské války"
+      ],
+      "oduvodneni": "V roce 1740 zemřel Karel VI., nastoupila Marie Terezie a začaly války o rakouské dědictví (1740–1748).",
+      "proc_spatne": {
+        "Válka o španělské dědictví": "Ta začala 1701, skoro čtyřicet let před nástupem Marie Terezie.",
+        "Sedmiletá válka": "Ta začala až 1756.",
+        "Napoleonské války": "Ty přišly až po smrti Marie Terezie i Josefa II."
+      }
+    },
+    {
+      "id": "ET7",
+      "tema": "Časové přímky",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce byl vydán toleranční patent a zrušeno nevolnictví?",
+      "spravna_odpoved": "1781",
+      "spatne_odpovedi": [
+        "1774",
+        "1740",
+        "1790"
+      ],
+      "oduvodneni": "Obojí udělal Josef II. v roce 1781, hned na začátku své samostatné vlády.",
+      "proc_spatne": {
+        "1774": "V roce 1774 zavedla Marie Terezie povinnou školní docházku.",
+        "1740": "V roce 1740 vládu teprve převzala Marie Terezie, Josef ještě nebyl na světě.",
+        "1790": "V roce 1790 Josef II. zemřel."
+      }
+    },
+    {
+      "id": "ET8",
+      "tema": "Časové přímky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které pořadí panovníků odpovídá časové přímce (od nejstaršího)?",
+      "spravna_odpoved": "Leopold I., Karel VI., Marie Terezie, Josef II.",
+      "spatne_odpovedi": [
+        "Karel VI., Leopold I., Marie Terezie, Josef II.",
+        "Leopold I., Karel VI., Josef II., Marie Terezie",
+        "Leopold I., Marie Terezie, Karel VI., Josef II."
+      ],
+      "oduvodneni": "Leopold I. (1657–1705), Karel VI. (1711–1740), Marie Terezie (1740–1780), Josef II. (1780–1790). Mezi Leopoldem I. a Karlem VI. je na přímce mezera 1705–1711.",
+      "proc_spatne": {
+        "Karel VI., Leopold I., Marie Terezie, Josef II.": "Leopold I. vládl před Karlem VI. Už v roce 1683 za něj byli poraženi Turci.",
+        "Leopold I., Karel VI., Josef II., Marie Terezie": "Josef II. byl syn Marie Terezie, samostatně vládl až po její smrti.",
+        "Leopold I., Marie Terezie, Karel VI., Josef II.": "Karel VI. byl otec Marie Terezie, vládl tedy před ní."
+      }
+    },
+    {
+      "id": "ET9",
+      "tema": "Časové přímky",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kteří dva panovníci nastoupili na trůn ve stejném roce 1740?",
+      "spravna_odpoved": "Marie Terezie a Fridrich II.",
+      "spatne_odpovedi": [
+        "Josef II. a Kateřina II.",
+        "Karel VI. a Petr Veliký",
+        "Marie Terezie a Kateřina II."
+      ],
+      "oduvodneni": "Na přímkách mají oba začátek vlády v roce 1740. Ještě téhož roku proti sobě stáli ve válce.",
+      "proc_spatne": {
+        "Josef II. a Kateřina II.": "Kateřina II. vládla od 1762, Josef II. samostatně od 1780.",
+        "Karel VI. a Petr Veliký": "Petr Veliký vládl od 1689, Karel VI. od 1711.",
+        "Marie Terezie a Kateřina II.": "Kateřina II. nastoupila až 1762, dvaadvacet let po Marii Terezii."
+      }
+    },
+    {
+      "id": "ET10",
+      "tema": "Časové přímky",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které období označuje přímka jako osvícenský absolutismus?",
+      "spravna_odpoved": "1740–1790",
+      "spatne_odpovedi": [
+        "1657–1705",
+        "1711–1740",
+        "1756–1763"
+      ],
+      "oduvodneni": "Osvícenský absolutismus (1740–1790) zahrnuje vládu Marie Terezie a Josefa II.",
+      "proc_spatne": {
+        "1657–1705": "To je vláda Leopolda I.",
+        "1711–1740": "To je vláda Karla VI. Osvícenské reformy začala až jeho dcera.",
+        "1756–1763": "To je sedmiletá válka, jen část vlády Marie Terezie."
+      }
+    },
+    {
+      "id": "ET11",
+      "tema": "Leopold I. a Karel VI.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Za kterého panovníka byli Turci poraženi u Vídně?",
+      "spravna_odpoved": "Za Leopolda I.",
+      "spatne_odpovedi": [
+        "Za Karla VI.",
+        "Za Josefa II.",
+        "Za Marie Terezie"
+      ],
+      "oduvodneni": "Leopold I. vládl 1657–1705, porážka Turků u Vídně se stala 1683.",
+      "proc_spatne": {
+        "Za Karla VI.": "Karel VI. začal vládnout až 1711.",
+        "Za Josefa II.": "Josef II. vládl samostatně až sto let po této bitvě.",
+        "Za Marie Terezie": "Marie Terezie vládla 1740–1780. Její soupeř byl hlavně pruský král."
+      }
+    },
+    {
+      "id": "ET12",
+      "tema": "Leopold I. a Karel VI.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Které povstání je na přímce za vlády Leopolda I.?",
+      "spravna_odpoved": "Povstání poddaných v letech 1679–1680",
+      "spatne_odpovedi": [
+        "Velké povstání poddaných roku 1775",
+        "Stavovské povstání roku 1618",
+        "Husitské povstání"
+      ],
+      "oduvodneni": "Povstání poddaných 1679–1680 proběhlo za Leopolda I. Poddaní se bouřili hlavně proti robotě.",
+      "proc_spatne": {
+        "Velké povstání poddaných roku 1775": "To proběhlo za Marie Terezie a skončilo porážkou sedláků u Chlumce.",
+        "Stavovské povstání roku 1618": "To začalo třicetiletou válku, Leopold I. ještě nevládl.",
+        "Husitské povstání": "To patří do 15. století."
+      }
+    },
+    {
+      "id": "ET13",
+      "tema": "Leopold I. a Karel VI.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Která válka probíhala v letech 1701–1714?",
+      "spravna_odpoved": "Válka o španělské dědictví",
+      "spatne_odpovedi": [
+        "Válka o rakouské dědictví",
+        "Sedmiletá válka",
+        "Třicetiletá válka"
+      ],
+      "oduvodneni": "Začala za Leopolda I. a skončila za Karla VI. Šlo o to, kdo získá španělský trůn.",
+      "proc_spatne": {
+        "Válka o rakouské dědictví": "Ta byla až 1740–1748, po smrti Karla VI.",
+        "Sedmiletá válka": "Ta probíhala 1756–1763.",
+        "Třicetiletá válka": "Ta probíhala 1618–1648."
+      }
+    },
+    {
+      "id": "ET14",
+      "tema": "Leopold I. a Karel VI.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo vydal pragmatickou sankci?",
+      "spravna_odpoved": "Karel VI.",
+      "spatne_odpovedi": [
+        "Marie Terezie",
+        "Leopold I.",
+        "Josef II."
+      ],
+      "oduvodneni": "Vydal ji Karel VI. v roce 1713, aby zajistil nástupnictví svému rodu.",
+      "proc_spatne": {
+        "Marie Terezie": "Ta díky pragmatické sankci nastoupila, ale vydal ji její otec.",
+        "Leopold I.": "Leopold I. zemřel už 1705, sankce je z roku 1713.",
+        "Josef II.": "Josef II. vydal jiné dokumenty, hlavně toleranční patent."
+      }
+    },
+    {
+      "id": "ET15",
+      "tema": "Leopold I. a Karel VI.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co zajišťovala pragmatická sankce?",
+      "spravna_odpoved": "Že na habsburský trůn může nastoupit i žena",
+      "spatne_odpovedi": [
+        "Že všechny děti musí chodit do školy",
+        "Že poddaní se mohou volně stěhovat",
+        "Že protestanti mohou vyznávat svou víru"
+      ],
+      "oduvodneni": "Karel VI. neměl mužského potomka, který by ho přežil. Pragmatická sankce stanovila nedělitelnost habsburských zemí a umožnila nástup dcery.",
+      "proc_spatne": {
+        "Že všechny děti musí chodit do školy": "Povinnou školní docházku zavedla až Marie Terezie v roce 1774.",
+        "Že poddaní se mohou volně stěhovat": "To přineslo zrušení nevolnictví v roce 1781.",
+        "Že protestanti mohou vyznávat svou víru": "To povolil toleranční patent z roku 1781."
+      }
+    },
+    {
+      "id": "ET16",
+      "tema": "Leopold I. a Karel VI.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Proč po smrti Karla VI. vypukly války, i když platila pragmatická sankce?",
+      "spravna_odpoved": "Někteří sousedé odmítli uznat nástup Marie Terezie a chtěli získat část jejích zemí",
+      "spatne_odpovedi": [
+        "Karel VI. ji před smrtí zrušil",
+        "Marie Terezie se vlády vzdala",
+        "Poddaní povstali proti povinné škole"
+      ],
+      "oduvodneni": "Pragmatická sankce stanovila pravidla nástupnictví v habsburských zemích. Po smrti Karla VI. v roce 1740 někteří panovníci nástup Marie Terezie neuznali a začaly války o rakouské dědictví.",
+      "proc_spatne": {
+        "Karel VI. ji před smrtí zrušil": "Nezrušil. Celý život se naopak snažil, aby ji uznaly ostatní státy.",
+        "Marie Terezie se vlády vzdala": "Nevzdala, o svůj trůn naopak několik let bojovala.",
+        "Poddaní povstali proti povinné škole": "Povinná školní docházka byla zavedena až 1774, dávno po těchto válkách."
+      }
+    },
+    {
+      "id": "ET17",
+      "tema": "Leopold I. a Karel VI.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "O kom platí: neměl mužského potomka, a proto se snažil zajistit nástupnictví pro svůj rod jiným způsobem?",
+      "spravna_odpoved": "O Karlu VI.",
+      "spatne_odpovedi": [
+        "O Leopoldu I.",
+        "O Petru Velikém",
+        "O Fridrichu II."
+      ],
+      "oduvodneni": "Karlu VI. zůstaly dcery. Tím „jiným způsobem“ byla pragmatická sankce, která zajistila trůn Marii Terezii.",
+      "proc_spatne": {
+        "O Leopoldu I.": "Leopold I. syny měl, jedním z nich byl Karel VI.",
+        "O Petru Velikém": "Petr Veliký vládl v Rusku, s pragmatickou sankcí nesouvisí.",
+        "O Fridrichu II.": "Fridrich II. sice neměl děti, ale nástupnictví neřešil novým zákonem o ženské posloupnosti. Trůn po něm převzal synovec."
+      }
+    },
+    {
+      "id": "ET18",
+      "tema": "Marie Terezie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kolik dětí měla Marie Terezie?",
+      "spravna_odpoved": "16",
+      "spatne_odpovedi": [
+        "6",
+        "10",
+        "22"
+      ],
+      "oduvodneni": "Marie Terezie měla s Františkem Lotrinským 16 dětí, jedním z nich byl Josef II.",
+      "proc_spatne": {
+        "6": "Málo, v nabídce učebnice je u Marie Terezie 16 dětí.",
+        "10": "Málo, bylo jich 16.",
+        "22": "Moc, bylo jich 16."
+      }
+    },
+    {
+      "id": "ET19",
+      "tema": "Marie Terezie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "O kterou zemi přišla Marie Terezie z větší části ve válkách s Pruskem?",
+      "spravna_odpoved": "O Slezsko",
+      "spatne_odpovedi": [
+        "O Moravu",
+        "O Uhry",
+        "O Lužici"
+      ],
+      "oduvodneni": "Většinu Slezska získal pruský král Fridrich II. Byla to nejbolestnější ztráta Marie Terezie.",
+      "proc_spatne": {
+        "O Moravu": "Morava zůstala součástí habsburské monarchie.",
+        "O Uhry": "Uhry monarchii zůstaly a Marii Terezii ve válce podpořily.",
+        "O Lužici": "Lužici Habsburkové ztratili už za třicetileté války, získalo ji Sasko."
+      }
+    },
+    {
+      "id": "ET20",
+      "tema": "Marie Terezie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Které dva konflikty probíhaly za vlády Marie Terezie?",
+      "spravna_odpoved": "Války o rakouské dědictví a sedmiletá válka",
+      "spatne_odpovedi": [
+        "Válka o španělské dědictví a sedmiletá válka",
+        "Třicetiletá válka a války o rakouské dědictví",
+        "Válka o španělské dědictví a třicetiletá válka"
+      ],
+      "oduvodneni": "Války o rakouské dědictví (1740–1748) i sedmiletá válka (1756–1763) spadají do její vlády 1740–1780.",
+      "proc_spatne": {
+        "Válka o španělské dědictví a sedmiletá válka": "Válka o španělské dědictví skončila 1714, před narozením Marie Terezie.",
+        "Třicetiletá válka a války o rakouské dědictví": "Třicetiletá válka skončila 1648.",
+        "Válka o španělské dědictví a třicetiletá válka": "Obě skončily dávno před rokem 1740."
+      }
+    },
+    {
+      "id": "ET21",
+      "tema": "Marie Terezie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "O kom učebnice píše, že musela vést několik válek, aby udržela monarchii i své postavení, a pomocí reforem zlepšovala život?",
+      "spravna_odpoved": "O Marii Terezii",
+      "spatne_odpovedi": [
+        "O Kateřině II.",
+        "O Marii Antoinettě",
+        "O Alžbětě I."
+      ],
+      "oduvodneni": "Marie Terezie bránila svůj trůn ve válkách o rakouské dědictví, vedla sedmiletou válku a zaváděla reformy.",
+      "proc_spatne": {
+        "O Kateřině II.": "Kateřina II. vládla v Rusku, nebránila habsburskou monarchii.",
+        "O Marii Antoinettě": "To byla dcera Marie Terezie, francouzská královna.",
+        "O Alžbětě I.": "Anglická královna žila v 16. století."
+      }
+    },
+    {
+      "id": "ET22",
+      "tema": "Marie Terezie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co byly bankocetle?",
+      "spravna_odpoved": "Papírové peníze",
+      "spatne_odpovedi": [
+        "Zlaté mince",
+        "Daňová přiznání",
+        "Školní vysvědčení"
+      ],
+      "oduvodneni": "Bankocetle byly první papírové peníze v habsburské monarchii, zavedla je Marie Terezie.",
+      "proc_spatne": {
+        "Zlaté mince": "Bankocetle byly z papíru, ne z kovu.",
+        "Daňová přiznání": "Daňová reforma je jiná věc. Bankocetlemi se platilo.",
+        "Školní vysvědčení": "S povinnou školou nesouvisí, je to platidlo."
+      }
+    },
+    {
+      "id": "ET23",
+      "tema": "Marie Terezie",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Která z událostí se NESTALA za vlády Marie Terezie?",
+      "spravna_odpoved": "Vydání tolerančního patentu",
+      "spatne_odpovedi": [
+        "Ztráta většiny Slezska",
+        "Povstání poddaných u Chlumce",
+        "Zavedení povinné školní docházky"
+      ],
+      "oduvodneni": "Toleranční patent vydal Josef II. v roce 1781, rok po smrti své matky.",
+      "proc_spatne": {
+        "Ztráta většiny Slezska": "Slezsko ztratila právě Marie Terezie ve válkách s Pruskem.",
+        "Povstání poddaných u Chlumce": "Povstání bylo 1775, tedy za její vlády.",
+        "Zavedení povinné školní docházky": "Povinná školní docházka byla zavedena 1774, tedy za její vlády."
+      }
+    },
+    {
+      "id": "ET24",
+      "tema": "Marie Terezie",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Která změna patří k reformám Marie Terezie?",
+      "spravna_odpoved": "Povinná školní docházka",
+      "spatne_odpovedi": [
+        "Zrušení nevolnictví",
+        "Toleranční patent",
+        "Pragmatická sankce"
+      ],
+      "oduvodneni": "Marie Terezie ji zavedla v roce 1774.",
+      "proc_spatne": {
+        "Zrušení nevolnictví": "To provedl až její syn Josef II. v roce 1781.",
+        "Toleranční patent": "Ten vydal Josef II. v roce 1781.",
+        "Pragmatická sankce": "Tu vydal její otec Karel VI. v roce 1713."
+      }
+    },
+    {
+      "id": "ET25",
+      "tema": "Marie Terezie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kde bylo poraženo velké povstání poddaných v roce 1775?",
+      "spravna_odpoved": "U Chlumce",
+      "spatne_odpovedi": [
+        "U Vídně",
+        "U Lipan",
+        "Na Bílé hoře"
+      ],
+      "oduvodneni": "Odtud je rčení „dopadli jako sedláci u Chlumce“. Povstání proběhlo za Marie Terezie.",
+      "proc_spatne": {
+        "U Vídně": "U Vídně byli v roce 1683 poraženi Turci.",
+        "U Lipan": "U Lipan byli v roce 1434 poraženi husité.",
+        "Na Bílé hoře": "Na Bílé hoře se bojovalo v roce 1620."
+      }
+    },
+    {
+      "id": "ET26",
+      "tema": "Marie Terezie",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo byl František Lotrinský?",
+      "spravna_odpoved": "Manžel Marie Terezie a císař Svaté říše římské",
+      "spatne_odpovedi": [
+        "Otec Marie Terezie a český král",
+        "Pruský král a soupeř Marie Terezie",
+        "Syn Marie Terezie a spoluvládce"
+      ],
+      "oduvodneni": "František Lotrinský byl manžel Marie Terezie. Císařem byl on, ve svých zemích ale vládla ona.",
+      "proc_spatne": {
+        "Otec Marie Terezie a český král": "Otcem Marie Terezie byl Karel VI.",
+        "Pruský král a soupeř Marie Terezie": "Pruským králem byl Fridrich II.",
+        "Syn Marie Terezie a spoluvládce": "Synem a spoluvládcem byl Josef II."
+      }
+    },
+    {
+      "id": "ET27",
+      "tema": "Josef II.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo měl přezdívku „selský císař“?",
+      "spravna_odpoved": "Josef II.",
+      "spatne_odpovedi": [
+        "Karel VI.",
+        "Leopold I.",
+        "František Lotrinský"
+      ],
+      "oduvodneni": "Josef II. zrušil nevolnictví, a proto ho venkované měli rádi.",
+      "proc_spatne": {
+        "Karel VI.": "Karel VI. je spojený s pragmatickou sankcí.",
+        "Leopold I.": "Za Leopolda I. naopak poddaní povstali (1679–1680).",
+        "František Lotrinský": "Císařem byl, ale přezdívka patří jeho synovi Josefovi."
+      }
+    },
+    {
+      "id": "ET28",
+      "tema": "Josef II.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co změnilo zrušení nevolnictví?",
+      "spravna_odpoved": "Poddaní se mohli bez svolení vrchnosti stěhovat, ženit a učit řemeslu",
+      "spatne_odpovedi": [
+        "Poddaní přestali robotovat",
+        "Poddaní dostali zdarma půdu od pána",
+        "Poddaní přestali platit daně"
+      ],
+      "oduvodneni": "Nevolnictví připoutávalo člověka k panství. Po roce 1781 získali poddaní osobní svobodu.",
+      "proc_spatne": {
+        "Poddaní přestali robotovat": "Častý omyl! Robota zůstala, u nás byla zrušena až v roce 1848.",
+        "Poddaní dostali zdarma půdu od pána": "Půda zůstala vrchnosti, změnila se osobní svoboda lidí.",
+        "Poddaní přestali platit daně": "Daně se platily dál."
+      }
+    },
+    {
+      "id": "ET29",
+      "tema": "Josef II.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Mohla být Marie Terezie u toho, když Josef II. zrušil nevolnictví?",
+      "spravna_odpoved": "Ne, zemřela o rok dřív",
+      "spatne_odpovedi": [
+        "Ano, podepsala to s ním",
+        "Ano, zemřela až 1790",
+        "Ne, zemřela už 1774"
+      ],
+      "oduvodneni": "Marie Terezie zemřela 1780, nevolnictví bylo zrušeno 1781.",
+      "proc_spatne": {
+        "Ano, podepsala to s ním": "Josef II. sice byl dřív spoluvládcem, ale v roce 1781 už vládl sám.",
+        "Ano, zemřela až 1790": "V roce 1790 zemřel Josef II.",
+        "Ne, zemřela už 1774": "V roce 1774 zavedla povinnou školní docházku."
+      }
+    },
+    {
+      "id": "ET30",
+      "tema": "Josef II.",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "O kom platí: počtem reforem a vydaných patentů by patrně vytvořil světový rekord?",
+      "spravna_odpoved": "O Josefu II.",
+      "spatne_odpovedi": [
+        "O Leopoldu I.",
+        "O Karlu VI.",
+        "O Petru Velikém"
+      ],
+      "oduvodneni": "Josef II. vydal za deset let samostatné vlády tisíce nařízení.",
+      "proc_spatne": {
+        "O Leopoldu I.": "Leopold I. vládl dlouho, ale jako velký reformátor známý není.",
+        "O Karlu VI.": "Známý je hlavně jeden jeho dokument, pragmatická sankce.",
+        "O Petru Velikém": "Petr Veliký také reformoval, ale nápověda s patenty míří na Josefa II."
+      }
+    },
+    {
+      "id": "ET31",
+      "tema": "Josef II.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co povolil toleranční patent?",
+      "spravna_odpoved": "Některá nekatolická vyznání",
+      "spatne_odpovedi": [
+        "Úplně všechna náboženství bez omezení",
+        "Jen katolické vyznání",
+        "Cestování poddaných mezi panstvími"
+      ],
+      "oduvodneni": "Vedle katolíků mohli svou víru vyznávat luteráni, kalvinisté a pravoslavní.",
+      "proc_spatne": {
+        "Úplně všechna náboženství bez omezení": "Patent platil jen pro některá vyznání a katolická církev si nechala hlavní postavení.",
+        "Jen katolické vyznání": "To platilo předtím, po třicetileté válce. Patent to uvolnil.",
+        "Cestování poddaných mezi panstvími": "To souvisí se zrušením nevolnictví."
+      }
+    },
+    {
+      "id": "ET32",
+      "tema": "Josef II.",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Jak dlouho vládl Josef II. samostatně?",
+      "spravna_odpoved": "10 let (1780–1790)",
+      "spatne_odpovedi": [
+        "40 let (1740–1780)",
+        "29 let (1711–1740)",
+        "34 let (1762–1796)"
+      ],
+      "oduvodneni": "Na přímce je jeho vláda od 1780 do 1790. Předtím byl spoluvládcem své matky.",
+      "proc_spatne": {
+        "40 let (1740–1780)": "Takhle dlouho vládla Marie Terezie.",
+        "29 let (1711–1740)": "To je vláda Karla VI.",
+        "34 let (1762–1796)": "To je vláda ruské carevny Kateřiny II."
+      }
+    },
+    {
+      "id": "ET33",
+      "tema": "Josef II.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Komu se podle nabídky v učebnici zlepšil život za vlády Josefa II.?",
+      "spravna_odpoved": "Židům",
+      "spatne_odpovedi": [
+        "Jezuitům",
+        "Turkům",
+        "Slezanům pod pruskou vládou"
+      ],
+      "oduvodneni": "Josef II. Židům uvolnil řadu omezení, mohli například studovat a vykonávat víc povolání.",
+      "proc_spatne": {
+        "Jezuitům": "Jezuitský řád byl zrušen už 1773 a Josef II. rušil i další kláštery.",
+        "Turkům": "S Turky vedla monarchie války.",
+        "Slezanům pod pruskou vládou": "Většina Slezska patřila Prusku, tam Josef II. nevládl."
+      }
+    },
+    {
+      "id": "ET34",
+      "tema": "Josef II.",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která dvojice události a panovníka je správně?",
+      "spravna_odpoved": "Zrušení nevolnictví – Josef II.",
+      "spatne_odpovedi": [
+        "Bankocetle – Karel VI.",
+        "Toleranční patent – Marie Terezie",
+        "Povinná školní docházka – Leopold I."
+      ],
+      "oduvodneni": "Zrušení nevolnictví v roce 1781 provedl Josef II.",
+      "proc_spatne": {
+        "Bankocetle – Karel VI.": "Bankocetle zavedla Marie Terezie.",
+        "Toleranční patent – Marie Terezie": "Toleranční patent vydal Josef II.",
+        "Povinná školní docházka – Leopold I.": "Školní docházku zavedla Marie Terezie v roce 1774."
+      }
+    },
+    {
+      "id": "ET35",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který ruský panovník se vypravil do západní Evropy, aby poznal technické novinky?",
+      "spravna_odpoved": "Petr Veliký",
+      "spatne_odpovedi": [
+        "Kateřina II.",
+        "Ivan Hrozný",
+        "Fridrich II."
+      ],
+      "oduvodneni": "Petr Veliký cestoval na Západ a podle něj pak Rusko modernizoval.",
+      "proc_spatne": {
+        "Kateřina II.": "Kateřina II. je v opakování spojená hlavně s přístupem k Černému moři.",
+        "Ivan Hrozný": "Ivan Hrozný vládl už v 16. století.",
+        "Fridrich II.": "Fridrich II. byl pruský král."
+      }
+    },
+    {
+      "id": "ET36",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Která ruská panovnice získala ve válce s Turky přístup k Černému moři?",
+      "spravna_odpoved": "Kateřina II.",
+      "spatne_odpovedi": [
+        "Marie Terezie",
+        "Alžběta I.",
+        "Marie Antoinetta"
+      ],
+      "oduvodneni": "Kateřina II. (1762–1796) získala přístup k Černému moři a dala tam vybudovat přístavy.",
+      "proc_spatne": {
+        "Marie Terezie": "Vládla v habsburské monarchii.",
+        "Alžběta I.": "To byla anglická královna 16. století.",
+        "Marie Antoinetta": "To byla francouzská královna, dcera Marie Terezie."
+      }
+    },
+    {
+      "id": "ET37",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Co bylo na ruské přímce mezi lety 1725 a 1762?",
+      "spravna_odpoved": "Boj o moc",
+      "spatne_odpovedi": [
+        "Vláda Kateřiny II.",
+        "Vláda Petra Velikého",
+        "Rozmach Pruska"
+      ],
+      "oduvodneni": "Po smrti Petra Velikého se o ruský trůn bojovalo, dokud nenastoupila Kateřina II.",
+      "proc_spatne": {
+        "Vláda Kateřiny II.": "Kateřina II. vládla až od 1762.",
+        "Vláda Petra Velikého": "Petr Veliký zemřel 1725.",
+        "Rozmach Pruska": "To je popisek na pruské přímce."
+      }
+    },
+    {
+      "id": "ET38",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém roce se Prusko stalo královstvím?",
+      "spravna_odpoved": "1701",
+      "spatne_odpovedi": [
+        "1648",
+        "1740",
+        "1786"
+      ],
+      "oduvodneni": "Na pruské přímce je rok 1701 a popisek „Prusko královstvím“.",
+      "proc_spatne": {
+        "1648": "V roce 1648 skončila třicetiletá válka.",
+        "1740": "V roce 1740 nastoupil Fridrich II., království už existovalo.",
+        "1786": "V roce 1786 skončila vláda Fridricha II."
+      }
+    },
+    {
+      "id": "ET39",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co je na ruské přímce připsáno k Petru Velikému?",
+      "spravna_odpoved": "Modernizace hospodářství",
+      "spatne_odpovedi": [
+        "Přístup k Černému moři",
+        "Boj o moc",
+        "Zaostalá země"
+      ],
+      "oduvodneni": "U jeho vlády (1689–1725) stojí modernizace hospodářství.",
+      "proc_spatne": {
+        "Přístup k Černému moři": "Ten patří ke Kateřině II.",
+        "Boj o moc": "Boj o moc je v mezeře mezi Petrem Velikým a Kateřinou II.",
+        "Zaostalá země": "Tak je popsáno Rusko před Petrem Velikým."
+      }
+    },
+    {
+      "id": "ET40",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Která dvojice panovnice a státu je správně?",
+      "spravna_odpoved": "Kateřina II. – Rusko",
+      "spatne_odpovedi": [
+        "Marie Terezie – Prusko",
+        "Kateřina II. – habsburská monarchie",
+        "Marie Terezie – Rusko"
+      ],
+      "oduvodneni": "Kateřina II. vládla v Rusku v letech 1762–1796.",
+      "proc_spatne": {
+        "Marie Terezie – Prusko": "Marie Terezie vládla v habsburské monarchii, Prusko bylo její soupeř.",
+        "Kateřina II. – habsburská monarchie": "Kateřina II. byla ruská carevna.",
+        "Marie Terezie – Rusko": "V Rusku vládla Kateřina II."
+      }
+    },
+    {
+      "id": "ET41",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Který král stál v čele Pruska v letech 1740–1786?",
+      "spravna_odpoved": "Fridrich II.",
+      "spatne_odpovedi": [
+        "Karel VI.",
+        "Petr Veliký",
+        "Josef II."
+      ],
+      "oduvodneni": "Za Fridricha II. přišel rozmach Pruska.",
+      "proc_spatne": {
+        "Karel VI.": "Karel VI. byl Habsburk a zemřel 1740.",
+        "Petr Veliký": "Petr Veliký vládl v Rusku.",
+        "Josef II.": "Josef II. vládl v habsburské monarchii."
+      }
+    },
+    {
+      "id": "ET42",
+      "tema": "Rusko a Prusko",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Kdo byl na trůnu v roce 1770 ve Vídni, v Petrohradu a v Berlíně?",
+      "spravna_odpoved": "Marie Terezie, Kateřina II. a Fridrich II.",
+      "spatne_odpovedi": [
+        "Karel VI., Petr Veliký a Fridrich II.",
+        "Leopold I., Kateřina II. a Fridrich II.",
+        "Marie Terezie, Petr Veliký a Fridrich II."
+      ],
+      "oduvodneni": "Rok 1770 spadá do vlády všech tří: Marie Terezie 1740–1780, Kateřina II. 1762–1796, Fridrich II. 1740–1786.",
+      "proc_spatne": {
+        "Karel VI., Petr Veliký a Fridrich II.": "Petr Veliký zemřel 1725 a Karel VI. 1740.",
+        "Leopold I., Kateřina II. a Fridrich II.": "Leopold I. zemřel už 1705.",
+        "Marie Terezie, Petr Veliký a Fridrich II.": "Petr Veliký zemřel 1725, v Rusku už vládla Kateřina II."
+      }
+    },
+    {
+      "id": "ET43",
+      "tema": "Vztahy a souvislosti",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Jaký byl vztah mezi habsburskou monarchií a Pruskem za Marie Terezie?",
+      "spravna_odpoved": "Nepřátelský, bojovaly o Slezsko",
+      "spatne_odpovedi": [
+        "Přátelský, společně vládly Slezsku",
+        "Žádný, vůbec se neznaly",
+        "Rodinný, Fridrich II. byl syn Marie Terezie"
+      ],
+      "oduvodneni": "Fridrich II. Marii Terezii napadl a získal většinu Slezska.",
+      "proc_spatne": {
+        "Přátelský, společně vládly Slezsku": "Právě kvůli Slezsku spolu bojovaly.",
+        "Žádný, vůbec se neznaly": "Byly to sousední státy a hlavní soupeři.",
+        "Rodinný, Fridrich II. byl syn Marie Terezie": "Synem Marie Terezie byl Josef II."
+      }
+    },
+    {
+      "id": "ET44",
+      "tema": "Vztahy a souvislosti",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaký byl vztah mezi osvícenci a katolickou církví?",
+      "spravna_odpoved": "Osvícenci církev kritizovali a chtěli omezit její moc",
+      "spatne_odpovedi": [
+        "Osvícenci chtěli moc církve posílit",
+        "Osvícenci byli tajný církevní řád",
+        "Osvícenci s církví vedli třicetiletou válku"
+      ],
+      "oduvodneni": "Osvícenci kladli důraz na rozum a vzdělání a vadil jim velký vliv církve.",
+      "proc_spatne": {
+        "Osvícenci chtěli moc církve posílit": "Naopak, chtěli její vliv omezit.",
+        "Osvícenci byli tajný církevní řád": "Osvícenství bylo myšlenkové hnutí, ne řád.",
+        "Osvícenci s církví vedli třicetiletou válku": "Třicetiletá válka skončila 1648, osvícenství je hlavně 18. století."
+      }
+    },
+    {
+      "id": "ET45",
+      "tema": "Vztahy a souvislosti",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Který stát po třicetileté válce zažíval úpadek?",
+      "spravna_odpoved": "Polsko",
+      "spatne_odpovedi": [
+        "Rusko",
+        "Prusko",
+        "Anglie"
+      ],
+      "oduvodneni": "Polsko mělo slabou královskou moc, koncem 18. století si ho rozdělily Rusko, Prusko a habsburská monarchie.",
+      "proc_spatne": {
+        "Rusko": "Rusko za Petra Velikého a Kateřiny II. rostlo.",
+        "Prusko": "Prusko se stalo královstvím a velmocí.",
+        "Anglie": "Anglie bohatla díky obchodu, loďstvu a koloniím."
+      }
+    },
+    {
+      "id": "ET46",
+      "tema": "Vztahy a souvislosti",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Jaký byl vztah mezi Turky a evropskými státy?",
+      "spravna_odpoved": "Po celé období spolu vedli války",
+      "spatne_odpovedi": [
+        "Uzavřeli trvalý mír v roce 1648",
+        "Turci vládli ve Vídni",
+        "Žili daleko, takže se nikdy nestřetli"
+      ],
+      "oduvodneni": "Na přímce jsou „války s Turky“ po celé zobrazené období, patří k nim i bitva u Vídně 1683.",
+      "proc_spatne": {
+        "Uzavřeli trvalý mír v roce 1648": "V roce 1648 skončila třicetiletá válka. S Turky se válčilo dál.",
+        "Turci vládli ve Vídni": "Vídeň oblehli, ale v roce 1683 byli poraženi.",
+        "Žili daleko, takže se nikdy nestřetli": "Osmanská říše ovládala i část Evropy a její vojska došla až k Vídni."
+      }
+    },
+    {
+      "id": "ET47",
+      "tema": "Vztahy a souvislosti",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Která událost umožnila Marii Terezii nastoupit na trůn?",
+      "spravna_odpoved": "Vydání pragmatické sankce",
+      "spatne_odpovedi": [
+        "Porážka Turků u Vídně",
+        "Sedmiletá válka",
+        "Toleranční patent"
+      ],
+      "oduvodneni": "Pragmatická sankce z roku 1713 umožnila nástup ženy, Marie Terezie ho využila v roce 1740.",
+      "proc_spatne": {
+        "Porážka Turků u Vídně": "Ta zastavila Turky v roce 1683, s nástupnictvím nesouvisí.",
+        "Sedmiletá válka": "Ta začala 1756, kdy už Marie Terezie šestnáct let vládla.",
+        "Toleranční patent": "Ten se týkal víry a vydal ho až Josef II."
+      }
+    },
+    {
+      "id": "ET48",
+      "tema": "Vztahy a souvislosti",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Mohly se setkat Marie Terezie a Kateřina II.?",
+      "spravna_odpoved": "Ano, žily a vládly ve stejné době",
+      "spatne_odpovedi": [
+        "Ne, Kateřina II. žila o sto let později",
+        "Ne, Marie Terezie zemřela před rokem 1762",
+        "Ano, byly to sestry"
+      ],
+      "oduvodneni": "Vlády se překrývají v letech 1762–1780. Setkat se tedy mohly, i když se to osobně nestalo.",
+      "proc_spatne": {
+        "Ne, Kateřina II. žila o sto let později": "Kateřina II. nastoupila 1762, ještě za vlády Marie Terezie.",
+        "Ne, Marie Terezie zemřela před rokem 1762": "Marie Terezie zemřela až 1780.",
+        "Ano, byly to sestry": "Nebyly příbuzné. Kateřina II. pocházela z německé knížecí rodiny."
+      }
+    },
+    {
+      "id": "ET49",
+      "tema": "Vztahy a souvislosti",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Který stát po třicetileté válce zažíval vzestup?",
+      "spravna_odpoved": "Prusko",
+      "spatne_odpovedi": [
+        "Polsko",
+        "Španělsko",
+        "Osmanská říše"
+      ],
+      "oduvodneni": "Na přímce vidíš vznik pruského státu, království 1701 a pak „rozmach Pruska“.",
+      "proc_spatne": {
+        "Polsko": "Polsko sláblo, sousedé si ho nakonec rozdělili.",
+        "Španělsko": "Španělsko ztrácelo svou dřívější moc.",
+        "Osmanská říše": "Po porážce u Vídně 1683 Turci z Evropy ustupovali."
+      }
+    },
+    {
+      "id": "ET50",
+      "tema": "Baroko v obrazech",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Ve kterém oboru vynikl Karel Škréta?",
+      "spravna_odpoved": "Malířství",
+      "spatne_odpovedi": [
+        "Sochařství",
+        "Architektura",
+        "Hudba"
+      ],
+      "oduvodneni": "Karel Škréta, Petr Brandl a Jan Kupecký byli barokní malíři.",
+      "proc_spatne": {
+        "Sochařství": "Sochaři byli Braun a Brokoff.",
+        "Architektura": "Architekti byli Santini a Dientzenhoferové.",
+        "Hudba": "Hudebníci byli například Bach a Händel."
+      }
+    },
+    {
+      "id": "ET51",
+      "tema": "Baroko v obrazech",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kteří dva příbuzní byli významní barokní architekti?",
+      "spravna_odpoved": "Kryštof a Kilián Dientzenhoferovi",
+      "spatne_odpovedi": [
+        "Karel Škréta a Petr Brandl",
+        "Matyáš Braun a Maxmilián Brokoff",
+        "Bach a Händel"
+      ],
+      "oduvodneni": "Byli to otec (Kryštof) a syn (Kilián Ignác). To je odpověď na hádanku o příbuzných architektech.",
+      "proc_spatne": {
+        "Karel Škréta a Petr Brandl": "Byli to malíři a nebyli příbuzní.",
+        "Matyáš Braun a Maxmilián Brokoff": "Byli to sochaři a nebyli příbuzní.",
+        "Bach a Händel": "Byli to hudební skladatelé a nebyli příbuzní."
+      }
+    },
+    {
+      "id": "ET52",
+      "tema": "Baroko v obrazech",
+      "obtiznost": "tezka",
+      "typ": "single_choice",
+      "otazka": "Který umělec patří do literatury i do hudby?",
+      "spravna_odpoved": "Adam Václav Michna z Otradovic",
+      "spatne_odpovedi": [
+        "Matyáš Braun",
+        "Bohuslav Balbín",
+        "Jan Kupecký"
+      ],
+      "oduvodneni": "Michna psal náboženskou poezii a byl i skladatel.",
+      "proc_spatne": {
+        "Matyáš Braun": "Braun byl sochař.",
+        "Bohuslav Balbín": "Balbín psal knihy, skladatel nebyl.",
+        "Jan Kupecký": "Kupecký byl malíř."
+      }
+    },
+    {
+      "id": "ET53",
+      "tema": "Baroko v obrazech",
+      "obtiznost": "lehka",
+      "typ": "single_choice",
+      "otazka": "Kdo navrhl poutní kostel na Zelené hoře s půdorysem hvězdy?",
+      "spravna_odpoved": "Jan Blažej Santini-Aichel",
+      "spatne_odpovedi": [
+        "Matyáš Braun",
+        "Kilián Dientzenhofer",
+        "Karel Škréta"
+      ],
+      "oduvodneni": "Kostel sv. Jana Nepomuckého na Zelené hoře ve Žďáru nad Sázavou je dílo Santiniho.",
+      "proc_spatne": {
+        "Matyáš Braun": "Braun byl sochař.",
+        "Kilián Dientzenhofer": "Také slavný architekt, ale Zelená hora je od Santiniho.",
+        "Karel Škréta": "Škréta byl malíř."
+      }
+    },
+    {
+      "id": "ET54",
+      "tema": "Baroko v obrazech",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kteří dva umělci byli barokní sochaři?",
+      "spravna_odpoved": "Matyáš Braun a Maxmilián Brokoff",
+      "spatne_odpovedi": [
+        "Jan Kupecký a Petr Brandl",
+        "Bohuslav Balbín a Adam Michna z Otradovic",
+        "Claudio Monteverdi a Georg Friedrich Händel"
+      ],
+      "oduvodneni": "Oba proslavili české barokní sochařství.",
+      "proc_spatne": {
+        "Jan Kupecký a Petr Brandl": "To byli malíři.",
+        "Bohuslav Balbín a Adam Michna z Otradovic": "Balbín patří k literatuře, Michna k literatuře a hudbě.",
+        "Claudio Monteverdi a Georg Friedrich Händel": "To byli skladatelé."
+      }
+    },
+    {
+      "id": "ET55",
+      "tema": "Baroko v obrazech",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Kdo z nabídky je nejvíc spojený s operou?",
+      "spravna_odpoved": "Claudio Monteverdi",
+      "spatne_odpovedi": [
+        "Johann Sebastian Bach",
+        "Jan Kupecký",
+        "Bohuslav Balbín"
+      ],
+      "oduvodneni": "Monteverdi je nejznámější autor prvních oper.",
+      "proc_spatne": {
+        "Johann Sebastian Bach": "Bach psal hlavně duchovní hudbu, operu nenapsal.",
+        "Jan Kupecký": "Jan Kupecký byl malíř.",
+        "Bohuslav Balbín": "Bohuslav Balbín patří k literatuře."
+      }
+    },
+    {
+      "id": "ET56",
+      "tema": "Baroko v obrazech",
+      "obtiznost": "stredni",
+      "typ": "single_choice",
+      "otazka": "Co znamená selské baroko?",
+      "spravna_odpoved": "Venkovské statky se zdobenými průčelími",
+      "spatne_odpovedi": [
+        "Zámky selského císaře Josefa II.",
+        "Chudé chalupy s doškovou střechou",
+        "Morové sloupy na vesnických návsích"
+      ],
+      "oduvodneni": "Na obrázku v učebnici je bílý statek s vlnitým štítem. Takové statky se stavěly na venkově.",
+      "proc_spatne": {
+        "Zámky selského císaře Josefa II.": "Přezdívka je podobná, ale jde o venkovské domy.",
+        "Chudé chalupy s doškovou střechou": "Došková chalupa na obrázku ukazuje život chudých poddaných.",
+        "Morové sloupy na vesnických návsích": "Morové sloupy stály hlavně na náměstích měst."
+      }
+    }
+  ]
+}

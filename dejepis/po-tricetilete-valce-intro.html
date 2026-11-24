@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Císařský kurýr - Evropa po třicetileté válce</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.5;
+        --surface: #ffffff;
+        --surface-soft: #eff6ff;
+        --surface-strong: #a7d8c9;
+        --ink: #1f2937;
+        --ink-soft: #6b7280;
+        --accent: #1e3a5f;
+        --accent-dark: #14304f;
+        --gold: #b7791f;
+        --gold-dark: #7c5a05;
+        --positive: #16a34a;
+        --positive-bg: #dcfce7;
+        --negative: #dc2626;
+        --negative-bg: #fee2e2;
+        --title: Georgia, "Times New Roman", serif;
+      }
+
+      * { box-sizing: border-box; }
+      /* Component display rules must never win over the hidden attribute. */
+      [hidden] { display: none !important; }
+
+      body {
+        margin: 0;
+        background: linear-gradient(160deg, #eff6ff 0%, #a7d8c9 100%) no-repeat;
+        background-color: #a7d8c9;
+        color: var(--ink);
+        overflow-wrap: break-word;
+      }
+
+      main {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 0.75rem 2rem;
+      }
+
+      button { font: inherit; color: inherit; cursor: pointer; }
+      button:focus-visible, a:focus-visible, summary:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 2px;
+      }
+
+      .sr {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+            .toast {
+        position: fixed;
+        top: 78px;
+        left: 50%;
+        z-index: 30;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100vw - 2rem);
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        border: 2px solid var(--surface-strong);
+        background: var(--accent-dark);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.92rem;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(20, 48, 79, 0.35);
+      }
+
+      header.intro { text-align: center; padding: 1.25rem 0 0.75rem; }
+      header.intro h1 {
+        margin: 0.15rem 0 0.25rem;
+        color: var(--accent-dark);
+        font-family: var(--title);
+        font-size: 1.95rem;
+        line-height: 1.15;
+      }
+      header.intro p { margin: 0; color: var(--ink); font-size: 0.97rem; }
+
+      .flourish { display: block; width: 170px; height: 22px; margin: 0 auto; color: var(--gold); }
+
+      .quick-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 0.85rem;
+      }
+
+      .quick-links a, .finale-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0.4rem 0.5rem;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.92rem;
+        text-align: center;
+        text-decoration: none;
+      }
+      .quick-links a:nth-child(3) { background: var(--surface); color: var(--accent-dark); box-shadow: inset 0 0 0 2px var(--accent); }
+
+      .tally {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-top: 0.6rem;
+        font-weight: 700;
+        color: var(--accent-dark);
+      }
+
+      .link-button {
+        min-height: 44px;
+        padding: 0.3rem 0.8rem;
+        border: 1.5px solid var(--accent);
+        border-radius: 10px;
+        background: transparent;
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-size: 0.88rem;
+      }
+
+      section.station, section.sheet, section.finale {
+        margin-top: 1rem;
+        padding: 1rem 0.9rem 1.1rem;
+        border-radius: 16px;
+        border: 1px solid rgba(184, 134, 11, 0.4);
+        background: var(--surface);
+        box-shadow: 0 6px 16px rgba(30, 58, 95, 0.12);
+        scroll-margin-top: 78px;
+      }
+
+      section h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        color: var(--accent-dark);
+        font-family: var(--title);
+        font-size: 1.32rem;
+        line-height: 1.2;
+      }
+
+      .badge {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--surface-strong);
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      .badge .pearl { width: 34px; height: 34px; }
+      section.earned .badge { background: transparent; }
+
+      .task { margin: 0.35rem 0 0.75rem; color: var(--ink-soft); font-size: 0.95rem; }
+      h3.sub { margin: 1.1rem 0 0.15rem; color: var(--accent-dark); font-family: var(--title); font-size: 1.1rem; }
+
+      .meter { display: flex; justify-content: space-between; gap: 0.5rem; color: var(--ink-soft); font-size: 0.85rem; font-weight: 600; }
+
+      .primary {
+        display: block;
+        width: 100%;
+        min-height: 48px;
+        margin-top: 0.7rem;
+        padding: 0.55rem 0.9rem;
+        border: 0;
+        border-radius: 12px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+      }
+      .primary:disabled { background: #e5e7eb; color: #4b5563; cursor: default; }
+
+      /* Card shared by the sort game and Pravda, nebo mýtus. */
+      .card {
+        margin-top: 0.35rem;
+        padding: 0.85rem;
+        border-radius: 12px;
+        border: 2px solid var(--surface-strong);
+        background: var(--surface-soft);
+        transition: background-color 0.2s, border-color 0.2s;
+      }
+      .card .said { display: block; font-size: 1.12rem; font-weight: 700; text-align: center; }
+      .card.ok { border-color: var(--positive); background: var(--positive-bg); }
+      .card.bad { border-color: var(--negative); background: var(--negative-bg); }
+
+      .why { margin: 0.5rem 0 0; font-size: 0.95rem; }
+      .why b { display: block; }
+
+      .buckets { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.6rem; }
+      .bucket {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+        min-height: 60px;
+        padding: 0.4rem;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-size: 0.97rem;
+        line-height: 1.2;
+        transition: background-color 0.15s, border-color 0.15s;
+      }
+      .bucket:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      .bucket.ok, .pick.ok { border-color: var(--positive); background: var(--positive-bg); color: #14532d; }
+      .bucket.bad, .pick.bad { border-color: var(--negative); background: var(--negative-bg); color: #7f1d1d; }
+      .tray { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; min-height: 9px; }
+      .tray i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, #fff 0, #eff6ff 40%, #d9b8a6 100%);
+        box-shadow: 0 0 0 1px #c9a78f;
+      }
+
+      .shake { animation: shake 0.4s; }
+      @keyframes shake {
+        20% { transform: translateX(-6px); }
+        40% { transform: translateX(6px); }
+        60% { transform: translateX(-4px); }
+        80% { transform: translateX(4px); }
+      }
+
+      .prompt {
+        margin-top: 0.4rem;
+        padding: 0.6rem 0.75rem;
+        border-radius: 12px;
+        border: 2px solid var(--surface-strong);
+        background: var(--surface-soft);
+      }
+      .prompt.ok { border-color: var(--positive); background: var(--positive-bg); }
+      .prompt.bad { border-color: var(--negative); background: var(--negative-bg); }
+      .prompt p { margin: 0; font-size: 0.93rem; }
+      .prompt .ask { font-size: 1.1rem; font-weight: 700; color: var(--accent-dark); }
+
+      .switch { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+      .switch button {
+        min-height: 48px;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--accent-dark);
+        font-weight: 700;
+      }
+      .switch button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+      .floors { display: grid; gap: 0.45rem; margin-top: 0.6rem; }
+      .pick {
+        min-height: 48px;
+        padding: 0.4rem 0.6rem;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--accent-dark);
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem; }
+      .columns > div { display: grid; gap: 0.45rem; align-content: start; }
+      .columns .pick { position: relative; min-height: 62px; font-size: 0.92rem; }
+      .columns h4 { margin: 0; text-align: center; color: var(--gold-dark); font-size: 0.85rem; }
+      .pick[aria-pressed="true"] { background: var(--surface-strong); }
+      .pick.done { border-color: var(--positive); background: var(--positive-bg); color: #14532d; cursor: default; }
+
+      .truth { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.6rem; }
+      .truth .pick { min-height: 64px; font-size: 1.08rem; }
+
+      .result {
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        gap: 0.2rem 0.65rem;
+        align-items: center;
+        margin-top: 0.85rem;
+        padding: 0.7rem;
+        border-radius: 12px;
+        border: 2px solid var(--gold);
+        background: linear-gradient(160deg, var(--surface-soft), #d9f0e8);
+      }
+      .result .pearl { width: 52px; height: 52px; filter: drop-shadow(0 2px 3px rgba(20, 48, 79, 0.4)); }
+      .result p { margin: 0; font-weight: 700; color: var(--accent-dark); }
+      .result small { display: block; font-weight: 600; color: var(--ink); }
+      .result-actions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; margin-top: 0.3rem; }
+      .result-actions button { min-height: 44px; padding: 0.3rem 0.5rem; border-radius: 10px; font-weight: 700; border: 2px solid var(--accent); background: var(--surface); color: var(--accent-dark); }
+      .result-actions button:last-child { background: var(--accent); color: #fff; }
+
+      section.finale { text-align: center; background: linear-gradient(170deg, var(--accent-dark), var(--accent)); color: #fff; }
+      section.finale h2 { justify-content: center; color: var(--surface-strong); }
+      section.finale svg.big { display: block; width: 100%; max-width: 340px; height: auto; margin: 0.5rem auto; }
+      .big .pearl-in { animation: thread 0.7s backwards; transform-box: fill-box; transform-origin: center; }
+      .finale-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.75rem; }
+      .finale-links a { background: var(--surface-strong); color: var(--accent-dark); }
+
+      .quiz-toggle {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem 0.75rem;
+        margin: 0.6rem 0;
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+      }
+      .quiz-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        min-height: 44px;
+        padding: 0.45rem 1.1rem 0.45rem 0.5rem;
+        border-radius: 999px;
+        border: 2px solid var(--accent);
+        background: var(--surface);
+        color: var(--ink);
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(30, 58, 95, 0.15);
+      }
+      .quiz-knob { position: relative; width: 40px; height: 24px; flex: none; border-radius: 999px; background: #cbd5e1; transition: background 0.2s; }
+      .quiz-knob::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        transition: transform 0.2s;
+      }
+      .quiz-switch[aria-checked="true"] .quiz-knob { background: var(--accent); }
+      .quiz-switch[aria-checked="true"] .quiz-knob::after { transform: translateX(16px); }
+      .quiz-bar button:focus-visible,
+      .quiz-on [data-quiz]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+      /* Same cover as the chemistry page: one inline-block per answer, stable when revealed. */
+      .quiz-on [data-quiz] {
+        display: inline-block;
+        max-width: 100%;
+        cursor: pointer;
+        border-radius: 6px;
+        padding: 0.05em 0.25em;
+        transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .quiz-on [data-quiz]:not(.revealed) {
+        background:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%231e3a5f'/%3E%3Ctext x='8' y='12.2' font-family='Arial' font-size='11' font-weight='700' text-anchor='middle' fill='%23fff'%3E%3F%3C/text%3E%3C/svg%3E") center / 1.1em no-repeat,
+          repeating-linear-gradient(135deg, #a7d8c9 0 6px, #d9f0e8 6px 12px);
+        box-shadow: 0 0 0 1.5px var(--gold);
+        user-select: none;
+      }
+      .quiz-on [data-quiz]:not(.revealed),
+      .quiz-on [data-quiz]:not(.revealed) * { color: transparent !important; }
+      .quiz-on [data-quiz].revealed { background-color: rgba(30, 58, 95, 0.08); box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.25); }
+
+      .quiz-bar {
+        position: fixed;
+        left: 50%;
+        bottom: max(0.6rem, env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        z-index: 25;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        max-width: calc(100vw - 0.75rem);
+        padding: 0.3rem 0.35rem 0.3rem 0.8rem;
+        border-radius: 999px;
+        background: var(--accent-dark);
+        color: #fff;
+        font-size: 0.86rem;
+        white-space: nowrap;
+        box-shadow: 0 8px 24px rgba(20, 48, 79, 0.4);
+      }
+      .quiz-bar output { font-weight: 700; margin-right: 0.15rem; }
+      .quiz-bar button { min-height: 44px; padding: 0.3rem 0.65rem; border-radius: 999px; border: 0; background: #fff; color: var(--accent-dark); font-weight: 700; }
+      .quiz-bar .quiz-off { background: transparent; color: var(--surface-strong); padding: 0.3rem 0.45rem; }
+      body.quiz-on { padding-bottom: 5rem; }
+
+      .sheet-grid { display: grid; gap: 0.6rem; }
+      .sheet-card { padding: 0.6rem 0.75rem; border-radius: 12px; border-left: 4px solid var(--gold); background: var(--surface-soft); }
+      .sheet-card h3 { margin: 0 0 0.2rem; color: var(--accent-dark); font-family: var(--title); font-size: 1.05rem; }
+      .sheet-card ul { margin: 0; padding: 0; list-style: none; font-size: 0.95rem; }
+      .sheet-card li { padding: 0.2rem 0; }
+
+      details.gloss { border-radius: 12px; background: var(--surface-soft); margin-top: 0.5rem; }
+      details.gloss summary {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.3rem 0.75rem;
+        font-weight: 700;
+        color: var(--accent-dark);
+        cursor: pointer;
+      }
+      details.gloss dl { margin: 0; padding: 0 0.75rem 0.6rem; font-size: 0.95rem; }
+      details.gloss dt { font-weight: 700; margin-top: 0.45rem; }
+      details.gloss dd { margin: 0; }
+
+      .error-msg { margin: 1rem 0; padding: 1rem; border-radius: 12px; background: var(--negative-bg); color: #7f1d1d; font-weight: 600; }
+      .back { display: block; margin-top: 1.5rem; text-align: center; color: var(--accent-dark); font-weight: 700; text-decoration: none; padding: 0.75rem; min-height: 44px; }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      }
+    
+      .route { position: sticky; top: 0; z-index: 20; background: var(--accent-dark); box-shadow: 0 3px 10px rgba(20, 48, 79, 0.35); }
+      .stops { position: relative; display: flex; max-width: 640px; margin: 0 auto; padding: 22px 4px 2px; }
+      .stops::before { content: ""; position: absolute; left: 5%; right: 5%; top: 43px; border-top: 2px dashed var(--surface-strong); }
+      .stop { flex: 1; min-width: 0; height: 44px; padding: 0; border: 0; background: none; display: grid; place-items: center; position: relative; }
+      .stop i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--surface-strong); background: var(--accent-dark); color: #fff; font: 700 0.8rem/1 sans-serif; }
+      .stop.has i { background: #b91c1c; border-color: #7f1d1d; box-shadow: inset 0 0 0 3px #ef4444; }
+      .rider { position: absolute; top: 0; left: 0; width: 34px; height: 24px; transform: translateX(-50%); transition: left 0.8s; }
+      section.earned .badge { background: #b91c1c; box-shadow: inset 0 0 0 3px #ef4444; color: #fff; }
+      .seal { width: 52px; height: 52px; border-radius: 50%; background: #b91c1c; box-shadow: inset 0 0 0 5px #ef4444; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 1.2rem; }
+      .opts { display: grid; gap: 0.5rem; margin-top: 0.6rem; }
+      .two { grid-template-columns: 1fr 1fr; }
+      .picture { display: block; width: 100%; max-width: 260px; height: auto; margin: 0.3rem auto; }
+      .ask-line { margin: 0.2rem 0 0; font-weight: 700; text-align: center; }
+      .lanes { display: block; width: 100%; max-width: 420px; margin: 0.5rem auto 0; touch-action: manipulation; }
+      .stickyprompt { position: sticky; top: 72px; z-index: 5; }
+      .reign { cursor: pointer; outline: none; }
+      .reign rect { fill: #fff; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; }
+      .reign:focus-visible rect { stroke: var(--gold); stroke-width: 4; }
+      .reign.ok rect { fill: var(--positive-bg); stroke: var(--positive); stroke-dasharray: none; }
+      .reign.bad rect { fill: var(--negative-bg); stroke: var(--negative); }
+      .nut { margin-top: 0.5rem; padding: 0.6rem 0.75rem; border-radius: 12px; background: var(--surface-soft); }
+      .nut summary { min-height: 44px; display: flex; align-items: center; font-weight: 700; cursor: pointer; }
+      .nut p { margin: 0.2rem 0; }
+      .thumb { flex: none; width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--gold); background: #dbeafe; }
+      .thumb.plain { border: 0; border-radius: 8px; background: none; }
+      .thumbs { display: flex; justify-content: center; gap: 0.3rem; }
+      .pick .thumbs { margin-bottom: 0.2rem; }
+      .pick.done .thumb, .bucket.ok .thumb { animation: hop 0.5s; }
+      .sheet-card .thumbs { justify-content: flex-start; margin-bottom: 0.3rem; }
+      .sheet-card .thumb { width: 38px; height: 38px; }
+      details.gloss dt { display: flex; align-items: center; gap: 0.5rem; }
+      .scene { margin: 0 0 0.5rem; }
+      .scene figcaption { color: var(--ink-soft); font-size: 0.8rem; text-align: center; }
+      .map { display: block; width: 100%; max-width: 460px; margin: 0 auto; border-radius: 12px; }
+      .land path { fill: #e9dcb8; stroke: #a8966a; stroke-width: 1.2; transition: transform 0.8s, fill 0.8s; transform-box: fill-box; transform-origin: center; }
+      .land.now path { fill: #fbbf24; stroke: #92400e; stroke-width: 2; animation: glow 1.2s infinite alternate; }
+      .land.up path { fill: #4ade80; stroke: #166534; animation: grow 1.4s; }
+      .land.down path { fill: #fca5a5; stroke: #991b1b; animation: shrink 1.4s; }
+      @keyframes grow { 50% { transform: scale(1.18); } }
+      @keyframes shrink { 50% { transform: scale(0.75); } }
+      .mark { font-size: 24px; font-weight: 700; fill: #111827; stroke: #fff; stroke-width: 4; paint-order: stroke; }
+      @keyframes glow { to { fill: #fde68a; } }
+      .voice { display: block; width: 190px; margin: 0 auto -4px; }
+      .voice .frown, .voice.sad .smile { display: none; }
+      .voice.sad .frown { display: inline; }
+      .voice .actor { animation: sway 2.4s ease-in-out infinite alternate; transform-origin: 100px 142px; }
+      .voice.happy .actor { animation: hop 0.5s 2; }
+      .voice + .card { position: relative; }
+      .voice + .card::before { content: ""; position: absolute; top: -12px; left: 50%; width: 20px; height: 20px; margin-left: -10px; background: inherit; border: inherit; border-right: 0; border-bottom: 0; transform: rotate(45deg); }
+      @keyframes sway { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+      @keyframes hop { 40% { transform: translateY(-9px); } }
+      .eyes { animation: blink 4s infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes blink { 0%, 94%, 100% { transform: none; } 97% { transform: scaleY(0.1); } }
+      .picture .mask { transition: transform 0.9s, opacity 0.9s; }
+      .picture.off .mask { transform: translate(34px, 110px) rotate(50deg); opacity: 0; }
+      .diploma { padding: 1.2rem; border: 4px double var(--gold); border-radius: 12px; text-align: center; background: #fffbeb; }
+      .diploma span { color: var(--ink); }
+      .toast { top: auto; bottom: 1rem; }
+      .diploma b { display: block; font: 700 1.5rem var(--title); color: var(--accent-dark); }
+    </style>
+  </head>
+  <body>
+    <nav class="route" aria-label="Trasa kurýra: zastávky"><div class="stops" id="stops"></div></nav>
+    <div class="toast" id="toast" hidden></div>
+    <div class="sr" id="say" aria-live="polite"></div>
+    <main>
+      <header class="intro">
+        <h1>Císařský kurýr</h1>
+        <p>Evropa po třicetileté válce. Projeď devět zastávek, v každé splň úkol a získej pečeť. Pořadí si vybereš sama.</p>
+        <div class="quick-links">
+          <a href="po-tricetilete-valce-test-mobil.html">Spustit test</a>
+          <a href="po-tricetilete-valce-flashcards.html">Flash cards</a>
+          <a href="#tahak">Tahák</a>
+        </div>
+        <div class="tally"><span id="tally"></span><button type="button" class="link-button" id="reset">Začít znovu</button></div>
+      </header>
+      <div id="stations"></div>
+      <section class="finale" id="finale" hidden>
+        <h2 tabindex="-1">Depeše doručena!</h2>
+        <div class="diploma"><b id="rank"></b><span id="finaleText"></span></div>
+        <div class="finale-links"><a href="po-tricetilete-valce-test-mobil.html">Jdu na test</a><a href="po-tricetilete-valce-flashcards.html">Flash cards</a></div>
+      </section>
+      <section class="sheet" id="tahak">
+        <h2>Tahák</h2>
+        <div class="quiz-toggle">
+          <button type="button" class="quiz-switch" role="switch" aria-checked="false" aria-describedby="quizHint" data-quiz-toggle><span class="quiz-knob" aria-hidden="true"></span>Učicí mód</button>
+          <span id="quizHint">Zakryje odpovědi, ťukni a zkontroluj se</span>
+        </div>
+        <div class="sheet-grid" id="sheet"></div>
+      </section>
+      <section class="sheet"><h2>Slovníček</h2><p class="task">V učicím módu vidíš pojem a vysvětlení si odkrýváš.</p><div id="glossary"></div></section>
+      <a class="back" href="index.html">&larr; Zpět na dějepis</a>
+    </main>
+    <div class="quiz-bar" role="region" aria-label="Učicí mód" hidden>
+      <output aria-live="polite">Odkryto <span data-quiz-count>0</span> z <span data-quiz-total>0</span></output>
+      <button type="button" data-quiz-reset>Zakrýt vše</button>
+      <button type="button" class="quiz-off" data-quiz-toggle aria-label="Vypnout učicí mód">Vypnout</button>
+    </div>
+    <script>
+      const STORE_KEY = 'dejepis-po-valce-pecete';
+      const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 'html' takes constant art only; JSON text always goes in through 'text'.
+      function el(tag, props = {}, ...kids) {
+        const node = document.createElement(tag);
+        for (const [key, value] of Object.entries(props)) {
+          if (key === 'class') node.className = value;
+          else if (key === 'text') node.textContent = value;
+          else if (key === 'html') node.innerHTML = value;
+          else if (key === 'onclick') node.addEventListener('click', value);
+          else node.setAttribute(key, value);
+        }
+        node.append(...kids);
+        return node;
+      }
+
+      function svgEl(tag, attrs = {}, text) {
+        const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+        if (text !== undefined) node.textContent = text;
+        return node;
+      }
+
+      const button = (text, cls, onclick) => el('button', { type: 'button', class: cls, text, onclick });
+
+      function shuffle(list) {
+        const copy = [...list];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      function mistakesText(n) {
+        if (n === 0) return 'Bez jediné chyby';
+        if (n === 1) return '1 chyba';
+        return n < 5 ? `${n} chyby` : `${n} chyb`;
+      }
+
+      function shake(node) {
+        node.classList.remove('shake');
+        void node.getBoundingClientRect(); // restarts the animation on a repeated wrong tap
+        node.classList.add('shake');
+        setTimeout(() => node.classList.remove('shake'), 450);
+      }
+
+      const say = text => { document.getElementById('say').textContent = text; };
+
+
+      let progress = {};
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORE_KEY));
+        if (saved && typeof saved === 'object') progress = saved;
+      } catch (e) { /* storage blocked or corrupt: start empty */ }
+      const saveProgress = () => {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(progress)); } catch (e) { /* storage blocked */ }
+      };
+
+      // --- Pictures (constant art, all hand-made) ----------------------------
+
+      const FACE = '#f6d7bf';
+      // Masked guests: hair and hat differ, the mask comes off after a right answer.
+      const person = (hair, coat, extra) => `<rect width="200" height="150" fill="#dbeafe"/>${extra.back || ''}
+        <path d="M45 150c5-40 30-48 55-48s50 8 55 48z" fill="${coat}"/><rect x="90" y="88" width="20" height="20" fill="${FACE}"/>
+        ${hair}<ellipse cx="100" cy="68" rx="24" ry="30" fill="${FACE}"/><g class="eyes"><circle cx="91" cy="65" r="2.5"/><circle cx="109" cy="65" r="2.5"/></g><circle cx="84" cy="75" r="4.5" fill="#fca5a5" opacity=".7"/><circle cx="116" cy="75" r="4.5" fill="#fca5a5" opacity=".7"/><path d="M92 82q8 5 16 0" fill="none" stroke="#9f1239" stroke-width="2"/>${extra.front || ''}`;
+      const wig = c => `<path d="M68 70c-4-50 68-50 64 0l6 38h-20l-4-40h-28l-4 40H62z" fill="${c}"/>`;
+      const updo = c => `<ellipse cx="100" cy="50" rx="31" ry="32" fill="${c}"/>`;
+      const crown = '<path d="M80 38l-4-22 13 10 11-16 11 16 13-10-4 22z" fill="#facc15" stroke="#a16207"/>';
+      const MASK = '<g class="mask"><path d="M72 58q28-10 56 0q4 22-16 18q-8-2-12-8q-4 6-12 8q-20 4-16-18z" fill="#1e1b4b" stroke="#facc15" stroke-width="2"/><ellipse cx="88" cy="66" rx="6" ry="4" fill="#fff"/><ellipse cx="112" cy="66" rx="6" ry="4" fill="#fff"/></g>';
+      const ART = {
+        kat: person(updo('#57534e'), '#f1f5f9', { front: crown + '<path d="M62 112l70 38h-22l-54-28z" fill="#f97316"/>' }),
+        kar: person(wig('#44403c'), '#111827', { front: '<path d="M70 108q30 30 60 0" fill="none" stroke="#facc15" stroke-width="5"/>' }),
+        mt: person(updo('#b8a58f'), '#be185d', { front: crown }),
+        jos: person(wig('#f5f5f4'), '#2563eb', { front: '<path d="M92 104l8 46 8-46z" fill="#dc2626"/>' }),
+        pet: person('<path d="M72 72c-6-46 62-46 56 0z" fill="#3f2a1d"/>', '#166534', { front: '<path d="M86 78q14-8 28 0q-14 0-28 0z" fill="#3f2a1d" stroke="#3f2a1d" stroke-width="2"/>' }),
+        die: `<rect width="200" height="150" fill="#dbeafe"/><g transform="translate(-45 0)">${person(wig('#a8a29e'), '#7c2d12', {}).replace(/<rect width="200"[^>]*>/, '')}</g><g transform="translate(45 0)">${person(wig('#78350f'), '#1e3a5f', {}).replace(/<rect width="200"[^>]*>/, '')}</g><path d="M78 148l22-34 22 34" fill="none" stroke="#111" stroke-width="3"/>`,
+        sloup: '<rect width="200" height="150" fill="#bfdbfe"/><path d="M50 145h100l-12-30H62z" fill="#78716c"/><path d="M72 115h56l-10-28H82z" fill="#8a817a"/><rect x="93" y="35" width="14" height="54" fill="#a8a29e"/><circle cx="100" cy="24" r="11" fill="#facc15"/><path d="M100 4v40M80 24h40M86 10l28 28M114 10L86 38" stroke="#ca8a04" stroke-width="2"/><g fill="#57534e"><circle cx="66" cy="106" r="5"/><rect x="62" y="110" width="8" height="14"/><circle cx="134" cy="106" r="5"/><rect x="130" y="110" width="8" height="14"/><circle cx="85" cy="78" r="4"/><rect x="82" y="81" width="6" height="11"/><circle cx="115" cy="78" r="4"/><rect x="112" y="81" width="6" height="11"/></g>',
+        fritz: person('<path d="M74 60h52v32h-8V64H82v28h-8z" fill="#e7e5e4"/>', '#1e3a8a', { front: '<path d="M56 48q44-60 88 0q-44-18-88 0z" fill="#111827" stroke="#e5e7eb" stroke-width="2"/><path d="M76 106l24 20 24-20" fill="none" stroke="#dc2626" stroke-width="6"/><path d="M128 120l3 6 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z" fill="#e5e7eb"/>' }),
+        hudba: '<rect width="200" height="150" fill="#fef3c7"/><rect x="55" y="95" width="90" height="36" fill="#991b1b"/><g fill="#f6d7bf"><circle cx="45" cy="55" r="13"/><circle cx="100" cy="48" r="13"/><circle cx="155" cy="55" r="13"/></g><g fill="#3f2a1d"><path d="M30 55c0-24 30-24 30 0l3 14h-8l-2-16H37l-2 16h-8z"/><path d="M85 48c0-24 30-24 30 0l3 14h-8l-2-16H92l-2 16h-8z"/><path d="M140 55c0-24 30-24 30 0l3 14h-8l-2-16h-16l-2 16h-8z"/></g><path d="M28 125c0-45 34-45 34 0zM83 95c0-40 34-40 34 0zM138 125c0-45 34-45 34 0z" fill="#1e3a5f"/><ellipse cx="100" cy="84" rx="15" ry="11" fill="#b45309"/><path d="M108 78l38-30" stroke="#78350f" stroke-width="4"/><ellipse cx="163" cy="112" rx="13" ry="20" fill="#b45309"/><path d="M163 96V62M142 108l42 6" stroke="#78350f" stroke-width="3"/><path d="M20 98l40-10" stroke="#78350f" stroke-width="4"/><path d="M78 108h18M106 108h18" stroke="#fff" stroke-width="10"/>',
+        statek: '<rect width="200" height="150" fill="#bae6fd"/><path d="M0 130h200v20H0z" fill="#86efac"/><path d="M30 132V78q22 0 26-22 6-14 24-18 4-18 20-18t20 18q18 4 24 18 4 22 26 22v54z" fill="#fff" stroke="#d97706" stroke-width="4"/><path d="M30 82h140" stroke="#d97706" stroke-width="3"/><g fill="#57534e"><rect x="46" y="96" width="18" height="20"/><rect x="84" y="96" width="18" height="20"/><rect x="132" y="94" width="20" height="38"/><rect x="78" y="56" width="11" height="11"/><rect x="111" y="56" width="11" height="11"/></g><circle cx="100" cy="36" r="6" fill="none" stroke="#d97706" stroke-width="2"/>',
+        terezie: person(updo('#b8a58f'), '#be185d', { front: crown + '<rect x="50" y="122" width="100" height="24" rx="5" fill="#fff" stroke="#111"/><text x="100" y="139" text-anchor="middle" font-size="13" font-weight="700">škola 1774</text>' }),
+        // Like the real site: a ten-pointed cloister around a five-pointed church.
+        hvezda: '<rect width="200" height="150" fill="#4d7c0f"/><path d="M100.0 9.0L115.5 27.4L138.8 21.6L140.5 45.6L162.8 54.6L150.0 75.0L162.8 95.4L140.5 104.4L138.8 128.4L115.5 122.6L100.0 141.0L84.5 122.6L61.2 128.4L59.5 104.4L37.2 95.4L50.0 75.0L37.2 54.6L59.5 45.6L61.2 21.6L84.5 27.4z" fill="#a3e635" stroke="#dc2626" stroke-width="9" stroke-linejoin="round"/><path d="M100.0 39.0L111.8 58.8L134.2 63.9L119.0 81.2L121.2 104.1L100.0 95.0L78.8 104.1L81.0 81.2L65.8 63.9L88.2 58.8z" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><circle cx="100" cy="75" r="12" fill="#64748b"/><path d="M100 67v16M94 73h12" stroke="#facc15" stroke-width="3"/>',
+        skola: '<rect width="200" height="150" fill="#d6b88a"/><rect x="70" y="14" width="76" height="46" fill="#14532d" stroke="#78350f" stroke-width="4"/><text x="108" y="45" text-anchor="middle" font-size="24" fill="#fff">A B C</text><circle cx="40" cy="44" r="12" fill="#f6d7bf"/><path d="M24 36h32l-5-16H29z" fill="#111"/><path d="M22 125c0-80 36-80 36 0z" fill="#292524"/><path d="M60 82v44" stroke="#78350f" stroke-width="4"/><g fill="#f6d7bf"><circle cx="90" cy="88" r="9"/><circle cx="128" cy="88" r="9"/><circle cx="166" cy="88" r="9"/></g><path d="M76 130c0-40 28-40 28 0zM152 130c0-40 28-40 28 0z" fill="#2563eb"/><path d="M114 130c0-40 28-40 28 0z" fill="#b91c1c"/><rect x="72" y="116" width="116" height="10" fill="#78350f"/>',
+        chalupa: '<rect width="200" height="150" fill="#fde68a"/><path d="M0 122h200v28H0z" fill="#a16207"/><path d="M50 72h120v54H50z" fill="#b08968"/><path d="M34 76l28-52h96l28 52z" fill="#ca8a04"/><path d="M48 68l20-36M74 70l8-38M104 70V32M132 70l-6-38M164 70l-20-38" stroke="#854d0e" stroke-width="2"/><rect x="118" y="86" width="22" height="40" fill="#3f2a1d"/><rect x="68" y="90" width="20" height="16" fill="#3f2a1d"/><circle cx="104" cy="98" r="7" fill="#f6d7bf"/><path d="M92 134c2-38 22-38 24 0z" fill="#64748b"/><ellipse cx="30" cy="128" rx="18" ry="9" fill="#f9a8d4"/><circle cx="48" cy="126" r="6" fill="#f472b6"/>',
+        bankocetle: '<rect width="200" height="150" fill="#cbd5e1"/><rect x="55" y="6" width="90" height="138" fill="#fef9c3" stroke="#57534e" stroke-width="2"/><rect x="61" y="12" width="78" height="126" fill="none" stroke="#78716c" stroke-dasharray="4 2"/><text x="100" y="36" text-anchor="middle" font-family="Georgia" font-size="15" font-weight="700">10</text><text x="100" y="54" text-anchor="middle" font-family="Georgia" font-size="13">zlatých</text><path d="M68 66h64M68 73h64M68 80h64M68 87h50" stroke="#78716c" stroke-width="2"/><circle cx="100" cy="112" r="13" fill="none" stroke="#57534e" stroke-width="3"/><path d="M100 103l3 6 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z" fill="#57534e"/>'
+      };
+      const ART_LABEL = { sloup: 'Vysoký sloup se sochami a zlatou koulí nahoře', fritz: 'Muž v třírohém klobouku a uniformě s hvězdou', hudba: 'Tři lidé v parukách hrají kolem stolu na nástroje', statek: 'Bílý venkovský dům s vlnitým štítem', terezie: 'Žena s korunou, pod ní nápis škola 1774', hvezda: 'Stavba uprostřed hvězdicového ochozu při pohledu shora', skola: 'Učitel s holí, děti v lavici a tabule', chalupa: 'Chalupa s doškovou střechou, venkovanka a prase', bankocetle: 'Potištěný papír s nápisem 10 zlatých' };
+
+      // Portraits reused on cards, buckets and the cheat sheet.
+      ART.leo = person(wig('#1c1917'), '#7f1d1d', { front: '<path d="M86 79q14-7 28 0" fill="none" stroke="#1c1917" stroke-width="4"/><path d="M70 108q30 30 60 0" fill="none" stroke="#facc15" stroke-width="5"/>' });
+      ART.fra = person(wig('#d6d3d1'), '#0f766e', { front: '<path d="M62 112l70 38h-22l-54-28z" fill="#dc2626"/>' });
+
+      // 64x64 icons, decoration next to a text that says the same thing.
+      const ICON = {
+        mir: '<path d="M10 54L30 34M34 30l6-6" stroke="#64748b" stroke-width="5"/><path d="M8 46l10 10" stroke="#78350f" stroke-width="5"/><path d="M22 22c8-12 18-10 22-2l12-8-6 18c-4 10-18 12-26 6l-12 2 8-8z" fill="#fff" stroke="#334155" stroke-width="2"/><circle cx="46" cy="22" r="2"/><path d="M56 14l5 4-6 2z" fill="#f59e0b"/>',
+        viden: '<path d="M4 60V34h8v6h6v-6h8v6h6v-6h8v26z" fill="#a8a29e" stroke="#57534e" stroke-width="2"/><path d="M18 60V50h8v10z" fill="#57534e"/><path d="M50 6a13 13 0 100 24 10 10 0 110-24z" fill="#16a34a"/><path d="M50 36l4 8-8 4 6 4-4 8" fill="none" stroke="#dc2626" stroke-width="3"/>',
+        koruna: '<path d="M10 48L6 20l14 12L32 10l12 22 14-12-4 28z" fill="#facc15" stroke="#a16207" stroke-width="2"/><path d="M10 48h44v8H10z" fill="#1e3a8a"/><circle cx="32" cy="40" r="4" fill="#1e3a8a"/>',
+        svitek: '<path d="M14 10h38v42H14z" fill="#fef3c7" stroke="#a16207" stroke-width="2"/><path d="M10 6h46v8H10zM10 48h46v8H10z" fill="#fde68a" stroke="#a16207" stroke-width="2"/><path d="M20 22h26M20 29h26M20 36h14" stroke="#78350f" stroke-width="2"/><circle cx="46" cy="42" r="8" fill="#b91c1c" stroke="#7f1d1d"/>',
+        skola: '<rect x="8" y="8" width="48" height="34" fill="#14532d" stroke="#78350f" stroke-width="4"/><text x="32" y="31" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">ABC</text><path d="M18 60l6-16M46 60l-6-16" stroke="#78350f" stroke-width="4"/>',
+        retez: '<g fill="none" stroke="#64748b" stroke-width="6"><rect x="5" y="32" width="22" height="14" rx="7" transform="rotate(-35 16 39)"/><rect x="38" y="12" width="22" height="14" rx="7" transform="rotate(-35 49 19)"/></g><path d="M30 18l-4-10M38 36l10 10M26 26l-10-4M34 40l2 10" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>',
+        pouta: '<g fill="none" stroke="#64748b" stroke-width="5"><rect x="3" y="25" width="24" height="14" rx="7"/><rect x="20" y="25" width="24" height="14" rx="7"/><rect x="37" y="25" width="24" height="14" rx="7"/></g>',
+        penize: '<rect x="8" y="16" width="48" height="32" rx="3" fill="#fef9c3" stroke="#57534e" stroke-width="2" transform="rotate(-8 32 32)"/><circle cx="32" cy="32" r="9" fill="none" stroke="#57534e" stroke-width="2"/><text x="32" y="36" text-anchor="middle" font-size="11" font-weight="700">10</text>',
+        mece: '<path d="M12 8l34 40M52 8L18 48" stroke="#94a3b8" stroke-width="5"/><path d="M38 52l12-10M26 52L14 42" stroke="#78350f" stroke-width="5"/><path d="M46 48l6 8M18 48l-6 8" stroke="#78350f" stroke-width="5"/>',
+        lampa: '<path d="M20 24h24v30H20z" fill="#fef3c7" stroke="#a16207" stroke-width="2"/><path d="M20 24q4 12 7 2 5 10 8 0 4 6 9-2" fill="#fff"/><path d="M32 24v-5" stroke="#111" stroke-width="2"/><path d="M32 2q12 14 0 18-12-4 0-18z" fill="#f59e0b"/><path d="M10 54h44l-6 6H16z" fill="#b45309"/>',
+        kostel: '<path d="M10 60V36l14-10 14 10v24z" fill="#fff7ed" stroke="#9a3412" stroke-width="2"/><path d="M38 60V28h16v32z" fill="#fed7aa" stroke="#9a3412" stroke-width="2"/><path d="M36 28q10-20 20 0z" fill="#15803d"/><path d="M46 2v16M41 8h10" stroke="#ca8a04" stroke-width="3"/><path d="M20 60V48q4-6 8 0v12z" fill="#9a3412"/>',
+        pluh: '<path d="M8 20L38 44l18-2" fill="none" stroke="#78350f" stroke-width="5"/><path d="M30 38l8 20 14-14z" fill="#94a3b8" stroke="#475569" stroke-width="2"/><path d="M2 58q8-6 16 0t16 0 14 0 14 0" fill="none" stroke="#a16207" stroke-width="3"/>',
+        lod: '<path d="M6 42h52l-8 14H14z" fill="#92400e"/><path d="M32 42V6" stroke="#57534e" stroke-width="3"/><path d="M34 8q22 12 0 28zM30 12q-18 10 0 24z" fill="#fff" stroke="#64748b"/><path d="M2 58q8-6 15 0t15 0 15 0 15 0" fill="none" stroke="#2563eb" stroke-width="4"/>',
+        kladivo: '<circle cx="22" cy="42" r="14" fill="none" stroke="#64748b" stroke-width="6" stroke-dasharray="7 4"/><path d="M28 50L48 18" stroke="#78350f" stroke-width="5"/><path d="M36 10l22 14-5 8-22-14z" fill="#94a3b8" stroke="#475569" stroke-width="2"/>',
+        sipky: '<path d="M18 56V14M8 24L18 10l10 14" fill="none" stroke="#16a34a" stroke-width="6"/><path d="M46 8v42M36 40l10 14 10-14" fill="none" stroke="#dc2626" stroke-width="6"/>',
+        statek: '<path d="M8 58V32q10 0 12-8 2-10 12-12 10 2 12 12 2 8 12 8v26z" fill="#fff" stroke="#d97706" stroke-width="3"/><path d="M28 58V44h8v14zM14 40h8v8h-8zM42 40h8v8h-8z" fill="#57534e"/>',
+        mal: '<path d="M32 8C14 8 4 20 6 34s16 20 24 18c6-2 0-10 6-12 8-2 22 4 22-10C58 16 48 8 32 8z" fill="#d6a36c" stroke="#78350f" stroke-width="2"/><circle cx="18" cy="30" r="5" fill="#dc2626"/><circle cx="26" cy="18" r="5" fill="#2563eb"/><circle cx="41" cy="18" r="5" fill="#facc15"/><circle cx="48" cy="29" r="4" fill="#16a34a"/>',
+        hud: '<path d="M22 48V14l30-6v34" fill="none" stroke="#4338ca" stroke-width="5"/><ellipse cx="15" cy="49" rx="9" ry="7" fill="#4338ca"/><ellipse cx="45" cy="43" rx="9" ry="7" fill="#4338ca"/>',
+        soch: '<circle cx="28" cy="16" r="10" fill="#d6d3d1" stroke="#78716c" stroke-width="2"/><path d="M10 46c2-26 34-26 36 0z" fill="#d6d3d1" stroke="#78716c" stroke-width="2"/><path d="M8 46h40v12H8z" fill="#a8a29e"/><path d="M60 10L46 32" stroke="#78350f" stroke-width="5"/><path d="M46 32l-5 8" stroke="#64748b" stroke-width="4"/>',
+        op: '<path d="M4 6h56v52H4z" fill="#1c1917"/><path d="M4 6h24q0 30-24 46zM60 6H36q0 30 24 46z" fill="#dc2626"/><circle cx="32" cy="30" r="6" fill="#f6d7bf"/><path d="M22 56c2-24 18-24 20 0z" fill="#facc15"/><ellipse cx="32" cy="33" rx="2" ry="2.5" fill="#7f1d1d"/>',
+        lit: '<path d="M4 18q14-8 28 0 14-8 28 0v36q-14-8-28 0-14-8-28 0z" fill="#fef3c7" stroke="#78350f" stroke-width="2"/><path d="M32 18v36M10 26q8-4 16 0M10 34q8-4 16 0" fill="none" stroke="#78350f" stroke-width="2"/><path d="M58 2Q42 8 40 36q14-14 18-34z" fill="#fff" stroke="#475569" stroke-width="2"/>'
+      };
+
+      // Speakers for "Hlasy poddaných": same body, own hat, colour and thing in hand.
+      const speaker = (coat, top, prop) => `<ellipse cx="100" cy="142" rx="58" ry="6" fill="#cbd5e1"/><g class="actor"><path d="M62 140c2-60 74-60 76 0z" fill="${coat}"/><path d="M68 112q-16 8-20 20M132 112q16 4 20-12" fill="none" stroke="${coat}" stroke-width="12" stroke-linecap="round"/><circle cx="48" cy="132" r="6" fill="${FACE}"/><circle cx="153" cy="114" r="6" fill="${FACE}"/><rect x="91" y="84" width="18" height="18" fill="${FACE}"/><circle cx="100" cy="62" r="27" fill="${FACE}"/>${top}<g class="eyes"><circle cx="91" cy="62" r="3"/><circle cx="109" cy="62" r="3"/></g><circle cx="84" cy="71" r="5" fill="#fca5a5" opacity=".7"/><circle cx="116" cy="71" r="5" fill="#fca5a5" opacity=".7"/><path class="smile" d="M90 74q10 9 20 0" fill="none" stroke="#9f1239" stroke-width="3"/><path class="frown" d="M90 79q10-9 20 0" fill="none" stroke="#9f1239" stroke-width="3"/>${prop}</g>`;
+      const SPEAKERS = {
+        'Sedlák': speaker('#65a30d', '<path d="M58 50h84l-10-6q-6-26-32-26T68 44z" fill="#ca8a04"/>', '<path d="M166 136L148 62" stroke="#78350f" stroke-width="5"/><path d="M138 64l-2-24M147 62l-3-26M156 60l-2-24M138 64h18" fill="none" stroke="#64748b" stroke-width="4"/>'),
+        'Holka z vesnice': speaker('#db2777', '<path d="M72 64c-6-46 62-46 56 0q-28-28-56 0z" fill="#92400e"/><path d="M70 62l-8 34M130 62l8 34" stroke="#92400e" stroke-width="9" stroke-linecap="round"/>', '<ellipse cx="174" cy="122" rx="18" ry="13" fill="#fff" stroke="#64748b" stroke-width="2"/><path d="M162 116q-6-20-2-28" fill="none" stroke="#64748b" stroke-width="9"/><path d="M162 116q-6-20-2-28" fill="none" stroke="#fff" stroke-width="6"/><circle cx="160" cy="86" r="6" fill="#fff" stroke="#64748b"/><path d="M155 86l-11 3 11 3z" fill="#f97316"/><circle cx="159" cy="85" r="1.5"/><path d="M170 134v8M178 134v8" stroke="#f97316" stroke-width="3"/>'),
+        'Luterán': speaker('#1f2937', '<path d="M72 54c0-38 56-38 56 0l-8-12H80z" fill="#78350f"/><path d="M78 92h44l-6 14H84z" fill="#fff"/>', '<path d="M140 96h30v26h-30z" fill="#7c2d12"/><path d="M155 100v16M149 106h12" stroke="#facc15" stroke-width="3"/>'),
+        'Kupec': speaker('#7c3aed', '<path d="M60 48q40-16 80 0-6-32-40-32T60 48z" fill="#4c1d95"/><path d="M128 28q20-18 24-6-6 12-22 14z" fill="#f43f5e"/>', '<rect x="136" y="92" width="38" height="26" rx="2" fill="#fef9c3" stroke="#57534e" stroke-width="2"/><circle cx="155" cy="105" r="8" fill="none" stroke="#57534e" stroke-width="2"/>'),
+        'Židovský student': speaker('#1e40af', '<path d="M74 52c0-34 52-34 52 0-8-8-44-8-52 0z" fill="#3f2a1d"/><path d="M80 42q20-16 40 0-6-12-20-12t-20 12z" fill="#111827"/>', '<path d="M138 104h34v8h-34z" fill="#dc2626"/><path d="M140 96h30v8h-30z" fill="#16a34a"/><path d="M137 112h36v8h-36z" fill="#b45309"/>'),
+        'Tovaryš': speaker('#b45309', '<path d="M70 48q30-38 60 0z" fill="#475569"/><path d="M122 46h18v5h-18z" fill="#475569"/>', '<path d="M150 124l10-52" stroke="#78350f" stroke-width="6"/><path d="M140 62l38 7-3 16-38-7z" fill="#94a3b8" stroke="#475569" stroke-width="2"/>'),
+        'Učitel': speaker('#0f766e', '<path d="M70 60c-2-44 62-44 60 0l4 26h-12l-4-32H82l-4 32H66z" fill="#e7e5e4"/><g fill="none" stroke="#111" stroke-width="2"><circle cx="91" cy="62" r="8"/><circle cx="109" cy="62" r="8"/></g>', '<path d="M146 122l40-60" stroke="#78350f" stroke-width="4"/><path d="M30 92h36v24H30z" fill="#14532d" stroke="#78350f" stroke-width="3"/><text x="48" y="109" text-anchor="middle" font-size="13" fill="#fff">ABC</text>')
+      };
+
+      // Simplified Europe around 1700, [lon, lat] outlines. Borders are only approximate.
+      const LAND = [
+        [[-8.8,42],[-6.3,41.5],[-7,39],[-7.3,37.2],[-8.9,37],[-9.4,38.8]],
+        [[-3.2,55],[-1.6,55.6],[-2.2,57.4],[-3.2,58.6],[-5,58.6],[-6,57],[-5,55.3]],
+        [[-6,52.2],[-10,51.8],[-10,54],[-7.5,55.3],[-5.7,54.4]],
+        [[7.2,43.7],[9,44.3],[10.5,42.9],[13,41.2],[15.8,39],[15.8,38],[17,39],[16.6,40],[18.4,40],[16,41.8],[13.6,43.6],[12.4,45.3],[13.5,45.7],[11,46.5],[9.8,47],[6.8,46]],
+        [[12.5,38],[15.5,38.2],[15.1,36.7]], [[8.3,41],[9.6,41],[9.5,39],[8.5,39]],
+        [[7.5,48],[6,49.4],[2.5,51],[4.5,52.8],[8,53.8],[8.2,57],[10.5,57.5],[9.8,54.8],[11.3,54],[13,54.3],[14,54],[11.3,53],[12.5,52],[14.8,51.6],[14.5,51],[12.2,50.2],[13,48],[9.8,47],[6.8,46]],
+        [[5,59],[5,62],[17.5,62],[18.5,60],[16.5,57],[14.2,55.4],[12.8,55.5],[11.2,59],[7,58]],
+        [[21,56.3],[21.7,57.5],[24,57],[23.5,59],[28,59.5],[28,56.5],[26,56.5]], [[21.5,61],[23,60],[30,60],[31,62],[21.5,62]],
+        [[9.8,47],[13,48],[12.2,50.2],[14.5,51],[16.8,51.6],[18.3,50.2],[19,49.4],[22.5,49],[26.5,48.3],[25.5,45.6],[20.5,45],[16.5,45.3],[13.5,45.7],[11,46.5]],
+        [[26.5,48.3],[28,48.5],[30.5,50],[31.5,50],[36,49],[39,47.5],[35,46],[33,46],[29.5,45.3],[25.5,45.6]], [[39,47.5],[45,47],[45,40],[41,41.4],[37.5,45]]
+      ];
+      const COUNTRY = {
+        'Španělsko': [[[-9.2,43.2],[-1.8,43.4],[3.2,42.4],[0,40],[-0.3,38.5],[-2,36.8],[-5.5,36],[-7.3,37.2],[-7,39],[-6.3,41.5],[-8.8,42]]],
+        'Francie': [[[-1.8,43.4],[3.2,42.4],[4.5,43.4],[7.2,43.7],[6.8,46],[7.5,48],[6,49.4],[2.5,51],[1.5,50.1],[-1.5,49.7],[-1.5,48.6],[-4.7,48.4],[-2,47],[-1.2,45]]],
+        'Anglie': [[[-5.5,50.1],[-3.5,50.3],[1.3,51.2],[1.7,52.7],[0,53.2],[-1.6,55.6],[-3.2,55],[-3,53.5],[-4.5,53.2],[-5.2,51.8],[-3,51.4]]],
+        'Prusko': [[[11.3,53],[14,54],[16.5,54.4],[16,52.8],[14.8,51.6],[12.5,52]], [[19.5,54.3],[21,55.5],[22.7,54.6],[21.5,53.5],[19.3,53.7]]],
+        'Polsko': [[[16.5,54.4],[18.7,54.4],[19.3,53.7],[21.5,53.5],[22.7,54.6],[21,55.5],[21,56.3],[26,56.5],[31,55.5],[31.5,52.5],[30.5,50],[28,48.5],[26.5,48.3],[22.5,49],[19,49.4],[18.3,50.2],[16.8,51.6],[16,52.8]]],
+        'Rusko': [[[28,56.5],[28,59.5],[30,60],[31,62],[45,62],[45,47],[39,47.5],[36,49],[31.5,50],[31.5,52.5],[31,55.5]]],
+        'Osmanská říše (Turecko)': [[[16,44],[16.5,45.2],[20.5,45],[25.5,45.6],[29.5,45.3],[28.5,43.5],[28,41.8],[29,41.2],[26.2,40.3],[24,40.5],[23,39],[24,37.8],[22.5,36.5],[21.2,38],[19.5,40.5],[19.3,42]], [[29.2,41.2],[32,42],[36,41.4],[41,41.4],[44,40],[44,37],[36,36.5],[31,36.5],[27.3,36.8],[26.3,39.8]]]
+      };
+      const LABEL = { 'Španělsko': [-4, 40], 'Francie': [2.3, 46.7], 'Anglie': [-1.5, 52.4], 'Prusko': [14, 52.9], 'Polsko': [24.5, 52.5], 'Rusko': [38, 55], 'Osmanská říše (Turecko)': [35.5, 39] };
+
+      // Decoration: an SVG without its own name, the neighbouring text carries the meaning.
+      function thumb(key) {
+        const portrait = key in ART && !(key in ICON);
+        const svg = svgEl('svg', { class: portrait ? 'thumb' : 'thumb plain', viewBox: portrait ? '46 4 108 108' : '0 0 64 64', 'aria-hidden': 'true' });
+        svg.innerHTML = portrait ? ART[key] : ICON[key];
+        return svg;
+      }
+      const thumbs = keys => el('span', { class: 'thumbs', 'aria-hidden': 'true' }, ...keys.map(thumb));
+
+      function mapScene(names) {
+        const px = ([lon, lat]) => [(lon + 11) * 6, (62 - lat) * 9];
+        const path = rings => rings.map(r => 'M' + r.map(p => px(p).map(n => n.toFixed(1)).join(' ')).join('L') + 'z').join('');
+        const svg = svgEl('svg', { class: 'map', viewBox: '0 0 336 246', role: 'img', 'aria-label': 'Zjednodušená mapa Evropy, zvýrazněný je stát z karty' });
+        svg.append(svgEl('rect', { width: 336, height: 246, fill: '#bfdbfe' }), svgEl('path', { d: path([...LAND, ...Object.values(COUNTRY).flat()]), fill: '#f1ead8', stroke: '#c9bfa5' }));
+        const shapes = {};
+        names.forEach(name => {
+          const g = svgEl('g', { class: 'land' });
+          g.append(svgEl('path', { d: path(COUNTRY[name]) }));
+          shapes[name] = g;
+          svg.append(g);
+        });
+        const marks = svgEl('g', {});
+        svg.append(marks);
+        return {
+          node: el('figure', { class: 'scene' }, svg, el('figcaption', { text: 'Zjednodušená mapa, hranice jsou jen přibližné.' })),
+          show(item) {
+            Object.values(shapes).forEach(g => g.classList.remove('now'));
+            shapes[item.text].classList.add('now');
+          },
+          answer(item, ok) {
+            const g = shapes[item.text];
+            if (!ok) return shake(svg);
+            g.classList.remove('now');
+            g.classList.add(item.kos[0]);
+            const [x, y] = px(LABEL[item.text]);
+            marks.append(svgEl('text', { class: 'mark', x, y: y + 7, 'text-anchor': 'middle' }, item.kos[0] === 'up' ? '↑' : '↓'));
+          }
+        };
+      }
+
+      function voiceScene() {
+        const svg = svgEl('svg', { class: 'voice', viewBox: '20 8 180 142', 'aria-hidden': 'true' });
+        return {
+          node: svg,
+          show(item) { svg.setAttribute('class', 'voice'); svg.innerHTML = SPEAKERS[item.text.split(':')[0]]; },
+          answer(item, ok) { svg.setAttribute('class', ok ? 'voice happy' : 'voice sad'); }
+        };
+      }
+
+      const YEAR_ICON = { '1648': 'mir', '1683': 'viden', '1701': 'koruna', '1713': 'svitek', '1774': 'skola', '1781': 'retez' };
+      const PAIR_ART = { 'Habsburská monarchie a Prusko': ['mt', 'fritz'], 'Osvícenci a katolická církev': ['lampa', 'kostel'], 'Turci a evropské státy': ['viden'], 'František Lotrinský a Marie Terezie': ['fra', 'mt'], 'Marie Terezie a Josef II.': ['mt', 'jos'], 'Karel VI. a Marie Terezie': ['kar', 'mt'] };
+      const YESNO_ART = [['mt', 'kat'], ['mt', 'retez'], ['pet', 'mt'], ['fritz', 'mt'], ['kar', 'viden'], ['jos', 'kat'], ['koruna', 'leo'], ['pluh', 'retez']];
+      const SHEET_ART = [['leo', 'kar', 'mt', 'jos'], ['mt', 'fra', 'skola', 'penize'], ['jos', 'svitek', 'retez', 'pluh'], ['pet', 'kladivo', 'kat', 'lod'], ['fritz', 'koruna', 'mece'], ['mt', 'mece', 'fritz', 'sipky']];
+      const TERM_ART = { 'Pragmatická sankce': 'svitek', 'Osvícenský absolutismus': 'koruna', 'Osvícenství': 'lampa', 'Nevolnictví': 'pouta', 'Robota': 'pluh', 'Toleranční patent': 'kostel', 'Patent': 'svitek', 'Bankocetle': 'penize', 'Selské baroko': 'statek', 'Leopold I.': 'leo', 'Karel VI.': 'kar', 'Marie Terezie': 'mt', 'Josef II.': 'jos', 'František Lotrinský': 'fra', 'Petr Veliký': 'pet', 'Kateřina II.': 'kat', 'Fridrich II.': 'fritz', 'Válka o španělské dědictví': 'mece', 'Války o rakouské dědictví': 'mece', 'Sedmiletá válka': 'mece', 'Války s Turky': 'viden' };
+
+      function picture(key, masked) {
+        const svg = svgEl('svg', { class: 'picture', viewBox: '0 0 200 150', role: 'img', 'aria-label': masked ? 'Host v masce' : ART_LABEL[key] || 'Portrét bez masky' });
+        svg.innerHTML = ART[key] + (masked ? (key === 'die' ? `<g transform="translate(-45 0)">${MASK}</g><g transform="translate(45 0)">${MASK}</g>` : MASK) : '');
+        return svg;
+      }
+
+      // --- Generic sort engine (stations 2, 3, 6, 9) ------------------------
+
+      function sortGame(host, game, finish, { scene, icons = {} } = {}) {
+        const queue = shuffle(game.polozky);
+        const total = queue.length;
+        let placed = 0, mistakes = 0, locked = false;
+
+        const meter = el('div', { class: 'meter' });
+        const said = el('span', { class: 'said' });
+        const why = el('p', { class: 'why', hidden: '' });
+        const next = button('Další karta', 'primary', show);
+        next.hidden = true;
+        const card = el('div', { class: 'card' }, said, why, next);
+        const buckets = game.kose.map(kos => {
+          const tray = el('span', { class: 'tray', 'aria-hidden': 'true' });
+          const node = el('button', { type: 'button', class: 'bucket', onclick: () => pick(kos, node, tray) },
+            ...(icons[kos.id] ? [thumb(icons[kos.id])] : []), el('span', { text: kos.nazev }), tray);
+          return node;
+        });
+        host.append(meter);
+        if (scene) host.append(scene.node);
+        host.append(card, el('div', { class: 'buckets' }, ...buckets));
+
+        function paintMeter() {
+          meter.replaceChildren(el('span', { text: `Zařazeno ${placed} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+        }
+
+        function show() {
+          locked = false;
+          card.className = 'card';
+          said.textContent = queue[0].text;
+          scene?.show(queue[0]);
+          why.hidden = next.hidden = true;
+          buckets.forEach(b => b.classList.remove('ok', 'bad'));
+          buckets[0].focus({ preventScroll: true });
+          paintMeter();
+        }
+
+        function pick(kos, node, tray) {
+          if (locked) return;
+          locked = true;
+          const item = queue.shift();
+          const right = item.kos.includes(kos.id);
+          scene?.answer(item, right);
+          card.classList.add(right ? 'ok' : 'bad');
+          node.classList.add(right ? 'ok' : 'bad');
+          why.replaceChildren();
+          if (right) {
+            placed++;
+            tray.append(el('i'));
+            why.append(el('b', { text: 'Správně.' }), item.proc);
+            // A two-bucket card must teach that the bucket she did not pick is right too.
+            const other = game.kose.filter(k => k.id !== kos.id && item.kos.includes(k.id));
+            if (other.length) {
+              why.append(el('b', { text: `Platí i druhá možnost: ${other.map(k => k.nazev).join(', ')}.` }));
+              game.kose.forEach((k, i) => { if (other.includes(k)) buckets[i].classList.add('ok'); });
+            }
+          } else {
+            mistakes++;
+            queue.push(item);
+            shake(node);
+            why.append(el('b', { text: 'Tady ne. Karta se vrátí na konec.' }), item.proc);
+          }
+          why.hidden = false;
+          paintMeter();
+          say(why.textContent);
+          if (queue.length) {
+            next.hidden = false;
+            next.focus({ preventScroll: true });
+          } else {
+            finish(mistakes);
+          }
+        }
+
+        said.textContent = queue[0].text;
+        scene?.show(queue[0]);
+        paintMeter();
+      }
+
+
+      function pairsGame(host, game, finish, icons = {}) {
+        const total = game.pary.length;
+        let done = 0, mistakes = 0, selected = null;
+        const meter = el('div', { class: 'meter' });
+        const why = el('p', { class: 'why', role: 'status', text: 'Ťukni vlevo a pak na to, co k tomu patří vpravo.' });
+        const paint = () => meter.replaceChildren(el('span', { text: `Spojeno ${done} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+
+        function tap(node, pair, side) {
+          if (node.classList.contains('done')) return;
+          if (!selected || selected.side === side) {
+            if (selected) selected.node.setAttribute('aria-pressed', 'false');
+            selected = selected?.node === node ? null : { node, pair, side };
+            if (selected) node.setAttribute('aria-pressed', 'true');
+            return;
+          }
+          const first = selected;
+          selected = null;
+          first.node.setAttribute('aria-pressed', 'false');
+          if (first.pair === pair) {
+            done++;
+            [first.node, node].forEach(n => n.classList.add('done'));
+            why.textContent = pair.proc;
+            paint();
+            if (done === total) finish(mistakes);
+          } else {
+            mistakes++;
+            [first.node, node].forEach(n => {
+              shake(n);
+              n.classList.add('bad');
+              setTimeout(() => n.classList.remove('bad'), 450);
+            });
+            why.textContent = 'Tohle k sobě nepatří, zkus jinou dvojici.';
+            paint();
+          }
+        }
+
+        const column = (title, side, field) => el('div', {}, el('h4', { text: title }),
+          ...shuffle(game.pary).map(pair => {
+            const node = el('button', { type: 'button', class: 'pick', 'aria-pressed': 'false', text: pair[field], onclick: () => tap(node, pair, side) });
+            if (icons[side]?.[pair.a]) node.prepend(thumbs([icons[side][pair.a]].flat()));
+            return node;
+          }));
+        host.append(meter, el('div', { class: 'columns' }, column(game.levy, 'l', 'a'), column(game.pravy, 'r', 'b')), why);
+        paint();
+      }
+
+
+      // --- One question, several buttons. A missed round comes back at the end. ---
+
+      function choiceGame(host, rounds, { masked = false, two = false, states = null } = {}, finish) {
+        const queue = shuffle(rounds);
+        const total = queue.length;
+        let done = 0, mistakes = 0;
+        const box = el('div', {});
+        const meter = el('div', { class: 'meter' });
+        host.append(meter, box);
+        const paint = () => meter.replaceChildren(el('span', { text: `Hotovo ${done} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+
+        function ask(round, text, right, options, after) {
+          const card = el('div', { class: 'card' }, el('span', { class: 'said', text }));
+          const why = el('p', { class: 'why', hidden: '' });
+          const next = button('Dál', 'primary', () => after.next(card));
+          next.hidden = true;
+          const picks = options.map(option => {
+            const node = button(option, 'pick', () => {
+              picks.forEach(p => { p.disabled = true; });
+              const ok = option === right;
+              node.classList.add(ok ? 'ok' : 'bad');
+              picks[options.indexOf(right)].classList.add('ok');
+              card.classList.add(ok ? 'ok' : 'bad');
+              if (!ok) { mistakes++; shake(node); }
+              after.answered(ok);
+              why.replaceChildren(el('b', { text: ok ? 'Správně.' : `Ne, správně je: ${right}. Ještě se k tomu vrátíme.` }), after.reason);
+              why.hidden = false;
+              next.hidden = false;
+              if (masked && after.unmask) after.unmask();
+              paint();
+              say(why.textContent);
+              next.focus({ preventScroll: true });
+            });
+            return node;
+          });
+          const opts = el('div', { class: two ? 'opts two' : 'opts' }, ...picks);
+          card.append(why, next);
+          return [card, opts];
+        }
+
+        function show() {
+          if (!queue.length) return finish(mistakes);
+          const round = queue.shift();
+          let good = true;
+          const art = el('div', {});
+          if (round.art) art.append(picture(round.art, masked));
+          if (round.duo) art.append(thumbs(round.duo));
+          const options = round.moznosti ?? shuffle([round.spravne, ...round.spatne]);
+          const close = () => { if (good) done++; else queue.push(round); paint(); show(); };
+          const second = () => box.replaceChildren(art, ...ask(round, `${round.spravne}: ve kterém státě?`, round.stat, states, {
+            reason: round.proc, answered: ok => { good = good && ok; }, next: close
+          }));
+          box.replaceChildren(art, ...ask(round, round.zadani, round.spravne, options, {
+            reason: states ? '' : round.proc, // the reason names the state, which is asked next
+            answered: ok => { good = ok; },
+            unmask: () => {
+              const svg = art.querySelector('svg');
+              svg.classList.add('off');
+              svg.setAttribute('aria-label', `Host bez masky: ${round.spravne}`);
+            },
+            next: () => states ? second() : close()
+          }));
+          paint();
+        }
+        show();
+      }
+
+      // --- Vertical timeline: tap the bar where the ruler belongs --------------
+
+      function lanesGame(host, game, finish) {
+        const K = 4.6, W = 340, TOP = 34;
+        const y = year => TOP + (year - game.od) * K;
+        const queue = shuffle(game.vlady);
+        const total = queue.length;
+        let mistakes = 0, locked = false;
+        const meter = el('div', { class: 'meter' });
+        const ask = el('p', { class: 'ask' });
+        const note = el('p', { text: 'Ťukni na sloupec, kam panovník patří.' });
+        const prompt = el('div', { class: 'prompt stickyprompt', 'aria-live': 'polite' }, ask, note);
+        const svg = svgEl('svg', { class: 'lanes', viewBox: `0 0 ${W} ${y(game.do) + 12}`, role: 'group', 'aria-label': 'Tři svislé časové přímky' });
+        const colors = ['#fecaca', '#bbf7d0', '#bfdbfe'];
+        game.staty.forEach((stat, i) => {
+          svg.append(svgEl('rect', { x: 42 + i * 99, y: TOP - 8, width: 94, height: y(game.do) - TOP + 16, fill: colors[i], rx: 8 }));
+          svg.append(svgEl('text', { x: 89 + i * 99, y: 18, 'text-anchor': 'middle', 'font-size': 14, 'font-weight': 700 }, stat.nazev));
+        });
+        for (let year = 1650; year <= game.do; year += 25) {
+          svg.append(svgEl('text', { x: 2, y: y(year) + 4, 'font-size': 12 }, String(year)));
+          svg.append(svgEl('path', { d: `M34 ${y(year)}H338`, stroke: '#94a3b8', 'stroke-dasharray': '2 4' }));
+        }
+        game.vlady.forEach(reign => {
+          const lane = game.staty.findIndex(s => s.id === reign.stat);
+          const x = 46 + lane * 99, top = y(reign.od), h = (reign.do - reign.od) * K;
+          const g = svgEl('g', { class: 'reign', tabindex: 0, role: 'button', 'aria-label': `${game.staty[lane].nazev} ${reign.od} až ${reign.do}` });
+          g.append(svgEl('rect', { x, y: top, width: 86, height: h, rx: 6 }));
+          const label = svgEl('text', { x: x + 43, y: top + h / 2 + 4, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700 }, `${reign.od}–${reign.do}`);
+          g.append(label);
+          const tap = () => {
+            if (locked || g.classList.contains('ok')) return;
+            if (queue[0] === reign) {
+              queue.shift();
+              g.classList.add('ok');
+              g.setAttribute('aria-label', `${reign.jmeno}, ${reign.od} až ${reign.do}`);
+              label.setAttribute('y', top + h / 2 + 14);
+              g.append(svgEl('text', { x: x + 43, y: top + h / 2 - 3, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700 }, reign.jmeno));
+              note.textContent = `${reign.jmeno}: ${reign.proc}`;
+              if (queue.length) paint();
+              else { locked = true; ask.textContent = 'Všichni sedí na svém trůnu!'; meter.textContent = `Chyby: ${mistakes}`; finish(mistakes); }
+            } else {
+              mistakes++;
+              g.classList.add('bad');
+              setTimeout(() => g.classList.remove('bad'), 600);
+              note.textContent = `Sem ne: tohle jsou roky ${reign.od}–${reign.do} (${game.staty[lane].nazev}).`;
+              paint();
+            }
+          };
+          g.addEventListener('click', tap);
+          g.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            tap();
+          });
+          svg.append(g);
+        });
+        const paint = () => {
+          ask.textContent = `Kam patří ${queue[0].jmeno}?`;
+          meter.replaceChildren(el('span', { text: `Umístěno ${total - queue.length} z ${total}` }), el('span', { text: `Chyby: ${mistakes}` }));
+        };
+        host.append(meter, prompt, svg);
+        paint();
+      }
+
+      // --- Stations ------------------------------------------------------------
+
+      let STATIONS = [];
+
+      function defineStations(h) {
+        const yesNo = h.ano.vyroky.map((v, i) => ({ duo: YESNO_ART[i], zadani: v.text, spravne: v.pravda ? 'Ano' : 'Ne', spatne: [v.pravda ? 'Ne' : 'Ano'], moznosti: ['Ano', 'Ne'], proc: v.proc }));
+        return [
+          { id: 'primky', title: 'Vídeň: Kdo seděl na trůnu?', task: 'Tři státy vedle sebe, čas běží shora dolů. Posaď panovníky na správné místo.', play: (b, f) => lanesGame(b, h.primky, f) },
+          { id: 'roky', title: 'Poštovní stanice: Letopočty', task: 'Spoj rok s událostí.', play: (b, f) => pairsGame(b, h.roky, f, { r: YEAR_ICON }) },
+          { id: 'staty', title: 'Paříž: Vzestup, nebo úpadek?', task: 'Dařilo se státu po třicetileté válce, nebo slábl?', play: (b, f) => sortGame(b, h.staty, f, { scene: mapScene(h.staty.polozky.map(p => p.text)) }) },
+          { id: 'truny', title: 'Praha: Čtyři trůny', task: 'Ke komu karta patří? U některých je víc správných možností.', play: (b, f) => sortGame(b, h.truny, f, { icons: { kat: 'kat', kar: 'kar', mt: 'mt', jos: 'jos' } }) },
+          { id: 'hlasy', title: 'Chlumec: Hlasy poddaných', task: 'Kdo za tu změnu může: matka, nebo syn?', play: (b, f) => sortGame(b, h.hlasy, f, { scene: voiceScene(), icons: { mt: 'mt', jos: 'jos' } }) },
+          { id: 'masky', title: 'Petrohrad: Maškarní ples', task: 'Poznej hosta podle toho, co říká, a potom i jeho stát.', play: (b, f) => choiceGame(b, h.masky.kolo, { masked: true, two: true, states: h.masky.staty }, f) },
+          { id: 'umeni', title: 'Lipsko: Dílna mistrů', task: 'Do kterého oboru patří barokní mistr?', play: (b, f) => sortGame(b, h.umeni, f, { icons: { mal: 'mal', hud: 'hud', soch: 'soch', arch: 'kostel', op: 'op', lit: 'lit' } }) },
+          { id: 'obrazy', title: 'Olomouc: Obrazárna', task: 'Poznej, co je na obrázku.', play: (b, f) => choiceGame(b, h.obrazy.kolo, { two: true }, f) },
+          { id: 'vztahy', title: 'Berlín: Kdo s kým', task: 'Spoj dvojici s tím, jaký měla vztah, a pak odhal, co se mohlo stát.', play: (b, f) => {
+            const second = el('div', {});
+            pairsGame(b, h.vztahy, m => {
+              b.append(second);
+              second.append(el('h3', { class: 'sub', text: 'Ano, nebo ne?' }));
+              choiceGame(second, yesNo, { two: true }, n => f(m + n));
+              second.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
+            }, { l: PAIR_ART });
+          } }
+        ];
+      }
+
+      function jump(target) {
+        target.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
+        target.querySelector('h2').focus({ preventScroll: true });
+      }
+
+      let toastTimer;
+      function toast(text) {
+        const node = document.getElementById('toast');
+        node.textContent = text;
+        node.hidden = false;
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => { node.hidden = true; }, 2600);
+      }
+
+      let rider;
+      function moveRider(index) { rider.style.left = `${(index + 0.5) * 100 / STATIONS.length}%`; }
+
+      function paintAll() {
+        STATIONS.forEach((st, i) => {
+          const has = st.id in progress;
+          st.slot.classList.toggle('has', has);
+          st.slot.setAttribute('aria-label', `Zastávka ${i + 1}: ${st.title}${has ? ', pečeť získána' : ''}`);
+          st.section.classList.toggle('earned', has);
+        });
+        const count = STATIONS.filter(st => st.id in progress).length;
+        document.getElementById('tally').textContent = `Pečetě: ${count} z ${STATIONS.length}`;
+        const finale = document.getElementById('finale');
+        finale.hidden = count < STATIONS.length;
+        if (!finale.hidden) {
+          const sum = STATIONS.reduce((n, st) => n + progress[st.id], 0);
+          document.getElementById('rank').textContent = sum <= 5 ? 'Císařský kancléř' : sum <= 15 ? 'Dvorní rada' : 'Císařský kurýr';
+          document.getElementById('finaleText').textContent = `${mistakesText(sum)}. ${sum <= 5 ? 'Vyšší titul není!' : 'Když zastávky projedeš znovu s méně chybami, titul se zlepší.'}`;
+        }
+        return count;
+      }
+
+      function showResult(st) {
+        st.body.querySelector('.result')?.remove();
+        const index = STATIONS.indexOf(st);
+        const text = el('p', { text: 'Pečeť je tvoje!' }, el('small', { text: mistakesText(progress[st.id]) }));
+        st.body.append(el('div', { class: 'result', role: 'status' }, el('span', { class: 'seal', 'aria-hidden': 'true', text: String(index + 1) }), text,
+          el('div', { class: 'result-actions' }, button('Hrát znovu', '', () => play(st)),
+            button('Jet dál', '', () => {
+              const rest = [...STATIONS.slice(index + 1), ...STATIONS.slice(0, index)].find(s => !(s.id in progress));
+              jump(rest?.section ?? document.getElementById('finale'));
+            }))));
+      }
+
+      function play(st) {
+        st.body.replaceChildren();
+        st.play(st.body, mistakes => {
+          const first = !(st.id in progress);
+          progress[st.id] = mistakes;
+          saveProgress();
+          const count = paintAll();
+          moveRider(STATIONS.indexOf(st));
+          if (first) toast(count === STATIONS.length ? 'Poslední pečeť! Depeše je doručena.' : `Pečeť ${count} z ${STATIONS.length}`);
+          showResult(st);
+          st.body.querySelector('.result').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'nearest' });
+        });
+      }
+
+      function renderStation(st) {
+        st.body.replaceChildren();
+        if (st.id in progress) showResult(st); // earned games stay folded after a reload
+        else play(st);
+      }
+
+      function buildStations() {
+        const stops = document.getElementById('stops');
+        STATIONS.forEach((st, i) => {
+          st.body = el('div', {});
+          st.section = el('section', { class: 'station', id: st.id },
+            el('h2', { tabindex: '-1' }, el('span', { class: 'badge', 'aria-hidden': 'true', text: String(i + 1) }), st.title),
+            el('p', { class: 'task', text: st.task }), st.body);
+          document.getElementById('stations').append(st.section);
+          st.slot = el('button', { type: 'button', class: 'stop', onclick: () => jump(st.section) }, el('i', { text: String(i + 1) }));
+          stops.append(st.slot);
+        });
+        rider = svgEl('svg', { class: 'rider', viewBox: '0 0 34 24', 'aria-hidden': 'true' });
+        rider.innerHTML = '<path d="M4 12q8-4 17-1l5-6 5 3-3 4-2 3-3 8h-2l1-7H11l-5 7H4l3-8z" fill="#f5deb3"/><circle cx="16" cy="3" r="3" fill="#f6d7bf"/><path d="M13 6h6l1 8h-7z" fill="#ef4444"/>';
+        stops.append(rider);
+        moveRider(Math.max(0, STATIONS.findLastIndex ? STATIONS.findLastIndex(st => st.id in progress) : 0));
+      }
+
+      function armReset() {
+        const reset = document.getElementById('reset');
+        let armed = false, timer;
+        const disarm = () => { armed = false; reset.textContent = 'Začít znovu'; };
+        // Two taps: one stray tap must not wipe the whole route.
+        reset.addEventListener('click', () => {
+          if (!armed) {
+            armed = true;
+            reset.textContent = 'Opravdu smazat pečetě?';
+            timer = setTimeout(disarm, 4000);
+            return;
+          }
+          clearTimeout(timer);
+          disarm();
+          progress = {};
+          saveProgress();
+          STATIONS.forEach(renderStation);
+          paintAll();
+          moveRider(0);
+        });
+      }
+
+      // --- Tahák + glossary -------------------------------------------------
+
+      // The cue is what stands before a colon, otherwise the first three words.
+      function splitCue(line) {
+        const colon = line.indexOf(':');
+        if (colon > 0 && colon < 40) return [line.slice(0, colon + 1), line.slice(colon + 1).trim()];
+        const words = line.split(' ');
+        const keep = Math.min(3, Math.max(1, words.length - 1));
+        return [words.slice(0, keep).join(' '), words.slice(keep).join(' ')];
+      }
+
+      function renderSheet(points) {
+        document.getElementById('sheet').replaceChildren(...points.map((point, i) => {
+          const [title, ...lines] = point.split('\n');
+          return el('div', { class: 'sheet-card' }, thumbs(SHEET_ART[i] ?? []), el('h3', { text: title }),
+            el('ul', {}, ...lines.map(line => {
+              const [cue, rest] = splitCue(line);
+              return el('li', {}, `${cue} `, el('span', { 'data-quiz': '', text: rest }));
+            })));
+        }));
+      }
+
+      function renderGlossary(terms) {
+        document.getElementById('glossary').replaceChildren(...Object.entries(terms).map(([section, items]) =>
+          el('details', { class: 'gloss' },
+            el('summary', { text: section.replace(/_/g, ' ') }),
+            el('dl', {}, ...items.flatMap(item => [
+              el('dt', {}, ...(TERM_ART[item.pojem] ? [thumb(TERM_ART[item.pojem])] : []), item.pojem),
+              el('dd', {}, el('span', { 'data-quiz': '', text: item.vysvetleni }))
+            ])))));
+      }
+
+      // Learning mode: same behaviour as chemie/latky-a-smesi-intro.html.
+      const quiz = (() => {
+        const STORAGE_KEY = 'dejepis-po-valce-quiz-mode';
+        const bar = document.querySelector('.quiz-bar');
+        let on = false;
+
+        const items = () => document.querySelectorAll('[data-quiz]');
+        const answerText = node => node.textContent.replace(/\s+/g, ' ').trim();
+
+        function setRevealed(node, revealed) {
+          node.classList.toggle('revealed', revealed);
+          if (!on) return;
+          node.setAttribute('aria-pressed', String(revealed));
+          node.setAttribute('aria-label', revealed ? `Zakrýt odpověď: ${answerText(node)}` : 'Odkrýt odpověď');
+        }
+
+        function updateCount() {
+          const all = [...items()];
+          bar.querySelector('[data-quiz-count]').textContent = all.filter(n => n.classList.contains('revealed')).length;
+          bar.querySelector('[data-quiz-total]').textContent = all.length;
+        }
+
+        function refresh() {
+          items().forEach(node => {
+            if (on) {
+              node.setAttribute('tabindex', '0');
+              node.setAttribute('role', 'button');
+              setRevealed(node, node.classList.contains('revealed'));
+            } else {
+              node.classList.remove('revealed');
+              ['tabindex', 'role', 'aria-pressed', 'aria-label'].forEach(a => node.removeAttribute(a));
+            }
+          });
+          updateCount();
+        }
+
+        function setMode(next) {
+          on = next;
+          document.body.classList.toggle('quiz-on', on);
+          bar.hidden = !on;
+          document.querySelectorAll('.quiz-switch').forEach(b => b.setAttribute('aria-checked', String(on)));
+          items().forEach(node => node.classList.remove('revealed'));
+          refresh();
+          try { localStorage.setItem(STORAGE_KEY, on ? '1' : '0'); } catch (e) { /* storage blocked */ }
+        }
+
+        function toggleItem(node) {
+          setRevealed(node, !node.classList.contains('revealed'));
+          updateCount();
+        }
+
+        document.addEventListener('click', event => {
+          if (event.target.closest('[data-quiz-toggle]')) return setMode(!on);
+          if (event.target.closest('[data-quiz-reset]')) {
+            items().forEach(node => setRevealed(node, false));
+            return updateCount();
+          }
+          const item = on && event.target.closest('[data-quiz]');
+          if (item) {
+            event.preventDefault();
+            toggleItem(item);
+          }
+        });
+
+        document.addEventListener('keydown', event => {
+          if (!on || (event.key !== 'Enter' && event.key !== ' ')) return;
+          const item = event.target.closest && event.target.closest('[data-quiz]');
+          if (item && item === event.target) {
+            event.preventDefault();
+            toggleItem(item);
+          }
+        });
+
+        let saved = null;
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* storage blocked */ }
+        return { start: () => setMode(saved === '1') };
+      })();
+
+
+      async function start() {
+        let data;
+        try {
+          const response = await fetch('po-tricetilete-valce-questions.json');
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          data = await response.json();
+        } catch (error) {
+          document.getElementById('stations').append(el('p', { class: 'error-msg', text: 'Nepodařilo se načíst data. Spusť lokální server: python3 -m http.server a otevři stránku přes http://localhost:8000/' }));
+          return;
+        }
+        STATIONS = defineStations(data.hry);
+        buildStations();
+        STATIONS.forEach(renderStation);
+        // Unscored: the textbook prints no answers, so the teacher's version decides.
+        document.getElementById('vztahy').append(el('h3', { class: 'sub', text: 'Tvrdé oříšky (bez bodů)' }),
+          ...data.hry.ano.orechy.map(o => el('details', { class: 'nut' }, el('summary', { text: o.otazka }), el('p', { text: o.odpoved }))));
+        paintAll();
+        armReset();
+        renderSheet(data.hlavni_osy);
+        renderGlossary(data.terminologie);
+        quiz.start();
+      }
+
+      start();
+    </script>
+  </body>
+</html>
