@@ -89,6 +89,10 @@ The end-to-end process for building a topic — read source photos → author th
     ├── baroko-test-mobil.html          # Mobile test (Baroko) - filter by sub-theme, retry wrong answers
     ├── baroko-flashcards.html          # Flashcards (burgundy/gold theme)
     ├── baroko-intro.html               # Prep page: ten games, pearl necklace reward, learning mode
+    ├── po-tricetilete-valce-questions.json # 56 questions plus `hry` — Europe after the Thirty Years' War (textbook review pages)
+    ├── po-tricetilete-valce-test-mobil.html # Mobile test
+    ├── po-tricetilete-valce-flashcards.html # Flashcards (navy/mint theme)
+    ├── po-tricetilete-valce-intro.html # Prep page: nine games, courier route reward, learning mode
     ├── tests/                          # Node tests for the data contract
     └── img/                            # Scanned textbook images (JPEG)
 ```
