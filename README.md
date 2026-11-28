@@ -34,4 +34,4 @@ Rychlý rozcestník k našim domácím školním testům.
 - \[2025-09-16\] [Present Simple vs. Continuous – počítač](https://padak.github.io/en/english-tenses-practice.html) · [mobil](https://padak.github.io/en/english-tenses-practice-mobile.html)
 
 ## 🇪🇸 Španělština
-- \[2026-11-28\] [Básnička „Cuando se abre en la mañana“ – poslech, recitace a kontrola mikrofonem](https://padak.github.io/es/cuando-se-abre.html)
+- \[2026-11-28\] [Básnička „Cuando se abre en la mañana“ – poslech po verších a schovávání textu](https://padak.github.io/es/cuando-se-abre.html)
