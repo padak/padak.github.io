@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La guitarra – naučit se básničku</title>
+<link rel="stylesheet" href="basen/trainer.css">
+<style>
+  :root {
+    --bg: linear-gradient(160deg, #1c1917 0%, #9a3412 50%, #fdba74 100%);
+    --accent: #ea580c; --dark: #9a3412; --soft: #fed7aa; --paper: #fff7ed;
+  }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script type="module">
+import { startTrainer } from './basen/trainer.js';
+
+// Guitar: the body fills with warm colour from the bottom up, one step per known verse.
+function drawGuitar(svg, mastered, total) {
+  const top = -48, bottom = 44, h = (mastered.size / total) * (bottom - top);
+  const shape = `<rect x="-4" y="-48" width="8" height="40" rx="2"/>
+    <circle cx="0" cy="0" r="15"/><circle cx="0" cy="23" r="21"/>`;
+  svg.innerHTML = `
+    <defs><clipPath id="gtr">${shape}</clipPath></defs>
+    <g fill="#fff7ed" stroke="#9a3412" stroke-width="2">${shape}</g>
+    <rect x="-30" y="${bottom - h}" width="60" height="${h}" fill="#ea580c" clip-path="url(#gtr)"/>
+    <circle cx="0" cy="10" r="6" fill="#1c1917"/>
+    <rect x="-8" y="30" width="16" height="4" rx="1" fill="#1c1917"/>
+    <g stroke="#fde68a" stroke-width=".8"><line x1="-2" y1="-48" x2="-2" y2="32"/><line x1="0" y1="-48" x2="0" y2="32"/><line x1="2" y1="-48" x2="2" y2="32"/></g>`;
+}
+
+// Words follow Lorca's original (Poema del cante jondo). The class handout had three slips:
+// "el llando" (llanto), "como lora" (llora), "flechas sin blanco" (flecha). Line breaks follow the handout.
+startTrainer({
+  title: 'La guitarra',
+  intro: 'Básnička o kytaře, která pláče a nejde umlčet. Každý verš, který umíš zpaměti, kytaru víc naladí.',
+  store: 'es-la-guitarra-v1',
+  audioDir: 'audio/la-guitarra',
+  winTitle: 'Kytara hraje naplno!',
+  reward: { label: 'Kytara: s každým zvládnutým veršem se víc vybarví', draw: drawGuitar },
+  stanzaNames: ['1. sloka – pláč začíná', '2. sloka – jako voda a vítr', '3. sloka – srdce kytary'],
+  stanzas: [
+    [
+      ['Empieza el llanto', 'Začíná pláč'],
+      ['de la guitarra.', 'kytary.'],
+      ['Se rompen las copas', 'Tříští se poháry'],
+      ['de la madrugada.', 'úsvitu.'],
+      ['Empieza el llanto', 'Začíná pláč'],
+      ['de la guitarra.', 'kytary.'],
+      ['Es inútil callarla.', 'Je marné ji umlčet.'],
+      ['Es imposible callarla.', 'Nedá se umlčet.'],
+    ],
+    [
+      ['Llora monótona', 'Pláče jednotvárně,'],
+      ['como llora el agua,', 'jako pláče voda,'],
+      ['como llora el viento', 'jako pláče vítr'],
+      ['sobre la nevada.', 'nad zasněženou plání.'],
+      ['Es imposible callarla.', 'Nedá se umlčet.'],
+      ['Llora por cosas lejanas.', 'Pláče pro věci daleké.'],
+    ],
+    [
+      ['Arena del Sur caliente', 'Písek horkého Jihu,'],
+      ['que pide camelias blancas.', 'který prosí o bílé kamélie.'],
+      ['Llora flecha sin blanco,', 'Oplakává šíp bez cíle,'],
+      ['la tarde sin mañana,', 'večer bez rána'],
+      ['y el primer pájaro muerto', 'a prvního mrtvého ptáka'],
+      ['sobre la rama.', 'na větvi.'],
+      ['¡Oh guitarra!', 'Ó kytaro!'],
+      ['Corazón malherido', 'Srdce těžce zraněné'],
+      ['por cinco espadas.', 'pěti meči.'],
+    ],
+  ],
+});
+</script>
+</body>
+</html>
