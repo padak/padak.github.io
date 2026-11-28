@@ -35,3 +35,4 @@ Rychlý rozcestník k našim domácím školním testům.
 
 ## 🇪🇸 Španělština
 - \[2026-11-28\] [Básnička „Cuando se abre en la mañana“ – poslech po verších a schovávání textu](https://padak.github.io/es/cuando-se-abre.html)
+- \[2026-11-28\] [Básnička „La guitarra“ (Eva) – poslech po verších a schovávání textu](https://padak.github.io/es/la-guitarra.html)
