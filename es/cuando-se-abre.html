@@ -35,18 +35,12 @@
   .w { display: inline-block; margin-right: .3em; border-radius: 6px; }
   .w.hid { background: #fecdd3; color: transparent; min-width: 2.2em; cursor: pointer; user-select: none; }
   .w.hint { color: #9f1239; letter-spacing: .05em; cursor: pointer; }
-  .w.ok { background: #dcfce7; color: #166534; padding: 0 3px; }
-  .w.bad { background: #fee2e2; color: #b91c1c; padding: 0 3px; text-decoration: underline wavy #ef4444; }
   .cz { grid-column: 2; color: #6b7280; font-style: italic; font-size: .95rem; display: none; }
   .show-cz .cz { display: block; }
   .acts { grid-column: 2; display: flex; gap: 8px; flex-wrap: wrap; }
   .act { background: #f3f4f6; color: #374151; padding: 6px 12px; display: inline-flex; gap: 6px; align-items: center; font-weight: 600; font-size: .95rem; }
-  .act.mic { background: #fef3c7; color: #92400e; }
-  .act.mic.listening { background: #dc2626; color: #fff; animation: pulse 1s infinite; }
-  @keyframes pulse { 50% { opacity: .65; } }
-  .feedback { grid-column: 2; font-size: .95rem; line-height: 1.45; }
-  .feedback .score { font-weight: 800; }
-  .feedback .heard { color: #6b7280; }
+  .act.know { background: #fef3c7; color: #92400e; }
+  .act.know.on { background: #f59e0b; color: #fff; }
   .note { background: #fffbeb; border: 2px solid #fde68a; color: #92400e; border-radius: 12px; padding: 10px 12px; font-size: .9rem; }
   .hidden { display: none !important; }
   details summary { cursor: pointer; font-weight: 700; color: #9f1239; min-height: 32px; }
@@ -63,7 +57,7 @@
       <svg id="rose" viewBox="-50 -50 100 100" width="96" height="96" role="img" aria-label="Růže: každý zvládnutý verš přidá jeden lístek"></svg>
       <div style="flex:1">
         <h1>Cuando se abre en la mañana</h1>
-        <p class="sub">Básnička o růži během jednoho dne: ráno rudá, v poledne tvrdá, večer bílá, v noci opadává. Každý verš, který řekneš zpaměti, přidá růži lístek.</p>
+        <p class="sub">Básnička o růži během jednoho dne: ráno rudá, v poledne tvrdá, večer bílá, v noci opadává. Každý verš, který umíš zpaměti, přidá růži lístek.</p>
         <div class="bar"><i id="barFill"></i></div>
         <p class="sub" id="progressText" style="margin-top:4px">Zvládnuto 0 z 20 veršů</p>
       </div>
@@ -91,14 +85,13 @@
         <button class="big" id="playAll"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg><span>Přehrát celou</span></button>
       </div>
     </div>
-    <p class="note hidden" id="noMic" style="margin-top:12px">Tenhle prohlížeč neumí poslouchat mluvení. Recitace hlasem funguje, ale kontrolu výslovnosti zkus v Chrome nebo v Safari na iPhonu.</p>
-    <p class="note hidden" id="noVoice" style="margin-top:12px">V tomhle zařízení chybí španělský hlas, takže se může číst s divnou výslovností. Na iPhonu ho přidáš v Nastavení → Zpřístupnění → Předčítaný obsah → Hlasy → Španělština.</p>
+    <p class="note hidden" id="noVoice" style="margin-top:12px">V tomhle zařízení chybí španělský hlas, takže se může číst s divnou výslovností. Na iPhonu ho přidáš v Settings → Accessibility → Spoken Content (v iOS 26 Read &amp; Speak) → Voices → Spanish → Mónica.</p>
     <details style="margin-top:10px">
       <summary>Jak na to</summary>
       <p><b>1. Poslouchej.</b> Klepni na „Poslechni“ u verše a opakuj po hlasu nahlas.</p>
-      <p><b>2. Řekni to sama.</b> Klepni na „Řekni to“, povol mikrofon a řekni verš španělsky. Zelená slova jsi řekla správně, červená chyběla nebo zněla jinak.</p>
+      <p><b>2. Řekni to sama.</b> Řekni verš nahlas a pak si ho pusť znovu pro kontrolu.</p>
       <p><b>3. Schovávej text.</b> Přepni na „Díry“, pak „První písmena“ a nakonec „Zpaměti“. Na schované slovo můžeš klepnout a nakouknout.</p>
-      <p>Verš je zvládnutý, když trefíš aspoň 9 slov z 10 v režimu „Díry“ nebo těžším. Pozor: telefon kontroluje, jaká slova slyšel, ne přesný přízvuk.</p>
+      <p>Když verš řekneš bez nakukování v režimu „Díry“ nebo těžším, klepni na „Umím to“ a růži přibude lístek.</p>
     </details>
   </div>
 
@@ -113,8 +106,6 @@
 </div>
 
 <script type="module">
-import { compareVerse } from './basen/match.mjs';
-
 // Text exactly as on the class handout, except two typos that are not Spanish
 // words and that the speech recogniser could never match:
 // "el sol de asoma" -> "se asoma", "se desmala ya tarde" -> "se desmaya la tarde".
@@ -134,7 +125,7 @@ const STANZAS = [
   [
     ['Cuando en las ramas empiezan', 'Když ve větvích začnou'],
     ['los pájaros a cantar', 'ptáci zpívat'],
-    ['y se desmaya la tarde', 'a odpoledne omdlévá'],
+    ['y se desmaya la tarde', 'a podvečer omdlévá'],
     ['en las violetas del mar,', 've fialkách moře,'],
     ['se pone blanca, con blanco', 'zbělá, bělobou'],
     ['de una mejilla de sal;', 'solné tváře;'],
@@ -148,13 +139,11 @@ const STANZAS = [
 ];
 const STANZA_NAMES = ['1. sloka – ráno', '2. sloka – poledne', '3. sloka – večer a noc'];
 const VERSES = STANZAS.flatMap((s, si) => s.map(([es, cz]) => ({ es, cz, stanza: si })));
-const PASS = 0.9;
 const STORE = 'es-cuando-se-abre-v1';
 
 let level = 0, rate = 0.85;
 let mastered = new Set(JSON.parse(localStorage.getItem(STORE) || '[]'));
 const revealed = new Set(); // "verse:word" keys the student peeked at
-const results = {};         // verse index -> last comparison
 
 // ---------- voice ----------
 let voice = null;
@@ -202,41 +191,6 @@ async function playVerses(list) {
 }
 function mark(i, on) { document.querySelector(`.verse[data-i="${i}"]`)?.classList.toggle('playing', on); }
 
-// ---------- listening ----------
-const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
-if (!Rec) document.getElementById('noMic').classList.remove('hidden');
-let rec = null;
-
-function listen(i, btn) {
-  if (rec) { rec.abort(); return; }
-  speechSynthesis.cancel(); playToken++;
-  rec = new Rec();
-  rec.lang = 'es-ES'; rec.interimResults = false; rec.maxAlternatives = 5; rec.continuous = false;
-  btn.classList.add('listening'); btn.querySelector('span').textContent = 'Poslouchám…';
-  let got = false;
-  rec.onresult = e => {
-    got = true;
-    const alts = Array.from(e.results[0]).map(a => a.transcript);
-    // The recogniser offers several guesses; give the student the best one.
-    let best = null;
-    for (const t of alts) { const r = compareVerse(VERSES[i].es, t); r.heard = t; if (!best || r.score > best.score) best = r; }
-    results[i] = best;
-    if (best.score >= PASS && level >= 1) { mastered.add(i); save(); }
-  };
-  rec.onerror = e => {
-    got = true;
-    results[i] = { error: e.error === 'not-allowed' || e.error === 'service-not-allowed'
-      ? 'Prohlížeč nemá povolený mikrofon. Povol ho a zkus to znovu.'
-      : e.error === 'aborted' ? null : 'Nic jsem neslyšela. Klepni a řekni verš hned po pípnutí.' };
-    if (!results[i].error) delete results[i];
-  };
-  rec.onend = () => {
-    if (!got) results[i] = { error: 'Nic jsem neslyšela. Klepni a řekni verš hned po pípnutí.' };
-    rec = null; render();
-  };
-  rec.start();
-}
-
 // ---------- rendering ----------
 function wordView(i, k, word, total) {
   const key = `${i}:${k}`;
@@ -250,20 +204,7 @@ function wordView(i, k, word, total) {
   return `<span class="w">${word}</span>`;
 }
 
-function feedbackView(i) {
-  const r = results[i];
-  if (!r) return '';
-  if (r.error) return `<div class="feedback">${r.error}</div>`;
-  const pct = Math.round(r.score * 100);
-  const words = r.words.map(w => `<span class="w ${w.ok ? 'ok' : 'bad'}">${w.text}</span>`).join('');
-  let msg = pct === 100 ? 'Perfektní!' : r.score >= PASS ? 'Skoro bez chyby!' : 'Červená slova zkus znovu.';
-  if (r.score >= PASS && level === 0) msg += ' Teď to zkus s dírami, ať se verš počítá.';
-  return `<div class="feedback"><span class="score">${pct} %</span> – ${msg}<br>${words}
-    <br><span class="heard">Telefon slyšel: „${r.heard || '…'}“</span></div>`;
-}
-
 const ICON_PLAY = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/></svg>';
-const ICON_MIC = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11z"/></svg>';
 const STAR = on => `<svg class="star" width="18" height="18" viewBox="0 0 24 24" aria-label="${on ? 'zvládnuto' : 'zatím ne'}"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z" fill="${on ? '#f59e0b' : 'none'}" stroke="#f59e0b" stroke-width="1.5"/></svg>`;
 
 function render() {
@@ -281,9 +222,8 @@ function render() {
         <div class="cz">${VERSES[i].cz}</div>
         <div class="acts">
           <button class="act" data-play="${i}">${ICON_PLAY}<span>Poslechni</span></button>
-          ${Rec ? `<button class="act mic" data-mic="${i}">${ICON_MIC}<span>Řekni to</span></button>` : ''}
+          ${level >= 1 ? `<button class="act know ${mastered.has(i) ? 'on' : ''}" data-know="${i}">${mastered.has(i) ? 'Umím to' : 'Umím to?'}</button>` : ''}
         </div>
-        ${feedbackView(i)}
       </div>`;
     }
   });
@@ -320,11 +260,11 @@ function save() { localStorage.setItem(STORE, JSON.stringify([...mastered])); }
 
 // ---------- events ----------
 document.getElementById('poem').addEventListener('click', e => {
-  const t = e.target.closest('[data-play],[data-mic],[data-stanza],[data-key]');
+  const t = e.target.closest('[data-play],[data-know],[data-stanza],[data-key]');
   if (!t) return;
   if (t.dataset.play) playVerses([+t.dataset.play]);
   else if (t.dataset.stanza) playVerses(VERSES.map((v, i) => v.stanza === +t.dataset.stanza ? i : -1).filter(i => i >= 0));
-  else if (t.dataset.mic) listen(+t.dataset.mic, t);
+  else if (t.dataset.know) { const i = +t.dataset.know; mastered.has(i) ? mastered.delete(i) : mastered.add(i); save(); render(); }
   else if (t.dataset.key) { revealed.add(t.dataset.key); render(); }
 });
 document.getElementById('levels').addEventListener('click', e => {

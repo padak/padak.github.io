@@ -36,7 +36,7 @@ The end-to-end process for building a topic — read source photos → author th
 │   ├── vyjmenovana_slova_test.json     # Exception words (y/i) — categories B,L,M,P,S,V,Z
 │   ├── vyjmenovana-slova-test.html     # Desktop test
 │   └── vyjmenovana-slova-test-mobil.html # Mobile test
-├── es/                     # Spanish: poem trainer (cuando-se-abre.html) with speech synthesis + recognition; basen/match.mjs, tests/
+├── es/                     # Spanish: poem trainer (cuando-se-abre.html), verse playback via speech synthesis
 ├── en/                     # English language exercises
 │   ├── english_tenses_test.json        # 100 sentences — Present Simple vs Continuous
 │   ├── english-tenses-practice.html    # Desktop test
