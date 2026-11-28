@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuando se abre en la mañana – naučit se básničku</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f2937;
+    background: linear-gradient(160deg, #7f1d1d 0%, #be123c 45%, #fda4af 100%); min-height: 100vh;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 16px 12px 60px; }
+  .card { background: #fff; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.15); padding: 16px; margin-bottom: 14px; }
+  h1 { margin: 0 0 4px; font-size: 1.45rem; color: #9f1239; }
+  .sub { color: #6b7280; margin: 0; font-size: .95rem; line-height: 1.4; }
+  .top { display: flex; gap: 14px; align-items: center; }
+  .top svg { flex: 0 0 96px; }
+  .bar { height: 10px; background: #ffe4e6; border-radius: 99px; overflow: hidden; margin-top: 8px; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #e11d48, #f59e0b); transition: width .4s; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .controls .label { font-size: .85rem; color: #6b7280; width: 100%; margin-top: 4px; }
+  .seg { display: flex; flex-wrap: wrap; gap: 6px; }
+  button { font: inherit; cursor: pointer; border: none; border-radius: 10px; min-height: 44px; }
+  .chip { background: #fff1f2; color: #9f1239; padding: 8px 12px; font-weight: 600; border: 2px solid #fecdd3; }
+  .chip.on { background: #e11d48; color: #fff; border-color: #e11d48; }
+  .big { background: #9f1239; color: #fff; padding: 10px 16px; font-weight: 700; display: inline-flex; gap: 8px; align-items: center; }
+  .stanza-title { color: #fff; font-weight: 700; margin: 18px 4px 8px; text-shadow: 0 1px 2px rgba(0,0,0,.3); }
+  .verse { display: grid; grid-template-columns: 28px 1fr; gap: 4px 10px; padding: 12px; border-radius: 14px; background: #fff; margin-bottom: 8px; box-shadow: 0 3px 10px rgba(0,0,0,.1); border: 3px solid transparent; transition: border-color .2s; }
+  .verse.playing { border-color: #f59e0b; }
+  .verse.done { background: #fff7ed; }
+  .num { font-weight: 800; color: #e11d48; padding-top: 2px; text-align: center; }
+  .num .star { display: block; margin: 4px auto 0; }
+  .text { font-size: 1.2rem; line-height: 1.5; word-break: break-word; }
+  .w { display: inline-block; margin-right: .3em; border-radius: 6px; }
+  .w.hid { background: #fecdd3; color: transparent; min-width: 2.2em; cursor: pointer; user-select: none; }
+  .w.hint { color: #9f1239; letter-spacing: .05em; cursor: pointer; }
+  .w.ok { background: #dcfce7; color: #166534; padding: 0 3px; }
+  .w.bad { background: #fee2e2; color: #b91c1c; padding: 0 3px; text-decoration: underline wavy #ef4444; }
+  .cz { grid-column: 2; color: #6b7280; font-style: italic; font-size: .95rem; display: none; }
+  .show-cz .cz { display: block; }
+  .acts { grid-column: 2; display: flex; gap: 8px; flex-wrap: wrap; }
+  .act { background: #f3f4f6; color: #374151; padding: 6px 12px; display: inline-flex; gap: 6px; align-items: center; font-weight: 600; font-size: .95rem; }
+  .act.mic { background: #fef3c7; color: #92400e; }
+  .act.mic.listening { background: #dc2626; color: #fff; animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { opacity: .65; } }
+  .feedback { grid-column: 2; font-size: .95rem; line-height: 1.45; }
+  .feedback .score { font-weight: 800; }
+  .feedback .heard { color: #6b7280; }
+  .note { background: #fffbeb; border: 2px solid #fde68a; color: #92400e; border-radius: 12px; padding: 10px 12px; font-size: .9rem; }
+  .hidden { display: none !important; }
+  details summary { cursor: pointer; font-weight: 700; color: #9f1239; min-height: 32px; }
+  details p { margin: 6px 0; line-height: 1.45; font-size: .95rem; }
+  .win { text-align: center; }
+  .win h2 { color: #9f1239; margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <div class="top">
+      <svg id="rose" viewBox="-50 -50 100 100" width="96" height="96" role="img" aria-label="Růže: každý zvládnutý verš přidá jeden lístek"></svg>
+      <div style="flex:1">
+        <h1>Cuando se abre en la mañana</h1>
+        <p class="sub">Básnička o růži během jednoho dne: ráno rudá, v poledne tvrdá, večer bílá, v noci opadává. Každý verš, který řekneš zpaměti, přidá růži lístek.</p>
+        <div class="bar"><i id="barFill"></i></div>
+        <p class="sub" id="progressText" style="margin-top:4px">Zvládnuto 0 z 20 veršů</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="controls">
+      <span class="label">Kolik textu vidíš</span>
+      <div class="seg" id="levels">
+        <button class="chip on" data-level="0">Celý text</button>
+        <button class="chip" data-level="1">Díry</button>
+        <button class="chip" data-level="2">První písmena</button>
+        <button class="chip" data-level="3">Zpaměti</button>
+      </div>
+      <span class="label">Rychlost hlasu</span>
+      <div class="seg" id="speeds">
+        <button class="chip" data-rate="0.6">Pomalu</button>
+        <button class="chip on" data-rate="0.85">Normálně</button>
+      </div>
+      <span class="label" id="voiceName"></span>
+      <span class="label">Další</span>
+      <div class="seg">
+        <button class="chip" id="czToggle">Český překlad</button>
+        <button class="big" id="playAll"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg><span>Přehrát celou</span></button>
+      </div>
+    </div>
+    <p class="note hidden" id="noMic" style="margin-top:12px">Tenhle prohlížeč neumí poslouchat mluvení. Recitace hlasem funguje, ale kontrolu výslovnosti zkus v Chrome nebo v Safari na iPhonu.</p>
+    <p class="note hidden" id="noVoice" style="margin-top:12px">V tomhle zařízení chybí španělský hlas, takže se může číst s divnou výslovností. Na iPhonu ho přidáš v Nastavení → Zpřístupnění → Předčítaný obsah → Hlasy → Španělština.</p>
+    <details style="margin-top:10px">
+      <summary>Jak na to</summary>
+      <p><b>1. Poslouchej.</b> Klepni na „Poslechni“ u verše a opakuj po hlasu nahlas.</p>
+      <p><b>2. Řekni to sama.</b> Klepni na „Řekni to“, povol mikrofon a řekni verš španělsky. Zelená slova jsi řekla správně, červená chyběla nebo zněla jinak.</p>
+      <p><b>3. Schovávej text.</b> Přepni na „Díry“, pak „První písmena“ a nakonec „Zpaměti“. Na schované slovo můžeš klepnout a nakouknout.</p>
+      <p>Verš je zvládnutý, když trefíš aspoň 9 slov z 10 v režimu „Díry“ nebo těžším. Pozor: telefon kontroluje, jaká slova slyšel, ne přesný přízvuk.</p>
+    </details>
+  </div>
+
+  <div id="poem"></div>
+
+  <div class="card win hidden" id="win">
+    <h2>Celá růže rozkvetla!</h2>
+    <p class="sub">Umíš všech 20 veršů. Zkus teď celou básničku v režimu „Zpaměti“ bez nakukování.</p>
+    <button class="chip" id="reset" style="margin-top:10px">Začít znovu</button>
+  </div>
+
+</div>
+
+<script type="module">
+import { compareVerse } from './basen/match.mjs';
+
+// Text exactly as on the class handout, except two typos that are not Spanish
+// words and that the speech recogniser could never match:
+// "el sol de asoma" -> "se asoma", "se desmala ya tarde" -> "se desmaya la tarde".
+const STANZAS = [
+  [
+    ['Cuando se abre en la mañana', 'Když se ráno otevře,'],
+    ['roja como sangre está;', 'je rudá jako krev;'],
+    ['el rocío no la toca', 'rosa se jí nedotkne,'],
+    ['porque se teme quemar.', 'protože se bojí, že se spálí.'],
+  ],
+  [
+    ['Abierta en el mediodía', 'Rozvitá v poledne'],
+    ['es dura como el coral,', 'je tvrdá jako korál,'],
+    ['el sol se asoma a los vidrios', 'slunce nakukuje do oken,'],
+    ['para verla relumbrar.', 'aby ji vidělo zářit.'],
+  ],
+  [
+    ['Cuando en las ramas empiezan', 'Když ve větvích začnou'],
+    ['los pájaros a cantar', 'ptáci zpívat'],
+    ['y se desmaya la tarde', 'a odpoledne omdlévá'],
+    ['en las violetas del mar,', 've fialkách moře,'],
+    ['se pone blanca, con blanco', 'zbělá, bělobou'],
+    ['de una mejilla de sal;', 'solné tváře;'],
+    ['y cuando toca la noche', 'a když noc zatroubí'],
+    ['blanco cuerno de metal', 'na bílý kovový roh'],
+    ['y las estrellas avanzan', 'a hvězdy postupují,'],
+    ['mientras los aires se van,', 'zatímco větry odcházejí,'],
+    ['en la raya de lo oscuro', 'na hranici tmy'],
+    ['se comienza a desalojar.', 'začne mizet.'],
+  ],
+];
+const STANZA_NAMES = ['1. sloka – ráno', '2. sloka – poledne', '3. sloka – večer a noc'];
+const VERSES = STANZAS.flatMap((s, si) => s.map(([es, cz]) => ({ es, cz, stanza: si })));
+const PASS = 0.9;
+const STORE = 'es-cuando-se-abre-v1';
+
+let level = 0, rate = 0.85;
+let mastered = new Set(JSON.parse(localStorage.getItem(STORE) || '[]'));
+const revealed = new Set(); // "verse:word" keys the student peeked at
+const results = {};         // verse index -> last comparison
+
+// ---------- voice ----------
+let voice = null;
+// Rank voices so a downloaded premium/enhanced Spanish voice wins over the
+// default compact one, and novelty voices (Eddy, Grandma… = "eloquence") lose.
+function voiceRank(v) {
+  const id = (v.voiceURI + ' ' + v.name).toLowerCase();
+  let s = v.lang.replace('_', '-') === 'es-ES' ? 100 : 50;
+  if (id.includes('premium')) s += 40;
+  else if (id.includes('enhanced') || id.includes('mejorad') || id.includes('vylepšen')) s += 30;
+  else if (id.includes('google') || id.includes('natural')) s += 20;
+  // WebKit names novelty voices plainly ("Eddy (Spanish (Spain))") without "eloquence" in the URI.
+  if (id.includes('eloquence') || /^(eddy|flo|grandma|grandpa|reed|rocko|sandy|shelley)\b/.test(v.name.toLowerCase())) s -= 60;
+  if (/m[oó]nica|jorge|paulina|marisol/.test(id)) s += 10;
+  if (id.includes('compact')) s -= 5;
+  return s;
+}
+function pickVoice() {
+  const all = speechSynthesis.getVoices();
+  const es = all.filter(v => v.lang.toLowerCase().startsWith('es'));
+  voice = es.sort((a, b) => voiceRank(b) - voiceRank(a))[0] || null;
+  document.getElementById('voiceName').textContent = voice ? `Hlas: ${voice.name}` : '';
+  document.getElementById('noVoice').classList.toggle('hidden', !!voice || all.length === 0);
+}
+if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+
+function say(text) {
+  return new Promise(resolve => {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'es-ES'; u.rate = rate; if (voice) u.voice = voice;
+    u.onend = u.onerror = resolve;
+    speechSynthesis.speak(u);
+  });
+}
+let playToken = 0;
+async function playVerses(list) {
+  speechSynthesis.cancel();
+  const token = ++playToken;
+  for (const i of list) {
+    if (token !== playToken) return;
+    mark(i, true);
+    await say(VERSES[i].es);
+    mark(i, false);
+  }
+}
+function mark(i, on) { document.querySelector(`.verse[data-i="${i}"]`)?.classList.toggle('playing', on); }
+
+// ---------- listening ----------
+const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (!Rec) document.getElementById('noMic').classList.remove('hidden');
+let rec = null;
+
+function listen(i, btn) {
+  if (rec) { rec.abort(); return; }
+  speechSynthesis.cancel(); playToken++;
+  rec = new Rec();
+  rec.lang = 'es-ES'; rec.interimResults = false; rec.maxAlternatives = 5; rec.continuous = false;
+  btn.classList.add('listening'); btn.querySelector('span').textContent = 'Poslouchám…';
+  let got = false;
+  rec.onresult = e => {
+    got = true;
+    const alts = Array.from(e.results[0]).map(a => a.transcript);
+    // The recogniser offers several guesses; give the student the best one.
+    let best = null;
+    for (const t of alts) { const r = compareVerse(VERSES[i].es, t); r.heard = t; if (!best || r.score > best.score) best = r; }
+    results[i] = best;
+    if (best.score >= PASS && level >= 1) { mastered.add(i); save(); }
+  };
+  rec.onerror = e => {
+    got = true;
+    results[i] = { error: e.error === 'not-allowed' || e.error === 'service-not-allowed'
+      ? 'Prohlížeč nemá povolený mikrofon. Povol ho a zkus to znovu.'
+      : e.error === 'aborted' ? null : 'Nic jsem neslyšela. Klepni a řekni verš hned po pípnutí.' };
+    if (!results[i].error) delete results[i];
+  };
+  rec.onend = () => {
+    if (!got) results[i] = { error: 'Nic jsem neslyšela. Klepni a řekni verš hned po pípnutí.' };
+    rec = null; render();
+  };
+  rec.start();
+}
+
+// ---------- rendering ----------
+function wordView(i, k, word, total) {
+  const key = `${i}:${k}`;
+  const hide = level === 1 ? k % 3 === 1 : level === 3 ? k > 0 : false;
+  if (revealed.has(key)) return `<span class="w">${word}</span>`;
+  if (level === 2) {
+    const m = word.match(/^([¿¡]?)(\p{L})(\p{L}*)(.*)$/u);
+    if (m) return `<span class="w hint" data-key="${key}">${m[1]}${m[2]}${'_'.repeat(m[3].length)}${m[4]}</span>`;
+  }
+  if (hide) return `<span class="w hid" data-key="${key}">${'·'.repeat(Math.max(2, word.length))}</span>`;
+  return `<span class="w">${word}</span>`;
+}
+
+function feedbackView(i) {
+  const r = results[i];
+  if (!r) return '';
+  if (r.error) return `<div class="feedback">${r.error}</div>`;
+  const pct = Math.round(r.score * 100);
+  const words = r.words.map(w => `<span class="w ${w.ok ? 'ok' : 'bad'}">${w.text}</span>`).join('');
+  let msg = pct === 100 ? 'Perfektní!' : r.score >= PASS ? 'Skoro bez chyby!' : 'Červená slova zkus znovu.';
+  if (r.score >= PASS && level === 0) msg += ' Teď to zkus s dírami, ať se verš počítá.';
+  return `<div class="feedback"><span class="score">${pct} %</span> – ${msg}<br>${words}
+    <br><span class="heard">Telefon slyšel: „${r.heard || '…'}“</span></div>`;
+}
+
+const ICON_PLAY = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/></svg>';
+const ICON_MIC = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11z"/></svg>';
+const STAR = on => `<svg class="star" width="18" height="18" viewBox="0 0 24 24" aria-label="${on ? 'zvládnuto' : 'zatím ne'}"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z" fill="${on ? '#f59e0b' : 'none'}" stroke="#f59e0b" stroke-width="1.5"/></svg>`;
+
+function render() {
+  const poem = document.getElementById('poem');
+  let html = '';
+  STANZAS.forEach((_, si) => {
+    const idx = VERSES.map((v, i) => [v, i]).filter(([v]) => v.stanza === si).map(([, i]) => i);
+    html += `<div class="stanza-title">${STANZA_NAMES[si]}
+      <button class="act" data-stanza="${si}" style="margin-left:8px">${ICON_PLAY}<span>Celá sloka</span></button></div>`;
+    for (const i of idx) {
+      const words = VERSES[i].es.split(' ');
+      html += `<div class="verse ${mastered.has(i) ? 'done' : ''}" data-i="${i}">
+        <div class="num">${i + 1}${STAR(mastered.has(i))}</div>
+        <div class="text">${words.map((w, k) => wordView(i, k, w, words.length)).join('')}</div>
+        <div class="cz">${VERSES[i].cz}</div>
+        <div class="acts">
+          <button class="act" data-play="${i}">${ICON_PLAY}<span>Poslechni</span></button>
+          ${Rec ? `<button class="act mic" data-mic="${i}">${ICON_MIC}<span>Řekni to</span></button>` : ''}
+        </div>
+        ${feedbackView(i)}
+      </div>`;
+    }
+  });
+  poem.innerHTML = html;
+  renderProgress();
+}
+
+// Rose: stanza 1 = 4 inner red petals, stanza 2 = 4 coral petals, stanza 3 = 12 outer white petals,
+// following the colour change in the poem.
+function renderProgress() {
+  const n = mastered.size;
+  document.getElementById('barFill').style.width = (n / VERSES.length * 100) + '%';
+  document.getElementById('progressText').textContent = `Zvládnuto ${n} z ${VERSES.length} veršů`;
+  const rings = [
+    { from: 0, count: 4, r: 12, len: 16, fill: '#be123c' },
+    { from: 4, count: 4, r: 22, len: 20, fill: '#fb7185' },
+    { from: 8, count: 12, r: 33, len: 18, fill: '#fff1f2' },
+  ];
+  let svg = '';
+  for (const ring of rings.slice().reverse()) {
+    for (let k = 0; k < ring.count; k++) {
+      const i = ring.from + k, a = (360 / ring.count) * k + (ring.count === 4 && ring.from === 4 ? 45 : 0);
+      const on = mastered.has(i);
+      svg += `<ellipse cx="0" cy="${-ring.r}" rx="${ring.len * 0.55}" ry="${ring.len * 0.75}" transform="rotate(${a})"
+        fill="${on ? ring.fill : 'none'}" stroke="${on ? '#9f1239' : '#fecdd3'}" stroke-width="1.5" stroke-dasharray="${on ? '' : '3 3'}"/>`;
+    }
+  }
+  svg += '<circle r="6" fill="#facc15" stroke="#a16207"/>';
+  document.getElementById('rose').innerHTML = svg;
+  document.getElementById('win').classList.toggle('hidden', n < VERSES.length);
+}
+
+function save() { localStorage.setItem(STORE, JSON.stringify([...mastered])); }
+
+// ---------- events ----------
+document.getElementById('poem').addEventListener('click', e => {
+  const t = e.target.closest('[data-play],[data-mic],[data-stanza],[data-key]');
+  if (!t) return;
+  if (t.dataset.play) playVerses([+t.dataset.play]);
+  else if (t.dataset.stanza) playVerses(VERSES.map((v, i) => v.stanza === +t.dataset.stanza ? i : -1).filter(i => i >= 0));
+  else if (t.dataset.mic) listen(+t.dataset.mic, t);
+  else if (t.dataset.key) { revealed.add(t.dataset.key); render(); }
+});
+document.getElementById('levels').addEventListener('click', e => {
+  const b = e.target.closest('[data-level]'); if (!b) return;
+  level = +b.dataset.level; revealed.clear();
+  document.querySelectorAll('#levels .chip').forEach(c => c.classList.toggle('on', c === b));
+  render();
+});
+document.getElementById('speeds').addEventListener('click', e => {
+  const b = e.target.closest('[data-rate]'); if (!b) return;
+  rate = +b.dataset.rate;
+  document.querySelectorAll('#speeds .chip').forEach(c => c.classList.toggle('on', c === b));
+});
+document.getElementById('czToggle').addEventListener('click', e => {
+  e.currentTarget.classList.toggle('on', document.getElementById('poem').classList.toggle('show-cz'));
+});
+document.getElementById('playAll').addEventListener('click', () => playVerses(VERSES.map((_, i) => i)));
+document.getElementById('reset').addEventListener('click', () => { mastered = new Set(); save(); render(); });
+
+render();
+</script>
+</body>
+</html>
